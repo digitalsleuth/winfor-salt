@@ -1,0 +1,2 @@
+npp:
+  pkg.installed

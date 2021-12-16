@@ -1,0 +1,2 @@
+registry-viewer:
+  pkg.installed
