@@ -1,0 +1,2 @@
+httplogbrowser:
+  pkg.installed

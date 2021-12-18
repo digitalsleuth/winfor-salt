@@ -3,6 +3,7 @@ include:
   - winfor.packages.firefox
   - winfor.packages.chrome
   - winfor.packages.registry-viewer
+  - winfor.packages.httplogbrowser
   
 winfor-packages:
   test.nop:
@@ -11,3 +12,4 @@ winfor-packages:
       - sls: winfor.packages.firefox
       - sls: winfor.packages.chrome
       - sls: winfor.packages.registry-viewer
+      - sls: winfor.packages.httplogbrowser
