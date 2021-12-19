@@ -1,0 +1,2 @@
+libreoffice:
+  pkg.installed
