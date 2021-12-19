@@ -4,6 +4,9 @@ include:
   - winfor.packages.chrome
   - winfor.packages.registry-viewer
   - winfor.packages.httplogbrowser
+  - winfor.packages.db-browser-sqlite
+  - winfor.packages.bulk-extractor
+  - winfor.packages.vs-community
   
 winfor-packages:
   test.nop:
@@ -13,3 +16,6 @@ winfor-packages:
       - sls: winfor.packages.chrome
       - sls: winfor.packages.registry-viewer
       - sls: winfor.packages.httplogbrowser
+      - sls: winfor.packages.db-browser-sqlite
+      - sls: winfor.packages.bulk-extractor
+      - sls: winfor.packages.vs-community

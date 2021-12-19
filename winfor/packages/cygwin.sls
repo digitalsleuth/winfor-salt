@@ -1,0 +1,2 @@
+cygwin:
+  pkg.installed

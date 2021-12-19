@@ -1,0 +1,2 @@
+vs-community:
+  pkg.installed
