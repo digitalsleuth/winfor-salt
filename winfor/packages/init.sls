@@ -7,6 +7,7 @@ include:
   - winfor.packages.db-browser-sqlite
   - winfor.packages.bulk-extractor
   - winfor.packages.vs-community
+  - winfor.packages.vcxsrv
   
 winfor-packages:
   test.nop:
@@ -19,3 +20,4 @@ winfor-packages:
       - sls: winfor.packages.db-browser-sqlite
       - sls: winfor.packages.bulk-extractor
       - sls: winfor.packages.vs-community
+      - sls: winfor.packages.vcxsrv

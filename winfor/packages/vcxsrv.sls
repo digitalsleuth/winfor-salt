@@ -1,2 +1,2 @@
-npp:
+vcxsrv:
   pkg.installed
