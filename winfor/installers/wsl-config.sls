@@ -1,5 +1,5 @@
-# https://github.com/microsoft/WSL/issues/3974 to fix the default user
-# Shortcut
+# Needs shortcut
+{% set hash = '4ed521a6f727c2a5352b2d28e28cfd8639e9c8cbc1b7a35aa7e003464c4fc139' %}
 
 include:
   - winfor.installers.wsl
@@ -24,7 +24,7 @@ wsl-get-template:
   file.managed:
     - name: 'C:\\salt\\tempdownload\\WIN-FOR-20.04.tar'
     - source: https://sourceforge.net/projects/winfor/files/wsl/WIN-FOR-20.04.tar/download
-    - source_hash: sha256=
+    - source_hash: sha256={{ hash }}
     - makedirs: True
 
 wsl-import-template:
@@ -35,11 +35,6 @@ wsl-import-template:
       - file: wsl-get-template
     - require:
       - file: wsl-get-template
-
-#wsl-config-version-2:
-#  cmd.run:
-#    - name: 'wsl --set-version Ubuntu-20.04 2'
-#    - shell: cmd
 
 wsl-get-sift:
   cmd.run:

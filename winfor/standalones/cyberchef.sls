@@ -1,5 +1,5 @@
-{% set version='9.32.3' %}
-{% set hash='465cf64bdd80cf99be72bedc9dccf7fcebaeace58d77ec62d71733c3e2ba404f' %}
+{% set version = '9.32.3' %}
+{% set hash = '465cf64bdd80cf99be72bedc9dccf7fcebaeace58d77ec62d71733c3e2ba404f' %}
 
 include:
   - winfor.packages.firefox
