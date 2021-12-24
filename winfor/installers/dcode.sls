@@ -4,7 +4,7 @@
 dcode:
   file.managed:
     - name: C:\\salt\\tempdownload\\DCode-x86-EN-{{ version }}.zip
-    - source: "https://www.digital-detective.net/download/download.php?downcode=ae2znu5994j1lforlh03"
+    - source: https://www.digital-detective.net/download/downloadbac.php?downcode=ae2znu5994j1lforlh03
     - source_hash: sha256={{ hash }}
     - makedirs: True
 
@@ -19,3 +19,6 @@ dcode-archive:
 dcode-install:
   cmd.run:
     - name: "C:\\salt\\tempdownload\\dcode\\DCode-x86-EN-{{ version }}.exe /SP- /VERYSILENT /NORESTART /MERGETASKS=!RUNCODE,ADDCONTEXTMENUFILES,ADDCONTEXTMENUFOLDERS,ADDTOPATH"
+    - require:
+      - file: dcode
+      - archive: dcode-archive

@@ -1,4 +1,5 @@
 include:
+  - winfor.packages.git
   - winfor.packages.autopsy
   - winfor.packages.firefox
   - winfor.packages.chrome
@@ -12,6 +13,7 @@ include:
 winfor-packages:
   test.nop:
     - require:
+      - sls: winfor.packages.git
       - sls: winfor.packages.autopsy
       - sls: winfor.packages.firefox
       - sls: winfor.packages.chrome
