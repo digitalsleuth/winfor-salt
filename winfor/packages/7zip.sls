@@ -1,0 +1,2 @@
+7zip:
+  pkg.installed

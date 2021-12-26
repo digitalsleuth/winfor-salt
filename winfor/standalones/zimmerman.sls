@@ -13,7 +13,7 @@ zimmerman-tools-install:
     - source: "C:\\salt\\tempdownload\\Get-ZimmermanTools.zip"
     - enforce_toplevel: false
     - watch:
-      - file: zimmerman
+      - file: zimmerman-tools
 
 zimmerman-tools-download:
   cmd.run:

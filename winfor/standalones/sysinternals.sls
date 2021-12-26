@@ -1,4 +1,4 @@
-{% set hash = '70c573589fbea5cc7d8f0b4c75e9d4172f932c21ff9368512eb5215e05c97ebb' %}
+{% set hash = '0228f32824749cb3740d1fa001847e50273c7f38d4ef70cb0ff020c803b81ab3' %}
 
 sysinternals:
   file.managed:
