@@ -18,3 +18,8 @@ winfor-standalones-regripper:
     - force_reset: True
     - require:
       - sls: winfor.packages.git
+
+regripper-env-vars:
+  win_path.exists:
+    - name: 'C:\standalone\regripper\'
+

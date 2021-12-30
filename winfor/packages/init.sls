@@ -13,6 +13,7 @@ include:
   - winfor.packages.cygwin
   - winfor.packages.libreoffice
   - winfor.packages.npp
+  - winfor.packages.adobereader-dc-classic
   
 winfor-packages:
   test.nop:
@@ -31,3 +32,4 @@ winfor-packages:
       - sls: winfor.packages.cygwin
       - sls: winfor.packages.libreoffice
       - sls: winfor.packages.npp
+      - sls: winfor.packages.adobereader-dc-classic

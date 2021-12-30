@@ -19,3 +19,12 @@ zimmerman-tools-download:
   cmd.run:
     - name: "powershell -ep bypass C:\\standalone\\zimmerman\\Get-ZimmermanTools.ps1 -Dest C:\\standalone\\zimmerman"
     - shell: powershell
+
+zimmerman-env-vars:
+  win_path.exists:
+    - names:
+      - 'C:\standalone\zimmerman\'
+      - 'C:\standalone\zimmerman\EvtxExplorer\'
+      - 'C:\standalone\zimmerman\RegistryExplorer\'
+      - 'C:\standalone\zimmerman\ShellBagsExplorer\'
+      - 'C:\standalone\zimmerman\SQLECmd\'

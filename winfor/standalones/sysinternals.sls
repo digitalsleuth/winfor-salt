@@ -14,3 +14,7 @@ sysinternals-extract:
     - enforce_toplevel: false
     - watch:
       - file: sysinternals
+
+sysinternals-env-vars:
+  win_path.exists:
+    - name: 'C:\standalone\sysinternals'

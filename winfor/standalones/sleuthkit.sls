@@ -10,8 +10,20 @@ sleuthkit-download:
 
 sleuthkit-extract:
   archive.extracted:
-    - name: C:\\standalone\\sleuthkit\\
+    - name: C:\\standalone\\
     - source: C:\\salt\\tempdownload\\sleuthkit-{{ version }}-win32.zip
     - enforce_toplevel: False
     - watch:
       - file: sleuthkit-download
+
+sleuthkit-folder-rename:
+  file.rename:
+    - name: 'C:\standalone\sleuthkit\'
+    - source: 'C:\standalone\sleuthkit-{{ version }}-win32\'
+    - force: True
+    - makedirs: True
+    - require:
+      - archive: sleuthkit-extract
+
+'C:\standalone\sleuthkit\bin':
+  win_path.exists
