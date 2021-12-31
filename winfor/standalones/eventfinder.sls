@@ -8,3 +8,7 @@ eventfinder:
     - makedirs: True
     - replace: True
 
+eventfinder-env-vars:
+  win_path.exists:
+    - name: 'C:\standalone\'
+

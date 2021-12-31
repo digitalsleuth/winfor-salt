@@ -1,0 +1,2 @@
+sublime-text:
+  pkg.installed

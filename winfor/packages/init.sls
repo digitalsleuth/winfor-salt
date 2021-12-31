@@ -13,7 +13,11 @@ include:
   - winfor.packages.cygwin
   - winfor.packages.libreoffice
   - winfor.packages.npp
-  - winfor.packages.adobereader-dc-classic
+  - winfor.packages.adobereader
+  - winfor.packages.python3
+  - winfor.packages.python2
+  - winfor.packages.dbeaver
+  - winfor.packages.sublime-text
   
 winfor-packages:
   test.nop:
@@ -32,4 +36,8 @@ winfor-packages:
       - sls: winfor.packages.cygwin
       - sls: winfor.packages.libreoffice
       - sls: winfor.packages.npp
-      - sls: winfor.packages.adobereader-dc-classic
+      - sls: winfor.packages.adobereader
+      - sls: winfor.packages.python3
+      - sls: winfor.packages.python2
+      - sls: winfor.packages.dbeaver
+      - sls: winfor.packages.sublime-text
