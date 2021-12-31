@@ -11,7 +11,7 @@ zimmerman-tools-install:
   archive.extracted:
     - name: "C:\\standalone\\zimmerman\\"
     - source: "C:\\salt\\tempdownload\\Get-ZimmermanTools.zip"
-    - enforce_toplevel: false
+    - enforce_toplevel: False
     - watch:
       - file: zimmerman-tools
 

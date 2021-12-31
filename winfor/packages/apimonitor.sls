@@ -1,2 +1,2 @@
-python3_x64:
+apimonitor:
   pkg.installed

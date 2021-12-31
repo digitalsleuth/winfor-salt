@@ -10,6 +10,7 @@ include:
   - winfor.standalones.logfileparser
   - winfor.standalones.dotpeek
   - winfor.standalones.kape
+  - winfor.standalones.sqlitestudio
 
 winfor-standalones:
   test.nop:
@@ -25,3 +26,4 @@ winfor-standalones:
       - sls: winfor.standalones.logfileparser
       - sls: winfor.standalones.dotpeek
       - sls: winfor.standalones.kape
+      - sls: winfor.standalones.sqlitestudio
