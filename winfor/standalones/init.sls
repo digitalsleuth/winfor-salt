@@ -6,11 +6,13 @@ include:
   - winfor.standalones.eventfinder
   - winfor.standalones.regripper
   - winfor.standalones.usb-write-blocker
-  - winfor.standalones.ntfs-log-parser
+  - winfor.standalones.ntfs-log-tracker
   - winfor.standalones.logfileparser
   - winfor.standalones.dotpeek
   - winfor.standalones.kape
   - winfor.standalones.sqlitestudio
+  - winfor.standalones.autorunner
+  - winfor.standalones.sleuthkit
 
 winfor-standalones:
   test.nop:
@@ -22,8 +24,10 @@ winfor-standalones:
       - sls: winfor.standalones.eventfinder
       - sls: winfor.standalones.regripper
       - sls: winfor.standalones.usb-write-blocker
-      - sls: winfor.standalones.ntfs-log-parser
+      - sls: winfor.standalones.ntfs-log-tracker
       - sls: winfor.standalones.logfileparser
       - sls: winfor.standalones.dotpeek
       - sls: winfor.standalones.kape
       - sls: winfor.standalones.sqlitestudio
+      - sls: winfor.standalones.autorunner
+      - sls: winfor.standalones.sleuthkit

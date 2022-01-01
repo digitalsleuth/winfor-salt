@@ -1,0 +1,2 @@
+putty:
+  pkg.installed

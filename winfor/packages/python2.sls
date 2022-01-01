@@ -1,7 +1,25 @@
 python2_x64:
   pkg.installed
 
-python2-alias:
+python2-rename:
+  file.rename:
+    - name: 'C:\Python27\python2.exe'
+    - source: 'C:\Python27\python.exe'
+    - force: True
+    - makedirs: True
+    - require:
+      - pkg: python2_x64
+
+python2-pip:
   cmd.run:
-    - name: 'reg add "HKLM\Software\Microsoft\Command Processor" /v Autorun /d "doskey python2=C:\Python27\python.exe" /f'
+    - name: 'C:\Python27\python2.exe -m ensurepip'
     - shell: cmd
+    - require:
+      - file: python2-rename
+
+python2-env-vars:
+  win_path.exists:
+    - names:
+      - 'C:\Python27\'
+      - 'C:\Python27\Scripts'
+
