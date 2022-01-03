@@ -10,7 +10,7 @@ include:
   - winfor.packages.bulk-extractor
   - winfor.packages.vs-community
   - winfor.packages.vcxsrv
-  - winfor.packages.cygwin
+#  - winfor.packages.cygwin
   - winfor.packages.libreoffice
   - winfor.packages.npp
   - winfor.packages.adobereader
@@ -41,7 +41,7 @@ winfor-packages:
       - sls: winfor.packages.bulk-extractor
       - sls: winfor.packages.vs-community
       - sls: winfor.packages.vcxsrv
-      - sls: winfor.packages.cygwin
+#      - sls: winfor.packages.cygwin
       - sls: winfor.packages.libreoffice
       - sls: winfor.packages.npp
       - sls: winfor.packages.adobereader

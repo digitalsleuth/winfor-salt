@@ -1,3 +1,5 @@
+{% set user = salt['pillar.get']('winfor_user', 'forensics') %}
+
 python3_x64:
   pkg.installed:
     - version: '3.10.1150.0'
@@ -17,3 +19,8 @@ python3-wheel:
     - bin_env: 'C:\Program Files\Python310\python3.exe'
     - require:
       - pkg: python3_x64
+
+python3-remove-alias:
+  file.absent:
+    - name: 'C:\Users\{{ user }}\AppData\Local\Microsoft\WindowsApps\python3.exe'
+

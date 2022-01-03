@@ -7,6 +7,7 @@ include:
 #  - winfor.installers.wsl
 #  - winfor.installers.wsl-config
   - winfor.installers.data-dump
+  - winfor.installers.hxd
   
 winfor-installers:
   test.nop:
@@ -19,3 +20,4 @@ winfor-installers:
 #      - sls: winfor.installers.wsl
 #      - sls: winfor.installers.wsl-config
       - sls: winfor.installers.data-dump
+      - sls: winfor.installers.hxd

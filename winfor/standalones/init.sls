@@ -13,6 +13,7 @@ include:
   - winfor.standalones.sqlitestudio
   - winfor.standalones.autorunner
   - winfor.standalones.sleuthkit
+  - winfor.standalones.logparser-studio
 
 winfor-standalones:
   test.nop:
@@ -31,3 +32,4 @@ winfor-standalones:
       - sls: winfor.standalones.sqlitestudio
       - sls: winfor.standalones.autorunner
       - sls: winfor.standalones.sleuthkit
+      - sls: winfor.standalones.logparser-studio

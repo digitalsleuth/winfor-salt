@@ -1,3 +1,5 @@
+{% set user = salt['pillar.get']('winfor_user', 'forensics') %}
+
 python2_x64:
   pkg.installed
 
@@ -16,6 +18,10 @@ python2-pip:
     - shell: cmd
     - require:
       - file: python2-rename
+
+python2-remove-alias:
+  file.absent:
+    - name: 'C:\Users\{{ user }}\AppData\Local\Microsoft\WindowsApps\python.exe'
 
 python2-env-vars:
   win_path.exists:
