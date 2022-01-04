@@ -1,11 +1,11 @@
 include:
-  - winfor.addon
-#  - winfor.theme
   - winfor.config
+#  - winfor.theme
+  - winfor.addon
  
 winfor-dedicated:
   test.nop:
     - require:
-      - sls: winfor.addon
-#      - sls: winfor.theme
       - sls: winfor.config
+#      - sls: winfor.theme
+      - sls: winfor.addon

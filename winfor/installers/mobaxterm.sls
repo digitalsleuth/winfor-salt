@@ -21,3 +21,9 @@ mobaxterm-install:
     - name: "msiexec /i MobaXterm_installer_{{ version }}.msi DESKTOP_SHORTCUT=FALSE /qn /norestart"
     - cwd: C:\\salt\\tempdownload\\mobaxterm
     - shell: cmd
+
+mobaxterm-del-shortcut:
+  file.absent:
+    - name: 'C:\Users\Public\Desktop\MobaXTerm.lnk'
+    - require:
+      - cmd: mobaxterm-install
