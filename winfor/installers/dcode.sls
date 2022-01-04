@@ -18,7 +18,7 @@ dcode-archive:
 
 dcode-install:
   cmd.run:
-    - name: "C:\\salt\\tempdownload\\dcode\\DCode-x86-EN-{{ version }}.exe /SP- /VERYSILENT /NORESTART /MERGETASKS=!RUNCODE,ADDCONTEXTMENUFILES,ADDCONTEXTMENUFOLDERS,ADDTOPATH"
+    - name: "C:\\salt\\tempdownload\\dcode\\DCode-x86-EN-{{ version }}.exe /SP- /VERYSILENT /NORESTART /MERGETASKS=!RUNCODE,ADDCONTEXTMENUFILES,ADDCONTEXTMENUFOLDERS,ADDTOPATH,!DESKTOPICON"
     - require:
       - file: dcode
       - archive: dcode-archive

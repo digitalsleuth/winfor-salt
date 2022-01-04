@@ -18,7 +18,7 @@ data-dump-extract:
 
 data-dump-install:
   cmd.run:
-    - name: "C:\\salt\\tempdownload\\data-dump\\DataDump-x86-EN-{{ version }}.exe /SP- /VERYSILENT /NORESTART /MERGETASKS=!RUNCODE,ADDCONTEXTMENUFILES,ADDCONTEXTMENUFOLDERS,ADDTOPATH"
+    - name: "C:\\salt\\tempdownload\\data-dump\\DataDump-x86-EN-{{ version }}.exe /SP- /VERYSILENT /NORESTART /MERGETASKS=!RUNCODE,ADDCONTEXTMENUFILES,ADDCONTEXTMENUFOLDERS,ADDTOPATH,!DESKTOPICON"
     - require:
       - file: data-dump
       - archive: data-dump-extract

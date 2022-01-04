@@ -18,6 +18,6 @@ mobaxterm-archive:
 
 mobaxterm-install:
   cmd.run:
-    - name: "msiexec /i MobaXterm_installer_{{ version }}.msi /qn /norestart"
+    - name: "msiexec /i MobaXterm_installer_{{ version }}.msi DESKTOP_SHORTCUT=FALSE /qn /norestart"
     - cwd: C:\\salt\\tempdownload\\mobaxterm
     - shell: cmd

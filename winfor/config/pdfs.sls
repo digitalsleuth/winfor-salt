@@ -84,7 +84,7 @@ include:
 {% for pdf in pdfs %}
 winfor-pdf-{{ pdf.id }}:
   file.managed:
-    - name: {{ home }}\\Desktop\\{{ pdf.filename }}
+    - name: {{ home }}\\Desktop\\References\\{{ pdf.filename }}
     - source: {{ pdf.source }}
     - source_hash: sha256={{ pdf.hash }}
     - user: {{ user }}

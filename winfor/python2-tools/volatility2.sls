@@ -4,7 +4,7 @@ include:
 
 volatility:
   pip.installed:
-    - name: https://github.com/volatilityfoundation/volatility
+    - name: git+https://github.com/volatilityfoundation/volatility
     - bin_env: 'C:\Python27\python2.exe'
     - require:
       - sls: winfor.python2-tools.pycrypto
@@ -16,4 +16,4 @@ volatility2-wrapper:
     - win_inheritance: True
     - contents:
       - '@echo off'
-      - python2.exe C:\Python27\Scripts\vol.py %1 %*
+      - python2.exe C:\Python27\Scripts\vol.py %*
