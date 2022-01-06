@@ -3,23 +3,23 @@
 
 sleuthkit-download:
   file.managed:
-    - name: C:\\salt\\tempdownload\\sleuthkit-{{ version }}-win32.zip
+    - name: 'C:\salt\tempdownload\sleuthkit-{{ version }}-win32.zip'
     - source: https://github.com/sleuthkit/sleuthkit/releases/download/sleuthkit-{{ version }}/sleuthkit-{{ version }}-win32.zip
     - source_hash: {{ hash }}
     - makedirs: True
 
 sleuthkit-extract:
   archive.extracted:
-    - name: C:\\standalone\\
-    - source: C:\\salt\\tempdownload\\sleuthkit-{{ version }}-win32.zip
+    - name: 'C:\salt\tempdownload\'
+    - source: 'C:\salt\tempdownload\sleuthkit-{{ version }}-win32.zip'
     - enforce_toplevel: False
     - watch:
       - file: sleuthkit-download
 
 sleuthkit-folder-rename:
   file.rename:
-    - name: 'C:\standalone\sleuthkit\'
-    - source: 'C:\standalone\sleuthkit-{{ version }}-win32\'
+    - name: 'C:\standalone\sleuthkit'
+    - source: 'C:\salt\tempdownload\sleuthkit-{{ version }}-win32\'
     - force: True
     - makedirs: True
     - require:

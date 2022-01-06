@@ -36,7 +36,7 @@ kape-env-vars:
 
 winfor-standalones-gkape-shortcut:
   file.shortcut:
-    - name: '{{ home }}\Desktop\gkape.lnk'
+    - name: '{{ home }}\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\gkape.lnk'
     - target: 'C:\standalone\kape\gkape.exe'
     - user: forensics
     - force: True

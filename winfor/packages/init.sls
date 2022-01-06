@@ -25,6 +25,7 @@ include:
   - winfor.packages.kernel-edb-viewer
   - winfor.packages.apimonitor
   - winfor.packages.putty
+  - winfor.packages.wireshark
 
 winfor-packages:
   test.nop:
@@ -55,3 +56,4 @@ winfor-packages:
       - sls: winfor.packages.kernel-edb-viewer
       - sls: winfor.packages.apimonitor
       - sls: winfor.packages.putty
+      - sls: winfor.packages.wireshark

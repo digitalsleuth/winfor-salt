@@ -2,15 +2,15 @@
 
 sysinternals:
   file.managed:
-    - name: "C:\\salt\\tempdownload\\SysinternalsSuite.zip"
-    - source: "https://download.sysinternals.com/files/SysinternalsSuite.zip"
+    - name: 'C:\salt\tempdownload\SysinternalsSuite.zip'
+    - source: https://download.sysinternals.com/files/SysinternalsSuite.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True
 
 sysinternals-extract:
   archive.extracted:
-    - name: "C:\\standalone\\sysinternals\\"
-    - source: "C:\\salt\\tempdownload\\SysinternalsSuite.zip"
+    - name: 'C:\standalone\sysinternals\'
+    - source: 'C:\salt\tempdownload\SysinternalsSuite.zip'
     - enforce_toplevel: false
     - watch:
       - file: sysinternals
@@ -18,3 +18,4 @@ sysinternals-extract:
 sysinternals-env-vars:
   win_path.exists:
     - name: 'C:\standalone\sysinternals'
+

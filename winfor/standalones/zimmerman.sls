@@ -8,15 +8,15 @@ include:
 
 zimmerman-tools:
   file.managed:
-    - name: "C:\\salt\\tempdownload\\Get-ZimmermanTools.zip"
-    - source: "https://f001.backblazeb2.com/file/EricZimmermanTools/Get-ZimmermanTools.zip"
+    - name: 'C:\salt\tempdownload\Get-ZimmermanTools.zip'
+    - source: https://f001.backblazeb2.com/file/EricZimmermanTools/Get-ZimmermanTools.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True
 
 zimmerman-tools-install:
   archive.extracted:
-    - name: "C:\\standalone\\zimmerman\\"
-    - source: "C:\\salt\\tempdownload\\Get-ZimmermanTools.zip"
+    - name: 'C:\standalone\zimmerman\'
+    - source: 'C:\salt\tempdownload\Get-ZimmermanTools.zip'
     - enforce_toplevel: False
     - watch:
       - file: zimmerman-tools
@@ -39,7 +39,7 @@ zimmerman-env-vars:
 {% for application in applications %}
 zimmerman-{{ application }}-shortcut:
   file.shortcut:
-    - name: '{{ home }}\Desktop\{{ application }}.lnk'
+    - name: '{{ home }}\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\{{ application }}.lnk'
     - target: 'C:\standalone\zimmerman\{{ application }}\{{ application }}.exe'
     - user: forensics
     - force: True

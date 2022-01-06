@@ -3,13 +3,13 @@
 
 nirsoft:
   cmd.run:
-    - name: 'wget -O C:\\salt\\tempdownload\\nirsoft_package_enc_{{ version }}.zip -Headers @{"Referer"="https://launcher.nirsoft.net/downloads/index.html"} https://download.nirsoft.net/nirsoft_package_enc_{{ version }}.zip'
+    - name: 'wget -O C:\salt\tempdownload\nirsoft_package_enc_{{ version }}.zip -Headers @{"Referer"="https://launcher.nirsoft.net/downloads/index.html"} https://download.nirsoft.net/nirsoft_package_enc_{{ version }}.zip'
     - shell: powershell
 
 nirsoft-extract:
   archive.extracted:
-    - name: C:\\standalone\\nirsoft\\
-    - source: C:\\salt\\tempdownload\\nirsoft_package_enc_{{ version }}.zip
+    - name: 'C:\standalone\nirsoft\'
+    - source: 'C:\salt\tempdownload\nirsoft_package_enc_{{ version }}.zip'
     - enforce_toplevel: false
     - password: nirsoft9876$
     - watch:

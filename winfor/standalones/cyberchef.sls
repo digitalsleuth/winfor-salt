@@ -19,7 +19,7 @@ winfor-standalones-cyberchef:
 
 winfor-standalones-cyberchef-shortcut:
   file.shortcut:
-    - name: '{{ home }}\Desktop\CyberChef.lnk'
+    - name: '{{ home }}\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\CyberChef.lnk'
     - target: 'C:\Program Files\Mozilla Firefox\firefox.exe'
     - arguments: 'C:\standalone\cyberchef\CyberChef_v{{ version }}.html'
     - user: forensics

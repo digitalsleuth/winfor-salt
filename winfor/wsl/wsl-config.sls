@@ -15,7 +15,7 @@ wsl-config-version:
 
 wsl-get-template:
   file.managed:
-    - name: C:\\salt\\tempdownload\\WIN-FOR-20.04.tar
+    - name: 'C:\salt\tempdownload\WIN-FOR-20.04.tar'
     - source: https://sourceforge.net/projects/winfor/files/wsl/WIN-FOR-20.04.tar/download
     - source_hash: sha256={{ hash }}
     - makedirs: True
@@ -80,7 +80,7 @@ wsl-run-remnux:
 
 winfor-wsl-shortcut:
   file.shortcut:
-    - name: '{{ home }}\Desktop\WSL.lnk'
+    - name: '{{ home }}\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\WSL.lnk'
     - target: 'C:\Windows\System32\wsl.exe'
     - user: forensics
     - force: True

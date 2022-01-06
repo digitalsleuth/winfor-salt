@@ -49,7 +49,7 @@ autorunner-env-vars:
 
 winfor-standalones-autorunner-shortcut:
   file.shortcut:
-    - name: '{{ home }}\Desktop\AutoRunner.lnk'
+    - name: '{{ home }}\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\AutoRunner.lnk'
     - target: 'C:\standalone\autorunner\autorunner.exe'
     - user: forensics
     - force: True

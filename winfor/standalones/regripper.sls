@@ -28,7 +28,7 @@ regripper-env-vars:
 
 winfor-standalones-regripper-shortcut:
   file.shortcut:
-    - name: '{{ home }}\Desktop\RegRipper.lnk'
+    - name: '{{ home }}\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\RegRipper.lnk'
     - target: 'C:\standalone\regripper\rr.exe'
     - user: forensics
     - force: True

@@ -8,7 +8,7 @@ include:
 winfor-standalones-logfileparser:
   git.latest:
     - name: https://github.com/jschicht/LogFileParser.git
-    - target: 'C:\\standalone\\logfileparser'
+    - target: 'C:\standalone\logfileparser'
     - rev: master
     - force_clone: True
     - force_reset: True
@@ -21,7 +21,7 @@ logfileparser-env-vars:
 
 winfor-standalones-logfileparser-shortcut:
   file.shortcut:
-    - name: '{{ home }}\Desktop\LogFileParser64.lnk'
+    - name: '{{ home }}\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\LogFileParser64.lnk'
     - target: 'C:\standalone\logfileparser\LogFileParser64.exe'
     - user: forensics
     - force: True

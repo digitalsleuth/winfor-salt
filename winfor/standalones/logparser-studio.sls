@@ -38,7 +38,7 @@ logparser-studio-env-vars:
 
 winfor-standalones-logparser-studio-shortcut:
   file.shortcut:
-    - name: '{{ home }}\Desktop\LogParser-Studio.lnk'
+    - name: '{{ home }}\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\LogParser-Studio.lnk'
     - target: 'C:\standalone\logparser-studio\LPS.exe'
     - user: forensics
     - force: True

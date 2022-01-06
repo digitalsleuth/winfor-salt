@@ -27,7 +27,7 @@ sqlitestudio-env-vars:
 
 winfor-standalones-sqlitestudio:
   file.shortcut:
-    - name: '{{ home }}\Desktop\SQLiteStudio.lnk'
+    - name: '{{ home }}\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\SQLiteStudio.lnk'
     - target: 'C:\standalone\SQLiteStudio\SQLiteStudio.exe'
     - user: forensics
     - force: True
