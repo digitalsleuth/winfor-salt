@@ -1,4 +1,10 @@
 {% set hash = 'E11F6E38C1B82B05B23077984DFDC6A0F04DF4A27A5613837B3CFBEDB7DF4A11' %}
+{% set user = salt['pillar.get']('winfor_user', 'forensics') %}
+{% set home = salt['user.info'](user).home %}
+{% set applications = ['EZViewer','Hasher','JumpListExplorer','MFTExplorer','RegistryExplorer','SDBExplorer','ShellBagsExplorer','TimelineExplorer'] %}
+
+include:
+  - winfor.config.user
 
 zimmerman-tools:
   file.managed:
@@ -28,3 +34,18 @@ zimmerman-env-vars:
       - 'C:\standalone\zimmerman\RegistryExplorer\'
       - 'C:\standalone\zimmerman\ShellBagsExplorer\'
       - 'C:\standalone\zimmerman\SQLECmd\'
+      - 'C:\standalone\zimmerman\iisGeolocate\'
+
+{% for application in applications %}
+zimmerman-{{ application }}-shortcut:
+  file.shortcut:
+    - name: '{{ home }}\Desktop\{{ application }}.lnk'
+    - target: 'C:\standalone\zimmerman\{{ application }}\{{ application }}.exe'
+    - user: forensics
+    - force: True
+    - working_dir: 'C:\standalone\zimmerman\{{ application }}\'
+    - makedirs: True
+    - require:
+      - cmd: zimmerman-tools-download
+      - user: winfor-user-{{ user }}
+{% endfor %}

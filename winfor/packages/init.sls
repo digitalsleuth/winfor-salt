@@ -8,9 +8,8 @@ include:
   - winfor.packages.httplogbrowser
   - winfor.packages.db-browser-sqlite
   - winfor.packages.bulk-extractor
-  - winfor.packages.vs-community
+  - winfor.packages.vs-community-2022
   - winfor.packages.vcxsrv
-#  - winfor.packages.cygwin
   - winfor.packages.libreoffice
   - winfor.packages.npp
   - winfor.packages.adobereader
@@ -39,9 +38,8 @@ winfor-packages:
       - sls: winfor.packages.httplogbrowser
       - sls: winfor.packages.db-browser-sqlite
       - sls: winfor.packages.bulk-extractor
-      - sls: winfor.packages.vs-community
+      - sls: winfor.packages.vs-community-2022
       - sls: winfor.packages.vcxsrv
-#      - sls: winfor.packages.cygwin
       - sls: winfor.packages.libreoffice
       - sls: winfor.packages.npp
       - sls: winfor.packages.adobereader

@@ -1,24 +1,17 @@
-# Needs shortcut
 {% set hash = '4ed521a6f727c2a5352b2d28e28cfd8639e9c8cbc1b7a35aa7e003464c4fc139' %}
+{% set user = salt['pillar.get']('winfor_user', 'forensics') %}
+{% set home = salt['user.info'](user).home %}
 
 include:
-  - winfor.installers.wsl
-  - winfor.packages.wsl2-update
-
-wsl-update:
-  cmd.run:
-    - name: 'wsl --update'
-    - shell: cmd
-    - require:
-      - sls: winfor.packages.wsl2-update
+  - winfor.wsl.wsl2-update
+  - winfor.config.user
 
 wsl-config-version:
   cmd.run:
     - name: 'wsl --set-default-version 2'
     - shell: cmd
     - require:
-      - sls: winfor.installers.wsl
-      - sls: winfor.packages.wsl2-update
+      - sls: winfor.wsl.wsl2-update
 
 wsl-get-template:
   file.managed:
@@ -27,21 +20,28 @@ wsl-get-template:
     - source_hash: sha256={{ hash }}
     - makedirs: True
 
-wsl-import-template:
-  cmd.run:
-    - name: 'wsl --import C:\\standalone\\wsl\\ C:\\salt\\tempdownload\\WIN-FOR-20.04.tar'
-    - shell: cmd
-    - watch:
-      - file: wsl-get-template
+wsl-make-install-directory:
+  file.directory:
+    - name: 'C:\standalone\wsl\'
+    - win_inheritance: True
+    - makedirs: True
     - require:
       - file: wsl-get-template
+
+wsl-import-template:
+  cmd.run:
+    - name: 'wsl --import WIN-FOR C:\standalone\wsl\ C:\salt\tempdownload\WIN-FOR-20.04.tar'
+    - shell: cmd
+    - require:
+      - file: wsl-get-template
+      - file: wsl-make-install-directory
 
 wsl-get-sift:
   cmd.run:
     - name: 'wsl echo forensics | wsl sudo -S wget -O /usr/local/bin/sift https://github.com/teamdfir/sift-cli/releases/download/v1.13.1/sift-cli-linux'
     - shell: cmd
     - require:
-      - cmd: wsl-config-version
+      - cmd: wsl-import-template
 
 wsl-chmod-sift:
   cmd.run:
@@ -77,3 +77,18 @@ wsl-run-remnux:
     - shell: cmd
     - require:
       - cmd: wsl-chmod-remnux
+
+winfor-wsl-shortcut:
+  file.shortcut:
+    - name: '{{ home }}\Desktop\WSL.lnk'
+    - target: 'C:\Windows\System32\wsl.exe'
+    - user: forensics
+    - force: True
+    - working_dir: 'C:\Windows\System32\'
+    - makedirs: True
+    - require:
+      - cmd: wsl-config-version
+      - file: wsl-get-template
+      - file: wsl-make-install-directory
+      - cmd: wsl-import-template
+      - user: winfor-user-{{ user }}

@@ -9,7 +9,7 @@ include:
 
 winfor-standalones-cyberchef:
   archive.extracted:
-    - name: C:\\standalone\\cyberchef
+    - name: 'C:\standalone\cyberchef'
     - enforce_toplevel: False
     - source: https://github.com/gchq/CyberChef/releases/download/v{{ version}}/CyberChef_v{{ version }}.zip
     - source_hash: sha256={{ hash }}
@@ -17,18 +17,18 @@ winfor-standalones-cyberchef:
     - require:
       - sls: winfor.packages.firefox
 
-#winfor-standalones-cyberchef-shortcut:
-#  file.shortcut:
-#    - name: {{ home }}\\Desktop\\CyberChef.lnk
-#    - target: '"C:\\Program Files\\Mozilla Firefox\\firefox.exe"'
-#    - argument: C:\\standalone\\cyberchef\\CyberChef_v{{ version }}.html
-#    - user: forensics
-#    - force: True
-#    - working_dir: C:\\standalone\\cyberchef
-#    - makedirs: True
-#    - watch:
-#      - archive: winfor-standalones-cyberchef
-#    - require:
-#      - sls: winfor.packages.firefox
-#      - archive: winfor-standalones-cyberchef
-#      - user: winfor-user-{{ user }}
+winfor-standalones-cyberchef-shortcut:
+  file.shortcut:
+    - name: '{{ home }}\Desktop\CyberChef.lnk'
+    - target: 'C:\Program Files\Mozilla Firefox\firefox.exe'
+    - arguments: 'C:\standalone\cyberchef\CyberChef_v{{ version }}.html'
+    - user: forensics
+    - force: True
+    - working_dir: 'C:\Program Files\Mozilla Firefox'
+    - makedirs: True
+    - watch:
+      - archive: winfor-standalones-cyberchef
+    - require:
+      - sls: winfor.packages.firefox
+      - archive: winfor-standalones-cyberchef
+      - user: winfor-user-{{ user }}

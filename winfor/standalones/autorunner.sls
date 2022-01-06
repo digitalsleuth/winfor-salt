@@ -1,8 +1,11 @@
 {% set version = '0.0.16' %}
 {% set hash = 'ad4cdf61cf7e2ab77e78cc425788e526d02e2149ea1965bf870c0558700c77eb' %}
+{% set user = salt['pillar.get']('winfor_user', 'forensics') %}
+{% set home = salt['user.info'](user).home %}
 
 include:
   - winfor.standalones.sysinternals
+  - winfor.config.user
 
 autorunner-download:
   file.managed:
@@ -43,3 +46,15 @@ autorunner-env-vars:
     - name: 'C:\standalone\autorunner\'
     - require:
       - file: autorunner-config-2
+
+winfor-standalones-autorunner-shortcut:
+  file.shortcut:
+    - name: '{{ home }}\Desktop\AutoRunner.lnk'
+    - target: 'C:\standalone\autorunner\autorunner.exe'
+    - user: forensics
+    - force: True
+    - working_dir: 'C:\standalone\autorunner\'
+    - makedirs: True
+    - require:
+      - archive: autorunner-extracted
+      - user: winfor-user-{{ user }}
