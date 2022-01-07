@@ -1,5 +1,7 @@
 {% set hash = '30636e722be838e8fc5c93e6dd29f2a3ebf7e88c775aa70b96fc4c6f48ac64d5' %}
 {% set version = '4.11.1' %}
+include:
+  - winfor.packages.strawberryperl
 
 sleuthkit-download:
   file.managed:
@@ -13,8 +15,9 @@ sleuthkit-extract:
     - name: 'C:\salt\tempdownload\'
     - source: 'C:\salt\tempdownload\sleuthkit-{{ version }}-win32.zip'
     - enforce_toplevel: False
-    - watch:
+    - require:
       - file: sleuthkit-download
+      - sls: winfor.packages.strawberryperl
 
 sleuthkit-folder-rename:
   file.rename:
@@ -24,6 +27,14 @@ sleuthkit-folder-rename:
     - makedirs: True
     - require:
       - archive: sleuthkit-extract
+
+sleuthkit-mactime-wrapper:
+  file.managed:
+    - name: 'C:\standalone\sleuthkit\bin\mactime.cmd'
+    - win_inheritance: True
+    - contents:
+      - '@echo off'
+      - perl C:\standalone\sleuthkit\bin\mactime.pl %*
 
 'C:\standalone\sleuthkit\bin':
   win_path.exists

@@ -1,5 +1,4 @@
 include:
-  - winfor.packages.git
   - winfor.packages.python3
 
 winfor-python3-naft:
@@ -7,5 +6,4 @@ winfor-python3-naft:
     - name: git+https://github.com/digitalsleuth/naft
     - bin_env: 'C:\Program Files\Python310\python.exe'
     - require:
-      - sls: winfor.packages.git
       - sls: winfor.packages.python3

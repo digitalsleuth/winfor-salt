@@ -26,6 +26,7 @@ include:
   - winfor.packages.apimonitor
   - winfor.packages.putty
   - winfor.packages.wireshark
+  - winfor.packages.strawberryperl_x64
 
 winfor-packages:
   test.nop:
@@ -57,3 +58,4 @@ winfor-packages:
       - sls: winfor.packages.apimonitor
       - sls: winfor.packages.putty
       - sls: winfor.packages.wireshark
+      - sls: winfor.packages.stawberryperl_x64

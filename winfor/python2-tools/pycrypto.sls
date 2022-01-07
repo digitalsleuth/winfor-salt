@@ -3,6 +3,6 @@ include:
 
 pycrypto:
   pip.installed:
-    - bin_env: 'C:\Python27\python2.exe'
+    - bin_env: 'C:\Python27\python.exe'
     - require:
       - sls: winfor.packages.vcforpython27

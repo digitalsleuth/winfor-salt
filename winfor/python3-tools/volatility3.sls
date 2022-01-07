@@ -4,7 +4,7 @@ include:
 volatility3:
   pip.installed:
     - name: git+https://github.com/volatilityfoundation/volatility3.git
-    - bin_env: 'C:\Program Files\Python310\python3.exe'
+    - bin_env: 'C:\Program Files\Python310\python.exe'
     - require:
       - sls: winfor.packages.python3
 
@@ -97,3 +97,7 @@ volatility3-mac-symbols-extract:
     - enforce_toplevel: False
     - require:
       - file: volatility3-symbols-folder
+
+volatility3-env-vars:
+  win_path.exists:
+    - name: 'C:\Program Files\Python310\Scripts\'
