@@ -1,2 +1,2 @@
-vcforpython27:
+cerbero-suite:
   pkg.installed

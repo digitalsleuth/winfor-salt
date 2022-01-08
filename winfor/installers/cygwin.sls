@@ -15,6 +15,6 @@ cygwin:
 
 cygwin-install:
   cmd.run:
-    - name: 'C:\salt\tempdownload\setup-x86_64.exe -D -R C:\cygwin64\ -d -X -l C:\cygwin64\ -q -O -s https://mirror.csclub.uwaterloo.ca/cygwin/'
+    - name: 'C:\salt\tempdownload\setup-x86_64.exe -R C:\cygwin64\ -d -X -l C:\cygwin64\ -q -O -s https://mirror.csclub.uwaterloo.ca/cygwin/'
     - shell: cmd
     - success_retcodes: 2

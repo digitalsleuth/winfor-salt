@@ -38,7 +38,7 @@ winfor-standalones-gkape-shortcut:
   file.shortcut:
     - name: '{{ home }}\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\gkape.lnk'
     - target: 'C:\standalone\kape\gkape.exe'
-    - user: forensics
+    - user: {{ user }}
     - force: True
     - working_dir: 'C:\standalone\kape\'
     - makedirs: True

@@ -82,7 +82,7 @@ winfor-wsl-shortcut:
   file.shortcut:
     - name: '{{ home }}\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\WSL.lnk'
     - target: 'C:\Windows\System32\wsl.exe'
-    - user: forensics
+    - user: {{ user }}
     - force: True
     - working_dir: 'C:\Windows\System32\'
     - makedirs: True

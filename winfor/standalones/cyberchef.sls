@@ -22,12 +22,10 @@ winfor-standalones-cyberchef-shortcut:
     - name: '{{ home }}\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\CyberChef.lnk'
     - target: 'C:\Program Files\Mozilla Firefox\firefox.exe'
     - arguments: 'C:\standalone\cyberchef\CyberChef_v{{ version }}.html'
-    - user: forensics
+    - user: {{ user }}
     - force: True
     - working_dir: 'C:\Program Files\Mozilla Firefox'
     - makedirs: True
-    - watch:
-      - archive: winfor-standalones-cyberchef
     - require:
       - sls: winfor.packages.firefox
       - archive: winfor-standalones-cyberchef

@@ -6,6 +6,7 @@ include:
   - winfor.installers.data-dump
   - winfor.installers.hxd
   - winfor.installers.cygwin
+  - winfor.installers.windows-sandbox
   
 winfor-installers:
   test.nop:
@@ -17,3 +18,4 @@ winfor-installers:
       - sls: winfor.installers.data-dump
       - sls: winfor.installers.hxd
       - sls: winfor.installers.cygwin
+      - sls: winfor.installers.windows-sandbox

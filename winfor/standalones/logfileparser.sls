@@ -23,7 +23,7 @@ winfor-standalones-logfileparser-shortcut:
   file.shortcut:
     - name: '{{ home }}\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\LogFileParser64.lnk'
     - target: 'C:\standalone\logfileparser\LogFileParser64.exe'
-    - user: forensics
+    - user: {{ user }}
     - force: True
     - working_dir: 'C:\standalone\logfileparser'
     - makedirs: True

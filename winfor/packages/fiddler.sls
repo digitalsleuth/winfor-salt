@@ -1,2 +1,2 @@
-vcforpython27:
+fiddler:
   pkg.installed

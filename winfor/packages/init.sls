@@ -27,6 +27,11 @@ include:
   - winfor.packages.putty
   - winfor.packages.wireshark
   - winfor.packages.strawberryperl_x64
+  - winfor.packages.fileinsight
+  - winfor.packages.ntcore-explorersuite
+  - winfor.packages.cerbero-suite
+  - winfor.packages.ffdec
+  - winfor.packages.fiddler
 
 winfor-packages:
   test.nop:
@@ -59,3 +64,8 @@ winfor-packages:
       - sls: winfor.packages.putty
       - sls: winfor.packages.wireshark
       - sls: winfor.packages.stawberryperl_x64
+      - sls: winfor.packages.fileinsight
+      - sls: winfor.packages.ntcore-explorersuite
+      - sls: winfor.packages.cerbero-suite
+      - sls: winfor.packages.ffdec
+      - sls: winfor.packages.fiddler

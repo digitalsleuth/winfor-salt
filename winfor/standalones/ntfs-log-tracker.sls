@@ -21,7 +21,7 @@ winfor-standalones-ntfs-log-tracker-shortcut:
   file.shortcut:
     - name: '{{ home }}\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\NTFS-Log-Tracker.lnk'
     - target: 'C:\standalone\ntfs-log-tracker\NTFS_Log_Tracker.exe'
-    - user: forensics
+    - user: {{ user }}
     - force: True
     - working_dir: 'C:\standalone\ntfs-log-tracker\'
     - makedirs: True

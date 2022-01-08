@@ -1,2 +1,2 @@
-vcforpython27:
+ffdec:
   pkg.installed

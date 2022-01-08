@@ -30,7 +30,7 @@ winfor-standalones-regripper-shortcut:
   file.shortcut:
     - name: '{{ home }}\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\RegRipper.lnk'
     - target: 'C:\standalone\regripper\rr.exe'
-    - user: forensics
+    - user: {{ user }}
     - force: True
     - working_dir: 'C:\standalone\regripper\'
     - makedirs: True

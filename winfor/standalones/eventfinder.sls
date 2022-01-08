@@ -19,7 +19,7 @@ winfor-standalones-eventfinder-shortcut:
   file.shortcut:
     - name: '{{ home }}\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\EventFinder.lnk'
     - target: 'C:\standalone\eventfinder\eventfinder.exe'
-    - user: forensics
+    - user: {{ user }}
     - force: True
     - working_dir: 'C:\standalone\eventfinder\'
     - makedirs: True

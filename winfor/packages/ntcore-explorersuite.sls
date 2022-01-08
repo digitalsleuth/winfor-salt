@@ -1,0 +1,2 @@
+ntcore-explorersuite:
+  pkg.installed

@@ -23,7 +23,7 @@ winfor-standalones-dotpeek-shortcut:
   file.shortcut:
     - name: '{{ home }}\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\dotPeek64.lnk'
     - target: 'C:\standalone\dotpeek\dotPeek64.exe'
-    - user: forensics
+    - user: {{ user }}
     - force: True
     - working_dir: 'C:\standalone\dotpeek\'
     - makedirs: True

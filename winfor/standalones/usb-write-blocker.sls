@@ -17,7 +17,7 @@ winfor-standalones-usb-write-blocker-shortcut:
   file.shortcut:
     - name: '{{ home }}\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\USB Write Blocker.lnk'
     - target: 'C:\standalone\USB-Write-Blocker_v1.2.exe'
-    - user: forensics
+    - user: {{ user }}
     - force: True
     - working_dir: 'C:\standalone\'
     - makedirs: True

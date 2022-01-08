@@ -41,7 +41,7 @@ zimmerman-{{ application }}-shortcut:
   file.shortcut:
     - name: '{{ home }}\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\{{ application }}.lnk'
     - target: 'C:\standalone\zimmerman\{{ application }}\{{ application }}.exe'
-    - user: forensics
+    - user: {{ user }}
     - force: True
     - working_dir: 'C:\standalone\zimmerman\{{ application }}\'
     - makedirs: True

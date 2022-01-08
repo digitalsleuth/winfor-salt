@@ -40,7 +40,7 @@ winfor-standalones-logparser-studio-shortcut:
   file.shortcut:
     - name: '{{ home }}\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\LogParser-Studio.lnk'
     - target: 'C:\standalone\logparser-studio\LPS.exe'
-    - user: forensics
+    - user: {{ user }}
     - force: True
     - working_dir: 'C:\standalone\logparser-studio'
     - makedirs: True

@@ -14,6 +14,8 @@ include:
   - winfor.standalones.autorunner
   - winfor.standalones.sleuthkit
   - winfor.standalones.logparser-studio
+  - winfor.standalones.exeinfope
+  - winfor.standalones.floss
 
 winfor-standalones:
   test.nop:
@@ -33,3 +35,5 @@ winfor-standalones:
       - sls: winfor.standalones.autorunner
       - sls: winfor.standalones.sleuthkit
       - sls: winfor.standalones.logparser-studio
+      - sls: winfor.standalones.exeinfope
+      - sls: winfor.standalones.floss

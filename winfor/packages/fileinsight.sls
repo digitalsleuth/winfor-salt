@@ -1,2 +1,2 @@
-vcforpython27:
+fileinsight:
   pkg.installed

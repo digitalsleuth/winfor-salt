@@ -51,7 +51,7 @@ winfor-standalones-autorunner-shortcut:
   file.shortcut:
     - name: '{{ home }}\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\AutoRunner.lnk'
     - target: 'C:\standalone\autorunner\autorunner.exe'
-    - user: forensics
+    - user: {{ user }}
     - force: True
     - working_dir: 'C:\standalone\autorunner\'
     - makedirs: True

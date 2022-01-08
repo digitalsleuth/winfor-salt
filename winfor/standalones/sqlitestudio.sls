@@ -29,7 +29,7 @@ winfor-standalones-sqlitestudio:
   file.shortcut:
     - name: '{{ home }}\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\SQLiteStudio.lnk'
     - target: 'C:\standalone\SQLiteStudio\SQLiteStudio.exe'
-    - user: forensics
+    - user: {{ user }}
     - force: True
     - working_dir: 'C:\standalone\SQLiteStudio\'
     - makedirs: True
