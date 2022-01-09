@@ -32,6 +32,7 @@ include:
   - winfor.packages.cerbero-suite
   - winfor.packages.ffdec
   - winfor.packages.fiddler
+  - winfor.packages.mdf-viewer
 
 winfor-packages:
   test.nop:
@@ -69,3 +70,4 @@ winfor-packages:
       - sls: winfor.packages.cerbero-suite
       - sls: winfor.packages.ffdec
       - sls: winfor.packages.fiddler
+      - sls: winfor.packages.mdf-viewer

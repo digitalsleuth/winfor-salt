@@ -1,0 +1,2 @@
+mdf-viewer:
+  pkg.installed
