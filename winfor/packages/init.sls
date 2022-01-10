@@ -33,6 +33,7 @@ include:
   - winfor.packages.ffdec
   - winfor.packages.fiddler
   - winfor.packages.mdf-viewer
+  - winfor.packages.ntfs-log-analyzer
 
 winfor-packages:
   test.nop:
@@ -71,3 +72,4 @@ winfor-packages:
       - sls: winfor.packages.ffdec
       - sls: winfor.packages.fiddler
       - sls: winfor.packages.mdf-viewer
+      - sls: winfor.packages.ntfs-log-analyzer

@@ -18,6 +18,7 @@ include:
   - winfor.standalones.floss
   - winfor.standalones.kansa
   - winfor.standalones.logviewer2
+  - winfor.standalones.officemalscanner
 
 winfor-standalones:
   test.nop:
@@ -41,3 +42,4 @@ winfor-standalones:
       - sls: winfor.standalones.floss
       - sls: winfor.standalones.kansa
       - sls: winfor.standalones.logviewer2
+      - sls: winfor.standalones.officemalscanner
