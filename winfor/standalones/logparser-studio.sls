@@ -1,10 +1,8 @@
 {% set hash = 'cf4e8fb1970230c0cb699324246d14b5406e284e566a1e06717d1b785b77c893' %}
-{% set user = salt['pillar.get']('winfor_user', 'forensics') %}
-{% set home = salt['user.info'](user).home %}
+{% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 include:
   - winfor.packages.logparser
-  - winfor.config.user
 
 logparser-studio-download:
   file.managed:
@@ -38,12 +36,10 @@ logparser-studio-env-vars:
 
 winfor-standalones-logparser-studio-shortcut:
   file.shortcut:
-    - name: '{{ home }}\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\LogParser-Studio.lnk'
+    - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\LogParser-Studio.lnk'
     - target: 'C:\standalone\logparser-studio\LPS.exe'
-    - user: {{ user }}
     - force: True
     - working_dir: 'C:\standalone\logparser-studio'
     - makedirs: True
     - require:
       - file: logparser-studio-rename
-      - user: winfor-user-{{ user }}

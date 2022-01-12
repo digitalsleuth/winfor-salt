@@ -26,14 +26,16 @@ include:
   - winfor.packages.apimonitor
   - winfor.packages.putty
   - winfor.packages.wireshark
-  - winfor.packages.strawberryperl_x64
+  - winfor.packages.strawberryperl
   - winfor.packages.fileinsight
   - winfor.packages.ntcore-explorersuite
   - winfor.packages.cerbero-suite
   - winfor.packages.ffdec
   - winfor.packages.fiddler
   - winfor.packages.mdf-viewer
-  - winfor.packages.ntfs-log-analyzer
+#  - winfor.packages.ntfs-log-analyzer Wants to download dotnet20 from a non-existent URL
+  - winfor.packages.process-hacker
+  - winfor.packages.systools-pst-viewer
 
 winfor-packages:
   test.nop:
@@ -65,11 +67,13 @@ winfor-packages:
       - sls: winfor.packages.apimonitor
       - sls: winfor.packages.putty
       - sls: winfor.packages.wireshark
-      - sls: winfor.packages.stawberryperl_x64
+      - sls: winfor.packages.strawberryperl
       - sls: winfor.packages.fileinsight
       - sls: winfor.packages.ntcore-explorersuite
       - sls: winfor.packages.cerbero-suite
       - sls: winfor.packages.ffdec
       - sls: winfor.packages.fiddler
       - sls: winfor.packages.mdf-viewer
-      - sls: winfor.packages.ntfs-log-analyzer
+#      - sls: winfor.packages.ntfs-log-analyzer
+      - sls: winfor.packages.process-hacker
+      - sls: winfor.packages.systools-pst-viewer

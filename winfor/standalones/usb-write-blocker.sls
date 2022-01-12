@@ -1,10 +1,6 @@
 {% set version = '1.2' %}
 {% set hash = '7b52d5b84310bfaec1f9cfb739e7b1c8731af1eb73d9ed4cfeb31bb7118ad2b0' %}
-{% set user = salt['pillar.get']('winfor_user', 'forensics') %}
-{% set home = salt['user.info'](user).home %}
-
-include:
-  - winfor.config.user
+{% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 winfor-standalones-usb-write-blocker:
   file.managed:
@@ -15,15 +11,13 @@ winfor-standalones-usb-write-blocker:
 
 winfor-standalones-usb-write-blocker-shortcut:
   file.shortcut:
-    - name: '{{ home }}\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\USB Write Blocker.lnk'
+    - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\USB Write Blocker.lnk'
     - target: 'C:\standalone\USB-Write-Blocker_v1.2.exe'
-    - user: {{ user }}
     - force: True
     - working_dir: 'C:\standalone\'
     - makedirs: True
     - require:
       - file: winfor-standalones-usb-write-blocker
-      - user: winfor-user-{{ user }}
 
 winfor-standalones-usb-write-blocker-env-vars:
   win_path.exists:

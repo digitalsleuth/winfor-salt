@@ -1,10 +1,6 @@
 {% set version = '2021.3.2' %}
 {% set hash = 'b50606c2af174072908207ca30530e0c644ea86e5a7cf9a3caa0490b025d07f6' %}
-{% set user = salt['pillar.get']('winfor_user', 'forensics') %}
-{% set home = salt['user.info'](user).home %}
-
-include:
-  - winfor.config.user
+{% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 dotpeek-download:
   file.managed:
@@ -21,12 +17,10 @@ dotpeek-env-vars:
 
 winfor-standalones-dotpeek-shortcut:
   file.shortcut:
-    - name: '{{ home }}\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\dotPeek64.lnk'
+    - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\dotPeek64.lnk'
     - target: 'C:\standalone\dotpeek\dotPeek64.exe'
-    - user: {{ user }}
     - force: True
     - working_dir: 'C:\standalone\dotpeek\'
     - makedirs: True
     - require:
       - file: dotpeek-download
-      - user: winfor-user-{{ user }}

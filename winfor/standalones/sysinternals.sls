@@ -1,4 +1,5 @@
 {% set hash = '0228f32824749cb3740d1fa001847e50273c7f38d4ef70cb0ff020c803b81ab3' %}
+{% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 sysinternals:
   file.managed:
@@ -12,7 +13,7 @@ sysinternals-extract:
     - name: 'C:\standalone\sysinternals\'
     - source: 'C:\salt\tempdownload\SysinternalsSuite.zip'
     - enforce_toplevel: false
-    - watch:
+    - require:
       - file: sysinternals
 
 sysinternals-env-vars:

@@ -2,7 +2,7 @@ officemalscanner-download:
   file.managed:
     - name: 'C:\salt\tempdownload\OfficeMalScanner.zip'
     - source: http://reconstructer.org/code/OfficeMalScanner.zip
-    - source_hash: d84bb67485ee73f7b1666b39ba01b80e31cf2021b85671dd036858053be65c1e
+    - source_hash: sha256=d84bb67485ee73f7b1666b39ba01b80e31cf2021b85671dd036858053be65c1e
     - makedirs: True
 
 officemalscanner-extract:

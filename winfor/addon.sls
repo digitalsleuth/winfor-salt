@@ -1,4 +1,5 @@
 include:
+  - winfor.config.user
   - winfor.repos
   - winfor.packages
   - winfor.installers
@@ -11,6 +12,7 @@ winfor-addon-version-file:
     - name: 'C:\ProgramData\Salt Project\Salt\srv\salt\winfor-version'
     - source: salt://winfor/VERSION
     - require:
+      - sls: winfor.config.user
       - sls: winfor.repos
       - sls: winfor.packages
       - sls: winfor.installers

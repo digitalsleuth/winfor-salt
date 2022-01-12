@@ -1,9 +1,8 @@
 {% set version = '2.2.1' %}
 {% set hash = '7460425d281455ef6f74e7262e09ee2d86ef8b0754cade399044fc67e5561854' %}
-{% set user = salt['pillar.get']('winfor_user', 'forensics') %}
-{% set home = salt['user.info'](user).home %}
+{% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
-eventfinder:
+eventfinder-download:
   file.managed:
     - name: 'C:\standalone\eventfinder\EventFinder.exe'
     - source: https://github.com/BeanBagKing/EventFinder2/releases/download/{{ version }}/EventFinder.exe
@@ -17,13 +16,11 @@ eventfinder-env-vars:
 
 winfor-standalones-eventfinder-shortcut:
   file.shortcut:
-    - name: '{{ home }}\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\EventFinder.lnk'
+    - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\EventFinder.lnk'
     - target: 'C:\standalone\eventfinder\eventfinder.exe'
-    - user: {{ user }}
     - force: True
     - working_dir: 'C:\standalone\eventfinder\'
     - makedirs: True
     - require:
       - file: eventfinder-download
-      - user: winfor-user-{{ user }}
 

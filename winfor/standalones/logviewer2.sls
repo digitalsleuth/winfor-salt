@@ -1,8 +1,4 @@
-{% set user = salt['pillar.get']('winfor_user', 'forensics') %}
-{% set home = salt['user.info'](user).home %}
-
-include:
-  - winfor.config.user
+{% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 logviewer2-download:
   file.managed:
@@ -25,13 +21,11 @@ logviewer2-env-vars:
 
 logviewer2-shortcut:
   file.shortcut:
-    - name: '{{ home }}\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\LogViewer2.lnk'
+    - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\LogViewer2.lnk'
     - target: 'C:\standalone\logviewer2\LogViewer2.exe'
-    - user: {{ user }}
     - force: True
     - working_dir: 'C:\standalone\logviewer2\'
     - makedirs: True
     - require:
       - file: logviewer2-download
       - archive: logviewer2-extracted
-      - user: winfor-user-{{ user }}

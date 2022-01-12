@@ -1,18 +1,15 @@
-{%- set user = salt['pillar.get']('winfor_user', 'forensics') -%}
-{%- set home = salt['user.info'](user).home -%}
-
 {%-
 set pdfs = [
   {
     "id": "poster-threat-intelligence",
     "filename": "Poster_Threat-Intelligence-Consumption.pdf",
-    "source": "https://sansorg.egnyte.com/dd/J9LzMylMxs",
+    "source": "https://sansorg.egnyte.com/dd/Kv1u35ehkT/",
     "hash": "02f71ad97ece95e9bea61db31fe026b7b6c7e04a2a1f3257b51ace3153e88d59",
   },
   {
     "id": "poster-network-forensics",
     "filename": "Network-Forensics-Poster.pdf",
-    "source": "https://sansorg.egnyte.com/dd/hZjkv5VupH/",
+    "source": "https://sansorg.egnyte.com/dd/RECKXsBCES",
     "hash": "66ba6fb482b9f2c1ad9da5b8c379b1acff14dbd96bf6bf1046f39a4960e56b3c",
   },
   {
@@ -30,7 +27,7 @@ set pdfs = [
   {
     "id": "poster-windows-forensics",
     "filename": "Windows-Forensics-Poster.pdf",
-    "source": "https://sansorg.egnyte.com/dd/ZnYMsGaUaD/",
+    "source": "https://sansorg.egnyte.com/dd/Rh1SFTroAv/",
     "hash": "a835554f0354cbddf98f333c8c860e43504adf45fadffadd8d4e6468ffcf8d2c"
   },
   {
@@ -42,13 +39,13 @@ set pdfs = [
   {
     "id": "poster-zimmerman-tools",
     "filename": "Zimmerman-Tools-Poster.pdf",
-    "source": "https://sansorg.egnyte.com/dd/l96Cpf39jx/",
+    "source": "https://sansorg.egnyte.com/dd/XMBjKDwlN4",
     "hash": "8cbc02298b743217ffebd5887787d7bad7b4ea30715f9a74715aa31c41f8b7cc"
   },
   {
     "id": "poster-hunt-evil",
     "filename": "Hunt-Evil.pdf",
-    "source": "https://sansorg.egnyte.com/dd/ylr96kbkB6/",
+    "source": "https://sansorg.egnyte.com/dd/ZkAyckjFTI",
     "hash": "74fea603f50e389667a341c4d77ac6bd511f7b841d836edd640889b963ea0753"
   },
   {
@@ -78,18 +75,12 @@ set pdfs = [
 ]
 -%}
 
-include:
-  - winfor.config.user
-
 {% for pdf in pdfs %}
 winfor-pdf-{{ pdf.id }}:
   file.managed:
-    - name: {{ home }}\\Desktop\\References\\{{ pdf.filename }}
+    - name: 'C:\standalone\References\{{ pdf.filename }}'
     - source: {{ pdf.source }}
     - source_hash: sha256={{ pdf.hash }}
-    - user: {{ user }}
     - makedirs: True
     - show_changes: False
-    - require:
-      - user: winfor-user-{{ user }}
 {% endfor %}

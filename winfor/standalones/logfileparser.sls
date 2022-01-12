@@ -1,9 +1,7 @@
-{% set user = salt['pillar.get']('winfor_user', 'forensics') %}
-{% set home = salt['user.info'](user).home %}
+{% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 include:
   - winfor.packages.git
-  - winfor.config.user
 
 winfor-standalones-logfileparser:
   git.latest:
@@ -21,12 +19,10 @@ logfileparser-env-vars:
 
 winfor-standalones-logfileparser-shortcut:
   file.shortcut:
-    - name: '{{ home }}\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\LogFileParser64.lnk'
+    - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\LogFileParser64.lnk'
     - target: 'C:\standalone\logfileparser\LogFileParser64.exe'
-    - user: {{ user }}
     - force: True
     - working_dir: 'C:\standalone\logfileparser'
     - makedirs: True
     - require:
       - git: winfor-standalones-logfileparser
-      - user: winfor-user-{{ user }}

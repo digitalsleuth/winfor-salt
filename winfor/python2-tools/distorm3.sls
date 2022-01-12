@@ -10,7 +10,7 @@ distorm3-download:
 
 distorm3-install:
   cmd.run:
-    - name: 'py -2 -m easy_install C:\salt\tempdownload\distorm3-3.3.4.win-amd64.exe'
+    - name: 'C:\Python27\python.exe -m easy_install C:\salt\tempdownload\distorm3-3.3.4.win-amd64.exe'
     - shell: cmd
     - require:
       - sls: winfor.packages.python2

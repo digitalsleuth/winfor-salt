@@ -1,3 +1,5 @@
+{% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+
 ollydbg201h-download:
   file.managed:
     - name: 'C:\salt\tempdownload\odbg201h.rar'

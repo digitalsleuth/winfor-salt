@@ -1,8 +1,4 @@
-{% set user = salt['pillar.get']('winfor_user', 'forensics') %}
-{% set home = salt['user.info'](user).home %}
-
-include:
-  - winfor.config.user
+{% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 bintext-download:
   file.managed:
@@ -25,12 +21,10 @@ bintext-env-vars:
 
 winfor-standalones-bintext-shortcut:
   file.shortcut:
-    - name: '{{ home }}\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\BinText.lnk'
+    - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\BinText.lnk'
     - target: 'C:\standalone\bintext\bintext.exe'
-    - user: {{ user }}
     - force: True
     - working_dir: 'C:\standalone\bintext\'
     - makedirs: True
     - require:
       - archive: bintext-extract
-      - user: winfor-user-{{ user }}

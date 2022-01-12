@@ -1,2 +1,7 @@
+include:
+  - winfor.installers.dotnetfx35
+
 ntfs-log-analyzer:
-  pkg.installed
+  pkg.installed:
+    - require:
+      - sls: winfor.installers.dotnetfx35

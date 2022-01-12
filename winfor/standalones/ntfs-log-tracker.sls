@@ -1,3 +1,5 @@
+{% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+
 ntfs-log-tracker-download:
   file.managed:
     - name: 'C:\salt\tempdownload\ntfs-log-tracker-v1.7.zip'
@@ -19,13 +21,11 @@ ntfs-log-tracker-env-vars:
 
 winfor-standalones-ntfs-log-tracker-shortcut:
   file.shortcut:
-    - name: '{{ home }}\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\NTFS-Log-Tracker.lnk'
+    - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\NTFS-Log-Tracker.lnk'
     - target: 'C:\standalone\ntfs-log-tracker\NTFS_Log_Tracker.exe'
-    - user: {{ user }}
     - force: True
     - working_dir: 'C:\standalone\ntfs-log-tracker\'
     - makedirs: True
     - require:
       - file: ntfs-log-tracker-download
       - archive: ntfs-log-tracker-extract
-      - user: winfor-user-{{ user }}

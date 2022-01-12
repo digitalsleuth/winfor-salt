@@ -5,12 +5,10 @@
 # Author: Harlan Carvey
 # License: MIT License (https://github.com/keydet89/RegRipper3.0/blob/master/license.md)
 # Notes: rr.exe
-{% set user = salt['pillar.get']('winfor_user', 'forensics') %}
-{% set home = salt['user.info'](user).home %}
+{% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 include:
   - winfor.packages.git
-  - winfor.config.user
 
 winfor-standalones-regripper:
   git.latest:
@@ -28,12 +26,10 @@ regripper-env-vars:
 
 winfor-standalones-regripper-shortcut:
   file.shortcut:
-    - name: '{{ home }}\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\RegRipper.lnk'
+    - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\RegRipper.lnk'
     - target: 'C:\standalone\regripper\rr.exe'
-    - user: {{ user }}
     - force: True
     - working_dir: 'C:\standalone\regripper\'
     - makedirs: True
     - require:
       - git: winfor-standalones-regripper
-      - user: winfor-user-{{ user }}

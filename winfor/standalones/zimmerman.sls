@@ -1,10 +1,6 @@
 {% set hash = 'E11F6E38C1B82B05B23077984DFDC6A0F04DF4A27A5613837B3CFBEDB7DF4A11' %}
-{% set user = salt['pillar.get']('winfor_user', 'forensics') %}
-{% set home = salt['user.info'](user).home %}
+{% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set applications = ['EZViewer','Hasher','JumpListExplorer','MFTExplorer','RegistryExplorer','SDBExplorer','ShellBagsExplorer','TimelineExplorer'] %}
-
-include:
-  - winfor.config.user
 
 zimmerman-tools:
   file.managed:
@@ -39,13 +35,11 @@ zimmerman-env-vars:
 {% for application in applications %}
 zimmerman-{{ application }}-shortcut:
   file.shortcut:
-    - name: '{{ home }}\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\{{ application }}.lnk'
+    - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\{{ application }}.lnk'
     - target: 'C:\standalone\zimmerman\{{ application }}\{{ application }}.exe'
-    - user: {{ user }}
     - force: True
     - working_dir: 'C:\standalone\zimmerman\{{ application }}\'
     - makedirs: True
     - require:
       - cmd: zimmerman-tools-download
-      - user: winfor-user-{{ user }}
 {% endfor %}

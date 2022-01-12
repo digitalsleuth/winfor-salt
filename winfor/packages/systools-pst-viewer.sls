@@ -1,2 +1,2 @@
-mdf-viewer:
+pst-viewer:
   pkg.installed

@@ -1,8 +1,4 @@
-{% set user = salt['pillar.get']('winfor_user', 'forensics') %}
-{% set home = salt['user.info'](user).home %}
-
-include:
-  - winfor.config.user
+{% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 exeinfope-download:
   file.managed:
@@ -25,13 +21,11 @@ exeinfope-env-vars:
 
 winfor-standalones-exeinfope-shortcut:
   file.shortcut:
-    - name: '{{ home }}\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\ExeInfoPE.lnk'
+    - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\ExeInfoPE.lnk'
     - target: 'C:\standalone\ExeinfoPe\exeinfope.exe'
-    - user: {{ user }}
     - force: True
     - working_dir: 'C:\standalone\ExeinfoPe\'
     - makedirs: True
     - require:
       - file: exeinfope-download
       - archive: exeinfope-extract
-      - user: winfor-user-{{ user }}

@@ -19,6 +19,8 @@ include:
   - winfor.standalones.kansa
   - winfor.standalones.logviewer2
   - winfor.standalones.officemalscanner
+  - winfor.standalones.pestudio
+  - winfor.standalones.cutter
 
 winfor-standalones:
   test.nop:
@@ -43,3 +45,5 @@ winfor-standalones:
       - sls: winfor.standalones.kansa
       - sls: winfor.standalones.logviewer2
       - sls: winfor.standalones.officemalscanner
+      - sls: winfor.standalones.pestudio
+      - sls: winfor.standalones.cutter

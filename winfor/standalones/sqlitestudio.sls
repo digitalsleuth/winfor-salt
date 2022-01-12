@@ -1,10 +1,6 @@
 {% set version = '3.3.3' %}
 {% set hash = 'da888b08b075c71999002b903757d7842746925d8092c00efbd11fc594192494' %}
-{% set user = salt['pillar.get']('winfor_user', 'forensics') %}
-{% set home = salt['user.info'](user).home %}
-
-include:
-  - winfor.config.user
+{% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 sqlitestudio-download:
   file.managed:
@@ -27,12 +23,10 @@ sqlitestudio-env-vars:
 
 winfor-standalones-sqlitestudio:
   file.shortcut:
-    - name: '{{ home }}\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\SQLiteStudio.lnk'
+    - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\SQLiteStudio.lnk'
     - target: 'C:\standalone\SQLiteStudio\SQLiteStudio.exe'
-    - user: {{ user }}
     - force: True
     - working_dir: 'C:\standalone\SQLiteStudio\'
     - makedirs: True
     - require:
       - archive: sqlitestudio-extract
-      - user: winfor-user-{{ user }}

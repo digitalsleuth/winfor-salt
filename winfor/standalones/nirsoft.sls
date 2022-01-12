@@ -1,5 +1,6 @@
 {% set version = '1.23.55' %}
 {% set hash = '8436e9640a67606f3d97281712647c3ff8250472988adf9c5dade557902252f2' %}
+{% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 nirsoft:
   cmd.run:
