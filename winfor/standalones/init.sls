@@ -21,6 +21,9 @@ include:
   - winfor.standalones.officemalscanner
   - winfor.standalones.pestudio
   - winfor.standalones.cutter
+  - winfor.standalones.regshot
+  - winfor.standalones.scylla
+  - winfor.standalones.srum-dump2
 
 winfor-standalones:
   test.nop:
@@ -47,3 +50,6 @@ winfor-standalones:
       - sls: winfor.standalones.officemalscanner
       - sls: winfor.standalones.pestudio
       - sls: winfor.standalones.cutter
+      - sls: winfor.standalones.regshot
+      - sls: winfor.standalones.scylla
+      - sls: winfor.standalones.srum-dump2
