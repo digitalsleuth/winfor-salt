@@ -4,6 +4,8 @@ include:
   - winfor.python3-tools.autotimeliner
   - winfor.python3-tools.bitsparser
   - winfor.python3-tools.noriben
+  - winfor.python3-tools.usbdeviceforensics
+  - winfor.python3-tools.pcodedmp
 
 winfor-python3-tools:
   test.nop:
@@ -13,3 +15,5 @@ winfor-python3-tools:
       - sls: winfor.python3-tools.autotimeliner
       - sls: winfor.python3-tools.bitsparser
       - sls: winfor.python3-tools.noriben
+      - sls: winfor.python3-tools.usbdeviceforensics
+      - sls: winfor.python3-tools.pcodedmp

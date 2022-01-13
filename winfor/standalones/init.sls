@@ -24,6 +24,8 @@ include:
   - winfor.standalones.regshot
   - winfor.standalones.scylla
   - winfor.standalones.srum-dump2
+  - winfor.standalones.ssview
+  - winfor.standalones.setdllcharacteristics
 
 winfor-standalones:
   test.nop:
@@ -53,3 +55,5 @@ winfor-standalones:
       - sls: winfor.standalones.regshot
       - sls: winfor.standalones.scylla
       - sls: winfor.standalones.srum-dump2
+      - sls: winfor.standalones.ssview
+      - sls: winfor.standalones.setdllcharacteristics

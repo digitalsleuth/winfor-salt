@@ -7,6 +7,15 @@ srum-dump2-download:
     - source_hash: sha256=a823b413565338a205623da6e4a6e065a908a345cc4ef31f3cb1d28dd1ddee7b
     - makedirs: True
 
+srum-dump2-template-download:
+  file.managed:
+    - name: 'C:\standalone\srum-dump2\SRUM_TEMPLATE2.xlsx'
+    - source: https://github.com/MarkBaggett/srum-dump/raw/master/SRUM_TEMPLATE2.xlsx
+    - source_hash: sha256=b05e6ef490e50c45d779bdaf0b5ca63f038e787cf84ba86708ab6fafd8911ee2
+    - makedirs: True
+    - require:
+      - file: srum-dump2-download
+
 srum-dump2-env-vars:
   win_path.exists:
     - name: 'C:\standalone\srum-dump2\'
@@ -20,4 +29,4 @@ winfor-standalones-srum-dump2-shortcut:
     - makedirs: True
     - require:
       - file: srum-dump2-download
-
+      - file: srum-dump2-template-download
