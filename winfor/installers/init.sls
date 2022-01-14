@@ -8,6 +8,8 @@ include:
   - winfor.installers.cygwin
   - winfor.installers.windows-sandbox
   - winfor.installers.redline
+  - winfor.installers.windbg
+  - winfor.installers.vbdecompiler
   
 winfor-installers:
   test.nop:
@@ -21,3 +23,5 @@ winfor-installers:
       - sls: winfor.installers.cygwin
       - sls: winfor.installers.windows-sandbox
       - sls: winfor.installers.redline
+      - sls: winfor.installers.windbg
+      - sls: winfor.installers.vbdecompiler

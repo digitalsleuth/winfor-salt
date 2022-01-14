@@ -26,6 +26,9 @@ include:
   - winfor.standalones.srum-dump2
   - winfor.standalones.ssview
   - winfor.standalones.setdllcharacteristics
+  - winfor.standalones.pilfer
+  - winfor.standalones.vssmount
+  - winfor.standalones.bytecode-viewer
 
 winfor-standalones:
   test.nop:
@@ -57,3 +60,6 @@ winfor-standalones:
       - sls: winfor.standalones.srum-dump2
       - sls: winfor.standalones.ssview
       - sls: winfor.standalones.setdllcharacteristics
+      - sls: winfor.standalones.pilfer
+      - sls: winfor.standalones.vssmount
+      - sls: winfor.standalones.bytecode-viewer

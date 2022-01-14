@@ -6,6 +6,7 @@ include:
   - winfor.python3-tools.noriben
   - winfor.python3-tools.usbdeviceforensics
   - winfor.python3-tools.pcodedmp
+  - winfor.python3-tools.iptools
 
 winfor-python3-tools:
   test.nop:
@@ -17,3 +18,4 @@ winfor-python3-tools:
       - sls: winfor.python3-tools.noriben
       - sls: winfor.python3-tools.usbdeviceforensics
       - sls: winfor.python3-tools.pcodedmp
+      - sls: winfor.python3-tools.iptools
