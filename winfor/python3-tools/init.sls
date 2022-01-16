@@ -7,6 +7,8 @@ include:
   - winfor.python3-tools.usbdeviceforensics
   - winfor.python3-tools.pcodedmp
   - winfor.python3-tools.iptools
+  - winfor.python3-tools.pyinstxtractor
+#  - winfor.python3-tools.decompyle3 - Doesn't support Py 3.10 yet
 
 winfor-python3-tools:
   test.nop:
@@ -19,3 +21,5 @@ winfor-python3-tools:
       - sls: winfor.python3-tools.usbdeviceforensics
       - sls: winfor.python3-tools.pcodedmp
       - sls: winfor.python3-tools.iptools
+      - sls: winfor.python3-tools.pyinstxtractor
+#      - sls: winfor.python3-tools.decompyle3 - Doesn't support Py 3.10 yet

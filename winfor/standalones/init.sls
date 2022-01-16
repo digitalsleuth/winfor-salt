@@ -29,6 +29,21 @@ include:
   - winfor.standalones.pilfer
   - winfor.standalones.vssmount
   - winfor.standalones.bytecode-viewer
+  - winfor.standalones.dex2jar
+  - winfor.standalones.autoit-extractor
+  - winfor.standalones.unautoit
+  - winfor.standalones.die
+  - winfor.standalones.pe-bear
+  - winfor.standalones.mal-unpack
+  - winfor.standalones.hollows-hunter
+  - winfor.standalones.pe-sieve
+  - winfor.standalones.resource-hacker
+  - winfor.standalones.silketw
+  - winfor.standalones.upx
+  - winfor.standalones.peid
+  - winfor.standalones.py2exedecompiler
+  - winfor.standalones.uniextract2
+  - winfor.standalones.innounp
 
 winfor-standalones:
   test.nop:
@@ -63,3 +78,18 @@ winfor-standalones:
       - sls: winfor.standalones.pilfer
       - sls: winfor.standalones.vssmount
       - sls: winfor.standalones.bytecode-viewer
+      - sls: winfor.standalones.dex2jar
+      - sls: winfor.standalones.autoit-extractor
+      - sls: winfor.standalones.unautoit
+      - sls: winfor.standalones.die
+      - sls: winfor.standalones.pe-bear
+      - sls: winfor.standalones.mal-unpack
+      - sls: winfor.standalones.hollows-hunter
+      - sls: winfor.standalones.pe-sieve
+      - sls: winfor.standalones.resource-hacker
+      - sls: winfor.standalones.silketw
+      - sls: winfor.standalones.upx
+      - sls: winfor.standalones.peid
+      - sls: winfor.standalones.py2exedecompiler
+      - sls: winfor.standalones.uniextract2
+      - sls: winfor.standalones.innounp
