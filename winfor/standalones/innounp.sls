@@ -12,7 +12,7 @@ innounp-download:
 
 innounp-extract:
   cmd.run:
-    - name: '7z x C:\salt\tempdownload\innounp050.rar -oC:\standalone\innounp'
+    - name: '"C:\Program Files\7-Zip\7z.exe" x C:\salt\tempdownload\innounp050.rar -oC:\standalone\innounp'
     - shell: cmd
     - require:
       - file: innounp-download

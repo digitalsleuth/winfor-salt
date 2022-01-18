@@ -24,6 +24,6 @@ mobaxterm-install:
 
 mobaxterm-del-shortcut:
   file.absent:
-    - name: 'C:\Users\Public\Desktop\MobaXTerm.lnk'
+    - name: 'C:\Users\Public\Desktop\MobaXterm.lnk'
     - require:
       - cmd: mobaxterm-install

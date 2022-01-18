@@ -1,2 +1,0 @@
-pst-viewer:
-  pkg.installed

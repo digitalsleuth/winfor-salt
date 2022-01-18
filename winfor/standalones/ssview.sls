@@ -4,7 +4,7 @@ ssview-download:
   file.managed:
     - name: 'C:\salt\tempdownload\SSView.zip'
     - source: http://mitec.cz/Downloads/SSView.zip
-    - source_hash: sha256=59b8894889d39e7299d139010cd87c23031667ffa29c543679cd0ba953432d7f
+    - source_hash: sha256=8ceb003a88ed985b772accb81551577ce363f268fe14ef23ec47f912b1abe111
     - makedirs: True
 
 ssview-extract:

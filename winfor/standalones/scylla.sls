@@ -12,7 +12,7 @@ scylla-download:
 
 scylla-extract:
   cmd.run:
-    - name: '7z x C:\salt\tempdownload\Scylla_v0.9.8.rar -oC:\standalone\scylla'
+    - name: '"C:\Program Files\7-Zip\7z.exe" x C:\salt\tempdownload\Scylla_v0.9.8.rar -oC:\standalone\scylla'
     - shell: cmd
     - require:
       - file: scylla-download

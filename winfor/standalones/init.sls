@@ -44,6 +44,9 @@ include:
   - winfor.standalones.py2exedecompiler
   - winfor.standalones.uniextract2
   - winfor.standalones.innounp
+  - winfor.standalones.innoextract
+  - winfor.standalones.ppee
+  - winfor.standalones.myaut2exe
 
 winfor-standalones:
   test.nop:
@@ -93,3 +96,6 @@ winfor-standalones:
       - sls: winfor.standalones.py2exedecompiler
       - sls: winfor.standalones.uniextract2
       - sls: winfor.standalones.innounp
+      - sls: winfor.standalones.innoextract
+      - sls: winfor.standalones.ppee
+      - sls: winfor.standalones.myaut2exe

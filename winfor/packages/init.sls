@@ -35,7 +35,6 @@ include:
   - winfor.packages.mdf-viewer
 #  - winfor.packages.ntfs-log-analyzer Wants to download dotnet20 from a non-existent URL
   - winfor.packages.process-hacker
-  - winfor.packages.systools-pst-viewer
 
 winfor-packages:
   test.nop:
@@ -76,4 +75,3 @@ winfor-packages:
       - sls: winfor.packages.mdf-viewer
 #      - sls: winfor.packages.ntfs-log-analyzer
       - sls: winfor.packages.process-hacker
-      - sls: winfor.packages.systools-pst-viewer
