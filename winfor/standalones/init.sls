@@ -47,6 +47,8 @@ include:
   - winfor.standalones.innoextract
   - winfor.standalones.ppee
   - winfor.standalones.myaut2exe
+  - winfor.standalones.malcat
+  - winfor.standalones.lessmsi
 
 winfor-standalones:
   test.nop:
@@ -99,3 +101,5 @@ winfor-standalones:
       - sls: winfor.standalones.innoextract
       - sls: winfor.standalones.ppee
       - sls: winfor.standalones.myaut2exe
+      - sls: winfor.standalones.malcat
+      - sls: winfor.standalones.lessmsi

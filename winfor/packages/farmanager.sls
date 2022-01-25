@@ -1,0 +1,2 @@
+farmanager:
+  pkg.installed
