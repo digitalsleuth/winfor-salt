@@ -49,6 +49,7 @@ include:
   - winfor.standalones.myaut2exe
   - winfor.standalones.malcat
   - winfor.standalones.lessmsi
+  - winfor.standalones.offvis
 
 winfor-standalones:
   test.nop:
@@ -103,3 +104,4 @@ winfor-standalones:
       - sls: winfor.standalones.myaut2exe
       - sls: winfor.standalones.malcat
       - sls: winfor.standalones.lessmsi
+      - sls: winfor.standalones.offvis

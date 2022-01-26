@@ -1,5 +1,5 @@
 include:
-  - winfor.python2-tools.pycrypto
+  - winfor.python2-tools.pycryptodome
   - winfor.python2-tools.distorm3
 
 volatility:
@@ -7,7 +7,7 @@ volatility:
     - name: git+https://github.com/volatilityfoundation/volatility
     - bin_env: 'C:\Python27\python.exe'
     - require:
-      - sls: winfor.python2-tools.pycrypto
+      - sls: winfor.python2-tools.pycryptodome
       - sls: winfor.python2-tools.distorm3
 
 volatility2-wrapper:

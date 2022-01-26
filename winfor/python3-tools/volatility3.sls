@@ -1,5 +1,7 @@
 include:
   - winfor.packages.python3
+  - winfor.python3-tools.pycryptodome
+  - winfor.python3-tools.yara-python
 
 volatility3:
   pip.installed:
@@ -7,40 +9,26 @@ volatility3:
     - bin_env: 'C:\Program Files\Python310\python.exe'
     - require:
       - sls: winfor.packages.python3
+      - sls: winfor.python3-tools.pycryptodome
+      - sls: winfor.python3-tools.yara-python
 
-volatility3-rename-1:
-  file.rename:
-    - name: 'C:\Program Files\Python310\Scripts\vol3.exe'
-    - source: 'C:\Program Files\Python310\Scripts\vol.exe'
-    - force: True
-    - makedirs: True
+volatility3-wrapper:
+  file.managed:
+    - name: 'C:\Program Files\Python310\Scripts\vol3.cmd'
+    - win_inheritance: True
+    - contents:
+      - '@echo off'
+      - '"C:\Program Files\Python310\Scripts\vol.exe" %*'
     - require:
       - pip: volatility3
 
-volatility3-rename-2:
-  file.rename:
-    - name: 'C:\Program Files\Python310\Scripts\vol3shell.exe'
-    - source: 'C:\Program Files\Python310\Scripts\volshell.exe'
-    - force: True
-    - makedirs: True
-    - require:
-      - pip: volatility3
-
-volatility3-rename-3:
-  file.rename:
-    - name: 'C:\Program Files\Python310\Scripts\vol3-script.py'
-    - source: 'C:\Program Files\Python310\Scripts\vol-script.py'
-    - force: True
-    - makedirs: True
-    - require:
-      - pip: volatility3
-
-volatility3-rename-4:
-  file.rename:
-    - name: 'C:\Program Files\Python310\Scripts\vol3shell-script.py'
-    - source: 'C:\Program Files\Python310\Scripts\volshell-script.py'
-    - force: True
-    - makedirs: True
+volatility3-shell-wrapper:
+  file.managed:
+    - name: 'C:\Program Files\Python310\Scripts\volshell3.cmd'
+    - win_inheritance: True
+    - contents:
+      - '@echo off'
+      - '"C:\Program Files\Python310\Scripts\volshell.exe" %*'
     - require:
       - pip: volatility3
 

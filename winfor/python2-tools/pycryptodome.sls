@@ -1,7 +1,7 @@
 include:
   - winfor.packages.vcforpython27
 
-pycrypto:
+pycryptodome:
   pip.installed:
     - bin_env: 'C:\Python27\python.exe'
     - require:
