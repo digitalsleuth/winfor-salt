@@ -6,6 +6,7 @@ include:
   - winfor.standalones
   - winfor.python2-tools
   - winfor.python3-tools
+  - winfor.cleanup
 
 winfor-addon-version-file:
   file.managed:
@@ -19,3 +20,4 @@ winfor-addon-version-file:
       - sls: winfor.standalones
       - sls: winfor.python2-tools
       - sls: winfor.python3-tools
+      - sls: winfor.cleanup

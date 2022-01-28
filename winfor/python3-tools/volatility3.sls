@@ -1,6 +1,6 @@
 include:
   - winfor.packages.python3
-  - winfor.python3-tools.pycryptodome
+  - winfor.python3-tools.py3-pycryptodome
   - winfor.python3-tools.yara-python
 
 volatility3:
@@ -9,7 +9,7 @@ volatility3:
     - bin_env: 'C:\Program Files\Python310\python.exe'
     - require:
       - sls: winfor.packages.python3
-      - sls: winfor.python3-tools.pycryptodome
+      - sls: winfor.python3-tools.py3-pycryptodome
       - sls: winfor.python3-tools.yara-python
 
 volatility3-wrapper:
@@ -85,7 +85,3 @@ volatility3-mac-symbols-extract:
     - enforce_toplevel: False
     - require:
       - file: volatility3-symbols-folder
-
-volatility3-env-vars:
-  win_path.exists:
-    - name: 'C:\Program Files\Python310\Scripts\'

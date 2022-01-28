@@ -18,7 +18,7 @@ autotimeliner-env:
   file.replace:
     - name: 'C:\Program Files\Python310\Scripts\autotimeliner.py'
     - pattern: '#!/usr/bin/env python$'
-    - repl: '#!/usr/bin/env python3'
+    - repl: '#!/usr/bin/python3'
     - count: 1
     - require:
       - file: autotimeliner-download

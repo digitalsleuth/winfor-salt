@@ -11,7 +11,7 @@ cutter-download:
 
 cutter-extract:
   archive.extracted:
-    - name: 'C:\standalone\cutter'
+    - name: 'C:\standalone\'
     - source: 'C:\salt\tempdownload\Cutter-v{{ version }}-x64.Windows.zip'
     - enforce_toplevel: False
     - require:

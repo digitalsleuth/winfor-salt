@@ -1,2 +1,21 @@
+{% set user = salt['pillar.get']('winfor_user', 'forensics') %}
+{% set all_users = salt['user.list_users']() %}
+{% if user in all_users %}
+  {% set home = salt['user.info'](user).home %}
+{% else %}
+{% set home = "C:\\Users\\" + user %}
+
+include:
+  - winfor.config.user
+
 free-hex-editor-neo:
   pkg.installed
+
+free-hex-editor-icon:
+  file.absent:
+    - name: '{{ home }}\Desktop\Hex Editor Neo.lnk'
+    - require:
+      - user: winfor-user-{{ user }}
+      - pkg: free-hex-editor-neo
+
+{% endif %}

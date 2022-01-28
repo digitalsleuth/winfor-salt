@@ -9,3 +9,6 @@ python3-wheel:
     - require:
       - pkg: python3_x64
 
+python3-env-vars:
+  win_path.exists:
+    - name: 'C:\Program Files\Python310\Scripts\'

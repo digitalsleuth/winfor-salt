@@ -1,4 +1,4 @@
-{% set hash = 'E11F6E38C1B82B05B23077984DFDC6A0F04DF4A27A5613837B3CFBEDB7DF4A11' %}
+{% set hash = '7864ce0ab57e3831bad24f56abc1c9c6796a552091d2f49262e66565e66c0447' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set applications = ['EZViewer','Hasher','JumpListExplorer','MFTExplorer','RegistryExplorer','SDBExplorer','ShellBagsExplorer','TimelineExplorer'] %}
 

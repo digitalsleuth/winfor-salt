@@ -1,4 +1,4 @@
-{% set hash = '0228f32824749cb3740d1fa001847e50273c7f38d4ef70cb0ff020c803b81ab3' %}
+{% set hash = '6e980fa065e604ce323fde6c85452c81483d156f2307a7a194bcf61e2d2abc8b' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 sysinternals:

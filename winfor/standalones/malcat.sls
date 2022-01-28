@@ -4,7 +4,7 @@ malcat-download:
   file.managed:
     - name: 'C:\salt\tempdownload\malcat_win64_lite.zip'
     - source: https://malcat.fr/latest/malcat_win64_lite.zip
-    - source_hash: sha256=e3c334f41e5fa7bf6ab538b3ae488ca93452c2f7e73091ffb80ca3d798cde4b9
+    - source_hash: sha256=bb8d41af8b374eb760ad52de039c8b23652796f13769dd0e3dd4a58355b2ff7a
     - makedirs: True
 
 malcat-extract:
