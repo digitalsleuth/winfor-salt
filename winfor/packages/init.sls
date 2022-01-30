@@ -37,6 +37,7 @@ include:
   - winfor.packages.process-hacker
   - winfor.packages.free-hex-editor-neo
   - winfor.packages.farmanager
+  - winfor.packages.pdfstreamdumper
 
 winfor-packages:
   test.nop:
@@ -79,3 +80,4 @@ winfor-packages:
       - sls: winfor.packages.process-hacker
       - sls: winfor.packages.free-hex-editor-neo
       - sls: winfor.packages.farmanager
+      - sls: winfor.packages.pdfstreamdumper

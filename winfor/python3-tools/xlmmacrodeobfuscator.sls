@@ -1,7 +1,7 @@
 include:
   - winfor.packages.python3
 
-oletools:
+XLMMacroDeobfuscator:
   pip.installed:
     - bin_env: 'C:\Program Files\Python310\python.exe'
     - require:

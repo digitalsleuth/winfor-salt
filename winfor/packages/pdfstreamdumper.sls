@@ -1,0 +1,2 @@
+pdfstreamdumper:
+  pkg.installed
