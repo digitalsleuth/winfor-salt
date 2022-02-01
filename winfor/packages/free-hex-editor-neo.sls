@@ -4,6 +4,7 @@
   {% set home = salt['user.info'](user).home %}
 {% else %}
 {% set home = "C:\\Users\\" + user %}
+{% endif %}
 
 include:
   - winfor.config.user
@@ -17,5 +18,3 @@ free-hex-editor-icon:
     - require:
       - user: winfor-user-{{ user }}
       - pkg: free-hex-editor-neo
-
-{% endif %}
