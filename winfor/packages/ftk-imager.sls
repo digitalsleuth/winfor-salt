@@ -1,2 +1,2 @@
-farmanager:
+ftk-imager:
   pkg.installed

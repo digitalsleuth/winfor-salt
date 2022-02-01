@@ -5,6 +5,7 @@ include:
   - winfor.packages.firefox
   - winfor.packages.chrome
   - winfor.packages.registry-viewer
+  - winfor.packages.ftk-imager
   - winfor.packages.httplogbrowser
   - winfor.packages.db-browser-sqlite
   - winfor.packages.bulk-extractor
@@ -33,11 +34,11 @@ include:
   - winfor.packages.ffdec
   - winfor.packages.fiddler
   - winfor.packages.mdf-viewer
-#  - winfor.packages.ntfs-log-analyzer Wants to download dotnet20 from a non-existent URL
   - winfor.packages.process-hacker
   - winfor.packages.free-hex-editor-neo
   - winfor.packages.farmanager
   - winfor.packages.pdfstreamdumper
+#  - winfor.packages.ntfs-log-analyzer Wants to download dotnet20 from a non-existent URL
 
 winfor-packages:
   test.nop:
@@ -48,6 +49,7 @@ winfor-packages:
       - sls: winfor.packages.firefox
       - sls: winfor.packages.chrome
       - sls: winfor.packages.registry-viewer
+      - sls: winfor.packages.ftk-imager
       - sls: winfor.packages.httplogbrowser
       - sls: winfor.packages.db-browser-sqlite
       - sls: winfor.packages.bulk-extractor
@@ -76,8 +78,8 @@ winfor-packages:
       - sls: winfor.packages.ffdec
       - sls: winfor.packages.fiddler
       - sls: winfor.packages.mdf-viewer
-#      - sls: winfor.packages.ntfs-log-analyzer
       - sls: winfor.packages.process-hacker
       - sls: winfor.packages.free-hex-editor-neo
       - sls: winfor.packages.farmanager
       - sls: winfor.packages.pdfstreamdumper
+#      - sls: winfor.packages.ntfs-log-analyzer
