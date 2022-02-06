@@ -5,6 +5,7 @@
 # Author: Harlan Carvey
 # License: MIT License (https://github.com/keydet89/RegRipper3.0/blob/master/license.md)
 # Notes: rr.exe
+
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 include:

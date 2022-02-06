@@ -1,3 +1,11 @@
+# Name: 
+# Website: 
+# Description: 
+# Category: 
+# Author: 
+# License: 
+# Notes: 
+
 wmi-parser-download:
   file.managed:
     - name: 'C:\salt\tempdownload\wmi-parser.v0.0.2.zip'

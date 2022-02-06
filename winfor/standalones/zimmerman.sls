@@ -1,3 +1,11 @@
+# Name: 
+# Website: 
+# Description: 
+# Category: 
+# Author: 
+# License: 
+# Notes: 
+
 {% set hash = '7864ce0ab57e3831bad24f56abc1c9c6796a552091d2f49262e66565e66c0447' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set applications = ['EZViewer','Hasher','JumpListExplorer','MFTExplorer','RegistryExplorer','SDBExplorer','ShellBagsExplorer','TimelineExplorer'] %}

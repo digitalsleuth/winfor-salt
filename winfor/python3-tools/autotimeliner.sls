@@ -1,3 +1,11 @@
+# Name: 
+# Website: 
+# Description: 
+# Category: 
+# Author: 
+# License: 
+# Notes: 
+
 {% set hash = 'e4807cb89dcb71a4bb95364f314131511aeea65b49f1f378b6b64dca98a1806c' %}
 
 include:

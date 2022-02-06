@@ -1,3 +1,11 @@
+# Name: 
+# Website: 
+# Description: 
+# Category: 
+# Author: 
+# License: 
+# Notes: 
+
 resource-hacker-download:
   file.managed:
     - name: 'C:\salt\tempdownload\reshacker_setup.exe'

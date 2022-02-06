@@ -1,3 +1,11 @@
+# Name: 
+# Website: 
+# Description: 
+# Category: 
+# Author: 
+# License: 
+# Notes: 
+
 unautoit-download:
   file.managed:
     - name: 'C:\standalone\unautoit\unautoit.exe'

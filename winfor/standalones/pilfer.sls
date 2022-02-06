@@ -1,3 +1,11 @@
+# Name: 
+# Website: 
+# Description: 
+# Category: 
+# Author: 
+# License: 
+# Notes: 
+
 pilfer-download:
   file.managed:
     - name: 'C:\standalone\pilfer.bat'

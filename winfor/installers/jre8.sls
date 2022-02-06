@@ -1,3 +1,11 @@
+# Name: 
+# Website: 
+# Description: 
+# Category: 
+# Author: 
+# License: 
+# Notes: 
+
 jre8-download:
   file.managed:
     - name: 'C:\salt\tempdownload\jre-8u311-windows-x64.exe'

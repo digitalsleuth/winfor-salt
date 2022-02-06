@@ -1,3 +1,11 @@
+# Name: 
+# Website: 
+# Description: 
+# Category: 
+# Author: 
+# License: 
+# Notes: 
+
 {% set hash = '30636e722be838e8fc5c93e6dd29f2a3ebf7e88c775aa70b96fc4c6f48ac64d5' %}
 {% set version = '4.11.1' %}
 

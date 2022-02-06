@@ -1,3 +1,11 @@
+# Name: 
+# Website: 
+# Description: 
+# Category: 
+# Author: 
+# License: 
+# Notes: 
+
 include:
   - winfor.packages.python2
   - winfor.python2-tools.py2-pycryptodome

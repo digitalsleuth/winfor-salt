@@ -1,3 +1,11 @@
+# Name: 
+# Website: 
+# Description: 
+# Category: 
+# Author: 
+# License: 
+# Notes: 
+
 innoextract-download:
   file.managed:
     - name: 'C:\salt\tempdownload\innoextract-1.9-windows.zip'

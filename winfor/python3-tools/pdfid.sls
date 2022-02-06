@@ -1,3 +1,11 @@
+# Name: 
+# Website: 
+# Description: 
+# Category: 
+# Author: 
+# License: 
+# Notes: 
+
 {% set files = ['pdfid.py','pdfid.ini','plugin_embeddedfile.py','plugin_nameobfuscation.py','plugin_triage.py','plugin_list'] %}
 
 include:

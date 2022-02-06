@@ -1,3 +1,11 @@
+# Name: 
+# Website: 
+# Description: 
+# Category: 
+# Author: 
+# License: 
+# Notes: 
+
 {% set version = '1.7.0' %}
 {% set hash = '9b433a949b210bb8a856de2546cb075c349e0c2582ee9bf6b5fe51d9f95e7690' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}

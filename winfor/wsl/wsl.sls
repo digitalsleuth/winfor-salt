@@ -1,3 +1,11 @@
+# Name: 
+# Website: 
+# Description: 
+# Category: 
+# Author: 
+# License: 
+# Notes: 
+
 {% set user = salt['pillar.get']('winfor_user', 'forensics') %}
 
 include:

@@ -1,3 +1,11 @@
+# Name: 
+# Website: 
+# Description: 
+# Category: 
+# Author: 
+# License: 
+# Notes: 
+
 include:
   - winfor.packages.ms-vcpp-2015-build-tools
 

@@ -1,3 +1,11 @@
+# Name: 
+# Website: 
+# Description: 
+# Category: 
+# Author: 
+# License: 
+# Notes: 
+
 {% set user = salt['pillar.get']('winfor_user', 'forensics') %}
 {% set version = '1.11.3471.0' %}
 {% set hash = '8d4aa2585e62cdd5a1c8c3c5ed4f482f5029eace4777d247a3c728538f126f6a' %}

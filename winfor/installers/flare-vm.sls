@@ -1,3 +1,11 @@
+# Name: 
+# Website: 
+# Description: 
+# Category: 
+# Author: 
+# License: 
+# Notes: 
+
 {% set version = '3.0.1' %}
 {% set hash = '0228be803b7fee439e07db5bed557d5232e0350981cf8cbf6369b315c9c2c06b' %}
 flare-vm:

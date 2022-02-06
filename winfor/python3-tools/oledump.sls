@@ -1,3 +1,11 @@
+# Name: 
+# Website: 
+# Description: 
+# Category: 
+# Author: 
+# License: 
+# Notes: 
+
 {% set files = ['contains_pe_file.yara','plugin_msg.py','plugin_vba_dco.py','decoder_add1.py',
                 'plugin_biff.py','plugin_msg_summary.py','plugin_vbaproject.py','decoder_ah.py',
                 'plugin_clsid.py','plugin_msi.py','plugin_vba.py','decoder_chr.py','plugin_dridex.py',

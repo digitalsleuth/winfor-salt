@@ -1,3 +1,11 @@
+# Name: 
+# Website: 
+# Description: 
+# Category: 
+# Author: 
+# License: 
+# Notes: 
+
 {% set user = salt['pillar.get']('winfor_user', 'forensics') %}
 {% set all_users = salt['user.list_users']() %}
 {% if user in all_users %}

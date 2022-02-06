@@ -1,3 +1,11 @@
+# Name: 
+# Website: 
+# Description: 
+# Category: 
+# Author: 
+# License: 
+# Notes: 
+
 # Retcode below is set to '2' for success because the Cygwin installer
 # (even though on Windows) attempts to search for /etc/setup/setup.rc
 # or /etc/setup/installed.db and fails with retcode 2. This causes

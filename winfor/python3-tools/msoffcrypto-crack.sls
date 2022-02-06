@@ -1,3 +1,11 @@
+# Name: 
+# Website: 
+# Description: 
+# Category: 
+# Author: 
+# License: 
+# Notes: 
+
 include:
   - winfor.packages.python3
   - winfor.python3-tools.msoffcrypto-tool

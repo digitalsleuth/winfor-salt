@@ -1,3 +1,11 @@
+# Name: 
+# Website: 
+# Description: 
+# Category: 
+# Author: 
+# License: 
+# Notes: 
+
 # To get the download URL:
 # Visit: https://store.rg-adguard.net/
 # Paste the URL for the tool from the MS Store (easier from web browser)

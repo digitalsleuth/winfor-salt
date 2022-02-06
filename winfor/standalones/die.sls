@@ -1,3 +1,11 @@
+# Name: 
+# Website: 
+# Description: 
+# Category: 
+# Author: 
+# License: 
+# Notes: 
+
 # Detect It Easy - DIE
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
