@@ -4,7 +4,7 @@ pestudio-download:
   file.managed:
     - name: 'C:\salt\tempdownload\pestudio.zip'
     - source: https://www.winitor.com/tools/pestudio/current/pestudio.zip
-    - source_hash: sha256=2af46dc7568fed6dfe8feca5fef546f2b2d1be150dbc12022ed78812de0ddc9a
+    - source_hash: sha256=813f0a7602e27535766fe243372dbbac1eccc341130168eca6efb3f783c09bb9
     - makedirs: True
 
 pestudio-extract:

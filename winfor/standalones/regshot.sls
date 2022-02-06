@@ -12,7 +12,7 @@ regshot-download:
 
 regshot-extract:
   cmd.run:
-    - name: '"C:\Program Files\7-Zip\7z.exe" x C:\salt\tempdownload\Regshot-1.9.0.7z -oC:\standalone\regshot'
+    - name: '"C:\Program Files\7-Zip\7z.exe" x C:\salt\tempdownload\Regshot-1.9.0.7z -aoa -oC:\standalone\regshot'
     - shell: cmd
     - require:
       - file: regshot-download

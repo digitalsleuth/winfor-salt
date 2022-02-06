@@ -11,7 +11,7 @@ srum-dump2-template-download:
   file.managed:
     - name: 'C:\standalone\srum-dump2\SRUM_TEMPLATE2.xlsx'
     - source: https://github.com/MarkBaggett/srum-dump/raw/master/SRUM_TEMPLATE2.xlsx
-    - source_hash: sha256=b05e6ef490e50c45d779bdaf0b5ca63f038e787cf84ba86708ab6fafd8911ee2
+    - source_hash: sha256=66dc9a5e9ca74e7d36a25caf6d3437ba06a4acaa6952947b90829d45523a64e2
     - makedirs: True
     - require:
       - file: srum-dump2-download
