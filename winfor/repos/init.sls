@@ -1,23 +1,3 @@
-{% set git_version = '2.34.1' %}
-{% set git_hash = 'd8769a1d90b2f1f7d85ae91e724c8dad16f340c5b130d49368a308dd086a5f52' %}
-
-get-git:
-  file.managed:
-    - name: 'C:\\salt\\tempdownload\\Git-{{ git_version }}-64-bit.exe'
-    - source: https://github.com/git-for-windows/git/releases/download/v{{ git_version }}.windows.1/Git-{{ git_version }}-64-bit.exe
-    - source_hash: sha256={{ git_hash }}
-    - makedirs: True
-
-install-git:
-  cmd.run:
-    - name: 'C:\\salt\\tempdownload\\Git-{{ git_version }}-64-bit.exe /VERYSILENT /NORESTART /SP- /NOCANCEL /SUPPRESSMSGBOXES'
-    - shell: cmd
-
-add-git-to-path:
-  cmd.run:
-    - name: 'set PATH=%PATH%;C:\Program Files\Git\cmd\'
-    - shell: cmd
-
 winfor-repos-add-1:
   file.replace:
     - name: 'C:\\ProgramData\\Salt Project\\salt\\conf\\minion'
