@@ -108,13 +108,12 @@ function Install-Git {
         Write-Host "[!] Installation of Git failed. Please re-run the installer to try again" -ForegroundColor Red
         exit
     }
-    Write-Host $?
 }
 
 function Install-WinFOR {
     Write-Host "[+] Cloning WinFOR-Salt repo" -ForegroundColor Yellow
     Start-Process -Wait -FilePath "C:\Program Files\Git\bin\git.exe" -ArgumentList "clone https://github.com/digitalsleuth/winfor-salt `"C:\ProgramData\Salt Project\Salt\srv\salt`"" -PassThru | Out-Null
-    Write-Host "[+] The Win-FOR installer command is running, configuring for user $username - this will take a while... please be patient." -ForegroundColor Green
+    Write-Host "[+] The Win-FOR installer command is running, configuring for user $username - this will take a while... please be patient" -ForegroundColor Green
     Start-Process -Wait -FilePath "C:\Program Files\Salt Project\Salt\salt-call.bat" -ArgumentList ("-l debug --local --retcode-passthrough --state-output=mixed state.sls winfor.$mode pillar=`"{'winfor_user': '$username'}`" --log-file-level=debug --log-file=`"C:\winfor-saltstack.log`" --out-file=`"C:\winfor-saltstack.log`" --out-file-append") | Out-Null
     Write-Host "[+] Installation finished - cleaning up" -ForegroundColor Green
     Read-Host "Press any key to continue"
@@ -146,5 +145,7 @@ Write-Host "[+] Downloading Git v$gitVersion" -ForegroundColor Yellow
 Get-Git
 Write-Host "[+] Installing Git v$gitVersion" -ForegroundColor Yellow
 Install-Git
+Write-Host "[+] Refreshing environment variables" -ForegroundColor Yellow
+$env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine")
 Write-Host "[+] Running Win-FOR SaltStack installation" -ForegroundColor Green
 Install-WinFOR
