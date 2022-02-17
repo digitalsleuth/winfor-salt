@@ -31,7 +31,6 @@ include:
   - winfor.standalones.bytecode-viewer
   - winfor.standalones.dex2jar
   - winfor.standalones.autoit-extractor
-  - winfor.standalones.unautoit
   - winfor.standalones.die
   - winfor.standalones.pe-bear
   - winfor.standalones.mal-unpack
@@ -50,6 +49,7 @@ include:
   - winfor.standalones.malcat
   - winfor.standalones.lessmsi
   - winfor.standalones.offvis
+#  - winfor.standalones.unautoit Downloads removed, builds possible with golang
 
 winfor-standalones:
   test.nop:
@@ -86,7 +86,6 @@ winfor-standalones:
       - sls: winfor.standalones.bytecode-viewer
       - sls: winfor.standalones.dex2jar
       - sls: winfor.standalones.autoit-extractor
-      - sls: winfor.standalones.unautoit
       - sls: winfor.standalones.die
       - sls: winfor.standalones.pe-bear
       - sls: winfor.standalones.mal-unpack
@@ -105,3 +104,4 @@ winfor-standalones:
       - sls: winfor.standalones.malcat
       - sls: winfor.standalones.lessmsi
       - sls: winfor.standalones.offvis
+#      - sls: winfor.standalones.unautoit
