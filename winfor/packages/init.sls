@@ -36,7 +36,6 @@ include:
   - winfor.packages.mdf-viewer
   - winfor.packages.process-hacker
   - winfor.packages.free-hex-editor-neo
-  - winfor.packages.farmanager
   - winfor.packages.pdfstreamdumper
 #  - winfor.packages.ntfs-log-analyzer Wants to download dotnet20 from a non-existent URL
 
@@ -80,6 +79,5 @@ winfor-packages:
       - sls: winfor.packages.mdf-viewer
       - sls: winfor.packages.process-hacker
       - sls: winfor.packages.free-hex-editor-neo
-      - sls: winfor.packages.farmanager
       - sls: winfor.packages.pdfstreamdumper
 #      - sls: winfor.packages.ntfs-log-analyzer

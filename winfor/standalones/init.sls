@@ -2,6 +2,7 @@ include:
   - winfor.standalones.zimmerman
   - winfor.standalones.sysinternals
   - winfor.standalones.evtx-dump
+  - winfor.standalones.cyberchef
 #  - winfor.standalones.nirsoft
   - winfor.standalones.eventfinder
   - winfor.standalones.regripper
@@ -57,6 +58,7 @@ winfor-standalones:
       - sls: winfor.standalones.zimmerman
       - sls: winfor.standalones.sysinternals
       - sls: winfor.standalones.evtx-dump
+      - sls: winfor.standalones.cyberchef
 #      - sls: winfor.standalones.nirsoft
       - sls: winfor.standalones.eventfinder
       - sls: winfor.standalones.regripper

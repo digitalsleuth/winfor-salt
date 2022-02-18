@@ -28,3 +28,13 @@ sysinternals-env-vars:
   win_path.exists:
     - name: 'C:\standalone\sysinternals'
 
+winfor-standalones-sysinternals-shortcut:
+  file.shortcut:
+    - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\Sysinternals.lnk'
+    - target: 'C:\standalone\sysinternals\'
+    - force: True
+    - working_dir: 'C:\standalone\sysinternals\'
+    - makedirs: True
+    - require:
+      - file: sysinternals
+      - archive: sysinternals-extract
