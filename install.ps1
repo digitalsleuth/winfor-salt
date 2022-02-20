@@ -135,7 +135,6 @@ function Install-WinFOR {
     Start-Process -Wait -FilePath "C:\Program Files\Git\bin\git.exe" -ArgumentList "clone https://github.com/digitalsleuth/winfor-salt `"C:\ProgramData\Salt Project\Salt\srv\salt`"" -PassThru | Out-Null
     Write-Host "[+] The Win-FOR installer command is running, configuring for user $user - this will take a while... please be patient" -ForegroundColor Green
     Start-Process -Wait -FilePath "C:\Program Files\Salt Project\Salt\salt-call.bat" -ArgumentList ("-l debug --local --retcode-passthrough --state-output=mixed state.sls winfor.$mode pillar=`"{'winfor_user': '$user'}`" --log-file-level=debug --log-file=`"$logFile`" --out-file=`"$logFile`" --out-file-append") | Out-Null
-    Write-Host "[+] Installation finished" -ForegroundColor Green
     $results = (Select-String -Path $logFile -Pattern 'Succeeded:' -Context 1 | ForEach-Object{"[!] " + $_.Line; "[!] " + $_.Context.PostContext} | Out-String).Trim()
     $failures = (Select-String -Path $logFile -Pattern 'Succeeded:' -Context 1 | ForEach-Object{$_.Context.PostContext}).split(':')[1].Trim()
     if ($failures -ne 0) {
@@ -143,11 +142,18 @@ function Install-WinFOR {
         Write-Host "[!] To determine the cause of the failures, review the log file at $logFile and search for lines containing [ERROR   ]"
     } else {
         Write-Host $results -ForegroundColor Green
-    Read-Host "Press any key to continue"
+        Read-Host "Press any key to continue"
     exit
     }
+    if ($wsl) {
+        $results | Out-File "C:\winfor-results.log"
+		$failures | Out-File "C:\winfor-results.log" -Append
+        $wslLogFile = "C:\winfor-wsl.log"
+        Write-Host "[+] Installing WSLv2 with SIFT and REMnux"
+        Start-Process -Wait -FilePath "C:\Program Files\Salt Project\Salt\salt-call.bat" -ArgumentList ("-l debug --local --retcode-passthrough --state-output=mixed state.sls winfor.wsl pillar=`"{'winfor_user': '$user'}`" --log-file-level=debug --log-file=`"$wslLogFile`" --out-file=`"$wslLogFile`" --out-file-append") | Out-Null
+        Write-Host "[+] Installation finished" -ForegroundColor Green
+    }
 }
-
 function Invoke-Installer {
     $versionFile = "C:\ProgramData\Salt Project\Salt\srv\salt\winfor-version"
     $runningUser = New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())
