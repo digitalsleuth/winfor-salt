@@ -38,7 +38,7 @@ wsl-import-template:
 
 wsl-get-sift:
   cmd.run:
-    - name: 'wsl echo forensics | wsl sudo -S wget -O /usr/local/bin/sift https://github.com/teamdfir/sift-cli/releases/download/v1.13.1/sift-cli-linux'
+    - name: 'wsl echo forensics | wsl sudo -S wget -O /usr/local/bin/sift https://github.com/teamdfir/sift-cli/releases/download/v1.14.0-rc1/sift-cli-linux'
     - shell: cmd
     - require:
       - cmd: wsl-import-template
