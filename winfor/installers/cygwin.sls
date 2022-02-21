@@ -12,7 +12,7 @@
 # Saltstack to read an ERROR and result: False, even though the pkg state
 # returns 'install success'.
 #{% set version = '2.912' %}
-{% set hash = '98fac3ee56a183f8c45abc1e80395c48f075e338708d27a64eee8c942fd2baa9' %}
+{% set hash = '18b445dc16259bb772aaf0d32d64f9ed3166045fdc07eb9154651840d8a27752' %}
 
 cygwin:
   file.managed:

@@ -33,12 +33,13 @@
     #>
 
 param (
-  [string]$user = "",
-  [string]$mode = "",
-  [switch]$update,
-  [switch]$upgrade,
-  [switch]$version,
-  [switch]$wsl
+  [string]$User = "",
+  [string]$Mode = "",
+  [switch]$Update,
+  [switch]$Upgrade,
+  [switch]$Version,
+  [switch]$IncludeWsl,
+  [switch]$WslOnly
 )
 
 [string]$saltstackVersion = '3004-3'
@@ -133,34 +134,39 @@ function Install-Git {
 function Install-WinFOR {
     Write-Host "[+] Cloning WinFOR-Salt repo" -ForegroundColor Yellow
     Start-Process -Wait -FilePath "C:\Program Files\Git\bin\git.exe" -ArgumentList "clone https://github.com/digitalsleuth/winfor-salt `"C:\ProgramData\Salt Project\Salt\srv\salt`"" -PassThru | Out-Null
-    Write-Host "[+] The Win-FOR installer command is running, configuring for user $user - this will take a while... please be patient" -ForegroundColor Green
-    Start-Process -Wait -FilePath "C:\Program Files\Salt Project\Salt\salt-call.bat" -ArgumentList ("-l debug --local --retcode-passthrough --state-output=mixed state.sls winfor.$mode pillar=`"{'winfor_user': '$user'}`" --log-file-level=debug --log-file=`"$logFile`" --out-file=`"$logFile`" --out-file-append") | Out-Null
+    Write-Host "[+] The Win-FOR installer command is running, configuring for user $User - this will take a while... please be patient" -ForegroundColor Green
+    Start-Process -Wait -FilePath "C:\Program Files\Salt Project\Salt\salt-call.bat" -ArgumentList ("-l debug --local --retcode-passthrough --state-output=mixed state.sls winfor.$Mode pillar=`"{'winfor_user': '$user'}`" --log-file-level=debug --log-file=`"$logFile`" --out-file=`"$logFile`" --out-file-append") | Out-Null
+    if (-Not (Test-Path $logFile)) {
+        $results=$failures=$errors=$null
+	} else {
     $results = (Select-String -Path $logFile -Pattern 'Succeeded:' -Context 1 | ForEach-Object{"[!] " + $_.Line; "[!] " + $_.Context.PostContext} | Out-String).Trim()
     $failures = (Select-String -Path $logFile -Pattern 'Succeeded:' -Context 1 | ForEach-Object{$_.Context.PostContext}).split(':')[1].Trim()
-    if ($failures -ne 0) {
+    $errors = (Select-String -Path $logFile -Pattern '          ID:' -Context 0,6 | ForEach-Object{$_.Line; $_.Context.DisplayPostContext + "`r-------------"})
+    }
+	$errorLogFile = "C:\winfor-errors.log"
+    if ($failures -ne 0 -and $failures -ne $null) {
+        $errors | Out-File $errorLogFile -Append
         Write-Host $results -ForegroundColor Yellow
-        Write-Host "[!] To determine the cause of the failures, review the log file at $logFile and search for lines containing [ERROR   ]"
+        Write-Host "[!] To determine the cause of the failures, review the log file $logFile and search for lines containing [ERROR   ], or review $errorLogFile for a less verbose listing."
     } else {
         Write-Host $results -ForegroundColor Green
-        Read-Host "Press any key to continue"
     exit
     }
-    if ($wsl) {
-        $results | Out-File "C:\winfor-results.log"
-        $wslLogFile = "C:\winfor-wsl.log"
-        Write-Host "[+] Installing WSLv2 with SIFT and REMnux"
-        Start-Process -Wait -FilePath "C:\Program Files\Salt Project\Salt\salt-call.bat" -ArgumentList ("-l debug --local --retcode-passthrough --state-output=mixed state.sls winfor.wsl pillar=`"{'winfor_user': '$user'}`" --log-file-level=debug --log-file=`"$wslLogFile`" --out-file=`"$wslLogFile`" --out-file-append") | Out-Null
-        Write-Host "[+] Installation finished" -ForegroundColor Green
+    if ($IncludeWsl) {
+        if ($results) {
+            $results | Out-File "C:\winfor-results.log" -Append
+            }
+        Invoke-WSLInstaller
     }
 }
-function Invoke-Installer {
+function Invoke-WinFORInstaller {
     $versionFile = "C:\ProgramData\Salt Project\Salt\srv\salt\winfor-version"
     $runningUser = New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())
     if (-not $runningUser.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
         Write-Host "[!] Not running as administrator, please re-run this script as Administrator" -ForegroundColor Red
         exit 1
     }
-    if($version) {
+    if($Version) {
         if(-Not (Test-Path $versionFile)) {
             $winforVersion = 'not installed'
         } else {
@@ -169,11 +175,11 @@ function Invoke-Installer {
         Write-Host "WIN-FOR is $winforVersion" -ForegroundColor Green
         exit
     }
-    if ($user -eq "") {
-        $user = [System.Environment]::UserName
+    if ($User -eq "") {
+        $User = [System.Environment]::UserName
         }
-    if ($mode -eq "") {
-        $mode = "addon"
+    if ($Mode -eq "") {
+        $Mode = "addon"
         }
     Get-Saltstack
     Get-Git
@@ -182,4 +188,32 @@ function Invoke-Installer {
     Write-Host "[+] Running Win-FOR SaltStack installation" -ForegroundColor Green
     Install-WinFOR
 }
-Invoke-Installer
+
+function Invoke-WSLInstaller {
+    if ($User -eq "") {
+        $User = [System.Environment]::UserName
+    }
+    $runningUser = New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())
+    if (-not $runningUser.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
+        Write-Host "[!] Not running as administrator, please re-run this script as Administrator" -ForegroundColor Red
+        exit 1
+    }
+    $wslLogFile = "C:\winfor-wsl.log"
+    $wslErrorLog = "C:\winfor-wsl-errors.log"
+    if (-Not (Test-Path "C:\ProgramData\Salt Project\Salt\srv\salt\winfor")) {
+        Write-Host "[+] Cloning WinFOR-Salt repo" -ForegroundColor Yellow
+        Start-Process -Wait -FilePath "C:\Program Files\Git\bin\git.exe" -ArgumentList "clone https://github.com/digitalsleuth/winfor-salt `"C:\ProgramData\Salt Project\Salt\srv\salt`"" -PassThru | Out-Null
+    }
+    Write-Host "[+] Installing WSLv2 with SIFT and REMnux" -ForegroundColor Green
+    Start-Process -Wait -FilePath "C:\Program Files\Salt Project\Salt\salt-call.bat" -ArgumentList ("-l debug --local --retcode-passthrough --state-output=mixed state.sls winfor.wsl pillar=`"{'winfor_user': '$User'}`" --log-file-level=debug --log-file=`"$wslLogFile`" --out-file=`"$wslLogFile`" --out-file-append") | Out-Null
+    $wslErrors = (Select-String -Path $wslLogFile -Pattern '          ID:' -Context 0,6 | ForEach-Object{$_.Line; $_.Context.DisplayPostContext + "`r-------------"})
+    $wslErrors | Out-File $wslErrorLog -Append
+    Write-Host "[+] Installation finished" -ForegroundColor Green
+}
+if ($WslOnly) {
+    Get-Saltstack
+    Get-Git
+    Invoke-WSLInstaller
+} else {
+    Invoke-WinFORInstaller
+}
