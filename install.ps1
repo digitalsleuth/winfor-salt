@@ -147,7 +147,6 @@ function Install-WinFOR {
     }
     if ($wsl) {
         $results | Out-File "C:\winfor-results.log"
-		$failures | Out-File "C:\winfor-results.log" -Append
         $wslLogFile = "C:\winfor-wsl.log"
         Write-Host "[+] Installing WSLv2 with SIFT and REMnux"
         Start-Process -Wait -FilePath "C:\Program Files\Salt Project\Salt\salt-call.bat" -ArgumentList ("-l debug --local --retcode-passthrough --state-output=mixed state.sls winfor.wsl pillar=`"{'winfor_user': '$user'}`" --log-file-level=debug --log-file=`"$wslLogFile`" --out-file=`"$wslLogFile`" --out-file-append") | Out-Null
