@@ -62,7 +62,7 @@ wsl-get-remnux:
     - name: 'wsl echo forensics | wsl sudo -S wget -O /usr/local/bin/remnux https://github.com/remnux/remnux-cli/releases/download/v1.3.3/remnux-cli-linux'
     - shell: cmd
     - require:
-      - cmd: wsl-config-version
+      - cmd: wsl-run-sift
 
 wsl-chmod-remnux:
   cmd.run:
