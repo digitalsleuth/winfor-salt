@@ -18,6 +18,7 @@ include:
   - winfor.python3-tools.aleapp
   - winfor.python3-tools.ileapp
   - winfor.python3-tools.vleapp
+  - winfor.python3-tools.time-decode
 #  - winfor.python3-tools.decompyle3 - Doesn't support Py 3.10 yet
 
 winfor-python3-tools:
@@ -42,6 +43,7 @@ winfor-python3-tools:
       - sls: winfor.python3-tools.aleapp
       - sls: winfor.python3-tools.ileapp
       - sls: winfor.python3-tools.vleapp
+      - sls: winfor.python3-tools.time-decode
 #      - sls: winfor.python3-tools.decompyle3 - Doesn't support Py 3.10 yet
 
 python3-filetype-association:
