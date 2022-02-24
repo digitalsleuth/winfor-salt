@@ -37,6 +37,9 @@ include:
   - winfor.packages.process-hacker
   - winfor.packages.free-hex-editor-neo
   - winfor.packages.pdfstreamdumper
+  - winfor.packages.burpsuite-community
+  - winfor.packages.magnet-chromebook-acquisition
+  - winfor.packages.magnet-acquire
 #  - winfor.packages.ntfs-log-analyzer Wants to download dotnet20 from a non-existent URL
 
 winfor-packages:
@@ -80,4 +83,7 @@ winfor-packages:
       - sls: winfor.packages.process-hacker
       - sls: winfor.packages.free-hex-editor-neo
       - sls: winfor.packages.pdfstreamdumper
+      - sls: winfor.packages.burpsuite-community
+      - sls: winfor.packages.magnet-chromebook-acquisition
+      - sls: winfor.packages.magnet-acquire
 #      - sls: winfor.packages.ntfs-log-analyzer

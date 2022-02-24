@@ -50,6 +50,14 @@ include:
   - winfor.standalones.malcat
   - winfor.standalones.lessmsi
   - winfor.standalones.offvis
+  - winfor.standalones.megatools
+  - winfor.standalones.arsenal-image-mounter
+  - winfor.standalones.velociraptor
+  - winfor.standalones.winpmem
+  - winfor.standalones.magnet-edd
+  - winfor.standalones.magnet-process-capture
+  - winfor.standalones.magnet-ram-capture
+  - winfor.standalones.magnet-web-page-saver-portable
 #  - winfor.standalones.unautoit Downloads removed, builds possible with golang
 
 winfor-standalones:
@@ -106,4 +114,12 @@ winfor-standalones:
       - sls: winfor.standalones.malcat
       - sls: winfor.standalones.lessmsi
       - sls: winfor.standalones.offvis
+      - sls: winfor.standalones.megatools
+      - sls: winfor.standalones.arsenal-image-mounter
+      - sls: winfor.standalones.velociraptor
+      - sls: winfor.standalones.winpmem
+      - sls: winfor.standalones.magnet-edd
+      - sls: winfor.standalones.magnet-process-capture
+      - sls: winfor.standalones.magnet-ram-capture
+      - sls: winfor.standalones.magnet-web-page-saver-portable
 #      - sls: winfor.standalones.unautoit
