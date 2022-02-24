@@ -22,7 +22,9 @@ free-hex-editor-neo:
 
 free-hex-editor-icon:
   file.absent:
-    - name: '{{ home }}\Desktop\Hex Editor Neo.lnk'
+    - names:
+      - '{{ home }}\Desktop\Hex Editor Neo.lnk'
+      - 'C:\Users\Public\Desktop\Hex Editor Neo.lnk'
     - require:
       - user: winfor-user-{{ user }}
       - pkg: free-hex-editor-neo

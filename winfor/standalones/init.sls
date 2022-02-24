@@ -58,6 +58,8 @@ include:
   - winfor.standalones.magnet-process-capture
   - winfor.standalones.magnet-ram-capture
   - winfor.standalones.magnet-web-page-saver-portable
+  - winfor.standalones.psdecode
+  - winfor.standalones.capa
 #  - winfor.standalones.unautoit Downloads removed, builds possible with golang
 
 winfor-standalones:
@@ -122,4 +124,6 @@ winfor-standalones:
       - sls: winfor.standalones.magnet-process-capture
       - sls: winfor.standalones.magnet-ram-capture
       - sls: winfor.standalones.magnet-web-page-saver-portable
+      - sls: winfor.standalones.psdecode
+      - sls: winfor.standalones.capa
 #      - sls: winfor.standalones.unautoit

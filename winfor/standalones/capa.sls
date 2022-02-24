@@ -6,7 +6,7 @@
 # License: 
 # Notes: 
 
-{% set version = '3.1.0' %}
+{% set version = 'v3.1.0' %}
 {% set hash = 'ffdc822d078465c4591ccd39ded1fd6e2c6af79cf50726b2ecce481f9338dd1e' %}
 
 include:
@@ -14,15 +14,15 @@ include:
 
 capa-download:
   file.managed:
-    - name: 'C:\salt\tempdownload\capa-v{{ version }}-windows.zip'
-    - source: https://github.com/mandiant/capa/releases/download/v{{ version }}/capa-v{{ version }}-windows.zip
+    - name: 'C:\salt\tempdownload\capa-{{ version }}-windows.zip'
+    - source: https://github.com/mandiant/capa/releases/download/{{ version }}/capa-{{ version }}-windows.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True
 
 capa-extract:
   archive.extracted:
     - name: 'C:\standalone\capa'
-    - source: 'C:\salt\tempdownload\capa-v{{ version }}-windows.zip'
+    - source: 'C:\salt\tempdownload\capa-{{ version }}-windows.zip'
     - enforce_toplevel: False
     - require:
       - file: capa-download
@@ -41,4 +41,3 @@ capa-rules:
 capa-env-vars:
   win_path.exists:
     - name: 'C:\standalone\capa\'
-
