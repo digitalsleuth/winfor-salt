@@ -1,4 +1,5 @@
 include:
+  - winfor.config.layout
   - winfor.config.user
   - winfor.config.debloat-windows
   - winfor.config.computer-name
@@ -8,6 +9,7 @@ include:
 winfor-config:
   test.nop:
     - require:
+      - sls: winfor.config.layout
       - sls: winfor.config.user
       - sls: winfor.config.debloat-windows
       - sls: winfor.config.computer-name

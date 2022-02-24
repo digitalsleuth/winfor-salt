@@ -10,8 +10,8 @@
 
 start-layout-file:
   file.managed:
-    - name: 'C:\standalone\WIN-FOR-layout.xml'
-    - source: salt://winfor/config/layout/WIN-FOR-layout.xml
+    - name: 'C:\standalone\WIN-FOR-StartLayout.xml'
+    - source: salt://winfor/config/layout/WIN-FOR-StartLayout.xml
     - win_inheritance: True
     - makedirs: True
 
@@ -20,10 +20,9 @@ start-layout-enable-gpo:
     - user_policy:
         "Start Menu and Taskbar\\Start Layout":
           "Start Layout File": 
-             'C:\standalone\WIN-FOR-layout.xml'
+             'C:\standalone\WIN-FOR-StartLayout.xml'
 
 restart-explorer:
   cmd.run:
     - name: 'Stop-Process -ProcessName "explorer"'
     - shell: powershell
-

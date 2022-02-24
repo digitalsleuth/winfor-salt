@@ -43,3 +43,15 @@ winfor-python3-tools:
       - sls: winfor.python3-tools.ileapp
       - sls: winfor.python3-tools.vleapp
 #      - sls: winfor.python3-tools.decompyle3 - Doesn't support Py 3.10 yet
+
+python3-filetype-association:
+  cmd.run:
+    - name: 'ftype Python.File="C:\Windows\py.exe" %L %*'
+    - shell: cmd
+
+python3-pathext:
+  cmd.run:
+    - names:
+      - setx /M PATHEXT "%PATHEXT:;.PY;.PYW=%"
+      - setx /M PATHEXT "%PATHEXT%;.PY;.PYW"
+    - shell: cmd

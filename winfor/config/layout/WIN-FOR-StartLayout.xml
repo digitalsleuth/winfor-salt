@@ -1,0 +1,105 @@
+<LayoutModificationTemplate xmlns:defaultlayout="http://schemas.microsoft.com/Start/2014/FullDefaultLayout" xmlns:start="http://schemas.microsoft.com/Start/2014/StartLayout" Version="1" xmlns="http://schemas.microsoft.com/Start/2014/LayoutModification">
+  <LayoutOptions StartTileGroupCellWidth="6" />
+  <DefaultLayoutOverride>
+    <StartLayoutCollection>
+      <defaultlayout:StartLayout GroupCellWidth="6">
+        <start:Group Name="Browsers">
+          <start:DesktopApplicationTile Size="1x1" Column="2" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\Microsoft Edge.lnk" />
+          <start:DesktopApplicationTile Size="1x1" Column="1" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\Firefox.lnk" />
+          <start:DesktopApplicationTile Size="1x1" Column="0" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\Google Chrome.lnk" />
+        </start:Group>
+        <start:Group Name="Raw Parsers">
+          <start:DesktopApplicationTile Size="1x1" Column="2" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\Digital Detective\DataDump v1\DataDump v1.0.lnk" />
+          <start:DesktopApplicationTile Size="1x1" Column="0" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\HxD Hex Editor\HxD.lnk" />
+          <start:DesktopApplicationTile Size="1x1" Column="3" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\Bulk Extractor 1.5.5\BEViewer with Bulk Extractor 1.5.5 (64-bit).lnk" />
+          <start:DesktopApplicationTile Size="1x1" Column="1" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\HHD Hex Editor Neo\Hex Editor Neo.lnk" />
+        </start:Group>
+        <start:Group Name="Mobile Analysis">
+          <start:DesktopApplicationTile Size="1x1" Column="0" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\Bytecode Viewer.lnk" />
+        </start:Group>
+        <start:Group Name="Utilities">
+          <start:DesktopApplicationTile Size="1x1" Column="4" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\Hasher.lnk" />
+          <start:DesktopApplicationTile Size="1x1" Column="1" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\PuTTY (64-bit)\PuTTYgen.lnk" />
+          <start:DesktopApplicationTile Size="1x1" Column="5" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\EZViewer.lnk" />
+          <start:DesktopApplicationTile Size="1x1" Column="0" Row="1" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\USB Write Blocker.lnk" />
+          <start:DesktopApplicationTile Size="1x1" Column="0" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\PuTTY (64-bit)\PSFTP.lnk" />
+          <start:DesktopApplicationTile Size="1x1" Column="3" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\VcXsrv\XLaunch.lnk" />
+          <start:DesktopApplicationTile Size="1x1" Column="2" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\PuTTY (64-bit)\PuTTY.lnk" />
+        </start:Group>
+        <start:Group Name="Registry">
+          <start:DesktopApplicationTile Size="1x1" Column="0" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\AccessData\Registry Viewer\Registry Viewer.lnk" />
+          <start:DesktopApplicationTile Size="1x1" Column="2" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\RegRipper.lnk" />
+          <start:DesktopApplicationTile Size="1x1" Column="1" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\RegistryExplorer.lnk" />
+        </start:Group>
+        <start:Group Name="Network">
+          <start:DesktopApplicationTile Size="1x1" Column="1" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\Wireshark.lnk" />
+          <start:DesktopApplicationTile Size="1x1" Column="0" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\Fiddler Classic.lnk" />
+        </start:Group>
+        <start:Group Name="Windows Analysis">
+          <start:DesktopApplicationTile Size="1x1" Column="1" Row="1" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\AutoRunner.lnk" />
+          <start:DesktopApplicationTile Size="1x1" Column="3" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\ShellBagsExplorer.lnk" />
+          <start:DesktopApplicationTile Size="1x1" Column="2" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\MFTExplorer.lnk" />
+          <start:DesktopApplicationTile Size="1x1" Column="2" Row="1" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\TimelineExplorer.lnk" />
+          <start:DesktopApplicationTile Size="1x1" Column="0" Row="1" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\SRUM-DUMP2.lnk" />
+          <start:DesktopApplicationTile Size="1x1" Column="4" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\JumpListExplorer.lnk" />
+          <start:DesktopApplicationTile Size="1x1" Column="0" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\NTFS-Log-Tracker.lnk" />
+          <start:DesktopApplicationTile Size="1x1" Column="1" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\LogFileParser64.lnk" />
+        </start:Group>
+        <start:Group Name="Installer Parsers">
+          <start:DesktopApplicationTile Size="1x1" Column="0" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\lessmsi.lnk" />
+          <start:DesktopApplicationTile Size="1x1" Column="4" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\AutoIT Extractor.lnk" />
+          <start:DesktopApplicationTile Size="1x1" Column="2" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\myAutToExe.lnk" />
+          <start:DesktopApplicationTile Size="1x1" Column="1" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\UniExtract.lnk" />
+          <start:DesktopApplicationTile Size="1x1" Column="3" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\Py2ExeDecompiler.lnk" />
+        </start:Group>
+        <start:Group Name="Document Editors">
+          <start:DesktopApplicationTile Size="1x1" Column="0" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\LibreOffice 7.2\LibreOffice.lnk" />
+          <start:DesktopApplicationTile Size="1x1" Column="2" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\Notepad++.lnk" />
+          <start:DesktopApplicationTile Size="1x1" Column="1" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\Sublime Text.lnk" />
+        </start:Group>
+        <start:Group Name="Programming and Debugging">
+          <start:DesktopApplicationTile Size="1x1" Column="0" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\Visual Studio Code\Visual Studio Code.lnk" />
+          <start:DesktopApplicationTile Size="1x1" Column="2" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\Windows PowerShell\Windows PowerShell ISE.lnk" />
+          <start:DesktopApplicationTile Size="1x1" Column="1" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\Visual Studio 2022.lnk" />
+          <start:DesktopApplicationTile Size="1x1" Column="3" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\Python 3.10\IDLE (Python 3.10 64-bit).lnk" />
+        </start:Group>
+        <start:Group Name="Database Analysis">
+          <start:DesktopApplicationTile Size="1x1" Column="2" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\SDBExplorer.lnk" />
+          <start:DesktopApplicationTile Size="1x1" Column="0" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\SQLiteStudio.lnk" />
+          <start:DesktopApplicationTile Size="1x1" Column="4" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\DBeaver Community\DBeaver.lnk" />
+          <start:DesktopApplicationTile Size="1x1" Column="3" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\SysTools SQL MDF Viewer\SysTools SQL MDF Viewer.lnk" />
+          <start:DesktopApplicationTile Size="1x1" Column="1" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\DB Browser (SQLite).lnk" />
+        </start:Group>
+        <start:Group Name="Decoders">
+          <start:DesktopApplicationTile Size="1x1" Column="2" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\Passware\Encryption Analyzer 2022 v1\Passware Encryption Analyzer 2022 v1 (64-bit).lnk" />
+          <start:DesktopApplicationTile Size="1x1" Column="1" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\Digital Detective\DCode v5\DCode v5.5.lnk" />
+          <start:DesktopApplicationTile Size="1x1" Column="0" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\CyberChef.lnk" />
+        </start:Group>
+        <start:Group Name="Terminals">
+          <start:DesktopApplicationTile Size="1x1" Column="4" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\Python 2.7\Python (command line).lnk" />
+          <start:DesktopApplicationTile Size="1x1" Column="0" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\MobaXterm\MobaXterm.lnk" />
+          <start:DesktopApplicationTile Size="1x1" Column="3" Row="0" DesktopApplicationLinkPath="%APPDATA%\Microsoft\Windows\Start Menu\Programs\Windows PowerShell\Windows PowerShell.lnk" />
+          <start:DesktopApplicationTile Size="1x1" Column="1" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\Cygwin\Cygwin64 Terminal.lnk" />
+          <start:DesktopApplicationTile Size="1x1" Column="2" Row="0" DesktopApplicationLinkPath="%APPDATA%\Microsoft\Windows\Start Menu\Programs\System Tools\Command Prompt.lnk" />
+        </start:Group>
+        <start:Group Name="Document Analysis">
+          <start:DesktopApplicationTile Size="1x1" Column="0" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\PDFStreamDumper\PdfStreamDumper.exe.lnk" />
+          <start:DesktopApplicationTile Size="1x1" Column="2" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\SSView.lnk" />
+          <start:DesktopApplicationTile Size="1x1" Column="1" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\OffVis.lnk" />
+        </start:Group>
+        <start:Group Name="Acquisition">
+          <start:DesktopApplicationTile Size="1x1" Column="1" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\Active@ Disk Editor\Active@ Disk Editor.lnk" />
+          <start:DesktopApplicationTile Size="1x1" Column="0" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\AccessData\FTK Imager\FTK Imager.lnk" />
+          <start:DesktopApplicationTile Size="1x1" Column="2" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\gkape.lnk" />
+        </start:Group>
+        <start:Group Name="Log Parsers">
+          <start:DesktopApplicationTile Size="1x1" Column="3" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\HttpLogBrowser\HttpLogBrowser.lnk" />
+          <start:DesktopApplicationTile Size="1x1" Column="2" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\LogViewer2.lnk" />
+          <start:DesktopApplicationTile Size="1x1" Column="1" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\LogParser-Studio.lnk" />
+          <start:DesktopApplicationTile Size="1x1" Column="0" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\Log Parser 2.2\Log Parser 2.2.lnk" />
+          <start:DesktopApplicationTile Size="1x1" Column="4" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\EventFinder.lnk" />
+        </start:Group>
+      </defaultlayout:StartLayout>
+    </StartLayoutCollection>
+  </DefaultLayoutOverride>
+</LayoutModificationTemplate>
