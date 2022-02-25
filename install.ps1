@@ -10,7 +10,7 @@
         Additionally, the Win-FOR states allow for the automated installation of the Windows Subsystem for Linux v2, and comes with
         the REMnux and SIFT toolsets, making the VM a one-stop shop for forensics!
     .NOTES
-        Version        : 0.1
+        Version        : 1.0.0
         Author         : Corey Forman (https://github.com/digitalsleuth)
         Prerequisites  : Windows 10 1909 or later
                        : Set-ExecutionPolicy must allow for script execution
@@ -66,21 +66,21 @@ function Compare-Hash($FileName, $HashName) {
 function Get-Saltstack {
     $InstalledSalt = (Get-ItemProperty 'HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*','HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*' | Where-Object {$_.DisplayName -clike 'Salt Minion*' } | Select-Object DisplayName, DisplayVersion)
     if ($InstalledSalt.DisplayName -eq $null) {
-        Write-Host "[!] SaltStack not installed" -ForegroundColor Yellow
+        Write-Host "[-] SaltStack not installed" -ForegroundColor Yellow
     } elseif ($InstalledSalt.DisplayName -clike 'Salt Minion*' -and $InstalledSalt.DisplayVersion -eq $saltstackVersion) {
         Write-Host "[+] SaltStack v$saltstackVersion already installed" -ForegroundColor Green
         return
     }
     if (-Not (Test-Path C:\Windows\Temp\$saltstackFile)) {
         [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-        Write-Host "[+] Downloading SaltStack v$saltstackVersion" -ForegroundColor Yellow
+        Write-Host "[-] Downloading SaltStack v$saltstackVersion" -ForegroundColor Yellow
         Invoke-WebRequest $saltstackSource -OutFile "C:\Windows\Temp\$saltstackFile"
-        Write-Host "[+] Verifying Download" -ForegroundColor Yellow
+        Write-Host "[-] Verifying Download" -ForegroundColor Yellow
         Compare-Hash -FileName C:\Windows\Temp\$saltstackFile -HashName $saltstackHash
-        Write-Host "[+] Installing SaltStack v$saltstackVersion" -ForegroundColor Yellow
+        Write-Host "[-] Installing SaltStack v$saltstackVersion" -ForegroundColor Yellow
         Install-Saltstack
     } else {
-        Write-Host "[!] Found existing SaltStack installer - validating hash before installing" -ForegroundColor Yellow
+        Write-Host "[-] Found existing SaltStack installer - validating hash before installing" -ForegroundColor Yellow
         Compare-Hash -FileName C:\Windows\Temp\$saltstackFile -HashName $saltstackHash
         Write-Host "[+] Installing SaltStack v$saltstackVersion" -ForegroundColor Yellow
         Install-Saltstack
@@ -100,23 +100,23 @@ function Install-Saltstack {
 function Get-Git {
     $InstalledGit = (Get-ItemProperty 'HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*','HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*' | Where-Object {$_.DisplayName -clike 'Git*' } | Select-Object DisplayName, DisplayVersion)
     if ($InstalledGit.DisplayName -eq $null) {
-        Write-Host "[!] Git not installed" -ForegroundColor Yellow
+        Write-Host "[-] Git not installed" -ForegroundColor Yellow
     } elseif ($InstalledGit.DisplayName -clike 'Git*' -and $InstalledGit.DisplayVersion -clike "$gitVersion*") {
         Write-Host "[+] Git v$gitVersion already installed" -ForegroundColor Green
         return
     }
     if (-Not (Test-Path C:\Windows\Temp\$gitFile)) {
         [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-        Write-Host "[+] Downloading Git v$gitVersion" -ForegroundColor Yellow
+        Write-Host "[-] Downloading Git v$gitVersion" -ForegroundColor Yellow
         Invoke-WebRequest $gitUrl -OutFile "C:\Windows\Temp\$gitFile"
-        Write-Host "[+] Verifying Download" -ForegroundColor Yellow
+        Write-Host "[-] Verifying Download" -ForegroundColor Yellow
         Compare-Hash -FileName C:\Windows\Temp\$gitFile -HashName $gitHash
-        Write-Host "[+] Installing Git v$gitVersion" -ForegroundColor Yellow
+        Write-Host "[-] Installing Git v$gitVersion" -ForegroundColor Yellow
         Install-Git
     } else {
-        Write-Host "[!] Found existing Git installer - validating hash before installing" -ForegroundColor Yellow
+        Write-Host "[-] Found existing Git installer - validating hash before installing" -ForegroundColor Yellow
         Compare-Hash  -FileName C:\Windows\Temp\$gitFile -HashName $gitHash
-        Write-Host "[+] Installing Git v$gitVersion" -ForegroundColor Yellow
+        Write-Host "[-] Installing Git v$gitVersion" -ForegroundColor Yellow
         Install-Git
     }
 }
@@ -132,7 +132,7 @@ function Install-Git {
 }
 
 function Install-WinFOR {
-    Write-Host "[+] Cloning WinFOR-Salt repo" -ForegroundColor Yellow
+    Write-Host "[-] Cloning WinFOR-Salt repo" -ForegroundColor Yellow
     Start-Process -Wait -FilePath "C:\Program Files\Git\bin\git.exe" -ArgumentList "clone https://github.com/digitalsleuth/winfor-salt `"C:\ProgramData\Salt Project\Salt\srv\salt`"" -PassThru | Out-Null
     Write-Host "[+] The Win-FOR installer command is running, configuring for user $User - this will take a while... please be patient" -ForegroundColor Green
     Start-Process -Wait -FilePath "C:\Program Files\Salt Project\Salt\salt-call.bat" -ArgumentList ("-l debug --local --retcode-passthrough --state-output=mixed state.sls winfor.$Mode pillar=`"{'winfor_user': '$user'}`" --log-file-level=debug --log-file=`"$logFile`" --out-file=`"$logFile`" --out-file-append") | Out-Null
@@ -183,7 +183,7 @@ function Invoke-WinFORInstaller {
         }
     Get-Saltstack
     Get-Git
-    Write-Host "[+] Refreshing environment variables" -ForegroundColor Yellow
+    Write-Host "[-] Refreshing environment variables" -ForegroundColor Yellow
     $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine")
     Write-Host "[+] Running Win-FOR SaltStack installation" -ForegroundColor Green
     Install-WinFOR
@@ -216,7 +216,7 @@ function Invoke-WSLInstaller {
     $wslLogFile = "C:\winfor-wsl.log"
     $wslErrorLog = "C:\winfor-wsl-errors.log"
     if (-Not (Test-Path "C:\ProgramData\Salt Project\Salt\srv\salt\winfor")) {
-        Write-Host "[+] Cloning WinFOR-Salt repo" -ForegroundColor Yellow
+        Write-Host "[-] Cloning WinFOR-Salt repo" -ForegroundColor Yellow
         Start-Process -Wait -FilePath "C:\Program Files\Git\bin\git.exe" -ArgumentList "clone https://github.com/digitalsleuth/winfor-salt `"C:\ProgramData\Salt Project\Salt\srv\salt`"" -PassThru | Out-Null
     }
     Write-Host "[+] Installing WSLv2 with SIFT and REMnux" -ForegroundColor Green
