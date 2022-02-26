@@ -42,23 +42,23 @@ if [ "`cat ${VERSION_FILE}`" != "${TAG_NAME}" ]; then
   echo "==> Pushing Tags to Remote"
   git push origin --tags
 
-  echo "==> Sleeping, waiting for tar.gz file"
+  echo "==> Sleeping, waiting for zip file"
   sleep 3
 fi
 
 echo "==> Creating GitHub Release"
 RELEASE_ID=`curl -XPOST -H "Authorization: token ${GITHUB_ACCESS_TOKEN}" -q https://api.github.com/repos/digitalsleuth/winfor-salt/releases -d "{\"tag_name\": \"$TAG_NAME\", \"prerelease\": $PRERELEASE}" | jq .id`
 
-echo "==> Downloading tar.gz file for tag from GitHub"
+echo "==> Downloading zip file for tag from GitHub"
 curl -qL -o /tmp/winfor-salt-${TAG_NAME}.zip https://github.com/digitalsleuth/winfor-salt/archive/$TAG_NAME.zip
 
-echo "==> Generating SHA256 of tar.gz"
+echo "==> Generating SHA256 of zip"
 shasum -a 256 /tmp/winfor-salt-$TAG_NAME.zip > /tmp/winfor-salt-$TAG_NAME.zip.sha256
 
 echo "==> Generating GPG Signature of SHA256"
 gpg --armor --clearsign --digest-algo SHA256 -u 4CF992E3 /tmp/winfor-salt-$TAG_NAME.zip.sha256
 
-echo "==> Generating GPG Signature of tar.gz file"
+echo "==> Generating GPG Signature of zip file"
 gpg --armor --detach-sign -u 4CF992E3 /tmp/winfor-salt-$TAG_NAME.zip
 
 echo "==> Uploading winfor-salt-$TAG_NAME.zip.sha256"
