@@ -10,7 +10,7 @@
         Additionally, the Win-FOR states allow for the automated installation of the Windows Subsystem for Linux v2, and comes with
         the REMnux and SIFT toolsets, making the VM a one-stop shop for forensics!
     .NOTES
-        Version        : 2.0.0
+        Version        : 2.0.1
         Author         : Corey Forman (https://github.com/digitalsleuth)
         Prerequisites  : Windows 10 1909 or later
                        : Set-ExecutionPolicy must allow for script execution
@@ -154,6 +154,9 @@ function Get-WinFORRelease($installVersion) {
     Write-Host "[-] Validating hash for release file" -ForegroundColor Yellow
     Compare-Hash -FileName C:\Windows\Temp\$installVersion.zip -HashName $releaseHash
     Expand-Archive -Path C:\Windows\Temp\$installVersion.zip -Destination 'C:\ProgramData\Salt Project\Salt\srv\' -Force
+    if (Test-Path "C:\ProgramData\Salt Project\Salt\srv\salt") {
+        Remove-Item -Force "C:\ProgramData\Salt Project\Salt\srv\salt" -Recurse
+    }
     Move-Item "C:\ProgramData\Salt Project\Salt\srv\$zipFolder" 'C:\ProgramData\Salt Project\Salt\srv\salt' -Force
 }
 
