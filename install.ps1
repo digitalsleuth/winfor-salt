@@ -193,6 +193,8 @@ function Install-WinFOR {
     } elseif ($gitStatus -eq $True) {
         Write-Host "[+] Git v$gitVersion already installed" -ForegroundColor Green
     }
+    Write-Host "[-] Refreshing environment variables" -ForegroundColor Yellow
+    $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine")
     $logFile = "C:\winfor-saltstack-$installVersion.log"
     Get-WinFORRelease $installVersion
     Write-Host "[+] The Win-FOR installer command is running, configuring for user $User - this will take a while... please be patient" -ForegroundColor Green
@@ -247,8 +249,6 @@ function Invoke-WinFORInstaller {
         Write-Host "[!] The only valid modes are 'addon' or 'dedicated'." -ForegroundColor Red
         exit 1
     }
-    Write-Host "[-] Refreshing environment variables" -ForegroundColor Yellow
-    $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine")
     Write-Host "[-] Running Win-FOR SaltStack installation" -ForegroundColor Yellow
     Install-WinFOR
 }
