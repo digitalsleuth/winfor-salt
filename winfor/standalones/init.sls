@@ -60,6 +60,7 @@ include:
   - winfor.standalones.magnet-web-page-saver-portable
   - winfor.standalones.psdecode
   - winfor.standalones.capa
+  - winfor.standalones.ilspy
 #  - winfor.standalones.unautoit Downloads removed, builds possible with golang
 
 winfor-standalones:
@@ -126,4 +127,5 @@ winfor-standalones:
       - sls: winfor.standalones.magnet-web-page-saver-portable
       - sls: winfor.standalones.psdecode
       - sls: winfor.standalones.capa
+      - sls: winfor.standalones.ilspy
 #      - sls: winfor.standalones.unautoit
