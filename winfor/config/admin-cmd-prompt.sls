@@ -98,7 +98,7 @@ library-background-shell-command:
     - vtype: REG_SZ
     - vdata: "cmd /c echo|set/p=\"%L\"|powershell -nop -W 1 -noni -nol \"SaPs 'cmd' -Args '/c \"\"\"cd /d',$([char]34+$Input+[char]34),'^&^& start /b cmd.exe\"\"\"' -Verb RunAs\""
 
-linked-connections:
+linked-connections-cmd:
   reg.present:
     - name: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
     - vname: EnableLinkedConnections

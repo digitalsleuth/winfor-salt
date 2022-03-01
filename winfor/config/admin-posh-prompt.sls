@@ -98,7 +98,7 @@ library-background-shell-posh-command:
     - vtype: REG_SZ
     - vdata: "powershell -W 1 -nop -c \"SaPs -Verb RunAs powershell.exe -Args \\\"-noe -c Push-Location \\\\\\\"\\\"%V/\\\\\\\"\\\"\\\""
 
-linked-connections:
+linked-connections-posh:
   reg.present:
     - name: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
     - vname: EnableLinkedConnections
