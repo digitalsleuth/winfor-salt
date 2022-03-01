@@ -1,8 +1,9 @@
 ##########
 # Win 10 / Server 2016 / Server 2019 Initial Setup Script - Tweak library
-# Author: Disassembler <disassembler@dasm.cz>
-# Version: v3.10, 2020-07-15
-# Source: https://github.com/Disassembler0/Win10-Initial-Setup-Script
+# Author: Disassembler <disassembler@dasm.cz> and Digital Sleuth (github.com/digitalsleuth)
+# Version: v3.11, 2022-03-01
+# Source: https://github.com/digitalsleuth/Win10-Initial-Setup-Script
+# Original Source: https://github.com/Disassembler0/Win10-Initial-Setup-Script
 ##########
 
 ##########
@@ -2451,6 +2452,36 @@ Function DisableF1HelpKey {
 Function EnableF1HelpKey {
 	Write-Output "Enabling F1 Help key..."
 	Remove-Item "HKCU:\Software\Classes\TypeLib\{8cec5860-07a1-11d9-b15e-000d56bfe6ee}\1.0\0" -Recurse -ErrorAction SilentlyContinue
+}
+
+# Enable News and interests in System Tray
+Function EnableNewsFeeds {
+        Write-Output "Enabling News and Interests in system tray..."
+        If (!(Test-Path "HKLM:\Software\Policies\Microsoft\Windows\Windows Feeds")) {
+                New-Item -Path "HKLM:\Software\Policies\Microsoft\Windows\Windows Feeds" -Force | Out-Null
+        }
+        Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\Windows Feeds" -Name "EnableFeeds" -Type DWord -Value 1
+}
+
+# Disable News and interests in System Tray
+Function DisableNewsFeeds {
+        Write-Output "Disabling News and Interests in system tray..."
+        If (!(Test-Path "HKLM:\Software\Policies\Microsoft\Windows\Windows Feeds")) {
+                New-Item -Path "HKLM:\Software\Policies\Microsoft\Windows\Windows Feeds" -Force | Out-Null
+        }
+        Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\Windows Feeds" -Name "EnableFeeds" -Type DWord -Value 0
+}
+
+# Enable the Meet Now camera in System Tray
+Function EnableMeetNow {
+        Write-Output "Enabling Meet Now in System Tray"
+        Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" -Name "HideSCAMeetNow" -Type DWord -Value 0
+}
+
+# Disable the Meet Now camera in System Tray
+Function DisableMeetNow {
+        Write-Output "Disabling Meet Now in System Tray"
+        Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" -Name "HideSCAMeetNow" -Type DWord -Value 1
 }
 
 ##########
