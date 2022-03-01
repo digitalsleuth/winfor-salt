@@ -40,7 +40,7 @@ include:
   - winfor.packages.burpsuite-community
   - winfor.packages.magnet-chromebook-acquisition
   - winfor.packages.magnet-acquire
-  - winfor.packages.openhashtab-system
+  - winfor.packages.openhashtab
 #  - winfor.packages.ntfs-log-analyzer Wants to download dotnet20 from a non-existent URL
 
 winfor-packages:
@@ -87,5 +87,5 @@ winfor-packages:
       - sls: winfor.packages.burpsuite-community
       - sls: winfor.packages.magnet-chromebook-acquisition
       - sls: winfor.packages.magnet-acquire
-      - sls: winfor.packages.openhashtab-system
+      - sls: winfor.packages.openhashtab
 #      - sls: winfor.packages.ntfs-log-analyzer

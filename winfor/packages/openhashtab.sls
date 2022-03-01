@@ -1,0 +1,2 @@
+openhashtab:
+  pkg.installed
