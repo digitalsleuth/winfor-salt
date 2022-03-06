@@ -1,12 +1,3 @@
-# Seems to be a strange issue with Windows 10 where the Import-Layout option
-# doesn't actually seem to do anything.
-# The following is a workaround to add the layout via GPO, restart explorer,
-# disable the GPO, then restart explorer again.
-#
-# Other option is to edit HKEY_CURRENT_USER (and LOCAL_MACHINE)\SOFTWARE\Policies\Microsoft\Windows\Explorer and add:
-# LockedStartLayout REG_DWORD 0
-# StartLayoutFile REG_EXPAND_SZ C:\standalone\WIN-FOR-layout.xml
-# REF: https://superuser.com/questions/1117136/import-startlayout-doesnt-change-anything
 {% if grains['osrelease'] == "11" %}
 
 Skipping Start Layout on Windows 11:
@@ -27,26 +18,46 @@ start-layout-enable-gpo:
         "Start Menu and Taskbar\\Start Layout":
           "Start Layout File": 
              'C:\standalone\WIN-FOR-StartLayout.xml'
+    - computer_policy:
+        "Start Menu and Taskbar\\Start Layout":
+          "Start Layout File": 
+             'C:\standalone\WIN-FOR-StartLayout.xml'
 
-'HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\Explorer':
+start-layout-update:
+  cmd.run:
+    - name: 'gpupdate /force'
+    - shell: cmd
+
+disable-locked-start-stager:
+  file.managed:
+    - name: 'C:\standalone\disable-locked-start.cmd'
+    - source: salt://winfor/config/layout/disable-locked-start.cmd
+    - win_inheritance: True
+    - makedirs: True
+
+disable-locked-start-layout-on-reboot-hkcu:
   reg.present:
-    - vname: LockedStartLayout
-    - vtype: REG_DWORD
-    - vdata: 0
+    - name: HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce
+    - vname: "Disable Locked Start Layout"
+    - vtype: REG_SZ
+    - vdata: 'C:\Windows\system32\cmd.exe /q /c C:\standalone\disable-locked-start.cmd'
     - require:
       - lgpo: start-layout-enable-gpo
+      - file: disable-locked-start-stager
 
-'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer':
+disable-locked-start-layout-on-reboot-hklm:
   reg.present:
-    - vname: LockedStartLayout
-    - vtype: REG_DWORD
-    - vdata: 0
+    - name: HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce
+    - vname: "Disable Locked Start Layout"
+    - vtype: REG_SZ
+    - vdata: 'C:\Windows\system32\cmd.exe /q /c C:\standalone\disable-locked-start.cmd'
     - require:
       - lgpo: start-layout-enable-gpo
+      - file: disable-locked-start-stager
 
 restart-explorer:
   cmd.run:
-    - name: 'Stop-Process -ProcessName "explorer"'
+    - name: 'Stop-Process -ProcessName "explorer" -Confirm:$false -ErrorAction SilentlyContinue -Force'
     - shell: powershell
 
 {% endif %}

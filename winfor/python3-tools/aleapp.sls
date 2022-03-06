@@ -43,15 +43,24 @@ winfor-python3-aleapp-env-vars:
   win_path.exists:
     - name: 'C:\standalone\aleapp\'
 
+winfor-python3-aleapp-icon:
+  file.managed:
+    - name: 'C:\standalone\abrignoni-logo.ico'
+    - source: salt://winfor/files/abrignoni-logo.ico
+    - source_hash: sha256=97ca171e939a3e4a3e51f4a66a46569ffc604ef9bb388f0aec7a8bceef943b98
+    - makedirs: True
+
 winfor-python3-aleapp-gui-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\ALEAPP-GUI.lnk'
     - target: 'C:\standalone\aleapp\aleappGUI.py'
     - force: True
     - working_dir: 'C:\standalone\aleapp\'
+    - icon_location: 'C:\standalone\abrignoni-logo.ico'
     - makedirs: True
     - require:
       - git: winfor-python3-aleapp-source
       - pip: winfor-python3-aleapp-requirements
       - file: winfor-python3-aleapp-header
       - win_path: winfor-python3-aleapp-env-vars
+      - file: winfor-python3-aleapp-icon

@@ -1,0 +1,2 @@
+irfanview:
+  pkg.installed

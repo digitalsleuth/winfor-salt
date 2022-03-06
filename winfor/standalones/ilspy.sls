@@ -6,14 +6,15 @@
 # License: 
 # Notes:
 
-{% set version = '7.2.0.6843-rc' %}
-{% set hash = 'bd17a8fb194dbaa65716916e65fa70ceeb8bf6c4b587a0198dd1051883a99f32' %}
+{% set version = '7.2.0.6844' %}
+{% set core_version = 'v7.2' %}
+{% set hash = '61341AEB5992BC76ECD09F29D4A39D13D96AFB4D3A498FC191FD999908EA667C' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 ilspy-download:
   file.managed:
     - name: 'C:\salt\tempdownload\ILSpy_binaries_{{ version }}.zip'
-    - source: https://github.com/icsharpcode/ILSpy/releases/download/v7.2-rc/ILSpy_binaries_{{ version }}.zip
+    - source: https://github.com/icsharpcode/ILSpy/releases/download/{{ core_version }}/ILSpy_binaries_{{ version }}.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True
 

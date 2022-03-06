@@ -213,9 +213,11 @@ function Install-WinFOR {
     if ($failures -ne 0 -and $failures -ne $null) {
         $errors | Out-File $errorLogFile -Append
         Write-Host $results -ForegroundColor Yellow
-        Write-Host "[!] To determine the cause of the failures, review the log file $logFile and search for lines containing [ERROR   ], or review $errorLogFile for a less verbose listing."
+        Write-Host "[!] To determine the cause of the failures, review the log file $logFile and search for lines containing [ERROR   ] or review $errorLogFile for a less verbose listing." -ForegroundColor Yellow
+        Write-Host "[!] In order to ensure all configuration changes are successful, it is recommended to reboot before first use." -ForegroundColor Yellow
     } else {
         Write-Host $results -ForegroundColor Green
+        Write-Host "[!] In order to ensure all configuration changes are successful, it is recommended to reboot before first use." -ForegroundColor Green
         exit
     }
     if ($IncludeWsl) {

@@ -41,6 +41,7 @@ include:
   - winfor.packages.magnet-chromebook-acquisition
   - winfor.packages.magnet-acquire
   - winfor.packages.openhashtab
+  - winfor.packages.irfanview
 #  - winfor.packages.ntfs-log-analyzer Wants to download dotnet20 from a non-existent URL
 
 winfor-packages:
@@ -88,4 +89,5 @@ winfor-packages:
       - sls: winfor.packages.magnet-chromebook-acquisition
       - sls: winfor.packages.magnet-acquire
       - sls: winfor.packages.openhashtab
+      - sls: winfor.packages.irfanview
 #      - sls: winfor.packages.ntfs-log-analyzer

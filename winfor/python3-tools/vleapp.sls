@@ -43,15 +43,24 @@ winfor-python3-vleapp-env-vars:
   win_path.exists:
     - name: 'C:\standalone\vleapp\'
 
+winfor-python3-vleapp-icon:
+  file.managed:
+    - name: 'C:\standalone\abrignoni-logo.ico'
+    - source: salt://winfor/files/abrignoni-logo.ico
+    - source_hash: sha256=97ca171e939a3e4a3e51f4a66a46569ffc604ef9bb388f0aec7a8bceef943b98
+    - makedirs: True
+
 winfor-python3-vleapp-gui-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\VLEAPP-GUI.lnk'
     - target: 'C:\standalone\vleapp\vleappGUI.py'
     - force: True
     - working_dir: 'C:\standalone\vleapp\'
+    - icon_location: 'C:\standalone\abrignoni-logo.ico'
     - makedirs: True
     - require:
       - git: winfor-python3-vleapp-source
       - pip: winfor-python3-vleapp-requirements
       - file: winfor-python3-vleapp-header
       - win_path: winfor-python3-vleapp-env-vars
+      - file: winfor-python3-vleapp-icon

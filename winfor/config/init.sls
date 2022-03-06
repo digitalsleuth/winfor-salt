@@ -1,7 +1,7 @@
 include:
-  - winfor.config.layout
   - winfor.config.user
   - winfor.config.debloat-windows
+  - winfor.config.layout
   - winfor.config.computer-name
   - winfor.config.pdfs
   - winfor.config.del-edge-shortcut
@@ -11,9 +11,9 @@ include:
 winfor-config:
   test.nop:
     - require:
-      - sls: winfor.config.layout
       - sls: winfor.config.user
       - sls: winfor.config.debloat-windows
+      - sls: winfor.config.layout
       - sls: winfor.config.computer-name
       - sls: winfor.config.pdfs
       - sls: winfor.config.del-edge-shortcut

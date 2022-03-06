@@ -11,6 +11,7 @@ include:
 #  - winfor.installers.windbg - Troubles with source
   - winfor.installers.vbdecompiler
   - winfor.installers.systools-pst-viewer
+  - winfor.installers.irfanview-plugins
   
 winfor-installers:
   test.nop:
@@ -27,3 +28,4 @@ winfor-installers:
 #      - sls: winfor.installers.windbg
       - sls: winfor.installers.vbdecompiler
       - sls: winfor.installers.systools-pst-viewer
+      - sls: winfor.installers.irfanview-plugins

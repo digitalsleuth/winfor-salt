@@ -1,6 +1,5 @@
+{% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set hash = '4ed521a6f727c2a5352b2d28e28cfd8639e9c8cbc1b7a35aa7e003464c4fc139' %}
-{% set user = salt['pillar.get']('winfor_user', 'forensics') %}
-{% set home = salt['user.info'](user).home %}
 
 include:
   - winfor.wsl.wsl2-update
@@ -80,9 +79,8 @@ wsl-run-remnux:
 
 winfor-wsl-shortcut:
   file.shortcut:
-    - name: '{{ home }}\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\WSL.lnk'
+    - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\WSL.lnk'
     - target: 'C:\Windows\System32\wsl.exe'
-    - user: {{ user }}
     - force: True
     - working_dir: 'C:\Windows\System32\'
     - makedirs: True
@@ -91,4 +89,3 @@ winfor-wsl-shortcut:
       - file: wsl-get-template
       - file: wsl-make-install-directory
       - cmd: wsl-import-template
-      - user: winfor-user-{{ user }}
