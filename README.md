@@ -12,25 +12,21 @@ This is best left to you to decide what is acceptable in your organization.
 ```text
 Usage:
   .\install.ps1 -User <user> -Mode <mode> -IncludeWsl -WslOnly -Update -Upgrade
-  .\install.ps1 -version
+  .\install.ps1 -Version
+  .\install.ps1 -Help
 
 Options:
-  -User <user>	User used for configuration of VM and software, default is current user
-  -Mode <mode>	WIN-FOR Install mode
-		(addon (applications only, no customization); dedicated (everything))
-  -IncludeWsl	Also install the Windows Subsystem for Linux v2 with SIFT and REMnux
-		This will cause a reboot, and will be run after all other installs are complete
-		Can be used separately one a full install and customization
-  -WslOnly	Since the bandwidth and timeframe for a full WSL installation
-		with SIFT and REMnux can be taxing on a system, deadline, or network,
-		this option will allow you to install the WSL
-		setup at another time, or install only this feature without the rest.
-  -Version	Provides the current version of WIN-FOR, will display `not installed`
-		on first run or onn subsequent runs where the installation is incomplete
-  -Update	Will re-install the current version of software from the existing release
-		(Feature coming soon)
-  -Upgrade	Will check for a newer release of the existing installation and upgrade
-		(Feature coming soon)
+    -User <user>  Choose the desired username for which to configure the installation
+    -Mode <mode>  There are two modes to choose from for the installation:
+                  addon: Install all of the tools, but don't do any customization
+                  dedicated: Assumes you want the full meal-deal, will install all packages and customization
+    -Update       Identifies the current version of WIN-FOR and re-installs all states from that version
+    -Upgrade      Identifies the latest version of WIN-FOR and will install that version
+    -Version      Displays the current version of WIN-FOR (if installed) then exits
+    -IncludeWsl   Will install the Windows Subsystem for Linux v2 with SIFT and REMnux toolsets
+                  This option assumes you also want the full WIN-FOR suite, install that first, then WSL
+    -WslOnly      If you wish to only install WSLv2 with SIFT and REMnux separately, without the tools
+    -Help         Self-explanatory
 ```
 
 ## Issues
