@@ -10,7 +10,7 @@
         Additionally, the Win-FOR states allow for the automated installation of the Windows Subsystem for Linux v2, and comes with
         the REMnux and SIFT toolsets, making the VM a one-stop shop for forensics!
     .NOTES
-        Version        : 2.0.1
+        Version        : 2.1
         Author         : Corey Forman (https://github.com/digitalsleuth)
         Prerequisites  : Windows 10 1909 or later
                        : Set-ExecutionPolicy must allow for script execution
@@ -51,9 +51,10 @@ param (
   [switch]$Upgrade,
   [switch]$Version,
   [switch]$IncludeWsl,
-  [switch]$WslOnly
+  [switch]$WslOnly,
+  [switch]$Help
 )
-
+[string]$installerVersion = 'v2.1'
 [string]$saltstackVersion = '3004-3'
 [string]$saltstackFile = 'Salt-Minion-' + $saltstackVersion + '-Py3-AMD64-Setup.exe'
 [string]$saltstackHash = "D7B998C2BA5025200D13F55A0D7248DC9001E23949102D8E8A394C7733C1FA6B"
@@ -201,7 +202,7 @@ function Install-WinFOR {
     $logFile = "C:\winfor-saltstack-$installVersion.log"
     Get-WinFORRelease $installVersion
     Write-Host "[+] The Win-FOR installer command is running, configuring for user $User - this will take a while... please be patient" -ForegroundColor Green
-    Start-Process -Wait -FilePath "C:\Program Files\Salt Project\Salt\salt-call.bat" -ArgumentList ("-l debug --local --retcode-passthrough --state-output=mixed state.sls winfor.$Mode pillar=`"{'winfor_user': '$user'}`" --log-file-level=debug --log-file=`"$logFile`" --out-file=`"$logFile`" --out-file-append") | Out-Null
+    Start-Process -Wait -FilePath "C:\Program Files\Salt Project\Salt\salt-call.bat" -ArgumentList ("-l debug --local --retcode-passthrough --state-output=mixed state.sls winfor.$Mode pillar=`"{'winfor_user': '$User'}`" --log-file-level=debug --log-file=`"$logFile`" --out-file=`"$logFile`" --out-file-append") | Out-Null
     if (-Not (Test-Path $logFile)) {
         $results=$failures=$errors=$null
 	} else {
@@ -218,7 +219,6 @@ function Install-WinFOR {
     } else {
         Write-Host $results -ForegroundColor Green
         Write-Host "[!] In order to ensure all configuration changes are successful, it is recommended to reboot before first use." -ForegroundColor Green
-        exit
     }
     if ($IncludeWsl) {
         if ($results) {
@@ -234,15 +234,6 @@ function Invoke-WinFORInstaller {
     if (-Not $runningUser.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
         Write-Host "[!] Not running as administrator, please re-run this script as Administrator" -ForegroundColor Red
         exit 1
-    }
-    if($Version) {
-        if(-Not (Test-Path $versionFile)) {
-            $winforVersion = 'not installed'
-        } else {
-            $winforVersion = (Get-Content $versionFile)
-        }
-        Write-Host "WIN-FOR is $winforVersion" -ForegroundColor Green
-        exit
     }
     if ($User -eq "") {
         $User = [System.Environment]::UserName
@@ -291,13 +282,46 @@ function Invoke-WSLInstaller {
         $logFile = "C:\winfor-saltstack-$installVersion.log"
         Get-WinFORRelease $installVersion
     }
-    Write-Host "[+] Installing WSLv2 with SIFT and REMnux" -ForegroundColor Green
+    Write-Host "[+] Preparing for WSLv2 Installation" -ForegroundColor Green
+    Write-Host "[!] This will process will automatically reboot the system and continue on the next login" -ForegroundColor Yellow
     Start-Process -Wait -FilePath "C:\Program Files\Salt Project\Salt\salt-call.bat" -ArgumentList ("-l debug --local --retcode-passthrough --state-output=mixed state.sls winfor.repos pillar=`"{'winfor_user': '$User'}`" --log-file-level=debug --log-file=`"$wslLogFile`" --out-file=`"$wslLogFile`" --out-file-append") | Out-Null
     Start-Process -Wait -FilePath "C:\Program Files\Salt Project\Salt\salt-call.bat" -ArgumentList ("-l debug --local --retcode-passthrough --state-output=mixed state.sls winfor.wsl pillar=`"{'winfor_user': '$User'}`" --log-file-level=debug --log-file=`"$wslLogFile`" --out-file=`"$wslLogFile`" --out-file-append") | Out-Null
+    ### If the above is successful, the following lines have no effect, as a reboot will have occurred.
+    ### However, if they are not successful, the following will log the errors in a separate file for examination.
     $wslErrors = (Select-String -Path $wslLogFile -Pattern '          ID:' -Context 0,6 | ForEach-Object{$_.Line; $_.Context.DisplayPostContext + "`r-------------"})
-    $wslErrors | Out-File $wslErrorLog -Append
-    Write-Host "[+] Installation finished" -ForegroundColor Green
+    if ($wslErrors -ne 0 -and $wslErrors -ne $null) {
+        $wslErrors | Out-File $wslErrorLog -Append
+    }
 }
+
+function Show-WinFORHelp {
+    Write-Host -ForegroundColor Yellow @"
+Windows Forensics VM (WIN-FOR) Installer $installerVersion
+Usage:
+    -User <user>  Choose the desired username for which to configure the installation
+    -Mode <mode>  There are two modes to choose from for the installation:
+                  addon: Install all of the tools, but don't do any customization
+                  dedicated: Assumes you want the full meal-deal, will install all packages and customization
+    -Update       Identifies the current version of WIN-FOR and re-installs all states from that version
+    -Upgrade      Identifies the latest version of WIN-FOR and will install that version
+    -Version      Displays the current version of WIN-FOR (if installed) then exits
+    -IncludeWsl   Will install the Windows Subsystem for Linux v2 with SIFT and REMnux toolsets
+                  This option assumes you also want the full WIN-FOR suite, install that first, then WSL
+    -WslOnly      If you wish to only install WSLv2 with SIFT and REMnux separately, without the tools
+"@
+}
+
+function Get-WinFORVersion {
+    $versionFile = "C:\ProgramData\Salt Project\Salt\srv\salt\winfor-version"
+    if(-Not (Test-Path $versionFile)) {
+        $winforVersion = 'not installed'
+    } else {
+        $winforVersion = (Get-Content $versionFile)
+    }
+    Write-Host "WIN-FOR is $winforVersion" -ForegroundColor Green
+    exit
+}
+
 if ($WslOnly) {
     $saltStatus = Test-Saltstack
     $gitStatus = Test-Git
@@ -310,6 +334,12 @@ if ($WslOnly) {
         Get-Git
     }
     Invoke-WSLInstaller
+} elseif ($Help -and $PSBoundParameters.Count -eq 1) {
+    Show-WinFORHelp
+} elseif ($Version -and $PSBoundParameters.Count -eq 1) {
+    Get-WinFORVersion
+} elseif ($PSBoundParameters.Count -eq 0) {
+    Invoke-WinFORInstaller
 } else {
     Invoke-WinFORInstaller
 }

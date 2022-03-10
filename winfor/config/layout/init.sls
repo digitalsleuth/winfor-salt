@@ -23,10 +23,10 @@ start-layout-enable-gpo:
           "Start Layout File": 
              'C:\standalone\WIN-FOR-StartLayout.xml'
 
-start-layout-update:
-  cmd.run:
-    - name: 'gpupdate /force'
-    - shell: cmd
+#start-layout-update:
+#  cmd.run:
+#    - name: 'gpupdate /force'
+#    - shell: cmd
 
 disable-locked-start-stager:
   file.managed:

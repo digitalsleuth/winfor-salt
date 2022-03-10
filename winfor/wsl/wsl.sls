@@ -52,6 +52,11 @@ wsl-config-run-on-reboot:
       - file: wsl-config-stager
       - file: wsl-config-stager-customize
 
+wsl-log-append:
+  file.append:
+    - name: 'C:\winfor-wsl.log'
+    - text: 'GOING FOR REBOOT'
+
 system-restart:
   system.reboot:
     - timeout: 0
