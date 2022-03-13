@@ -6,8 +6,8 @@
 # License: 
 # Notes: 
 
-{% set version = '1.1.0.1' %}
-{% set hash = '5f47b4a6ea5befb4840c4847d427231372660d18f1d2806498e6c4e78b578263' %}
+{% set version = '1.2.0.0' %}
+{% set hash = '5445407833B29AFBCA4300E930813FAA5C101AD628126D16E9F90857C249444A' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 kape-download:
