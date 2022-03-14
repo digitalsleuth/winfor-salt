@@ -21,7 +21,7 @@ Write-Host "[+] Downloading WIN-FOR template and installing SIFT & REMnux" -Fore
 Start-Process -Wait -FilePath $filePath -ArgumentList ($saltArgs) | Out-Null
 if (($repoFailures -ne 0 -and $repoFailures -ne $null) -or ($wslFailures -ne 0 -and $wslFailures -ne $null)){
     Write-Host "[!] Installation finished with errors" -ForegroundColor Yellow
-    Write-Host "[!] Showing only sections with failures" -ForegroundColor -Yellow
+    Write-Host "[!] Showing only sections with failures" -ForegroundColor Yellow
 if ($repoFailures -ne 0 -and $repoFailures -ne $null) {
     $errors | Out-File $wslErrorLog -Append
     $errors = ''
@@ -34,8 +34,7 @@ if ($wslFailures -ne 0 -and $wslFailures -ne $null) {
 }
     Write-Host "[!] To determine the cause of the failures, review the log file $wslLogFile and search for lines containing [ERROR   ] or review $wslErrorLog for a less verbose listing." -ForegroundColor Yellow
     Write-Host "[!] In order to ensure all configuration changes are successful, it is recommended to reboot before first use." -ForegroundColor Yellow
-}
-else {
+} else {
     Write-Host "[+] Installation finished successfully" -ForegroundColor Green
     Write-Host ("`n--- Repo Configuration Results ---`n" + $repoResults) -ForegroundColor Green
     Write-Host ("`n--- WSL2 Configuration Results ---`n" + $wslResults) -ForegroundColor Green
