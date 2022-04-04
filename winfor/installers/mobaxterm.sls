@@ -5,6 +5,7 @@
 # Author: Mobatek (https://www.mobatek.net/aboutus.html)
 # License: https://mobaxterm.mobatek.net/license.html
 # Notes: Home Edition
+# Version: 22.0
 
 {% set version = '22.0' %}
 {% set source_folder = '2202022022680737' %}

@@ -1,10 +1,11 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
+# Name: Redline
+# Website: https://www.fireeye.com
+# Description: Memory and File analysis tool
+# Category: Raw Parsers / Decoders
+# Author: FireEye
 # License: 
 # Notes: 
+# Version: 2.0
 
 redline-download:
   file.managed:

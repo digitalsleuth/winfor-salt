@@ -1,10 +1,11 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
+# Name: Windows Terminal
+# Website: https://github.com/microsoft/terminal
+# Description: Terminal Emulator
+# Category: Terminals
+# Author: Microsoft
+# License: MIT License (https://github.com/microsoft/terminal/blob/main/LICENSE)
 # Notes: 
+# Version: 1.11.3471.0
 
 # Alternate install method supposed to work for all users, but doesn't yet:
 # DISM.EXE /Online /Add-ProvisionedAppxPackage /PackagePath:Microsoft.WindowsTerminal_1.11.3471.0_8wekyb3d8bbwe.msixbundle /SkipLicense

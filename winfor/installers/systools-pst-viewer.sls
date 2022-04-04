@@ -1,10 +1,11 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
+# Name: SysTools Outlook PST Viewer
+# Website: https://www.systoolsgroup.com
+# Description: Outlook PST file parser
+# Category: Email
+# Author: SysTools
+# License: https://www.systoolsgroup.com/eula.pdf
 # Notes: 
+# Version: 5.0
 
 pst-viewer-download:
   file.managed:

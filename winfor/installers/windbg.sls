@@ -1,10 +1,11 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
+# Name: WinDbg
+# Website: https://www.microsoft.com
+# Description: Windows Debugger
+# Category: Executables
+# Author: Microsoft
 # License: 
 # Notes: 
+# Version: 1.211.9001.0
 
 # To get the download URL:
 # Visit: https://store.rg-adguard.net/

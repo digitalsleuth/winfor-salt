@@ -13,7 +13,7 @@
 x64dbg-download:
   file.managed:
     - name: 'C:\salt\tempdownload\snapshot_{{ version }}.zip'
-    - source: https://deac-ams.dl.sourceforge.net/project/x64dbg/snapshots/snapshot_2022-01-13_04-25.zip
+    - source: https://deac-ams.dl.sourceforge.net/project/x64dbg/snapshots/snapshot_{{ version }}.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True
 

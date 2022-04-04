@@ -1,12 +1,12 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
+# Name: .NET 3.5 Framework
+# Website: https://download.visualstudio.microsoft.com/download/pr/b635098a-2d1d-4142-bef6-d237545123cb/2651b87007440a15209cac29634a4e45/dotnetfx35.exe
+# Description: Microsoft .NET 3.5 Framework with .NET 2.0
+# Category: Requirements
+# Author: Microsoft
 # License: 
+# Version: .NET 3.5 SP1
 # Notes: 
 
-# https://download.microsoft.com/download/0/8/c/08c19fa4-4c4f-4ffb-9d6c-150906578c9e/NetFx20SP1_x86.exe
 dotnetfx35:
   dism.feature_installed:
     - name: NetFx3

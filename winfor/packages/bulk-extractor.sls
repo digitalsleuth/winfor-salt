@@ -1,10 +1,11 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
+# Name: Bulk Extractor
+# Website: https://digitalcorpora.org/downloads/bulk_extractor & https://github.com/simsong/bulk_extractor
+# Description: Tool for extracting artifacts from random data
+# Category: Raw Parsers / Decoders
+# Author: Simson L. Garfinkel
+# License: MIT License (https://github.com/simsong/bulk_extractor/blob/main/LICENSE.md)
 # Notes: 
+# Version: 1.5.5
 
 bulk-extractor:
   pkg.installed

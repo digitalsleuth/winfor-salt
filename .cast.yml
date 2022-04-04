@@ -1,0 +1,19 @@
+release:
+  github:
+    owner: digitalsleuth
+    repo: winfor-salt
+manifest:
+  version: 2
+  base: ""
+  modes:
+    - name: addon
+      state: winfor.addon
+      default: true
+    - name: dedicated
+      state: winfor.dedicated
+      default: false
+  supported_os:
+    - id: windows
+      release: 10
+    - id: windows
+      release: 11

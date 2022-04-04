@@ -1,10 +1,11 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
+# Name: Google Chrome
+# Website: https://www.google.com
+# Description: Google Web Browser
+# Category: Requirements
+# Author: Google
+# License: https://policies.google.com/terms
 # Notes: 
+# Version: 99.0.4844.82
 
 {% set user = salt['pillar.get']('winfor_user', 'forensics') %}
 {% set all_users = salt['user.list_users']() %}

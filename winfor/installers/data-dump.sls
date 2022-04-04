@@ -1,10 +1,11 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
+# Name: Data Dump
+# Website: https://www.digital-detective.net/datadump/
+# Description: Tool to extract segments of data from an image or device
+# Category: Raw Parsers / Decoders
+# Author: Craig Wilson (https://www.digital-detective.net)
 # License: 
-# Notes: 
+# Version: 1.0.15089.1
+# Notes: x86
 
 {% set version = '1.0.15089.1' %}
 {% set hash = '5e80b9efb2abb23c491342708820e673f965f3cf079713e78e799b382db6d652' %}

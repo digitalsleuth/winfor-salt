@@ -1,10 +1,11 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
+# Name: Windows Sandbox
+# Website: https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-sandbox/windows-sandbox-overview
+# Description: Windows-based Sandbox Environment
+# Category: Executables
+# Author: Microsoft
 # License: 
 # Notes: 
+# Version: 10.0.19041.985
 
 windows-sandbox:
   dism.feature_installed:

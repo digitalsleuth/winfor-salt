@@ -1,10 +1,11 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
-# Notes: 
+# Name: HxD 
+# Website: https://mh-nexus.de
+# Description: Hex Editor
+# Category: Raw Parsers / Decoders
+# Author: Mael Horz
+# License: https://mh-nexus.de/en/about.php
+# Notes:
+# Version: 2.5.0.0
 
 {% set version = '2.5.0.0' %}
 {% set hash = '5065041c7b03c24b9533a5b32b33db58f2b4924cd84bed41834ff2db51c1cb7c' %}

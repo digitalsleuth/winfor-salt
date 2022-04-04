@@ -1,0 +1,17 @@
+version: 1
+base: ""
+modes:
+  - name: addon
+    state: winfor.addon
+    default: true
+  - name: dedicated
+    state: winfor.dedicated
+    default: false
+supported_os:
+  - release: windows
+    codename: 10
+  - release: windows
+    codename: 11
+saltstack:
+  pillars:
+    winfor_user_template: "{{ .User }}"

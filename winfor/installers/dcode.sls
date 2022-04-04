@@ -1,9 +1,10 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
+# Name: DCode
+# Website: https://www.digital-detective.net/dcode
+# Description: Timestamp encoder/decoder
+# Category: Raw Parsers / Decoders
+# Author: Craig Wilson (https://www.digital-detective.net)
 # License: 
+# Version: 5.5.21194.40
 # Notes: 
 
 {% set version = '5.5.21194.40' %}
