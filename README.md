@@ -35,7 +35,7 @@ All issues should be raised at the [WIN-FOR Repo](https://github.com/digitalsleu
 
 ## What the install.ps1 does
 
-Installs [Saltstack 3004.3](https://repo.saltproject.io/windows/Salt-Minion-3004-3-Py3-AMD64-Setup.exe) then installs 
+Installs [Saltstack 3004.1](https://repo.saltproject.io/windows/Salt-Minion-3004.1-1-Py3-AMD64-Setup.exe) then installs 
 [Git](https://git-scm.com/download/win), then runs the following commands:
 ```
 git clone https://github.com/digitalsleuth/winfor-salt/ "C:\ProgramData\Salt Project\Salt\srv\salt"
