@@ -58,7 +58,7 @@ wsl-run-sift:
 
 wsl-get-remnux:
   cmd.run:
-    - name: 'wsl echo forensics | wsl sudo -S wget -O /usr/local/bin/remnux https://github.com/remnux/remnux-cli/releases/download/v1.3.3/remnux-cli-linux'
+    - name: 'wsl echo forensics | wsl sudo -S wget -O /usr/local/bin/remnux https://github.com/remnux/remnux-cli/releases/download/v1.3.4/remnux-cli-linux'
     - shell: cmd
     - require:
       - cmd: wsl-run-sift
