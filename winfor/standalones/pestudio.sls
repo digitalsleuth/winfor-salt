@@ -7,12 +7,12 @@
 # Notes: 
 
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
-
+{% set hash = '107fe245d45c0548f6cce5008a9dea5bc0ba2fcc9dd0a21a3a58bb9bcdcfbc6a' %}
 pestudio-download:
   file.managed:
     - name: 'C:\salt\tempdownload\pestudio.zip'
     - source: https://www.winitor.com/tools/pestudio/current/pestudio.zip
-    - source_hash: sha256=6e2c04255fea11b0b249a334c3d4e7632d86871a6d9990258fecdea675176fb9
+    - source_hash: sha256={{ hash }}
     - makedirs: True
 
 pestudio-extract:

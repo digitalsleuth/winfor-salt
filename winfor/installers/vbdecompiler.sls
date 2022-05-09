@@ -5,17 +5,17 @@
 # Author: DotFix Software
 # License: https://www.vb-decompiler.org/license.htm
 # Notes: 
-# Version: 11.7
+# Version: 11.8
 
-{% set version = '11.7' %}
-{% set hash = '2eab8c50c54f5844f4f6d0273d0fc33a53b1ed48e95c9a728858b2457da3fc26' %}
+{% set version = '11.8' %}
+{% set hash = '7984480e3d9d416b96243f3d752b6190d880d2518bc12d85d6fd74a025dcced6' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 vbdecompiler-download:
   file.managed:
     - name: 'C:\salt\tempdownload\vb_decompiler_lite.zip'
     - source: https://www.vb-decompiler.org/files/vb_decompiler_lite.zip
-    - source_hash: sha256=2eab8c50c54f5844f4f6d0273d0fc33a53b1ed48e95c9a728858b2457da3fc26
+    - source_hash: sha256={{ hash }}
     - makedirs: True
 
 vbdecompiler-extract:

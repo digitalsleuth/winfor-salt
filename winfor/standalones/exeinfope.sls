@@ -7,12 +7,13 @@
 # Notes: 
 
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set hash = '8935616b2f9a344f076b82ba8f3051b4d9bf42b199e2219f568ee373d6b9ab5a' %}
 
 exeinfope-download:
   file.managed:
     - name: 'C:\salt\tempdownload\exeinfope.zip'
     - source: https://github.com/ExeinfoASL/ASL/raw/master/exeinfope.zip
-    - source_hash: sha256=c8739731e43990ae82e881f30f2469468fa4f2007a75c8691712fc37fde5d528
+    - source_hash: sha256={{ hash }}
     - makedirs: True
 
 exeinfope-extract:
