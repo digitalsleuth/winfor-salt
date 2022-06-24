@@ -7,7 +7,7 @@
 # Notes: 
 
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
-{% set hash = '107fe245d45c0548f6cce5008a9dea5bc0ba2fcc9dd0a21a3a58bb9bcdcfbc6a' %}
+{% set hash = '4aaf464d4fbdad48daf94c0e77387956a2bf5dd9e74a5867cc5d62af7fa7f9b7' %}
 pestudio-download:
   file.managed:
     - name: 'C:\salt\tempdownload\pestudio.zip'
