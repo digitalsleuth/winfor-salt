@@ -41,7 +41,6 @@
           <start:DesktopApplicationTile Size="1x1" Column="1" Row="2" DesktopApplicationID="C:\standalone\regshot\Regshot-x64-Unicode.exe" />
           <start:DesktopApplicationTile Size="1x1" Column="2" Row="2" DesktopApplicationID="{7C5A40EF-A0FB-4BFC-874A-C0F2E0B9FA8E}\Resource Hacker\ResourceHacker.exe" />
           <start:DesktopApplicationTile Size="1x1" Column="1" Row="0" DesktopApplicationID="C:\standalone\cutter\cutter.exe" />
-          <start:DesktopApplicationTile Size="1x1" Column="3" Row="3" DesktopApplicationID="{7C5A40EF-A0FB-4BFC-874A-C0F2E0B9FA8E}\FFDec\ffdec.exe" />
           <start:DesktopApplicationTile Size="1x1" Column="2" Row="1" DesktopApplicationID="{6D809377-6AF0-444B-8957-A3773F02200E}\NTCore\Explorer Suite\Task Explorer-x64.exe" />
           <start:DesktopApplicationTile Size="1x1" Column="5" Row="1" DesktopApplicationID="C:\standalone\ppee\PPEE.exe" />
           <start:DesktopApplicationTile Size="1x1" Column="5" Row="2" DesktopApplicationID="{6D809377-6AF0-444B-8957-A3773F02200E}\NTCore\Explorer Suite\Signature Explorer.exe" />

@@ -31,7 +31,6 @@ include:
   - winfor.packages.fileinsight
   - winfor.packages.ntcore-explorersuite
   - winfor.packages.cerbero-suite
-  - winfor.packages.ffdec
   - winfor.packages.fiddler
   - winfor.packages.mdf-viewer
   - winfor.packages.process-hacker
@@ -79,7 +78,6 @@ winfor-packages:
       - sls: winfor.packages.fileinsight
       - sls: winfor.packages.ntcore-explorersuite
       - sls: winfor.packages.cerbero-suite
-      - sls: winfor.packages.ffdec
       - sls: winfor.packages.fiddler
       - sls: winfor.packages.mdf-viewer
       - sls: winfor.packages.process-hacker
