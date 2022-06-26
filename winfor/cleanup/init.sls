@@ -29,3 +29,7 @@ desktop-cleanup:
       - user: winfor-user-{{ user }}
       - cmd: cleanup-restart-explorer
 
+disk-cleanup:
+  cmd.run:
+    - name: 'C:\Windows\System32\cleanmgr.exe /d C: /autoclean'
+    - shell: cmd
