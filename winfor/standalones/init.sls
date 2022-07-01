@@ -61,6 +61,7 @@ include:
   - winfor.standalones.psdecode
   - winfor.standalones.capa
   - winfor.standalones.ilspy
+  - winfor.standalones.exiftool
 #  - winfor.standalones.unautoit Downloads removed, builds possible with golang
 
 winfor-standalones:
@@ -128,4 +129,5 @@ winfor-standalones:
       - sls: winfor.standalones.psdecode
       - sls: winfor.standalones.capa
       - sls: winfor.standalones.ilspy
+      - sls: winfor.standalones.exiftool
 #      - sls: winfor.standalones.unautoit

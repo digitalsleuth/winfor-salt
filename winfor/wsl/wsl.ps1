@@ -6,16 +6,20 @@ if (-Not $runningUser.IsInRole([Security.Principal.WindowsBuiltInRole]::Administ
     Read-Host "Press any key to continue"
 }
 if (-Not (Test-Path $wslLogFile)) {
-        $repoResults=$wslResults=$repoFailures=$wslFailures=$errors=$null
+    $wslResults=$wslFailures=$errors=$null
 	} else {
 $wslErrorLog = "C:\winfor-wsl-errors.log"
-$repoResults = (Select-String -Path $wslLogFile -Pattern 'Succeeded:' -Context 1 | Select-Object -First 1 | ForEach-Object{"[+] " + $_.Line; "[!] " + $_.Context.PostContext} | Out-String).Trim()
-$repoFailures = (Select-String -Path $wslLogFile -Pattern 'Succeeded:' -Context 1 | Select-Object -First 1 | ForEach-Object{$_.Context.PostContext})
-if ($repoFailures -ne $null) {$repoFailures = $repoFailures.split(':')[1].Trim() }
-$wslResults = (Select-String -Path $wslLogFile -Pattern 'Succeeded:' -Context 1 | Select-Object -Skip 1 -First 1 | ForEach-Object{"[+] " + $_.Line; "[!] " + $_.Context.PostContext} | Out-String).Trim()
-$wslFailures = (Select-String -Path $wslLogFile -Pattern 'Succeeded:' -Context 1 | Select-Object -Skip 1 -First 1 | ForEach-Object{$_.Context.PostContext})
+$wslResults = (Select-String -Path $wslLogFile -Pattern 'Succeeded:' -Context 1 | Select-Object -Last 1 | ForEach-Object{"[+] " + $_.Line; "[!] " + $_.Context.PostContext} | Out-String).Trim()
+$wslFailures = (Select-String -Path $wslLogFile -Pattern 'Succeeded:' -Context 1 | Select-Object -Last 1 | ForEach-Object{$_.Context.PostContext})
 if ($wslFailures -ne $null) {$wslFailures = $wslFailures.split(':')[1].Trim() }
 $errors = (Select-String -Path $wslLogFile -Pattern '          ID:' -Context 0,6 | ForEach-Object{$_.Line; $_.Context.DisplayPostContext + "`r-------------"})
+}
+if ($repoLogFile -eq "C:\") {
+    $repoResults=$repoFailures=$null
+} else {
+$repoResults = (Select-String -Path $repoLogFile -Pattern 'Succeeded:' -Context 1 | Select-Object -Last 1 | ForEach-Object{"[+] " + $_.Line; "[!] " + $_.Context.PostContext} | Out-String).Trim()
+$repoFailures = (Select-String -Path $repoLogFile -Pattern 'Succeeded:' -Context 1 | Select-Object -Last 1 | ForEach-Object{$_.Context.PostContext})
+if ($repoFailures -ne $null) {$repoFailures = $repoFailures.split(':')[1].Trim() }
 }
 Write-Host "[+] Downloading WIN-FOR template and installing SIFT & REMnux" -ForegroundColor Green
 Start-Process -Wait -FilePath $filePath -ArgumentList ($saltArgs) | Out-Null
@@ -32,7 +36,7 @@ if ($wslFailures -ne 0 -and $wslFailures -ne $null) {
     $errors = ''
     Write-Host ("`n--- WSL2 Configuration Results ---`n" + $wslResults) -ForegroundColor Yellow
 }
-    Write-Host "[!] To determine the cause of the failures, review the log file $wslLogFile and search for lines containing [ERROR   ] or review $wslErrorLog for a less verbose listing." -ForegroundColor Yellow
+    Write-Host "[!] To determine the cause of the failures, review the log file $wslLogFile and search for lines containing `n[ERROR   ] or review $wslErrorLog for a less verbose listing." -ForegroundColor Yellow
     Write-Host "[!] In order to ensure all configuration changes are successful, it is recommended to reboot before first use." -ForegroundColor Yellow
 } else {
     Write-Host "[+] Installation finished successfully" -ForegroundColor Green
