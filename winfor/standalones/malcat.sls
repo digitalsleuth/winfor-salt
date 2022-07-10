@@ -5,6 +5,7 @@
 # Author: 
 # License: 
 # Notes: 
+# Version:
 
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
@@ -12,7 +13,7 @@ malcat-download:
   file.managed:
     - name: 'C:\salt\tempdownload\malcat_win64_lite.zip'
     - source: https://malcat.fr/latest/malcat_win64_lite.zip
-    - source_hash: sha256=991cdedf3fd94e3dae4e650624d9e1c7d440bb4ddd113de8d9166fefd9b99025
+    - source_hash: sha256=aa86014f2a9b3577170b219aa54c841ea286b7a3527fab708b5e3288e311c9bc
     - makedirs: True
 
 malcat-extract:

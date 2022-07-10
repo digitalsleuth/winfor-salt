@@ -1,13 +1,14 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
-# Notes:
+# Name: Encrypted Disk Detector (EDD)
+# Website: https://www.magnetforensics.com
+# Description: Detects encrypted disks
+# Category: Utilities
+# Author: Magnet Forensics
+# License: EULA
+# Notes: Standalone Utility
+# Version: 310
 
-{% set hash = '89a3021f65c47386cdc12ab9788aa5523088cc03f480e9e28fef93216678d48f' %}
-{% set version = 'v302' %}
+{% set hash = '6e0ab06b04e1d7fd2ede11d1f607422ab3f6683086c3ccf12e9ed8053d4c3796' %}
+{% set version = 'v310' %}
 
 magnet-edd-download:
   file.managed:

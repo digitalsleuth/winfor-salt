@@ -5,7 +5,9 @@
 # Author: 
 # License: 
 # Notes: 
-{% set hash = 'b9184bf8d02db5547227185110c50b8243232fe3369a04e5847a2356ce3dc89c' %}
+# Version:
+
+{% set hash = '6720e11aba64f7302240858bda894af8e7bfb1e577ece219558aab38ed4fa93a' %}
 
 include:
   - winfor.packages.python3

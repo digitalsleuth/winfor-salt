@@ -11,7 +11,7 @@
 # Saltstack to read an ERROR and result: False, even though the pkg state
 # returns 'install success'.
 
-{% set hash = '18b445dc16259bb772aaf0d32d64f9ed3166045fdc07eb9154651840d8a27752' %}
+{% set hash = 'cf57ca7ac4e1f57b5d152f310fb82fb0ce8e500bff261e46b89febc673d04210' %}
 
 cygwin:
   file.managed:
