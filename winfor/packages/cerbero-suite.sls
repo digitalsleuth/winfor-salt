@@ -5,7 +5,7 @@
 # Author: Cerbero.io
 # License: 
 # Notes: 
-# Version: 5.4.2
+# Version: 5.7.0
 
 cerbero-suite:
   pkg.installed

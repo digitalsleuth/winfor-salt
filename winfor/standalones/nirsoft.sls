@@ -9,6 +9,7 @@
 
 {% set version = '1.23.61' %}
 {% set hash = 'd55a477d0e6d9d5de6e6001a120f9801a04429d140379b0253b5e53d6647530b' %}
+{% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 include:
   - winfor.packages.7zip
@@ -35,3 +36,14 @@ nirsoft-extract:
 nirsoft-env-vars:
   win_path.exists:
     - name: 'C:\standalone\nirsoft\'
+
+nirsoft-nirlauncher-shortcut:
+  file.shortcut:
+    - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\NirLauncher.lnk'
+    - target: 'C:\standalone\nirsoft\NirLauncher.exe'
+    - force: True
+    - working_dir: 'C:\standalone\nirsoft\'
+    - makedirs: True
+    - require:
+      - cmd: nirsoft-download
+
