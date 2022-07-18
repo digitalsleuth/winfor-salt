@@ -12,7 +12,7 @@
 autoit-extractor-download:
   file.managed:
     - name: 'C:\standalone\autoit-extractor\autoit-extractor.exe'
-    - source: 'https://github.com/digitalsleuth/autoit-extractor/blob/master/net40/AutoIt%20Extractor/bin/x64/Release/AutoIt%20Extractor.exe'
+    - source: 'https://github.com/digitalsleuth/autoit-extractor/raw/master/net40/AutoIt%20Extractor/bin/x64/Release/AutoIt%20Extractor.exe'
     - source_hash: sha256=d82d49e9ad153ef84670c1d0bde5f36b540d32fa037cca6127ce9e4e366b7403
     - makedirs: True
 
