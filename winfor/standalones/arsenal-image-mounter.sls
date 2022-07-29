@@ -6,12 +6,13 @@
 # License: 
 # Notes:
 
-{% set hash = '83a79a0dd3bbc58b5db36f9198d7f14635647517d825ab575c6103a6fb2a7e22' %}
-{% set version = '3.6.188' %}
+{% set hash = '0bce258369bd114a76b7cdbd8230c92210857af78401b744db30783bdf6155aa' %}
+{% set version = '3.9.218' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 include:
   - winfor.standalones.megatools
+  - winfor.packages.dotnet6-desktop-runtime
 
 arsenal-remove-previous:
   file.absent:
@@ -19,7 +20,7 @@ arsenal-remove-previous:
 
 arsenal-download:
   cmd.run:
-    - name: 'C:\standalone\megatools\megatools.exe dl https://mega.nz/file/v8xSEY4b#0EgcRRJ4rtkN1axSnho_Rulag-tToKmse_v8lUAloBE --path C:\salt\tempdownload'
+    - name: 'C:\standalone\megatools\megatools.exe dl https://mega.nz/file/vsJVGI5D#cyBkjLKIxskTS3q5J0pW19swgykBwK6_ofzjJOmg2MA --path C:\salt\tempdownload'
     - shell: cmd
     - require:
       - sls: winfor.standalones.megatools
@@ -35,6 +36,7 @@ arsenal-extract:
     - require:
       - sls: winfor.standalones.megatools
       - cmd: arsenal-download
+      - sls: winfor.packages.dotnet6-desktop-runtime
 
 arsenal-folder-rename:
   file.rename:
@@ -47,7 +49,7 @@ arsenal-folder-rename:
 
 winfor-standalones-arsenal-shortcut:
   file.shortcut:
-    - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\Arsenal Image Mounter v{{ version }}.lnk'
+    - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\Arsenal Image Mounter.lnk'
     - target: 'C:\standalone\arsenal\ArsenalImageMounter.exe'
     - force: True
     - working_dir: 'C:\standalone\arsenal\'
