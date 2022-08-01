@@ -41,6 +41,8 @@ include:
   - winfor.packages.magnet-acquire
   - winfor.packages.openhashtab
   - winfor.packages.irfanview
+  - winfor.packages.razorsql-x64
+  - winfor.packages.4n6-email-forensics-wizard
 #  - winfor.packages.ntfs-log-analyzer Wants to download dotnet20 from a non-existent URL
 
 winfor-packages:
@@ -88,4 +90,6 @@ winfor-packages:
       - sls: winfor.packages.magnet-acquire
       - sls: winfor.packages.openhashtab
       - sls: winfor.packages.irfanview
+      - sls: winfor.packages.razorsql-x64
+      - sls: winfor.packages.4n6-email-forensics-wizard
 #      - sls: winfor.packages.ntfs-log-analyzer

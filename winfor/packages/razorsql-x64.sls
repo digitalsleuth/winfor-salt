@@ -1,2 +1,2 @@
-vcforpython27:
+razorsql-x64:
   pkg.installed
