@@ -19,5 +19,7 @@ jobs:
           wget https://download.sysinternals.com/files/SysinternalsSuite.zip
           PREVIOUS_HASH=$(cat /home/runner/work/winfor-salt/winfor-salt/winfor/standalones/sysinternals.sls | grep "set hash" | awk -F\' '{print $2}')
           CURRENT_HASH=$(sha256sum SysinternalsSuite.zip | awk '{print $1}')
-          [[ "$PREVIOUS_HASH" == "$CURRENT_HASH" ]]
-          if [[ $? > 0 ]]; then echo $CURRENT_HASH; fi
+          echo $PREVIOUS_HASH
+          echo $CURRENT_HASH
+          if [[ "$PREVIOUS_HASH" != "$CURRENT_HASH" ]]; then echo $CURRENT_HASH; fi
+
