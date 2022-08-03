@@ -17,7 +17,8 @@ jobs:
       - name: Check Sysinternals Hash
         run: |
           wget https://download.sysinternals.com/files/SysinternalsSuite.zip
-          PREVIOUS_HASH=$(cat /home/runner/winfor/standalones/sysinternals.sls | grep "set hash" | awk -F\' '{print $2}')
+          ls /home/runner/ 
+          PREVIOUS_HASH=$(cat /home/runner/winfor-salt/winfor/standalones/sysinternals.sls | grep "set hash" | awk -F\' '{print $2}')
           CURRENT_HASH=$(sha256sum SysinternalsSuite.zip | awk '{print $1}')
           [[ "$PREVIOUS_HASH" == "$CURRENT_HASH" ]]
           if [[ $? > 0 ]]; then echo $CURRENT_HASH; fi
