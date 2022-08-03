@@ -8,7 +8,7 @@ on:
       - cron: "0 0 * * *"
 
 jobs:
-  sysinternals-hash:
+  sysinternals_hash:
     runs-on: ubuntu-latest
     steps:
       - name: Check Sysinternals Hash
@@ -17,4 +17,3 @@ jobs:
           export PREVIOUS_HASH=9f39ed4f94061e7b34d72bce326e8b951a3d4b80c244e046d8dd4cb18ef58501
           export CURRENT_HASH=$(sha256sum SysinternalsSuite.zip | awk '{print $1}')
           [[ "$PREVIOUS_HASH" == "$CURRENT_HASH" ]]
-      - id: sysinternals-hash
