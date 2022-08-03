@@ -13,10 +13,11 @@ jobs:
   sysinternals_hash:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@main
       - name: Check Sysinternals Hash
         run: |
           wget https://download.sysinternals.com/files/SysinternalsSuite.zip
-          export PREVIOUS_HASH=9f39ed4f94061e7b34d72bce326e8b951a3d4b80c244e046d8dd4cb18ef58501
-          export CURRENT_HASH=$(sha256sum SysinternalsSuite.zip | awk '{print $1}')
+          PREVIOUS_HASH=$(cat /home/runner/winfor/standalones/sysinternals.sls | grep "set hash" | awk -F\' '{print $2}')
+          CURRENT_HASH=$(sha256sum SysinternalsSuite.zip | awk '{print $1}')
           [[ "$PREVIOUS_HASH" == "$CURRENT_HASH" ]]
-          echo $?
+          if [[ $? > 0 ]]; then echo $CURRENT_HASH; fi
