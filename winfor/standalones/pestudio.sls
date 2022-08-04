@@ -1,14 +1,15 @@
-# Name: 
-# Website: 
-# Description: 
+# Name: PEStudio
+# Website: https://www.winitor.com
+# Description: PE Analysis Tool
 # Category: 
 # Author: 
 # License: 
-# Notes: 
 # Version:
+# Notes: 
 
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
-{% set hash = '344a9bbea15e7b30af1a74e31c35ec3b3b134fac5f94f832e66474b2c3809f77' %}
+{% set hash = 'bb23b609691dc3f4868f64ffab51ab106513a3a6e16f402ccfdb361732098d95' %}
+
 pestudio-download:
   file.managed:
     - name: 'C:\salt\tempdownload\pestudio.zip'

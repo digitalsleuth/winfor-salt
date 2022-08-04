@@ -1,19 +1,20 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
+# Name: MalCat
+# Website: https://malcat.fr
+# Description: Malware Analysis Tool
+# Category: Malware
 # Author: 
 # License: 
-# Notes: 
 # Version:
+# Notes: 
 
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set hash = '03cff6c2003f0cc6ea93b36dac2869aa54d41d6eb16ffdca9b1a14fff22c2609' %}
 
 malcat-download:
   file.managed:
     - name: 'C:\salt\tempdownload\malcat_win64_lite.zip'
     - source: https://malcat.fr/latest/malcat_win64_lite.zip
-    - source_hash: sha256=aa86014f2a9b3577170b219aa54c841ea286b7a3527fab708b5e3288e311c9bc
+    - source_hash: sha256={{ hash }}
     - makedirs: True
 
 malcat-extract:
