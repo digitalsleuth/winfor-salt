@@ -7,5 +7,4 @@
 # Notes: 
 
 git:
-  pkg.installed:
-    - version: '2.35.1.2'
+  pkg.installed

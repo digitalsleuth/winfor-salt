@@ -1,11 +1,11 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
+# Name: PyInstaller Extractor
+# Website: https://github.com/extremecoders-re/pyinstxtractor
+# Description: Python script to extract contents of PyInstallers
+# Category: Python Scripts
+# Author: ExtremeCoders-RE
+# License: GNU General Public License v3.0 (https://github.com/extremecoders-re/pyinstxtractor/blob/master/LICENSE)
 # Notes: 
-# Version:
+# Version: 2022.8
 
 {% set hash = '6720e11aba64f7302240858bda894af8e7bfb1e577ece219558aab38ed4fa93a' %}
 

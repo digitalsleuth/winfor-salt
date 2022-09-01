@@ -4,10 +4,11 @@
 # Category: 
 # Author: 
 # License: 
+# Version: 0.0.7.2
 # Notes: 
 
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
-{% set hash = '8935616b2f9a344f076b82ba8f3051b4d9bf42b199e2219f568ee373d6b9ab5a' %}
+{% set hash = '03713494d1b7e625a1b526886cad78162b0d15ce867c846bd5ac76481eea059f' %}
 
 exeinfope-download:
   file.managed:

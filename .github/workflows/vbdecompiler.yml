@@ -1,0 +1,23 @@
+# This workflow should download the latest VB-Decompiler, and compare the previous hash 
+# with the current hash. 
+
+name: check-vb-decompiler-hash
+
+on:
+  schedule:
+      - cron: "0 0 * * *"
+  
+  workflow_dispatch:
+ 
+jobs:
+  vb_decompiler_hash:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@main
+      - name: Check VB Decompiler Hash
+        run: |
+          wget https://www.vb-decompiler.org/files/vb_decompiler_lite.zip
+          PREVIOUS_HASH=$(cat /home/runner/work/winfor-salt/winfor-salt/winfor/installers/vbdecompiler.sls | grep "set hash" | awk -F\' '{print $2}')
+          CURRENT_HASH=$(sha256sum vb_decompiler_lite.zip | awk '{print $1}')
+          if [[ "$PREVIOUS_HASH" != "$CURRENT_HASH" ]]; then echo "HASH UPDATED - $CURRENT_HASH" && exit 1; else echo "No hash changes" && exit 0; fi
+

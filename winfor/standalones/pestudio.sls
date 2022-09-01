@@ -4,11 +4,11 @@
 # Category: 
 # Author: 
 # License: 
-# Version:
+# Version: 9.42
 # Notes: 
 
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
-{% set hash = '8f73cc4ee1efe31551cff3a27828a22a36db055aff0145a59bbf04335261d5ea' %}
+{% set hash = '1717db9ad298e2c12e609af499576b541651576d20d22f22527acbde9e90e84b' %}
 
 pestudio-download:
   file.managed:

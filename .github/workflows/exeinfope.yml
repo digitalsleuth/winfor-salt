@@ -1,0 +1,22 @@
+# This workflow should download the latest exeinfope, and compare the previous hash 
+# with the current hash. 
+
+name: check-exeinfo-hash
+
+on:
+  schedule:
+      - cron: "0 0 * * *"
+  
+  workflow_dispatch:
+ 
+jobs:
+  exeinfope_hash:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@main
+      - name: Check ExeinfoPE Hash
+        run: |
+          wget https://github.com/ExeinfoASL/ASL/raw/master/exeinfope.zip
+          PREVIOUS_HASH=$(cat /home/runner/work/winfor-salt/winfor-salt/winfor/standalones/exeinfope.sls | grep "set hash" | awk -F\' '{print $2}')
+          CURRENT_HASH=$(sha256sum exeinfope.zip | awk '{print $1}')
+          if [[ "$PREVIOUS_HASH" != "$CURRENT_HASH" ]]; then echo "HASH UPDATED - $CURRENT_HASH" && exit 1; else echo "No hash changes" && exit 0; fi
