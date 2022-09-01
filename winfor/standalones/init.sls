@@ -63,6 +63,7 @@ include:
   - winfor.standalones.ilspy
   - winfor.standalones.exiftool
   - winfor.standalones.memprocfs
+  - winfor.standalones.xways
 #  - winfor.standalones.unautoit Downloads removed, builds possible with golang
 
 winfor-standalones:
@@ -132,4 +133,5 @@ winfor-standalones:
       - sls: winfor.standalones.ilspy
       - sls: winfor.standalones.exiftool
       - sls: winfor.standalones.memprocfs
+      - sls: winfor.standalones.xways
 #      - sls: winfor.standalones.unautoit
