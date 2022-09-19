@@ -7,7 +7,7 @@
 # Notes: 
 # Version: 2022.8
 
-{% set hash = 'b426ba037fdc3999a38eff61da423672cb07fa046c6ceba13b55d845a4254c30' %}
+{% set hash = '46468f7e15f59f4cb53a8b0ce1675b1557d9cf719016750fdf46411572f5d058' %}
 
 include:
   - winfor.packages.python3
