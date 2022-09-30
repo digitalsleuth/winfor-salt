@@ -6,7 +6,7 @@
 # License: 
 # Notes: 
 
-{% set hash = '69e75f54a70a76277dd9a4b6f1d739d7f4237e606391dcfe56890bacabe77dd7' %}
+{% set hash = '4356ef2832d2382c36e37d3e05a3a9dbe3b8f658646eb417b232f212d52ce793' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 sysinternals:
