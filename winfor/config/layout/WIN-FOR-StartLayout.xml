@@ -24,7 +24,7 @@
           <start:DesktopApplicationTile Size="1x1" Column="5" Row="0" DesktopApplicationID="razorsql" />
         </start:Group>
         <start:Group Name="Documents / Editors">
-          <start:DesktopApplicationTile Size="1x1" Column="3" Row="0" DesktopApplicationID="C:\standalone\ssview\SSView.exe" />
+          <start:DesktopApplicationTile Size="1x1" Column="3" Row="0" DesktopApplicationID="C:\standalone\mitec\ssview\SSView.exe" />
           <start:DesktopApplicationTile Size="1x1" Column="1" Row="0" DesktopApplicationID="{6D809377-6AF0-444B-8957-A3773F02200E}\Sublime Text\sublime_text.exe" />
           <start:DesktopApplicationTile Size="1x1" Column="5" Row="0" DesktopApplicationID="C:\standalone\OffVis\OffVis.exe" />
           <start:DesktopApplicationTile Size="1x1" Column="2" Row="0" DesktopApplicationID="{6D809377-6AF0-444B-8957-A3773F02200E}\Notepad++\notepad++.exe" />

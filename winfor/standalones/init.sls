@@ -25,7 +25,6 @@ include:
   - winfor.standalones.regshot
   - winfor.standalones.scylla
   - winfor.standalones.srum-dump2
-  - winfor.standalones.ssview
   - winfor.standalones.setdllcharacteristics
   - winfor.standalones.pilfer
   - winfor.standalones.vssmount
@@ -64,6 +63,7 @@ include:
   - winfor.standalones.exiftool
   - winfor.standalones.memprocfs
   - winfor.standalones.x-ways
+  - winfor.standalones.mitec
 #  - winfor.standalones.unautoit Downloads removed, builds possible with golang
 
 winfor-standalones:
@@ -95,7 +95,6 @@ winfor-standalones:
       - sls: winfor.standalones.regshot
       - sls: winfor.standalones.scylla
       - sls: winfor.standalones.srum-dump2
-      - sls: winfor.standalones.ssview
       - sls: winfor.standalones.setdllcharacteristics
       - sls: winfor.standalones.pilfer
       - sls: winfor.standalones.vssmount
@@ -134,4 +133,5 @@ winfor-standalones:
       - sls: winfor.standalones.exiftool
       - sls: winfor.standalones.memprocfs
       - sls: winfor.standalones.x-ways
+      - sls: winfor.standalines.mitec
 #      - sls: winfor.standalones.unautoit

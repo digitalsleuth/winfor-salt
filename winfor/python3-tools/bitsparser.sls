@@ -11,7 +11,7 @@ include:
 
 bitsparser-clone:
   git.latest:
-    - name: https://github.com/fireeye/bitsparser
+    - name: https://github.com/digitalsleuth/bitsparser
     - target: 'C:\standalone\bitsparser'
     - rev: master
     - force_clone: True
@@ -26,13 +26,8 @@ bitsparser-requirements:
     - require:
       - git: bitsparser-clone
 
-bitsparser-header:
-  file.prepend:
-    - name: 'C:\standalone\bitsparser\BitsParser.py'
-    - text: '#!/usr/bin/python3'
-    - require:
-      - git: bitsparser-clone
-
 bitsparser-setup:
   win_path.exists:
     - name: 'C:\standalone\bitsparser\'
+    - require:
+      - pip: bitsparser-requirements

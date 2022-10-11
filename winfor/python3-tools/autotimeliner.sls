@@ -39,3 +39,13 @@ autotimeliner-vol-bin:
     - count: 1
     - require:
       - file: autotimeliner-download
+
+autotimeliner-wrapper:
+  file.managed:
+    - name: 'C:\Program Files\Python310\Scripts\autotimeliner.cmd'
+    - win_inheritance: True
+    - contents:
+      - '@echo off'
+      - 'python3 "C:\Program Files\Python310\Scripts\autotimeliner.py" %*'
+    - require:
+      - file: autotimeliner-download
