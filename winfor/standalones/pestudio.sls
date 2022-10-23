@@ -8,7 +8,7 @@
 # Notes: 
 
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
-{% set hash = '80b28bca39a3b37d3377721a2b746fc3550f1d1db4ba2fbd1ed687c037f00102' %}
+{% set hash = '36f5c38d24bd9c53891c48f3732082252c3ca490fc92aa513dbe15f9eee5f0fe' %}
 
 pestudio-download:
   file.managed:
