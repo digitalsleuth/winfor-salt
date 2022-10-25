@@ -10,7 +10,6 @@
 
 include:
   - winfor.packages.git
-  - winfor.packages.strawberryperl
 
 winfor-standalones-regripper:
   git.latest:
@@ -21,12 +20,6 @@ winfor-standalones-regripper:
     - force_reset: True
     - require:
       - sls: winfor.packages.git
-
-winfor-standalones-regripper-requirements:
-  cmd.run:
-    - name: 'C:\Strawberry\perl\bin\cpanm install Parse::Win32Registry'
-    - require:
-      - sls: winfor.packages.strawberryperl
 
 regripper-env-vars:
   win_path.exists:

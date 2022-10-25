@@ -133,5 +133,5 @@ winfor-standalones:
       - sls: winfor.standalones.exiftool
       - sls: winfor.standalones.memprocfs
       - sls: winfor.standalones.x-ways
-      - sls: winfor.standalines.mitec
+      - sls: winfor.standalones.mitec
 #      - sls: winfor.standalones.unautoit

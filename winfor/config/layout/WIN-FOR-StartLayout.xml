@@ -100,9 +100,8 @@
           <start:DesktopApplicationTile Size="1x1" Column="3" Row="0" DesktopApplicationID="{7C5A40EF-A0FB-4BFC-874A-C0F2E0B9FA8E}\Bulk Extractor 1.5.5\64-bit\BEViewerLauncher.exe" />
         </start:Group>
         <start:Group Name="Registry">
-          <start:DesktopApplicationTile Size="1x1" Column="1" Row="0" DesktopApplicationID="C:\standalone\zimmerman\RegistryExplorer\RegistryExplorer.exe" />
-          <start:DesktopApplicationTile Size="1x1" Column="2" Row="0" DesktopApplicationID="C:\standalone\regripper\rr.exe" />
-          <start:DesktopApplicationTile Size="1x1" Column="0" Row="0" DesktopApplicationID="{7C5A40EF-A0FB-4BFC-874A-C0F2E0B9FA8E}\AccessData\Registry Viewer\RegistryViewer.exe" />
+          <start:DesktopApplicationTile Size="1x1" Column="0" Row="0" DesktopApplicationID="C:\standalone\zimmerman\RegistryExplorer\RegistryExplorer.exe" />
+          <start:DesktopApplicationTile Size="1x1" Column="1" Row="0" DesktopApplicationID="C:\standalone\regripper\rr.exe" />
         </start:Group>
         <start:Group Name="Terminals">
           <start:DesktopApplicationTile Size="1x1" Column="2" Row="0" DesktopApplicationID="{1AC14E77-02E7-4E5D-B744-2EB1AE5198B7}\cmd.exe" />

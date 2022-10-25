@@ -5,7 +5,7 @@
 # Author: Adobe
 # License: https://helpx.adobe.com/ca/reader/acrobat-copyright-trademarks-third-party-notices.html
 # Notes: 
-# Version: 21.007.20099
+# Version: 22.003.20263
 
-adobereader-dc-classic:
+adobereader:
   pkg.installed
