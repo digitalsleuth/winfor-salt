@@ -4,7 +4,7 @@ include:
   - winfor.packages.autopsy
   - winfor.packages.firefox
   - winfor.packages.chrome
-#  - winfor.packages.ftk-imager - No direct download link at this time
+  - winfor.packages.ftk-imager
   - winfor.packages.httplogbrowser
   - winfor.packages.db-browser-sqlite
   - winfor.packages.bulk-extractor
@@ -52,7 +52,7 @@ winfor-packages:
       - sls: winfor.packages.autopsy
       - sls: winfor.packages.firefox
       - sls: winfor.packages.chrome
-#      - sls: winfor.packages.ftk-imager - No direct download link at this time
+      - sls: winfor.packages.ftk-imager
       - sls: winfor.packages.httplogbrowser
       - sls: winfor.packages.db-browser-sqlite
       - sls: winfor.packages.bulk-extractor
