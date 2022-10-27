@@ -1,0 +1,216 @@
+[General]
+SoftwareCount=21
+GroupCount=3
+Name=Eric Zimmerman Tools
+
+[Group0]
+name=Command-Line Utilities
+
+[Group1]
+name=GUI Utilities
+
+[Group2]
+name=All Utilities
+ShowAll=1
+
+[Software0]
+exe=C:\standalone\zimmerman\net6\AmcacheParser.exe
+url=https://f001.backblazeb2.com/file/EricZimmermanTools/AmcacheParser.zip
+group=0
+Name=AmcacheParser
+AppName=AmcacheParser
+ShortDesc=Amcache.hve parser with lots of extra features. Handles locked files
+LongDesc=
+
+[Software1]
+exe=C:\standalone\zimmerman\net6\AppCompatCacheParser.exe
+url=https://f001.backblazeb2.com/file/EricZimmermanTools/AppCompatCacheParser.zip
+group=0
+Name=AppCompatCacheParser
+AppName=AppCompatCacheParser
+ShortDesc=AppCompatCache aka ShimCache parser. Handles locked files
+LongDesc=
+
+[Software2]
+exe=C:\standalone\zimmerman\net6\JLECmd.exe
+url=https://f001.backblazeb2.com/file/EricZimmermanTools/JLECmd.zip
+group=0
+Name=JLECmd
+AppName=JLECmd
+ShortDesc=Jump List parser
+LongDesc=
+
+[Software3]
+exe=C:\standalone\zimmerman\net6\JumpListExplorer\JumpListExplorer.exe
+url=https://f001.backblazeb2.com/file/EricZimmermanTools/JumpListExplorer.zip
+group=1
+Name=JumpListExplorer
+AppName=JumpListExplorer
+ShortDesc=GUI based Jump List viewer 
+LongDesc=
+
+[Software4]
+exe=C:\standalone\zimmerman\net6\LECmd.exe
+url=https://f001.backblazeb2.com/file/EricZimmermanTools/LECmd.zip
+group=0
+Name=LECmd
+AppName=LECmd
+ShortDesc=Parse lnk files
+LongDesc=
+
+[Software5]
+exe=C:\standalone\zimmerman\net6\MFTECmd.exe
+url=https://f001.backblazeb2.com/file/EricZimmermanTools/MFTECmd.zip
+group=0
+Name=MFTECmd
+AppName=MFTECmd
+ShortDesc=$MFT, $Boot, $J, $SDS, and $LogFile parser. Handles locked files
+LongDesc=
+
+[Software6]
+exe=C:\standalone\zimmerman\net6\PECmd.exe
+url=https://f001.backblazeb2.com/file/EricZimmermanTools/PECmd.zip
+group=0
+Name=PECmd
+AppName=PECmd
+ShortDesc=Prefetch parser
+LongDesc=
+
+[Software7]
+exe=C:\standalone\zimmerman\net6\RecentFileCacheParser.exe
+url=https://f001.backblazeb2.com/file/EricZimmermanTools/RecentFileCacheParser.zip
+group=0
+Name=RecentFileCacheParser
+AppName=RecentFileCacheParser
+ShortDesc=RecentFileCache parser
+LongDesc=
+
+[Software8]
+exe=C:\standalone\zimmerman\net6\SBECmd.exe
+url=https://ericzimmerman.github.io/Software/SDBExplorer.zip
+group=0
+Name=SBECmd
+AppName=SBECmd
+ShortDesc=Shellbags parser
+LongDesc=
+
+[Software9]
+exe=C:\standalone\zimmerman\net6\ShellBagsExplorer\ShellBagsExplorer.exe
+url=https://f001.backblazeb2.com/file/EricZimmermanTools/ShellBagsExplorer.zip
+group=1
+Name=ShellBagsExplorer
+help=ShellBags Explorer\ShellBagsExplorerManual.pdf
+AppName=ShellBagsExplorer
+ShortDesc=GUI for browsing shellbags data. Handles locked files
+LongDesc=
+
+[Software10]
+exe=C:\standalone\zimmerman\net6\SDBExplorer\SDBExplorer.exe
+url=https://f001.backblazeb2.com/file/EricZimmermanTools/SDBExplorer.zip
+group=1
+Name=SDBExplorer
+AppName=SDBExplorer
+ShortDesc=Shim database GUI
+LongDesc=
+
+
+
+[Software11]
+exe=C:\standalone\zimmerman\net6\TimelineExplorer\TimelineExplorer.exe
+url=https://f001.backblazeb2.com/file/EricZimmermanTools/TimelineExplorer.zip
+group=1
+Name=TimelineExplorer
+AppName=TimelineExplorer
+ShortDesc=View CSV and Excel files, filter, group, sort, etc. with ease
+LongDesc=
+
+[Software12]
+exe=C:\standalone\zimmerman\net6\WxTCmd.exe
+url=https://f001.backblazeb2.com/file/EricZimmermanTools/WxTCmd.zip
+group=0
+Name=WxTCmd
+AppName=WxTCmd
+ShortDesc=Windows 10 Timeline database parser
+LongDesc=
+
+[Software13]
+exe=C:\standalone\zimmerman\net6\RegistryExplorer\RegistryExplorer.exe
+help=RegistryExplorer\RegistryExplorerManual.pdf
+url=Registy viewer with searching, multi-hive support, plugins, and more. Handles locked files
+group=1
+Name=RegistryExplorer
+AppName=RegistryExplorer
+ShortDesc=Registy viewer with searching, multi-hive support, plugins, and more
+LongDesc=
+
+[Software14]
+exe=C:\standalone\zimmerman\net6\RECmd\RECmd.exe
+url=Registy viewer with searching, multi-hive support, plugins, and more. Handles locked files
+group=0
+Name=RECmd
+AppName=RECmd
+ShortDesc=Registy viewer with searching, multi-hive support, plugins, and more
+LongDesc=
+
+[Software15]
+exe=C:\standalone\zimmerman\net6\VSCMount.exe
+url=https://f001.backblazeb2.com/file/EricZimmermanTools/VSCMount.zip
+group=0
+Name=VSCMount
+AppName=VSCMount
+ShortDesc=VSCMount. Mount all VSCs on a drive letter to a given mount point
+LongDesc=
+
+[Software16]
+exe=C:\standalone\zimmerman\Hasher.exe
+url=https://f001.backblazeb2.com/file/EricZimmermanTools/hasher.zip
+group=1
+Name=Hasher
+AppName=Hasher
+ShortDesc=Hash all the things
+LongDesc=
+
+[Software17]
+exe=C:\standalone\zimmerman\net6\bstrings.exe
+url=https://f001.backblazeb2.com/file/EricZimmermanTools/bstrings.zip
+group=0
+Name=Bstrings
+AppName=Bstrings
+ShortDesc=Find them strings yo. Built in regex patterns. Handles locked files
+LongDesc=
+
+[Software18]
+exe=C:\standalone\zimmerman\net6\RBCmd.exe
+url=https://f001.backblazeb2.com/file/EricZimmermanTools/RBCmd.zip
+group=0
+Name=RBCmd
+AppName=RBCmd
+ShortDesc=Recycle Bin artifact (INFO2/$I) parser
+LongDesc=
+
+[Software19]
+exe=C:\standalone\zimmerman\TimeApp.exe
+url=https://f001.backblazeb2.com/file/EricZimmermanTools/TimeApp.zip
+group=1
+Name=TimeApp
+AppName=TimeApp
+ShortDesc=	A simple app that shows current time (local and UTC) and optionally, public IP address. Great for testing
+LongDesc=
+
+[Software20]
+exe=C:\standalone\zimmerman\net6\iisGeolocate\iisGeolocate.exe
+url=https://f001.backblazeb2.com/file/EricZimmermanTools/iisGeolocate.zip
+group=0
+Name=iisGeolocate
+AppName=isiGeolocate
+ShortDesc=Geolocate IP addresses found in IIS logs
+LongDesc=
+
+[Software21]
+exe=C:\standalone\zimmerman\net6\EZViewer\EZViewer.exe
+url=https://f001.backblazeb2.com/file/EricZimmermanTools/EZViewer.zip
+group=0
+Name=EZViewer
+AppName=EZViewer
+ShortDesc=Easy Viewer of many file types
+LongDesc=

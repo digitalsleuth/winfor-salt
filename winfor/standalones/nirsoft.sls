@@ -10,9 +10,12 @@
 {% set version = '1.23.65' %}
 {% set hash = 'e89d352d37940b7dbd9dbb8503a4526e50c0ae82f38ac639527283925951d597' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set nlps = ['eztools.nlp', 'mitec.nlp', 'sysinternals5.nlp'] %}
 
 include:
   - winfor.packages.7zip
+  - winfor.standalones.sysinternals
+  - winfor.standalones.mitec
 
 nirsoft-download:
   cmd.run:
@@ -45,5 +48,23 @@ nirsoft-nirlauncher-shortcut:
     - working_dir: 'C:\standalone\nirsoft\'
     - makedirs: True
     - require:
-      - cmd: nirsoft-download
+      - cmd: nirsoft-extract
 
+winfor-standalones-nirsoft-cfg-replace:
+  file.managed:
+    - name: 'C:\standalone\nirsoft\NirLauncher.cfg'
+    - source: salt://winfor/files/NirLauncher.cfg
+    - replace: True
+    - require:
+      - sls: winfor.standalones.sysinternals
+      - sls: winfor.standalones.mitec
+
+{% for nlp in nlps %}
+
+winfor-standalones-nirsoft-{{ nlp }}:
+  file.managed:
+    - name: 'C:\standalone\nirsoft\{{ nlp }}'
+    - source: salt://winfor/files/{{ nlp }}
+    - makedirs: True
+
+{% endfor %}
