@@ -4,7 +4,7 @@
 # Category: Acquisition and Analysis
 # Author: Stefan Fleischmann
 # License: License Dependent - https://www.x-ways.net/terminology.html
-# Version: 20.6 SR-2 x64
+# Version: 20.6 SR-4 x64
 # Notes:
 
 {% set version = "206" %}
@@ -15,6 +15,16 @@
 {% set mplayerhash = "a3a13bbda7ba0052c71521124e428f490648ea452f3bcbcf31860b9d0120ed25" %}
 {% set tesseracthash = "95c484205c6474b7b7ef5109a3412666090857c44999cf72f06f55dc9c239310" %}
 {% set manualhash = "b4e990c8181a962891aa742b522c8cedabe41f8c7dbbeed4e9d3d6575e940d0a" %}
+
+{% if salt['file.directory_exists']('C:\\salt\\tempdownload\\') %}
+temp-directory-exists:
+  test.nop
+{% else %}
+create-temp-directory:
+  file.directory:
+    - name: 'C:\salt\tempdownload\'
+    - makedirs: True
+{% endif %}
 
 {% if auth_token == "TOKENPLACEHOLDER" %}
 
