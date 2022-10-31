@@ -1,6 +1,5 @@
 # Restart explorer to get rid of graphical anomalies after debloat
 # Delete the C:\salt directory which contains the tempdownloads
-{% set files = salt['file.find']('C:\\Users\\Public\\Desktop', type='f', name='*.lnk') %}
 {% set user = salt['pillar.get']('winfor_user', 'forensics') %}
 {% set all_users = salt['user.list_users']() %}
 {% if user in all_users %}
@@ -35,11 +34,6 @@ disk-cleanup:
     - name: 'C:\Windows\System32\cleanmgr.exe /d C: /autoclean'
     - shell: cmd
 
-{% for file in files %}
-delete-public-shortcut-{{ file }}:
-  file.absent:
-    - name: {{ file }}
-{% endfor %}
-
-saltutil.clear_cache:
-  module.run
+clear-salt-cache:
+  cmd.run:
+    - name: 'salt-call --local saltutil.clear_cache'

@@ -17,7 +17,7 @@ include:
   - winfor.packages.python2
   - winfor.packages.dbeaver
   - winfor.packages.sublime-text
-  - winfor.packages.passware-encryption-analyzer
+#  - winfor.packages.passware-encryption-analyzer
   - winfor.packages.logparser
   - winfor.packages.active-disk-editor
   - winfor.packages.kernel-pst-viewer  
@@ -65,7 +65,7 @@ winfor-packages:
       - sls: winfor.packages.python2
       - sls: winfor.packages.dbeaver
       - sls: winfor.packages.sublime-text
-      - sls: winfor.packages.passware-encryption-analyzer
+#      - sls: winfor.packages.passware-encryption-analyzer
       - sls: winfor.packages.logparser
       - sls: winfor.packages.active-disk-editor
       - sls: winfor.packages.kernel-pst-viewer

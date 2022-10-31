@@ -12,7 +12,7 @@
 
 {% if current_version == new_version %}
 
-Passware Encryption Analyzer is already at the latest version:
+passware-encryption-analyzer-already-latest-version:
   test.nop
 
 {% elif current_version == '' %}
