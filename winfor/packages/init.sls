@@ -17,7 +17,7 @@ include:
   - winfor.packages.python2
   - winfor.packages.dbeaver
   - winfor.packages.sublime-text
-#  - winfor.packages.passware-encryption-analyzer
+  - winfor.packages.passware-encryption-analyzer
   - winfor.packages.logparser
   - winfor.packages.active-disk-editor
   - winfor.packages.kernel-pst-viewer  
@@ -42,7 +42,7 @@ include:
   - winfor.packages.irfanview
   - winfor.packages.razorsql-x64
   - winfor.packages.4n6-email-forensics-wizard
-#  - winfor.packages.ntfs-log-analyzer Wants to download dotnet20 from a non-existent URL
+  - winfor.packages.shadowexplorer
 
 winfor-packages:
   test.nop:
@@ -65,7 +65,7 @@ winfor-packages:
       - sls: winfor.packages.python2
       - sls: winfor.packages.dbeaver
       - sls: winfor.packages.sublime-text
-#      - sls: winfor.packages.passware-encryption-analyzer
+      - sls: winfor.packages.passware-encryption-analyzer
       - sls: winfor.packages.logparser
       - sls: winfor.packages.active-disk-editor
       - sls: winfor.packages.kernel-pst-viewer
@@ -90,4 +90,4 @@ winfor-packages:
       - sls: winfor.packages.irfanview
       - sls: winfor.packages.razorsql-x64
       - sls: winfor.packages.4n6-email-forensics-wizard
-#      - sls: winfor.packages.ntfs-log-analyzer
+      - sls: winfor.packages.shadowexplorer

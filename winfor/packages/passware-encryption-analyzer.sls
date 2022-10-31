@@ -7,29 +7,28 @@
 # Version: 2022.3.1.3215
 # Notes:
 
-{% set new_version = '2022.3.1.3215' %}
-{% set current_version = salt['pkg.version']('passware-encryption-analyzer') %}
-
-{% if current_version == new_version %}
-
-passware-encryption-analyzer-already-latest-version:
+{% set version = '2022.3.1.3215' %}
+{% set pkg_installed = salt['cmd.run']('Test-Path -Path "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\{64ACEB50-F033-4CF9-840D-90FA17769421}\"', shell="powershell") %}
+{% if pkg_installed == "True" %}
+passware-encryption-analyzer-is-installed:
   test.nop
-
-{% elif current_version == '' %}
-
-passware-encryption-analyzer-{{ new_version }}:
-  pkg.installed:
-    - name: passware-encryption-analyzer
-
-{% else %}
-
-remove-previous-passware-version:
+  {% set pkg_version = salt['cmd.run']('Get-ItemProperty -Path "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\{64ACEB50-F033-4CF9-840D-90FA17769421}\" | Select -exp DisplayVersion', shell="powershell") %}
+  {% if pkg_version == version %}
+passware-is-at-version-{{ pkg_version }}:
+  test.nop
+  {% else %}
+passware-is-out-of-date:
   pkg.removed:
     - name: passware-encryption-analyzer
 
-passware-encryption-analyzer:
+passware-encryption-analyzer-{{ pkg_version }}:
   pkg.installed:
+    - name: passware-encryption-analyzer
     - require:
-      - pkg: remove-previous-passware-version
-
+      - pkg: passware-is-out-of-date
+{% endif %}
+{% else %}
+passware-encryption-analyzer-is-not-installed:
+  pkg.installed:
+    - name: passware-encryption-analyzer
 {% endif %}
