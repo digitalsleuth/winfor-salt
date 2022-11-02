@@ -8,7 +8,7 @@
 # Notes: 
 
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
-{% set hash = '8442e811829e619629239db17f60218c7895cd771c886a388de81e9a99aed5af' %}
+{% set hash = '86e0d0cf89ba492374d2119dd4cb5f66f9c332483768f3bbfe04a135d09a12d2' %}
 
 malcat-download:
   file.managed:
