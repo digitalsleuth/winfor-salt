@@ -1,0 +1,2 @@
+ms-powertoys:
+  pkg.installed

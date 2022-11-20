@@ -43,6 +43,7 @@ include:
   - winfor.packages.razorsql-x64
   - winfor.packages.4n6-email-forensics-wizard
   - winfor.packages.shadowexplorer
+  - winfor.packages.hashcheck
 
 winfor-packages:
   test.nop:
@@ -91,3 +92,4 @@ winfor-packages:
       - sls: winfor.packages.razorsql-x64
       - sls: winfor.packages.4n6-email-forensics-wizard
       - sls: winfor.packages.shadowexplorer
+      - sls: winfor.packages.hashcheck

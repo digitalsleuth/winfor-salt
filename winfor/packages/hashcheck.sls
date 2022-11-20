@@ -1,0 +1,2 @@
+hashcheck:
+  pkg.installed

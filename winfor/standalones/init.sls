@@ -65,6 +65,7 @@ include:
   - winfor.standalones.x-ways
   - winfor.standalones.mitec
 #  - winfor.standalones.unautoit Downloads removed, builds possible with golang
+  - winfor.standalones.hindsight
 
 winfor-standalones:
   test.nop:
@@ -135,3 +136,5 @@ winfor-standalones:
       - sls: winfor.standalones.x-ways
       - sls: winfor.standalones.mitec
 #      - sls: winfor.standalones.unautoit
+      - sls: winfor.standalones.hindsight
+
