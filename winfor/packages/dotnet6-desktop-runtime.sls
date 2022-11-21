@@ -1,11 +1,7 @@
-{% if salt['pkg.version']('Microsoft Windows Desktop Runtime - 6.0.10 (x64)') %}
+{% set installed = salt['cmd.run']('powershell -c "(Get-ItemProperty HKLM:\\Software\Microsoft\\Windows\\CurrentVersion\\Uninstall\\* | Where-Object {$_.DisplayName -clike \'Microsoft Windows Desktop Runtime - 6*(x64)\' } | Select-Object -ExpandProperty DisplayVersion)"') %}
+{% if installed %}
 
-dotnet6-desktop-runtime-6-0-10-already-installed:
-  test.nop
-
-{% elif salt['pkg.version']('Microsoft Windows Desktop Runtime - 6.0.7 (x64)') %}
-
-dotnet6-desktop-runtime-6-0-7-already-installed:
+dotnet6-desktop-runtime-already-installed:
   test.nop
 
 {% else %}
