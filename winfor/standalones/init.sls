@@ -66,6 +66,10 @@ include:
   - winfor.standalones.mitec
 #  - winfor.standalones.unautoit Downloads removed, builds possible with golang
   - winfor.standalones.hindsight
+  - winfor.standalones.iphone-analyzer
+  - winfor.standalones.bitrecover-eml-viewer
+  - winfor.standalones.rufus
+  - winfor.standalones.windowgrid
 
 winfor-standalones:
   test.nop:
@@ -137,4 +141,7 @@ winfor-standalones:
       - sls: winfor.standalones.mitec
 #      - sls: winfor.standalones.unautoit
       - sls: winfor.standalones.hindsight
-
+      - sls: winfor.standalones.iphone-analyzer
+      - sls: winfor.standalones.bitrecover-eml-viewer
+      - sls: winfor.standalones.rufus
+      - sls: winfor.standalones.windowgrid

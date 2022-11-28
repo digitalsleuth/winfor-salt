@@ -1,6 +1,7 @@
 include:
   - winfor.packages.7zip
   - winfor.packages.git
+  - winfor.packages.dotnet6-desktop-runtime
   - winfor.packages.autopsy
   - winfor.packages.firefox
   - winfor.packages.chrome
@@ -44,12 +45,15 @@ include:
   - winfor.packages.4n6-email-forensics-wizard
   - winfor.packages.shadowexplorer
   - winfor.packages.hashcheck
+  - winfor.packages.tableau-imager
+  - winfor.packages.tableau-firmware-update
 
 winfor-packages:
   test.nop:
     - require:
       - sls: winfor.packages.7zip
       - sls: winfor.packages.git
+      - sls: winfor.packages.dotnet6-desktop-runtime
       - sls: winfor.packages.autopsy
       - sls: winfor.packages.firefox
       - sls: winfor.packages.chrome
@@ -93,3 +97,5 @@ winfor-packages:
       - sls: winfor.packages.4n6-email-forensics-wizard
       - sls: winfor.packages.shadowexplorer
       - sls: winfor.packages.hashcheck
+      - sls: winfor.packages.tableau-imager
+      - sls: winfor.packages.tableau-firmware-update

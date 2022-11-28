@@ -19,4 +19,9 @@ pst-viewer-install:
     - name: 'C:\salt\tempdownload\outlook-pst-viewer.exe /VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP- /MERGETASKS=!DESKTOPICON,!RUNCODE'
     - shell: cmd
 
-
+taskkill-systools-pst-viewer-edge-window:
+  cmd.run:
+    - name: 'taskkill /F /IM "msedge.exe"'
+    - bg: True
+    - require:
+      - cmd: pst-viewer-install

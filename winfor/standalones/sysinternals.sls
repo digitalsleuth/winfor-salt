@@ -1,12 +1,13 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
+# Name: Sysinternals
+# Website: https://sysinternals.com
+# Description: Suite of Windows Analysis and Management Tools
+# Category: Windows Analysis
+# Author: Microsoft / Mark Russinovich
+# License: https://learn.microsoft.com/en-us/sysinternals/license-terms
+# Version: 
 # Notes: 
 
-{% set hash = '76e374b9844fa1e6491cc3e70d73f9ce885253258b86d277d84e40452ba8b8f5' %}
+{% set hash = 'bb5f6cedb48755f9ee16e1158fabaf422a6df20d9854d33ad4e65d80f341fb61' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 sysinternals:

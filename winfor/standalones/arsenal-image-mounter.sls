@@ -12,7 +12,6 @@
 
 include:
   - winfor.standalones.megatools
-  - winfor.packages.dotnet6-desktop-runtime
 
 arsenal-remove-previous:
   file.absent:
@@ -36,7 +35,6 @@ arsenal-extract:
     - require:
       - sls: winfor.standalones.megatools
       - cmd: arsenal-download
-      - sls: winfor.packages.dotnet6-desktop-runtime
 
 arsenal-folder-rename:
   file.rename:

@@ -1,11 +1,10 @@
-#{% set wallpaper = [('red', '22243006EA2EAD213A20A6679A154CCD9A9373BA08F60DEA1512D4AAB9A3638C')] %}
-{% set colour = 'blue' %}
-{% set hash = '423EE00AFDB44EC7FA480DB803E6C0C55DD9EED7ECF88DEB2453D47972749C9C' %}
+{% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set hash = '24f62d8212f25e16cf384779c48876a11f8d9430b597f066d81c0df5ee8594c6' %}
 
 winfor-theme-wallpaper-source:
   file.managed:
-    - name: 'C:\standalone\winfor-wallpaper-{{ colour }}.png'
-    - source: salt://winfor/theme/winfor-wallpaper-{{ colour }}.png
+    - name: 'C:\standalone\winfor-wallpaper-blue.png'
+    - source: salt://winfor/theme/winfor-wallpaper-blue.png
     - source_hash: sha256={{ hash }}
     - makedirs: True
     - win_inheritance: True
@@ -22,14 +21,14 @@ winfor-theme-set-wallpaper:
     - name: HKEY_CURRENT_USER\Control Panel\Desktop
     - vname: WallPaper
     - vtype: REG_SZ
-    - vdata: 'C:\standalone\winfor-wallpaper-{{ colour }}.png'
+    - vdata: 'C:\standalone\winfor-wallpaper-blue.png'
 
 winfor-theme-set-wallpaper-center:
   reg.present:
     - name: HKEY_CURRENT_USER\Control Panel\Desktop
     - vname: WallpaperStyle
     - vtype: REG_SZ
-    - vdata: 0
+    - vdata: 6
 
 winfor-theme-set-wallpaper-no-tile:
   reg.present:
@@ -38,18 +37,50 @@ winfor-theme-set-wallpaper-no-tile:
     - vtype: REG_SZ
     - vdata: 0
 
-#Set Wallpaper:
-#  lgpo.set:
-#    - user_policy:
-#        Desktop Wallpaper:
-#            Wallpaper Name: 'C:\standalone\winfor-wallpaper-{{ colour }}.png'
-#            Wallpaper Style: Center
-#    - require:
-#      - file: winfor-wallpaper-copy
-
 winfor-theme-update-wallpaper:
   cmd.run:
     - name: 'RUNDLL32.EXE USER32.DLL,UpdatePerUserSystemParameters 1, True'
     - shell: cmd
 
+nimi-taskkill:
+  cmd.run:
+    - name: 'taskkill /F /IM "Nimi Places.exe"'
+    - bg: True
 
+nimi-setup:
+  file.managed:
+    - name: 'C:\salt\tempdownload\nimi.zip'
+    - source: salt://winfor/files/nimi.zip
+    - makedirs: True
+
+nimi-extract:
+  archive.extracted:
+    - name: 'C:\standalone\nimi\'
+    - source: 'C:\salt\tempdownload\nimi.zip'
+    - enforce_toplevel: False
+    - require:
+      - file: nimi-setup
+
+nimi-autostart:
+  reg.present:
+    - name: HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+    - vname: NimiPlaces
+    - vtype: REG_SZ
+    - vdata: '"C:\standalone\nimi\nimi.cmd"'
+
+cleanup-nimi:
+  file.absent:
+    - name: 'C:\salt'
+    - require:
+      - reg: nimi-autostart
+
+nimi-shortcut:
+  file.shortcut:
+    - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\Nimi Places.lnk'
+    - target: 'C:\standalone\nimi\nimi.cmd'
+    - force: True
+    - working_dir: 'C:\standalone\nimi'
+    - icon_location: 'C:\standalone\nimi\Nimi Places.exe'
+    - makedirs: True
+    - require:
+      - archive: nimi-extract
