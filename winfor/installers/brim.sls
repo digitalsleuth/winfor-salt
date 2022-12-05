@@ -4,14 +4,14 @@
 # Category: Network Forensics
 # Author: Brim Data
 # License: GNU General Public License (GPL) (https://github.com/brimdata/brim/blob/main/LICENSE.txt)
-# Version: 0.30.0
+# Version: 0.31.0
 
-{% set hash = '33e86bbf67936459a50b3cc1713254b6a4cf817ab46b07d49ffe7658edb84349' %}
+{% set hash = '49E8B1AD9CA1ACEE832CCB01816277A21271CB9F50B8EBD477C6200A405F5C9B' %}
 
 brim:
   file.managed:
-    - name: 'C:\salt\tempdownload\Brim-Setup-0.30.0.exe'
-    - source: https://github.com/brimdata/brim/releases/download/v0.30.0/Brim-Setup-0.30.0.exe
+    - name: 'C:\salt\tempdownload\Brim-Setup-0.31.0.exe'
+    - source: https://github.com/brimdata/brim/releases/download/v0.31.0/Brim-Setup-0.31.0.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True
 
