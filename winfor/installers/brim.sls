@@ -17,6 +17,6 @@ brim:
 
 brim-install:
   cmd.run:
-    - name: 'C:\salt\tempdownload\Brim-Setup-0.31.0.exe -R C:\Brim\ -d -X -l C:\Brim\ -q -O -s https://www.brimdata.io/'
+    - name: 'C:\salt\tempdownload\Brim-Setup-0.31.0.exe --silent
     - shell: cmd
     - success_retcodes: 2
