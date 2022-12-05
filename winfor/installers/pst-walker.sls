@@ -17,6 +17,6 @@ brim:
 
 pst-walker-install:
   cmd.run:
-    - name: 'C:\salt\tempdownload\pstwalker621.exe -R C:\pst-walker\ -d -X -l C:\pst-walker\ -q -O -s https://www.pstwalker.com/'
+    - name: 'C:\salt\tempdownload\pstwalker621.exe /SP- /VERYSILENT
     - shell: cmd
     - success_retcodes: 2
