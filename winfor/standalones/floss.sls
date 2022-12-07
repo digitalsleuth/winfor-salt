@@ -1,13 +1,14 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
+# Name: FLOSS (FLARE Obfuscated String Solver)
+# Website: https://github.com/mandiant/flare-floss
+# Description: Extract obfuscated strings from malware
+# Category: Executables
+# Author: Mandiant
+# License: Apache License v2.0 (https://github.com/mandiant/flare-floss/blob/master/LICENSE.txt)
+# Version: 2.1.0
 # Notes: 
 
-{% set version = '1.7.0' %}
-{% set hash = '9b433a949b210bb8a856de2546cb075c349e0c2582ee9bf6b5fe51d9f95e7690' %}
+{% set version = '2.1.0' %}
+{% set hash = '925df10403b45e29914e44ac50d92d762b2b2499c11cdd1801888aac95b53eb7' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 floss-download:

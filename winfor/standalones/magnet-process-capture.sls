@@ -1,9 +1,10 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
+# Name: MagnetProcessCapture
+# Website: https://magnetforensics.com
+# Description: Tool to dump a running process
+# Category: Executables
+# Author: Magnet Forensics
+# License: EULA
+# Version: v13
 # Notes:
 
 {% set hash = '8525f97a51c30c25c897c9abe9d1dbea81919cf538582ae31f40825ef2be4e10' %}

@@ -1,3 +1,12 @@
+# Name: 4n6 Email Forensics
+# Website: https://forensiksoft.com
+# Description: Email forensics utility
+# Category: Email
+# Author: 4n6 Software
+# License: https://forensiksoft.com/terms/
+# Version: 7.5
+# Notes:
+
 4n6-email-forensics-wizard:
   pkg.installed
 

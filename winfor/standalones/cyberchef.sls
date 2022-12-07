@@ -1,13 +1,14 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
+# Name: Cyberchef
+# Website: https://github.com/gchq/cyberchef
+# Description: Web app for encryption, encoding, compression and data analysis
+# Category: Raw Parsers / Decoders
+# Author: GCHQ
+# License: Apache License v2.0 (https://github.com/gchq/CyberChef/blob/master/LICENSE)
+# Version: 9.54.0
 # Notes: 
 
-{% set version = '9.32.3' %}
-{% set hash = '465cf64bdd80cf99be72bedc9dccf7fcebaeace58d77ec62d71733c3e2ba404f' %}
+{% set version = '9.54.0' %}
+{% set hash = 'bfdc7232666a91df84dd41efd03052497eeae2140fc73240f58bcea939f89887' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 include:

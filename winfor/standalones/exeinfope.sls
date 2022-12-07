@@ -1,9 +1,9 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
+# Name: exeinfope
+# Website: https://github.com/ExeinfoASL/ASL
+# Description: EXE, Packer, Compiler detection
+# Category: Executables
+# Author: ExeinfoASL
+# License: None Listed
 # Version: 0.0.7.3
 # Notes: 
 

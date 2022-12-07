@@ -1,9 +1,10 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
+# Name: Bintext
+# Website: https://mcafee.com
+# Description: Finds Ascii, Unicode, and Resource strings in a file
+# Category: Executables
+# Author: Mcafee
+# License: Free
+# Version: 3.03
 # Notes: 
 
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}

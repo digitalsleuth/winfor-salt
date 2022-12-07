@@ -1,9 +1,10 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
+# Name: Py2ExeDecompiler
+# Website: https://github.com/endgameinc/Py2ExeDecompiler
+# Description: Decompiles executables originally compiled by Py2Exe
+# Category: Installers
+# Author: Amanda Rousseau
+# License: MIT License (https://github.com/endgameinc/Py2ExeDecompiler/blob/master/LICENSE.txt)
+# Version: 1.0
 # Notes: 
 
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}

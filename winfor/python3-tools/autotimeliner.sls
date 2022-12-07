@@ -1,9 +1,10 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
+# Name: autotimeliner
+# Website: https://github.com/andreafortuna/autotimeliner
+# Description: Timeline generator using Sleuthkit and Volatility
+# Category: Windows Analysis
+# Author: Andrea Fortuna
+# License: MIT License (https://github.com/andreafortuna/autotimeliner/blob/master/LICENSE)
+# Version: 1.1.0
 # Notes: 
 
 {% set hash = 'e4807cb89dcb71a4bb95364f314131511aeea65b49f1f378b6b64dca98a1806c' %}

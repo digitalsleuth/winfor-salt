@@ -1,9 +1,10 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
+# Name: Fakenet-NG
+# Website: https://github.com/mandiant/flare-fakenet-ng
+# Description: Next Generation Dynamic Network Analysis Tool
+# Category: Network
+# Author: https://github.com/mandiant/flare-fakenet-ng/blob/master/AUTHORS
+# License: Apache License 2.0 (https://github.com/mandiant/flare-fakenet-ng/blob/master/LICENSE.txt)
+# Version: 1.4.12
 # Notes: 
 
 include:

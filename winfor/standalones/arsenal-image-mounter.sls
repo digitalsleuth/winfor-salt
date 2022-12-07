@@ -1,13 +1,14 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
+# Name: Arsenal Image Mounter
+# Website: https://arsenalrecon.com
+# Description: Forensic Image Mounter
+# Category: Acquisition and Analysis
+# Author: Arsenal Recon
+# License: https://github.com/ArsenalRecon/Arsenal-Image-Mounter/blob/master/LICENSE.md
+# Version: 3.9.228
 # Notes:
 
-{% set hash = '0bce258369bd114a76b7cdbd8230c92210857af78401b744db30783bdf6155aa' %}
-{% set version = '3.9.218' %}
+{% set hash = 'f9b7095cf03ecf257884cb1d2d55d4514f730ca9961f5b029d6449c7fb6c098b' %}
+{% set version = '3.9.228' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 include:
@@ -19,7 +20,7 @@ arsenal-remove-previous:
 
 arsenal-download:
   cmd.run:
-    - name: 'C:\standalone\megatools\megatools.exe dl https://mega.nz/file/vsJVGI5D#cyBkjLKIxskTS3q5J0pW19swgykBwK6_ofzjJOmg2MA --path C:\salt\tempdownload'
+    - name: 'C:\standalone\megatools\megatools.exe dl https://mega.nz/file/e5YRlIDA#4CftLFHPEVWwXC_bib3a493BbF3VGJanAUVdPJc_5Gg --path C:\salt\tempdownload'
     - shell: cmd
     - require:
       - sls: winfor.standalones.megatools

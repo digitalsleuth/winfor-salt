@@ -1,9 +1,10 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
+# Name: setdllcharacteristics
+# Website: https://blog.didierstevens.com/2010/10/17/setdllcharacteristics/
+# Description: Manually edit the characteristics of DLL's 
+# Category: Executables
+# Author: Didier Stevens
+# License: Public Domain
+# Version: 0.0.0.1
 # Notes: 
 
 setdll-download:

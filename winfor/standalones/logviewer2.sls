@@ -1,9 +1,10 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
+# Name: LogViewer2
+# Website: https://github.com/woanware/LogViewer2
+# Description: View large text / log files
+# Category: Logs
+# Author: Mark Woan
 # License: 
+# Version: 1.0.0
 # Notes: 
 
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}

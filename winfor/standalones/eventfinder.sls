@@ -1,9 +1,10 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
+# Name: EventFinder
+# Website: https://github.com/BeanBagKing/EventFinder2
+# Description: Event Log Parser
+# Category: Logs
+# Author: BeanBagKing
+# License: GNU General Public License v3 (https://github.com/BeanBagKing/EventFinder2/blob/master/LICENSE)
+# Version: 2.2.1
 # Notes: 
 
 {% set version = '2.2.1' %}

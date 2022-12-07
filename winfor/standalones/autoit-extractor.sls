@@ -4,7 +4,7 @@
 # Category: Installers
 # Author: x0r19x91 
 # License: GNU General Public License v3.0
-# Version:
+# Version: 1.0.0
 # Notes: 
 
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}

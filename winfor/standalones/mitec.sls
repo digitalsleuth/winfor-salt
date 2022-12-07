@@ -1,3 +1,12 @@
+# Name: MiTeC Tool Suite
+# Website: https://mitec.cz
+# Description: Suite of Windows-based analysis tools
+# Category: Windows Analysis
+# Author: Michal Mutl (mitec)
+# License: Free to use for private, educational and non-commercial purposes
+# Version: Various
+# Notes:
+
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set files = [
                 ('SQLiteQ', '7F979A622DE9E97B9682DC09A5156A1BD872139A9DD56BA60616FB824E77AB16'),
@@ -9,7 +18,7 @@
                 ('IHB', '94d513e5507e871b7d87246676f1072a92386e0b352ef7e02473a5812fd292db'),
                 ('EHB', '6ECC87D4A0061CEDC13CCC398EB66009C39C5E36931737BB1841A373DE22C363'),
                 ('WFA', '57ACAE30EA14576E06822703C6211C8F0C675286C989EE0CDAFEC23578E7A9C6'),
-                ('WRR', '6FC38AC70B3A73829D045580327C057A3738D9158E67776F5DD788B91B940334'),
+                ('WRR', '7d3d05c5df58fca2d8e10195f588b7c71213e94b1fb29e3a4be092d6b4a20e65'),
                 ('SSView', 'e9d05067745a4f114b22dc798c7fa99017302b39bc8798853ed1bfd4c44d27ab'),
                 ('HEXEdit', 'CFE264A121C560D69E2BB95512BE407F374164F2F79D0DDC4CEB7A8D0A09C788'),
                 ('MailView', 'C2590633A9B13CC9D46A41A2980347057C84D8788A4597B83FFCC057FFD5B774'),

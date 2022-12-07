@@ -1,9 +1,10 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
+# Name: NAFT - Network Appliance Forensic Toolkit
+# Website: https://github.com/digitalsleuth/naft
+# Description: Updated version of Didier Stevens Network Appliance memory dump analyzer
+# Category: Network
+# Author: Corey Forman / Gabriel Cossette / Didier Stevens
+# License: MIT License (https://github.com/digitalsleuth/naft/blob/main/LICENSE.md)
+# Version: 1.0.0b1
 # Notes: 
 
 include:

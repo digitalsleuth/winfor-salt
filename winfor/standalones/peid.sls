@@ -1,5 +1,5 @@
 # Name: PEiD
-# Website: 
+# Website: https://github.com/wolfram77web/app-peid
 # Description: Portable Executable identifier
 # Category: Executables
 # Author: snaker / Qwerton / Jibz

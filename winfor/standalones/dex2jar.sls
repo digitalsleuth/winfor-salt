@@ -1,9 +1,10 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
+# Name: dex2jar
+# Website: https://github.com/pxb1988/dex2jar
+# Description: Android .dex and .class file analysis
+# Category: Mobile Analysis
+# Author: Bob Pan (pxb1988)
+# License: Apache License v2.0 (https://github.com/pxb1988/dex2jar/blob/2.x/LICENSE.txt)
+# Version: 2.1
 # Notes: 
 
 include:

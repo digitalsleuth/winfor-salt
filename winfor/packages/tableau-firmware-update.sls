@@ -1,3 +1,12 @@
+# Name: Tableau Firmware Update
+# Website: https://www.opentext.com
+# Description: Firmware update utility for Tableau forensic devices
+# Category: Utilities
+# Author: OpenText
+# License: EULA
+# Version: 22.3.2
+# Notes: 
+
 {% set user = salt['pillar.get']('winfor_user', 'forensics') %}
 {% set all_users = salt['user.list_users']() %}
 {% if user in all_users %}

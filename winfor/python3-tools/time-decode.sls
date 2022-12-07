@@ -1,9 +1,10 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
+# Name: time-decode
+# Website: https://github.com/digitalsleuth/time_decode
+# Description: Python timestamp encode / decode utility
+# Category: Raw Parsers / Decoders
+# Author: Corey Forman
+# License: MIT License (https://github.com/digitalsleuth/time_decode/blob/master/LICENSE)
+# Version: 4.2
 # Notes: 
 
 include:

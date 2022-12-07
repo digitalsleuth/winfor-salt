@@ -1,13 +1,14 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
+# Name: pe-sieve
+# Website: https://github.com/hasherezade/pe-sieve
+# Description: Scans a process and dumps possible implants
+# Category: Executables
+# Author: hasherezade
+# License: BSD 2-Clause Simplified License (https://github.com/hasherezade/pe-sieve/blob/master/LICENSE)
+# Version: 0.3.5
 # Notes: 
 
-{% set version = '0.3.2' %}
-{% set hash = 'fc3a6ced08ca2c3390141c05fab8c63901d2727ca31ee64be938f61c053d1ca9' %}
+{% set version = '0.3.5' %}
+{% set hash = '87e996706571f87fdde79176531eb4851446bccc22fdeedd3be07ca78aaf0838' %}
 
 pe-sieve-download:
   file.managed:

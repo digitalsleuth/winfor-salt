@@ -1,9 +1,10 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
+# Name: jd-gui
+# Website: https://github.com/java-decompiler/jd-gui
+# Description: GUI-based Java Decompiler
+# Category: Mobile Analysis
+# Author: Emmanuel Dupuy (emmanue1)
+# License: GNU General Public License v3 (https://github.com/java-decompiler/jd-gui/blob/master/LICENSE)
+# Version: 1.6.6
 # Notes: 
 
 {% set version = '1.6.6' %}

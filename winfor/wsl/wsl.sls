@@ -1,9 +1,10 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
+# Name: WSL Setup
+# Website: https://microsoft.com
+# Description: Windows Subsystem for Linux setup
+# Category: Terminals
+# Author: Microsoft
+# License: EULA
+# Version: 0.0
 # Notes: 
 
 {% set user = salt['pillar.get']('winfor_user', 'forensics') %}

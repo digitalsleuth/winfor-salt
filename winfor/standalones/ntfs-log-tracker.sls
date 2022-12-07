@@ -1,9 +1,10 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
+# Name: NTFS Log Tracker
+# Website: https://sites.google.com/site/forensicnote/ntfs-log-tracker
+# Description: NTFS $LogFile, $UsnJrnl:$J parser
+# Category: Windows Analysis
+# Author: Junghoon Oh (blueangel)
 # License: 
+# Version: 1.71
 # Notes: 
 
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}

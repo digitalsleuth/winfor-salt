@@ -1,9 +1,10 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
+# Name: kape
+# Website: https://www.kroll.com/en/services/cyber-risk/incident-response-litigation-support/kroll-artifact-parser-extractor-kape
+# Description: Incident Response Artifact Parser and Extractor
+# Category: Windows Analysis
+# Author: Eric Zimmerman / Kroll
+# License: https://www.kroll.com/en/services/cyber-risk/incident-response-litigation-support/kroll-artifact-parser-extractor-kape
+# Version: 1.2.0.0
 # Notes: 
 
 {% set version = '1.2.0.0' %}

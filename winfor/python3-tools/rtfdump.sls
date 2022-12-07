@@ -1,9 +1,10 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
+# Name: rtfdump.py
+# Website: https://github.com/didierstevens/didierstevenssuite
+# Description: Analyze RTF files
+# Category: Documents / Editors
+# Author: Didier Stevens
+# License: Public Domain
+# Version: 0.0.12
 # Notes: 
 
 {% set files = ['rtfdump.py','rtf.yara'] %}

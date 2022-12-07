@@ -1,10 +1,12 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
+# Name: WLEAPP
+# Website: https://github.com/abrignoni/wleapp
+# Description: Windows Logs Events and Properties Parser
+# Category: Windows Analysis
+# Author: Alexis Brignoni
+# License: MIT License (https://github.com/abrignoni/WLEAPP/blob/main/LICENSE)
+# Version: 0.1
 # Notes: 
+
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 include:

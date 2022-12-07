@@ -1,9 +1,10 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
+# Name: pdfid
+# Website: https://github.com/didierstevens/didierstevenssuite
+# Description: PDF Analysis Tool
+# Category: Documents / Editors
+# Author: Didier Stevens
+# License: Public Domain
+# Version: 0.2.8
 # Notes: 
 
 {% set files = ['pdfid.py','pdfid.ini','plugin_embeddedfile.py','plugin_nameobfuscation.py','plugin_triage.py','plugin_list'] %}

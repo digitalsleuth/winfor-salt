@@ -1,13 +1,14 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
+# Name: hollows_hunter
+# Website: https://github.com/hasherezade/hollows_hunter
+# Description: Scans running processes for implants and dumps them if found
+# Category: Executables
+# Author: hasherezade
+# License: BSD 2-Clause Simplified License (https://github.com/hasherezade/hollows_hunter/blob/master/LICENSE)
+# Version: 0.3.5
 # Notes: 
 
-{% set version = '0.3.2' %}
-{% set hash = '7f931291a8de51e4a6210283f6f3890c4576db50ed9300b2d57220ddaef0190e' %}
+{% set version = '0.3.5' %}
+{% set hash = 'b7117f3e7f8b921914c8e0c9649560067a17343369cd581db75b1145ad581bb9' %}
 
 hollows-hunter-download:
   file.managed:

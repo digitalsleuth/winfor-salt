@@ -145,7 +145,7 @@ def to_markdown(tool):
 
 
 def update_page(cfg, page_url, content):
-    url = "https://api-beta.gitbook.com/v1/spaces/{space_id}/content/v/{variant_id}/url/{parent_path}/{page_url}"
+    url = "https://api.gitbook.com/v1/spaces/{space_id}/content/path/{parent_path}/{page_url}"
 
     DATA = {
         "document": {
@@ -174,7 +174,7 @@ def update_page(cfg, page_url, content):
 
 def insert_page(cfg, title):
     page_url = re.sub(r"[^-a-z0-9.+_]", "+", title.lower())
-    url = "https://api-beta.gitbook.com/v1/spaces/{space_id}/content/v/{variant_id}/url/{parent_path}"
+    url = "https://api.gitbook.com/v1/spaces/{space_id}/content/path/{parent_path}"
 
     DATA = {
         "pages": [
@@ -201,7 +201,7 @@ def insert_page(cfg, title):
 
 
 def get_gitbook_pages(cfg):
-    url = "https://api-beta.gitbook.com/v1/spaces/{space_id}/content/v/{variant_id}/url/{parent_path}"
+    url = "https://api.gitbook.com/v1/spaces/{space_id}/content/path/{parent_path}"
 
     try:
         resp = requests.get(

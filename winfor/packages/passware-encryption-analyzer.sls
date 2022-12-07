@@ -1,9 +1,9 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
+# Name: Passware Encryption Analyzer
+# Website: https://www.passware.com
+# Description: Encryption detection tool for various file types
+# Category: Raw Parsers / Decoders
+# Author: Passware - Dmitry Sumin
+# License: EULA (https://support.passware.com/hc/en-us/articles/221742768-What-are-the-terms-of-the-end-user-license-agreement-for-Passware-software-)
 # Version: 2022.3.1.3215
 # Notes:
 

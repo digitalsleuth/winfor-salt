@@ -1,9 +1,10 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
+# Name: Volatility
+# Website: https://github.com/volatilityfoundation/volatility
+# Description: Memory analysis toolset
+# Category: Windows Analysis
+# Author: https://github.com/volatilityfoundation/volatility/blob/master/AUTHORS.txt
+# License: GNU General Public License v2 (https://github.com/volatilityfoundation/volatility/blob/master/LICENSE.txt)
+# Version: 2
 # Notes: 
 
 include:

@@ -1,15 +1,15 @@
 # Name: Magnet AXIOM
 # Website: https://www.magnetforensics.com
 # Description: Evidence Acquisition and Analysis toolset
-# Category: Analysis and Acquisition
+# Category: Acquisition and Analysis
 # Author: Jad Saliba - Magnet Forensics
 # License: EULA
-# Version: 6.3.0.32040
+# Version: 6.8.0.33717
 # Notes:
 
-{% set dot_version = '6.3.0.32040' %}
-{% set file_version = '630.32040' %}
-{% set hash = 'FC120E04DA228E4F677B8C5B785B98F3917E893EA0F63A5631531C3918C9C99D' %}
+{% set dot_version = '6.8.0.33717' %}
+{% set file_version = '680.33717' %}
+{% set hash = 'f8d6754b2aaffccabfa769866b5b6c621851cb1763abd85e23ef6e7af36f20af' %}
 
 magnet-axiom-download:
   file.managed:

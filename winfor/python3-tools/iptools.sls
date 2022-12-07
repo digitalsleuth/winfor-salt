@@ -1,9 +1,10 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
+# Name: iptools
+# Website: https://github.com/digitalsleuth/forensics_tools
+# Description: IP / Hex / Dec Conversion tool 
+# Category: Raw Parsers / Decoders
+# Author: Corey Forman
+# License: GNU General Public License v3.0 (https://github.com/digitalsleuth/forensics_tools/blob/master/LICENSE)
+# Version: 1.1
 # Notes: 
 
 include:

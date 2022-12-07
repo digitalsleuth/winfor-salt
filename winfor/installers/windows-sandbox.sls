@@ -4,8 +4,8 @@
 # Category: Executables
 # Author: Microsoft
 # License: 
-# Notes: 
 # Version: 10.0.19041.985
+# Notes: 
 
 windows-sandbox:
   dism.feature_installed:

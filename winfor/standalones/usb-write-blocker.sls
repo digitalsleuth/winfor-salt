@@ -1,9 +1,10 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
+# Name: USB Registry Write Blocker
+# Website: https://github.com/digitalsleuth/registry-write-block
+# Description: USB Write Blocker for standard USB / UASP devices using Registry Modifications
+# Category: Utilities
+# Author: Corey Forman
+# License: MIT License (https://github.com/digitalsleuth/Registry-Write-Block/blob/master/LICENSE)
+# Version: 1.2
 # Notes: 
 
 {% set version = '1.2' %}
@@ -20,7 +21,7 @@ winfor-standalones-usb-write-blocker:
 winfor-standalones-usb-write-blocker-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\USB Write Blocker.lnk'
-    - target: 'C:\standalone\USB-Write-Blocker_v1.2.exe'
+    - target: 'C:\standalone\USB-Write-Blocker_v{{ version }}.exe'
     - force: True
     - working_dir: 'C:\standalone\'
     - makedirs: True

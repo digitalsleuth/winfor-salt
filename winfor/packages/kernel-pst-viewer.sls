@@ -1,9 +1,10 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
+# Name: Kernel PST Viewer
+# Website: https://www.nucleustechnologies.com                             
+# Description: Free Outlook PST viewer     
+# Category: Email
+# Author: Nucleus Technologies
+# License: EULA (https://www.nucleustechnologies.com/eula.pdf)
+# Version: 20.3
 # Notes: 
 
 kernel-pst-viewer:

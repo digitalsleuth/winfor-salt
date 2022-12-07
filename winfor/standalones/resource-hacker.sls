@@ -1,9 +1,10 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
+# Name: Resource Hacker
+# Website: http://www.angusj.com/resourcehacker
+# Description: Compiler and Decompiler for Windows applications
+# Category: Executables
+# Author: Angus Johnson
+# License: Freeware (http://www.angusj.com/resourcehacker - License to Use)
+# Version: 5.1.7
 # Notes: 
 
 resource-hacker-download:

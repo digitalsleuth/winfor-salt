@@ -1,15 +1,16 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
+# Name: OffVis
+# Website: http://go.microsoft.com/fwlink/?LinkId=158791
+# Description: Office document visualization tool
+# Category: Documents / Editors
+# Author: Microsoft
+# License: EULA
+# Version: 1.1.0.0
 # Notes: 
 
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 include:
-  - winfor.installers.dotnetfx35
+  - winfor.packages.dotnetfx35
 
 offvis-download:
   file.managed:
@@ -18,7 +19,7 @@ offvis-download:
     - source_hash: sha256=8432c2e81ab51bf46fc9a1b17629f4ff7c3902f976132477428b84918be08351
     - makedirs: True
     - require:
-      - sls: winfor.installers.dotnetfx35
+      - sls: winfor.packages.dotnetfx35
 
 offvis-extract:
   archive.extracted:

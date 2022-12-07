@@ -1,9 +1,10 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
+# Name: Autorunner
+# Website: https://github.com/woanware/autorunner
+# Description: Checks for autorun applications on Windows
+# Category: Windows Analysis
+# Author: Mark Woan
+# License: Public Domain
+# Version: 0.0.16
 # Notes: 
 
 {% set version = '0.0.16' %}

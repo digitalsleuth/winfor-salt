@@ -1,10 +1,12 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
+# Name: ALEAPP
+# Website: https://github.com/abrignoni/aleapp
+# Description: Android Logs Events and Protobuf Parser
+# Category: Mobile Analysis
+# Author: Alexis Brignoni
+# License: MIT License (https://github.com/abrignoni/ALEAPP/blob/master/LICENSE)
+# Version: 3.1.1
 # Notes: 
+
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 include:

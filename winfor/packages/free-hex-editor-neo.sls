@@ -1,9 +1,10 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
+# Name: Hex Editor Neo (Free)
+# Website: https://www.hhdsoftware.com
+# Description: Hex Editor
+# Category: Raw Parsers / Decoders
+# Author: HHD Software
+# License: EULA (https://www.hhdsoftware.com/company/terms-of-use)
+# Version: 7.09.01.8132
 # Notes: 
 
 {% set user = salt['pillar.get']('winfor_user', 'forensics') %}

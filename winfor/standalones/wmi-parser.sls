@@ -1,9 +1,10 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
+# Name: WMI Parser
+# Website: https://github.com/woanware/wmi-parser
+# Description: Parse the WMI object database for persistence
+# Category: Windows Analysis
+# Author: Mark Woan
+# License: Unknown
+# Version: 0.0.2
 # Notes: 
 
 wmi-parser-download:

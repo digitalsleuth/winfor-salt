@@ -1,9 +1,10 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
+# Name: Registry Viewer
+# Website: https://exterro.com
+# Description: Windows Registry hive viewer
+# Category: Registry
+# Author: AccessData / Exterro
+# License: EULA
+# Version: 2.0.0.7
 # Notes: 
 
 registry-viewer:

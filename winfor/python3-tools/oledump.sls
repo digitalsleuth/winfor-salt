@@ -1,9 +1,10 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
+# Name: oledump.py
+# Website: https://github.com/didierstevens/didierstevenssuite
+# Description: Analyze OLE files
+# Category: Documents / Editors
+# Author: Didier Stevens
+# License: Public Domain
+# Version: 0.0.71
 # Notes: 
 
 {% set files = ['contains_pe_file.yara','plugin_msg.py','plugin_vba_dco.py','decoder_add1.py',

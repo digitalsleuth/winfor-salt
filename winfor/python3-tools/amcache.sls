@@ -1,3 +1,12 @@
+# Name: amcache.py
+# Website: Original (https://github.com/williballenthin/python-registry)
+# Description: AmCache Registry Hive Parser
+# Category: Windows Analysis
+# Author: Willi Ballenthin and Corey Forman
+# License: Apache License 2.0 (https://github.com/williballenthin/python-registry/blob/master/LICENSE.TXT)
+# Version: 2.0
+# Notes: This version has been modified from the original, and is not stored online at this time
+
 include:
   - winfor.packages.python3
 

@@ -1,9 +1,10 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
+# Name: pcodedmp
+# Website: https://github.com/bontchev/pcodedmp
+# Description: Python VBA p-code disassembler
+# Category: Documents / Editors
+# Author: Vesselin Bontchev
+# License: GNU General Public License v3 (https://github.com/bontchev/pcodedmp/blob/master/LICENSE)
+# Version: 1.2.6
 # Notes: 
 
 include:

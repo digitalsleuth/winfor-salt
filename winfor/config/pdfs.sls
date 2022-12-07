@@ -1,4 +1,14 @@
-# Source: https://github.com/teamdfir/sift-saltstack/blob/master/sift/config/user/pdfs.sls
+# Name: Reference Documentation
+# Website: SANS.org and github.com/digitalsleuth/winfor-salt
+# Description: Reference documents for tools and forensic cheatsheets
+# Category: Utilities
+# Author: SANS and Corey Forman
+# License: 
+# Version: 
+# Notes: Source https://github.com/teamdfir/sift-saltstack/blob/master/sift/config/user/pdfs.sls and WIN-FOR tool list
+
+{% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+
 {%-
 set pdfs = [
   {
@@ -73,15 +83,29 @@ set pdfs = [
     "source": "https://assets.contentstack.io/v3/assets/blt36c2e63521272fdc/blt4698e96e2d9cf51d/SQlite_Cheat_Sheet.pdf",
     "hash": "954d62787abe3bad95f59e2d671eac202dea2607ed5cdb757dbbb688b873f679"
   },
+  {
+    "id": "winfor-tool-list",
+    "filename": "WIN-FOR-Tool-List.pdf",
+    "source": "salt://winfor/files/WIN-FOR-Tool-List.pdf",
+    "hash": "87d2779a55f160ed7d24259ae65ff9f25b810084c7df5f28e0526e9e8bf6f781"
+  },
 ]
 -%}
 
 {% for pdf in pdfs %}
 winfor-pdf-{{ pdf.id }}:
   file.managed:
-    - name: 'C:\standalone\References\{{ pdf.filename }}'
+    - name: 'C:\standalone\references\{{ pdf.filename }}'
     - source: {{ pdf.source }}
     - source_hash: sha256={{ pdf.hash }}
     - makedirs: True
     - show_changes: False
 {% endfor %}
+
+winfor-tool-list-shortcut:
+  file.shortcut:
+    - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\WIN-FOR-Tool-List.lnk'
+    - target: 'C:\standalone\references\WIN-FOR-Tool-List.pdf'
+    - force: True
+    - working_dir: 'C:\standalone\references\'
+    - makedirs: True

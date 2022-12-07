@@ -1,9 +1,10 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
+# Name: UnAutoIt
+# Website: https://github.com/digitalsleuth/UnAutoIt
+# Description: AutoIt extractor
+# Category: Installers
+# Author: Corey Forman (digitalsleuth) / x0r19x91
+# License: GNU General Public License v3 (https://github.com/digitalsleuth/UnAutoIt/blob/main/LICENSE)
+# Version: 1.1.1
 # Notes: 
 
 unautoit-download:

@@ -1,9 +1,10 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
+# Name: Telerik Fiddler
+# Website: https://www.telerik.com
+# Description: Web debugging proxy tool
+# Category: Network
+# Author: Telerik
 # License: 
+# Version: 5.0.20211.51073
 # Notes: 
 
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}

@@ -1,9 +1,10 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
+# Name: regshot
+# Website: https://sourceforge.net/projects/regshot/
+# Description: Registry snapshot utility to compare snapshots
+# Category: Registry
+# Author: maddes, regshot, xhmikosr
+# License: GNU Lesser General Public License (https://sourceforge.net/p/regshot/code/HEAD/tree/branches/1.9.0/files/license_lgpl-2.1.txt)
+# Version: 1.9.0
 # Notes: 
 
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}

@@ -1,10 +1,10 @@
 # Name: MalCat
 # Website: https://malcat.fr
 # Description: Malware Analysis Tool
-# Category: Malware
-# Author: 
-# License: 
-# Version:
+# Category: Executables
+# Author: Malcat EL
+# License: https://malcat.fr/index.html#faq6
+# Version: 0.8.6
 # Notes: 
 
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}

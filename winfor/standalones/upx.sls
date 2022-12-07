@@ -1,13 +1,14 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
+# Name: UPX
+# Website: https://github.com/upx/upx
+# Description: The Ultimate Packer for eXecutables
+# Category: Executables
+# Author: Markus Oberhumer, Laszlo Molnar, John Reiser
+# License: Multiple Licenses (https://github.com/upx/upx/blob/devel/LICENSE)
+# Version: 4.0.1
 # Notes: 
 
-{% set version = '3.96' %}
-{% set hash = 'a2655c66a547e2274474e54d7a373f1c28e96ded162c51b34651873691022184' %}
+{% set version = '4.0.1' %}
+{% set hash = 'B6B066A63D434FC177F6EBAB09EF5DB52288048EEEB82D0E56FE97D874AAA423' %}
 
 upx-download:
   file.managed:
@@ -27,7 +28,7 @@ upx-extract:
 upx-folder-rename:
   file.rename:
     - name: 'C:\standalone\upx'
-    - source: 'C:\standalone\upx-3.96-win64\'
+    - source: 'C:\standalone\upx-{{ version }}-win64\'
     - force: True
     - makedirs: True
     - require:

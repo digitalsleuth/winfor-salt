@@ -1,9 +1,10 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
+# Name: usbdeviceforensics
+# Website: https://github.com/digitalsleuth/usbdeviceforensics
+# Description: Track a USB device throughout a Windows system
+# Category: Windows Analysis
+# Author: Corey Forman / Mark Woan
+# License: Public Domain
+# Version: 1.0.0
 # Notes: 
 
 include:

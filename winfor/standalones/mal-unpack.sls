@@ -1,16 +1,20 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
+# Name: mal_unpack
+# Website: https://github.com/hasherezade/mal_unpack
+# Description: Dynamic unpacker based on PE-sieve
+# Category: Executables
+# Author: hasherezade
+# License: BSD 2-Clause Simplified License (https://github.com/hasherezade/mal_unpack/blob/master/LICENSE)
+# Version: 0.9.6
 # Notes: 
+
+{% set version = '0.9.6' %}
+{% set hash = 'ddb634f6b64caa847be8438f770d7f30fc37bb91d97c6e110198e5ff080caf63' %}
 
 mal-unpack-download:
   file.managed:
     - name: 'C:\salt\tempdownload\mal_unpack64.zip'
-    - source: https://github.com/hasherezade/mal_unpack/releases/download/0.9/mal_unpack64.zip
-    - source_hash: sha256=1e423bf2032030db899266a7cb031a525daeffae1d8102ff678d2f6419843a84
+    - source: https://github.com/hasherezade/mal_unpack/releases/download/{{ version }}/mal_unpack64.zip
+    - source_hash: sha256={{ hash }}
     - makedirs: True
 
 mal-unpack-extract:

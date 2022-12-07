@@ -1,10 +1,12 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
+# Name: VLEAPP
+# Website: https://github.com/abrignoni/vleapp
+# Description: Vehicle Logs Events and Properties Parser
+# Category: Mobile Analysis
+# Author: Alexis Brignoni
+# License: MIT License (https://github.com/abrignoni/VLEAPP/blob/main/LICENSE)
+# Version: 1.0.0
 # Notes: 
+
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 include:

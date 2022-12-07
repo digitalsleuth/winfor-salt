@@ -1,19 +1,20 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
+# Name: dotPeek
+# Website: https://www.jetbrains.com
+# Description: .NET Decompiler and Assembly Browser
+# Category: Executables
+# Author: JetBrains
+# License: EULA (https://www.jetbrains.com/legal/docs/toolbox/license_personal/)
+# Version: 2022.2.4
 # Notes: 
 
-{% set version = '2021.3.2' %}
-{% set hash = 'b50606c2af174072908207ca30530e0c644ea86e5a7cf9a3caa0490b025d07f6' %}
+{% set version = '2022.2.4' %}
+{% set hash = 'f720038e7366791c310a86b92cae778a1b177ceb5dcd4b8c50792a7405d53ff8' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 dotpeek-download:
   file.managed:
     - name: 'C:\standalone\dotpeek\dotPeek64.exe'
-    - source: https://download.jetbrains.com/resharper/dotUltimate.{{ version }}/dotPeek64.{{ version }}.exe
+    - source: https://download.jetbrains.com/resharper/dotUltimate.{{ version }}/JetBrains.dotPeek.{{ version }}.web.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True
 

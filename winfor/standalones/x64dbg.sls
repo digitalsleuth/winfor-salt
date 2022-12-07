@@ -1,19 +1,20 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
+# Name: x64dbg
+# Website: https://sourceforge.net/projects/x64dbg/
+# Description: Open Source x64/x32 debugger for Windows
+# Category: Executables
+# Author: Duncan Ogilvie (mrexodia)
+# License: GNU General Public License v3 (https://github.com/x64dbg/x64dbg/blob/development/LICENSE)
+# Version: 2022-12-02_11-56
 # Notes: 
 
-{% set version = '2022-01-13_04-25' %}
-{% set hash = 'ef853316e5ea0ecb7c1b3ec340549c0fc92cb8cf52f462287dcc517a124fcfb1' %}
+{% set version = '2022-12-02_11-56' %}
+{% set hash = '87326F2315D767264F34ACC4FE11B2E7BE1FCAAAC5A77D16C677552753108E77' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 x64dbg-download:
   file.managed:
     - name: 'C:\salt\tempdownload\snapshot_{{ version }}.zip'
-    - source: https://deac-ams.dl.sourceforge.net/project/x64dbg/snapshots/snapshot_{{ version }}.zip
+    - source: https://github.com/x64dbg/x64dbg/releases/download/snapshot/snapshot_{{ version }}.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True
 

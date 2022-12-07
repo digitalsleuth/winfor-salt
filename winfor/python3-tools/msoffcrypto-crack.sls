@@ -1,9 +1,10 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
+# Name: msoffcrypto-crack.py
+# Website: https://github.com/didierstevens/didierstevenssuite
+# Description: MS Office Document Password Cracking utility
+# Category: Documents / Editors
+# Author: Didier Stevens
+# License: Public Domain
+# Version: 0.0.5
 # Notes: 
 
 include:

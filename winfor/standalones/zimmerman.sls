@@ -3,7 +3,8 @@
 # Description: Suite of Forensic Tools
 # Category: Windows Analysis
 # Author: Eric Zimmerman
-# License: 
+# License: MIT License (https://github.com/EricZimmerman/Issues/blob/master/LICENSE)
+# Version: 2021-01-22
 # Notes: 
 
 {% set hash = '7864ce0ab57e3831bad24f56abc1c9c6796a552091d2f49262e66565e66c0447' %}
@@ -48,7 +49,7 @@ zimmerman-{{ application }}-shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\{{ application }}.lnk'
     - target: 'C:\standalone\zimmerman\net6\{{ application }}\{{ application }}.exe'
     - force: True
-    - working_dir: 'C:\standalone\zimmerman\{{ application }}\'
+    - working_dir: 'C:\standalone\zimmerman\net6\{{ application }}\'
     - makedirs: True
     - require:
       - cmd: zimmerman-tools-download

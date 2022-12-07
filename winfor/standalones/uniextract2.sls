@@ -1,9 +1,10 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
+# Name: UniExtract2
+# Website: https://github.com/Bioruebe/UniExtract2
+# Description: Tool to extract files from installers
+# Category: Installers
+# Author: William Engelmann
+# License: GNU General Public License v2 (https://github.com/Bioruebe/UniExtract2/blob/master/LICENSE)
+# Version: 2.0.0-rc3
 # Notes: 
 
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}

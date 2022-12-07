@@ -1,6 +1,5 @@
 include:
   - winfor.installers.dcode
-  - winfor.installers.vscode
   - winfor.installers.mobaxterm
   - winfor.installers.data-dump
   - winfor.installers.hxd
@@ -18,7 +17,6 @@ winfor-installers:
   test.nop:
     - require:
       - sls: winfor.installers.dcode
-      - sls: winfor.installers.vscode
       - sls: winfor.installers.mobaxterm
       - sls: winfor.installers.data-dump
       - sls: winfor.installers.hxd

@@ -1,24 +1,27 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
+# Name: PE-bear
+# Website: https://github.com/hasherezade/pe-bear
+# Description: Portable Executable reversing tool with a GUI
+# Category: Executables
+# Author: hasherezade
+# License: GNU General Public License v2 (https://github.com/hasherezade/pe-bear/blob/main/LICENSE)
+# Version: 0.6.1
 # Notes: 
 
+{% set version = '0.6.1' %}
+{% set hash = 'e08dd503d5699e593c7609d2d58ab73740c33a4d97bf887682349fe2f4d8a028' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 pe-bear-download:
   file.managed:
-    - name: 'C:\salt\tempdownload\PE-bear_0.5.5.1_x64_win_vs17.zip'
-    - source: https://github.com/hasherezade/pe-bear-releases/releases/download/0.5.5.1/PE-bear_0.5.5.1_x64_win_vs17.zip
-    - source_hash: sha256=91c97724511b2b7acc32d07306ee0dff2684a60c60433f8ecdcbb647caff96d2
+    - name: 'C:\salt\tempdownload\PE-bear_{{ version }}_x64_win_vs17.zip'
+    - source: https://github.com/hasherezade/pe-bear/releases/download/v{{ version }}/PE-bear_{{ version }}_x64_win_vs17.zip
+    - source_hash: sha256={{ hash }}
     - makedirs: True
 
 pe-bear-extract:
   archive.extracted:
     - name: 'C:\standalone\pe-bear'
-    - source: 'C:\salt\tempdownload\PE-bear_0.5.5.1_x64_win_vs17.zip'
+    - source: 'C:\salt\tempdownload\PE-bear_{{ version }}_x64_win_vs17.zip'
     - enforce_toplevel: False
     - require:
       - file: pe-bear-download
@@ -26,8 +29,8 @@ pe-bear-extract:
 pe-bear-sig-download:
   file.managed:
     - name: 'C:\standalone\pe-bear\SIG.txt'
-    - source: https://github.com/hasherezade/pe-bear-releases/raw/master/SIG.txt
-    - source_hash: sha256=df695de2d3ad1aa33aba123eaa756ca4be2620289dbf85b110d9e471c8865048
+    - source: https://github.com/hasherezade/pe-bear/raw/main/SIG.txt
+    - source_hash: sha256=247627cd61b15afd711dd88988a8622cef50e97b5b2a0ddfe9fcfc3eae29d2f1
     - makedirs: True
     - require:
       - archive: pe-bear-extract

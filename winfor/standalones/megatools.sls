@@ -1,3 +1,12 @@
+# Name: megatools
+# Website: https://megatools.megous.com
+# Description: Mega.NZ downloader suite
+# Category: Utilities
+# Author: https://megatools.megous.com/man/megatools.html#_author
+# License: GNU General Public License v2 (https://megous.com/git/megatools/tree/LICENSE)
+# Version: 1.11.0
+# Notes:
+
 {% set version = '1.11.0' %}
 {% set date = '20220519' %}
 {% set hash = '3588d85606fec96c7477eafaf154695161025e29fa6bdcfdf827a14b3f1d4501' %}

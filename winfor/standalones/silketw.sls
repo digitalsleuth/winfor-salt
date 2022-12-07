@@ -1,10 +1,11 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
-# Notes: 
+# Name: SilkETW
+# Website: https://github.com/mandiant/SilkETW
+# Description: Wrapper for ETW (Event Tracing for Windows)
+# Category: Windows Analysis
+# Author: Mandiant
+# License: Apache License v2 (https://github.com/mandiant/SilkETW/raw/master/LICENSE.txt) 3rd-party license (https://github.com/mandiant/SilkETW/blob/master/LICENSE-3RD-PARTY.txt)
+# Version: 0.8
+# Notes: Sample Usage - https://www.mandiant.com/resources/blog/silketw-because-free-telemetry-is-free
 
 silketw-download:
   file.managed:

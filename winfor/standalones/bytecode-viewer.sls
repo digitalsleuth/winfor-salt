@@ -1,13 +1,14 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
+# Name: Bytecode Viewer
+# Website: https://github.com/konloch/bytecode-viewer
+# Description: Android APK reverse engineering suite
+# Category: Mobile Analysis
+# Author: Konloch
+# License: GNU General Public License v3 (https://github.com/Konloch/bytecode-viewer/blob/master/LICENSE)
+# Version: 2.11.2
 # Notes: 
 
-{% set version = '2.11.0' %}
-{% set hash = '1864d43f252d57502be293d4043245dc742780c63860f6c5c450888c1e326788' %}
+{% set version = '2.11.2' %}
+{% set hash = '536ad387424106083f76cd0cb7c051a22aff21f08663ba2539c11f1ddef9147f' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 include:

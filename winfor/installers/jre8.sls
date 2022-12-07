@@ -4,8 +4,8 @@
 # Category: Requirements
 # Author: Oracle
 # License: https://www.oracle.com/legal/terms.html
-# Notes: 
 # Version: 8u311
+# Notes: 
 
 jre8-download:
   file.managed:

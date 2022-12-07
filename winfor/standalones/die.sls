@@ -1,25 +1,27 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
-# Notes: 
+# Name: DIE (Detect It Easy)
+# Website: https://github.com/horsicq/DIE-engine
+# Description: Reverse Engineering Engine
+# Category: Executables
+# Author: Hors (horsicq)
+# License: MIT License (https://github.com/horsicq/DIE-engine/blob/master/LICENSE)
+# Version: 3.06
+# Notes: Detect It Easy - DIE 
 
-# Detect It Easy - DIE
+{% set version = '3.06' %}
+{% set hash = 'f1f075145a7b5ee8556dbf8a66c4e64e6b7eff71bcfeaed669f8f8471862fac9' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 die-download:
   file.managed:
-    - name: 'C:\salt\tempdownload\die_win64_portable_3.03.zip'
-    - source: https://github.com/horsicq/DIE-engine/releases/download/3.03/die_win64_portable_3.03.zip
-    - source_hash: sha256=f793c8ea4578cafca7543fe407f03ac50ac15850e99983f1cc5ee19b0dda7c78
+    - name: 'C:\salt\tempdownload\die_win64_portable_{{ version }}.zip'
+    - source: https://github.com/horsicq/DIE-engine/releases/download/{{ version }}/die_win64_portable_{{ version }}.zip
+    - source_hash: sha256={{ hash }}
     - makedirs: True
 
 die-extract:
   archive.extracted:
     - name: 'C:\standalone\die'
-    - source: 'C:\salt\tempdownload\die_win64_portable_3.03.zip'
+    - source: 'C:\salt\tempdownload\die_win64_portable_{{ version }}.zip'
     - enforce_toplevel: False
     - require:
       - file: die-download

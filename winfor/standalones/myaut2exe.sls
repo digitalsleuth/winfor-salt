@@ -1,9 +1,10 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
+# Name: myAutToExe
+# Website: https://github.com/dzzie/myaut_contrib
+# Description: AutoIT installer extractor
+# Category: Installers
+# Author: David Zimmer (dzzie)
 # License: 
+# Version: 2.12
 # Notes: 
 
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}

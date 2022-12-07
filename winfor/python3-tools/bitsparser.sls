@@ -1,9 +1,10 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
+# Name: bitsparser
+# Website: https://github.com/digitalsleuth/bitsparser
+# Description: A python tool to parse Windows BITS database files
+# Category: Windows Analysis
+# Author: Corey Forman / FireEye
+# License: Apache License v2.0 (https://github.com/digitalsleuth/BitsParser/blob/master/LICENSE)
+# Version: 1.0
 # Notes: 
 
 include:

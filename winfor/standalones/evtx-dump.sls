@@ -1,13 +1,14 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
+# Name: evtx_dump
+# Website: https://github.com/omerbenamram/evtx
+# Description: EVTX Event Log Parser
+# Category: Logs
+# Author: Omer BenAmram
+# License: Apache License v2 (https://github.com/omerbenamram/evtx/blob/master/LICENSE-APACHE) and MIT License (https://github.com/omerbenamram/evtx/blob/master/LICENSE-MIT)
+# Version: 0.8.0
 # Notes: 
 
-{% set version = '0.7.2' %}
-{% set hash = 'b5c44f9837a80085bd2a6816ddb87c9815ba0c92cfb4590fa8b6ca525aa96c0b' %}
+{% set version = '0.8.0' %}
+{% set hash = '152d3d0c4cd43e1d61f9e6b7c0ad58330317c460ab1745952ffd73f2f0a58262' %}
 
 evtx-dump:
   file.managed:

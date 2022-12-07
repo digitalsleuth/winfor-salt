@@ -1,10 +1,11 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
-# Notes: 
+# Name: Scylla
+# Website: https://github.com/ntquery/scylla
+# Description: Imports Reconstructor written in C/C++
+# Category: Executables
+# Author: NtQuery
+# License: GNU General Public License v3 (https://github.com/NtQuery/Scylla/blob/master/LICENSE)
+# Version: 0.9.8
+# Notes: May not work well on later versions of Windows 10 and any version of Windows 11
 
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 

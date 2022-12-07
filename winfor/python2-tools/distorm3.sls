@@ -1,9 +1,10 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
+# Name: Distorm3
+# Website: https://github.com/gdabah/distorm
+# Description: Disassembler Library for x86/x64
+# Category: Requirements
+# Author: Gil Dabah
+# License: https://github.com/gdabah/distorm/blob/master/COPYING
+# Version: 3.3.4
 # Notes: 
 
 include:

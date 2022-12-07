@@ -1,9 +1,10 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
+# Name: MagnetRamCapture (MRC)
+# Website: https://magnetforensics.com
+# Description: Windows memory capture utility
+# Category: Windows Analysis
+# Author: Magnet Forensics
+# License: EULA
+# Version: 1.2.0
 # Notes:
 
 {% set hash = '72dc1ba6ddc9d572d70a194ebdf6027039734ecee23a02751b0b3b3c4ea430de' %}

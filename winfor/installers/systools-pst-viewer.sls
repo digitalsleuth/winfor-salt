@@ -4,8 +4,8 @@
 # Category: Email
 # Author: SysTools
 # License: https://www.systoolsgroup.com/eula.pdf
-# Notes: 
 # Version: 5.0
+# Notes: 
 
 pst-viewer-download:
   file.managed:

@@ -1,9 +1,10 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
+# Name: OllyDbg
+# Website: https://www.ollydbg.de/
+# Description: Assembler level debugger for Windows
+# Category: Executables
+# Author: Oleh Yuschuk
+# License: GNU General Public License v2 (https://www.ollydbg.de/srcdescr.htm#_Toc531975948)
+# Version: 2.01h
 # Notes: 
 
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}

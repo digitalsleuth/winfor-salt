@@ -4,8 +4,8 @@
 # Category: Raw Parsers / Decoders
 # Author: Simson L. Garfinkel
 # License: MIT License (https://github.com/simsong/bulk_extractor/blob/main/LICENSE.md)
-# Notes: 
 # Version: 1.5.5
+# Notes: 
 
 bulk-extractor:
   pkg.installed

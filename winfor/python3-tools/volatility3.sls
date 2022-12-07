@@ -1,10 +1,11 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
-# Notes: 
+# Name: Volatility3
+# Website: https://github.com/volatilityfoundation/volatility3
+# Description: Memory analysis toolset
+# Category: Windows Analysis
+# Author: Volatility Foundation
+# License: Volatility Software License (https://www.volatilityfoundation.org/license/vsl-v1.0)
+# Version: 3
+# Notes:
 
 include:
   - winfor.packages.python3

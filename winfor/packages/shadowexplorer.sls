@@ -1,7 +1,18 @@
+# Name: Shadow Explorer
+# Website: https://www.shadowexplorer.com
+# Description: Windows Volume Shadow Copy viewer
+# Category: Windows Analysis
+# Author: ShadowExplorer
+# License: 
+# Version: 0.9.462.0
+# Notes: 
+
 include:
-  - winfor.installers.dotnetfx35
+  - winfor.packages.dotnetfx35
 
 shadowexplorer:
   pkg.installed:
     - require:
-      - sls: winfor.installers.dotnetfx35
+      - sls: winfor.packages.dotnetfx35
+    - watch:
+      - sls: winfor.packages.dotnetfx35

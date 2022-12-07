@@ -1,10 +1,10 @@
 # Name: PEStudio
 # Website: https://www.winitor.com
 # Description: PE Analysis Tool
-# Category: 
-# Author: 
-# License: 
-# Version: 9.42
+# Category: Executables
+# Author: Marc Ochsenmeier
+# License: As-Is, without warranty (https://www.winitor.com/tools/pestudio/changes.log)
+# Version: 9.46
 # Notes: 
 
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}

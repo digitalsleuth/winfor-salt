@@ -1,9 +1,10 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
+# Name: WebPageSaver
+# Website: https://magnetforensics.com
+# Description: Creates an HTML report containing a snapshot of each webpage at a specific point in time
+# Category: Network
+# Author: Magnet Forensics
+# License: EULA
+# Version: 3.4.0
 # Notes:
 
 {% set version = 'V340' %}

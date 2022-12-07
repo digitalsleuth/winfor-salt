@@ -1,9 +1,10 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
+# Name: Innounp
+# Website: https://innounp.sourceforge.net
+# Description: Unpacker of executables packed by InnoSetup
+# Category: Installers
+# Author: Ariman_ua, quickener
+# License: GNU General Public License v3 (https://innounp.sourceforge.net/#Copyrights)
+# Version: 0.50
 # Notes: 
 
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}

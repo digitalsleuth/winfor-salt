@@ -1,10 +1,12 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
+# Name: ILEAPP
+# Website: https://github.com/abrignoni/ileapp
+# Description: iOS Logs Events and Plists Parser
+# Category: Mobile Analysis
+# Author: Alexis Brignoni
+# License: MIT License (https://github.com/abrignoni/iLEAPP/blob/master/LICENSE)
+# Version: 1.18.1
 # Notes: 
+
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 include:

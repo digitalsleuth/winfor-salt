@@ -1,20 +1,21 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
+# Name: ilspy
+# Website: https://github.com/icsharpcode/ilspy
+# Description: .NET Decompiler
+# Category: Executables
+# Author: ICSharpCode (https://github.com/orgs/icsharpcode/people)
+# License: MIT License (https://github.com/icsharpcode/ILSpy/blob/master/doc/ILSpyAboutPage.txt)
+# Version: 7.2.1.6856
 # Notes:
 
-{% set version = '7.2.0.6844' %}
-{% set core_version = 'v7.2' %}
-{% set hash = '61341aeb5992bc76ecd09f29d4a39d13d96afb4d3a498fc191fd999908ea667c' %}
+{% set version = '7.2.1.6856' %}
+{% set core_version = '7.2.1' %}
+{% set hash = '8da077031a6075f5cb5edc2ce8b40cd8ac6e3d9b9c57e900277282fae41d887a' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 ilspy-download:
   file.managed:
     - name: 'C:\salt\tempdownload\ILSpy_binaries_{{ version }}.zip'
-    - source: https://github.com/icsharpcode/ILSpy/releases/download/{{ core_version }}/ILSpy_binaries_{{ version }}.zip
+    - source: https://github.com/icsharpcode/ILSpy/releases/download/v{{ core_version }}/ILSpy_binaries_{{ version }}.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True
 

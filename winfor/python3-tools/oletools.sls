@@ -1,9 +1,10 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
+# Name: oletools
+# Website: http://www.decalage.info/python/oletools
+# Description: Package of tools to analyze MS OLE2 files
+# Category: Documents / Editors
+# Author: Philippe Lagadec
+# License: https://github.com/decalage2/oletools/blob/master/LICENSE.md
+# Version: 0.60.1
 # Notes: 
 
 include:

@@ -1,7 +1,7 @@
 # Name: FastCopy
 # Website: https://fastcopy.jp
 # Description: Fast file copy software which can retain file details
-# Category: File Transfer
+# Category: Utilities
 # Author: FastCopy Lab - https://fastcopy.jp/company.html
 # License: Copyright - All rights reserved - https://fastcopy.jp/help/fastcopy_eng.htm#license
 # Version: 4.1.7

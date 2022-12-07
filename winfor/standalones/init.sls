@@ -11,7 +11,6 @@ include:
   - winfor.standalones.logfileparser
   - winfor.standalones.dotpeek
   - winfor.standalones.kape
-  - winfor.standalones.sqlitestudio
   - winfor.standalones.autorunner
   - winfor.standalones.sleuthkit
   - winfor.standalones.logparser-studio
@@ -70,6 +69,8 @@ include:
   - winfor.standalones.bitrecover-eml-viewer
   - winfor.standalones.rufus
   - winfor.standalones.windowgrid
+  - winfor.standalones.procdot
+  - winfor.standalones.mftbrowser
 
 winfor-standalones:
   test.nop:
@@ -86,7 +87,6 @@ winfor-standalones:
       - sls: winfor.standalones.logfileparser
       - sls: winfor.standalones.dotpeek
       - sls: winfor.standalones.kape
-      - sls: winfor.standalones.sqlitestudio
       - sls: winfor.standalones.autorunner
       - sls: winfor.standalones.sleuthkit
       - sls: winfor.standalones.logparser-studio
@@ -145,3 +145,5 @@ winfor-standalones:
       - sls: winfor.standalones.bitrecover-eml-viewer
       - sls: winfor.standalones.rufus
       - sls: winfor.standalones.windowgrid
+      - sls: winfor.standalones.procdot
+      - sls: winfor.standalones.mftbrowser

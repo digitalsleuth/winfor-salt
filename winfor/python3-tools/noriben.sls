@@ -1,9 +1,10 @@
-# Name: 
-# Website: 
-# Description: 
-# Category: 
-# Author: 
-# License: 
+# Name: Noriben
+# Website: https://github.com/rurik/noriben
+# Description: Malware Analysis Sandbox based on Python
+# Category: Executables
+# Author: Brian Baskin (Rurik)
+# License: Apache License v2 (https://github.com/Rurik/Noriben/blob/master/LICENSE)
+# Version: 1.8.7
 # Notes: 
 
 include:

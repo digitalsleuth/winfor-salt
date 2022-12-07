@@ -4,8 +4,8 @@
 # Category: Requirements
 # Author: Adobe
 # License: https://helpx.adobe.com/ca/reader/acrobat-copyright-trademarks-third-party-notices.html
+# Version: 22.003.20282
 # Notes: 
-# Version: 22.003.20263
 
 adobereader:
   pkg.installed

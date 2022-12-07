@@ -1,7 +1,9 @@
 include:
   - winfor.packages.7zip
   - winfor.packages.git
+  - winfor.packages.dotnetfx35
   - winfor.packages.dotnet6-desktop-runtime
+  - winfor.packages.vscode
   - winfor.packages.autopsy
   - winfor.packages.firefox
   - winfor.packages.chrome
@@ -42,18 +44,23 @@ include:
   - winfor.packages.openhashtab
   - winfor.packages.irfanview
   - winfor.packages.razorsql-x64
-  - winfor.packages.4n6-email-forensics-wizard
+  - winfor.packages.sqlitestudio
   - winfor.packages.shadowexplorer
+  - winfor.packages.4n6-email-forensics-wizard
   - winfor.packages.hashcheck
   - winfor.packages.tableau-imager
   - winfor.packages.tableau-firmware-update
+  - winfor.packages.brim
+  - winfor.packages.pst-walker
 
 winfor-packages:
   test.nop:
     - require:
       - sls: winfor.packages.7zip
       - sls: winfor.packages.git
+      - sls: winfor.packages.dotnetfx35
       - sls: winfor.packages.dotnet6-desktop-runtime
+      - sls: winfor.packages.vscode
       - sls: winfor.packages.autopsy
       - sls: winfor.packages.firefox
       - sls: winfor.packages.chrome
@@ -94,8 +101,11 @@ winfor-packages:
       - sls: winfor.packages.openhashtab
       - sls: winfor.packages.irfanview
       - sls: winfor.packages.razorsql-x64
-      - sls: winfor.packages.4n6-email-forensics-wizard
+      - sls: winfor.packages.sqlitestudio
       - sls: winfor.packages.shadowexplorer
+      - sls: winfor.packages.4n6-email-forensics-wizard
       - sls: winfor.packages.hashcheck
       - sls: winfor.packages.tableau-imager
       - sls: winfor.packages.tableau-firmware-update
+      - sls: winfor.packages.brim
+      - sls: winfor.packages.pst-walker
