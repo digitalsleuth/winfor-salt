@@ -10,8 +10,9 @@ include:
 
 winfor-addon-version-file:
   file.managed:
-    - name: 'C:\ProgramData\Salt Project\Salt\srv\salt\winfor-version'
+    - name: 'C:\winfor-version'
     - source: salt://winfor/VERSION
+    - replace: True
     - require:
       - sls: winfor.config.user
       - sls: winfor.repos
