@@ -13,7 +13,7 @@
 iphone-analyzer-download:
   file.managed:
     - name: 'C:\standalone\iphone-analyzer\iphoneanalyzer.fat.gui-2.1.0.jar'
-    - source: "https://cfhcable.dl.sourceforge.net/project/iphoneanalyzer/executable%20jar%20builds/iphoneanalyzer.fat.gui-2.1.0.jar"
+    - source: "https://netactuate.dl.sourceforge.net/project/iphoneanalyzer/executable%20jar%20builds/iphoneanalyzer.fat.gui-2.1.0.jar"
     - source_hash: sha256={{ hash }}
     - makedirs: True
 
