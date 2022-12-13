@@ -142,7 +142,7 @@
           <start:DesktopApplicationTile Size="1x1" Column="0" Row="1" DesktopApplicationID="C:\standalone\srum-dump2\srum-dump2.exe" />
           <start:DesktopApplicationTile Size="1x1" Column="2" Row="1" DesktopApplicationID="C:\standalone\zimmerman\net6\TimelineExplorer\TimelineExplorer.exe" />
           <start:DesktopApplicationTile Size="1x1" Column="3" Row="1" DesktopApplicationID="C:\standalone\nirsoft\NirLauncher.exe" />
-          <start:DesktopApplicationTile Size="1x1" Column="4" Row="1" DesktopApplicationID="{7C5A40EF-A0FB-4BFC-874A-C0F2E0B9FA8E}\ShadowExplorer\ShadowExplorer.exe" />
+          <start:DesktopApplicationTile Size="1x1" Column="4" Row="1" DesktopApplicationID="C:\standalone\shadowexplorer\ShadowExplorerPortable.exe" />
         </start:Group>
       </defaultlayout:StartLayout>
     </StartLayoutCollection>

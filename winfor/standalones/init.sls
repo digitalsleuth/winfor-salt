@@ -71,6 +71,7 @@ include:
   - winfor.standalones.windowgrid
   - winfor.standalones.procdot
   - winfor.standalones.mftbrowser
+  - winfor.standalones.shadowexplorer
 
 winfor-standalones:
   test.nop:
@@ -147,3 +148,4 @@ winfor-standalones:
       - sls: winfor.standalones.windowgrid
       - sls: winfor.standalones.procdot
       - sls: winfor.standalones.mftbrowser
+      - sls: winfor.standalones.shadowexplorer

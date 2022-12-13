@@ -1,5 +1,6 @@
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set hash = '24f62d8212f25e16cf384779c48876a11f8d9430b597f066d81c0df5ee8594c6' %}
+{% set profile_pictures = ['user.png', 'user.bmp', 'user-32.png', 'user-40.png', 'user-48.png', 'user-192.png'] %}
 
 winfor-theme-wallpaper-source:
   file.managed:
@@ -41,6 +42,32 @@ winfor-theme-update-wallpaper:
   cmd.run:
     - name: 'RUNDLL32.EXE USER32.DLL,UpdatePerUserSystemParameters 1, True'
     - shell: cmd
+
+{% for file in profile_pictures %}
+
+winfor-theme-profile-picture-backup-{{ file }}:
+  file.managed:
+    - name: 'C:\ProgramData\Microsoft\User Account Pictures\{{ file }}.bak'
+    - source: 'C:\ProgramData\Microsoft\User Account Pictures\{{ file }}'
+    - skip_verify: True
+
+winfor-theme-profile-picture-copy-{{ file }}:
+  file.managed:
+    - name: 'C:\ProgramData\Microsoft\User Account Pictures\{{ file }}'
+    - source: salt://winfor/theme/{{ file }}
+    - skip_verify: True
+    - replace: True
+    - require:
+      - file: winfor-theme-profile-picture-backup-{{ file }}
+
+{% endfor %}
+
+winfor-theme-default-profile-picture:
+  reg.present:
+    - name: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer
+    - vname: UseDefaultTile
+    - vtype: REG_DWORD
+    - vdata: 1
 
 nimi-taskkill:
   cmd.run:

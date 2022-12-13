@@ -45,7 +45,6 @@ include:
   - winfor.packages.irfanview
   - winfor.packages.razorsql-x64
   - winfor.packages.sqlitestudio
-  - winfor.packages.shadowexplorer
   - winfor.packages.4n6-email-forensics-wizard
   - winfor.packages.hashcheck
   - winfor.packages.tableau-imager
@@ -102,7 +101,6 @@ winfor-packages:
       - sls: winfor.packages.irfanview
       - sls: winfor.packages.razorsql-x64
       - sls: winfor.packages.sqlitestudio
-      - sls: winfor.packages.shadowexplorer
       - sls: winfor.packages.4n6-email-forensics-wizard
       - sls: winfor.packages.hashcheck
       - sls: winfor.packages.tableau-imager
