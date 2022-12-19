@@ -7,6 +7,7 @@
 # Version: 0.8.6
 # Notes: 
 
+{% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set hash = '86e0d0cf89ba492374d2119dd4cb5f66f9c332483768f3bbfe04a135d09a12d2' %}
 
@@ -19,7 +20,7 @@ malcat-download:
 
 malcat-extract:
   archive.extracted:
-    - name: 'C:\standalone\malcat'
+    - name: '{{ inpath }}\malcat'
     - source: 'C:\salt\tempdownload\malcat_win64_lite.zip'
     - enforce_toplevel: False
     - require:
@@ -28,9 +29,9 @@ malcat-extract:
 malcat-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\MalCat.lnk'
-    - target: 'C:\standalone\malcat\bin\malcat.exe'
+    - target: '{{ inpath }}\malcat\bin\malcat.exe'
     - force: True
-    - working_dir: 'C:\standalone\malcat\bin\'
+    - working_dir: '{{ inpath }}\malcat\bin\'
     - makedirs: True
     - require:
       - file: malcat-download

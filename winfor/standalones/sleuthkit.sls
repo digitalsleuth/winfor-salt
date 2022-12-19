@@ -7,6 +7,7 @@
 # Version: 4.11.1
 # Notes: 
 
+{% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set version = '4.11.1' %}
 {% set hash = '30636e722be838e8fc5c93e6dd29f2a3ebf7e88c775aa70b96fc4c6f48ac64d5' %}
 
@@ -31,7 +32,7 @@ sleuthkit-extract:
 
 sleuthkit-folder-rename:
   file.rename:
-    - name: 'C:\standalone\sleuthkit'
+    - name: '{{ inpath }}\sleuthkit'
     - source: 'C:\salt\tempdownload\sleuthkit-{{ version }}-win32\'
     - force: True
     - makedirs: True
@@ -40,11 +41,11 @@ sleuthkit-folder-rename:
 
 sleuthkit-mactime-wrapper:
   file.managed:
-    - name: 'C:\standalone\sleuthkit\bin\mactime.cmd'
+    - name: '{{ inpath }}\sleuthkit\bin\mactime.cmd'
     - win_inheritance: True
     - contents:
       - '@echo off'
-      - perl C:\standalone\sleuthkit\bin\mactime.pl %*
+      - perl {{ inpath }}\sleuthkit\bin\mactime.pl %*
 
-'C:\standalone\sleuthkit\bin':
+'{{ inpath }}\sleuthkit\bin':
   win_path.exists

@@ -1,5 +1,6 @@
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set hash = '4ed521a6f727c2a5352b2d28e28cfd8639e9c8cbc1b7a35aa7e003464c4fc139' %}
+{% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 
 include:
   - winfor.wsl.wsl2-update
@@ -21,7 +22,7 @@ wsl-get-template:
 
 wsl-make-install-directory:
   file.directory:
-    - name: 'C:\standalone\wsl\'
+    - name: '{{ inpath }}\wsl\'
     - win_inheritance: True
     - makedirs: True
     - require:
@@ -29,7 +30,7 @@ wsl-make-install-directory:
 
 wsl-import-template:
   cmd.run:
-    - name: 'wsl --import WIN-FOR C:\standalone\wsl\ C:\salt\tempdownload\WIN-FOR-20.04.tar'
+    - name: 'wsl --import WIN-FOR {{ inpath }}\wsl\ C:\salt\tempdownload\WIN-FOR-20.04.tar'
     - shell: cmd
     - require:
       - file: wsl-get-template

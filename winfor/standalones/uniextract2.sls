@@ -7,6 +7,7 @@
 # Version: 2.0.0-rc3
 # Notes: 
 
+{% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 uniextract2-download:
@@ -18,7 +19,7 @@ uniextract2-download:
 
 uniextract2-extract:
   archive.extracted:
-    - name: 'C:\standalone\'
+    - name: '{{ inpath }}\'
     - source: 'C:\salt\tempdownload\UniExtractRC3.zip'
     - enforce_toplevel: False
     - require:
@@ -27,9 +28,9 @@ uniextract2-extract:
 winfor-standalones-uniextract2-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\UniExtract.lnk'
-    - target: 'C:\standalone\uniextract\uniextract.exe'
+    - target: '{{ inpath }}\uniextract\uniextract.exe'
     - force: True
-    - working_dir: 'C:\standalone\uniextract\'
+    - working_dir: '{{ inpath }}\uniextract\'
     - makedirs: True
     - require:
       - file: uniextract2-download

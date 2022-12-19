@@ -7,6 +7,7 @@
 # Version: 1.71
 # Notes: 
 
+{% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 ntfs-log-tracker-download:
@@ -18,7 +19,7 @@ ntfs-log-tracker-download:
 
 ntfs-log-tracker-extract:
   archive.extracted:
-    - name: 'C:\standalone\'
+    - name: '{{ inpath }}\'
     - source: 'C:\salt\tempdownload\ntfs-log-tracker-v1.71.zip'
     - enforce_toplevel: False
     - watch:
@@ -26,8 +27,8 @@ ntfs-log-tracker-extract:
 
 ntfs-log-tracker-folder-rename:
   file.rename:
-    - name: 'C:\standalone\ntfs-log-tracker'
-    - source: 'C:\standalone\NTFS Log Tracker v1.71\'
+    - name: '{{ inpath }}\ntfs-log-tracker'
+    - source: '{{ inpath }}\NTFS Log Tracker v1.71\'
     - force: True
     - makedirs: True
     - require:
@@ -35,14 +36,14 @@ ntfs-log-tracker-folder-rename:
 
 ntfs-log-tracker-env-vars:
   win_path.exists:
-    - name: 'C:\standalone\ntfs-log-tracker\'
+    - name: '{{ inpath }}\ntfs-log-tracker\'
 
 winfor-standalones-ntfs-log-tracker-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\NTFS Log Tracker.lnk'
-    - target: 'C:\standalone\ntfs-log-tracker\NTFS Log Tracker v1.71.exe'
+    - target: '{{ inpath }}\ntfs-log-tracker\NTFS Log Tracker v1.71.exe'
     - force: True
-    - working_dir: 'C:\standalone\ntfs-log-tracker\'
+    - working_dir: '{{ inpath }}\ntfs-log-tracker\'
     - makedirs: True
     - require:
       - file: ntfs-log-tracker-download

@@ -7,6 +7,7 @@
 # Version: 4.0.1
 # Notes: 
 
+{% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set version = '4.0.1' %}
 {% set hash = '8a2f95b56c88d38b2f33be92cd3c320f090ce8bb6b9e563457b12e456f3e449f' %}
 
@@ -22,7 +23,7 @@ capa-download:
 
 capa-extract:
   archive.extracted:
-    - name: 'C:\standalone\capa'
+    - name: '{{ inpath }}\capa'
     - source: 'C:\salt\tempdownload\capa-v{{ version }}-windows.zip'
     - enforce_toplevel: False
     - require:
@@ -31,7 +32,7 @@ capa-extract:
 capa-rules:
   git.latest:
     - name: https://github.com/mandiant/capa-rules.git
-    - target: 'C:\standalone\capa\capa-rules'
+    - target: '{{ inpath }}\capa\capa-rules'
     - rev: master
     - force_clone: True
     - force_reset: True
@@ -41,4 +42,4 @@ capa-rules:
 
 capa-env-vars:
   win_path.exists:
-    - name: 'C:\standalone\capa\'
+    - name: '{{ inpath }}\capa\'

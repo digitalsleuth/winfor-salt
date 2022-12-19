@@ -7,6 +7,7 @@
 # Version: 1.0.0
 # Notes: 
 
+{% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 logviewer2-download:
@@ -18,7 +19,7 @@ logviewer2-download:
 
 logviewer2-extracted:
   archive.extracted:
-    - name: 'C:\standalone\logviewer2'
+    - name: '{{ inpath }}\logviewer2'
     - source: 'C:\salt\tempdownload\LogViewer2.v1.0.0.zip'
     - enforce_toplevel: False
     - require:
@@ -26,14 +27,14 @@ logviewer2-extracted:
 
 logviewer2-env-vars:
   win_path.exists:
-    - name: 'C:\standalone\logviewer2\'
+    - name: '{{ inpath }}\logviewer2\'
 
 logviewer2-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\LogViewer2.lnk'
-    - target: 'C:\standalone\logviewer2\LogViewer2.exe'
+    - target: '{{ inpath }}\logviewer2\LogViewer2.exe'
     - force: True
-    - working_dir: 'C:\standalone\logviewer2\'
+    - working_dir: '{{ inpath }}\logviewer2\'
     - makedirs: True
     - require:
       - file: logviewer2-download

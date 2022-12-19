@@ -7,6 +7,7 @@
 # Version: 4.0.1
 # Notes: 
 
+{% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set version = '4.0.1' %}
 {% set hash = 'B6B066A63D434FC177F6EBAB09EF5DB52288048EEEB82D0E56FE97D874AAA423' %}
 
@@ -19,7 +20,7 @@ upx-download:
 
 upx-extract:
   archive.extracted:
-    - name: 'C:\standalone\'
+    - name: '{{ inpath }}\'
     - source: 'C:\salt\tempdownload\upx-{{ version }}-win64.zip'
     - enforce_toplevel: False
     - require:
@@ -27,8 +28,8 @@ upx-extract:
 
 upx-folder-rename:
   file.rename:
-    - name: 'C:\standalone\upx'
-    - source: 'C:\standalone\upx-{{ version }}-win64\'
+    - name: '{{ inpath }}\upx'
+    - source: '{{ inpath }}\upx-{{ version }}-win64\'
     - force: True
     - makedirs: True
     - require:
@@ -36,4 +37,4 @@ upx-folder-rename:
 
 upx-env-vars:
   win_path.exists:
-    - name: 'C:\standalone\upx'
+    - name: '{{ inpath }}\upx'

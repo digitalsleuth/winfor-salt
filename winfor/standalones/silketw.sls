@@ -7,6 +7,8 @@
 # Version: 0.8
 # Notes: Sample Usage - https://www.mandiant.com/resources/blog/silketw-because-free-telemetry-is-free
 
+{% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
+
 silketw-download:
   file.managed:
     - name: 'C:\salt\tempdownload\SilkETW_SilkService_v8.zip'
@@ -16,7 +18,7 @@ silketw-download:
 
 silketw-extract:
   archive.extracted:
-    - name: 'C:\standalone\silketw'
+    - name: '{{ inpath }}\silketw'
     - source: 'C:\salt\tempdownload\SilkETW_SilkService_v8.zip'
     - enforce_toplevel: False
     - require:
@@ -25,5 +27,5 @@ silketw-extract:
 silketw-env-vars:
   win_path.exists:
     - names:
-      - 'C:\standalone\silketw\v8\SilkETW\'
-      - 'C:\standalone\silketw\v8\SilkService\'
+      - '{{ inpath }}\silketw\v8\SilkETW\'
+      - '{{ inpath }}\silketw\v8\SilkService\'

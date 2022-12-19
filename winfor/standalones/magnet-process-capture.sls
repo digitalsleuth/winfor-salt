@@ -7,6 +7,7 @@
 # Version: v13
 # Notes:
 
+{% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set hash = '8525f97a51c30c25c897c9abe9d1dbea81919cf538582ae31f40825ef2be4e10' %}
 {% set version = 'V13' %}
 
@@ -19,7 +20,7 @@ magnet-process-capture-download:
 
 magnet-process-capture-extract:
   archive.extracted:
-    - name: 'C:\standalone\magnet\ProcessCapture\'
+    - name: '{{ inpath }}\magnet\ProcessCapture\'
     - source: 'C:\salt\tempdownload\MagnetProcessCapture{{ version }}.zip'
     - enforce_toplevel: False
     - require:

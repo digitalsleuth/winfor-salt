@@ -7,6 +7,7 @@
 # Version: 2021-01-22
 # Notes: 
 
+{% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set hash = '7864ce0ab57e3831bad24f56abc1c9c6796a552091d2f49262e66565e66c0447' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set applications = ['EZViewer','JumpListExplorer','MFTExplorer','RegistryExplorer','SDBExplorer','ShellBagsExplorer','TimelineExplorer'] %}
@@ -20,7 +21,7 @@ zimmerman-tools:
 
 zimmerman-tools-install:
   archive.extracted:
-    - name: 'C:\standalone\zimmerman\'
+    - name: '{{ inpath }}\zimmerman\'
     - source: 'C:\salt\tempdownload\Get-ZimmermanTools.zip'
     - enforce_toplevel: False
     - watch:
@@ -28,28 +29,31 @@ zimmerman-tools-install:
 
 zimmerman-tools-download:
   cmd.run:
-    - name: "powershell -ep bypass C:\\standalone\\zimmerman\\Get-ZimmermanTools.ps1 -Dest C:\\standalone\\zimmerman"
+    - name: 'powershell -nop -ep bypass -File Get-ZimmermanTools.ps1 -Dest {{ inpath }}\zimmerman'
+    - cwd: {{ inpath }}\zimmerman
     - shell: powershell
+    - watch:
+      - archive: zimmerman-tools-install
 
 zimmerman-env-vars:
   win_path.exists:
     - names:
-      - 'C:\standalone\zimmerman\net6\'
-      - 'C:\standalone\zimmerman\net6\EvtxeCmd\'
-      - 'C:\standalone\zimmerman\net6\RECmd\'
-      - 'C:\standalone\zimmerman\net6\RegistryExplorer\'
-      - 'C:\standalone\zimmerman\net6\ShellBagsExplorer\'
-      - 'C:\standalone\zimmerman\net6\SQLECmd\'
-      - 'C:\standalone\zimmerman\net6\iisGeolocate\'
-      - 'C:\standalone\zimmerman\net6\SDBExplorer\'
+      - '{{ inpath }}\zimmerman\net6\'
+      - '{{ inpath }}\zimmerman\net6\EvtxeCmd\'
+      - '{{ inpath }}\zimmerman\net6\RECmd\'
+      - '{{ inpath }}\zimmerman\net6\RegistryExplorer\'
+      - '{{ inpath }}\zimmerman\net6\ShellBagsExplorer\'
+      - '{{ inpath }}\zimmerman\net6\SQLECmd\'
+      - '{{ inpath }}\zimmerman\net6\iisGeolocate\'
+      - '{{ inpath }}\zimmerman\net6\SDBExplorer\'
 
 {% for application in applications %}
 zimmerman-{{ application }}-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\{{ application }}.lnk'
-    - target: 'C:\standalone\zimmerman\net6\{{ application }}\{{ application }}.exe'
+    - target: '{{ inpath }}\zimmerman\net6\{{ application }}\{{ application }}.exe'
     - force: True
-    - working_dir: 'C:\standalone\zimmerman\net6\{{ application }}\'
+    - working_dir: '{{ inpath }}\zimmerman\net6\{{ application }}\'
     - makedirs: True
     - require:
       - cmd: zimmerman-tools-download
@@ -58,9 +62,9 @@ zimmerman-{{ application }}-shortcut:
 zimmerman-hasher-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\Hasher.lnk'
-    - target: 'C:\standalone\zimmerman\Hasher\Hasher.exe'
+    - target: '{{ inpath }}\zimmerman\Hasher\Hasher.exe'
     - force: True
-    - working_dir: 'C:\standalone\zimmerman\Hasher\'
+    - working_dir: '{{ inpath }}\zimmerman\Hasher\'
     - makedirs: True
     - require:
       - cmd: zimmerman-tools-download

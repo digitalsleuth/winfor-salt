@@ -7,6 +7,7 @@
 # Version: 9.46
 # Notes: 
 
+{% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set hash = '0b5605b47a75c10f0988928979e1b8730ef85e876c4f6276a09d04ab1a96833e' %}
 
@@ -19,7 +20,7 @@ pestudio-download:
 
 pestudio-extract:
   archive.extracted:
-    - name: 'C:\standalone\'
+    - name: '{{ inpath }}\'
     - source: 'C:\salt\tempdownload\pestudio.zip'
     - enforce_toplevel: False
     - require:
@@ -27,14 +28,14 @@ pestudio-extract:
 
 pestudio-env-vars:
   win_path.exists:
-    - name: 'C:\standalone\pestudio\'
+    - name: '{{ inpath }}\pestudio\'
 
 winfor-standalones-pestudio-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\PEStudio.lnk'
-    - target: 'C:\standalone\pestudio\pestudio.exe'
+    - target: '{{ inpath }}\pestudio\pestudio.exe'
     - force: True
-    - working_dir: 'C:\standalone\pestudio\'
+    - working_dir: '{{ inpath }}\pestudio\'
     - makedirs: True
     - require:
       - file: pestudio-download

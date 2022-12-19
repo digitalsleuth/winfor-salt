@@ -7,6 +7,7 @@
 # Version: 0.9.462.0
 # Notes: 
 
+{% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 shadow-explorer-download:
@@ -18,7 +19,7 @@ shadow-explorer-download:
 
 shadow-explorer-extract:
   archive.extracted:
-    - name: 'C:\standalone\shadowexplorer\'
+    - name: '{{ inpath }}\'
     - source: 'C:\salt\tempdownload\ShadowExplorer-0.9-portable.zip'
     - enforce_toplevel: False
     - require:
@@ -26,8 +27,8 @@ shadow-explorer-extract:
 
 shadow-explorer-folder-rename:
   file.rename:
-    - name: 'C:\standalone\shadowexplorer'
-    - source: 'C:\standalone\ShadowExplorerPortable-0.9'
+    - name: '{{ inpath }}\shadowexplorer'
+    - source: '{{ inpath }}\ShadowExplorerPortable-0.9'
     - force: True
     - makedirs: True
     - require:
@@ -36,9 +37,10 @@ shadow-explorer-folder-rename:
 winfor-shadow-explorer-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\ShadowExplorer.lnk'
-    - target: 'C:\standalone\shadowexplorer\ShadowExplorerPortable.exe'
+    - target: '{{ inpath }}\shadowexplorer\ShadowExplorerPortable.exe'
+    - icon_location: '{{ inpath }}\shadowexplorer\ShadowExplorerPortable.exe'
     - force: True
-    - working_dir: 'C:\standalone\shadowexplorer\'
+    - working_dir: '{{ inpath }}\shadowexplorer\'
     - makedirs: True
     - require:
       - file: shadow-explorer-folder-rename

@@ -7,6 +7,7 @@
 # Version: 1.11.0
 # Notes:
 
+{% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set version = '1.11.0' %}
 {% set date = '20220519' %}
 {% set hash = '3588d85606fec96c7477eafaf154695161025e29fa6bdcfdf827a14b3f1d4501' %}
@@ -20,7 +21,7 @@ megatools-download:
 
 megatools-extract:
   archive.extracted:
-    - name: 'C:\standalone\'
+    - name: '{{ inpath }}\'
     - source: 'C:\salt\tempdownload\megatools-{{ version }}.{{ date }}-win64.zip'
     - enforce_toplevel: True
     - require:
@@ -28,8 +29,8 @@ megatools-extract:
 
 megatools-folder-rename:
   file.rename:
-    - name: 'C:\standalone\megatools'
-    - source: 'C:\standalone\megatools-{{ version }}.{{ date }}-win64\'
+    - name: '{{ inpath }}\megatools'
+    - source: '{{ inpath }}\megatools-{{ version }}.{{ date }}-win64\'
     - force: True
     - makedirs: True
     - require:
@@ -37,7 +38,7 @@ megatools-folder-rename:
 
 megatools-env-vars:
   win_path.exists:
-    - name: 'C:\standalone\megatools\'
+    - name: '{{ inpath }}\megatools\'
     - require:
       - file: megatools-download
       - archive: megatools-extract

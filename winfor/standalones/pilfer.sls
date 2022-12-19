@@ -7,11 +7,12 @@
 # Version: 2.4
 # Notes: 
 
+{% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set hash = '60fcc8bc76846692d105f4c996552d1ca7d497393c90df69c5f7b2106242ae73' %}
 
 pilfer-download:
   file.managed:
-    - name: 'C:\standalone\pilfer.bat'
+    - name: '{{ inpath }}\pilfer.bat'
     - source: https://github.com/digitalsleuth/forensics_tools/raw/master/pilfer.bat
     - source_hash: sha256={{ hash }}
     - makedirs: True

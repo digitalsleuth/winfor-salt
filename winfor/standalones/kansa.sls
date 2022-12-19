@@ -7,13 +7,15 @@
 # Version: 18NOV2022 (No defined version)
 # Notes: 
 
+{% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
+
 include:
   - winfor.packages.git
 
 kansa-download:
   git.latest:
     - name: https://github.com/davehull/kansa.git
-    - target: 'C:\standalone\kansa'
+    - target: '{{ inpath }}\kansa'
     - rev: master
     - force_clone: True
     - force_reset: True
@@ -22,4 +24,4 @@ kansa-download:
 
 kansa-env-vars:
   win_path.exists:
-    - name: 'C:\standalone\kansa\'
+    - name: '{{ inpath }}\kansa\'

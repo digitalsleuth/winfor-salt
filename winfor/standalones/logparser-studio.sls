@@ -7,6 +7,7 @@
 # Version: 2.0.0.100
 # Notes: 
 
+{% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set hash = 'cf4e8fb1970230c0cb699324246d14b5406e284e566a1e06717d1b785b77c893' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
@@ -24,7 +25,7 @@ logparser-studio-download:
 
 logparser-studio-extract:
   archive.extracted:
-    - name: 'C:\standalone\'
+    - name: '{{ inpath }}\'
     - source: 'C:\salt\tempdownload\LPSV2.D2.zip'
     - enforce_toplevel: False
     - require:
@@ -32,8 +33,8 @@ logparser-studio-extract:
 
 logparser-studio-rename:
   file.rename:
-    - name: 'C:\standalone\logparser-studio'
-    - source: 'C:\standalone\LPSV2.D1'
+    - name: '{{ inpath }}\logparser-studio'
+    - source: '{{ inpath }}\LPSV2.D1'
     - force: True
     - makedirs: True
     - require:
@@ -41,14 +42,14 @@ logparser-studio-rename:
 
 logparser-studio-env-vars:
   win_path.exists:
-    - name: 'C:\standalone\logparser-studio'
+    - name: '{{ inpath }}\logparser-studio'
 
 winfor-standalones-logparser-studio-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\LogParser-Studio.lnk'
-    - target: 'C:\standalone\logparser-studio\LPS.exe'
+    - target: '{{ inpath }}\logparser-studio\LPS.exe'
     - force: True
-    - working_dir: 'C:\standalone\logparser-studio'
+    - working_dir: '{{ inpath }}\logparser-studio'
     - makedirs: True
     - require:
       - file: logparser-studio-rename

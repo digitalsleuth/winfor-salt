@@ -7,6 +7,7 @@
 # Version: Various
 # Notes:
 
+{% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set files = [
                 ('ADOQuery', 'A412293B10AD00B0A94509CD48AD389C4F609B96FA504CCBBB2501742E3AD96D'),
@@ -36,7 +37,7 @@ mitec-download-sqlitequery:
 
 mitec-unzip-sqlitequery:
   archive.extracted:
-    - name: C:\standalone\mitec\SQLiteQ
+    - name: {{ inpath }}\mitec\SQLiteQ
     - source: C:\salt\tempdownload\SQLiteQ.zip
     - enforce_toplevel: false
     - require:
@@ -45,9 +46,9 @@ mitec-unzip-sqlitequery:
 winfor-standalones-mitec-sqlitequery-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\SQLiteQuery.lnk'
-    - target: 'C:\standalone\mitec\SQLiteQ\SQLiteQuery.exe'
+    - target: '{{ inpath }}\mitec\SQLiteQ\SQLiteQuery.exe'
     - force: True
-    - working_dir: 'C:\standalone\mitec\SQLiteQ\'
+    - working_dir: '{{ inpath }}\mitec\SQLiteQ\'
     - makedirs: True
     - require:
       - archive: mitec-unzip-sqlitequery
@@ -62,7 +63,7 @@ mitec-download-{{ file }}:
 
 mitec-unzip-{{ file }}:
   archive.extracted:
-    - name: C:\standalone\mitec\{{ file }}
+    - name: {{ inpath }}\mitec\{{ file }}
     - source: C:\salt\tempdownload\{{ file }}.zip
     - enforce_toplevel: false
     - require:
@@ -71,9 +72,9 @@ mitec-unzip-{{ file }}:
 winfor-standalones-mitec-{{ file }}-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\{{ file }}.lnk'
-    - target: 'C:\standalone\mitec\{{ file }}\{{ file }}.exe'
+    - target: '{{ inpath }}\mitec\{{ file }}\{{ file }}.exe'
     - force: True
-    - working_dir: 'C:\standalone\mitec\{{ file }}\'
+    - working_dir: '{{ inpath }}\mitec\{{ file }}\'
     - makedirs: True
     - require:
       - archive: mitec-unzip-{{ file }}

@@ -7,6 +7,7 @@
 # Version: 0.9.6
 # Notes: 
 
+{% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set version = '0.9.6' %}
 {% set hash = 'ddb634f6b64caa847be8438f770d7f30fc37bb91d97c6e110198e5ff080caf63' %}
 
@@ -19,7 +20,7 @@ mal-unpack-download:
 
 mal-unpack-extract:
   archive.extracted:
-    - name: 'C:\standalone\mal-unpack'
+    - name: '{{ inpath }}\mal-unpack'
     - source: 'C:\salt\tempdownload\mal_unpack64.zip'
     - enforce_toplevel: False
     - require:
@@ -27,5 +28,5 @@ mal-unpack-extract:
 
 mal-unpack-env-vars:
   win_path.exists:
-    - name: 'C:\standalone\mal-unpack\'
+    - name: '{{ inpath }}\mal-unpack\'
 

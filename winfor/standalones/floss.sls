@@ -7,6 +7,7 @@
 # Version: 2.1.0
 # Notes: 
 
+{% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set version = '2.1.0' %}
 {% set hash = '925df10403b45e29914e44ac50d92d762b2b2499c11cdd1801888aac95b53eb7' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
@@ -20,7 +21,7 @@ floss-download:
 
 floss-extract:
   archive.extracted:
-    - name: 'C:\standalone\floss'
+    - name: '{{ inpath }}\floss'
     - source: 'C:\salt\tempdownload\floss-v{{ version }}-windows.zip'
     - enforce_toplevel: False
     - require:
@@ -28,4 +29,4 @@ floss-extract:
 
 floss-env-vars:
   win_path.exists:
-    - name: 'C:\standalone\floss\'
+    - name: '{{ inpath }}\floss\'

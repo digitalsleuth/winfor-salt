@@ -7,6 +7,7 @@
 # Version: 3.0
 # Notes: rr.exe
 
+{% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 include:
@@ -15,7 +16,7 @@ include:
 winfor-standalones-regripper:
   git.latest:
     - name: https://github.com/keydet89/RegRipper3.0.git
-    - target: 'C:\standalone\regripper'
+    - target: '{{ inpath }}\regripper'
     - rev: master
     - force_clone: True
     - force_reset: True
@@ -24,14 +25,14 @@ winfor-standalones-regripper:
 
 regripper-env-vars:
   win_path.exists:
-    - name: 'C:\standalone\regripper\'
+    - name: '{{ inpath }}\regripper\'
 
 winfor-standalones-regripper-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\RegRipper.lnk'
-    - target: 'C:\standalone\regripper\rr.exe'
+    - target: '{{ inpath }}\regripper\rr.exe'
     - force: True
-    - working_dir: 'C:\standalone\regripper\'
+    - working_dir: '{{ inpath }}\regripper\'
     - makedirs: True
     - require:
       - git: winfor-standalones-regripper

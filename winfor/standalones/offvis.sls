@@ -7,6 +7,7 @@
 # Version: 1.1.0.0
 # Notes: 
 
+{% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 include:
@@ -23,7 +24,7 @@ offvis-download:
 
 offvis-extract:
   archive.extracted:
-    - name: 'C:\standalone\OffVis'
+    - name: '{{ inpath }}\OffVis'
     - source: 'C:\salt\tempdownload\OffVis.zip'
     - enforce_toplevel: False
     - require:
@@ -32,9 +33,9 @@ offvis-extract:
 winfor-standalones-offvis-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\OffVis.lnk'
-    - target: 'C:\standalone\OffVis\OffVis.exe'
+    - target: '{{ inpath }}\OffVis\OffVis.exe'
     - force: True
-    - working_dir: 'C:\standalone\OffVis'
+    - working_dir: '{{ inpath }}\OffVis'
     - makedirs: True
     - require:
       - file: offvis-download

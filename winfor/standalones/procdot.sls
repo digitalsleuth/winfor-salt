@@ -7,6 +7,7 @@
 # Version: 1.22 (build 57)
 # Notes: Requires Windows Graphviz and Windump/TCPDump, but Windump/TCPDump are not supported on Win10+
 
+{% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set version = '1_22_57' %}
 {% set hash = '927cd36dbb4dc0be94afb6021ca7f747dd3f17aad383583bc71aa6e36a762849' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
@@ -17,7 +18,7 @@ include:
 
 procdot-defender-exclusion:
   cmd.run:
-    - name: 'Add-MpPreference -ExclusionPath "C:\standalone\"'
+    - name: 'Add-MpPreference -ExclusionPath "{{ inpath }}\"'
     - shell: powershell
 
 procdot-download:
@@ -33,7 +34,7 @@ procdot-download:
 
 procdot-extract:
   cmd.run:
-    - name: '"C:\Program Files\7-Zip\7z.exe" x C:\salt\tempdownload\procdot_{{ version }}_windows.zip -o"C:\standalone\procdot\" -pprocdot -y'
+    - name: '"C:\Program Files\7-Zip\7z.exe" x C:\salt\tempdownload\procdot_{{ version }}_windows.zip -o"{{ inpath }}\procdot\" -pprocdot -y'
     - shell: cmd
     - require:
       - file: procdot-download
@@ -43,9 +44,9 @@ procdot-extract:
 winfor-standalones-procdot-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\ProcDOT x64.lnk'
-    - target: 'C:\standalone\procdot\win64\procdot.exe'
+    - target: '{{ inpath }}\procdot\win64\procdot.exe'
     - force: True
-    - working_dir: 'C:\standalone\procdot\win64\'
+    - working_dir: '{{ inpath }}\procdot\win64\'
     - makedirs: True
     - require:
       - cmd: procdot-extract

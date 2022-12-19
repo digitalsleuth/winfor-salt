@@ -1,10 +1,11 @@
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set hash = '24f62d8212f25e16cf384779c48876a11f8d9430b597f066d81c0df5ee8594c6' %}
+{% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set profile_pictures = ['user.png', 'user.bmp', 'user-32.png', 'user-40.png', 'user-48.png', 'user-192.png'] %}
 
 winfor-theme-wallpaper-source:
   file.managed:
-    - name: 'C:\standalone\winfor-wallpaper-blue.png'
+    - name: '{{ inpath }}\winfor-wallpaper-blue.png'
     - source: salt://winfor/theme/winfor-wallpaper-blue.png
     - source_hash: sha256={{ hash }}
     - makedirs: True
@@ -22,7 +23,7 @@ winfor-theme-set-wallpaper:
     - name: HKEY_CURRENT_USER\Control Panel\Desktop
     - vname: WallPaper
     - vtype: REG_SZ
-    - vdata: 'C:\standalone\winfor-wallpaper-blue.png'
+    - vdata: '{{ inpath }}\winfor-wallpaper-blue.png'
 
 winfor-theme-set-wallpaper-center:
   reg.present:
@@ -82,7 +83,7 @@ nimi-setup:
 
 nimi-extract:
   archive.extracted:
-    - name: 'C:\standalone\nimi\'
+    - name: '{{ inpath }}\nimi\'
     - source: 'C:\salt\tempdownload\nimi.zip'
     - enforce_toplevel: False
     - require:
@@ -93,7 +94,7 @@ nimi-autostart:
     - name: HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
     - vname: NimiPlaces
     - vtype: REG_SZ
-    - vdata: '"C:\standalone\nimi\nimi.cmd"'
+    - vdata: '"{{ inpath }}\nimi\nimi.cmd"'
 
 cleanup-nimi:
   file.absent:
@@ -104,10 +105,10 @@ cleanup-nimi:
 nimi-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\Nimi Places.lnk'
-    - target: 'C:\standalone\nimi\nimi.cmd'
+    - target: '{{ inpath }}\nimi\nimi.cmd'
     - force: True
-    - working_dir: 'C:\standalone\nimi'
-    - icon_location: 'C:\standalone\nimi\Nimi Places.exe'
+    - working_dir: '{{ inpath }}\nimi'
+    - icon_location: '{{ inpath }}\nimi\Nimi Places.exe'
     - makedirs: True
     - require:
       - archive: nimi-extract

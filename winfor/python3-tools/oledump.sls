@@ -7,6 +7,7 @@
 # Version: 0.0.71
 # Notes: 
 
+{% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set files = ['contains_pe_file.yara','plugin_msg.py','plugin_vba_dco.py','decoder_add1.py',
                 'plugin_biff.py','plugin_msg_summary.py','plugin_vbaproject.py','decoder_ah.py',
                 'plugin_clsid.py','plugin_msi.py','plugin_vba.py','decoder_chr.py','plugin_dridex.py',
@@ -23,7 +24,7 @@ include:
 {% for file in files %}
 oledump-download-{{ file }}:
   file.managed:
-    - name: 'C:\standalone\oledump\{{ file }}'
+    - name: '{{ inpath }}\oledump\{{ file }}'
     - source: https://github.com/DidierStevens/DidierStevensSuite/raw/master/{{ file }}
     - makedirs: True
     - skip_verify: True
@@ -31,7 +32,7 @@ oledump-download-{{ file }}:
 
 oledump-header:
   file.replace:
-    - name: 'C:\standalone\oledump\oledump.py'
+    - name: '{{ inpath }}\oledump\oledump.py'
     - pattern: '^#!/usr/bin/env python$'
     - repl: '#!/usr/bin/python3'
     - backup: False
@@ -43,15 +44,15 @@ oledump-header:
 
 oledump-env-vars:
   win_path.exists:
-    - name: 'C:\standalone\oledump\'
+    - name: '{{ inpath }}\oledump\'
 
 oledump-wrapper:
   file.managed:
-    - name: 'C:\standalone\oledump\oledump.cmd'
+    - name: '{{ inpath }}\oledump\oledump.cmd'
     - win_inheritance: True
     - contents:
       - '@echo off'
-      - '"C:\Program Files\Python310\python.exe" C:\standalone\oledump\oledump.py %*'
+      - '"C:\Program Files\Python310\python.exe" {{ inpath }}\oledump\oledump.py %*'
     - require:
       - file: oledump-header
       - win_path: oledump-env-vars

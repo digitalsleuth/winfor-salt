@@ -8,6 +8,7 @@
 # Notes: Source https://github.com/teamdfir/sift-saltstack/blob/master/sift/config/user/pdfs.sls and WIN-FOR tool list
 
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 
 {%-
 set pdfs = [
@@ -95,7 +96,7 @@ set pdfs = [
 {% for pdf in pdfs %}
 winfor-pdf-{{ pdf.id }}:
   file.managed:
-    - name: 'C:\standalone\references\{{ pdf.filename }}'
+    - name: '{{ inpath }}\references\{{ pdf.filename }}'
     - source: {{ pdf.source }}
     - source_hash: sha256={{ pdf.hash }}
     - makedirs: True
@@ -105,7 +106,7 @@ winfor-pdf-{{ pdf.id }}:
 winfor-tool-list-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\WIN-FOR-Tool-List.lnk'
-    - target: 'C:\standalone\references\WIN-FOR-Tool-List.pdf'
+    - target: '{{ inpath }}\references\WIN-FOR-Tool-List.pdf'
     - force: True
-    - working_dir: 'C:\standalone\references\'
+    - working_dir: '{{ inpath }}\references\'
     - makedirs: True

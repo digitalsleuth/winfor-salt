@@ -7,6 +7,7 @@
 # Version: 2.11.2
 # Notes: 
 
+{% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set version = '2.11.2' %}
 {% set hash = '536ad387424106083f76cd0cb7c051a22aff21f08663ba2539c11f1ddef9147f' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
@@ -16,7 +17,7 @@ include:
 
 bytecode-viewer-download:
   file.managed:
-    - name: 'C:\standalone\bytecode-viewer\Bytecode-Viewer-{{ version }}.jar'
+    - name: '{{ inpath }}\bytecode-viewer\Bytecode-Viewer-{{ version }}.jar'
     - source: https://github.com/Konloch/bytecode-viewer/releases/download/v{{ version }}/Bytecode-Viewer-{{ version }}.jar
     - source_hash: sha256={{ hash }}
     - makedirs: True
@@ -24,9 +25,9 @@ bytecode-viewer-download:
 winfor-standalones-bytecode-viewer-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\Bytecode Viewer.lnk'
-    - target: 'C:\standalone\bytecode-viewer\Bytecode-Viewer-{{ version }}.jar'
+    - target: '{{ inpath }}\bytecode-viewer\Bytecode-Viewer-{{ version }}.jar'
     - force: True
-    - working_dir: 'C:\standalone\bytecode-viewer\'
+    - working_dir: '{{ inpath }}\bytecode-viewer\'
     - makedirs: True
     - require:
       - file: bytecode-viewer-download

@@ -7,6 +7,7 @@
 # Version: 2.0.0.49
 # Notes: 
 
+{% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set hash = '0a6a1a74802bc9ef8c5ce3d7a4a472d9f69c67c08a66337f30f4321f7f00fcaf' %}
 {% set version = '2.0.0.49' %}
@@ -20,7 +21,7 @@ winfor-standalones-logfileparser:
 
 logfileparser-extract:
   archive.extracted:
-    - name: 'C:\standalone\logfileparser\'
+    - name: '{{ inpath }}\logfileparser\'
     - source: 'C:\salt\tempdownload\LogFileParser_v{{ version }}.zip'
     - enforce_toplevel: False
     - require:
@@ -28,17 +29,17 @@ logfileparser-extract:
 
 logfileparser-env-vars:
   win_path.exists:
-    - name: 'C:\standalone\logfileparser\'
+    - name: '{{ inpath }}\logfileparser\'
     - require:
       - archive: logfileparser-extract
 
 winfor-standalones-logfileparser-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\LogFileParser64.lnk'
-    - target: 'C:\standalone\logfileparser\LogFileParser64.exe'
-    - icon_location: 'C:\standalone\logfileparser\LogFileParser64.exe'
+    - target: '{{ inpath }}\logfileparser\LogFileParser64.exe'
+    - icon_location: '{{ inpath }}\logfileparser\LogFileParser64.exe'
     - force: True
-    - working_dir: 'C:\standalone\logfileparser'
+    - working_dir: '{{ inpath }}\logfileparser'
     - makedirs: True
     - require:
       - archive: logfileparser-extract

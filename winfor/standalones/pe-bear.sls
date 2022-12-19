@@ -7,6 +7,7 @@
 # Version: 0.6.1
 # Notes: 
 
+{% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set version = '0.6.1' %}
 {% set hash = 'e08dd503d5699e593c7609d2d58ab73740c33a4d97bf887682349fe2f4d8a028' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
@@ -20,7 +21,7 @@ pe-bear-download:
 
 pe-bear-extract:
   archive.extracted:
-    - name: 'C:\standalone\pe-bear'
+    - name: '{{ inpath }}\pe-bear'
     - source: 'C:\salt\tempdownload\PE-bear_{{ version }}_x64_win_vs17.zip'
     - enforce_toplevel: False
     - require:
@@ -28,7 +29,7 @@ pe-bear-extract:
 
 pe-bear-sig-download:
   file.managed:
-    - name: 'C:\standalone\pe-bear\SIG.txt'
+    - name: '{{ inpath }}\pe-bear\SIG.txt'
     - source: https://github.com/hasherezade/pe-bear/raw/main/SIG.txt
     - source_hash: sha256=247627cd61b15afd711dd88988a8622cef50e97b5b2a0ddfe9fcfc3eae29d2f1
     - makedirs: True
@@ -38,9 +39,9 @@ pe-bear-sig-download:
 winfor-standalones-pe-bear-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\PE-Bear.lnk'
-    - target: 'C:\standalone\pe-bear\PE-bear.exe'
+    - target: '{{ inpath }}\pe-bear\PE-bear.exe'
     - force: True
-    - working_dir: 'C:\standalone\pe-bear\'
+    - working_dir: '{{ inpath }}\pe-bear\'
     - makedirs: True
     - require:
       - file: pe-bear-download

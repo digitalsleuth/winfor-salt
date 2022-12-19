@@ -7,6 +7,7 @@
 # Version: 0.50
 # Notes: 
 
+{% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 include:
@@ -21,7 +22,7 @@ innounp-download:
 
 innounp-extract:
   cmd.run:
-    - name: '"C:\Program Files\7-Zip\7z.exe" x C:\salt\tempdownload\innounp050.rar -aoa -oC:\standalone\innounp'
+    - name: '"C:\Program Files\7-Zip\7z.exe" x C:\salt\tempdownload\innounp050.rar -aoa -o{{ inpath }}\innounp'
     - shell: cmd
     - require:
       - file: innounp-download
@@ -29,5 +30,5 @@ innounp-extract:
 
 innounp-env-vars:
   win_path.exists:
-    - name: 'C:\standalone\innounp\'
+    - name: '{{ inpath }}\innounp\'
 

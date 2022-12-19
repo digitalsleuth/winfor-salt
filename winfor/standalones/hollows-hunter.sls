@@ -7,16 +7,17 @@
 # Version: 0.3.5
 # Notes: 
 
+{% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set version = '0.3.5' %}
 {% set hash = 'b7117f3e7f8b921914c8e0c9649560067a17343369cd581db75b1145ad581bb9' %}
 
 hollows-hunter-download:
   file.managed:
-    - name: 'C:\standalone\hollows-hunter\hollows-hunter.exe'
+    - name: '{{ inpath }}\hollows-hunter\hollows-hunter.exe'
     - source: https://github.com/hasherezade/hollows_hunter/releases/download/v{{ version }}/hollows_hunter64.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True
 
 hollows-hunter-env-vars:
   win_path.exists:
-    - name: 'C:\standalone\hollows-hunter\'
+    - name: '{{ inpath }}\hollows-hunter\'

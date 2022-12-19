@@ -7,6 +7,7 @@
 # Version: 1.12
 # Notes: 
 
+{% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set version = '1.12' %}
 {% set hash = '9ee99220fe876527aaeec93d9b2c944e64d9c3c9d18ac3e3a52afd4a7392da88' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
@@ -20,7 +21,7 @@ ppee-download:
 
 ppee-extract:
   archive.extracted:
-    - name: 'C:\standalone\'
+    - name: '{{ inpath }}\'
     - source: 'C:\salt\tempdownload\PPEE(puppy)_{{ version }}.zip'
     - enforce_toplevel: False
     - require:
@@ -28,8 +29,8 @@ ppee-extract:
 
 ppee-folder-rename:
   file.rename:
-    - name: 'C:\standalone\ppee'
-    - source: 'C:\standalone\PPEE(puppy) {{ version }}\'
+    - name: '{{ inpath }}\ppee'
+    - source: '{{ inpath }}\PPEE(puppy) {{ version }}\'
     - force: True
     - makedirs: True
     - require:
@@ -38,9 +39,9 @@ ppee-folder-rename:
 winfor-standalones-ppee-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\PPEE.lnk'
-    - target: 'C:\standalone\ppee\PPEE.exe'
+    - target: '{{ inpath }}\ppee\PPEE.exe'
     - force: True
-    - working_dir: 'C:\standalone\ppee\'
+    - working_dir: '{{ inpath }}\ppee\'
     - makedirs: True
     - require:
       - file: ppee-download

@@ -7,6 +7,7 @@
 # Version: 2.1.2
 # Notes: 
 
+{% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set version = '2.1.2' %}
 {% set hash = '9bd08fc9d5591149d3e6fee3e269458e3781706c09c2c1ff49355e48d27c0486' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
@@ -20,7 +21,7 @@ cutter-download:
 
 cutter-extract:
   archive.extracted:
-    - name: 'C:\standalone\'
+    - name: '{{ inpath }}\'
     - source: 'C:\salt\tempdownload\Cutter-v{{ version }}-Windows-x86_64.zip'
     - enforce_toplevel: False
     - require:
@@ -28,8 +29,8 @@ cutter-extract:
 
 cutter-folder-rename:
   file.rename:
-    - name: 'C:\standalone\cutter'
-    - source: 'C:\standalone\cutter-v{{ version }}-Windows-x86_64\'
+    - name: '{{ inpath }}\cutter'
+    - source: '{{ inpath }}\cutter-v{{ version }}-Windows-x86_64\'
     - force: True
     - makedirs: True
     - require:
@@ -38,9 +39,9 @@ cutter-folder-rename:
 winfor-standalones-cutter-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\Cutter.lnk'
-    - target: 'C:\standalone\cutter\cutter.exe'
+    - target: '{{ inpath }}\cutter\cutter.exe'
     - force: True
-    - working_dir: 'C:\standalone\cutter\'
+    - working_dir: '{{ inpath }}\cutter\'
     - makedirs: True
     - require:
       - file: cutter-download

@@ -7,6 +7,7 @@
 # Version: 0.0.16
 # Notes: 
 
+{% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set version = '0.0.16' %}
 {% set hash = 'ad4cdf61cf7e2ab77e78cc425788e526d02e2149ea1965bf870c0558700c77eb' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
@@ -23,7 +24,7 @@ autorunner-download:
 
 autorunner-extracted:
   archive.extracted:
-    - name: 'C:\standalone\autorunner\'
+    - name: '{{ inpath }}\autorunner\'
     - source: 'C:\salt\tempdownload\autorunner.v{{ version }}.zip'
     - enforce_toplevel: False
     - require:
@@ -32,7 +33,7 @@ autorunner-extracted:
 
 autorunner-config-1:
   file.directory:
-    - name: 'C:\standalone\autorunner\Tools'
+    - name: '{{ inpath }}\autorunner\Tools'
     - win_inheritance: True
     - makedirs: True
     - require:
@@ -40,8 +41,8 @@ autorunner-config-1:
 
 autorunner-config-2:
   file.symlink:
-    - name: 'C:\standalone\autorunner\Tools\sigcheck.exe'
-    - target: 'C:\standalone\sysinternals\sigcheck.exe'
+    - name: '{{ inpath }}\autorunner\Tools\sigcheck.exe'
+    - target: '{{ inpath }}\sysinternals\sigcheck.exe'
     - force: True
     - makedirs: True
     - win_inheritance: True
@@ -50,16 +51,16 @@ autorunner-config-2:
 
 autorunner-env-vars:
   win_path.exists:
-    - name: 'C:\standalone\autorunner\'
+    - name: '{{ inpath }}\autorunner\'
     - require:
       - file: autorunner-config-2
 
 winfor-standalones-autorunner-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\AutoRunner.lnk'
-    - target: 'C:\standalone\autorunner\autorunner.exe'
+    - target: '{{ inpath }}\autorunner\autorunner.exe'
     - force: True
-    - working_dir: 'C:\standalone\autorunner\'
+    - working_dir: '{{ inpath }}\autorunner\'
     - makedirs: True
     - require:
       - archive: autorunner-extracted

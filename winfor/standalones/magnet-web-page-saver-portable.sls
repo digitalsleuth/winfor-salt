@@ -7,6 +7,7 @@
 # Version: 3.4.0
 # Notes:
 
+{% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set version = 'V340' %}
 {% set hash = '84cbe3ca660d7031fe85aee0faf2ce5e2d173c36f85dffff2d309ed52b5b08ae' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
@@ -20,7 +21,7 @@ magnet-web-page-saver-download:
 
 magnet-web-page-saver-extract:
   archive.extracted:
-    - name: 'C:\standalone\magnet\'
+    - name: '{{ inpath }}\magnet\'
     - source: 'C:\salt\tempdownload\WebPageSaver{{ version }}-Portable.zip'
     - enforce_toplevel: False
     - require:
@@ -29,9 +30,9 @@ magnet-web-page-saver-extract:
 winfor-standalones-wps-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\Magnet Web Page Saver Portable V3.lnk'
-    - target: 'C:\standalone\magnet\WebPageSaver\WebPageSaver.exe'
+    - target: '{{ inpath }}\magnet\WebPageSaver\WebPageSaver.exe'
     - force: True
-    - working_dir: 'C:\standalone\magnet\WebPageSaver\'
+    - working_dir: '{{ inpath }}\magnet\WebPageSaver\'
     - makedirs: True
     - require:
       - file: magnet-web-page-saver-download
@@ -39,4 +40,4 @@ winfor-standalones-wps-shortcut:
 
 magnet-web-page-saver-env-vars:
   win_path.exists:
-    - name: 'C:\standalone\magnet\WebPageSaver\'
+    - name: '{{ inpath }}\magnet\WebPageSaver\'

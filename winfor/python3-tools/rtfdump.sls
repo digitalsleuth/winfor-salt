@@ -7,6 +7,7 @@
 # Version: 0.0.12
 # Notes: 
 
+{% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set files = ['rtfdump.py','rtf.yara'] %}
 
 include:
@@ -16,7 +17,7 @@ include:
 {% for file in files %}
 rtfdump-download-{{ file }}:
   file.managed:
-    - name: 'C:\standalone\rtfdump\{{ file }}'
+    - name: '{{ inpath }}\rtfdump\{{ file }}'
     - source: https://github.com/DidierStevens/DidierStevensSuite/raw/master/{{ file }}
     - makedirs: True
     - skip_verify: True
@@ -24,7 +25,7 @@ rtfdump-download-{{ file }}:
 
 rtfdump-header:
   file.replace:
-    - name: 'C:\standalone\rtfdump\rtfdump.py'
+    - name: '{{ inpath }}\rtfdump\rtfdump.py'
     - pattern: '^#!/usr/bin/env python$'
     - repl: '#!/usr/bin/python3'
     - backup: False
@@ -36,15 +37,15 @@ rtfdump-header:
 
 rtfdump-env-vars:
   win_path.exists:
-    - name: 'C:\standalone\rtfdump\'
+    - name: '{{ inpath }}\rtfdump\'
 
 rtfdump-wrapper:
   file.managed:
-    - name: 'C:\standalone\rtfdump\rtfdump.cmd'
+    - name: '{{ inpath }}\rtfdump\rtfdump.cmd'
     - win_inheritance: True
     - contents:
       - '@echo off'
-      - '"C:\Program Files\Python310\python.exe" C:\standalone\rtfdump\rtfdump.py %*'
+      - '"C:\Program Files\Python310\python.exe" {{ inpath }}\rtfdump\rtfdump.py %*'
     - require:
       - file: rtfdump-header
       - win_path: rtfdump-env-vars

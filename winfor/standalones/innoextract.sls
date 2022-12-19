@@ -7,6 +7,7 @@
 # Version: 1.9
 # Notes: 
 
+{% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set version = '1.9' %}
 {% set hash = '6989342c9b026a00a72a38f23b62a8e6a22cc5de69805cf47d68ac2fec993065' %}
 
@@ -19,7 +20,7 @@ innoextract-download:
 
 innoextract-extract:
   archive.extracted:
-    - name: 'C:\standalone\innoextract'
+    - name: '{{ inpath }}\innoextract'
     - source: 'C:\salt\tempdownload\innoextract-{{ version }}-windows.zip'
     - enforce_toplevel: False
     - require:
@@ -27,4 +28,4 @@ innoextract-extract:
 
 innoextract-env-vars:
   win_path.exists:
-    - name: 'C:\standalone\innoextract\'
+    - name: '{{ inpath }}\innoextract\'

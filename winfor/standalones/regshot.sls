@@ -7,6 +7,7 @@
 # Version: 1.9.0
 # Notes: 
 
+{% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 include:
@@ -21,7 +22,7 @@ regshot-download:
 
 regshot-extract:
   cmd.run:
-    - name: '"C:\Program Files\7-Zip\7z.exe" x C:\salt\tempdownload\Regshot-1.9.0.7z -aoa -oC:\standalone\regshot'
+    - name: '"C:\Program Files\7-Zip\7z.exe" x C:\salt\tempdownload\Regshot-1.9.0.7z -aoa -o{{ inpath }}\regshot'
     - shell: cmd
     - require:
       - file: regshot-download
@@ -30,9 +31,9 @@ regshot-extract:
 winfor-standalones-regshot-shortcut-1:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\Regshot x64 ANSI.lnk'
-    - target: 'C:\standalone\regshot\Regshot-x64-ANSI.exe'
+    - target: '{{ inpath }}\regshot\Regshot-x64-ANSI.exe'
     - force: True
-    - working_dir: 'C:\standalone\regshot\'
+    - working_dir: '{{ inpath }}\regshot\'
     - makedirs: True
     - require:
       - file: regshot-download
@@ -41,9 +42,9 @@ winfor-standalones-regshot-shortcut-1:
 winfor-standalones-regshot-shortcut-2:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\Regshot x64 Unicode.lnk'
-    - target: 'C:\standalone\regshot\Regshot-x64-Unicode.exe'
+    - target: '{{ inpath }}\regshot\Regshot-x64-Unicode.exe'
     - force: True
-    - working_dir: 'C:\standalone\regshot\'
+    - working_dir: '{{ inpath }}\regshot\'
     - makedirs: True
     - require:
       - file: regshot-download      
@@ -52,9 +53,9 @@ winfor-standalones-regshot-shortcut-2:
 winfor-standalones-regshot-shortcut-3:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\Regshot x86 ANSI.lnk'
-    - target: 'C:\standalone\regshot\Regshot-x86-ANSI.exe'
+    - target: '{{ inpath }}\regshot\Regshot-x86-ANSI.exe'
     - force: True
-    - working_dir: 'C:\standalone\regshot\'
+    - working_dir: '{{ inpath }}\regshot\'
     - makedirs: True
     - require:
       - file: regshot-download
@@ -63,9 +64,9 @@ winfor-standalones-regshot-shortcut-3:
 winfor-standalones-regshot-shortcut-4:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\Regshot x86 Unicode.lnk'
-    - target: 'C:\standalone\regshot\Regshot-x86-Unicode.exe'
+    - target: '{{ inpath }}\regshot\Regshot-x86-Unicode.exe'
     - force: True
-    - working_dir: 'C:\standalone\regshot\'
+    - working_dir: '{{ inpath }}\regshot\'
     - makedirs: True
     - require:
       - file: regshot-download

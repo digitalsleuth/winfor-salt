@@ -7,13 +7,15 @@
 # Version: 0.0.5
 # Notes: 
 
+{% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
+
 include:
   - winfor.packages.python3
   - winfor.python3-tools.msoffcrypto-tool
 
 msoffcrypto-crack-download:
   file.managed:
-    - name: 'C:\standalone\msoffcrypto-crack\msoffcrypto-crack.py'
+    - name: '{{ inpath }}\msoffcrypto-crack\msoffcrypto-crack.py'
     - source: https://github.com/DidierStevens/DidierStevensSuite/raw/master/msoffcrypto-crack.py
     - source_hash: sha256=f0a78b7263704d8740a7d4738a8b3d5cfc6037de619953b444a0019551826367
     - makedirs: True
@@ -23,7 +25,7 @@ msoffcrypto-crack-download:
 
 msoffcrypto-crack-header:
   file.replace:
-    - name: 'C:\standalone\msoffcrypto-crack\msoffcrypto-crack.py'
+    - name: '{{ inpath }}\msoffcrypto-crack\msoffcrypto-crack.py'
     - pattern: '^#!/usr/bin/env python$'
     - repl: '#!/usr/bin/python3'
     - backup: False
@@ -34,15 +36,15 @@ msoffcrypto-crack-header:
 
 msoffcrypto-crack-env-vars:
   win_path.exists:
-    - name: 'C:\standalone\msoffcrypto-crack\'
+    - name: '{{ inpath }}\msoffcrypto-crack\'
 
 msoffcrypto-crack-wrapper:
   file.managed:
-    - name: 'C:\standalone\msoffcrypto-crack\msoffcrypto-crack.cmd'
+    - name: '{{ inpath }}\msoffcrypto-crack\msoffcrypto-crack.cmd'
     - win_inheritance: True
     - contents:
       - '@echo off'
-      - '"C:\Program Files\Python310\python.exe" C:\standalone\msoffcrypto-crack\msoffcrypto-crack.py %*'
+      - '"C:\Program Files\Python310\python.exe" {{ inpath }}\msoffcrypto-crack\msoffcrypto-crack.py %*'
     - require:
       - file: msoffcrypto-crack-header
       - win_path: msoffcrypto-crack-env-vars

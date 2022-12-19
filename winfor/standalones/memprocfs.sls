@@ -7,6 +7,7 @@
 # Version: 5.2.11
 # Notes: 
 
+{% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set short = '5.2' %}
 {% set version = '5.2.11' %}
 {% set date = '20221218' %}
@@ -21,7 +22,7 @@ memprocfs-download:
 
 memprocfs-unzip:
   archive.extracted:
-    - name: 'C:\standalone\memprocfs\'
+    - name: '{{ inpath }}\memprocfs\'
     - source: 'C:\salt\tempdownload\MemProcFS_files_and_binaries_v{{ version }}-win_x64-{{ date }}.zip'
     - enforce_toplevel: False
     - require:
@@ -29,4 +30,4 @@ memprocfs-unzip:
 
 memprocfs-env-vars:
   win_path.exists:
-    - name: 'C:\standalone\memprocfs\'
+    - name: '{{ inpath }}\memprocfs\'

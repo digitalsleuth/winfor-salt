@@ -17,7 +17,7 @@ name=All Utilities
 ShowAll=1
 
 [Software0]
-exe=C:\standalone\mitec\IHB\IHB.exe
+exe=PLACEHOLDER_PATH\mitec\IHB\IHB.exe
 url=http://www.mitec.cz/ihb.html
 group=1
 AppName=Internet History Browser
@@ -26,7 +26,7 @@ LongDesc=Internet History Browser collects and displays internet browsing histor
 
 [Software1]
 group=0
-exe=C:\standalone\mitec\EHB\EHB.exe
+exe=PLACEHOLDER_PATH\mitec\EHB\EHB.exe
 exe64=
 help=
 url=http://www.mitec.cz/ehb.html
@@ -36,7 +36,7 @@ LongDesc=E-mail History Browser collects and displays e-mail communication histo
 
 [Software2]
 group=2
-exe=C:\standalone\mitec\WRR\WRR.exe
+exe=PLACEHOLDER_PATH\mitec\WRR\WRR.exe
 exe64=WRR64.exe
 help=
 url=http://www.mitec.cz/wrr.html
@@ -46,7 +46,7 @@ LongDesc=This application allows to read files containing Windows 9x,NT,2K,XP,2K
 
 [Software3]
 group=0
-exe=C:\standalone\mitec\WFA\WFA.exe
+exe=PLACEHOLDER_PATH\mitec\WFA\WFA.exe
 exe64=
 help=
 url=http://www.mitec.cz/wfa.html
@@ -56,7 +56,7 @@ LongDesc=This application decodes and analyzes some special files used by Window
 
 [Software4]
 group=1
-exe=C:\standalone\mitec\SQLiteQ\SQLiteQuery.exe
+exe=PLACEHOLDER_PATH\mitec\SQLiteQ\SQLiteQuery.exe
 exe64=
 help=
 url=http://www.mitec.cz/sqliteq.html
@@ -66,7 +66,7 @@ LongDesc=This application manages any SQLite3 databases. You can also import dat
 
 [Software5]
 group=1
-exe=C:\standalone\mitec\ADOQuery\ADOQuery.exe
+exe=PLACEHOLDER_PATH\mitec\ADOQuery\ADOQuery.exe
 exe64=
 help=
 url=http://www.mitec.cz/adoq.html
@@ -76,7 +76,7 @@ LongDesc=This application manages any databases suppoted by Microsoft ActiveX da
 
 [Software6]
 group=2
-exe=C:\standalone\mitec\TMX\TMX.exe
+exe=PLACEHOLDER_PATH\mitec\TMX\TMX.exe
 exe64=TMX64.exe
 help=
 url=http://www.mitec.cz/tmx.html
@@ -86,7 +86,7 @@ LongDesc=Task Manager DeLuxe (TMX) is based on MiTeC System Information Componen
 
 [Software7]
 group=2
-exe=C:\standalone\mitec\EXE\EXE.exe
+exe=PLACEHOLDER_PATH\mitec\EXE\EXE.exe
 exe64=EXE64.exe
 help=
 url=http://www.mitec.cz/exe.html
@@ -96,7 +96,7 @@ LongDesc=This application is based on MiTeC Portable Executable Reader. It reads
 
 [Software8]
 group=0
-exe=C:\standalone\mitec\MailView\MailView.exe
+exe=PLACEHOLDER_PATH\mitec\MailView\MailView.exe
 exe64=
 help=
 url=http://www.mitec.cz/mailview.html
@@ -106,7 +106,7 @@ LongDesc=Viewer for standalone files containing Microsoft Outlook Express 4,5 an
 
 [Software9]
 group=2
-exe=C:\standalone\mitec\NetScanner\NetScanner.exe
+exe=PLACEHOLDER_PATH\mitec\NetScanner\NetScanner.exe
 exe64=NetScanner64.exe
 help=
 url=http://www.mitec.cz/netscan.html
@@ -116,7 +116,7 @@ LongDesc=It is a free multi-threaded Port, IP, NetBIOS and SNMP scanner with man
 
 [Software10]
 group=2
-exe=C:\standalone\mitec\HEXEdit\HEXEdit.exe
+exe=PLACEHOLDER_PATH\mitec\HEXEdit\HEXEdit.exe
 exe64=
 help=
 url=http://www.mitec.cz/hex.html
@@ -126,7 +126,7 @@ LongDesc=HexEdit is powerfull hexadecimal editor with following features: MDI in
 
 [Software11]
 group=2
-exe=C:\standalone\mitec\SSView\SSView.exe
+exe=PLACEHOLDER_PATH\mitec\SSView\SSView.exe
 exe64=
 help=
 url=http://www.mitec.cz/ssv.html
@@ -136,7 +136,7 @@ LongDesc=This tool allows to completely manage any MS OLE Structured Storage bas
 
 [Software12]
 group=2
-exe=C:\standalone\mitec\DirList\DirList.exe
+exe=PLACEHOLDER_PATH\mitec\DirList\DirList.exe
 exe64=
 help=
 url=http://www.mitec.cz/dirlist.html
@@ -146,7 +146,7 @@ LongDesc=This application allows to browse all connected disks like explorer and
 
 [Software13]
 group=2
-exe=C:\standalone\mitec\DataEdit\DataEdit.exe
+exe=PLACEHOLDER_PATH\mitec\DataEdit\DataEdit.exe
 exe64=
 help=
 url=http://www.mitec.cz/dataedit.html
@@ -156,7 +156,7 @@ LongDesc=
 
 [Software14]
 group=2
-exe=C:\standalone\mitec\SE\SE.exe
+exe=PLACEHOLDER_PATH\mitec\SE\SE.exe
 exe64=
 help=
 url=http://www.mitec.cz/se.html
@@ -166,7 +166,7 @@ LongDesc=
 
 [Software15]
 group=2
-exe=C:\standalone\mitec\XMLView\XMLView.exe
+exe=PLACEHOLDER_PATH\mitec\XMLView\XMLView.exe
 exe64=
 help=
 url=http://mitec.cz/xmlview.html
@@ -176,7 +176,7 @@ LongDesc=
 
 [Software16]
 group=2
-exe=C:\standalone\mitec\JSONView\JSONView.exe
+exe=PLACEHOLDER_PATH\mitec\JSONView\JSONView.exe
 exe64=
 help=
 url=http://mitec.cz/jsonview.html
@@ -186,7 +186,7 @@ LongDesc=
 
 [Software17]
 group=2
-exe=C:\standalone\mitec\PhotoView\PhotoView.exe
+exe=PLACEHOLDER_PATH\mitec\PhotoView\PhotoView.exe
 exe64=
 help=
 url=http://mitec.cz/photoview.html

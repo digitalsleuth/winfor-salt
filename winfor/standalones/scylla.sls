@@ -7,6 +7,7 @@
 # Version: 0.9.8
 # Notes: May not work well on later versions of Windows 10 and any version of Windows 11
 
+{% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 include:
@@ -21,7 +22,7 @@ scylla-download:
 
 scylla-extract:
   cmd.run:
-    - name: '"C:\Program Files\7-Zip\7z.exe" x C:\salt\tempdownload\Scylla_v0.9.8.rar -aoa -oC:\standalone\scylla'
+    - name: '"C:\Program Files\7-Zip\7z.exe" x C:\salt\tempdownload\Scylla_v0.9.8.rar -aoa -o{{ inpath }}\scylla'
     - shell: cmd
     - require:
       - file: scylla-download
@@ -30,9 +31,9 @@ scylla-extract:
 winfor-standalones-scylla-shortcut-1:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\Scylla x64.lnk'
-    - target: 'C:\standalone\scylla\Scylla_x64.exe'
+    - target: '{{ inpath }}\scylla\Scylla_x64.exe'
     - force: True
-    - working_dir: 'C:\standalone\scylla\'
+    - working_dir: '{{ inpath }}\scylla\'
     - makedirs: True
     - require:
       - file: scylla-download
@@ -41,9 +42,9 @@ winfor-standalones-scylla-shortcut-1:
 winfor-standalones-scylla-shortcut-2:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\Scylla x86.lnk'
-    - target: 'C:\standalone\scylla\Scylla_x86.exe'
+    - target: '{{ inpath }}\scylla\Scylla_x86.exe'
     - force: True
-    - working_dir: 'C:\standalone\scylla\'
+    - working_dir: '{{ inpath }}\scylla\'
     - makedirs: True
     - require:
       - file: scylla-download

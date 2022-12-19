@@ -7,6 +7,7 @@
 # Version: 3.06
 # Notes: Detect It Easy - DIE 
 
+{% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set version = '3.06' %}
 {% set hash = 'f1f075145a7b5ee8556dbf8a66c4e64e6b7eff71bcfeaed669f8f8471862fac9' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
@@ -20,7 +21,7 @@ die-download:
 
 die-extract:
   archive.extracted:
-    - name: 'C:\standalone\die'
+    - name: '{{ inpath }}\die'
     - source: 'C:\salt\tempdownload\die_win64_portable_{{ version }}.zip'
     - enforce_toplevel: False
     - require:
@@ -28,14 +29,14 @@ die-extract:
 
 die-env-vars:
   win_path.exists:
-    - name: 'C:\standalone\die\'
+    - name: '{{ inpath }}\die\'
 
 winfor-standalones-die-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\DIE.lnk'
-    - target: 'C:\standalone\die\die.exe'
+    - target: '{{ inpath }}\die\die.exe'
     - force: True
-    - working_dir: 'C:\standalone\die\'
+    - working_dir: '{{ inpath }}\die\'
     - makedirs: True
     - require:
       - file: die-download

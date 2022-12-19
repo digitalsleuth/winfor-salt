@@ -7,6 +7,8 @@
 # Version: 0.0.2
 # Notes: 
 
+{% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
+
 wmi-parser-download:
   file.managed:
     - name: 'C:\salt\tempdownload\wmi-parser.v0.0.2.zip'
@@ -16,7 +18,7 @@ wmi-parser-download:
 
 wmi-parser-extract:
   archive.extracted:
-    - name: 'C:\standalone\wmi-parser'
+    - name: '{{ inpath }}\wmi-parser'
     - source: 'C:\salt\tempdownload\wmi-parser.v0.0.2.zip'
     - enforce_toplevel: False
     - require:
@@ -24,4 +26,4 @@ wmi-parser-extract:
 
 wmi-parser-env-vars:
   win_path.exists:
-    - name: 'C:\standalone\wmi-parser'
+    - name: '{{ inpath }}\wmi-parser'

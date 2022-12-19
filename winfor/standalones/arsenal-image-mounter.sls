@@ -7,6 +7,7 @@
 # Version: 3.9.228
 # Notes:
 
+{% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set hash = 'f9b7095cf03ecf257884cb1d2d55d4514f730ca9961f5b029d6449c7fb6c098b' %}
 {% set version = '3.9.228' %}
 {% set file_value = 'e5YRlIDA#4CftLFHPEVWwXC_bib3a493BbF3VGJanAUVdPJc_5Gg' %}
@@ -21,7 +22,7 @@ arsenal-remove-previous:
 
 arsenal-download:
   cmd.run:
-    - name: 'C:\standalone\megatools\megatools.exe dl https://mega.nz/file/{{ file_value }} --path C:\salt\tempdownload'
+    - name: '{{ inpath }}\megatools\megatools.exe dl https://mega.nz/file/{{ file_value }} --path C:\salt\tempdownload'
     - shell: cmd
     - require:
       - sls: winfor.standalones.megatools
@@ -29,7 +30,7 @@ arsenal-download:
 
 arsenal-extract:
   archive.extracted:
-    - name: 'C:\standalone\'
+    - name: '{{ inpath }}\'
     - enforce_toplevel: True
     - source: 'C:\salt\tempdownload\Arsenal-Image-Mounter-v{{ version }}.zip'
     - source_hash: sha256={{ hash }}
@@ -40,8 +41,8 @@ arsenal-extract:
 
 arsenal-folder-rename:
   file.rename:
-    - name: 'C:\standalone\arsenal'
-    - source: 'C:\standalone\Arsenal-Image-Mounter-v{{ version }}\'
+    - name: '{{ inpath }}\arsenal'
+    - source: '{{ inpath }}\Arsenal-Image-Mounter-v{{ version }}\'
     - force: True
     - makedirs: True
     - require:
@@ -50,9 +51,9 @@ arsenal-folder-rename:
 winfor-standalones-arsenal-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\Arsenal Image Mounter.lnk'
-    - target: 'C:\standalone\arsenal\ArsenalImageMounter.exe'
+    - target: '{{ inpath }}\arsenal\ArsenalImageMounter.exe'
     - force: True
-    - working_dir: 'C:\standalone\arsenal\'
+    - working_dir: '{{ inpath }}\arsenal\'
     - makedirs: True
     - require:
       - sls: winfor.standalones.megatools

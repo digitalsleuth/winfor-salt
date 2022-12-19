@@ -10,6 +10,7 @@
 {% set version = '4.2.1' %}
 {% set hash = 'd2ab5d9b42d151ce4f6a28566bb6ca0851fb93027fe7fdad4b6ca6176a64a490' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 
 fastcopy-download:
   file.managed:
@@ -20,7 +21,7 @@ fastcopy-download:
 
 fastcopy-install:
   cmd.run:
-    - name: 'C:\salt\tempdownload\FastCopy{{ version }}_installer.exe /SILENT /DIR=C:\standalone\fastcopy /NODESK /NOPROG'
+    - name: 'C:\salt\tempdownload\FastCopy{{ version }}_installer.exe /SILENT /DIR={{ inpath }}\fastcopy /NODESK /NOPROG'
     - shell: cmd
     - require:
       - file: fastcopy-download
@@ -28,9 +29,9 @@ fastcopy-install:
 winfor-standalones-fastcopy-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\FastCopy.lnk'
-    - target: 'C:\standalone\fastcopy\FastCopy.exe'
+    - target: '{{ inpath }}\fastcopy\FastCopy.exe'
     - force: True
-    - working_dir: 'C:\standalone\fastcopy\'
+    - working_dir: '{{ inpath }}\fastcopy\'
     - makedirs: True
     - require:
       - cmd: fastcopy-install

@@ -7,13 +7,14 @@
 # Version: 3.21
 # Notes:
 
+{% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set version = '3.21' %}
 {% set hash = 'D0554F1FC47407D678A4D8EACE607272013C475033B636BFB1824ED6B1A22E36' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 rufus-download:
   file.managed:
-    - name: 'C:\standalone\rufus\rufus-{{ version }}.exe'
+    - name: '{{ inpath }}\rufus\rufus-{{ version }}.exe'
     - source: 'https://github.com/pbatard/rufus/releases/download/v{{ version }}/rufus-{{ version }}.exe'
     - source_hash: sha256={{ hash }}
     - makedirs: True
@@ -21,9 +22,9 @@ rufus-download:
 winfor-standalones-rufus-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\Rufus.lnk'
-    - target: 'C:\standalone\rufus\rufus-{{ version }}.exe'
+    - target: '{{ inpath }}\rufus\rufus-{{ version }}.exe'
     - force: True
-    - working_dir: 'C:\standalone\rufus\'
+    - working_dir: '{{ inpath }}\rufus\'
     - makedirs: True
     - require:
       - file: rufus-download

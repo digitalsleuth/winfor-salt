@@ -7,6 +7,8 @@
 # Version: 0.62
 # Notes: 
 
+{% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
+
 officemalscanner-download:
   file.managed:
     - name: 'C:\salt\tempdownload\OfficeMalScanner.zip'
@@ -16,7 +18,7 @@ officemalscanner-download:
 
 officemalscanner-extract:
   archive.extracted:
-    - name: 'C:\standalone\officemalscanner'
+    - name: '{{ inpath }}\officemalscanner'
     - source: 'C:\salt\tempdownload\OfficeMalScanner.zip'
     - enforce_toplevel: False
     - require:
@@ -24,4 +26,4 @@ officemalscanner-extract:
 
 officemalscanner-env-vars:
   win_path.exists:
-    - name: 'C:\standalone\officemalscanner'
+    - name: '{{ inpath }}\officemalscanner'

@@ -7,6 +7,8 @@
 # Version: 2.1
 # Notes: 
 
+{% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
+
 include:
   - winfor.installers.jre8
 
@@ -19,7 +21,7 @@ dex2jar-download:
 
 dex2jar-extract:
   archive.extracted:
-    - name: 'C:\standalone\'
+    - name: '{{ inpath }}\'
     - source: 'C:\salt\tempdownload\dex2jar-2.1.zip'
     - enforce_toplevel: False
     - require:
@@ -28,8 +30,8 @@ dex2jar-extract:
 
 dex2jar-folder-rename:
   file.rename:
-    - name: 'C:\standalone\dex2jar'
-    - source: 'C:\standalone\dex-tools-2.1\'
+    - name: '{{ inpath }}\dex2jar'
+    - source: '{{ inpath }}\dex-tools-2.1\'
     - force: True
     - makedirs: True
     - require:
@@ -38,5 +40,5 @@ dex2jar-folder-rename:
 dex2jar-env-vars:
   win_path.exists:
     - names:
-      - 'C:\standalone\dex2jar\'
-      - 'C:\standalone\dex2jar\bin\'
+      - '{{ inpath }}\dex2jar\'
+      - '{{ inpath }}\dex2jar\bin\'

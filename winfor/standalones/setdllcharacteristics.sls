@@ -7,6 +7,8 @@
 # Version: 0.0.0.1
 # Notes: 
 
+{% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
+
 setdll-download:
   file.managed:
     - name: 'C:\salt\tempdownload\setdllcharacteristics_v0_0_0_1.zip'
@@ -16,7 +18,7 @@ setdll-download:
 
 setdll-extract:
   archive.extracted:
-    - name: 'C:\standalone\setdll'
+    - name: '{{ inpath }}\setdll'
     - source: 'C:\salt\tempdownload\setdllcharacteristics_v0_0_0_1.zip'
     - enforce_toplevel: False
     - require:
@@ -24,4 +26,4 @@ setdll-extract:
 
 setdll-env-vars:
   win_path.exists:
-    - name: 'C:\standalone\setdll\'
+    - name: '{{ inpath }}\setdll\'

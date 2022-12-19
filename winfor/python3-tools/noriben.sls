@@ -7,13 +7,15 @@
 # Version: 1.8.7
 # Notes: 
 
+{% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
+
 include:
   - winfor.packages.git
 
 noriben-clone:
   git.latest:
     - name: https://github.com/rurik/noriben
-    - target: 'C:\standalone\noriben'
+    - target: '{{ inpath }}\noriben'
     - rev: master
     - force_clone: True
     - force_reset: True
@@ -22,11 +24,11 @@ noriben-clone:
 
 noriben-header:
   file.prepend:
-    - name: 'C:\standalone\noriben\Noriben.py'
+    - name: '{{ inpath }}\noriben\Noriben.py'
     - text: '#!/usr/bin/python3'
     - require:
       - git: noriben-clone
 
 noriben-env-vars:
   win_path.exists:
-    - name: 'C:\standalone\noriben\'
+    - name: '{{ inpath }}\noriben\'
