@@ -9,7 +9,6 @@
 
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set files = [
-                ('SQLiteQ', '7F979A622DE9E97B9682DC09A5156A1BD872139A9DD56BA60616FB824E77AB16'),
                 ('ADOQuery', 'A412293B10AD00B0A94509CD48AD389C4F609B96FA504CCBBB2501742E3AD96D'),
                 ('DataEdit', '9F950880508760C6709CCAADDC9D630903C9AE661DC99C50A5BAA85642141C46'),
                 ('NetScanner', '15CC706B3A3FD735674729D0BE2084FBC56A1FB8FD4E113C27B632E7D7FEF7F6'),
@@ -27,6 +26,31 @@
                 ('JSONView', 'BC49223C10FAFC9110AEC17A64071A4BD91E3CFEF9BC0A167027D92F19197379'),
                 ('PhotoView', '6BCBB3AAFD3DB71E7CBDFB75D78934101DED79A5792F52FBAE600EC16910795C')
                ] %}
+
+mitec-download-sqlitequery:
+  file.managed:
+    - name: C:\salt\tempdownload\SQLiteQ.zip
+    - source: http://mitec.cz/Downloads/SQLiteQ.zip
+    - source_hash: sha256=7F979A622DE9E97B9682DC09A5156A1BD872139A9DD56BA60616FB824E77AB16
+    - makedirs: True
+
+mitec-unzip-sqlitequery:
+  archive.extracted:
+    - name: C:\standalone\mitec\SQLiteQ
+    - source: C:\salt\tempdownload\SQLiteQ.zip
+    - enforce_toplevel: false
+    - require:
+      - file: mitec-download-sqlitequery
+
+winfor-standalones-mitec-sqlitequery-shortcut:
+  file.shortcut:
+    - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\SQLiteQuery.lnk'
+    - target: 'C:\standalone\mitec\SQLiteQ\SQLiteQuery.exe'
+    - force: True
+    - working_dir: 'C:\standalone\mitec\SQLiteQ\'
+    - makedirs: True
+    - require:
+      - archive: mitec-unzip-sqlitequery
 
 {% for file, hash in files %}
 mitec-download-{{ file }}:
