@@ -89,6 +89,18 @@ nimi-extract:
     - require:
       - file: nimi-setup
 
+nimi-batch:
+  file.managed:
+    - name: '{{ inpath }}\nimi\nimi.cmd'
+    - contents: |
+        @echo off
+        cd {{ inpath }}\nimi\
+        start "" "Nimi Places.exe"
+        @taskkill /F /IM "Nimi Places.exe"
+        start "" "Nimi Places.exe"
+    - require:
+      - archive: nimi-extract
+
 nimi-autostart:
   reg.present:
     - name: HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run

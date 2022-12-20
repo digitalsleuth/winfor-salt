@@ -8,6 +8,7 @@
 # Notes: 
 
 {% set user = salt['pillar.get']('winfor_user', 'forensics') %}
+{% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 
 include:
   - winfor.config.user
@@ -46,6 +47,17 @@ wsl-config-stager-customize:
       - file: wsl-config-stager
       - user: winfor-user-{{ user }}
 
+wsl-config-stager-customize-path:
+  file.replace:
+    - name: 'C:\salt\tempdownload\wsl-config.cmd'
+    - pattern: _this_path_
+    - repl: {{ inpath | regex_escape }}
+    - count: 1
+    - require:
+      - file: wsl-config-stager
+      - file: wsl-config-stager-customize
+      - user: winfor-user-{{ user }}
+
 wsl-config-run-on-reboot:
   reg.present:
     - name: HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce
@@ -57,6 +69,7 @@ wsl-config-run-on-reboot:
       - dism: vmp-install
       - file: wsl-config-stager
       - file: wsl-config-stager-customize
+      - file: wsl-config-stager-customize-path
 
 wsl-log-append:
   file.append:
@@ -73,4 +86,5 @@ system-restart:
       - dism: vmp-install
       - file: wsl-config-stager
       - file: wsl-config-stager-customize
+      - file: wsl-config-stager-customize-path
       - reg: wsl-config-run-on-reboot

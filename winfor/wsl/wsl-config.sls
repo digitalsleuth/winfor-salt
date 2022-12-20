@@ -71,6 +71,13 @@ wsl-chmod-remnux:
     - require:
       - cmd: wsl-get-remnux
 
+wsl-fix-salt-python-importlib:
+  cmd.run:
+    - name: 'wsl echo forensics | wsl sudo -S python3 -m pip install "importlib-metadata<5.0.0"'
+    - shell: cmd
+    - require:
+      - cmd: wsl-chmod-remnux
+
 wsl-run-remnux:
   cmd.run:
     - name: 'wsl echo forensics | wsl sudo -S remnux install --mode addon --user forensics'
