@@ -4,9 +4,8 @@
 # Category: Logs
 # Author: FinalAnalytics
 # License: EULA (https://www.finalanalytics.com/downloads/HttpLogBrowser-EULA.pdf)
-# Version: 4.6.1.0
+# Version: 4.6.2.0
 # Notes: 
 
 httplogbrowser:
-  pkg.installed:
-    - version: '4.6.1.0'
+  pkg.installed

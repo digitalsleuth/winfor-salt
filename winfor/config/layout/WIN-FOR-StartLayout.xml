@@ -74,9 +74,8 @@
         </start:Group>
         <start:Group Name="Installers">
           <start:DesktopApplicationTile Size="1x1" Column="3" Row="0" DesktopApplicationID="PLACEHOLDER_PATH\py2exedecompiler\Py2ExeDecompiler.exe" />
-          <start:DesktopApplicationTile Size="1x1" Column="2" Row="0" DesktopApplicationID="PLACEHOLDER_PATH\myAutToExe\myAutToExe.exe" />
           <start:DesktopApplicationTile Size="1x1" Column="0" Row="0" DesktopApplicationID="PLACEHOLDER_PATH\lessmsi\lessmsi-gui.exe" />
-          <start:DesktopApplicationTile Size="1x1" Column="4" Row="0" DesktopApplicationID="PLACEHOLDER_PATH\autoit-extractor\autoit-extractor.exe" />
+          <start:DesktopApplicationTile Size="1x1" Column="2" Row="0" DesktopApplicationID="PLACEHOLDER_PATH\autoit-extractor\autoit-extractor.exe" />
           <start:DesktopApplicationTile Size="1x1" Column="1" Row="0" DesktopApplicationID="PLACEHOLDER_PATH\UniExtract\UniExtract.exe" />
         </start:Group>
         <start:Group Name="Logs">
