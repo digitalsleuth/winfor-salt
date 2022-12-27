@@ -7,5 +7,15 @@
 # Version: 0.31.0
 # Notes:
 
+{% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+
 brim:
   pkg.installed
+
+brim-shortcut:
+  file.shortcut:
+    - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\Brim.lnk'
+    - target: 'C:\Program Files\Brim\Brim.exe'
+    - force: True
+    - working_dir: 'C:\Program Files\Brim\'
+    - makedirs: True
