@@ -51,6 +51,7 @@ include:
   - winfor.packages.tableau-firmware-update
   - winfor.packages.brim
   - winfor.packages.pst-walker
+  - winfor.packages.plist-editor
 
 winfor-packages:
   test.nop:
@@ -107,3 +108,4 @@ winfor-packages:
       - sls: winfor.packages.tableau-firmware-update
       - sls: winfor.packages.brim
       - sls: winfor.packages.pst-walker
+      - sls: winfor.packages.plist-editor
