@@ -21,6 +21,7 @@ include:
   - winfor.python3-tools.time-decode
 #  - winfor.python3-tools.decompyle3 - Doesn't support Py 3.10 yet
   - winfor.python3-tools.amcache
+  - winfor.python3-tools.bmc-tools
 
 winfor-python3-tools:
   test.nop:
@@ -47,6 +48,7 @@ winfor-python3-tools:
       - sls: winfor.python3-tools.time-decode
 #      - sls: winfor.python3-tools.decompyle3 - Doesn't support Py 3.10 yet
       - sls: winfor.python3-tools.amcache
+      - sls: winfor.python3-tools.bmc-tools
 
 python3-filetype-association:
   cmd.run:

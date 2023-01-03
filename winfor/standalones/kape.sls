@@ -4,12 +4,12 @@
 # Category: Windows Analysis
 # Author: Eric Zimmerman / Kroll
 # License: https://www.kroll.com/en/services/cyber-risk/incident-response-litigation-support/kroll-artifact-parser-extractor-kape
-# Version: 1.3.0.0
+# Version: 1.3.0.1
 # Notes: 
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set version = '1.3.0.0' %}
-{% set hash = '564022CA68806AD8A1DF105DB460ADE87FE07E457BCAEC467A6A92017DEB37E9' %}
+{% set version = '1.3.0.1' %}
+{% set hash = 'd0b209165ff25a0056e36ae7dc7ae8bf675de10b66aad82757203626f9725b7a' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 kape-download:
