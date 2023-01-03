@@ -88,7 +88,7 @@ set pdfs = [
     "id": "winfor-tool-list",
     "filename": "WIN-FOR-Tool-List.pdf",
     "source": "salt://winfor/files/WIN-FOR-Tool-List.pdf",
-    "hash": "4e8c2163ceb5534f6b540e1e372088f7f45e546248708a2cb5122c20880209fd"
+    "hash": "0de8727048711feafc67953a3837a4d02e21d7cd15698971308c02beb717c19c"
   },
 ]
 -%}
