@@ -7,8 +7,7 @@
 # Version: 5.0
 # Notes: 
 
-{% set version = '5.0' %}
-{% set hash = 'e0a5805d6e0752a589c8f3b57b4f4ccafbe4ef8b775d80f9d313c13ad72a60fc' %}
+{% set hash = 'bd2c7f91c5cf1eeef4fd49b997bd6a6428f7d1dcd60a3f0028e6c6462be2a2a8' %}
 
 psdecode-download:
   file.managed:
