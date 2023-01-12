@@ -1,34 +1,27 @@
 # Name: Passware Encryption Analyzer
 # Website: https://www.passware.com
-# Description: Encryption detection tool for various file types
+# Description: Encryption Analysis tool
 # Category: Raw Parsers / Decoders
 # Author: Passware - Dmitry Sumin
-# License: EULA (https://support.passware.com/hc/en-us/articles/221742768-What-are-the-terms-of-the-end-user-license-agreement-for-Passware-software-)
-# Version: 2022.3.1.3215
+# License: EULA - https://www.passware.com/files/Passware-EULA.pdf
+# Version: 2023.1.0.3371
 # Notes:
 
-{% set version = '2022.3.1.3215' %}
-{% set pkg_installed = salt['cmd.run']('Test-Path -Path "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\{64ACEB50-F033-4CF9-840D-90FA17769421}\"', shell="powershell") %}
-{% if pkg_installed == "True" %}
-passware-encryption-analyzer-is-installed:
-  test.nop
-  {% set pkg_version = salt['cmd.run']('Get-ItemProperty -Path "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\{64ACEB50-F033-4CF9-840D-90FA17769421}\" | Select -exp DisplayVersion', shell="powershell") %}
-  {% if pkg_version == version %}
-passware-is-at-version-{{ pkg_version }}:
-  test.nop
-  {% else %}
-passware-is-out-of-date:
+{% set version = '2023.1.0.3371' %}
+Check for previous Passware versions and remove:
   pkg.removed:
     - name: passware-encryption-analyzer
+    - onlyif:
+      - fun: cmd.run
+        cmd: $installedVersion = (salt-call --local pkg.version passware-encryption-analyzer); if ($installedVersion -isnot [Array]) {exit 1} else {exit 0}
+        shell: powershell
+        python_shell: True
 
-passware-encryption-analyzer-{{ pkg_version }}:
+saltutil.clear_cache:
+  module.run
+
+passware-encryption-analyzer:
   pkg.installed:
-    - name: passware-encryption-analyzer
+    - version: {{ version }}
     - require:
-      - pkg: passware-is-out-of-date
-{% endif %}
-{% else %}
-passware-encryption-analyzer-is-not-installed:
-  pkg.installed:
-    - name: passware-encryption-analyzer
-{% endif %}
+      - pkg: Check for previous Passware versions and remove
