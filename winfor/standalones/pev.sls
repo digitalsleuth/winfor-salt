@@ -20,7 +20,7 @@ pev-download:
 
 pev-extract:
   archive.extracted:
-    - name: 'C:\standalones\pev\'
+    - name: '{{ inpath }}\pev\'
     - source: 'C:\salt\tempdownload\pev-{{ version }}-win.zip'
     - enforce_toplevel: True
     - require:
@@ -28,12 +28,12 @@ pev-extract:
 
 pev-folder-rename:
   file.rename:
-    - name: 'C:\standalones\pev'
-    - source: 'C:\standalones\pev-{{ version }}-win\'
+    - name: '{{ inpath }}\pev'
+    - source: '{{ inpath }}\pev-{{ version }}-win\'
     - force: True
     - require:
       - archive: pev-extract
 
 pev-env:
   win_path.exists:
-    - name: 'C:\standalones\pev\'
+    - name: '{{ inpath }}\pev\'
