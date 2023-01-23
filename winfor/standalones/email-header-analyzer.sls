@@ -43,6 +43,7 @@ email-header-analyzer-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\Email Header Analyzer - Web Based.lnk'
     - target: 'C:\Program Files\Python310\Scripts\email-header-analyzer.cmd'
+    - icon_location: 'C:\Windows\SystemResources\imageres.dll.mun, 15'
     - force: True
     - working_dir: 'C:\Program Files\Python310\Scripts\'
     - makedirs: True

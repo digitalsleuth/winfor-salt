@@ -10,6 +10,7 @@
 {% set version = '0.81' %}
 {% set hash = '2D0F8AAD6701585D073C167C7C4358950B95A03F18A2B194A97F78F59825F5F3' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
+{% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 pev-download:
   file.managed:
@@ -20,7 +21,7 @@ pev-download:
 
 pev-extract:
   archive.extracted:
-    - name: '{{ inpath }}\pev\'
+    - name: '{{ inpath }}\'
     - source: 'C:\salt\tempdownload\pev-{{ version }}-win.zip'
     - enforce_toplevel: True
     - require:
@@ -37,3 +38,15 @@ pev-folder-rename:
 pev-env:
   win_path.exists:
     - name: '{{ inpath }}\pev\'
+
+pev-shortcut:
+  file.shortcut:
+    - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\PEV.lnk'
+    - target: '{{ inpath }}\pev\run.bat'
+    - icon_location: 'C:\Windows\SystemResources\imageres.dll.mun, 168'
+    - force: True
+    - working_dir: '{{ inpath }}\pev\'
+    - makedirs: True
+    - require:
+      - archive: pev-extract
+      - file: pev-folder-rename

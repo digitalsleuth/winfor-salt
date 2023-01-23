@@ -12,6 +12,7 @@ include:
   - winfor.installers.magnet-axiom
   - winfor.installers.nuix-evidence-mover
   - winfor.installers.fastcopy
+  - winfor.installers.windows-terminal
   
 winfor-installers:
   test.nop:
@@ -29,3 +30,4 @@ winfor-installers:
       - sls: winfor.installers.magnet-axiom
       - sls: winfor.installers.nuix-evidence-mover
       - sls: winfor.installers.fastcopy
+      - sls: winfor.installers.windows-terminal
