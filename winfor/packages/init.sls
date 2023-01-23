@@ -52,6 +52,10 @@ include:
   - winfor.packages.brim
   - winfor.packages.pst-walker
   - winfor.packages.plist-editor
+  - winfor.packages.agentransack
+  - winfor.packages.winmerge
+  - winfor.packages.eventlog-explorer
+  - winfor.packages.ksdumper11
 
 winfor-packages:
   test.nop:
@@ -109,3 +113,7 @@ winfor-packages:
       - sls: winfor.packages.brim
       - sls: winfor.packages.pst-walker
       - sls: winfor.packages.plist-editor
+      - sls: winfor.packages.agentransack
+      - sls: winfor.packages.winmerge
+      - sls: winfor.packages.eventlog-explorer
+      - sls: winfor.packages.ksdumper11

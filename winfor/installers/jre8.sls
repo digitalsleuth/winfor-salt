@@ -4,17 +4,17 @@
 # Category: Requirements
 # Author: Oracle
 # License: https://www.oracle.com/legal/terms.html
-# Version: 8u311
+# Version: 8u361
 # Notes: 
 
 jre8-download:
   file.managed:
-    - name: 'C:\salt\tempdownload\jre-8u311-windows-x64.exe'
-    - source: 'https://javadl.oracle.com/webapps/download/AutoDL?BundleId=245479_4d5417147a92418ea8b615e228bb6935'
-    - source_hash: sha256=4885e64c3e5dd16dc49f9b81c502e39c7529c6741776951c6702ab0af5ac44c0
+    - name: 'C:\salt\tempdownload\jre-8u361-windows-x64.exe'
+    - source: 'https://javadl.oracle.com/webapps/download/AutoDL?BundleId=247947_0ae14417abb444ebb02b9815e2103550'
+    - source_hash: sha256=419328F3A2325B1DC27F710ABD73E232E9DEAC47915B4DBA61A697B925B5B83D
     - makedirs: True
 
 jre8-install:
   cmd.run:
-    - name: 'C:\salt\tempdownload\jre-8u311-windows-x64.exe /s REBOOT=Suppress SPONSORS=0 REMOVEOUTOFDATEJRES=1 AUTO_UPDATE=Disable'
+    - name: 'C:\salt\tempdownload\jre-8u361-windows-x64.exe /s REBOOT=Suppress SPONSORS=0 REMOVEOUTOFDATEJRES=1 AUTO_UPDATE=Disable'
     - shell: cmd

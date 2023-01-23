@@ -9,3 +9,10 @@
 
 plist-editor:
   pkg.installed
+
+plist-editor-shortcut:
+  file.absent:
+    - name: 'C:\Users\Public\Desktop\plist Editor Pro.lnk'
+    - require:
+      - pkg: plist-editor
+

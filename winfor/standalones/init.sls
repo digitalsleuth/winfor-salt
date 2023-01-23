@@ -71,6 +71,15 @@ include:
   - winfor.standalones.procdot
   - winfor.standalones.mftbrowser
   - winfor.standalones.shadowexplorer
+  - winfor.standalones.chainsaw
+  - winfor.standalones.densityscout
+  - winfor.standalones.email-header-analyzer
+  - winfor.standalones.photorec
+  - winfor.standalones.thumbcacheviewer
+  - winfor.standalones.windows-timeline
+  - winfor.standalones.network-miner
+  - winfor.standalones.pev
+  - winfor.standalones.exiftoolgui
 
 winfor-standalones:
   test.nop:
@@ -147,3 +156,12 @@ winfor-standalones:
       - sls: winfor.standalones.procdot
       - sls: winfor.standalones.mftbrowser
       - sls: winfor.standalones.shadowexplorer
+      - sls: winfor.standalones.chainsaw
+      - sls: winfor.standalones.densityscout
+      - sls: winfor.standalones.email-header-analyzer
+      - sls: winfor.standalones.photorec
+      - sls: winfor.standalones.thumbcacheviewer
+      - sls: winfor.standalones.windows-timeline
+      - sls: winfor.standalones.network-miner
+      - sls: winfor.standalones.pev
+      - sls: winfor.standalones.exiftoolgui
