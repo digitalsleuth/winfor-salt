@@ -43,4 +43,4 @@ tableau-firmware-update-icon-del:
       - 'C:\Users\Public\Desktop\Tableau Firmware Update.lnk'
     - require:
       - pkg: tableau-firmware-update
-      - user: winfor-user-{{ user }}
+      - user: user-{{ user }}

@@ -34,7 +34,7 @@ peid-userdb-download:
     - require:
       - file: peid-download
 
-winfor-standalones-peid-shortcut:
+standalones-peid-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\PEiD.lnk'
     - target: '{{ inpath }}\peid\peid.exe'

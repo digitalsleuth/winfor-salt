@@ -25,7 +25,7 @@ uniextract2-extract:
     - require:
       - file: uniextract2-download
 
-winfor-standalones-uniextract2-shortcut:
+standalones-uniextract2-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\UniExtract.lnk'
     - target: '{{ inpath }}\uniextract\uniextract.exe'

@@ -28,4 +28,4 @@ chrome-del-shortcut:
       - '{{ home }}\Desktop\Google Chrome.lnk'
     - require:
       - pkg: chrome
-      - user: winfor-user-{{ user }}
+      - user: user-{{ user }}

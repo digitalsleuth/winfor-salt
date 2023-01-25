@@ -27,7 +27,7 @@ x64dbg-extract:
     - require:
       - file: x64dbg-download
 
-winfor-standalones-x64dbg-shortcut-1:
+standalones-x64dbg-shortcut-1:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\x64dbg.lnk'
     - target: '{{ inpath }}\x64dbg\release\x64\x64dbg.exe'
@@ -38,7 +38,7 @@ winfor-standalones-x64dbg-shortcut-1:
       - file: x64dbg-download
       - archive: x64dbg-extract
 
-winfor-standalones-x64dbg-shortcut-2:
+standalones-x64dbg-shortcut-2:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\x32dbg.lnk'
     - target: '{{ inpath }}\x64dbg\release\x32\x32dbg.exe'

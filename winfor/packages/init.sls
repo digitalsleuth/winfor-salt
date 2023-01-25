@@ -57,7 +57,7 @@ include:
   - winfor.packages.eventlog-explorer
   - winfor.packages.ksdumper11
 
-winfor-packages:
+package-states:
   test.nop:
     - require:
       - sls: winfor.packages.7zip

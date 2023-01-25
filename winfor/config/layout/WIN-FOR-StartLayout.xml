@@ -67,10 +67,11 @@
           <start:DesktopApplicationTile Size="1x1" Column="5" Row="0" DesktopApplicationID="PLACEHOLDER_PATH\pe-bear\PE-bear.exe" />
           <start:DesktopApplicationTile Size="1x1" Column="4" Row="1" DesktopApplicationID="PLACEHOLDER_PATH\pestudio\pestudio.exe" />
           <start:DesktopApplicationTile Size="1x1" Column="0" Row="2" DesktopApplicationID="wj32.ProcessHacker2" />
-          <start:DesktopApplicationTile Size="1x1" Column="3" Row="3" DesktopApplicationID="{1AC14E77-02E7-4E5D-B744-2EB1AE5198B7}\WindowsSandbox.exe" />
+          <start:DesktopApplicationTile Size="1x1" Column="4" Row="3" DesktopApplicationID="{1AC14E77-02E7-4E5D-B744-2EB1AE5198B7}\WindowsSandbox.exe" />
           <start:DesktopApplicationTile Size="1x1" Column="0" Row="0" DesktopApplicationID="PLACEHOLDER_PATH\ilspy\ILSpy.exe" />
           <start:DesktopApplicationTile Size="1x1" Column="0" Row="1" DesktopApplicationID="{6D809377-6AF0-444B-8957-A3773F02200E}\NTCore\Explorer Suite\CFF Explorer.exe" />
           <start:DesktopApplicationTile Size="1x1" Column="4" Row="0" DesktopApplicationID="PLACEHOLDER_PATH\ExeinfoPe\exeinfope.exe" />
+          <start:Tile Size="1x1" Column="3" Row="3" AppUserModelID="Microsoft.WinDbg_8wekyb3d8bbwe!Microsoft.WinDbg" />
         </start:Group>
         <start:Group Name="Installers">
           <start:DesktopApplicationTile Size="1x1" Column="3" Row="0" DesktopApplicationID="PLACEHOLDER_PATH\py2exedecompiler\Py2ExeDecompiler.exe" />

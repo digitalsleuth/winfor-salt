@@ -41,7 +41,7 @@ procdot-extract:
       - sls: winfor.packages.7zip
       - sls: winfor.packages.graphviz
 
-winfor-standalones-procdot-shortcut:
+standalones-procdot-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\ProcDOT x64.lnk'
     - target: '{{ inpath }}\procdot\win64\procdot.exe'

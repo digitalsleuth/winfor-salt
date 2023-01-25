@@ -30,7 +30,7 @@ exeinfope-env-vars:
   win_path.exists:
     - name: '{{ inpath }}\exeinfope\'
 
-winfor-standalones-exeinfope-shortcut:
+standalones-exeinfope-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\ExeInfoPE.lnk'
     - target: '{{ inpath }}\ExeinfoPe\exeinfope.exe'

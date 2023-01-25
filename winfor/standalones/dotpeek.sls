@@ -25,7 +25,7 @@ dotpeek-env-vars:
     - require:
       - file: dotpeek-download
 
-winfor-standalones-dotpeek-shortcut:
+standalones-dotpeek-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\dotPeek64.lnk'
     - target: '{{ inpath }}\dotpeek\dotPeek64.exe'

@@ -28,7 +28,7 @@ ilspy-extract:
     - require:
       - file: ilspy-download
 
-winfor-standalones-ilspy-shortcut:
+standalones-ilspy-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\ILSpy.lnk'
     - target: '{{ inpath }}\ilspy\ILSpy.exe'

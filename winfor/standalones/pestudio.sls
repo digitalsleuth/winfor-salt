@@ -30,7 +30,7 @@ pestudio-env-vars:
   win_path.exists:
     - name: '{{ inpath }}\pestudio\'
 
-winfor-standalones-pestudio-shortcut:
+standalones-pestudio-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\PEStudio.lnk'
     - target: '{{ inpath }}\pestudio\pestudio.exe'

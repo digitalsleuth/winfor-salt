@@ -55,7 +55,7 @@ autorunner-env-vars:
     - require:
       - file: autorunner-config-2
 
-winfor-standalones-autorunner-shortcut:
+standalones-autorunner-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\AutoRunner.lnk'
     - target: '{{ inpath }}\autorunner\autorunner.exe'

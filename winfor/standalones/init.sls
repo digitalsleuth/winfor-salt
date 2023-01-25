@@ -81,7 +81,7 @@ include:
   - winfor.standalones.pev
   - winfor.standalones.exiftoolgui
 
-winfor-standalones:
+standalones-states:
   test.nop:
     - require:
       - sls: winfor.standalones.zimmerman

@@ -33,7 +33,7 @@ include:
   - winfor.packages.portals
   - winfor.config.user
 
-winfor-theme-wallpaper-source:
+theme-wallpaper-source:
   file.managed:
     - name: '{{ inpath }}\winfor-wallpaper-blue.png'
     - source: salt://winfor/theme/winfor-wallpaper-blue.png
@@ -41,59 +41,59 @@ winfor-theme-wallpaper-source:
     - makedirs: True
     - win_inheritance: True
 
-winfor-theme-desktop-background-color:
+theme-desktop-background-color:
   reg.present:
     - name: HKEY_CURRENT_USER\Control Panel\Colors
     - vname: Background
     - vtype: REG_SZ
     - vdata: "0 0 0"
 
-winfor-theme-set-wallpaper:
+theme-set-wallpaper:
   reg.present:
     - name: HKEY_CURRENT_USER\Control Panel\Desktop
     - vname: WallPaper
     - vtype: REG_SZ
     - vdata: '{{ inpath }}\winfor-wallpaper-blue.png'
 
-winfor-theme-set-wallpaper-center:
+theme-set-wallpaper-center:
   reg.present:
     - name: HKEY_CURRENT_USER\Control Panel\Desktop
     - vname: WallpaperStyle
     - vtype: REG_SZ
     - vdata: 6
 
-winfor-theme-set-wallpaper-no-tile:
+theme-set-wallpaper-no-tile:
   reg.present:
     - name: HKEY_CURRENT_USER\Control Panel\Desktop
     - vname: TileWallpaper
     - vtype: REG_SZ
     - vdata: 0
 
-winfor-theme-update-wallpaper:
+theme-update-wallpaper:
   cmd.run:
     - name: 'RUNDLL32.EXE USER32.DLL,UpdatePerUserSystemParameters 1, True'
     - shell: cmd
 
 {% for file in profile_pictures %}
 
-winfor-theme-profile-picture-backup-{{ file }}:
+theme-profile-picture-backup-{{ file }}:
   file.managed:
     - name: '{{ PROGRAMDATA }}\Microsoft\User Account Pictures\{{ file }}.bak'
     - source: '{{ PROGRAMDATA }}\Microsoft\User Account Pictures\{{ file }}'
     - skip_verify: True
 
-winfor-theme-profile-picture-copy-{{ file }}:
+theme-profile-picture-copy-{{ file }}:
   file.managed:
     - name: '{{ PROGRAMDATA }}\Microsoft\User Account Pictures\{{ file }}'
     - source: salt://winfor/theme/{{ file }}
     - skip_verify: True
     - replace: True
     - require:
-      - file: winfor-theme-profile-picture-backup-{{ file }}
+      - file: theme-profile-picture-backup-{{ file }}
 
 {% endfor %}
 
-winfor-theme-default-profile-picture:
+theme-default-profile-picture:
   reg.present:
     - name: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer
     - vname: UseDefaultTile
@@ -136,7 +136,7 @@ portals-{{ config }}-copy:
     - makedirs: True
     - replace: True
     - require:
-      - user: winfor-user-{{ user }}
+      - user: user-{{ user }}
       - sls: winfor.packages.portals
 
 portals-{{ config }}-placeholder-replace:

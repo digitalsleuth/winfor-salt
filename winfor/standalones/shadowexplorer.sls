@@ -34,7 +34,7 @@ shadow-explorer-folder-rename:
     - require:
       - archive: shadow-explorer-extract
 
-winfor-shadow-explorer-shortcut:
+shadow-explorer-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\ShadowExplorer.lnk'
     - target: '{{ inpath }}\shadowexplorer\ShadowExplorerPortable.exe'

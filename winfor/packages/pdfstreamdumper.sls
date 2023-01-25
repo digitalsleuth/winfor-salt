@@ -25,5 +25,5 @@ pdfstreamdumper-icon-remove:
   file.absent:
     - name: '{{ home }}\Desktop\PdfStreamDumper.exe.lnk'
     - require:
-      - user: winfor-user-{{ user }}
+      - user: user-{{ user }}
       - pkg: pdfstreamdumper

@@ -43,7 +43,7 @@ mitec-unzip-sqlitequery:
     - require:
       - file: mitec-download-sqlitequery
 
-winfor-standalones-mitec-sqlitequery-shortcut:
+standalones-mitec-sqlitequery-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\SQLiteQuery.lnk'
     - target: '{{ inpath }}\mitec\SQLiteQ\SQLiteQuery.exe'
@@ -69,7 +69,7 @@ mitec-unzip-{{ file }}:
     - require:
       - file: mitec-download-{{ file }}
 
-winfor-standalones-mitec-{{ file }}-shortcut:
+standalones-mitec-{{ file }}-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\{{ file }}.lnk'
     - target: '{{ inpath }}\mitec\{{ file }}\{{ file }}.exe'

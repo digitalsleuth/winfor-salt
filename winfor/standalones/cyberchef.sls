@@ -15,7 +15,7 @@
 include:
   - winfor.packages.firefox
 
-winfor-standalones-cyberchef:
+standalones-cyberchef:
   archive.extracted:
     - name: '{{ inpath }}\cyberchef'
     - enforce_toplevel: False
@@ -25,7 +25,7 @@ winfor-standalones-cyberchef:
     - require:
       - sls: winfor.packages.firefox
 
-winfor-standalones-cyberchef-shortcut:
+standalones-cyberchef-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\CyberChef.lnk'
     - target: 'C:\Program Files\Mozilla Firefox\firefox.exe'
@@ -35,4 +35,4 @@ winfor-standalones-cyberchef-shortcut:
     - makedirs: True
     - require:
       - sls: winfor.packages.firefox
-      - archive: winfor-standalones-cyberchef
+      - archive: standalones-cyberchef

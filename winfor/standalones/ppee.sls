@@ -36,7 +36,7 @@ ppee-folder-rename:
     - require:
       - archive: ppee-extract
 
-winfor-standalones-ppee-shortcut:
+standalones-ppee-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\PPEE.lnk'
     - target: '{{ inpath }}\ppee\PPEE.exe'

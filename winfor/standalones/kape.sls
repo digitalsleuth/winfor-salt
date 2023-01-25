@@ -39,7 +39,7 @@ kape-env-vars:
   win_path.exists:
     - name: '{{ inpath }}\kape\'
 
-winfor-standalones-gkape-shortcut:
+standalones-gkape-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\gkape.lnk'
     - target: '{{ inpath }}\kape\gkape.exe'

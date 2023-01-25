@@ -41,7 +41,7 @@ jd-gui-rename-folder:
     - require:
       - archive: jd-gui-extract
 
-winfor-standalones-jd-gui-shortcut:
+standalones-jd-gui-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\JD-GUI.lnk'
     - target: '{{ inpath }}\jd-gui\jd-gui.exe'

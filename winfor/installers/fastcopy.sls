@@ -26,7 +26,7 @@ fastcopy-install:
     - require:
       - file: fastcopy-download
 
-winfor-standalones-fastcopy-shortcut:
+standalones-fastcopy-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\FastCopy.lnk'
     - target: '{{ inpath }}\fastcopy\FastCopy.exe'

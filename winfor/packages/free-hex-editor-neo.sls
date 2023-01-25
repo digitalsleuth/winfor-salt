@@ -27,5 +27,5 @@ free-hex-editor-icon:
       - '{{ home }}\Desktop\Hex Editor Neo.lnk'
       - 'C:\Users\Public\Desktop\Hex Editor Neo.lnk'
     - require:
-      - user: winfor-user-{{ user }}
+      - user: user-{{ user }}
       - pkg: free-hex-editor-neo

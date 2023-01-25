@@ -54,7 +54,7 @@ nirsoft-nirlauncher-shortcut:
     - require:
       - cmd: nirsoft-extract
 
-winfor-standalones-nirsoft-cfg-replace:
+standalones-nirsoft-cfg-replace:
   file.managed:
     - name: '{{ inpath }}\nirsoft\NirLauncher.cfg'
     - source: salt://winfor/files/NirLauncher.cfg
@@ -65,18 +65,18 @@ winfor-standalones-nirsoft-cfg-replace:
 
 {% for nlp in nlps %}
 
-winfor-standalones-nirsoft-{{ nlp }}:
+standalones-nirsoft-{{ nlp }}:
   file.managed:
     - name: '{{ inpath }}\nirsoft\{{ nlp }}'
     - source: salt://winfor/files/{{ nlp }}
     - makedirs: True
 
-winfor-standalones-nirsoft-{{ nlp }}-replace-placeholder:
+standalones-nirsoft-{{ nlp }}-replace-placeholder:
   file.replace:
     - name: '{{ inpath }}\nirsoft\{{ nlp }}'
     - pattern: PLACEHOLDER_PATH
     - repl: {{ inpath | regex_escape }}
     - require:
-      - file: winfor-standalones-nirsoft-{{ nlp }}
+      - file: standalones-nirsoft-{{ nlp }}
 
 {% endfor %}

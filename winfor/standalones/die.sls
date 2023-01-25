@@ -31,7 +31,7 @@ die-env-vars:
   win_path.exists:
     - name: '{{ inpath }}\die\'
 
-winfor-standalones-die-shortcut:
+standalones-die-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\DIE.lnk'
     - target: '{{ inpath }}\die\die.exe'

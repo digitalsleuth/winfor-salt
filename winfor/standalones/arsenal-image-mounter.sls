@@ -48,7 +48,7 @@ arsenal-folder-rename:
     - require:
       - archive: arsenal-extract
 
-winfor-standalones-arsenal-shortcut:
+standalones-arsenal-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\Arsenal Image Mounter.lnk'
     - target: '{{ inpath }}\arsenal\ArsenalImageMounter.exe'

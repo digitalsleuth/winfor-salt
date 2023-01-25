@@ -19,7 +19,7 @@ rufus-download:
     - source_hash: sha256={{ hash }}
     - makedirs: True
 
-winfor-standalones-rufus-shortcut:
+standalones-rufus-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\Rufus.lnk'
     - target: '{{ inpath }}\rufus\rufus-{{ version }}.exe'

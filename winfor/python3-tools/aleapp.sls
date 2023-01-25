@@ -14,7 +14,7 @@ include:
   - winfor.packages.python3
   - winfor.packages.git
 
-winfor-python3-aleapp-source:
+python3-aleapp-source:
   git.latest:
     - name: https://github.com/abrignoni/aleapp
     - target: '{{ inpath }}\aleapp'
@@ -24,36 +24,36 @@ winfor-python3-aleapp-source:
     - require:
       - sls: winfor.packages.git
 
-winfor-python3-aleapp-requirements:
+python3-aleapp-requirements:
   pip.installed:
     - requirements: '{{ inpath }}\aleapp\requirements.txt'
     - bin_env: 'C:\Program Files\Python310\python.exe'
     - require:
-      - git: winfor-python3-aleapp-source
+      - git: python3-aleapp-source
       - sls: winfor.packages.python3
 
-winfor-python3-aleapp-header:
+python3-aleapp-header:
   file.prepend:
     - names:
       - '{{ inpath }}\aleapp\aleapp.py'
       - '{{ inpath }}\aleapp\aleappGUI.py'
     - text: '#!/usr/bin/python3'
     - require:
-      - git: winfor-python3-aleapp-source
-      - pip: winfor-python3-aleapp-requirements
+      - git: python3-aleapp-source
+      - pip: python3-aleapp-requirements
 
-winfor-python3-aleapp-env-vars:
+python3-aleapp-env-vars:
   win_path.exists:
     - name: '{{ inpath }}\aleapp\'
 
-winfor-python3-aleapp-icon:
+python3-aleapp-icon:
   file.managed:
     - name: '{{ inpath }}\abrignoni-logo.ico'
     - source: salt://winfor/files/abrignoni-logo.ico
     - source_hash: sha256=97ca171e939a3e4a3e51f4a66a46569ffc604ef9bb388f0aec7a8bceef943b98
     - makedirs: True
 
-winfor-python3-aleapp-gui-shortcut:
+python3-aleapp-gui-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\ALEAPP-GUI.lnk'
     - target: '{{ inpath }}\aleapp\aleappGUI.py'
@@ -62,8 +62,8 @@ winfor-python3-aleapp-gui-shortcut:
     - icon_location: '{{ inpath }}\abrignoni-logo.ico'
     - makedirs: True
     - require:
-      - git: winfor-python3-aleapp-source
-      - pip: winfor-python3-aleapp-requirements
-      - file: winfor-python3-aleapp-header
-      - win_path: winfor-python3-aleapp-env-vars
-      - file: winfor-python3-aleapp-icon
+      - git: python3-aleapp-source
+      - pip: python3-aleapp-requirements
+      - file: python3-aleapp-header
+      - win_path: python3-aleapp-env-vars
+      - file: python3-aleapp-icon

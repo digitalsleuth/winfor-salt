@@ -8,7 +8,7 @@ include:
   - winfor.python3-tools
   - winfor.cleanup
 
-winfor-addon-version-file:
+addon-version-file:
   file.managed:
     - name: 'C:\winfor-version'
     - source: salt://winfor/VERSION

@@ -38,7 +38,7 @@ ntfs-log-tracker-env-vars:
   win_path.exists:
     - name: '{{ inpath }}\ntfs-log-tracker\'
 
-winfor-standalones-ntfs-log-tracker-shortcut:
+standalones-ntfs-log-tracker-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\NTFS Log Tracker.lnk'
     - target: '{{ inpath }}\ntfs-log-tracker\NTFS Log Tracker v1.71.exe'

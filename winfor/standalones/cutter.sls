@@ -36,7 +36,7 @@ cutter-folder-rename:
     - require:
       - archive: cutter-extract
 
-winfor-standalones-cutter-shortcut:
+standalones-cutter-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\Cutter.lnk'
     - target: '{{ inpath }}\cutter\cutter.exe'

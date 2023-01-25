@@ -41,7 +41,7 @@ srum-dump2-env-vars:
   win_path.exists:
     - name: '{{ inpath }}\srum-dump2\'
 
-winfor-standalones-srum-dump2-shortcut:
+standalones-srum-dump2-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\SRUM-DUMP2.lnk'
     - target: '{{ inpath }}\srum-dump2\srum-dump2.exe'

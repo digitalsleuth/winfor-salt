@@ -30,7 +30,7 @@ sysinternals-env-vars:
   win_path.exists:
     - name: '{{ inpath }}\sysinternals'
 
-winfor-standalones-sysinternals-shortcut:
+standalones-sysinternals-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\Sysinternals.lnk'
     - target: '{{ inpath }}\sysinternals\'

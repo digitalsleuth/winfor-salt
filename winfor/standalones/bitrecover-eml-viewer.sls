@@ -17,7 +17,7 @@ bitrecover-eml-viewer-download:
     - source_hash: sha256=2C135C450D49D5805582EC5FF5D5DB3431D20B6F1B28AA7D5816547A235EFC3E
     - makedirs: True
 
-winfor-standalones-bitrecover-shortcut:
+standalones-bitrecover-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\BitRecover EML Viewer.lnk'
     - target: '{{ inpath }}\bitrecover-eml-viewer\bitrecover-eml-viewer.exe'

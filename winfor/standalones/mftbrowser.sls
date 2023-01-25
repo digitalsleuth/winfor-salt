@@ -19,7 +19,7 @@ mftbrowser-download:
     - source_hash: sha256={{ hash }}
     - makedirs: True
 
-winfor-standalones-mftbrowser-shortcut:
+standalones-mftbrowser-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\MFTBrowser.lnk'
     - target: '{{ inpath }}\mftbrowser\MFTBrowser.exe'

@@ -12,15 +12,15 @@
 
 hxd-download:
   file.managed:
-    - name: C:\\salt\\tempdownload\\HxDSetup.zip
+    - name: 'C:\salt\tempdownload\HxDSetup.zip'
     - source: https://mh-nexus.de/downloads/HxDSetup.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True
 
 hxd-extract:
   archive.extracted:
-    - name: C:\\salt\\tempdownload\\
-    - source: C:\\salt\\tempdownload\\HxDSetup.zip
+    - name: 'C:\salt\tempdownload\'
+    - source: 'C:\salt\tempdownload\HxDSetup.zip'
     - enforce_toplevel: False
     - require:
       - file: hxd-download

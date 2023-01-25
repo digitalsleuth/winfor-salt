@@ -27,7 +27,7 @@ magnet-web-page-saver-extract:
     - require:
       - file: magnet-web-page-saver-download
 
-winfor-standalones-wps-shortcut:
+standalones-wps-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\Magnet Web Page Saver Portable V3.lnk'
     - target: '{{ inpath }}\magnet\WebPageSaver\WebPageSaver.exe'

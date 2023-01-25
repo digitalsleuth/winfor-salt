@@ -28,7 +28,7 @@ scylla-extract:
       - file: scylla-download
       - sls: winfor.packages.7zip
 
-winfor-standalones-scylla-shortcut-1:
+standalones-scylla-shortcut-1:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\Scylla x64.lnk'
     - target: '{{ inpath }}\scylla\Scylla_x64.exe'
@@ -39,7 +39,7 @@ winfor-standalones-scylla-shortcut-1:
       - file: scylla-download
       - cmd: scylla-extract
 
-winfor-standalones-scylla-shortcut-2:
+standalones-scylla-shortcut-2:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\Scylla x86.lnk'
     - target: '{{ inpath }}\scylla\Scylla_x86.exe'

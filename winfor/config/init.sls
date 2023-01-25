@@ -7,7 +7,7 @@ include:
   - winfor.config.admin-cmd-prompt
   - winfor.config.admin-posh-prompt
 
-winfor-config:
+config-states:
   test.nop:
     - require:
       - sls: winfor.config.user

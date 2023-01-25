@@ -26,7 +26,7 @@ desktop-cleanup:
       - 'C:\Users\Public\Desktop\desktop.ini'
       - '{{ home }}\Desktop\desktop.ini'
     - require:
-      - user: winfor-user-{{ user }}
+      - user: user-{{ user }}
       - cmd: cleanup-restart-explorer
 
 disk-cleanup:

@@ -4,7 +4,7 @@ include:
   - winfor.config.layout
   - winfor.theme
  
-winfor-dedicated:
+dedicated-states:
   test.nop:
     - require:
       - sls: winfor.config

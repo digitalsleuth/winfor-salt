@@ -29,7 +29,7 @@ bintext-env-vars:
   win_path.exists:
     - name: {{ inpath }}\bintext\'
 
-winfor-standalones-bintext-shortcut:
+standalones-bintext-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\BinText.lnk'
     - target: {{ inpath }}\bintext\bintext.exe'

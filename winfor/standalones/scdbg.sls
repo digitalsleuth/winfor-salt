@@ -38,7 +38,7 @@ scdbg-env-vars:
   win_path.exists:
     - name: '{{ inpath }}\scdbg\'
 
-winfor-standalones-scdbg-shortcut:
+standalones-scdbg-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\SCDBG-GUI.lnk'
     - target: '{{ inpath }}\scdbg\gui_launcher.exe'

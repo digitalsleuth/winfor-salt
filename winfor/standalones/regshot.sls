@@ -28,7 +28,7 @@ regshot-extract:
       - file: regshot-download
       - sls: winfor.packages.7zip
 
-winfor-standalones-regshot-shortcut-1:
+standalones-regshot-shortcut-1:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\Regshot x64 ANSI.lnk'
     - target: '{{ inpath }}\regshot\Regshot-x64-ANSI.exe'
@@ -39,7 +39,7 @@ winfor-standalones-regshot-shortcut-1:
       - file: regshot-download
       - cmd: regshot-extract
 
-winfor-standalones-regshot-shortcut-2:
+standalones-regshot-shortcut-2:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\Regshot x64 Unicode.lnk'
     - target: '{{ inpath }}\regshot\Regshot-x64-Unicode.exe'
@@ -50,7 +50,7 @@ winfor-standalones-regshot-shortcut-2:
       - file: regshot-download      
       - cmd: regshot-extract            
 
-winfor-standalones-regshot-shortcut-3:
+standalones-regshot-shortcut-3:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\Regshot x86 ANSI.lnk'
     - target: '{{ inpath }}\regshot\Regshot-x86-ANSI.exe'
@@ -61,7 +61,7 @@ winfor-standalones-regshot-shortcut-3:
       - file: regshot-download
       - cmd: regshot-extract
 
-winfor-standalones-regshot-shortcut-4:
+standalones-regshot-shortcut-4:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\Regshot x86 Unicode.lnk'
     - target: '{{ inpath }}\regshot\Regshot-x86-Unicode.exe'

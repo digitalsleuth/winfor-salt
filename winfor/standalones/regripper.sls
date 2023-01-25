@@ -13,7 +13,7 @@
 include:
   - winfor.packages.git
 
-winfor-standalones-regripper:
+standalones-regripper:
   git.latest:
     - name: https://github.com/keydet89/RegRipper3.0.git
     - target: '{{ inpath }}\regripper'
@@ -27,7 +27,7 @@ regripper-env-vars:
   win_path.exists:
     - name: '{{ inpath }}\regripper\'
 
-winfor-standalones-regripper-shortcut:
+standalones-regripper-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\RegRipper.lnk'
     - target: '{{ inpath }}\regripper\rr.exe'
@@ -35,4 +35,4 @@ winfor-standalones-regripper-shortcut:
     - working_dir: '{{ inpath }}\regripper\'
     - makedirs: True
     - require:
-      - git: winfor-standalones-regripper
+      - git: standalones-regripper

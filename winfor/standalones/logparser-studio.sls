@@ -44,7 +44,7 @@ logparser-studio-env-vars:
   win_path.exists:
     - name: '{{ inpath }}\logparser-studio'
 
-winfor-standalones-logparser-studio-shortcut:
+standalones-logparser-studio-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\LogParser-Studio.lnk'
     - target: '{{ inpath }}\logparser-studio\LPS.exe'

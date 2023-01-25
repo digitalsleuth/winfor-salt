@@ -3,7 +3,7 @@ include:
   - winfor.wsl.wsl2-update
   - winfor.wsl.wsl-config
  
-winfor-wsl:
+wsl-states:
   test.nop:
     - require:
       - sls: winfor.wsl.wsl

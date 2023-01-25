@@ -17,7 +17,7 @@ py2exedecompiler-download:
     - source_hash: sha256=25b96c5c5f78c5df8da38aa61661c2f76796024af616bff67e1e6c683b8e5b3b
     - makedirs: True
 
-winfor-standalones-py2exedecompiler-shortcut:
+standalones-py2exedecompiler-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\Py2ExeDecompiler.lnk'
     - target: '{{ inpath }}\py2exedecompiler\Py2ExeDecompiler.exe'

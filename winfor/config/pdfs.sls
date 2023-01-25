@@ -94,7 +94,7 @@ set pdfs = [
 -%}
 
 {% for pdf in pdfs %}
-winfor-pdf-{{ pdf.id }}:
+{{ pdf.id }}-pdf:
   file.managed:
     - name: '{{ inpath }}\references\{{ pdf.filename }}'
     - source: {{ pdf.source }}
@@ -103,7 +103,7 @@ winfor-pdf-{{ pdf.id }}:
     - show_changes: False
 {% endfor %}
 
-winfor-tool-list-shortcut:
+tool-list-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\WIN-FOR-Tool-List.lnk'
     - target: '{{ inpath }}\references\WIN-FOR-Tool-List.pdf'

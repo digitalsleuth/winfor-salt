@@ -36,7 +36,7 @@ pe-bear-sig-download:
     - require:
       - archive: pe-bear-extract
 
-winfor-standalones-pe-bear-shortcut:
+standalones-pe-bear-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\PE-Bear.lnk'
     - target: '{{ inpath }}\pe-bear\PE-bear.exe'

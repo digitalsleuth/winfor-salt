@@ -134,7 +134,7 @@ xways-winhex64-binary:
     - require:
       - archive: xways-extract
 
-winfor-standalones-xways-shortcut:
+standalones-xways-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\X-Ways.lnk'
     - target: 'C:\xwf\xwforensics64.exe'
@@ -144,7 +144,7 @@ winfor-standalones-xways-shortcut:
     - require:
       - archive: xways-extract
 
-winfor-standalones-winhex-shortcut:
+standalones-winhex-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\WinHex.lnk'
     - target: 'C:\xwf\winhex64.exe'

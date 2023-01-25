@@ -30,7 +30,7 @@ offvis-extract:
     - require:
       - file: offvis-download
 
-winfor-standalones-offvis-shortcut:
+standalones-offvis-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\OffVis.lnk'
     - target: '{{ inpath }}\OffVis\OffVis.exe'

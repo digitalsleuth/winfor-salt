@@ -23,7 +23,7 @@ include:
   - winfor.python3-tools.amcache
   - winfor.python3-tools.bmc-tools
 
-winfor-python3-tools:
+python3-tools-states:
   test.nop:
     - require:
       - sls: winfor.python3-tools.naft

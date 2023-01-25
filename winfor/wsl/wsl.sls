@@ -45,7 +45,7 @@ wsl-config-stager-customize:
     - count: 1
     - require:
       - file: wsl-config-stager
-      - user: winfor-user-{{ user }}
+      - user: user-{{ user }}
 
 wsl-config-stager-customize-path:
   file.replace:
@@ -56,7 +56,7 @@ wsl-config-stager-customize-path:
     - require:
       - file: wsl-config-stager
       - file: wsl-config-stager-customize
-      - user: winfor-user-{{ user }}
+      - user: user-{{ user }}
 
 wsl-config-run-on-reboot:
   reg.present:

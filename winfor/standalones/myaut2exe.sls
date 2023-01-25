@@ -16,7 +16,7 @@ myaut2exe-download:
     - source_hash: sha256=c61c8d1424849aad8d96da0c002d1df6a9224d7ddde8b16808ba3442371b3a62
     - makedirs: True
 
-winfor-standalones-myaut2exe-shortcut:
+standalones-myaut2exe-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\myAutToExe.lnk'
     - target: 'C:\standalone\myAutToExe\myAutToExe.exe'

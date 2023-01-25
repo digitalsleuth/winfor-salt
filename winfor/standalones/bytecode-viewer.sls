@@ -22,7 +22,7 @@ bytecode-viewer-download:
     - source_hash: sha256={{ hash }}
     - makedirs: True
 
-winfor-standalones-bytecode-viewer-shortcut:
+standalones-bytecode-viewer-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\Bytecode Viewer.lnk'
     - target: '{{ inpath }}\bytecode-viewer\Bytecode-Viewer-{{ version }}.jar'

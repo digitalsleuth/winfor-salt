@@ -24,7 +24,7 @@ eventfinder-env-vars:
   win_path.exists:
     - name: '{{ inpath }}\eventfinder\'
 
-winfor-standalones-eventfinder-shortcut:
+standalones-eventfinder-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\EventFinder.lnk'
     - target: '{{ inpath }}\eventfinder\eventfinder.exe'

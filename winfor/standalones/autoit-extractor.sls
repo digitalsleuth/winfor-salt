@@ -17,7 +17,7 @@ autoit-extractor-download:
     - source_hash: sha256=d82d49e9ad153ef84670c1d0bde5f36b540d32fa037cca6127ce9e4e366b7403
     - makedirs: True
 
-winfor-standalones-autoit-extractor-shortcut:
+standalones-autoit-extractor-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\AutoIT Extractor.lnk'
     - target: '{{ inpath }}\autoit-extractor\autoit-extractor.exe'

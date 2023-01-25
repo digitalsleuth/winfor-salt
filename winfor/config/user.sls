@@ -3,7 +3,7 @@
 {% if user in all_users %}
   {% set home = salt['user.info'](user).home %}
 
-winfor-user-{{ user }}:
+user-{{ user }}:
   user.present:
     - name: {{ user }}
     - home: {{ home }}
@@ -11,7 +11,7 @@ winfor-user-{{ user }}:
 
 {% set home = "C:\\Users\\" + user %}
 
-winfor-user-{{ user }}:
+user-{{ user }}:
   user.present:
     - name: {{ user }}
     - fullname: {{ user }}
