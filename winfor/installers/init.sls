@@ -13,6 +13,7 @@ include:
   - winfor.installers.nuix-evidence-mover
   - winfor.installers.fastcopy
   - winfor.installers.windows-terminal
+  - winfor.installers.windbg
   
 installer-states:
   test.nop:
@@ -31,3 +32,4 @@ installer-states:
       - sls: winfor.installers.nuix-evidence-mover
       - sls: winfor.installers.fastcopy
       - sls: winfor.installers.windows-terminal
+      - sls: winfor.installers.windbg

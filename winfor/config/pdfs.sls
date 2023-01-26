@@ -84,12 +84,6 @@ set pdfs = [
     "source": "https://assets.contentstack.io/v3/assets/blt36c2e63521272fdc/blt4698e96e2d9cf51d/SQlite_Cheat_Sheet.pdf",
     "hash": "954d62787abe3bad95f59e2d671eac202dea2607ed5cdb757dbbb688b873f679"
   },
-  {
-    "id": "winfor-tool-list",
-    "filename": "WIN-FOR-Tool-List.pdf",
-    "source": "salt://winfor/files/WIN-FOR-Tool-List.pdf",
-    "hash": "2e8b69c0477b8fe24cc80563552ea1c86a6abd54682f10da639dbd8e9c690ab3"
-  },
 ]
 -%}
 
@@ -103,6 +97,14 @@ set pdfs = [
     - show_changes: False
 {% endfor %}
 
+pdf-tool-list:
+  file.managed:
+    - name: '{{ inpath }}\references\WIN-FOR-Tool-List.pdf'
+    - source: salt://winfor/files/WIN-FOR-Tool-List.pdf
+    - skip_verify: True
+    - makedirs: True
+    - show_changes: False
+
 tool-list-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\WIN-FOR-Tool-List.lnk'
@@ -110,3 +112,5 @@ tool-list-shortcut:
     - force: True
     - working_dir: '{{ inpath }}\references\'
     - makedirs: True
+    - require:
+      - file: pdf-tool-list

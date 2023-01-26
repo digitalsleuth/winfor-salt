@@ -4,24 +4,26 @@
 # Category: Executables
 # Author: Microsoft
 # License: Third-party Notices within app
-# Version: 1.2202.7001.0
-# Notes: To get the download URL, Visit: https://store.rg-adguard.net/ and paste the URL for the tool from the MS Store (easier from web browser)
+# Version: 1.2210.3001.0
+# Notes: Installed via winget
 
-{% set version = '1.2202.7001.0' %}
-{% set hash = 'd96a7a3c10275cf86b564f196124806643118f99b328958bdd3ea7a4f26bb970' %}
-{% set url_vars = 'P1=1674500669&P2=404&P3=2&P4=da70JoLS8dolGr63AzWvUIW6ihrdH3qhXkxml%2f8MOKQCSEXmz5u0rtyHavNhmetuh%2fv1vxxDGxQ%2fdpWIt3KMWA%3d%3d' %}
-
-windbg-download:
-  file.managed:
-    - name: 'C:\salt\tempdownload\Microsoft.WinDbg_{{ version }}_neutral__8wekyb3d8bbwe.appx'
-    - source: 'http://tlu.dl.delivery.mp.microsoft.com/filestreamingservice/files/978feae8-9dfb-448a-af1a-f85fa96fd5ab?{{ url_vars }}'
-    - source_hash: sha256={{ hash }}
-    - makedirs: True
+{% set version = '1.2210.3001.0' %}
+{% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set PROGRAM_FILES = salt['environ.get']('PROGRAMFILES') %}
+{% set WINDIR = salt['environ.get']('WINDIR') %}
 
 windbg-install:
   cmd.run:
-    - name: "dism /Online /Add-ProvisionedAppxPackage /PackagePath:Microsoft.WinDbg_{{ version }}_neutral__8wekyb3d8bbwe.appx /SkipLicense"
+    - name: 'winget install windbg --accept-source-agreements --accept-package-agreements'
     - shell: cmd
-    - cwd: 'C:\salt\tempdownload\'
+
+windbg-shortcut:
+  file.shortcut:
+    - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\WinDbg Preview.lnk'
+    - target: '{{ WINDIR }}\explorer.exe'
+    - arguments: 'shell:appsfolder\Microsoft.WinDbg_8wekyb3d8bbwe!Microsoft.WinDbg'
+    - force: True
+    - working_dir: '{{ WINDIR }}\'
+    - icon_location: '{{ PROGRAM_FILES }}\WindowsApps\Microsoft.WinDbg_{{ version }}_x64__8wekyb3d8bbwe\DbgX.Shell.exe'
     - require:
-      - windbg-download
+      - cmd: windbg-install
