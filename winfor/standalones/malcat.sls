@@ -4,12 +4,12 @@
 # Category: Executables
 # Author: Malcat EL
 # License: https://malcat.fr/index.html#faq6
-# Version: 0.8.6
+# Version: 0.9.0
 # Notes: 
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
-{% set hash = '86e0d0cf89ba492374d2119dd4cb5f66f9c332483768f3bbfe04a135d09a12d2' %}
+{% set hash = '2096A716EADA02E2C637E9376D465E14E7B4A33733FD7E08B435C6C838EC636D' %}
 
 malcat-download:
   file.managed:
