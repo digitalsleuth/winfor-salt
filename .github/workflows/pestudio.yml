@@ -17,7 +17,7 @@ jobs:
       - name: Check PEStudio Hash
         run: |
           wget https://www.winitor.com/tools/pestudio/current/pestudio.zip
-          PREVIOUS_HASH=$(cat /home/runner/work/winfor-salt/winfor-salt/winfor/standalones/pestudio.sls | grep "set hash" | awk -F\' '{print $2}')
+          PREVIOUS_HASH=$(cat /home/runner/work/winfor-salt/winfor-salt/winfor/standalones/pestudio.sls | grep "set hash" | awk -F\' '{print tolower($2)}')
           CURRENT_HASH=$(sha256sum pestudio.zip | awk '{print $1}')
           if [[ "$PREVIOUS_HASH" != "$CURRENT_HASH" ]]; then echo "HASH UPDATED - $CURRENT_HASH" && exit 1; else echo "No hash changes" && exit 0; fi
 
