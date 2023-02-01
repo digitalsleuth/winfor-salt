@@ -4,12 +4,12 @@
 # Category: Executables
 # Author: ExeinfoASL
 # License: None Listed
-# Version: 0.0.7.4
+# Version: 0.0.7.6
 # Notes: 
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
-{% set hash = 'cb69235e51399d0997019c089687cf2d152d426edb379c16e20880ce89b925aa' %}
+{% set hash = 'fcfa14e2acc34196c0c1b76f6fa7bc1a1a91aab39fcf4764bb93992673b8c02c' %}
 
 exeinfope-download:
   file.managed:
