@@ -4,15 +4,15 @@
 # Category: Acquisition and Analysis
 # Author: Brian Carrier / Basis Technology
 # License: Apache 2.0 (https://github.com/sleuthkit/autopsy/blob/master/README.txt)
-# Version: 4.19.3
+# Version: 4.20.0
 # Notes: 
 
 autopsy:
   pkg.installed:
-    - version: '4.19.3'
+    - version: '4.20.0'
 
 autopsy-del-shortcut:
   file.absent:
-    - name: 'C:\Users\Public\Desktop\Autopsy 4.19.3.lnk'
+    - name: 'C:\Users\Public\Desktop\Autopsy 4.20.0.lnk'
     - require:
       - pkg: autopsy
