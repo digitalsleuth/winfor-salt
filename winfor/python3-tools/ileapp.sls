@@ -3,7 +3,7 @@
 # Description: iOS Logs Events and Plists Parser
 # Category: Mobile Analysis
 # Author: Alexis Brignoni
-# License: MIT License (https://github.com/abrignoni/iLEAPP/blob/master/LICENSE)
+# License: MIT License (https://github.com/abrignoni/iLEAPP/blob/main/LICENSE)
 # Version: 1.18.1
 # Notes: 
 
@@ -18,7 +18,7 @@ winfor-python3-ileapp-source:
   git.latest:
     - name: https://github.com/abrignoni/ileapp
     - target: '{{ inpath }}\ileapp'
-    - rev: master
+    - rev: main
     - force_clone: True
     - force_reset: True
     - force_fetch: True

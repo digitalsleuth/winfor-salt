@@ -56,6 +56,7 @@ include:
   - winfor.packages.winmerge
   - winfor.packages.eventlog-explorer
   - winfor.packages.ksdumper11
+  - winfor.packages.monolith-notes
 
 package-states:
   test.nop:
@@ -117,3 +118,4 @@ package-states:
       - sls: winfor.packages.winmerge
       - sls: winfor.packages.eventlog-explorer
       - sls: winfor.packages.ksdumper11
+      - sls: winfor.packages.monolith-notes

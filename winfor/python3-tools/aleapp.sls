@@ -3,7 +3,7 @@
 # Description: Android Logs Events and Protobuf Parser
 # Category: Mobile Analysis
 # Author: Alexis Brignoni
-# License: MIT License (https://github.com/abrignoni/ALEAPP/blob/master/LICENSE)
+# License: MIT License (https://github.com/abrignoni/ALEAPP/blob/main/LICENSE)
 # Version: 3.1.1
 # Notes: 
 
@@ -18,7 +18,7 @@ python3-aleapp-source:
   git.latest:
     - name: https://github.com/abrignoni/aleapp
     - target: '{{ inpath }}\aleapp'
-    - rev: master
+    - rev: main
     - force_clone: True
     - force_reset: True
     - require:
