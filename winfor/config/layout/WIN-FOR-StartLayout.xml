@@ -13,7 +13,7 @@
           <start:DesktopApplicationTile Size="1x1" Column="5" Row="0" DesktopApplicationID="{6D809377-6AF0-444B-8957-A3773F02200E}\Cerbero Suite\cerpro.exe" />
           <start:DesktopApplicationTile Size="1x1" Column="1" Row="0" DesktopApplicationID="{6D809377-6AF0-444B-8957-A3773F02200E}\LSoft Technologies\Active@ Disk Editor\DiskEditor.exe" />
           <start:DesktopApplicationTile Size="1x1" Column="0" Row="1" DesktopApplicationID="{6D809377-6AF0-444B-8957-A3773F02200E}\Magnet Forensics\MCAAv1\MCAA.exe" />
-          <start:DesktopApplicationTile Size="1x1" Column="4" Row="0" DesktopApplicationID="{6D809377-6AF0-444B-8957-A3773F02200E}\Autopsy-4.19.3\bin\autopsy64.exe" />
+          <start:DesktopApplicationTile Size="1x1" Column="4" Row="0" DesktopApplicationID="{6D809377-6AF0-444B-8957-A3773F02200E}\Autopsy-4.20.0\bin\autopsy64.exe" />
           <start:DesktopApplicationTile Size="1x1" Column="4" Row="1" DesktopApplicationID="{6D809377-6AF0-444B-8957-A3773F02200E}\Magnet Forensics\Magnet AXIOM\AXIOM Process\AXIOMProcess.exe" />
           <start:DesktopApplicationTile Size="1x1" Column="3" Row="1" DesktopApplicationID="{6D809377-6AF0-444B-8957-A3773F02200E}\Magnet Forensics\Magnet AXIOM\AXIOM Examine\AXIOMExamine.exe" />
         </start:Group>
