@@ -35,9 +35,9 @@ include:
 
 theme-wallpaper-source:
   file.managed:
-    - name: '{{ inpath }}\winfor-wallpaper-blue.png'
-    - source: salt://winfor/theme/winfor-wallpaper-blue.png
-    - source_hash: sha256={{ hash }}
+    - name: '{{ inpath }}\winfor-wallpaper.png'
+    - source: salt://winfor/theme/winfor-wallpaper.png
+    - skip_verify: True
     - makedirs: True
     - win_inheritance: True
 
@@ -53,7 +53,7 @@ theme-set-wallpaper:
     - name: HKEY_CURRENT_USER\Control Panel\Desktop
     - vname: WallPaper
     - vtype: REG_SZ
-    - vdata: '{{ inpath }}\winfor-wallpaper-blue.png'
+    - vdata: '{{ inpath }}\winfor-wallpaper.png'
 
 theme-set-wallpaper-center:
   reg.present:

@@ -4,16 +4,20 @@ release:
     repo: winfor-salt
 manifest:
   version: 2
-  base: ""
+  name: winfor
+  base_dir: winfor
   modes:
     - name: addon
       state: winfor.addon
-      default: true
     - name: dedicated
       state: winfor.dedicated
-      default: false
+      default: true
   supported_os:
     - id: windows
       release: 10
     - id: windows
       release: 11
+  saltstack:
+    pillars:
+      winfor_user_template: "{{ .User }}"
+      inpath_template: '{{ default "C:\standalones" .inpath }}'
