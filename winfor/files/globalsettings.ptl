@@ -10,7 +10,7 @@
     <ContentAreaTransparency>0.5</ContentAreaTransparency>
     <ShowFileExtensions>false</ShowFileExtensions>
     <HideLinkUrl>true</HideLinkUrl>
-    <CornerRadius>0</CornerRadius>
+    <CornerRadius>4</CornerRadius>
     <BorderThickness>0</BorderThickness>
     <BorderColor>#FF000000</BorderColor>
     <CenterTitle>true</CenterTitle>
@@ -44,7 +44,7 @@
   <UseAlternateIconRetrievalMethod>true</UseAlternateIconRetrievalMethod>
   <ShowHiddenFilesAndFolders>false</ShowHiddenFilesAndFolders>
   <ShowHiddenFilesTransparent>true</ShowHiddenFilesTransparent>
-  <ClickTitleBarToExpandMinimize>false</ClickTitleBarToExpandMinimize>
+  <ClickTitleBarToExpandMinimize>true</ClickTitleBarToExpandMinimize>
   <ShowExpandMinimizeButtonOnTitleBar>true</ShowExpandMinimizeButtonOnTitleBar>
   <AllowDragMovePortalFromContentArea>false</AllowDragMovePortalFromContentArea>
   <AutoUpdate>false</AutoUpdate>
@@ -60,5 +60,5 @@
   <LockButtonLocksTitle>false</LockButtonLocksTitle>
   <ShowFullFileNameOnSelection>false</ShowFullFileNameOnSelection>
   <ShiftDeleteToSkipRecycleBin>false</ShiftDeleteToSkipRecycleBin>
-  <DoubleClickDesktopHideAllPortals>false</DoubleClickDesktopHideAllPortals>
+  <DoubleClickDesktopHideAllPortals>true</DoubleClickDesktopHideAllPortals>
 </GlobalSettings>

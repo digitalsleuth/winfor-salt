@@ -1,4 +1,5 @@
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set START_MENU = PROGRAMDATA + '\Microsoft\Windows\Start Menu\Programs' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set hash = '4ed521a6f727c2a5352b2d28e28cfd8639e9c8cbc1b7a35aa7e003464c4fc139' %}
 {% set castver = '0.14.0' %}
@@ -71,13 +72,32 @@ wsl-install-remnux:
     - require:
       - cmd: wsl-install-sift
 
-winfor-wsl-shortcut:
+wsl-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\WSL.lnk'
     - target: 'C:\Windows\System32\wsl.exe'
     - force: True
     - working_dir: 'C:\Windows\System32\'
     - makedirs: True
+    - require:
+      - cmd: wsl-config-version
+      - file: wsl-make-install-directory
+      - cmd: wsl-import-template
+
+wsl-portals-shortcut:
+  file.copy:
+    - name: '{{ inpath }}\Portals\Terminals\'
+    - source: '{{ START_MENU }}\WSL.lnk'
+    - preserve: True
+    - subdir: True
+    - require:
+      - cmd: wsl-config-version
+      - file: wsl-make-install-directory
+      - cmd: wsl-import-template
+
+wsl-delete-template:
+  file.absent:
+    - name: 'C:\salt'
     - require:
       - cmd: wsl-config-version
       - file: wsl-make-install-directory

@@ -9,6 +9,16 @@
 
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set PROGRAMFILES = salt['environ.get']('PROGRAMFILES') %}
+{% set user = salt['pillar.get']('winfor_user', 'forensics') %}
+{% set all_users = salt['user.list_users']() %}
+{% if user in all_users %}
+  {% set home = salt['user.info'](user).home %}
+{% else %}
+{% set home = "C:\\Users\\" + user %}
+{% endif %}
+
+include:
+  - winfor.config.user
 
 monolith-notes:
   pkg.installed
@@ -22,3 +32,10 @@ monolith-notes-shortcut:
     - makedirs: True
     - require:
       - pkg: monolith-notes
+
+monolith-desktop-shortcut:
+  file.absent:
+    - name: '{{ home }}\Desktop\Monolith Notes.lnk'
+    - require:
+      - pkg: monolith-notes
+      - user: user-{{ user }}
