@@ -4,11 +4,11 @@
 # Category: Utilities
 # Author: Irfan Skiljan
 # License: https://www.irfanview.com/eula.htm
-# Version: 4.60
+# Version: 4.62
 # Notes:
 
-{% set version = '460' %}
-{% set hash = '2b5c2e165ea676546a4edeee3b856923eb9a16a9ddbc679fe3995ddebf856f9e' %}
+{% set version = '462' %}
+{% set hash = '29542a9229a36e4e7be5a9b2a3a433632ddc06e40fe2324ad7317b0679b389dc' %}
 
 include:
   - winfor.packages.irfanview
