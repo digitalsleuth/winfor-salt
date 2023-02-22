@@ -4,13 +4,13 @@
 # Category: Utilities
 # Author: https://megatools.megous.com/man/megatools.html#_author
 # License: GNU General Public License v2 (https://megous.com/git/megatools/tree/LICENSE)
-# Version: 1.11.0
+# Version: 1.11.1
 # Notes:
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set version = '1.11.0' %}
-{% set date = '20220519' %}
-{% set hash = '3588d85606fec96c7477eafaf154695161025e29fa6bdcfdf827a14b3f1d4501' %}
+{% set version = '1.11.1' %}
+{% set date = '20230212' %}
+{% set hash = 'FD3FFB6330C89783A37DF0B349EDC95C8018E919680A6AD518D27D4FA789954F' %}
 
 megatools-download:
   file.managed:

@@ -80,6 +80,7 @@ include:
   - winfor.standalones.network-miner
   - winfor.standalones.pev
   - winfor.standalones.exiftoolgui
+  - winfor.standalones.mimikatz
 
 standalones-states:
   test.nop:
@@ -165,3 +166,4 @@ standalones-states:
       - sls: winfor.standalones.network-miner
       - sls: winfor.standalones.pev
       - sls: winfor.standalones.exiftoolgui
+      - sls: winfor.standalones.mimikatz
