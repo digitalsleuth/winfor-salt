@@ -4,14 +4,14 @@
 # Category: Windows Analysis
 # Author: Nir Sofer
 # License: 
-# Version: 1.23.65
+# Version: 1.23.70
 # Notes: 
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set version = '1.23.65' %}
-{% set hash = 'e89d352d37940b7dbd9dbb8503a4526e50c0ae82f38ac639527283925951d597' %}
+{% set version = '1.23.70' %}
+{% set hash = '7120472b45946148fc7fbfa1cb3aabb77e86c85b0b0235814093d314857a79ef' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
-{% set nlps = ['eztools.nlp', 'mitec.nlp', 'sysinternals5.nlp'] %}
+{% set nlps = ['eztools.nlp', 'mitec.nlp', 'sysinternals6.nlp'] %}
 
 include:
   - winfor.packages.7zip
