@@ -4,10 +4,10 @@
 # Category: Installers
 # Author: ExtremeCoders-RE
 # License: GNU General Public License v3.0 (https://github.com/extremecoders-re/pyinstxtractor/blob/master/LICENSE)
-# Version: 2022.11
+# Version: 2023.02
 # Notes: 
 
-{% set hash = 'fe8e2a60aac05d1d7f50c0ef941dd223aa2551591227d7d766689afb020be7b3' %}
+{% set hash = 'f507cf5796360183af173ef3e484d8596e2f1f899a2931440034c7d4361fe2cf' %}
 
 include:
   - winfor.packages.python3
