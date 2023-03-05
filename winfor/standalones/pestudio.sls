@@ -9,7 +9,7 @@
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
-{% set hash = '93c9ccb715de39370070656d3b1959f01dd4dc16acbb0ad9a6a3cff32c1bcb00	' %}
+{% set hash = '93c9ccb715de39370070656d3b1959f01dd4dc16acbb0ad9a6a3cff32c1bcb00' %}
 
 pestudio-download:
   file.managed:
