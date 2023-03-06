@@ -1,4 +1,5 @@
 {% set user = salt['pillar.get']('winfor_user', 'forensics') %}
+{% set release = grains['osrelease'] %}
 {% set all_users = salt['user.list_users']() %}
 {% if user in all_users %}
   {% set home = salt['user.info'](user).home %}
@@ -156,3 +157,12 @@ portals-auto-run:
     - vdata: 'C:\Program Files\Portals\Portals.exe'
     - require:
       - sls: winfor.packages.portals
+
+{% if release == '11' %}
+move-start-menu-left:
+  reg.present:
+    - name: HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced
+    - vname: TaskbarAl
+    - vtype: REG_DWORD
+    - vdata: 0
+{% endif %}

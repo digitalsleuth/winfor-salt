@@ -1,7 +1,7 @@
 ##########
 # Win 10 / Server 2016 / Server 2019 Initial Setup Script - Tweak library
 # Author: Disassembler <disassembler@dasm.cz> and Digital Sleuth
-# Version: v3.11, 2022-03-01
+# Version: v3.12, 2023-03-06
 # Source: https://github.com/digitalsleuth/Win10-Initial-Setup-Script
 # Original Source: https://github.com/Disassembler0/Win10-Initial-Setup-Script
 ##########

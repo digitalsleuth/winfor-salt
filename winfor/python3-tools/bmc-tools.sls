@@ -4,10 +4,10 @@
 # Category: Windows Analysis
 # Author: ANSSI-FR
 # License: CeCILL Free Software License Agreement v2.1 (https://github.com/ANSSI-FR/bmc-tools/blob/master/LICENCE.txt)
-# Version: 3.00
+# Version: 3.02
 # Notes:
 
-{% set hash = '6FF3C428B36E236D0EF621B02FDF25564D0B36BFEEC1FEB55AED243534FD8A6F' %}
+{% set hash = '55375561B0AA17C4EAACBC9DD4D05A187573188572479FB77CD83AA7D36B12C3' %}
 
 bmc-tools-download:
   file.managed:

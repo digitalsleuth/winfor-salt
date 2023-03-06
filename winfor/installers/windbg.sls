@@ -12,10 +12,15 @@
 {% set PROGRAM_FILES = salt['environ.get']('PROGRAMFILES') %}
 {% set WINDIR = salt['environ.get']('WINDIR') %}
 
+include:
+  - winfor.installers.windows-winget
+
 windbg-install:
   cmd.run:
     - name: 'winget install windbg --accept-source-agreements --accept-package-agreements'
     - shell: cmd
+    - require:
+      - sls: winfor.installers.windows-winget
 
 windbg-shortcut:
   file.shortcut:

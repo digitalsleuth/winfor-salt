@@ -4,14 +4,14 @@
 # Category: Raw Parsers / Decoders
 # Author: Ulf Frisk
 # License: GNU Affero GPL v3.0 - https://github.com/ufrisk/MemProcFS/blob/master/LICENSE
-# Version: 5.3.1
+# Version: 5.4.0
 # Notes: 
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set short = '5.3' %}
-{% set version = '5.3.1' %}
-{% set date = '20230205' %}
-{% set hash = '273a7f8fafa722e59f10ed58a5a3df289f413aabb267019bd9192cc65f947d5c' %}
+{% set short = '5.4' %}
+{% set version = '5.4.0' %}
+{% set date = '20230226' %}
+{% set hash = '30D7CAADCFF83BA47FB5D37744570EEDBC52B12EAD08E56EE8CAD59CC38A0374' %}
 
 memprocfs-download:
   file.managed:

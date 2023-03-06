@@ -1,7 +1,7 @@
 ##########
 # Win 10 / Server 2016 / Server 2019 Initial Setup Script - Tweak library
 # Author: Disassembler <disassembler@dasm.cz> and Digital Sleuth (github.com/digitalsleuth)
-# Version: v3.11, 2022-03-01
+# Version: v3.12, 2023-03-06
 # Source: https://github.com/digitalsleuth/Win10-Initial-Setup-Script
 # Original Source: https://github.com/Disassembler0/Win10-Initial-Setup-Script
 ##########
@@ -15,6 +15,7 @@
 # Windows Update control panel may show message "Your device is at risk because it's out of date and missing important security and quality updates. Let's get you back on track so Windows can run more securely. Select this button to get going".
 # In such case, enable telemetry, run Windows update and then disable telemetry again.
 # See also https://github.com/Disassembler0/Win10-Initial-Setup-Script/issues/57 and https://github.com/Disassembler0/Win10-Initial-Setup-Script/issues/92
+
 Function DisableTelemetry {
 	Write-Output "Disabling Telemetry..."
 	Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" -Name "AllowTelemetry" -Type DWord -Value 0
@@ -2484,6 +2485,30 @@ Function DisableMeetNow {
         Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" -Name "HideSCAMeetNow" -Type DWord -Value 1
 }
 
+# Enable the Widgets / Web Experience in the Windows 11 Taskbar
+Function EnableWidgets {
+        Write-Output "Enabling Widgets"
+        Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "TaskbarDa" -Type DWord -Value 1
+}
+
+# Disable the Widgets / Web Experience in the Windows 11 Taskbar
+Function DisableWidgets {
+        Write-Output "Disabling Widgets"
+        Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "TaskbarDa" -Type DWord -Value 0
+}
+
+# Hide the Taskbar Chat icon
+Function HideTaskbarChatIcon {
+        Write-Output "Hiding Taskbar Chat Icon"
+        Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "TaskbarMn" -Type DWord -Value 0
+}
+
+# Show the Taskbar Chat icon
+Function ShowTaskbarChatIcon {
+        Write-Output "Showing Taskbar Chat Icon"
+        Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "TaskbarMn" -Type DWord -Value 1
+}
+
 ##########
 #endregion UI Tweaks
 ##########
@@ -3494,7 +3519,7 @@ Function DisableXboxFeatures {
 	Get-AppxPackage "Microsoft.XboxIdentityProvider" | Remove-AppxPackage -ErrorAction SilentlyContinue
 	Get-AppxPackage "Microsoft.XboxSpeechToTextOverlay" | Remove-AppxPackage
 	Get-AppxPackage "Microsoft.XboxGameOverlay" | Remove-AppxPackage
-	# Get-AppxPackage "Microsoft.XboxGamingOverlay" | Remove-AppxPackage - This seems to be causing an issue on later versions of Windows - will troubleshoot and resolve
+	Get-AppxPackage "Microsoft.XboxGamingOverlay" | Remove-AppxPackage
 	Get-AppxPackage "Microsoft.Xbox.TCUI" | Remove-AppxPackage
 	Set-ItemProperty -Path "HKCU:\Software\Microsoft\GameBar" -Name "AutoGameModeEnabled" -Type DWord -Value 0
 	Set-ItemProperty -Path "HKCU:\System\GameConfigStore" -Name "GameDVR_Enabled" -Type DWord -Value 0
@@ -3964,6 +3989,19 @@ Function InstallFaxAndScan {
 	Write-Output "Installing Windows Fax and Scan Services..."
 	Get-WindowsOptionalFeature -Online | Where-Object { $_.FeatureName -eq "FaxServicesClientPackage" } | Enable-WindowsOptionalFeature -Online -NoRestart -WarningAction SilentlyContinue | Out-Null
 	Get-WindowsCapability -Online | Where-Object { $_.Name -like "Print.Fax.Scan*" } | Add-WindowsCapability -Online | Out-Null
+}
+
+# Disable Web Search in Start Menu
+Function DisableNewsAndInterests {
+	Write-Output "Disabling News and Interests in Taskbar..."
+	Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Feeds" -Name "ShellFeedsTaskbarViewMode" -Type DWord -Value 2
+}
+
+# Enable Web Search in Start Menu
+# Restart explorer to take effect
+Function EnableNewsAndInterests {
+	Write-Output "Enabling News and Interests in Taskbar..."
+	Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Feeds" -Name "ShellFeedsTaskbarViewMode" -Type DWord -Value 0
 }
 
 ##########
