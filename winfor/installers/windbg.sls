@@ -11,16 +11,26 @@
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set PROGRAM_FILES = salt['environ.get']('PROGRAMFILES') %}
 {% set WINDIR = salt['environ.get']('WINDIR') %}
+{% set LOCALAPPDATA = salt['environ.get']('LOCALAPPDATA') %}
+{% set WINGET = LOCALAPPDATA + "\\Microsoft\\WindowsApps\\winget.exe" %}
 
 include:
   - winfor.installers.windows-winget
 
-windbg-install:
+windbg-uninstall:
   cmd.run:
-    - name: 'winget install windbg --accept-source-agreements --accept-package-agreements'
+    - name: '{{ WINGET }} uninstall windbg'
     - shell: cmd
     - require:
       - sls: winfor.installers.windows-winget
+
+windbg-install:
+  cmd.run:
+    - name: '{{ WINGET }} install windbg --accept-source-agreements --accept-package-agreements'
+    - shell: cmd
+    - require:
+      - sls: winfor.installers.windows-winget
+      - cmd: windbg-uninstall
 
 windbg-shortcut:
   file.shortcut:
