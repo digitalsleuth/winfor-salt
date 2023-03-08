@@ -27,7 +27,7 @@ cerdapelta-extract:
 
 cerdapelta-folder-move:
   file.rename:
-    - name: '{{ inpath }}\kape'
+    - name: '{{ inpath }}\cerdapelta'
     - source: 'C:\salt\tempdownload\LiveResponseCollection-Cedarpelta\'
     - force: True
     - makedirs: True
