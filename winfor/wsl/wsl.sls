@@ -30,12 +30,29 @@ vmp-install:
     - restart: False
     - enable_parent: True
 
+powershell-execution-policy:
+  reg.present:
+    - name: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PowerShell\1\ShellIds\Microsoft.PowerShell
+    - vname: ExecutionPolicy
+    - vtype: REG_SZ
+    - vdata: Bypass
+
+powershell-execution-policy-path:
+  reg.present:
+    - name: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PowerShell\1\ShellIds\Microsoft.PowerShell
+    - vname: Path
+    - vtype: REG_SZ
+    - vdata: 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe'
+
 wsl-config-stager:
   file.managed:
     - name: 'C:\salt\tempdownload\wsl-config.cmd'
     - source: salt://winfor/wsl/wsl-config.cmd
     - win_inheritance: True
     - makedirs: True
+    - require:
+      - reg: powershell-execution-policy
+      - reg: powershell-execution-policy-path
 
 wsl-config-stager-customize:
   file.replace:
