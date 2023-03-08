@@ -38,7 +38,7 @@ cerdapelta-env-vars:
   win_path.exists:
     - name: '{{ inpath }}\LiveResponseCollection-Cedarpelta\'
 
-standalones-gkape-shortcut:
+standalones-cerdapelta-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\Cerdapelta.lnk'
     - target: '{{ inpath }}\LiveResponseCollection-Cedarpelta\Windows_Live_Response\Windows Live Response Collection.exe'
