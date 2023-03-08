@@ -19,7 +19,7 @@ include:
 
 windbg-uninstall:
   cmd.run:
-    - name: '{{ WINGET }} uninstall windbg'
+    - name: '{{ WINGET }} uninstall windbg --accept-source-agreements'
     - shell: cmd
     - require:
       - sls: winfor.installers.windows-winget
