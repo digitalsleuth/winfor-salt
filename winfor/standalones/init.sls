@@ -82,6 +82,7 @@ include:
   - winfor.standalones.exiftoolgui
   - winfor.standalones.mimikatz
   - winfor.standalones.lrc-cedarpelta
+  - winfor.standalones.aurora
 
 standalones-states:
   test.nop:
@@ -169,3 +170,4 @@ standalones-states:
       - sls: winfor.standalones.exiftoolgui
       - sls: winfor.standalones.mimikatz
       - sls: winfor.standalones.lrc-cedarpelta
+      - sls: winfor.standalones.aurora
