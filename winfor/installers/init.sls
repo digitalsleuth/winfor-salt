@@ -5,7 +5,7 @@ include:
   - winfor.installers.hxd
   - winfor.installers.cygwin
   - winfor.installers.windows-sandbox
-  - winfor.installers.redline
+#  - winfor.installers.redline No longer available online, reviewing other options
   - winfor.installers.vbdecompiler
   - winfor.installers.systools-pst-viewer
   - winfor.installers.irfanview-plugins
@@ -24,7 +24,7 @@ installer-states:
       - sls: winfor.installers.hxd
       - sls: winfor.installers.cygwin
       - sls: winfor.installers.windows-sandbox
-      - sls: winfor.installers.redline
+#      - sls: winfor.installers.redline
       - sls: winfor.installers.vbdecompiler
       - sls: winfor.installers.systools-pst-viewer
       - sls: winfor.installers.irfanview-plugins

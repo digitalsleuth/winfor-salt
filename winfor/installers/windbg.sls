@@ -17,20 +17,17 @@
 include:
   - winfor.installers.windows-winget
 
-windbg-uninstall:
-  cmd.run:
-    - name: '{{ WINGET }} uninstall windbg --accept-source-agreements'
-    - shell: cmd
-    - require:
-      - sls: winfor.installers.windows-winget
-
 windbg-install:
   cmd.run:
-    - name: '{{ WINGET }} install windbg --accept-source-agreements --accept-package-agreements'
-    - shell: cmd
+    - name: $installWindbg = ({{ WINGET }} install windbg --accept-source-agreements --accept-package-agreements)
+    - shell: powershell
+    - unless:
+      - fun: cmd.run
+        cmd: $isInstalled = ({{ WINGET }} uninstall windbg --accept-source-agreements); if ($LASTEXITCODE -ne 0) {exit 0}
+        shell: powershell
+        python_shell: True
     - require:
       - sls: winfor.installers.windows-winget
-      - cmd: windbg-uninstall
 
 windbg-shortcut:
   file.shortcut:

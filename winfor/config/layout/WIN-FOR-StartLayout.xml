@@ -131,6 +131,7 @@
           <start:DesktopApplicationTile Size="1x1" Column="0" Row="0" DesktopApplicationID="{6D809377-6AF0-444B-8957-A3773F02200E}\PuTTY\psftp.exe" />
           <start:DesktopApplicationTile Size="1x1" Column="1" Row="0" DesktopApplicationID="{6D809377-6AF0-444B-8957-A3773F02200E}\PuTTY\puttygen.exe" />
           <start:DesktopApplicationTile Size="1x1" Column="2" Row="0" DesktopApplicationID="SimonTatham.PuTTY" />
+          <start:DesktopApplicationTile Size="1x1" Column="2" Row="1" DesktopApplicationID="PLACEHOLDER_PATH\aurora\Aurora.exe" />
         </start:Group>
         <start:Group Name="Windows Analysis">
           <start:DesktopApplicationTile Size="1x1" Column="0" Row="0" DesktopApplicationID="PLACEHOLDER_PATH\zimmerman\net6\JumpListExplorer\JumpListExplorer.exe" />
@@ -144,6 +145,7 @@
           <start:DesktopApplicationTile Size="1x1" Column="2" Row="1" DesktopApplicationID="PLACEHOLDER_PATH\zimmerman\net6\TimelineExplorer\TimelineExplorer.exe" />
           <start:DesktopApplicationTile Size="1x1" Column="3" Row="1" DesktopApplicationID="PLACEHOLDER_PATH\nirsoft\NirLauncher.exe" />
           <start:DesktopApplicationTile Size="1x1" Column="4" Row="1" DesktopApplicationID="PLACEHOLDER_PATH\shadowexplorer\ShadowExplorerPortable.exe" />
+          <start:DesktopApplicationTile Size="1x1" Column="5" Row="1" DesktopApplicationID="PLACEHOLDER_PATH\lrc-cedarpelta\Windows_Live_Response\Windows Live Response Collection.exe" />
         </start:Group>
       </defaultlayout:StartLayout>
     </StartLayoutCollection>
