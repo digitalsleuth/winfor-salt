@@ -4,7 +4,7 @@
 # Category: Documents / Editors
 # Author: LibreOffice
 # License: Mozilla Public License (https://www.libreoffice.org/download/license/)
-# Version: 7.4.3
+# Version: 7.5.2
 # Notes: 
 
 libreoffice:

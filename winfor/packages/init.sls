@@ -13,7 +13,7 @@ include:
   - winfor.packages.bulk-extractor
   - winfor.packages.vs-community-2022
   - winfor.packages.vcxsrv
-#  - winfor.packages.libreoffice  Temporarily disabled until download location comes back online
+  - winfor.packages.libreoffice
   - winfor.packages.npp
   - winfor.packages.adobereader
   - winfor.packages.python3
@@ -75,7 +75,7 @@ package-states:
       - sls: winfor.packages.bulk-extractor
       - sls: winfor.packages.vs-community-2022
       - sls: winfor.packages.vcxsrv
-#      - sls: winfor.packages.libreoffice
+      - sls: winfor.packages.libreoffice
       - sls: winfor.packages.npp
       - sls: winfor.packages.adobereader
       - sls: winfor.packages.python3
