@@ -4,7 +4,7 @@
 # Category: Email
 # Author: PST Walker
 # License: GNU General Public License (GPL) (https://www.pstwalker.com/licensing-policy.html)
-# Version: 7.04
+# Version: 7.06
 # Notes:
 
 pst-walker:
