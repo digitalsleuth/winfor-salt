@@ -13,7 +13,7 @@
 bintext-download:
   file.managed:
     - name: 'C:\salt\tempdownload\bintext303.zip'
-    - source: http://b2b-download.mcafee.com/products/tools/foundstone/bintext303.zip
+    - source: salt://winfor/files/bintext303.zip
     - source_hash: sha256=eb1f2cdd3b8dea931b2fcc13a6ee4c4daad26826fa7db26f9e4f82e7f7b26743
     - makedirs: True
 

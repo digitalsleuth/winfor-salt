@@ -57,6 +57,7 @@ include:
   - winfor.packages.eventlog-explorer
   - winfor.packages.ksdumper11
   - winfor.packages.monolith-notes
+  - winfor.packages.nuix-evidence-mover
 
 package-states:
   test.nop:
@@ -119,3 +120,4 @@ package-states:
       - sls: winfor.packages.eventlog-explorer
       - sls: winfor.packages.ksdumper11
       - sls: winfor.packages.monolith-notes
+      - sls: winfor.packages.nuix-evidence-mover

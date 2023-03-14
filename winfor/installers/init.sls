@@ -10,7 +10,6 @@ include:
   - winfor.installers.systools-pst-viewer
   - winfor.installers.irfanview-plugins
   - winfor.installers.magnet-axiom
-  - winfor.installers.nuix-evidence-mover
   - winfor.installers.fastcopy
   - winfor.installers.windows-terminal
   - winfor.installers.windbg
@@ -29,7 +28,6 @@ installer-states:
       - sls: winfor.installers.systools-pst-viewer
       - sls: winfor.installers.irfanview-plugins
       - sls: winfor.installers.magnet-axiom
-      - sls: winfor.installers.nuix-evidence-mover
       - sls: winfor.installers.fastcopy
       - sls: winfor.installers.windows-terminal
       - sls: winfor.installers.windbg

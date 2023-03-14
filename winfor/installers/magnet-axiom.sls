@@ -4,12 +4,12 @@
 # Category: Acquisition and Analysis
 # Author: Jad Saliba - Magnet Forensics
 # License: EULA
-# Version: 6.8.0.33717
+# Version: 6.11.0.34807
 # Notes:
 
-{% set dot_version = '6.8.0.33717' %}
-{% set file_version = '680.33717' %}
-{% set hash = 'f8d6754b2aaffccabfa769866b5b6c621851cb1763abd85e23ef6e7af36f20af' %}
+{% set dot_version = '6.11.0.34807' %}
+{% set file_version = '6110.34807' %}
+{% set hash = '55a130bf3290bb77f58160eeabc4e92df3a140894855c4f1e5b0dc11253b4540' %}
 
 magnet-axiom-download:
   file.managed:

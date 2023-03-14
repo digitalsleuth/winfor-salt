@@ -4,12 +4,12 @@
 # Category: Executables
 # Author: Duncan Ogilvie (mrexodia)
 # License: GNU General Public License v3 (https://github.com/x64dbg/x64dbg/blob/development/LICENSE)
-# Version: 2022-12-02_11-56
+# Version: 2023-03-04_02-26
 # Notes: 
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set version = '2022-12-02_11-56' %}
-{% set hash = '87326F2315D767264F34ACC4FE11B2E7BE1FCAAAC5A77D16C677552753108E77' %}
+{% set version = '2023-03-04_02-26' %}
+{% set hash = '68d260e26300b289bba4f87c3c2774709e7d04b9906837b87833ef0b32035dbb' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 x64dbg-download:
