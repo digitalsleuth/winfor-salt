@@ -9,6 +9,9 @@
 
 {% set hash = '55375561B0AA17C4EAACBC9DD4D05A187573188572479FB77CD83AA7D36B12C3' %}
 
+include:
+  - winfor.packages.python3
+
 bmc-tools-download:
   file.managed:
     - name: 'C:\Program Files\Python310\Scripts\bmc-tools.py'
@@ -24,6 +27,7 @@ bmc-tools-env:
     - count: 1
     - require:
       - file: bmc-tools-download
+      - sls: winfor.packages.python3
 
 bmc-tools-wrapper:
   file.managed:

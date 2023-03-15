@@ -11,6 +11,7 @@
 
 include:
   - winfor.packages.git
+  - winfor.packages.python3
 
 noriben-clone:
   git.latest:
@@ -28,6 +29,7 @@ noriben-header:
     - text: '#!/usr/bin/python3'
     - require:
       - git: noriben-clone
+      - sls: winfor.packages.python3
 
 noriben-env-vars:
   win_path.exists:

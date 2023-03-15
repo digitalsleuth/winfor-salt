@@ -9,6 +9,7 @@
 
 include:
   - winfor.packages.git
+  - winfor.packages.python2
   - winfor.packages.ms-vcpp-2015-build-tools
 
 flare-fakenet-ng:

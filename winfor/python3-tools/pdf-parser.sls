@@ -4,7 +4,7 @@
 # Category: Documents / Editors
 # Author: Didier Stevens
 # License: Public Domain
-# Version: 0.7.7
+# Version: 0.7.8
 # Notes: 
 
 include:
@@ -14,7 +14,7 @@ pdf-parser-download:
   file.managed:
     - name: 'C:\Program Files\Python310\Scripts\pdf-parser.py'
     - source: https://github.com/DidierStevens/DidierStevensSuite/raw/master/pdf-parser.py
-    - source_hash: sha256=15bcd120bd4622b1a388d3d6f18c1c3b960484807d6a18a8c50082bc6a523663
+    - source_hash: sha256=b20edd06f50d20a0053a721f6717f52d92db2eb022d030dd93000eb3a3e108e3
     - makedirs: True
     - require:
       - sls: winfor.packages.python3

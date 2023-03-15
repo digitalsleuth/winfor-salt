@@ -11,6 +11,7 @@
 
 include:
   - winfor.packages.git
+  - winfor.packages.python3
 
 bitsparser-clone:
   git.latest:
@@ -28,6 +29,7 @@ bitsparser-requirements:
     - bin_env: 'C:\Program Files\Python310\python.exe'
     - require:
       - git: bitsparser-clone
+      - sls: winfor.packages.python3
 
 bitsparser-setup:
   win_path.exists:

@@ -10,6 +10,7 @@
 {% set hash = 'e4807cb89dcb71a4bb95364f314131511aeea65b49f1f378b6b64dca98a1806c' %}
 
 include:
+  - winfor.packages.python3
   - winfor.standalones.sleuthkit
   - winfor.python2-tools.volatility2
 
