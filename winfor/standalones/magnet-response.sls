@@ -1,7 +1,7 @@
 # Name: MagnetResponse
 # Website: https://magnetforensics.com
 # Description: Tool to collect data relevant to incident response investigations
-# Category: Utilities
+# Category: Windows Analysis
 # Author: Magnet Forensics
 # License: EULA
 # Version: v150
