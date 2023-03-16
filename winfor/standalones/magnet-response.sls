@@ -9,7 +9,7 @@
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set hash = '1E85425B325AEB60DCF954A7F35A156E8F2FFF28907FDB36B456CF00381A21A1' %}
-{% set version = 'V150' %}
+{% set version = 'v150' %}
 
 magnet-response-download:
   file.managed:
