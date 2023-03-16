@@ -1,7 +1,7 @@
 # Name: winpmem
 # Website: https://github.com/velocidex/WinPmem
 # Description: Memory Acquisition Tool
-# Category: Windows Analysis
+# Category: Acquisition and Analysis
 # Author: Mike Cohen (scudette)
 # License: Apache License v2 (https://github.com/Velocidex/WinPmem/blob/master/LICENSE)
 # Version: 4.0.rc2

@@ -1,7 +1,7 @@
-# Name: MagnetRamCapture (MRC)
+# Name: Magnet RAM Capture (MRC)
 # Website: https://magnetforensics.com
 # Description: Windows memory capture utility
-# Category: Windows Analysis
+# Category: Acquisition and Analysis
 # Author: Magnet Forensics
 # License: EULA
 # Version: 1.2.0

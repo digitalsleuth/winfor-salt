@@ -1,7 +1,7 @@
 # Name: Pilfer
 # Website: https://github.com/digitalsleuth/forensics_tools
 # Description: Rapid triage tool using Windows in-built binaries
-# Category: Windows Analysis
+# Category: Acquisition and Analysis
 # Author: Corey Forman (digitalsleuth)
 # License: GNU General Public License v3 (https://github.com/digitalsleuth/forensics_tools/blob/master/LICENSE)
 # Version: 2.4

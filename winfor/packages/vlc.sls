@@ -4,7 +4,7 @@
 # Category: Utilities
 # Author: VideoLAN
 # License: GNU General Public License v2 (https://www.videolan.org/legal.html)
-# Version: 3.0.17.4
+# Version: 3.0.18
 # Notes: 
 
 vlc:

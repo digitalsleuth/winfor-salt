@@ -83,6 +83,7 @@ include:
   - winfor.standalones.mimikatz
   - winfor.standalones.lrc-cedarpelta
   - winfor.standalones.aurora
+  - winfor.standalones.magnet-response
 
 standalones-states:
   test.nop:
@@ -171,3 +172,4 @@ standalones-states:
       - sls: winfor.standalones.mimikatz
       - sls: winfor.standalones.lrc-cedarpelta
       - sls: winfor.standalones.aurora
+      - sls: winfor.standalones.magnet-response
