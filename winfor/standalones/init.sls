@@ -84,6 +84,7 @@ include:
   - winfor.standalones.lrc-cedarpelta
   - winfor.standalones.aurora
   - winfor.standalones.magnet-response
+  - winfor.standanlone.hayabusa
 
 standalones-states:
   test.nop:
@@ -173,3 +174,4 @@ standalones-states:
       - sls: winfor.standalones.lrc-cedarpelta
       - sls: winfor.standalones.aurora
       - sls: winfor.standalones.magnet-response
+      - sls: winfor.standalone.hayabusa
