@@ -47,4 +47,3 @@ standalones-scdbg-shortcut:
     - makedirs: True
     - require:
       - file: scdbg-download
-      - archive: scdbg-extract
