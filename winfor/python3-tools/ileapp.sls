@@ -13,6 +13,7 @@
 include:
   - winfor.packages.python3
   - winfor.packages.git
+  - winfor.packages.ms-vcpp-2015-build-tools
 
 winfor-python3-ileapp-source:
   git.latest:
@@ -32,6 +33,7 @@ winfor-python3-ileapp-requirements:
     - require:
       - git: winfor-python3-ileapp-source
       - sls: winfor.packages.python3
+      - sls: winfor.packages.ms-vcpp-2015-build-tools
 
 winfor-python3-ileapp-header:
   file.prepend:
