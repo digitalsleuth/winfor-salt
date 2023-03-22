@@ -9,12 +9,13 @@
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set hash = '71971E63E3420F69A2B6055F90EB7EB64C8496423FE073741D159ABAC04E08A5' %}
 
 usbdetective-download:
   file.managed:
     - name: 'C:\salt\tempdownload\USBDetective.zip'
     - source: "https://usbdetective.com/download/245/"
-    - source_hash: sha256=71971E63E3420F69A2B6055F90EB7EB64C8496423FE073741D159ABAC04E08A5
+    - source_hash: sha256={{ hash }}
     - makedirs: True
 
 usbdetective-extract:

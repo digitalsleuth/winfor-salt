@@ -14,7 +14,7 @@
 
 smi-parser-download:
   file.managed:
-    - name: 'C:\standalone\smi-parser\smi-parser.exe'
+    - name: '{{ inpath }}\smi-parser\smi-parser.exe'
     - source: https://github.com/digitalsleuth/smi-parser/releases/download/v{{ version }}/smi-parser.exe 
     - source_hash: sha256={{ hash }}
     - makedirs: True
