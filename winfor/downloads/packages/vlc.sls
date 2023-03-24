@@ -13,7 +13,7 @@
 
 vlc-download-only:
   file.managed:
-    - name: '{{ downloads }}\vlc-{{ version }}-win64.exe
+    - name: '{{ downloads }}\vlc-{{ version }}-win64.exe'
     - source: https://get.videolan.org/vlc/{{ version }}/win64/vlc-{{ version }}-win64.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True
