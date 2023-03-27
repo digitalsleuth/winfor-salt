@@ -12,6 +12,9 @@
 {% set hash = 'c1bae838ab7759dbccac5fe44827f770bdaec4009c190e4edc218beb8f3d637c' %}
 {% set case_folders = ['Evidence', 'Export', 'Temp', 'Xways'] %}
 {% set portals_configs = ['portals.ptl','globalsettings.ptl'] %}
+{% set xwver = '207' %}
+{% set zips = ['FTK-Imager-4-7-1-2-portable.zip', 'FTK-Imager-3-2-0-0-portable.zip', 'searchkit.zip'] %}
+{% set folders = ['PE01', 'PE03', 'PE04', 'PE05', 'PE06', 'PE07'] %}
 {% set shortcuts = [('Acquisition and Analysis', ['FTK Imager','Active@ Disk Editor\Active@ Disk Editor','Arsenal Image Mounter','Autopsy\Autopsy 4.20.0','Magnet AXIOM\AXIOM Examine','Magnet AXIOM\AXIOM Process','gkape','Magnet ACQUIRE\Magnet ACQUIRE','Redline\Redline','Tableau\Tableau Imager\Tableau Imager','VeraCrypt 1.25.9\VeraCrypt','X-Ways']),
                     ('Browsers', ['Firefox','Google Chrome','Google Earth Pro','Microsoft Edge']),
                     ('Databases', ['ADOQuery','DataEdit','DB Browser (SQLCipher)','DB Browser (SQLite)','DBeaver Community\DBeaver','SDBExplorer','SQLiteQuery','SQLiteStudio\SQLiteStudio']),
@@ -114,7 +117,7 @@ cpcwin-portals-end-process:
 cpcwin-portals-{{ config }}-copy:
   file.managed:
     - name: '{{ home }}\AppData\Local\Portals\{{ config }}'
-    - source: salt://winfor/files/{{ config }}
+    - source: salt://winfor/theme/cpcwin/{{ config }}
     - makedirs: True
     - replace: True
     - require:
@@ -146,4 +149,114 @@ cpcwin-move-start-menu-left:
     - vname: TaskbarAl
     - vtype: REG_DWORD
     - vdata: 0
+{% endif %}
+{% for zip in zips %}
+{{ zip }}-zip-copy:
+  file.managed:
+    - name: 'C:\salt\tempdownload\{{ zip }}'
+    - source: salt://winfor/files/{{ zip }}
+    - makedirs: True
+
+{{ zip }}-zip-extract:
+  archive.extracted:
+    - name: 'C:\SEARCHKIT_USB\'
+    - source: 'C:\salt\tempdownload\{{ zip }}'
+    - enforce_toplevel: False
+    - require:
+      - file: {{ zip }}-zip-copy
+
+{% endfor %}
+{% for folder in folders %}
+
+searchkit-{{ folder }}-folder:
+  file.directory:
+    - name: 'C:\SEARCHKIT_USB\Evidence\{{ folder }}\'
+    - makedirs: True
+    - replace: True
+    - win_inheritance: True
+
+{% endfor %}
+{% if salt['file.directory_exists']('C:\\xwf') %}
+
+xways-file-type-categories-user:
+  file.managed:
+    - name: 'C:\xwf\File Type Categories User.txt'
+    - source: salt://winfor/files/File_Type_Categories_User.txt
+    - skip_verify: True
+
+xways-folder-copy:
+  file.copy:
+    - name: 'C:\CASE_FOLDER_STRUCTURE\X-Ways{{ xwver }}'
+    - source: 'C:\xwf'
+    - preserve: True
+    - subdir: True
+    - require:
+      - file: xways-file-type-categories-user
+{% endif %}
+
+{% if grains['osrelease'] == "11" %}
+
+CPC Skipping Start Layout on Windows 11:
+  test.nop
+
+{% else %}
+
+cpc-start-layout-file:
+  file.managed:
+    - name: '{{ inpath }}\CPC-WIN-StartLayout.xml'
+    - source: salt://winfor/config/layout/cpcwin/CPC-WIN-StartLayout.xml
+    - win_inheritance: True
+    - makedirs: True
+
+cpc-start-layout-replace-placeholder:
+  file.replace:
+    - name: '{{ inpath }}\CPC-WIN-StartLayout.xml'
+    - pattern: PLACEHOLDER_PATH
+    - repl: {{ inpath | regex_escape }}
+    - require:
+      - file: cpc-start-layout-file
+
+cpc-start-layout-enable-gpo:
+  lgpo.set:
+    - user_policy:
+        "Start Menu and Taskbar\\Start Layout":
+          "Start Layout File":
+             '{{ inpath }}\CPC-WIN-StartLayout.xml'
+    - computer_policy:
+        "Start Menu and Taskbar\\Start Layout":
+          "Start Layout File":
+             '{{ inpath }}\CPC-WIN-StartLayout.xml'
+
+cpc-disable-locked-start-stager:
+  file.managed:
+    - name: '{{ inpath }}\disable-locked-start.cmd'
+    - source: salt://winfor/config/layout/cpcwin/disable-locked-start.cmd
+    - win_inheritance: True
+    - makedirs: True
+
+cpc-disable-locked-start-layout-on-reboot-hkcu:
+  reg.present:
+    - name: HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce
+    - vname: "Disable Locked Start Layout"
+    - vtype: REG_SZ
+    - vdata: 'C:\Windows\system32\cmd.exe /q /c {{ inpath }}\disable-locked-start.cmd'
+    - require:
+      - lgpo: cpc-start-layout-enable-gpo
+      - file: cpc-disable-locked-start-stager
+
+cpc-disable-locked-start-layout-on-reboot-hklm:
+  reg.present:
+    - name: HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce
+    - vname: "Disable Locked Start Layout"
+    - vtype: REG_SZ
+    - vdata: 'C:\Windows\system32\cmd.exe /q /c {{ inpath }}\disable-locked-start.cmd'
+    - require:
+      - lgpo: cpc-start-layout-enable-gpo
+      - file: cpc-disable-locked-start-stager
+
+cpc-restart-explorer:
+  cmd.run:
+    - name: 'Stop-Process -ProcessName "explorer" -Confirm:$false -ErrorAction SilentlyContinue -Force'
+    - shell: powershell
+
 {% endif %}

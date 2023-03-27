@@ -34,6 +34,26 @@ exiftool-rename:
     - require:
       - archive: exiftool-extract
 
+exiftool-kml-fmt:
+  file.managed:
+    - name: '{{ inpath }}\exiftool\kml.fmt'
+    - source: salt://winfor/files/kml.fmt
+    - makedirs: True
+
+exiftool-kml-batch:
+  file.managed:
+    - name: '{{ inpath }}\exiftool\exif_kml.bat'
+    - source: salt://winfor/files/exif_kml.bat
+    - makedirs: True
+
+exiftool-kml-batch-placeholder:
+  file.replace:
+    - name: '{{ inpath }}\exiftool\exif_kml.bat'
+    - pattern: PLACEHOLDER_PATH
+    - repl: {{ inpath | regex_escape }}
+    - require:
+      - file: exiftool-kml-batch
+
 exiftool-env-vars:
   win_path.exists:
     - name: '{{ inpath }}\exiftool\'

@@ -1,0 +1,152 @@
+[General]
+SoftwareCount=14
+GroupCount=3
+Name=CMPFOR Tools
+
+[Group0]
+name=Command-Line Utilities
+
+[Group1]
+name=GUI Utilities
+
+[Group2]
+name=All Utilities
+ShowAll=1
+
+[Software0]
+exe=C:\Program Files\DB Browser for SQLite\DB Browser for SQLite.exe
+url=https://sqlitebrowser.org/
+group=1
+Name=DB Browser for SQLite
+AppName=DB Browser for SQLite
+ShortDesc=Database Browser for SQLite databases
+LongDesc=
+
+[Software1]
+exe=C:\Program Files\LSoft Technologies\Active@ Disk Editor\DiskEditor.exe
+url=https://www.lsoft.net/disk-editor/
+group=1
+Name=Active Disk Editor
+AppName=Active Disk Editor
+ShortDesc=Active@ Disk Editor is an advanced tool for viewing and editing of raw data (sectors) on physical hard disks.
+LongDesc=
+
+[Software2]
+exe=PLACEHOLDER_PATH\arsenal\ArsenalImageMounter.exe
+url=https://arsenalrecon.com/downloads/
+group=1
+Name=Arsenal Image Mounter (Free version)
+AppName=ArsenalImageMounter
+ShortDesc=Powerful Image Mounter, mounts more types of images than FTK.
+LongDesc=Consider buying the Pro Version for advanced features.
+
+[Software3]
+exe=PLACEHOLDER_PATH\hibernation-recon\HibernationRecon.exe
+url=https://arsenalrecon.com/downloads/
+group=1
+Name=Hibernation Recon
+AppName=HibernationRecon
+ShortDesc=Hibernation Recon reconstructs active memory from Windows XP, Vista, 7, 8/8.1, 10, and 11 hibernation files.
+LongDesc=
+
+[Software4]
+exe=PLACEHOLDER_PATH\bitrecover-eml-viewer\bitrecover-eml-viewer.exe
+url=https://www.bitrecover.com/free/eml-viewer/
+group=1
+Name=EML Viewer
+AppName=EMLViewer
+ShortDesc=Free version of bitrecovers EML viewer for viewing emails.
+LongDesc=
+
+[Software5]
+exe=C:\Program Files (x86)\Digital Detective\DCode v5\DCode.exe
+url=https://www.digital-detective.net/dcode/
+group=1
+Name=DCode
+AppName=DCode
+ShortDesc=Tool for decoding time stamps into different formats.
+LongDesc=
+
+[Software6]
+exe=PLACEHOLDER_PATH\ExifTool-KML-Creator\exif_kml.bat
+url=https://www.exiftool.org/
+group=0
+Name=KMLcreator
+AppName=KMLcreator
+ShortDesc=KML creator using EXIF tool. Usually works, sometimes doesnt. Drag folder with images to the popup window.
+LongDesc=
+
+[Software7]
+exe=C:\Program Files\AccessData\FTK Imager\FTK Imager.exe
+url=https://www.exterro.com/ftk-imager
+group=1
+Name=FTK Imager
+AppName=FTKImager
+ShortDesc=FTK Imager 4.7.0.19
+LongDesc=
+
+[Software8]
+exe=PLACEHOLDER_PATH\glossary-generator\GG.exe
+url=
+group=1
+Name=Glossary Generator
+AppName=GlossaryGenerator
+ShortDesc=Glossary Generator by Jad Saliba (Founder of Magnet Forensics)
+LongDesc=
+
+[Software9]
+exe=PLACEHOLDER_PATH\Hex2GUID\HEX2GUID.cmd
+url=
+group=0
+Name=HEX2GUID
+AppName=HEX2GUID
+ShortDesc=Find GPT GUID from HEX found at Physical Offset 56 / 16 bytes of a disk and visa versa.
+LongDesc=
+
+[Software10]
+exe=PLACEHOLDER_PATH\regripper\rr.exe
+url=https://github.com/keydet89/RegRipper3.0
+group=1
+Name=RegRipper
+help=
+AppName=RegRipper
+ShortDesc=Generates report on processed HIVE.
+LongDesc= Does NOT read transation logs, need to feed it clean hive if thats what you want.
+
+[Software11]
+exe=PLACEHOLDER_PATH\usbdetective\USB Detective.exe
+url=https://usbdetective.com/
+group=1
+Name=USBDetective
+AppName=USBDetective
+ShortDesc=USB Detective
+LongDesc=The most thorough tool for analysing forensic artifacts relating to USB devices. Missing some accurate times when License not used!
+
+[Software12]
+exe=PLACEHOLDER_PATH\usb-write-blocking\USB-Registry-Write-Block.cmd
+url=
+group=0
+Name=USBWriteBlocker
+AppName=USBwb
+ShortDesc=Block all OS writes to a USB device, even newer SCSI devices. 
+LongDesc=Special tools that bypass the operating system and perform Direct hardware (WinHex, CRU Writeblock checker) will write to a device, so make sure you enable, acquire, unplug and dont leave evidence in for extended time (months).
+
+[Software13]
+exe=PLACEHOLDER_PATH\pilfer\pilfer.bat
+url=
+group=0
+Name=Pilfer
+AppName=Pilfer
+ShortDesc=Tool for getting system info. 
+LongDesc=Designed to be run on target machine, do not launch NIR LAUNCHER on target machine!
+
+[Software14]
+exe=C:\Program Files\Bulk Rename Utility\Bulk Rename Utility.exe
+url=https://www.bulkrenameutility.co.uk/
+group=1
+Name=Bulk Rename Utility
+AppName=BRU
+ShortDesc=Powerful application for renaming files.
+LongDesc=Powerful application for renaming large number of files to certian formats
+
+

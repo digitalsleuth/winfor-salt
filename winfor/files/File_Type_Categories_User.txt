@@ -1,0 +1,69 @@
+*** Pictures
+*** Text, Word Processing
+*** E-mail
+*** Internet
+*** Page Layout
+*** Spreadsheet
+*** Misc Documents
+*** Plain Text
+*** Archives/Backup
+*** Audio
+*** Video
+*** Windows Internals
+*** Thumbnails/Icons
+*** Database, Finance
+*** Programs
+*** Mobile Phones
+*** Chat, Messaging
+*** Address Book
+*** Mac OS X/iOS System
+*** CAD
+*** Various Data
+*** GPS/Navigation
+*** Disk Image
+*** Source Code
+*** Cryptography
+*** Windows Registry	*
+-;ntuser.dat.log1; Registry hive log1	5
+-;ntuser.dat.log2; Registry hive log2	5 
+-;sam.log1; Registry hive log1	5
+-;sam.log2; Registry hive log2	5
+-;security.log1; Registry hive log1	4
+-;security.log2; Registry hive log2	4
+-;software.log1; Registry hive log1	4
+-;software.log2; Registry hive log2	4
+-;system.log1; Registry hive log1	5
+-;system.log2; Registry hive log2	5
+-;usrclass.dat.log1; Registry hive log1	4
+-;usrclass.dat.log2; Registry hive log2	4
+-registry Registry hive	4
+*** P2P
+*** eBook
+*** 3D Graphics
+*** Projects
+*** Unix/Linux System
+*** Fonts
+*** CMPFOR SPECIFIC
++;ntuser.dat; Registry hive	5
++;ntuser.dat.log1; Registry hive log1	5
++;ntuser.dat.log2; Registry hive log2	5 
++;sam; Registry hive	5
++;sam.log1; Registry hive log1	5
++;sam.log2; Registry hive log2	5
++;security; Registry hive	4
++;security.log1; Registry hive log1	4
++;security.log2; Registry hive log2	4
++;software; Registry hive	4
++;software.log1; Registry hive log1	4
++;software.log2; Registry hive log2	4
++;system; Registry hive	5
++;system.log1; Registry hive log1	5
++;system.log2; Registry hive log2	5
++;usrclass.dat; Registry hive	4
++;usrclass.dat.log1; Registry hive log1	4
++;usrclass.dat.log2; Registry hive log2	4
++;setupapi.dev.log; Registry-related Content	4
++;system.evtx; Registry-related Content	4
++;security.evtx; Registry-related Content	4
+=T=Certain potentially relevant types
+=V=Viewer
