@@ -20,7 +20,9 @@ include:
 
 nirsoft-defender-exclusion:
   cmd.run:
-    - name: 'Add-MpPreference -ExclusionPath "{{ inpath }}\"'
+    - names: 
+      - 'Add-MpPreference -ExclusionPath "{{ inpath }}\"'
+      - 'Add-MpPreference -ExclusionPath "C:\salt\tempdownload\"'
     - shell: powershell
 
 nirsoft-download:

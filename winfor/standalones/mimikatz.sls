@@ -13,7 +13,9 @@
 
 mimikatz-defender-exclusion:
   cmd.run:
-    - name: 'Add-MpPreference -ExclusionPath "{{ inpath }}\"'
+    - names:
+      - 'Add-MpPreference -ExclusionPath "{{ inpath }}\"'
+      - 'App-MpPreference -ExclusionPath "C:\salt\tempdownload\"'
     - shell: powershell
 
 mimikatz-download:

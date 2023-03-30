@@ -13,6 +13,13 @@
 include:
   - winfor.config.user
 
+wsl-defender-exclusion:
+  cmd.run:
+    - names:
+      - 'Add-MpPreference -ExclusionPath "{{ inpath }}\"'
+      - 'Add-MpPreference -ExclusionPath "C:\salt\tempdownload\"'
+    - shell: powershell
+
 wsl-cleanup:
   cmd.run:
     - name: 'dism.exe /online /cleanup-image /revertpendingactions'
