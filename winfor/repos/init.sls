@@ -29,7 +29,7 @@ repo-add-3:
 
 repo-update:
   cmd.run:
-    - name: 'salt-call --local winrepo.update_git_repos && salt-call --local pkg.refresh_db'
+    - name: 'C:\Program Files\Salt Project\Salt\salt-call.bat --local winrepo.update_git_repos && C:\Program Files\Salt Project\Salt\salt-call.bat --local pkg.refresh_db'
     - require:
       - file: repo-add-1
       - file: repo-add-2

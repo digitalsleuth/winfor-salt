@@ -13,7 +13,7 @@ Check for previous Passware versions and remove:
     - name: passware-encryption-analyzer
     - onlyif:
       - fun: cmd.run
-        cmd: $installedVersion = (salt-call --local pkg.version passware-encryption-analyzer); if ($installedVersion -isnot [Array]) {exit 1} else {exit 0}
+        cmd: $installedVersion = ('C:\Program Files\Salt Project\Salt\salt-call.bat' --local pkg.version passware-encryption-analyzer); if ($installedVersion -isnot [Array]) {exit 1} else {exit 0}
         shell: powershell
         python_shell: True
 
