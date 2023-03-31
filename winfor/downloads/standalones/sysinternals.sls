@@ -4,10 +4,10 @@
 # Category: Windows Analysis
 # Author: Microsoft / Mark Russinovich
 # License: https://learn.microsoft.com/en-us/sysinternals/license-terms
-# Version: 2023.03.09 (date of last update - no specific version number identified)
+# Version: 2023.03.30 (date of last update - no specific version number identified)
 # Notes: 
 
-{% set hash = 'f8e060da4267f7c72d7cbe1b89ae5765b4b3247d999de6d185c6821ab9ecdee4' %}
+{% set hash = '3852a080b773e198b18cc25f6e3935eb935dc17d471aafcc9b09efa276d9992b' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 sysinternals-download-only:
