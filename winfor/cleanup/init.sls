@@ -36,4 +36,4 @@ disk-cleanup:
 
 clear-salt-cache:
   cmd.run:
-    - name: 'C:\Program Files\Salt Project\Salt\salt-call.bat --local saltutil.clear_cache'
+    - name: '"C:\Program Files\Salt Project\Salt\salt-call.bat" --local saltutil.clear_cache'
