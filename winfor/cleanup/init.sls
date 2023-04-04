@@ -13,7 +13,9 @@ include:
 
 cleanup-restart-explorer:
   cmd.run:
-    - name: 'Stop-Process -ProcessName "explorer"'
+    - names:
+      - 'Stop-Process -ProcessName "explorer"'
+      - 'start explorer'
     - shell: powershell
 
 cleanup-delete-salt-temp-files:
