@@ -98,11 +98,11 @@ wsl-config-run-on-reboot:
 wsl-log-append:
   file.append:
     - name: 'C:\winfor-wsl.log'
-    - text: 'GOING FOR REBOOT'
+    - text: 'GOING FOR REBOOT IN 5 SECONDS'
 
 system-restart:
   system.reboot:
-    - timeout: 0
+    - timeout: 5
     - in_seconds: True
     - only_on_pending_reboot: False
     - require:
