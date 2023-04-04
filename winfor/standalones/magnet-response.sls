@@ -4,12 +4,12 @@
 # Category: Acquisition and Analysis
 # Author: Magnet Forensics
 # License: EULA
-# Version: 1.6
+# Version: 1.61
 # Notes:
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set hash = 'c63420bd241972280fa51d7b0b9966c9016eb6e462aacb4ab3754d458a33f3e7' %}
-{% set version = '160' %}
+{% set hash = '6b1673685aee0a65c5cc0bd5f0e0e741e781cf28115abca3dcc92cca287736b8' %}
+{% set version = '161' %}
 
 magnet-response-download:
   file.managed:
