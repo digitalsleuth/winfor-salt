@@ -85,6 +85,7 @@ include:
   - winfor.standalones.aurora
   - winfor.standalones.magnet-response
   - winfor.standalones.hayabusa
+  - winfor.standalones.trid
 
 standalones-states:
   test.nop:
@@ -175,3 +176,4 @@ standalones-states:
       - sls: winfor.standalones.aurora
       - sls: winfor.standalones.magnet-response
       - sls: winfor.standalones.hayabusa
+      - sls: winfor.standalones.trid

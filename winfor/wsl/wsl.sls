@@ -51,6 +51,20 @@ powershell-execution-policy-path:
     - vtype: REG_SZ
     - vdata: 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe'
 
+wsl-set-uac-1:
+  reg.present:
+    - name: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
+    - vname: ConsentPromptBehaviorAdmin
+    - vtype: REG_DWORD
+    - vdata: 0
+
+wsl-set-uac-2:
+  reg.present:
+    - name: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
+    - vname: PromptOnSecureDesktop
+    - vtype: REG_DWORD
+    - vdata: 0
+
 wsl-config-stager:
   file.managed:
     - name: 'C:\salt\tempdownload\wsl-config.cmd'
@@ -60,6 +74,8 @@ wsl-config-stager:
     - require:
       - reg: powershell-execution-policy
       - reg: powershell-execution-policy-path
+      - reg: wsl-set-uac-1
+      - reg: wsl-set-uac-2
 
 wsl-config-stager-customize:
   file.replace:

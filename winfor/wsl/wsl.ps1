@@ -5,6 +5,9 @@ if (-Not $runningUser.IsInRole([Security.Principal.WindowsBuiltInRole]::Administ
     Write-Host "[!] Not running as administrator, please re-run this script as Administrator" -ForegroundColor Red
     Read-Host "Press any key to continue"
 }
+#Write-Host "[+] Lowering UAC level..." -ForegroundColor Green
+#Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" -Name "ConsentPromptBehaviorAdmin" -Type DWord -Value 0
+#Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" -Name "PromptOnSecureDesktop" -Type DWord -Value 0
 Write-Host "[+] Downloading WIN-FOR template and installing SIFT & REMnux" -ForegroundColor Green
 Start-Process -Wait -FilePath $filePath -ArgumentList ($saltArgs) | Out-Null
 if (-Not (Test-Path $wslLogFile)) {
@@ -48,6 +51,5 @@ if (($wslFailures -ne 0 -and $wslFailures -ne $null) -or ($wslSetupFailures -ne 
     Write-Host ("`n--- WSL2 Setup Results         ---`n" + $wslSetupResults) -ForegroundColor Green
     Write-Host ("`n--- WSL2 Configuration Results ---`n" + $wslResults) -ForegroundColor Green
     Write-Host "[!] In order to ensure all configuration changes are successful, it is recommended to reboot before first use.`n" -ForegroundColor Green
-    Remove-Item -Recurse 'C:\salt' -Force
 }
 Read-Host "Press any key to continue"

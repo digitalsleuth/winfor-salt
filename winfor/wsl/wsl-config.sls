@@ -1,4 +1,5 @@
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set PROGRAM_FILES = salt['environ.get']('PROGRAMFILES') %}
 {% set START_MENU = PROGRAMDATA + '\Microsoft\Windows\Start Menu\Programs' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set hash = 'a8de96cc2d018e374266a97e566c133da6e43afde7fe3e094bdeb2d265da4398' %}
@@ -14,6 +15,13 @@ wsl-config-version:
     - shell: cmd
     - require:
       - sls: winfor.wsl.wsl2-update
+
+wsl-update-command:
+  cmd.run:
+    - name: 'wsl --update'
+    - shell: cmd
+    - require:
+      - cmd: wsl-config-version
 
 {% if salt['file.file_exists']('C:\\salt\\tempdownload\\WIN-FOR-20.04.tar') and salt['file.check_hash']('C:\\salt\\tempdownload\\WIN-FOR-20.04.tar', hash)%}
 
@@ -74,11 +82,16 @@ wsl-install-remnux:
 
 wsl-shortcut:
   file.shortcut:
-    - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\WSL.lnk'
-    - target: 'C:\Windows\System32\wsl.exe'
+    - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\Windows Subsystem for Linux.lnk'
+    - target: '{{ PROGRAM_FILES }}\WindowsApps\MicrosoftCorporationII.WindowsSubsystemForLinux_1.1.6.0_x64__8wekyb3d8bbwe\wsl.exe'
     - force: True
-    - working_dir: 'C:\Windows\System32\'
+    - working_dir: '{{ PROGRAM_FILES }}\WindowsApps\MicrosoftCorporationII.WindowsSubsystemForLinux_1.1.6.0_x64__8wekyb3d8bbwe\'
+    - icon_location: '{{ PROGRAM_FILES }}\WindowsApps\MicrosoftCorporationII.WindowsSubsystemForLinux_1.1.6.0_x64__8wekyb3d8bbwe\wsl.exe'
+    - arguments: '~'
     - makedirs: True
+    - onlyif:
+      - fun: file.directory_exists
+        path: '{{ PROGRAM_FILES }}\WindowsApps\MicrosoftCorporationII.WindowsSubsystemForLinux_1.1.6.0_x64__8wekyb3d8bbwe\'
     - require:
       - cmd: wsl-config-version
       - file: wsl-make-install-directory
@@ -87,10 +100,14 @@ wsl-shortcut:
 wsl-portals-shortcut:
   file.copy:
     - name: '{{ inpath }}\Portals\Terminals\'
-    - source: '{{ START_MENU }}\WSL.lnk'
+    - source: '{{ START_MENU }}\Windows Subsystem for Linux.lnk'
     - preserve: True
     - subdir: True
+    - onlyif:
+      - fun: file.directory_exists
+        path: '{{ inpath }}\Portals\Terminals\'
     - require:
+      - file: wsl-shortcut
       - cmd: wsl-config-version
       - file: wsl-make-install-directory
       - cmd: wsl-import-template
