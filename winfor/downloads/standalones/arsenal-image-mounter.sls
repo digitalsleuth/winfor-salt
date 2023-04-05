@@ -13,11 +13,11 @@
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 include:
-  - winfor.standalones.megatools
+  - winfor.downloads.standalones.megatools
 
 arsenal-download-only:
   cmd.run:
     - name: '{{ downloads }}\megatools\megatools.exe dl https://mega.nz/file/{{ file_value }} --path {{ downloads }}'
     - shell: cmd
     - require:
-      - sls: winfor.standalones.megatools
+      - sls: winfor.downloads.standalones.megatools
