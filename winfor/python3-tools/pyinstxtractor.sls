@@ -5,9 +5,9 @@
 # Author: ExtremeCoders-RE
 # License: GNU General Public License v3.0 (https://github.com/extremecoders-re/pyinstxtractor/blob/master/LICENSE)
 # Version: 2023.02
-# Notes: 
+# Notes: Release version does not update with script
 
-{% set hash = 'f507cf5796360183af173ef3e484d8596e2f1f899a2931440034c7d4361fe2cf' %}
+{% set hash = '718c6399bdee0296a2a708138fe325ad35c18393daec7685834b27e1313dc675' %}
 
 include:
   - winfor.packages.python3
