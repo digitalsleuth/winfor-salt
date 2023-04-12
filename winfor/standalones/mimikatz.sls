@@ -26,3 +26,11 @@ mimikatz-download:
     - makedirs: True
     - require:
       - cmd: mimikatz-defender-exclusion
+
+mimikatz-extract:
+  archive.extracted:
+    - name: '{{ inpath }}\mimikatz\'
+    - source: '{{ inpath }}\mimikatz\mimikatz_trunk.zip'
+    - enforce_toplevel: False
+    - require:
+      - file: mimikatz-download

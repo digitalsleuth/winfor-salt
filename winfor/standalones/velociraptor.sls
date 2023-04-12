@@ -4,17 +4,17 @@
 # Category: Windows Analysis
 # Author: Mike Cohen (scudette)
 # License: GNU Affero General Public License v3 (https://github.com/Velocidex/velociraptor/blob/master/LICENSE)
-# Version: 0.6.7-5
+# Version: 0.6.8-2
 # Notes: 
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set version = '0.6.7-5' %}
-{% set chg_ver = '0.6.7' %}
-{% set hash = 'a70a88cf3c039b95bb50895e1bb4adcd826b605341b539e03bebac034952249a' %}
+{% set version = '0.6.8-2' %}
+{% set chg_ver = '0.6.8-2' %}
+{% set hash = '8ff0fc5a1b893aac7ee5cb6cd05e0b76c28c2efb28dff4ba5db104d44aa7ceec' %}
 
 velociraptor-download:
   file.managed:
-    - name: '{{ inpath }}\velociraptor\velociraptor-v{{ version }}-windows-amd64.exe'
+    - name: '{{ inpath }}\velociraptor\velociraptor.exe'
     - source: https://github.com/Velocidex/velociraptor/releases/download/v{{ version }}/velociraptor-v{{ chg_ver }}-windows-amd64.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

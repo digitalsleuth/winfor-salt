@@ -1,7 +1,7 @@
 # Name: Event Log Explorer
 # Website: https://eventlogxp.com/
 # Description: Windows Event Log Parser
-# Category: Windows Analysis
+# Category: Logs
 # Author: FSPro
 # License: Multiple (https://eventlogxp.com/order.html)
 # Version: 5.3

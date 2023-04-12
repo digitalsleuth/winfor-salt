@@ -86,6 +86,7 @@ include:
   - winfor.standalones.magnet-response
   - winfor.standalones.hayabusa
   - winfor.standalones.trid
+  - winfor.standalones.wmi-parser
 
 standalones-states:
   test.nop:
@@ -177,3 +178,4 @@ standalones-states:
       - sls: winfor.standalones.magnet-response
       - sls: winfor.standalones.hayabusa
       - sls: winfor.standalones.trid
+      - sls: winfor.standalones.wmi-parser

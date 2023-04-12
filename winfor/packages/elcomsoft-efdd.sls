@@ -4,7 +4,7 @@
 # Category: Acquisition and Analysis
 # Author: Elcomsoft
 # License: EULA (https://www.elcomsoft.com/legal.html)
-# Version: 2.19.999.6400
+# Version: 2.20.1011.6893
 # Notes:
 
 elcomsoft-efdd:

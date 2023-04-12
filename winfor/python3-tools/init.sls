@@ -24,6 +24,7 @@ include:
   - winfor.python3-tools.bmc-tools
   - winfor.python3-tools.usn-journal-parser
   - winfor.python3-tools.pdf-parser
+  - winfor.python3-tools.flare-fakenet-ng
 
 python3-tools-states:
   test.nop:
@@ -53,6 +54,7 @@ python3-tools-states:
       - sls: winfor.python3-tools.bmc-tools
       - sls: winfor.python3-tools.usn-journal-parser
       - sls: winfor.python3-tools.pdf-parser
+      - sls: winfor.python3-tools.flare-fakenet-ng
 
 python3-filetype-association:
   cmd.run:

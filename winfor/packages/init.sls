@@ -58,6 +58,7 @@ include:
   - winfor.packages.ksdumper11
   - winfor.packages.monolith-notes
   - winfor.packages.nuix-evidence-mover
+  - winfor.packages.elcomsoft-efdd
 
 package-states:
   test.nop:
@@ -121,3 +122,4 @@ package-states:
       - sls: winfor.packages.ksdumper11
       - sls: winfor.packages.monolith-notes
       - sls: winfor.packages.nuix-evidence-mover
+      - sls: winfor.packages.elcomsoft-efdd

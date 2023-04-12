@@ -4,12 +4,19 @@
 # Category: Logs
 # Author: Yamato Security
 # License: GNU General Public License v3.0 (https://github.com/Yamato-Security/hayabusa/blob/main/LICENSE.txt)
-# Version: 2.3.1
+# Version: 2.3.3
 # Notes:
 
-{% set version = '2.3.1' %}
-{% set hash = 'f2a551a25afed0ea05338d93caaf945a8bd10704ffe9d45fb2db0bdbcf7a1cd8' %}
+{% set version = '2.3.3' %}
+{% set hash = 'bacf8596bf94715c85017f1a4236c5488de5573a0987742c20421f6e958e1ff0' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
+
+hayabusa-defender-exclusion:
+  cmd.run:
+    - names:
+      - 'Add-MpPreference -ExclusionPath "{{ inpath }}\"'
+      - 'Add-MpPreference -ExclusionPath "C:\salt\tempdownload\"'
+    - shell: powershell
 
 hayabusa-download:
   file.managed:
@@ -26,6 +33,7 @@ hayabusa-extract:
     - overwrite: True
     - require:
       - file: hayabusa-download
+      - cmd: hayabusa-defender-exclusion
 
 hayabusa-rename:
   file.rename:

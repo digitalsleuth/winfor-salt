@@ -4,12 +4,12 @@
 # Category: Executables
 # Author: Mandiant
 # License: Apache License v2.0 (https://github.com/mandiant/flare-floss/blob/master/LICENSE.txt)
-# Version: 2.1.0
+# Version: 2.2.0
 # Notes: 
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set version = '2.1.0' %}
-{% set hash = '925df10403b45e29914e44ac50d92d762b2b2499c11cdd1801888aac95b53eb7' %}
+{% set version = '2.2.0' %}
+{% set hash = 'edc206110a62bba4c27ff245d93e66d237c74c27f98ae05b9478151fbaed8aee' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 floss-download:
