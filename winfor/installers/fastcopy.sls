@@ -4,18 +4,18 @@
 # Category: Utilities
 # Author: FastCopy Lab - https://fastcopy.jp/company.html
 # License: Copyright - All rights reserved - https://fastcopy.jp/help/fastcopy_eng.htm#license
-# Version: 4.2.2
+# Version: 5.0.0
 # Notes:
 
-{% set version = '4.2.2' %}
-{% set hash = '1192ff6459440840df651c2e4049a6db3fbafa0d6809637db3092a7c0f19ba33' %}
+{% set version = '5.0.0' %}
+{% set hash = '1057abaf6d3aa736c141787699f92fef68e80621836fcf28cdbc85efd80e7137' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 
 fastcopy-download:
   file.managed:
     - name: 'C:\salt\tempdownload\FastCopy{{ version }}_installer.exe'
-    - source: https://github.com/FastCopyLab/FastCopyDist/raw/main/FastCopy{{ version }}_installer.exe
+    - source: https://github.com/FastCopyLab/FastCopyDist2/raw/main/FastCopy{{ version }}_installer.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True
 
