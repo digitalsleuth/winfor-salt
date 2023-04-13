@@ -60,7 +60,7 @@ cra-disable-locked-start-layout-on-reboot-hklm:
       - lgpo: cra-start-layout-enable-gpo
       - file: cra-disable-locked-start-stager
 
-cra-restart-explorer-:
+cra-restart-explorer:
   cmd.run:
     - name: 'Stop-Process -ProcessName "explorer" -Confirm:$false -ErrorAction SilentlyContinue -Force'
     - shell: powershell
