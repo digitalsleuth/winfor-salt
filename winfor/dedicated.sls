@@ -1,7 +1,7 @@
 include:
   - winfor.config
   - winfor.addon
-  - winfor.config.layout
+#  - winfor.config.layout
   - winfor.theme
  
 dedicated-states:
@@ -9,5 +9,5 @@ dedicated-states:
     - require:
       - sls: winfor.config
       - sls: winfor.addon
-      - sls: winfor.config.layout
+#      - sls: winfor.config.layout
       - sls: winfor.theme

@@ -145,14 +145,14 @@ CRA Skipping Start Layout on Windows 11:
 
 cra-start-layout-file:
   file.managed:
-    - name: '{{ inpath }}\CRA-WIN-StartLayout.xml'
-    - source: salt://winfor/config/layout/crawin/CRA-WIN-StartLayout.xml
+    - name: '{{ inpath }}\WIN-FOR-StartLayout.xml'
+    - source: salt://winfor/config/layout/WIN-FOR-StartLayout.xml
     - win_inheritance: True
     - makedirs: True
 
 cra-start-layout-replace-placeholder:
   file.replace:
-    - name: '{{ inpath }}\CRA-WIN-StartLayout.xml'
+    - name: '{{ inpath }}\WIN-FOR-StartLayout.xml'
     - pattern: PLACEHOLDER_PATH
     - repl: {{ inpath | regex_escape }}
     - require:
@@ -163,16 +163,16 @@ cra-start-layout-enable-gpo:
     - user_policy:
         "Start Menu and Taskbar\\Start Layout":
           "Start Layout File":
-             '{{ inpath }}\CRA-WIN-StartLayout.xml'
+             '{{ inpath }}\WIN-FOR-StartLayout.xml'
     - computer_policy:
         "Start Menu and Taskbar\\Start Layout":
           "Start Layout File":
-             '{{ inpath }}\CRA-WIN-StartLayout.xml'
+             '{{ inpath }}\WIN-FOR-StartLayout.xml'
 
 cra-disable-locked-start-stager:
   file.managed:
     - name: '{{ inpath }}\disable-locked-start.cmd'
-    - source: salt://winfor/config/layout/crawin/disable-locked-start.cmd
+    - source: salt://winfor/config/layout/disable-locked-start.cmd
     - win_inheritance: True
     - makedirs: True
 

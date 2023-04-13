@@ -165,4 +165,68 @@ move-start-menu-left:
     - vname: TaskbarAl
     - vtype: REG_DWORD
     - vdata: 0
+
+Skipping Start Layout on Windows 11:
+  test.nop
+
+{% else %}
+
+theme-start-layout-file:
+  file.managed:
+    - name: '{{ inpath }}\WIN-FOR-StartLayout.xml'
+    - source: salt://winfor/config/layout/WIN-FOR-StartLayout.xml
+    - win_inheritance: True
+    - makedirs: True
+
+theme-start-layout-replace-placeholder:
+  file.replace:
+    - name: '{{ inpath }}\WIN-FOR-StartLayout.xml'
+    - pattern: PLACEHOLDER_PATH
+    - repl: {{ inpath | regex_escape }}
+    - require:
+      - file: theme-start-layout-file
+
+theme-start-layout-enable-gpo:
+  lgpo.set:
+    - user_policy:
+        "Start Menu and Taskbar\\Start Layout":
+          "Start Layout File":
+             '{{ inpath }}\WIN-FOR-StartLayout.xml'
+    - computer_policy:
+        "Start Menu and Taskbar\\Start Layout":
+          "Start Layout File":
+             '{{ inpath }}\WIN-FOR-StartLayout.xml'
+
+theme-disable-locked-start-stager:
+  file.managed:
+    - name: '{{ inpath }}\disable-locked-start.cmd'
+    - source: salt://winfor/config/layout/disable-locked-start.cmd
+    - win_inheritance: True
+    - makedirs: True
+
+theme-disable-locked-start-layout-on-reboot-hkcu:
+  reg.present:
+    - name: HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce
+    - vname: "Disable Locked Start Layout"
+    - vtype: REG_SZ
+    - vdata: 'C:\Windows\system32\cmd.exe /q /c {{ inpath }}\disable-locked-start.cmd'
+    - require:
+      - lgpo: theme-start-layout-enable-gpo
+      - file: theme-disable-locked-start-stager
+
+theme-disable-locked-start-layout-on-reboot-hklm:
+  reg.present:
+    - name: HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce
+    - vname: "Disable Locked Start Layout"
+    - vtype: REG_SZ
+    - vdata: 'C:\Windows\system32\cmd.exe /q /c {{ inpath }}\disable-locked-start.cmd'
+    - require:
+      - lgpo: theme-start-layout-enable-gpo
+      - file: theme-disable-locked-start-stager
+
+restart-explorer:
+  cmd.run:
+    - name: 'Stop-Process -ProcessName "explorer" -Confirm:$false -ErrorAction SilentlyContinue -Force'
+    - shell: powershell
+
 {% endif %}

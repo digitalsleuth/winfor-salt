@@ -8,14 +8,14 @@ CPC Skipping Start Layout on Windows 11:
 
 cpc-start-layout-file:
   file.managed:
-    - name: '{{ inpath }}\CPC-WIN-StartLayout.xml'
-    - source: salt://winfor/config/layout/cpcwin/CPC-WIN-StartLayout.xml
+    - name: '{{ inpath }}\WIN-FOR-StartLayout.xml'
+    - source: salt://winfor/config/layout/WIN-FOR-StartLayout.xml
     - win_inheritance: True
     - makedirs: True
 
 cpc-start-layout-replace-placeholder:
   file.replace:
-    - name: '{{ inpath }}\CPC-WIN-StartLayout.xml'
+    - name: '{{ inpath }}\WIN-FOR-StartLayout.xml'
     - pattern: PLACEHOLDER_PATH
     - repl: {{ inpath | regex_escape }}
     - require:
@@ -26,16 +26,16 @@ cpc-start-layout-enable-gpo:
     - user_policy:
         "Start Menu and Taskbar\\Start Layout":
           "Start Layout File": 
-             '{{ inpath }}\CPC-WIN-StartLayout.xml'
+             '{{ inpath }}\WIN-FOR-StartLayout.xml'
     - computer_policy:
         "Start Menu and Taskbar\\Start Layout":
           "Start Layout File": 
-             '{{ inpath }}\CPC-WIN-StartLayout.xml'
+             '{{ inpath }}\WIN-FOR-StartLayout.xml'
 
 cpc-disable-locked-start-stager:
   file.managed:
     - name: '{{ inpath }}\disable-locked-start.cmd'
-    - source: salt://winfor/config/layout/cpcwin/disable-locked-start.cmd
+    - source: salt://winfor/config/layout/disable-locked-start.cmd
     - win_inheritance: True
     - makedirs: True
 

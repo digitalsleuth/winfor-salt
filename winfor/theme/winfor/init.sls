@@ -177,7 +177,7 @@ WIN Skipping Start Layout on Windows 11:
 win-start-layout-file:
   file.managed:
     - name: '{{ inpath }}\WIN-FOR-StartLayout.xml'
-    - source: salt://winfor/config/layout/winfor/WIN-FOR-StartLayout.xml
+    - source: salt://winfor/config/layout/WIN-FOR-StartLayout.xml
     - win_inheritance: True
     - makedirs: True
 
@@ -203,7 +203,7 @@ win-start-layout-enable-gpo:
 win-disable-locked-start-stager:
   file.managed:
     - name: '{{ inpath }}\disable-locked-start.cmd'
-    - source: salt://winfor/config/layout/winfor/disable-locked-start.cmd
+    - source: salt://winfor/config/layout/disable-locked-start.cmd
     - win_inheritance: True
     - makedirs: True
 
