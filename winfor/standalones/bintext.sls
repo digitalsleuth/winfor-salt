@@ -19,7 +19,7 @@ bintext-download:
 
 bintext-extract:
   archive.extracted:
-    - name: {{ inpath }}\bintext\'
+    - name: {{ inpath }}\bintext\
     - source: 'C:\salt\tempdownload\bintext303.zip'
     - enforce_toplevel: False
     - require:
