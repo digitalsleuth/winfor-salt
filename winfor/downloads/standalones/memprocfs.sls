@@ -9,8 +9,8 @@
 
 {% set short = '5.4' %}
 {% set version = '5.4.5' %}
-{% set date = '20230316' %}
-{% set hash = '889521d76bce1fddeaf3d8e42e324f1f94a3c7fe9bb8d6aabf9ace3ff5970efd' %}
+{% set date = '20230413' %}
+{% set hash = 'c8c9eaf1ab00a3b44263012707dbe91a363154c0bb656f61558521285ead87c3' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 memprocfs-download-only:
