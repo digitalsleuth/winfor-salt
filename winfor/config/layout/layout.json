@@ -7,7 +7,7 @@
       "Active Disk Editor": {
         "CbName": "packages_active_disk_editor",
         "CbContent": "Active Disk Editor",
-        "DAID": "{6D809377-6AF0-444B-8957-A3773F02200E}\\LSoft Technologies\\Active@ Disk Editor\\Disk Editor.exe",
+        "DAID": "{6D809377-6AF0-444B-8957-A3773F02200E}\\LSoft Technologies\\Active@ Disk Editor\\DiskEditor.exe",
         "AUMID": false,
         "DALP": false,
         "StartMenu": true,
@@ -972,7 +972,7 @@
         "DAID": "{7C5A40EF-A0FB-4BFC-874A-C0F2E0B9FA8E}\\Log Parser 2.2\\LogParser.exe",
         "AUMID": false,
         "DALP": false,
-        "StartMenu": true,
+        "StartMenu": false,
         "ExtraTiles": []
       },
       "LogParser Studio": {

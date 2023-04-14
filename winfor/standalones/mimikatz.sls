@@ -34,3 +34,13 @@ mimikatz-extract:
     - enforce_toplevel: False
     - require:
       - file: mimikatz-download
+
+standalones-mimikatz-shortcut:
+  file.shortcut:
+    - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\mimikatz.lnk'
+    - target: {{ inpath }}\mimikatz\x64\mimikatz.exe
+    - force: True
+    - working_dir: {{ inpath }}\mimikatz\x64\
+    - makedirs: True
+    - require:
+      - archive: mimikatz-extract

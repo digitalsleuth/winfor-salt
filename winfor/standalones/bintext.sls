@@ -27,14 +27,14 @@ bintext-extract:
 
 bintext-env-vars:
   win_path.exists:
-    - name: {{ inpath }}\bintext\'
+    - name: {{ inpath }}\bintext\
 
 standalones-bintext-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\BinText.lnk'
-    - target: {{ inpath }}\bintext\bintext.exe'
+    - target: {{ inpath }}\bintext\bintext.exe
     - force: True
-    - working_dir: {{ inpath }}\bintext\'
+    - working_dir: {{ inpath }}\bintext\
     - makedirs: True
     - require:
       - archive: bintext-extract

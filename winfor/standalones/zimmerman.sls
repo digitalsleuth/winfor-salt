@@ -68,3 +68,13 @@ zimmerman-hasher-shortcut:
     - makedirs: True
     - require:
       - cmd: zimmerman-tools-download
+
+zimmerman-folder-shortcut:
+  file.shortcut:
+    - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\Zimmerman Tools.lnk'
+    - target: '{{ inpath }}\zimmerman\'
+    - force: True
+    - working_dir: '{{ inpath }}\zimmerman\'
+    - makedirs: True
+    - require:
+      - cmd: zimmerman-tools-download

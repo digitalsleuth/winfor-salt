@@ -8,6 +8,7 @@
 # Notes:
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
+{% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set version = '2021.12' %}
 {% set files = [('hindsight.exe', '6F0F768CE21F7948BFC676AAA66D85E6D45945D0CB9E0844C160C8C9FF0D988C'),
                 ('hindsight_gui.exe', 'E9B1D2639929D0E112A02932B36E84D61A7852C331D6BCCE12C798CD5422B69B')] %}
@@ -25,3 +26,13 @@ hindsight-download-{{ file }}:
 hindsight-path:
   win_path.exists:
     - name: '{{ inpath }}\hindsight\'
+
+standalones-hindsight-gui-shortcut:
+  file.shortcut:
+    - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\Hindsight GUI.lnk'
+    - target: {{ inpath }}\hindsight\hindsight_gui.exe
+    - force: True
+    - working_dir: {{ inpath }}\hindsight\
+    - makedirs: True
+    - require:
+      - file: hindsight-download-hindsight_gui.exe
