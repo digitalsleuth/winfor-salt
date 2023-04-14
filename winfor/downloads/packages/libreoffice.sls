@@ -4,12 +4,12 @@
 # Category: Documents / Editors
 # Author: LibreOffice
 # License: Mozilla Public License (https://www.libreoffice.org/download/license/)
-# Version: 7.5.2
+# Version: 7.5.2.2
 # Notes: 
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '7.5.2.1' %}
-{% set hash = '194d9a580ede9b85e484f3fa13d85d4d27e81075d49f440965bbebc376f52681' %}
+{% set version = '7.5.2.2' %}
+{% set hash = '638e93876e8345666f1cf3e968373a90add5d420094a6ec8871edcda94a440e8' %}
 
 libreoffice-download-only:
   file.managed:
