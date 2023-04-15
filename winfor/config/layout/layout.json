@@ -1464,7 +1464,7 @@
       "Cygwin": {
         "CbName": "installers_cygwin",
         "CbContent": "Cygwin",
-        "DAID": "%ALLUSERSPROFILE%\\Microsoft\\Windows\\Start Menu\\Cygwin\\Cygwin64 Terminal.lnk",
+        "DAID": "%ALLUSERSPROFILE%\\Microsoft\\Windows\\Start Menu\\Programs\\Cygwin\\Cygwin64 Terminal.lnk",
         "AUMID": false,
         "DALP": true,
         "StartMenu": true,
