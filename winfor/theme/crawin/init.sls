@@ -14,7 +14,7 @@
                     ('Browsers', ['Firefox','Google Chrome','Microsoft Edge']),
                     ('Databases', ['ADOQuery','DataEdit','DB Browser (SQLCipher)','DB Browser (SQLite)','DBeaver Community\DBeaver','SDBExplorer','SQLiteQuery','SQLiteStudio\SQLiteStudio','SysTools SQL MDF Viewer\SysTools SQL MDF Viewer']),
                     ('Document Analysis', ['OffVis','PDFStreamDumper\PdfStreamDumper.exe','SSView']),
-                    ('Document Viewers', ['Acrobat Reader','EZViewer','LibreOffice 7.4\LibreOffice Calc','LibreOffice 7.4\LibreOffice Impress','LibreOffice 7.4\LibreOffice Writer','LibreOffice 7.4\LibreOffice','Notepad++','Sublime Text','Visual Studio Code\Visual Studio Code']),
+                    ('Document Viewers', ['Acrobat Reader','EZViewer','Notepad++','Sublime Text','Visual Studio Code\Visual Studio Code']),
                     ('Email', ['EHB','Metaspike, Inc\Forensic Email Collector\Forensic Email Collector','Kernel Exchange EDB Viewer\Kernel Exchange EDB Viewer','Kernel OST Viewer\Kernel OST Viewer','Kernel Outlook PST Viewer\Kernel Outlook PST Viewer','MailView','PST Walker\PST Walker','SysTools Outlook PST Viewer\SysTools Outlook PST Viewer']),
                     ('Logs', ['EventFinder','EZViewer','HttpLogBrowser\HttpLogBrowser','Log Parser 2.2\Log Parser 2.2','LogParser-Studio','LogViewer2']),
                     ('Mobile Analysis', ['ALEAPP-GUI','ILEAPP-GUI','iPhoneAnalyzer','VLEAPP-GUI']),

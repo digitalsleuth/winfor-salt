@@ -234,15 +234,6 @@
         "StartMenu": true,
         "ExtraTiles": []
       },
-      "LibreOffice": {
-        "CbName": "packages_libreoffice",
-        "CbContent": "LibreOffice",
-        "DAID": "TheDocumentFoundation.LibreOffice.Startcenter",
-        "AUMID": false,
-        "DALP": false,
-        "StartMenu": true,
-        "ExtraTiles": []
-      },
       "msoffcrypto-crack.py": {
         "CbName": "python3_tools_msoffcrypto_crack",
         "CbContent": "msoffcrypto-crack.py",
