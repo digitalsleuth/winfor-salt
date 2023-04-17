@@ -11,7 +11,7 @@
 {% set short = '5_archive' %}
 {% set version = '5.5.0' %}
 {% set date = '20230415' %}
-{% set hash = '89c4533c005c6da91b30086080a5cef33ea3373345af34ae057e4e9371990a24' %}
+{% set hash = 'b728b6d17f6df3181ad022ee1ce6c3ce19dd8c2e999f3f0ff4d8ea431c1d64d3' %}
 
 memprocfs-download:
   file.managed:
