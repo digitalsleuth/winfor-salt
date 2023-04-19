@@ -59,6 +59,7 @@ include:
   - winfor.packages.monolith-notes
   - winfor.packages.nuix-evidence-mover
   - winfor.packages.elcomsoft-efdd
+  - winfor.packages.voidtools-everything
 
 package-states:
   test.nop:
@@ -123,3 +124,4 @@ package-states:
       - sls: winfor.packages.monolith-notes
       - sls: winfor.packages.nuix-evidence-mover
       - sls: winfor.packages.elcomsoft-efdd
+      - sls: winfor.packages.voidtools-everything
