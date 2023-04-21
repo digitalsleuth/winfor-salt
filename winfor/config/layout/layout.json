@@ -262,7 +262,7 @@
         "ExtraTiles": []
       },
       "OfficeMalScanner": {
-        "CbName": "standalones_offiicemalscanner",
+        "CbName": "standalones_officemalscanner",
         "CbContent": "OfficeMalScanner",
         "DAID": "PLACEHOLDER_PATH\\officemalscanner\\OfficeMalScanner.exe",
         "AUMID": false,
@@ -2043,7 +2043,7 @@
         "ExtraTiles": []
       },
       "Volatility 3 (Python 3)": {
-        "CbName": "python3_tools_volatility2",
+        "CbName": "python3_tools_volatility3",
         "CbContent": "Volatility 3 (Python 3)",
         "DAID": "",
         "AUMID": false,

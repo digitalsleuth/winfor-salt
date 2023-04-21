@@ -4,6 +4,7 @@
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set hash = 'a8de96cc2d018e374266a97e566c133da6e43afde7fe3e094bdeb2d265da4398' %}
 {% set castver = '0.14.0' %}
+{% set wslver = '1.2.0.0' %}
 
 include:
   - winfor.wsl.wsl2-update
@@ -83,15 +84,15 @@ wsl-install-remnux:
 wsl-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\Windows Subsystem for Linux.lnk'
-    - target: '{{ PROGRAM_FILES }}\WindowsApps\MicrosoftCorporationII.WindowsSubsystemForLinux_1.1.6.0_x64__8wekyb3d8bbwe\wsl.exe'
+    - target: '{{ PROGRAM_FILES }}\WindowsApps\MicrosoftCorporationII.WindowsSubsystemForLinux_{{ wslver }}_x64__8wekyb3d8bbwe\wsl.exe'
     - force: True
-    - working_dir: '{{ PROGRAM_FILES }}\WindowsApps\MicrosoftCorporationII.WindowsSubsystemForLinux_1.1.6.0_x64__8wekyb3d8bbwe\'
-    - icon_location: '{{ PROGRAM_FILES }}\WindowsApps\MicrosoftCorporationII.WindowsSubsystemForLinux_1.1.6.0_x64__8wekyb3d8bbwe\wsl.exe'
+    - working_dir: '{{ PROGRAM_FILES }}\WindowsApps\MicrosoftCorporationII.WindowsSubsystemForLinux_{{ wslver }}_x64__8wekyb3d8bbwe\'
+    - icon_location: '{{ PROGRAM_FILES }}\WindowsApps\MicrosoftCorporationII.WindowsSubsystemForLinux_{{ wslver }}_x64__8wekyb3d8bbwe\wsl.exe'
     - arguments: '~'
     - makedirs: True
     - onlyif:
       - fun: file.directory_exists
-        path: '{{ PROGRAM_FILES }}\WindowsApps\MicrosoftCorporationII.WindowsSubsystemForLinux_1.1.6.0_x64__8wekyb3d8bbwe\'
+        path: '{{ PROGRAM_FILES }}\WindowsApps\MicrosoftCorporationII.WindowsSubsystemForLinux_{{ wslver }}_x64__8wekyb3d8bbwe\'
     - require:
       - cmd: wsl-config-version
       - file: wsl-make-install-directory
@@ -103,9 +104,10 @@ wsl-portals-shortcut:
     - source: '{{ START_MENU }}\Windows Subsystem for Linux.lnk'
     - preserve: True
     - subdir: True
+    - makedirs: True
     - onlyif:
       - fun: file.directory_exists
-        path: '{{ inpath }}\Portals\Terminals\'
+        path: '{{ PROGRAM_FILES }}\WindowsApps\MicrosoftCorporationII.WindowsSubsystemForLinux_{{ wslver }}_x64__8wekyb3d8bbwe\'
     - require:
       - file: wsl-shortcut
       - cmd: wsl-config-version
