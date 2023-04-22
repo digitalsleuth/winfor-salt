@@ -29,10 +29,7 @@ repo-add-3:
 
 repo-update:
   cmd.run:
-    - name: 'set PATH=%PATH%;C:\Program Files\Git\cmd&& "C:\Program Files\Salt Project\Salt\bin\salt.exe" call --local winrepo.update_git_repos && "C:\Program Files\Salt Project\Salt\bin\salt.exe" call --local pkg.refresh_db'
-    - onlyif:
-      - fun: file.file_exists
-        path: 'C:\Program Files\Git\cmd\git.exe'
+    - name: '"C:\Program Files\Salt Project\Salt\salt-call.bat" --local winrepo.update_git_repos && "C:\Program Files\Salt Project\Salt\salt-call.bat" --local pkg.refresh_db'
     - require:
       - file: repo-add-1
       - file: repo-add-2
