@@ -49,3 +49,4 @@ repo-update:
       - file: repo-add-1
       - file: repo-add-2
       - file: repo-add-3
+      - file: repo-git-batch
