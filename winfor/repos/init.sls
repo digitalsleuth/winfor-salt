@@ -27,26 +27,13 @@ repo-add-3:
       - file: repo-add-1
       - file: repo-add-2
 
-repo-git-batch:
-  file.managed:
-    - name: 'C:\Windows\git.bat'
-    - win_inheritance: True
-    - makedirs: True
-    - replace: True
-    - contents: |
-        @echo off
-        Set GitDir=C:\Program Files\Git\cmd
-        Set Git=%GitDir%\git.exe
-        "%Git%" %*
+repo-update:
+  cmd.run:
+    - name: 'set PATH=%PATH%;C:\Program Files\Git\cmd&& "C:\Program Files\Salt Project\Salt\bin\salt.exe" call --local winrepo.update_git_repos && "C:\Program Files\Salt Project\Salt\bin\salt.exe" call --local pkg.refresh_db'
     - onlyif:
       - fun: file.file_exists
         path: 'C:\Program Files\Git\cmd\git.exe'
-
-repo-update:
-  cmd.run:
-    - name: '"C:\Program Files\Salt Project\Salt\bin\salt.exe" call --local winrepo.update_git_repos && "C:\Program Files\Salt Project\Salt\bin\salt.exe" call --local pkg.refresh_db'
     - require:
       - file: repo-add-1
       - file: repo-add-2
       - file: repo-add-3
-      - file: repo-git-batch
