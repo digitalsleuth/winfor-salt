@@ -4,10 +4,10 @@
 # Category: Executables
 # Author: Marc Ochsenmeier
 # License: As-Is, without warranty (https://www.winitor.com/tools/pestudio/changes.log)
-# Version: 9.49
+# Version: 9.50
 # Notes: 
 
-{% set hash = '2069d3ff8ba5b523d4ccc76a8c8191a1510f04dad75ea23e35eb0d14f8c97c07' %}
+{% set hash = 'a544d14f3fa9ef2d371d078417828d6e7731e2a636534041339b6d806ff2f49c' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 pestudio-download-only:
