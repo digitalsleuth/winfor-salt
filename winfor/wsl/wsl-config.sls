@@ -4,7 +4,7 @@
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set hash = 'a8de96cc2d018e374266a97e566c133da6e43afde7fe3e094bdeb2d265da4398' %}
 {% set castver = '0.14.0' %}
-{% set wslver = '1.2.0.0' %}
+{% set wslver = '1.2.5.0' %}
 
 include:
   - winfor.wsl.wsl2-update
