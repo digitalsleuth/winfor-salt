@@ -15,7 +15,7 @@
 pev-download:
   file.managed:
     - name: 'C:\salt\tempdownload\pev-{{ version }}-win.zip'
-    - source: https://github.com/merces/pev/releases/download/v{{ version }}/pev-{{ version }}-win.zip
+    - source: https://github.com/mentebinaria/readpe/releases/download/v{{ version }}/pev-{{ version }}-win.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True
 

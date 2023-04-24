@@ -1,4 +1,4 @@
-# Name: X-Ways Forensics Templates
+ # Name: X-Ways Forensics Templates
 # Website: https://github.com/digitalsleuth/xways-templates
 # Description: Templates for X-Ways Templates
 # Category: Acquisition and Analysis
