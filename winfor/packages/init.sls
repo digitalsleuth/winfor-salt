@@ -60,6 +60,7 @@ include:
   - winfor.packages.nuix-evidence-mover
   - winfor.packages.elcomsoft-efdd
   - winfor.packages.voidtools-everything
+  - winfor.packages.synchrony
 
 package-states:
   test.nop:
@@ -125,3 +126,4 @@ package-states:
       - sls: winfor.packages.nuix-evidence-mover
       - sls: winfor.packages.elcomsoft-efdd
       - sls: winfor.packages.voidtools-everything
+      - sls: winfor.packages.synchrony
