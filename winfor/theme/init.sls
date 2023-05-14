@@ -27,7 +27,7 @@
                     ('Registry', ['RegistryExplorer','RegRipper','Regshot x64 ANSI']),
                     ('Terminals', ['Cygwin\Cygwin64 Terminal','MobaXterm\MobaXterm','Terminal','WSL','VcXsrv\XLaunch']),
                     ('Utilities', ['Aurora','Digital Detective\DCode v5\DCode v5.5','EZViewer','FastCopy','Hasher','IrfanView\IrfanView 64 4.60','Monolith Notes',"Nuix\\Nuix Evidence Mover\\Nuix Evidence Mover",'Rufus','Sysinternals','Tableau\Tableau Firmware Update\Tableau Firmware Update','USB Write Blocker','WinMerge\WinMerge','Agent Ransack\Agent Ransack']),
-                    ('Windows Analysis', ['AutoRunner','Event Log Explorer','EXE','JumpListExplorer','Live Response Collection - Cedarpelta','LogFileParser64','MFTBrowser','MFTExplorer','NirLauncher','NTFS Log Tracker','Redline\Redline','RegistryExplorer','RegRipper','SE','ShadowExplorer','ShellBagsExplorer','SRUM-DUMP2','ThumbCache Viewer','TimelineExplorer','Windows Timeline','WLEAPP-GUI'])
+                    ('Windows Analysis', ['AutoRunner','Event Log Explorer','EXE','JumpListExplorer','Live Response Collection - Cedarpelta','LogFileParser64','MFTBrowser','MFTExplorer','NirLauncher','NTFS Log Tracker','OneDriveExplorer-GUI','Redline\Redline','RegistryExplorer','RegRipper','SE','ShadowExplorer','ShellBagsExplorer','SRUM-DUMP2','ThumbCache Viewer','TimelineExplorer','Windows Timeline','WLEAPP-GUI'])
                    ] %}
 
 include:
