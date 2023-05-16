@@ -29,3 +29,11 @@ pdf-parser-header:
     - count: 1
     - require:
       - sls: winfor.packages.python3
+
+python3-pdf-parser-wrapper:
+  file.managed:
+    - name: 'C:\Program Files\Python310\Scripts\pdf-parser.cmd'
+    - win_inheritance: True
+    - contents:
+      - '@echo off'
+      - 'python3 "C:\Program Files\Python310\Scripts\pdf-parser.py" %*'
