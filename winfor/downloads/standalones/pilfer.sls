@@ -4,10 +4,10 @@
 # Category: Acquisition and Analysis
 # Author: Corey Forman (digitalsleuth)
 # License: GNU General Public License v3 (https://github.com/digitalsleuth/forensics_tools/blob/master/LICENSE)
-# Version: 2.4
+# Version: 3.0
 # Notes: 
 
-{% set hash = '60fcc8bc76846692d105f4c996552d1ca7d497393c90df69c5f7b2106242ae73' %}
+{% set hash = '9a3e86d728c643723ab9ad6ff30bc91d7fdcb805524d1eee2c6dd4d336bba43a' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 pilfer-download-only:
