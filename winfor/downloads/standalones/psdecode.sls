@@ -7,7 +7,7 @@
 # Version: 5.0
 # Notes: 
 
-{% set hash = '4078f6d805bc8fbe19e0e19f1acc7eeed00b1404e813c08aa1dc00f93697be93' %}
+{% set hash = '32a7722fbf1156b89e86e8fcd3e2c43ecfaf509d6e259a04ca1f7bb94f7ad384' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 psdecode-download-only:
