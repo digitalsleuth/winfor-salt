@@ -87,6 +87,7 @@ include:
   - winfor.standalones.hayabusa
   - winfor.standalones.trid
   - winfor.standalones.wmi-parser
+  - winfor.standalones.onedriveexplorer
 
 standalones-states:
   test.nop:
@@ -179,3 +180,4 @@ standalones-states:
       - sls: winfor.standalones.hayabusa
       - sls: winfor.standalones.trid
       - sls: winfor.standalones.wmi-parser
+      - sls: winfor.standalones.onedriveexplorer

@@ -61,6 +61,7 @@ include:
   - winfor.packages.elcomsoft-efdd
   - winfor.packages.voidtools-everything
   - winfor.packages.synchrony
+  - winfor.packages.msg-viewer
 
 package-states:
   test.nop:
@@ -127,3 +128,4 @@ package-states:
       - sls: winfor.packages.elcomsoft-efdd
       - sls: winfor.packages.voidtools-everything
       - sls: winfor.packages.synchrony
+      - sls: winfor.packages.msg-viewer

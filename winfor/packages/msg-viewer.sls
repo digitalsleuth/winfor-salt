@@ -1,11 +1,11 @@
-# Name: PST Walker
+# Name: MSG Viewer
 # Website: https://www.pstwalker.com/
-# Description: Forensic GUI Tool for PST, OST
+# Description: Forensic GUI Tool for MSG, EML
 # Category: Email
 # Author: PST Walker
 # License: GNU General Public License (GPL) (https://www.pstwalker.com/licensing-policy.html)
-# Version: 7.10
+# Version: 4.10
 # Notes:
 
-pst-walker:
+msg-viewer:
   pkg.installed

@@ -457,6 +457,15 @@
         "StartMenu": true,
         "ExtraTiles": []
       },
+      "MSG Viewer": {
+        "CbName": "packages_msg_viewer",
+        "CbContent": "MSG Viewer",
+        "DAID": "{7C5A40EF-A0FB-4BFC-874A-C0F2E0B9FA8E}\\MSG Viewer\\msgviewer.exe",
+        "AUMID": false,
+        "DALP": false,
+        "StartMenu": true,
+        "ExtraTiles": []
+      },
       "PST Walker": {
         "CbName": "packages_pst_walker",
         "CbContent": "PST Walker",
@@ -1980,9 +1989,9 @@
         "ExtraTiles": []
       },
       "OneDriveExplorer": {
-        "CbName": "python3_tools_onedriveexplorer",
+        "CbName": "standalones_onedriveexplorer",
         "CbContent": "OneDriveExplorer",
-        "DAID": "PLACEHOLDER_PATH\\onedriveexplorer\\OneDriveExplorer\\OneDriveExplorer_GUI.py",
+        "DAID": "PLACEHOLDER_PATH\\onedriveexplorer\\OneDriveExplorer_GUI.exe",
         "AUMID": false,
         "DALP": false,
         "StartMenu": true,
