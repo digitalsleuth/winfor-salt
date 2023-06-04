@@ -13,6 +13,7 @@ include:
   - winfor.installers.fastcopy
   - winfor.installers.windows-terminal
   - winfor.installers.windbg
+  - winfor.installers.casenotes-pro
   
 installer-states:
   test.nop:
@@ -31,3 +32,4 @@ installer-states:
       - sls: winfor.installers.fastcopy
       - sls: winfor.installers.windows-terminal
       - sls: winfor.installers.windbg
+      - sls: winfor.installers.casenotes-pro

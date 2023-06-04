@@ -62,6 +62,7 @@ include:
   - winfor.packages.voidtools-everything
   - winfor.packages.synchrony
   - winfor.packages.msg-viewer
+  - winfor.packages.fec
 
 package-states:
   test.nop:
@@ -129,3 +130,4 @@ package-states:
       - sls: winfor.packages.voidtools-everything
       - sls: winfor.packages.synchrony
       - sls: winfor.packages.msg-viewer
+      - sls: winfor.packages.fec

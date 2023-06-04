@@ -4,12 +4,12 @@
 # Category: Acquisition and Analysis
 # Author: Cerbero.io
 # License: 
-# Version: 6.2.1
+# Version: 6.5.0
 # Notes: 
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '6.2.1' %}
-{% set hash = 'FDB6A463DD71689E107358AC2D259FF5593EB79EF53E89B437059856AA163322' %}
+{% set version = '6.5.0' %}
+{% set hash = '8820E66610AE7278921C52AD22349D0106D98AB0D0F8D6E7CC10C18E7A36B8C9' %}
 
 cerbero-suite-download-only:
   file.managed:

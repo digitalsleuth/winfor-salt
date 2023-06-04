@@ -4,7 +4,7 @@
 # Category: Acquisition and Analysis
 # Author: Cerbero.io
 # License: 
-# Version: 6.2.1
+# Version: 6.5.0
 # Notes: 
 
 cerbero-suite:

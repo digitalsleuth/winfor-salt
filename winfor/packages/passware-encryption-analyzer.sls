@@ -4,10 +4,10 @@
 # Category: Raw Parsers / Decoders
 # Author: Passware - Dmitry Sumin
 # License: EULA - https://www.passware.com/files/Passware-EULA.pdf
-# Version: 2023.2.0.3511
+# Version: 2023.2.1.3577
 # Notes:
 
-{% set version = '2023.2.0.3511' %}
+{% set version = '2023.2.1.3577' %}
 Check for previous Passware versions and remove:
   pkg.removed:
     - name: passware-encryption-analyzer
