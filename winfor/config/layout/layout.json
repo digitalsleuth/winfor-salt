@@ -2195,7 +2195,7 @@
         "AUMID": false,
         "DALP": false,
         "StartMenu": true,
-        "Checked": true,
+        "Checked": false,
         "Enabled": true,
         "ExtraTiles": []
       },
