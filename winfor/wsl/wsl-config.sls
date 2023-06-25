@@ -55,28 +55,28 @@ wsl-import-template:
 
 wsl-get-cast:
   cmd.run:
-    - name: 'wsl echo forensics | wsl sudo -S wget -O /tmp/cast_v{{ castver }}_linux_amd64.deb https://github.com/ekristen/cast/releases/download/v{{ castver }}/cast_v{{ castver }}_linux_amd64.deb'
+    - name: 'wsl -d WIN-FOR echo forensics | wsl -d WIN-FOR sudo -S wget -O /tmp/cast_v{{ castver }}_linux_amd64.deb https://github.com/ekristen/cast/releases/download/v{{ castver }}/cast_v{{ castver }}_linux_amd64.deb'
     - shell: cmd
     - require:
       - cmd: wsl-import-template
 
 wsl-install-cast:
   cmd.run:
-    - name: 'wsl echo forensics | wsl sudo -S apt-get install -y /tmp/cast_v{{ castver }}_linux_amd64.deb'
+    - name: 'wsl -d WIN-FOR echo forensics | wsl -d WIN-FOR sudo -S apt-get install -y /tmp/cast_v{{ castver }}_linux_amd64.deb'
     - shell: cmd
     - require:
       - cmd: wsl-get-cast
 
 wsl-install-sift:
   cmd.run:
-    - name: 'wsl echo forensics | wsl sudo -S cast install --mode server --user forensics sift'
+    - name: 'wsl -d WIN-FOR echo forensics | wsl -d WIN-FOR sudo -S cast install --mode server --user forensics sift'
     - shell: cmd
     - require:
       - cmd: wsl-install-cast
 
 wsl-install-remnux:
   cmd.run:
-    - name: 'wsl echo forensics | wsl sudo -S cast install --mode addon --user forensics remnux'
+    - name: 'wsl -d WIN-FOR echo forensics | wsl -d WIN-FOR sudo -S cast install --mode addon --user forensics remnux'
     - shell: cmd
     - require:
       - cmd: wsl-install-sift

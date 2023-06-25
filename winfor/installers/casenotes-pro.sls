@@ -7,7 +7,7 @@
 # Version: 2.17.8.30
 # Notes:
 
-{% set user = salt['pillar.get']('cpcwin_user', 'user') %}
+{% set user = salt['pillar.get']('winfor_user', 'forensics') %}
 
 include:
   - winfor.config.user

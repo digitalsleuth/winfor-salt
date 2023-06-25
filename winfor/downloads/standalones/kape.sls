@@ -7,7 +7,7 @@
 # Version: 1.3.0.2
 # Notes: 
 
-{% set hash = '0412db20683b6da5016ae768c2d741a07a52eeeaed291df4ebcc52c2832945f7' %}
+{% set hash = '601395b86ea4472ae01a0041ad3470dea5ba7e4accfcd652229ed51604aed2ca' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 kape-download-only:

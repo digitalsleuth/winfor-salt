@@ -30,12 +30,22 @@ wsl-install:
     - name: Microsoft-Windows-Subsystem-Linux
     - restart: False
     - enable_parent: True
+    - unless:
+      - fun: cmd.run
+        cmd: 'dism /online /get-featureinfo /featurename:Microsoft-Windows-Subsystem-Linux | findstr "Enabled"'
+        shell: cmd
+        python_shell: True
 
 vmp-install:
   dism.feature_installed:
     - name: VirtualMachinePlatform
     - restart: False
     - enable_parent: True
+    - unless:
+      - fun: cmd.run
+        cmd: 'dism /online /get-featureinfo /featurename:VirtualMachinePlatform | findstr "Enabled"'
+        shell: cmd
+        python_shell: True
 
 powershell-execution-policy:
   reg.present:

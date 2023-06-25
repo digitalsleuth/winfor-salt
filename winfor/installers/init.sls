@@ -9,7 +9,7 @@ include:
   - winfor.installers.vbdecompiler
   - winfor.installers.systools-pst-viewer
   - winfor.installers.irfanview-plugins
-  - winfor.installers.magnet-axiom
+#  - winfor.installers.magnet-axiom No longer at the provided URL
   - winfor.installers.fastcopy
   - winfor.installers.windows-terminal
   - winfor.installers.windbg
@@ -28,7 +28,7 @@ installer-states:
       - sls: winfor.installers.vbdecompiler
       - sls: winfor.installers.systools-pst-viewer
       - sls: winfor.installers.irfanview-plugins
-      - sls: winfor.installers.magnet-axiom
+#      - sls: winfor.installers.magnet-axiom
       - sls: winfor.installers.fastcopy
       - sls: winfor.installers.windows-terminal
       - sls: winfor.installers.windbg
