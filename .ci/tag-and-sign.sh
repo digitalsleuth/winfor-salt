@@ -1,6 +1,6 @@
 #!/bin/bash -x
 
-set -x
+#set -x
 
 if [ "x`which jq`" == "x" ]; then
   echo "jq is required to use this script"
