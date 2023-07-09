@@ -34,4 +34,4 @@ casenotes-icons-remove:
       - 'C:\Users\{{ user }}\Desktop\CaseNotes Professional Manual.pdf.lnk'
     - require:
       - cmd: casenotes-pro-install
-      - user: winfor-user-{{ user }}
+      - user: user-{{ user }}

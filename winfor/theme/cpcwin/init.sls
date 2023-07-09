@@ -1,11 +1,6 @@
 {% set user = salt['pillar.get']('winfor_user', 'user') %}
 {% set release = grains['osrelease'] %}
-{% set all_users = salt['user.list_users']() %}
-{% if user in all_users %}
-  {% set home = salt['user.info'](user).home %}
-{% else %}
-  {% set home = "C:\\Users\\" + user %}
-{% endif %}
+{% set home = "C:\\Users\\" + user %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set START_MENU = PROGRAMDATA + '\Microsoft\Windows\Start Menu\Programs' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
@@ -40,39 +35,6 @@ cpcwin-theme-wallpaper-source:
     - source_hash: sha256={{ hash }}
     - makedirs: True
     - win_inheritance: True
-
-cpcwin-theme-desktop-background-color:
-  reg.present:
-    - name: HKEY_CURRENT_USER\Control Panel\Colors
-    - vname: Background
-    - vtype: REG_SZ
-    - vdata: "0 0 0"
-
-cpcwin-theme-set-wallpaper:
-  reg.present:
-    - name: HKEY_CURRENT_USER\Control Panel\Desktop
-    - vname: WallPaper
-    - vtype: REG_SZ
-    - vdata: '{{ inpath }}\cpc-wallpaper-cmpfor-4k.png'
-
-cpcwin-theme-set-wallpaper-center:
-  reg.present:
-    - name: HKEY_CURRENT_USER\Control Panel\Desktop
-    - vname: WallpaperStyle
-    - vtype: REG_SZ
-    - vdata: 10
-
-cpcwin-theme-set-wallpaper-no-tile:
-  reg.present:
-    - name: HKEY_CURRENT_USER\Control Panel\Desktop
-    - vname: TileWallpaper
-    - vtype: REG_SZ
-    - vdata: 0
-
-cpcwin-theme-update-wallpaper:
-  cmd.run:
-    - name: 'RUNDLL32.EXE USER32.DLL,UpdatePerUserSystemParameters 1, True'
-    - shell: cmd
 
 {% for folder in case_folders %}
 
@@ -133,23 +95,6 @@ cpcwin-portals-{{ config }}-placeholder-replace:
       - file: cpcwin-portals-{{ config }}-copy
 {% endfor %}
 
-cpcwin-portals-auto-run:
-  reg.present:
-    - name: HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
-    - vname: Portals
-    - vtype: REG_SZ
-    - vdata: 'C:\Program Files\Portals\Portals.exe'
-    - require:
-      - sls: winfor.packages.portals
-
-{% if release == '11' %}
-cpcwin-move-start-menu-left:
-  reg.present:
-    - name: HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced
-    - vname: TaskbarAl
-    - vtype: REG_DWORD
-    - vdata: 0
-{% endif %}
 {% for zip in zips %}
 {{ zip }}-zip-copy:
   file.managed:
@@ -194,13 +139,6 @@ xways-folder-copy:
       - file: xways-file-type-categories-user
 {% endif %}
 
-{% if grains['osrelease'] == "11" %}
-
-CPC Skipping Start Layout on Windows 11:
-  test.nop
-
-{% else %}
-
 cpc-start-layout-file:
   file.managed:
     - name: '{{ inpath }}\WIN-FOR-StartLayout.xml'
@@ -216,6 +154,8 @@ cpc-start-layout-replace-placeholder:
     - require:
       - file: cpc-start-layout-file
 
+{% if release != '11' %}
+
 cpc-start-layout-enable-gpo:
   lgpo.set:
     - user_policy:
@@ -227,40 +167,69 @@ cpc-start-layout-enable-gpo:
           "Start Layout File":
              '{{ inpath }}\WIN-FOR-StartLayout.xml'
 
-cpc-disable-locked-start-stager:
+{% endif %}
+
+cpc-theme-stager:
   file.managed:
-    - name: '{{ inpath }}\disable-locked-start.cmd'
+    - name: '{{ inpath }}\theme-config.cmd'
     - win_inheritance: True
     - makedirs: True
     - replace: True
     - contents: |
         @echo off
         setlocal EnableDelayedExpansion
-        title Disable Locked Start Layout
+        title Disable Locked Start Layout - Enable Theme
         %1 %2 mshta vbscript:createobject("shell.application").shellexecute("%~s0","goto :runas","","runas",1)(window.close)&goto :eof
         :runas
-        echo Forcing update of GPO
+        echo Forcing update of GPO's
         gpupdate /force
         timeout /t 3 /nobreak 1>nul
         echo Disabling locked start menu layout
-        reg add HKLM\SOFTWARE\Policies\Microsoft\Windows\Explorer /v LockedStartLayout /t REG_DWORD /d 0 /f 1>nul & reg add HKCU\SOFTWARE\Policies\Microsoft\Windows\Explorer /v LockedStartLayout /t REG_DWORD /d 0 /f 1>nul
+        {% if release != '11' %}
+        reg add HKLM\SOFTWARE\Policies\Microsoft\Windows\Explorer /v LockedStartLayout /t REG_DWORD /d 0 /f 1>nul
+        reg add HKCU\Software\Policies\Microsoft\Windows\Explorer /v LockedStartLayout /t REG_DWORD /d 0 /f 1>nul
+        {% endif %}
+        reg add "HKCU\Control Panel\Colors" /v Background /t REG_SZ /d "0 0 0" /f 1>nul
+        reg add "HKCU\Control Panel\Desktop" /v WallPaper /t REG_SZ /d "{{ inpath }}\cpc-wallpaper-cmpfor-4k.png" /f 1>nul
+        reg add "HKCU\Control Panel\Desktop" /v WallpaperStyle /t REG_SZ /d "10" /f 1>nul
+        reg add "HKCU\Control Panel\Desktop" /v TileWallpaper /t REG_SZ /d "0" /f 1>nul
+        RUNDLL32.EXE USER32.DLL,UpdatePerUserSystemParameters 1, True
+        echo Display reset exited with error code %ERRORLEVEL%
+        reg add HKCU\Software\Microsoft\Windows\CurrentVersion\Run /v Portals /t REG_SZ /d "C:\Program Files\Portals\Portals.exe" /f 1>nul
+        {% if release == '11' %}
+        reg add HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced /v TaskbarAl /t REG_DWORD /d "0" /f 1>nul
+        {% endif %}
         echo Restarting Explorer...
         timeout /t 1 /nobreak 1>nul
         taskkill /F /IM explorer.exe & start explorer
-        echo Finished
+        echo Finished - cleaning up
+        del "C:\Users\{{ user }}\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\theme-config.cmd"
+        timeout /t 3 /nobreak 1>nul
+        RUNDLL32.EXE USER32.DLL,UpdatePerUserSystemParameters 1, True
         exit
 
-cpc-disable-locked-start-layout-on-reboot-hkcu:
-  reg.present:
-    - name: HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce
-    - vname: "Disable Locked Start Layout"
-    - vtype: REG_SZ
-    - vdata: 'C:\Windows\system32\cmd.exe /q /c {{ inpath }}\disable-locked-start.cmd'
-    - require:
-      - lgpo: cpc-start-layout-enable-gpo
-      - file: cpc-disable-locked-start-stager
+cpc-startup-folder-check:
+{% if salt['file.directory_exists'](startup_folder) %}
+  test.nop:
+    - prereq:
+      - file: cpc-theme-stager-user
+{% else %}
+  file.directory:
+    - name: {{ startup_folder }}
+    - makedirs: True
+    - prereq:
+      - file: cpc-theme-stager-user
+{% endif %}
 
-cpc-disable-locked-start-layout-on-reboot-hklm:
+cpc-theme-stager-user:
+  file.copy:
+    - name: 'C:\Users\{{ user }}\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\theme-config.cmd'
+    - source: '{{ inpath }}\theme-config.cmd'
+    - preserve: True
+    - require:
+      - file: cpc-theme-stager
+
+cpc-theme-stager-on-reboot-hklm:
   reg.present:
     - name: HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce
     - vname: "Disable Locked Start Layout"
@@ -270,9 +239,59 @@ cpc-disable-locked-start-layout-on-reboot-hklm:
       - lgpo: cpc-start-layout-enable-gpo
       - file: cpc-disable-locked-start-stager
 
-cpc-restart-explorer:
+{% if user == salt['environ.get']('USERNAME') %}
+
+cpc-theme-stager-on-reboot-hkcu:
+  reg.present:
+    - name: HKCU\Software\Microsoft\Windows\CurrentVersion\RunOnce
+    - vname: "Win-FOR Theme Config"
+    - vtype: REG_SZ
+    - vdata: '{{ inpath}}\theme-config.cmd'
+    - require:
+      - reg: cpc-theme-stager-on-reboot-hklm
+
+cpc-theme-suggest-reboot:
   cmd.run:
-    - name: 'Stop-Process -ProcessName "explorer" -Confirm:$false -ErrorAction SilentlyContinue -Force'
-    - shell: powershell
+    - name: 'msg %username% "The theme will be fully applied once you log off then log back in."'
+    - shell: cmd
+    - require:
+      - reg: cpc-theme-stager-on-reboot-hklm
+      - file: cpc-theme-stager-user
+      - reg: cpc-theme-stager-on-reboot-hkcu
+
+{% else %}
+
+CPC Load NTUSER.DAT for {{ user }}:
+  cmd.run:
+    - name: reg load HKU\{{ user }} C:\Users\{{ user }}\NTUSER.DAT
+    - shell: cmd
+
+CPC Add RunOnce key to {{ user }}:
+  reg.present:
+    - name: HKU\{{ user }}\Software\Microsoft\Windows\CurrentVersion\RunOnce
+    - vname: "Win-FOR Theme Config"
+    - vtype: REG_SZ
+    - vdata: '{{ inpath }}\theme-config.cmd'
+    - require:
+      - cmd: CPC Load NTUSER.DAT for {{ user }}
+
+CPC Unload NTUSER.DAT for {{ user }}:
+  cmd.run:
+    - name: reg unload HKU\{{ user }}
+    - shell: cmd
+    - require:
+      - cmd: CPC Load NTUSER.DAT for {{ user }}
+      - reg: CPC Add RunOnce key to {{ user }}
+
+cpc-theme-suggest-reboot:
+  cmd.run:
+    - name: 'msg %username% "The theme will be fully applied for {{ user }} the next time they log on."'
+    - shell: cmd
+    - require:
+      - reg: cpc-theme-stager-on-reboot-hklm
+      - file: cpc-theme-stager-user
+      - cmd: CPC Load NTUSER.DAT for {{ user }}
+      - reg: CPC Add RunOnce key to {{ user }}
+      - cmd: CPC Unload NTUSER.DAT for {{ user }}
 
 {% endif %}

@@ -8,6 +8,7 @@
 # Notes: 
 
 {% set user = salt['pillar.get']('winfor_user', 'forensics') %}
+{% set SID = salt['user.info'](user).uid %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 
 include:
@@ -110,7 +111,7 @@ wsl-config-stager-customize-path:
 
 wsl-config-run-on-reboot:
   reg.present:
-    - name: HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce
+    - name: HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunOnce
     - vname: "WIN-FOR WSL Config"
     - vtype: REG_SZ
     - vdata: 'C:\Windows\system32\cmd.exe /q /c C:\salt\tempdownload\wsl-config.cmd'

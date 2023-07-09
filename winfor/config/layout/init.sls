@@ -1,5 +1,5 @@
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-
+{% set user = salt['pillar.get']('winfor_user', 'forensics') %}
 {% if grains['osrelease'] == "11" %}
 
 Skipping Start Layout on Windows 11:
@@ -33,16 +33,9 @@ start-layout-enable-gpo:
           "Start Layout File": 
              '{{ inpath }}\WIN-FOR-StartLayout.xml'
 
-disable-locked-start-stager:
-  file.managed:
-    - name: '{{ inpath }}\disable-locked-start.cmd'
-    - source: salt://winfor/config/layout/disable-locked-start.cmd
-    - win_inheritance: True
-    - makedirs: True
-
-disable-locked-start-layout-on-reboot-hkcu:
+disable-locked-start-layout-on-reboot-hku:
   reg.present:
-    - name: HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce
+    - name: HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\RunOnce
     - vname: "Disable Locked Start Layout"
     - vtype: REG_SZ
     - vdata: 'C:\Windows\system32\cmd.exe /q /c {{ inpath }}\disable-locked-start.cmd'

@@ -1,5 +1,6 @@
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-
+{% set user = salt['pillar.get']('winfor_user', 'forensics') %}
+{% set SID = salt['user.info'](user).uid %}
 {% if grains['osrelease'] == "11" %}
 
 CRA Skipping Start Layout on Windows 11:
@@ -40,9 +41,9 @@ cra-disable-locked-start-stager:
     - win_inheritance: True
     - makedirs: True
 
-cra-disable-locked-start-layout-on-reboot-hkcu:
+cra-disable-locked-start-layout-on-reboot-hku:
   reg.present:
-    - name: HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce
+    - name: HKEY_USERS\{{ SID }}\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce
     - vname: "Disable Locked Start Layout"
     - vtype: REG_SZ
     - vdata: 'C:\Windows\system32\cmd.exe /q /c {{ inpath }}\disable-locked-start.cmd'
