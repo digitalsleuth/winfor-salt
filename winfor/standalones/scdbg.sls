@@ -4,11 +4,11 @@
 # Category: Executables
 # Author: https://github.com/dzzie/VS_LIBEMU/blob/master/AUTHORS
 # License: 
-# Version: 2022.11.1
+# Version: 9.0
 # Notes: 
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set scdbg_hash = '47e0a2a1a3037907cbb834d1a2fe337c79a3f51107153402af33f1e9fd0608a6' %}
+{% set scdbg_hash = 'e2b9ec7d08ea722dc14242fc6aefc39971aa00ed3fc26d8b84d77359bb462418' %}
 {% set gui_hash = '02654879bc42871e8a4022a71d1ec7735568cc8714068a7c1753a51909266de9' %}
 {% set manual_hash = 'C9D605BA51DA3B8E2648E150E404D6B5DE2D4B60E1896141D02F591590CA64CF' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
