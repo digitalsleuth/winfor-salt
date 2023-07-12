@@ -8,6 +8,7 @@
 # Notes: 
 
 {% set user = salt['pillar.get']('winfor_user', 'forensics') %}
+{% set current_user = salt['environ.get']('USERNAME') %}
 {% set all_users = salt['user.list_users']() %}
 {% if user in all_users %}
   {% set home = salt['user.info'](user).home %}
@@ -26,6 +27,9 @@ chrome-del-shortcut:
     - names:
       - 'C:\Users\Public\Desktop\Google Chrome.lnk'
       - '{{ home }}\Desktop\Google Chrome.lnk'
+    {% if user != current_user %}
+      - 'C:\Users\{{ current_user }}\Desktop\Google Chrome.lnk'
+    {% endif %}
     - require:
       - pkg: chrome
       - user: user-{{ user }}

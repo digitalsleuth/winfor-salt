@@ -8,6 +8,7 @@
 # Notes: 
 
 {% set user = salt['pillar.get']('winfor_user', 'user') %}
+{% set current_user = salt['environ.get']('USERNAME') %}
 {% set all_users = salt['user.list_users']() %}
 {% if user in all_users %}
   {% set home = salt['user.info'](user).home %}
@@ -26,6 +27,9 @@ veracrypt-icon-del:
     - names:
       - '{{ home }}\Desktop\VeraCrypt.lnk'
       - 'C:\Users\Public\Desktop\VeraCrypt.lnk'
+    {% if user != current_user %}
+      - 'C:\Users\{{ current_user }}\Desktop\VeraCrypt.lnk'
+    {% endif %}
     - require:
       - pkg: veracrypt
       - user: user-{{ user }}

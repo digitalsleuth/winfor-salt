@@ -1,102 +1,69 @@
-directory-shell-posh-admin:
-  reg.present:
-    - name: HKEY_CLASSES_ROOT\Directory\shell\PoshAsAdmin
-    - vtype: REG_SZ
-    - vdata: "Open PowerShell Prompt here as Administrator"
+{% set paths = ["HKEY_CLASSES_ROOT\Directory\shell\Windows.PowershellAsAdmin","HKEY_CLASSES_ROOT\Directory\Background\shell\Windows.PowershellAsAdmin","HKEY_CLASSES_ROOT\Drive\shell\Windows.PowershellAsAdmin","HKEY_CLASSES_ROOT\LibraryFolder\Background\shell\Windows.PowershellAsAdmin"] %}
 
-directory-shell-posh-admin-icon:
+{% for path in paths %}
+canonical-name-{{ path }}:
   reg.present:
-    - name: HKEY_CLASSES_ROOT\Directory\shell\PoshAsAdmin
+    - name: {{ path }}
+    - vname: CanonicalName
+    - vtype: REG_SZ
+    - vdata: '{ADB73FFC-1568-4D7D-BCD5-6D11A417AF64}'
+
+command-state-sync-{{ path }}:
+  reg.present:
+    - name: {{ path }}
+    - vname: CommandStateSync
+    - vtype: REG_SZ
+
+description-{{ path }}:
+  reg.present:
+    - name: {{ path }}
+    - vname: Description
+    - vtype: REG_SZ
+    - vdata: '@shell32.dll,-37499'
+
+explorer-command-handler-{{ path }}:
+  reg.present:
+    - name: {{ path }}
+    - vname: ExplorerCommandHandler
+    - vtype: REG_SZ
+    - vdata: '{BF0AC53F-D51C-419F-92E3-2298E125F004}'
+
+icon-{{ path }}:
+  reg.present:
+    - name: {{ path }}
     - vname: Icon
     - vtype: REG_SZ
-    - vdata: powershell.exe
+    - vdata: imageres.dll,-5373
 
-directory-shell-posh-admin-shield:
+implied-selection-model-{{ path }}:
   reg.present:
-    - name: HKEY_CLASSES_ROOT\Directory\shell\PoshAsAdmin
-    - vname: HasLUAShield
-    - vtype: REG_SZ
+    - name: {{ path }}
+    - vname: ImpliedSelectionModel
+    - vtype: REG_DWORD
+    - vdata: 1
 
-directory-shell-posh-admin-command:
+muiverb-{{ path }}:
   reg.present:
-    - name: HKEY_CLASSES_ROOT\Directory\shell\PoshAsAdmin\command
+    - name: {{ path }}
+    - vname: MUIVerb
     - vtype: REG_SZ
-    - vdata: "powershell -W 1 -nop -c \"SaPs -Verb RunAs powershell.exe -Args \\\"-noe -c Push-Location \\\\\\\"\\\"%V/\\\\\\\"\\\"\\\""
+    - vdata: '@shell32.dll,-37448'
 
-directory-background-shell-posh:
+resolve-links-invoke-behavior-{{ path }}:
   reg.present:
-    - name: HKEY_CLASSES_ROOT\Directory\Background\shell\PoshAsAdmin
-    - vtype: REG_SZ
-    - vdata: "Open PowerShell Prompt here as Administrator"
+    - name: {{ path }}
+    - vname: ResolveLinksInvokeBehavior
+    - vtype: REG_DWORD
+    - vdata: 3
 
-directory-background-shell-posh-icon:
+resolve-links-query-behavior-{{ path }}:
   reg.present:
-    - name: HKEY_CLASSES_ROOT\Directory\Background\shell\PoshAsAdmin
-    - vname: Icon
-    - vtype: REG_SZ
-    - vdata: powershell.exe
+    - name: {{ path }}
+    - vname: ResolveLinksQueryBehavior
+    - vtype: REG_DWORD
+    - vdata: 0
 
-directory-background-shell-posh-shield:
-  reg.present:
-    - name: HKEY_CLASSES_ROOT\Directory\Background\shell\PoshAsAdmin
-    - vname: HasLUAShield
-    - vtype: REG_SZ
-
-directory-background-shell-posh-command:
-  reg.present:
-    - name: HKEY_CLASSES_ROOT\Directory\Background\shell\PoshAsAdmin\command
-    - vtype: REG_SZ
-    - vdata: "powershell -W 1 -nop -c \"SaPs -Verb RunAs powershell.exe -Args \\\"-noe -c Push-Location \\\\\\\"\\\"%V/\\\\\\\"\\\"\\\""
-
-drive-shell-posh-admin:
-  reg.present:
-    - name: HKEY_CLASSES_ROOT\Drive\shell\PoshAsAdmin
-    - vtype: REG_SZ
-    - vdata: "Open PowerShell Prompt here as Administrator"
-
-drive-shell-posh-icon:
-  reg.present:
-    - name: HKEY_CLASSES_ROOT\Drive\shell\PoshAsAdmin
-    - vname: Icon
-    - vtype: REG_SZ
-    - vdata: powershell.exe
-
-drive-shell-posh-shield:
-  reg.present:
-    - name: HKEY_CLASSES_ROOT\Drive\shell\PoshAsAdmin
-    - vname: HasLUAShield
-    - vtype: REG_SZ
-
-drive-shell-posh-command:
-  reg.present:
-    - name: HKEY_CLASSES_ROOT\Drive\shell\PoshAsAdmin\command
-    - vtype: REG_SZ
-    - vdata: "powershell -W 1 -nop -c \"SaPs -Verb RunAs powershell.exe -Args \\\"-noe -c Push-Location \\\\\\\"\\\"%V/\\\\\\\"\\\"\\\""
-
-library-background-shell-posh:
-  reg.present:
-    - name: HKEY_CLASSES_ROOT\LibraryFolder\background\shell\PoshAsAdmin
-    - vtype: REG_SZ
-    - vdata: "Open PowerShell Prompt here as Administrator"
-
-library-background-shell-posh-icon:
-  reg.present:
-    - name: HKEY_CLASSES_ROOT\LibraryFolder\background\shell\PoshAsAdmin
-    - vname: Icon
-    - vtype: REG_SZ
-    - vdata: powershell.exe
-
-library-background-shell-posh-shield:
-  reg.present:
-    - name: HKEY_CLASSES_ROOT\LibraryFolder\background\shell\PoshAsAdmin
-    - vname: HasLUAShield
-    - vtype: REG_SZ
-
-library-background-shell-posh-command:
-  reg.present:
-    - name: HKEY_CLASSES_ROOT\LibraryFolder\background\shell\PoshAsAdmin\command
-    - vtype: REG_SZ
-    - vdata: "powershell -W 1 -nop -c \"SaPs -Verb RunAs powershell.exe -Args \\\"-noe -c Push-Location \\\\\\\"\\\"%V/\\\\\\\"\\\"\\\""
+{% endfor %}
 
 linked-connections-posh:
   reg.present:
@@ -104,4 +71,3 @@ linked-connections-posh:
     - vname: EnableLinkedConnections
     - vtype: REG_DWORD
     - vdata: 1
-

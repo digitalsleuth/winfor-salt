@@ -6,21 +6,21 @@
 
 transfer-debloat-script:
   file.managed:
-    - name: 'C:\salt\tempdownload\Win10.ps1'
+    - name: 'C:\Windows\System32\WindowsPowerShell\v1.0\Modules\Win10Debloat\Win10.ps1'
     - source: salt://winfor/config/Win10.ps1
     - makedirs: True
     - win_inheritance: True
 
 transfer-debloat-module:
   file.managed:
-    - name: 'C:\salt\tempdownload\Win10.psm1'
+    - name: 'C:\Windows\System32\WindowsPowerShell\v1.0\Modules\Win10Debloat\Win10.psm1'
     - source: salt://winfor/config/Win10.psm1
     - makedirs: True
     - win_inheritance: True
 
 transfer-debloat-preset:
   file.managed:
-    - name: 'C:\salt\tempdownload\debloat.preset'
+    - name: 'C:\Windows\System32\WindowsPowerShell\v1.0\Modules\Win10Debloat\debloat.preset'
     - source: salt://winfor/config/debloat.preset
     - makedirs: True
     - win_inheritance: True
@@ -28,5 +28,5 @@ transfer-debloat-preset:
 debloat-windows:
   cmd.run:
     - name: 'powershell -nop -ep Bypass -File "Win10.ps1" -include "Win10.psm1" -preset "debloat.preset"'
-    - cwd: 'C:\salt\tempdownload'
+    - cwd: 'C:\Windows\System32\WindowsPowerShell\v1.0\Modules\Win10Debloat\'
     - shell: powershell

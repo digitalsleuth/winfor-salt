@@ -10,6 +10,7 @@
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set PROGRAMFILES = salt['environ.get']('PROGRAMFILES') %}
 {% set user = salt['pillar.get']('winfor_user', 'forensics') %}
+{% set current_user = salt['environ.get']('USERNAME') %}
 {% set all_users = salt['user.list_users']() %}
 {% if user in all_users %}
   {% set home = salt['user.info'](user).home %}
@@ -35,7 +36,11 @@ monolith-notes-shortcut:
 
 monolith-desktop-shortcut:
   file.absent:
-    - name: '{{ home }}\Desktop\Monolith Notes.lnk'
+    - names:
+      - '{{ home }}\Desktop\Monolith Notes.lnk'
+    {% if user != current_user %}
+      - 'C:\Users\{{ current_user }}\Desktop\Monolith Notes.lnk'
+    {% endif %}
     - require:
       - pkg: monolith-notes
       - user: user-{{ user }}

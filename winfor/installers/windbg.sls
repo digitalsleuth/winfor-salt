@@ -4,38 +4,35 @@
 # Category: Executables
 # Author: Microsoft
 # License: Third-party Notices within app
-# Version: 1.2210.3001.0
-# Notes: Installed via winget
+# Version: 1.2306.12001.0
+# Notes: 
 
-{% set version = '1.2210.3001.0' %}
+{% set version = '1.2306.12001.0' %}
+{% set hash = '0a3615caa8a32cd0bc4977ac0be7896af071a473182b9f786b2360b11332b07f' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set PROGRAM_FILES = salt['environ.get']('PROGRAMFILES') %}
-{% set WINDIR = salt['environ.get']('WINDIR') %}
 {% set LOCALAPPDATA = salt['environ.get']('LOCALAPPDATA') %}
-{% set WINGET = LOCALAPPDATA + "\\Microsoft\\WindowsApps\\winget.exe" %}
 
-include:
-  - winfor.installers.windows-winget
+windbg-download:
+  file.managed:
+    - name: 'C:\salt\tempdownload\windbg.appinstaller'
+    - source: https://windbg.download.prss.microsoft.com/dbazure/prod/1-0-0/windbg.appinstaller
+    - source_hash: sha256={{ hash }}
+    - makedirs: True
 
 windbg-install:
   cmd.run:
-    - name: $installWindbg = ({{ WINGET }} install windbg --accept-source-agreements --accept-package-agreements)
+    - name: 'Add-AppxPackage -AppInstallerFile C:\salt\tempdownload\windbg.appinstaller'
     - shell: powershell
-    - unless:
-      - fun: cmd.run
-        cmd: $isInstalled = ({{ WINGET }} uninstall windbg --accept-source-agreements); if ($LASTEXITCODE -ne 0) {exit 0}
-        shell: powershell
-        python_shell: True
     - require:
-      - sls: winfor.installers.windows-winget
+      - file: windbg-download
 
 windbg-shortcut:
   file.shortcut:
-    - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\WinDbg Preview.lnk'
-    - target: '{{ WINDIR }}\explorer.exe'
-    - arguments: 'shell:appsfolder\Microsoft.WinDbg_8wekyb3d8bbwe!Microsoft.WinDbg'
+    - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\WinDbg.lnk'
+    - target: '{{ LOCALAPPDATA }}\Microsoft\WindowsApps\WinDbgX.exe'
     - force: True
-    - working_dir: '{{ WINDIR }}\'
+    - working_dir: '{{ LOCALAPPDATA }}\Microsoft\WindowsApps\'
     - icon_location: '{{ PROGRAM_FILES }}\WindowsApps\Microsoft.WinDbg_{{ version }}_x64__8wekyb3d8bbwe\DbgX.Shell.exe'
     - require:
       - cmd: windbg-install

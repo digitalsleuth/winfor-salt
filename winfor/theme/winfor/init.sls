@@ -25,6 +25,7 @@
                     ('Utilities', ['Aurora','Digital Detective\DCode v5\DCode v5.5','EZViewer','FastCopy','Hasher','IrfanView\IrfanView 64 4.60','Monolith Notes',"Nuix\\Nuix Evidence Mover\\Nuix Evidence Mover",'Rufus','Sysinternals','Tableau\Tableau Firmware Update\Tableau Firmware Update','USB Write Blocker','WinMerge\WinMerge','Agent Ransack\Agent Ransack']),
                     ('Windows Analysis', ['AutoRunner','Event Log Explorer','EXE','JumpListExplorer','Live Response Collection - Cedarpelta','LogFileParser64','MFTBrowser','MFTExplorer','NirLauncher','NTFS Log Tracker','OneDriveExplorer-GUI','Redline\Redline','RegistryExplorer','RegRipper','SE','ShadowExplorer','ShellBagsExplorer','SRUM-DUMP2','ThumbCache Viewer','TimelineExplorer','Windows Timeline','WLEAPP-GUI'])
                    ] %}
+{% set start_folders = [('01','Acquisition and Analysis'),('02','Browsers'),('03','Databases'),('04','Document Analysis'),('05','Document Viewers'),('06','Email'),('07','Executables'),('08','Installers'),('09','Logs'),('10','Mobile Analysis'),('11','Network'),('12','Raw Parsers and Decoders'),('13','Registry'),('14','Terminals'),('15','Utilities'),('16','Windows Analysis')] %}
 
 include:
   - winfor.packages.portals
@@ -127,6 +128,15 @@ theme-start-layout-replace-placeholder:
     - repl: {{ inpath | regex_escape }}
     - require:
       - file: theme-start-layout-file
+
+{% for number, folder in start_folders %}
+theme-start-shortcut-{{ folder }}:
+  file.shortcut:
+    - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\{{ number }} - {{ folder }}.lnk'
+    - target: 'C:\Windows\explorer.exe'
+    - arguments: '{{ inpath }}\Portals\{{ folder }}'
+    - force: True
+{% endfor %}
 
 {% if release != '11' %}
 

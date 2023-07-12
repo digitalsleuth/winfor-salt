@@ -7,5 +7,29 @@
 # Version: 22.003.20282
 # Notes: 
 
+{% set user = salt['pillar.get']('winfor_user', 'forensics') %}
+{% set current_user = salt['environ.get']('USERNAME') %}
+{% set all_users = salt['user.list_users']() %}
+{% if user in all_users %}
+  {% set home = salt['user.info'](user).home %}
+{% else %}
+{% set home = "C:\\Users\\" + user %}
+{% endif %}
+
+include:
+  - winfor.config.user
+
 adobereader:
   pkg.installed
+
+adobe-icon:
+  file.absent:
+    - names:
+      - '{{ home }}\Desktop\Acrobat Reader.lnk'
+      - 'C:\Users\Public\Desktop\Acrobat Reader.lnk'
+    {% if user != current_user %}
+      - 'C:\Users\{{ current_user }}\Desktop\Acrobat Reader.lnk'
+    {% endif %}
+    - require:
+      - user: user-{{ user }}
+      - pkg: adobereader

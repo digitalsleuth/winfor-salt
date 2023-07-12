@@ -8,6 +8,7 @@
 # Notes: 
 
 {% set user = salt['pillar.get']('winfor_user', 'forensics') %}
+{% set current_user = salt['environ.get']('USERNAME') %}
 {% set all_users = salt['user.list_users']() %}
 {% if user in all_users %}
   {% set home = salt['user.info'](user).home %}
@@ -23,7 +24,11 @@ pdfstreamdumper:
 
 pdfstreamdumper-icon-remove:
   file.absent:
-    - name: '{{ home }}\Desktop\PdfStreamDumper.exe.lnk'
+    - names:
+      - '{{ home }}\Desktop\PdfStreamDumper.exe.lnk'
+    {% if user != current_user %}
+      - 'C:\Users\{{ current_user }}\Desktop\PdfStreamDumper.exe.lnk'
+    {% endif %}
     - require:
       - user: user-{{ user }}
       - pkg: pdfstreamdumper

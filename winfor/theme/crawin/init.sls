@@ -20,6 +20,7 @@
                     ('Utilities', ['Digital Detective\DCode v5\DCode v5.5','EZViewer','FastCopy','Hasher','IrfanView\IrfanView 64 4.60','Monolith Notes',"Nuix\\Nuix Evidence Mover\\Nuix Evidence Mover",'Rufus','Sysinternals','Tableau\Tableau Firmware Update\Tableau Firmware Update','USB Write Blocker','WindowGrid','VcXsrv\XLaunch']),
                     ('Windows Analysis', ['AutoRunner','EXE','gkape','Hindsight GUI','JumpListExplorer','LogFileParser64','MFTBrowser','MFTExplorer','mimikatz','NirLauncher','NTFS Log Tracker','Redline\Redline','RegistryExplorer','RegRipper','SE','ShadowExplorer','ShellBagsExplorer','Sysinternals','Zimmerman Tools'])
                    ] %}
+{% set start_folders = [('01','Acquisition and Analysis'),('02','Browsers'),('03','Databases'),('04','Document Analysis'),('05','Document Viewers'),('06','Email'),('07','Logs'),('08','Mobile Analysis'),('09','Network'),('10','Raw Parsers and Decoders'),('11','Terminals'),('12','Utilities'),('13','Windows Analysis')] %}
 
 include:
   - winfor.packages.portals
@@ -96,6 +97,15 @@ crawin-start-layout-replace-placeholder:
     - repl: {{ inpath | regex_escape }}
     - require:
       - file: crawin-start-layout-file
+
+{% for number, folder in start_folders %}
+crawin-theme-start-shortcut-{{ folder }}:
+  file.shortcut:
+    - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\{{ number }} - {{ folder }}.lnk'
+    - target: 'C:\Windows\explorer.exe'
+    - arguments: '{{ inpath }}\Portals\{{ folder }}'
+    - force: True
+{% endfor %}
 
 {% if release != '11' %}
 

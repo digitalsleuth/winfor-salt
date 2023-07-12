@@ -23,6 +23,7 @@
                     ('Windows Analysis', ['AutoRunner','gkape','Hindsight GUI','JumpListExplorer','MFTBrowser','MFTExplorer','mimikatz','NirLauncher','NTFS Log Tracker','RegistryExplorer','RegRipper','SE','ShadowExplorer','ShellBagsExplorer','Sysinternals','TimelineExplorer','Zimmerman Tools']),
                     ('Write Blockers', ['Tableau\Tableau Firmware Update\Tableau Firmware Update','USB Write Blocker','CDSG\WriteBlocking Validation Utility\WriteBlocking Validation Utility'])
                    ] %}
+{% set start_folders = [('01','Acquisition and Analysis'),('02','Browsers'),('03','Databases'),('04','Document Viewers'),('05','E-mail'),('06','Log Parsers'),('07','Programming'),('08','Raw Parsers'),('09','Terminals'),('10','Utilities'),('11','Windows Analysis'),('12','Write Blockers')] %}
 
 include:
   - winfor.packages.portals
@@ -153,6 +154,15 @@ cpc-start-layout-replace-placeholder:
     - repl: {{ inpath | regex_escape }}
     - require:
       - file: cpc-start-layout-file
+
+{% for number, folder in start_folders %}
+cpc-theme-start-shortcut-{{ folder }}:
+  file.shortcut:
+    - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\{{ number }} - {{ folder }}.lnk'
+    - target: 'C:\Windows\explorer.exe'
+    - arguments: '{{ inpath }}\Portals\{{ folder }}'
+    - force: True
+{% endfor %}
 
 {% if release != '11' %}
 

@@ -63,6 +63,7 @@ include:
   - winfor.packages.synchrony
   - winfor.packages.msg-viewer
   - winfor.packages.fec
+  - winfor.packages.teracopy
 
 package-states:
   test.nop:
@@ -131,3 +132,4 @@ package-states:
       - sls: winfor.packages.synchrony
       - sls: winfor.packages.msg-viewer
       - sls: winfor.packages.fec
+      - sls: winfor.packages.teracopy

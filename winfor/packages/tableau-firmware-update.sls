@@ -8,6 +8,7 @@
 # Notes: 
 
 {% set user = salt['pillar.get']('winfor_user', 'forensics') %}
+{% set current_user = salt['environ.get']('USERNAME') %}
 {% set all_users = salt['user.list_users']() %}
 {% if user in all_users %}
   {% set home = salt['user.info'](user).home %}
@@ -41,6 +42,9 @@ tableau-firmware-update-icon-del:
     - names:
       - '{{ home }}\Desktop\Tableau Firmware Update.lnk'
       - 'C:\Users\Public\Desktop\Tableau Firmware Update.lnk'
+    {% if user != current_user %}
+      - 'C:\Users\{{ current_user }}\Desktop\Tableau Firmware Update.lnk'
+    {% endif %}
     - require:
       - pkg: tableau-firmware-update
       - user: user-{{ user }}
