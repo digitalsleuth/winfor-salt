@@ -9,7 +9,7 @@
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
-{% set hash = '5752ba3c0695f07e7364eabf83e64794733a17576457ca7bf73cf760adcf4496' %}
+{% set hash = 'aac4b02e6ec50ea77f6fb9149e87f1dd607300af47c261681ba0c5e5a1c99c53' %}
 
 malcat-download:
   file.managed:
