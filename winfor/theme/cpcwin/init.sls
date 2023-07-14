@@ -213,41 +213,9 @@ cpc-theme-stager:
         timeout /t 1 /nobreak 1>nul
         taskkill /F /IM explorer.exe & start explorer
         echo Finished - cleaning up
-        del "C:\Users\{{ user }}\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\theme-config.cmd"
         timeout /t 3 /nobreak 1>nul
         RUNDLL32.EXE USER32.DLL,UpdatePerUserSystemParameters 1, True
         exit
-
-cpc-startup-folder-check:
-{% if salt['file.directory_exists'](startup_folder) %}
-  test.nop:
-    - prereq:
-      - file: cpc-theme-stager-user
-{% else %}
-  file.directory:
-    - name: {{ startup_folder }}
-    - makedirs: True
-    - prereq:
-      - file: cpc-theme-stager-user
-{% endif %}
-
-cpc-theme-stager-user:
-  file.copy:
-    - name: 'C:\Users\{{ user }}\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\theme-config.cmd'
-    - source: '{{ inpath }}\theme-config.cmd'
-    - preserve: True
-    - require:
-      - file: cpc-theme-stager
-
-cpc-theme-stager-on-reboot-hklm:
-  reg.present:
-    - name: HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce
-    - vname: "Disable Locked Start Layout"
-    - vtype: REG_SZ
-    - vdata: 'C:\Windows\system32\cmd.exe /q /c {{ inpath }}\disable-locked-start.cmd'
-    - require:
-      - lgpo: cpc-start-layout-enable-gpo
-      - file: cpc-disable-locked-start-stager
 
 {% if user == salt['environ.get']('USERNAME') %}
 
@@ -258,15 +226,14 @@ cpc-theme-stager-on-reboot-hkcu:
     - vtype: REG_SZ
     - vdata: '{{ inpath}}\theme-config.cmd'
     - require:
-      - reg: cpc-theme-stager-on-reboot-hklm
+      - file: cpc-theme-stager
 
 cpc-theme-suggest-reboot:
   cmd.run:
     - name: 'msg %username% "The theme will be fully applied once you log off then log back in."'
     - shell: cmd
     - require:
-      - reg: cpc-theme-stager-on-reboot-hklm
-      - file: cpc-theme-stager-user
+      - file: cpc-theme-stager
       - reg: cpc-theme-stager-on-reboot-hkcu
 
 {% else %}
@@ -298,8 +265,7 @@ cpc-theme-suggest-reboot:
     - name: 'msg %username% "The theme will be fully applied for {{ user }} the next time they log on."'
     - shell: cmd
     - require:
-      - reg: cpc-theme-stager-on-reboot-hklm
-      - file: cpc-theme-stager-user
+      - file: cpc-theme-stager
       - cmd: CPC Load NTUSER.DAT for {{ user }}
       - reg: CPC Add RunOnce key to {{ user }}
       - cmd: CPC Unload NTUSER.DAT for {{ user }}

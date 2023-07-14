@@ -156,40 +156,9 @@ crawin-theme-stager:
         timeout /t 1 /nobreak 1>nul
         taskkill /F /IM explorer.exe & start explorer
         echo Finished - cleaning up
-        del "C:\Users\{{ user }}\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\theme-config.cmd"
         timeout /t 3 /nobreak 1>nul
         RUNDLL32.EXE USER32.DLL,UpdatePerUserSystemParameters 1, True
         exit
-
-crawin-startup-folder-check:
-{% if salt['file.directory_exists'](startup_folder) %}
-  test.nop:
-    - prereq:
-      - file: crawin-theme-stager-user
-{% else %}
-  file.directory:
-    - name: {{ startup_folder }}
-    - makedirs: True
-    - prereq:
-      - file: crawin-theme-stager-user
-{% endif %}
-
-crawin-theme-stager-user:
-  file.copy:
-    - name: 'C:\Users\{{ user }}\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\theme-config.cmd'
-    - source: '{{ inpath }}\theme-config.cmd'
-    - preserve: True
-    - require:
-      - file: crawin-theme-stager
-
-crawin-theme-stager-on-reboot-hklm:
-  reg.present:
-    - name: HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce
-    - vname: "Win-FOR Theme Config"
-    - vtype: REG_SZ
-    - vdata: 'C:\Windows\system32\cmd.exe /q /c {{ inpath }}\theme-config.cmd'
-    - require:
-      - file: crawin-theme-stager
 
 {% if user == salt['environ.get']('USERNAME') %}
 
@@ -200,15 +169,14 @@ crawin-theme-stager-on-reboot-hkcu:
     - vtype: REG_SZ
     - vdata: '{{ inpath}}\theme-config.cmd'
     - require:
-      - reg: crawin-theme-stager-on-reboot-hklm
+      - file: crawin-theme-stager
 
 crawin-theme-suggest-reboot:
   cmd.run:
     - name: 'msg %username% "The theme will be fully applied once you log off then log back in."'
     - shell: cmd
     - require:
-      - reg: crawin-theme-stager-on-reboot-hklm
-      - file: crawin-theme-stager-user
+      - file: crawin-theme-stager
       - reg: crawin-theme-stager-on-reboot-hkcu
 
 {% else %}
@@ -240,8 +208,7 @@ crawin-theme-suggest-reboot:
     - name: 'msg %username% "The theme will be fully applied for {{ user }} the next time they log on."'
     - shell: cmd
     - require:
-      - reg: crawin-theme-stager-on-reboot-hklm
-      - file: crawin-theme-stager-user
+      - file: crawin-theme-stager
       - cmd: CRA Load NTUSER.DAT for {{ user }}
       - reg: CRA Add RunOnce key to {{ user }}
       - cmd: CRA Unload NTUSER.DAT for {{ user }}
