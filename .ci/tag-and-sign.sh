@@ -78,3 +78,4 @@ rm /tmp/winfor-salt-$TAG_NAME.zip.asc
 if [ "${STASH_RESULTS}" != "No local changes to save" ]; then
   git stash pop
 fi
+echo
