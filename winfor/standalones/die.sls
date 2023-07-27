@@ -8,21 +8,21 @@
 # Notes: Detect It Easy - DIE 
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set version = '3.06' %}
-{% set hash = 'f1f075145a7b5ee8556dbf8a66c4e64e6b7eff71bcfeaed669f8f8471862fac9' %}
+{% set version = '3.08' %}
+{% set hash = 'a6b9ea7ea2e06a048ac4aef3d27020fbc383bbad448da6c767118ebfd2449d5e' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 die-download:
   file.managed:
-    - name: 'C:\salt\tempdownload\die_win64_portable_{{ version }}.zip'
-    - source: https://github.com/horsicq/DIE-engine/releases/download/{{ version }}/die_win64_portable_{{ version }}.zip
+    - name: 'C:\salt\tempdownload\die_win64_portable_{{ version }}_x64.zip'
+    - source: https://github.com/horsicq/DIE-engine/releases/download/{{ version }}/die_win64_portable_{{ version }}_x64.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True
 
 die-extract:
   archive.extracted:
     - name: '{{ inpath }}\die'
-    - source: 'C:\salt\tempdownload\die_win64_portable_{{ version }}.zip'
+    - source: 'C:\salt\tempdownload\die_win64_portable_{{ version }}_x64.zip'
     - enforce_toplevel: False
     - require:
       - file: die-download

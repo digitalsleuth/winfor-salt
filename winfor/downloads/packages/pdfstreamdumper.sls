@@ -4,16 +4,16 @@
 # Category: Documents / Editors
 # Author: David Zimmer (dzzie)
 # License: None
-# Version: 0.9.624
+# Version: 0.9.634
 # Notes: 
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '0.9.624' %}
-{% set hash = '3297d271db055194a65f2f46fa073e2cd112c62e5b23cdedffe292ac21637599' %}
+{% set version = '0.9.634' %}
+{% set hash = 'c26068186f63dcce9cc57502be742c728110eab07570c319a0d7d10587a6e22d' %}
 
 pdfstreamdumper-download-only:
   file.managed:
     - name: '{{ downloads }}\PDFStreamDumper_Setup.exe'
-    - source: https://github.com/dzzie/pdfstreamdumper/releases/download/current/PDFStreamDumper_Setup.exe
+    - source: http://sandsprite.com/CodeStuff/PDFStreamDumper_Setup.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

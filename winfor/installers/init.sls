@@ -14,6 +14,7 @@ include:
   - winfor.installers.windows-terminal
   - winfor.installers.windbg
   - winfor.installers.casenotes-pro
+  - winfor.installers.msiviewer
   
 installer-states:
   test.nop:
@@ -33,3 +34,4 @@ installer-states:
       - sls: winfor.installers.windows-terminal
       - sls: winfor.installers.windbg
       - sls: winfor.installers.casenotes-pro
+      - sls: winfor.installers.msiviewer

@@ -64,6 +64,7 @@ include:
   - winfor.packages.msg-viewer
   - winfor.packages.fec
   - winfor.packages.teracopy
+  - winfor.packages.osfmount
 
 package-states:
   test.nop:
@@ -133,3 +134,4 @@ package-states:
       - sls: winfor.packages.msg-viewer
       - sls: winfor.packages.fec
       - sls: winfor.packages.teracopy
+      - sls: winfor.packages.osfmount

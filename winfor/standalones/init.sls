@@ -88,6 +88,7 @@ include:
   - winfor.standalones.trid
   - winfor.standalones.wmi-parser
   - winfor.standalones.onedriveexplorer
+  - winfor.standalones.portex-analyzer
 
 standalones-states:
   test.nop:
@@ -181,3 +182,4 @@ standalones-states:
       - sls: winfor.standalones.trid
       - sls: winfor.standalones.wmi-parser
       - sls: winfor.standalones.onedriveexplorer
+      - sls: winfor.standalones.portex-analyzer
