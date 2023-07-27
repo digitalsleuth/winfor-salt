@@ -65,6 +65,7 @@ include:
   - winfor.packages.fec
   - winfor.packages.teracopy
   - winfor.packages.osfmount
+  - winfor.packages.winscp
 
 package-states:
   test.nop:
@@ -135,3 +136,4 @@ package-states:
       - sls: winfor.packages.fec
       - sls: winfor.packages.teracopy
       - sls: winfor.packages.osfmount
+      - sls: winfor.packages.winscp
