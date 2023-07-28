@@ -8,12 +8,12 @@
 # Notes:
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set hash = '9bf9ee79a7ddeecf4ac25fea509e1ddbd569c97be46c301a1e5f808edfa0ea3e' %}
+{% set hash = 'f0b901e89c237d9699d9dcc6a645c1c351705ae8601c9c975089cbf64c37e351' %}
 {% set version = '170' %}
 
 magnet-response-download-only:
   file.managed:
-    - name: '{{ downloads }}\MagnetRESPONSEv{{ version }}.zip'
-    - source: https://storage.googleapis.com/mfi-files/free_tools/MagnetRESPONSE/MagnetRESPONSEv{{ version }}.zip
+    - name: '{{ downloads }}\MagnetRESPONSEv{{ version }}.exe'
+    - source: https://storage.googleapis.com/mfi-files/free_tools/MagnetRESPONSE/MagnetRESPONSEv{{ version }}.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

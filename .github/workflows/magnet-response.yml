@@ -1,4 +1,4 @@
-# This workflow should download the latest magnet-response zip, and compare the previous hash
+# This workflow should download the latest magnet-response exe, and compare the previous hash
 # with the current hash.
 
 name: check-magnet-response-hash
@@ -17,7 +17,7 @@ jobs:
       - name: Check Magnet Response Hash
         run: |
           MAGNET_VERSION=$(cat /home/runner/work/winfor-salt/winfor-salt/winfor/standalones/magnet-response.sls | grep "set version" | awk -F\' '{print tolower($2)}')
-          wget https://storage.googleapis.com/mfi-files/free_tools/MagnetRESPONSE/MagnetRESPONSEv${MAGNET_VERSION}.zip
+          wget https://storage.googleapis.com/mfi-files/free_tools/MagnetRESPONSE/MagnetRESPONSEv${MAGNET_VERSION}.exe
           PREVIOUS_HASH=$(cat /home/runner/work/winfor-salt/winfor-salt/winfor/standalones/magnet-response.sls | grep "set hash" | awk -F\' '{print tolower($2)}')
-          CURRENT_HASH=$(sha256sum MagnetRESPONSEv${MAGNET_VERSION}.zip | awk '{print $1}')
+          CURRENT_HASH=$(sha256sum MagnetRESPONSEv${MAGNET_VERSION}.exe | awk '{print $1}')
           if [[ "$PREVIOUS_HASH" != "$CURRENT_HASH" ]]; then echo "HASH UPDATED - $CURRENT_HASH" && exit 1; else echo "No hash changes" && exit 0; fi
