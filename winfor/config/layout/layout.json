@@ -910,6 +910,17 @@
         "Enabled": true,
         "ExtraTiles": []
       },
+      "Rehex": {
+        "CbName": "standalones_rehex",
+        "CbContent": "Rehex",
+        "DAID": "PLACEHOLDER_PATH\\rehex\\rehex.exe",
+        "AUMID": false,
+        "DALP": false,
+        "StartMenu": true,
+        "Checked": true,
+        "Enabled": true,
+        "ExtraTiles": []
+      },
       "Resource Hacker": {
         "CbName": "standalones_resource_hacker",
         "CbContent": "Resource Hacker",

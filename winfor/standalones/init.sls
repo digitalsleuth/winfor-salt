@@ -89,6 +89,7 @@ include:
   - winfor.standalones.wmi-parser
   - winfor.standalones.onedriveexplorer
   - winfor.standalones.portex-analyzer
+  - winfor.standalones.rehex
 
 standalones-states:
   test.nop:
@@ -183,3 +184,4 @@ standalones-states:
       - sls: winfor.standalones.wmi-parser
       - sls: winfor.standalones.onedriveexplorer
       - sls: winfor.standalones.portex-analyzer
+      - sls: winfor.standalones.rehex
