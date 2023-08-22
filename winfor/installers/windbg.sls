@@ -4,11 +4,11 @@
 # Category: Executables
 # Author: Microsoft
 # License: Third-party Notices within app
-# Version: 1.2306.12001.0
+# Version: 1.2308.2002.0
 # Notes: 
 
-{% set version = '1.2306.12001.0' %}
-{% set hash = '0a3615caa8a32cd0bc4977ac0be7896af071a473182b9f786b2360b11332b07f' %}
+{% set version = '1.2308.2002.0' %}
+{% set hash = '25195d02c40a3496053fec728de833275559534e30b18fa206e5182ca0dd78e8' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set PROGRAM_FILES = salt['environ.get']('PROGRAMFILES') %}
 {% set LOCALAPPDATA = salt['environ.get']('LOCALAPPDATA') %}

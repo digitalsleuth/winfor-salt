@@ -4,19 +4,18 @@
 # Category: Utilities
 # Author: Microsoft
 # License: MIT License (https://github.com/microsoft/winget-cli/blob/master/LICENSE)
-# Version: 1.4.10173
+# Version: 1.5.2201
 # Notes: 
 
 {% set user = salt['pillar.get']('winfor_user', 'forensics') %}
 {% set LOCALAPPDATA = salt['environ.get']('LOCALAPPDATA') %}
+{% set version = '1.5.2201' %}
 {% if salt['file.file_exists'](LOCALAPPDATA + "\\Microsoft\\WindowsApps\\winget.exe") %}
 
 winget-exists:
   test.nop
 
 {% else %}
-
-{% set version = '1.4.10173' %}
 
 windows-winget-download:
   file.managed:
