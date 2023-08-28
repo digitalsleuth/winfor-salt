@@ -15,7 +15,7 @@
 ppee-download:
   file.managed:
     - name: 'C:\salt\tempdownload\PPEE(puppy)_{{ version }}.zip'
-    - source: 'https://www.mzrst.com/puppy/PPEE(puppy)%20{{ version }}.zip'
+    - source: salt://winfor/files/ppee_puppy_{{ version }}.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True
 

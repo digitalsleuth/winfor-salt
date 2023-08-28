@@ -4,7 +4,6 @@
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set START_MENU = PROGRAMDATA + '\Microsoft\Windows\Start Menu\Programs' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set hash = 'c1bae838ab7759dbccac5fe44827f770bdaec4009c190e4edc218beb8f3d637c' %}
 {% set case_folders = ['Evidence', 'Export', 'Temp', 'Xways'] %}
 {% set portals_configs = ['portals.ptl','globalsettings.ptl'] %}
 {% set xwver = '207' %}
@@ -33,7 +32,7 @@ cpcwin-theme-wallpaper-source:
   file.managed:
     - name: '{{ inpath }}\cpc-wallpaper-cmpfor-4k.png'
     - source: salt://winfor/theme/cpcwin/cpc-wallpaper-cmpfor-4k.png
-    - source_hash: sha256={{ hash }}
+    - skip_verify: True
     - makedirs: True
     - win_inheritance: True
 
