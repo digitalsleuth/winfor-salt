@@ -2602,6 +2602,17 @@
         "Enabled": true,
         "ExtraTiles": []
       },
+      "Volatility Workbench": {
+        "CbName": "standalones_volatility_workbench",
+        "CbContent": "Volatility Workbench",
+        "DAID": "PLACEHOLDER_PATH\\volatility-workbench\\VolatilityWorkbench.exe",
+        "AUMID": false,
+        "DALP": false,
+        "StartMenu": true,
+        "Checked": true,
+        "Enabled": true,
+        "ExtraTiles": []
+      },
       "vssmount": {
         "CbName": "standalones_vssmount",
         "CbContent": "vssmount",

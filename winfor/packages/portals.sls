@@ -8,4 +8,5 @@
 # Notes:
 
 portals:
-  pkg.installed
+  pkg.installed:
+    - version: '2.1.0.6'

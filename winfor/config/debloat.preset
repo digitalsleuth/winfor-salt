@@ -16,7 +16,7 @@ DisableWiFiSense                # EnableWiFiSense
 DisableSmartScreen              # EnableSmartScreen
 DisableWebSearch                # EnableWebSearch
 DisableAppSuggestions           # EnableAppSuggestions
-DisableActivityHistory          # EnableActivityHistory
+# DisableActivityHistory          # EnableActivityHistory
 # DisableSensors                # EnableSensors
 DisableLocation                 # EnableLocation
 DisableMapUpdates               # EnableMapUpdates

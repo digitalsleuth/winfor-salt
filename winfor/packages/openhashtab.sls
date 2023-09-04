@@ -4,7 +4,7 @@
 # Category: Utilities
 # Author: namazso
 # License: GNU General Public License 3.0 (https://github.com/namazso/OpenHashTab/blob/master/COPYING)
-# Version: 3.0.2
+# Version: 3.0.4
 # Notes: 
 
 openhashtab:

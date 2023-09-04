@@ -5,7 +5,8 @@
 {% set START_MENU = PROGRAMDATA + '\Microsoft\Windows\Start Menu\Programs' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set case_folders = ['Evidence', 'Export', 'Temp', 'Xways'] %}
-{% set portals_configs = ['portals.ptl','globalsettings.ptl'] %}
+{% set profile_pictures = ['user.png', 'user.bmp', 'user-32.png', 'user-40.png', 'user-48.png', 'user-192.png'] %}
+{% set portals_configs = ['portals.ptl','globalsettings.ptl','layouts.ptl','license.ptl'] %}
 {% set xwver = '207' %}
 {% set zips = ['FTK-Imager-4-7-1-2-portable.zip', 'FTK-Imager-3-2-0-0-portable.zip', 'searchkit.zip'] %}
 {% set folders = ['PE01', 'PE03', 'PE04', 'PE05', 'PE06', 'PE07'] %}
@@ -35,6 +36,25 @@ cpcwin-theme-wallpaper-source:
     - skip_verify: True
     - makedirs: True
     - win_inheritance: True
+
+{% for file in profile_pictures %}
+
+cpcwin-theme-profile-picture-backup-{{ file }}:
+  file.managed:
+    - name: '{{ PROGRAMDATA }}\Microsoft\User Account Pictures\{{ file }}.bak'
+    - source: '{{ PROGRAMDATA }}\Microsoft\User Account Pictures\{{ file }}'
+    - skip_verify: True
+
+cpcwin-theme-profile-picture-copy-{{ file }}:
+  file.managed:
+    - name: '{{ PROGRAMDATA }}\Microsoft\User Account Pictures\{{ file }}'
+    - source: salt://winfor/theme/cpcwin/{{ file }}
+    - skip_verify: True
+    - replace: True
+    - require:
+      - file: cpcwin-theme-profile-picture-backup-{{ file }}
+
+{% endfor %}
 
 {% for folder in case_folders %}
 

@@ -66,6 +66,7 @@ include:
   - winfor.packages.teracopy
   - winfor.packages.osfmount
   - winfor.packages.winscp
+  - winfor.packages.ms-powertoys
 
 package-states:
   test.nop:
@@ -137,3 +138,4 @@ package-states:
       - sls: winfor.packages.teracopy
       - sls: winfor.packages.osfmount
       - sls: winfor.packages.winscp
+      - sls: winfor.packages.ms-powertoys

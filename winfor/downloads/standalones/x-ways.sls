@@ -4,12 +4,12 @@
 # Category: Acquisition and Analysis
 # Author: Stefan Fleischmann
 # License: License Dependent - https://www.x-ways.net/terminology.html
-# Version: 20.7 SR-2 x64
+# Version: 20.9 SR-3 x64
 # Notes:
 
-{% set version = "207" %}
+{% set version = "209" %}
 {% set auth_token = "TOKENPLACEHOLDER" %}
-{% set xwhash = "83ef47673964e53cb54a83878a79e92c0e73518b09196583204627037168895b" %}
+{% set xwhash = "e72d85e01c02fbe5862e4b143e2291d5e4295170712042892871fed11cd3b9ab" %}
 {% set xviewerhash = "544b69c75823d351abb35a2eaa7d7ba40760e012db22cdf45c0f82b6392a1f3b" %}
 {% set mplayerhash = "a3a13bbda7ba0052c71521124e428f490648ea452f3bcbcf31860b9d0120ed25" %}
 {% set tesseracthash = "95c484205c6474b7b7ef5109a3412666090857c44999cf72f06f55dc9c239310" %}

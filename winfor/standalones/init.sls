@@ -90,6 +90,7 @@ include:
   - winfor.standalones.onedriveexplorer
   - winfor.standalones.portex-analyzer
   - winfor.standalones.rehex
+  - winfor.standalones.volatility-workbench
 
 standalones-states:
   test.nop:
@@ -185,3 +186,4 @@ standalones-states:
       - sls: winfor.standalones.onedriveexplorer
       - sls: winfor.standalones.portex-analyzer
       - sls: winfor.standalones.rehex
+      - sls: winfor.standalones.volatility-workbench

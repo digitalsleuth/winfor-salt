@@ -4,12 +4,12 @@
 # Category: Utilities
 # Author: Microsoft
 # License: MIT (https://github.com/microsoft/PowerToys/blob/main/LICENSE)
-# Version: 0.64.1
+# Version: 0.72.0
 # Notes:
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '0.64.1' %}
-{% set hash = '0110ee62579462d509086d50f65ea44196f52624b08cdc8c9e1cbb8a7ffd4f35' %}
+{% set version = '0.72.0' %}
+{% set hash = '9925894d797458c78a8c3df6fe4bd748580638b01bb43680477763662915109a' %}
 
 ms-powertoys-download-only:
   file.managed:
