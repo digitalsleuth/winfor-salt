@@ -4,11 +4,11 @@
 # Category: Acquisition and Analysis
 # Author: Brian Carrier / Basis Technology
 # License: Apache 2.0 (https://github.com/sleuthkit/autopsy/blob/master/README.txt)
-# Version: 4.20.0
+# Version: 4.21.0
 # Notes: 
 
-{% set version = '4.20.0' %}
-{% set hash = 'cbd9be04885a88b52f37391da1367d1f75e942c8526dcb9c35fe9125642014a6' %}
+{% set version = '4.21.0' %}
+{% set hash = '8401a11e0e276274f078eb613ce8494dd894617d436ba326be1cda0d2fd8ef0a' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 autopsy-download-only:
