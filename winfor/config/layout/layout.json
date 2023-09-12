@@ -1329,6 +1329,17 @@
         "Enabled": true,
         "ExtraTiles": []
       },
+      "scrcpy": {
+        "CbName": "standalones_scrcpy",
+        "CbContent": "scrcpy",
+        "DAID": "PLACEHOLDER_PATH\\scrcpy\\scrcpy-console.bat",
+        "AUMID": false,
+        "DALP": false,
+        "StartMenu": false,
+        "Checked": true,
+        "Enabled": true,
+        "ExtraTiles": []
+      },
       "VLEAPP": {
         "CbName": "python3_tools_vleapp",
         "CbContent": "VLEAPP",

@@ -91,6 +91,7 @@ include:
   - winfor.standalones.portex-analyzer
   - winfor.standalones.rehex
   - winfor.standalones.volatility-workbench
+  - winfor.standalones.scrcpy
 
 standalones-states:
   test.nop:
@@ -187,3 +188,4 @@ standalones-states:
       - sls: winfor.standalones.portex-analyzer
       - sls: winfor.standalones.rehex
       - sls: winfor.standalones.volatility-workbench
+      - sls: winfor.standalones.scrcpy
