@@ -4,7 +4,7 @@
 # Category: Utilities
 # Author: Apple
 # License: EULA
-# Version: 12.12.8.2
+# Version: 12.12.10.1
 # Notes:
 
 itunes:

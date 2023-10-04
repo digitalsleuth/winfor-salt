@@ -4,11 +4,11 @@
 # Category: Executables
 # Author: Fernando Merces
 # License: GNU General Public License v2.0 (https://github.com/mentebinaria/readpe/blob/master/LICENSE)
-# Version: 0.81
+# Version: 0.82
 # Notes:
 
-{% set version = '0.81' %}
-{% set hash = '2d0f8aad6701585d073c167c7c4358950b95a03f18a2b194a97f78f59825f5f3' %}
+{% set version = '0.82' %}
+{% set hash = '328f5324522715a5191acd6887bdfc86779a7ce7becffee64b36ce372cbb9ea4' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 pev-download-only:

@@ -2,10 +2,10 @@
 <ArrayOfPortal xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Portal>
     <PortalPath>PLACEHOLDER_PATH\Portals\Acquisition and Analysis</PortalPath>
-    <PositionTop>278</PositionTop>
-    <PositionLeft>312</PositionLeft>
-    <Width>318</Width>
-    <Height>225</Height>
+    <PositionTop>V1</PositionTop>
+    <PositionLeft>H1</PositionLeft>
+    <Width>PWIDTH</Width>
+    <Height>PHEIGHT</Height>
     <IsLocked>false</IsLocked>
     <SettingsOverridden>false</SettingsOverridden>
     <TitleBarOnBottom>false</TitleBarOnBottom>
@@ -21,10 +21,10 @@
   </Portal>
   <Portal>
     <PortalPath>PLACEHOLDER_PATH\Portals\Browsers</PortalPath>
-    <PositionTop>278</PositionTop>
-    <PositionLeft>632</PositionLeft>
-    <Width>318</Width>
-    <Height>225</Height>
+    <PositionTop>V1</PositionTop>
+    <PositionLeft>H2</PositionLeft>
+    <Width>PWIDTH</Width>
+    <Height>PHEIGHT</Height>
     <IsLocked>false</IsLocked>
     <SettingsOverridden>false</SettingsOverridden>
     <TitleBarOnBottom>false</TitleBarOnBottom>
@@ -40,10 +40,10 @@
   </Portal>
   <Portal>
     <PortalPath>PLACEHOLDER_PATH\Portals\Databases</PortalPath>
-    <PositionTop>278</PositionTop>
-    <PositionLeft>952</PositionLeft>
-    <Width>318</Width>
-    <Height>225</Height>
+    <PositionTop>V1</PositionTop>
+    <PositionLeft>H3</PositionLeft>
+    <Width>PWIDTH</Width>
+    <Height>PHEIGHT</Height>
     <IsLocked>false</IsLocked>
     <SettingsOverridden>false</SettingsOverridden>
     <TitleBarOnBottom>false</TitleBarOnBottom>
@@ -59,10 +59,10 @@
   </Portal>
   <Portal>
     <PortalPath>PLACEHOLDER_PATH\Portals\Document Analysis</PortalPath>
-    <PositionTop>278</PositionTop>
-    <PositionLeft>1272</PositionLeft>
-    <Width>318</Width>
-    <Height>225</Height>
+    <PositionTop>V1</PositionTop>
+    <PositionLeft>H4</PositionLeft>
+    <Width>PWIDTH</Width>
+    <Height>PHEIGHT</Height>
     <IsLocked>false</IsLocked>
     <SettingsOverridden>false</SettingsOverridden>
     <TitleBarOnBottom>false</TitleBarOnBottom>
@@ -78,10 +78,10 @@
   </Portal>
   <Portal>
     <PortalPath>PLACEHOLDER_PATH\Portals\Document Viewers</PortalPath>
-    <PositionTop>278</PositionTop>
-    <PositionLeft>1592</PositionLeft>
-    <Width>318</Width>
-    <Height>225</Height>
+    <PositionTop>V1</PositionTop>
+    <PositionLeft>H5</PositionLeft>
+    <Width>PWIDTH</Width>
+    <Height>PHEIGHT</Height>
     <IsLocked>false</IsLocked>
     <SettingsOverridden>false</SettingsOverridden>
     <TitleBarOnBottom>false</TitleBarOnBottom>
@@ -97,10 +97,10 @@
   </Portal>
   <Portal>
     <PortalPath>PLACEHOLDER_PATH\Portals\Email</PortalPath>
-    <PositionTop>278</PositionTop>
-    <PositionLeft>1912</PositionLeft>
-    <Width>318</Width>
-    <Height>225</Height>
+    <PositionTop>V1</PositionTop>
+    <PositionLeft>H6</PositionLeft>
+    <Width>PWIDTH</Width>
+    <Height>PHEIGHT</Height>
     <IsLocked>false</IsLocked>
     <SettingsOverridden>false</SettingsOverridden>
     <TitleBarOnBottom>false</TitleBarOnBottom>
@@ -116,10 +116,10 @@
   </Portal>
   <Portal>
     <PortalPath>PLACEHOLDER_PATH\Portals\Executables</PortalPath>
-    <PositionTop>505</PositionTop>
-    <PositionLeft>312</PositionLeft>
-    <Width>638</Width>
-    <Height>225</Height>
+    <PositionTop>V2</PositionTop>
+    <PositionLeft>H1</PositionLeft>
+    <Width>DWIDTH</Width>
+    <Height>PHEIGHT</Height>
     <IsLocked>false</IsLocked>
     <SettingsOverridden>false</SettingsOverridden>
     <TitleBarOnBottom>false</TitleBarOnBottom>
@@ -135,10 +135,10 @@
   </Portal>
   <Portal>
     <PortalPath>PLACEHOLDER_PATH\Portals\Installers</PortalPath>
-    <PositionTop>505</PositionTop>
-    <PositionLeft>952</PositionLeft>
-    <Width>318</Width>
-    <Height>225</Height>
+    <PositionTop>V2</PositionTop>
+    <PositionLeft>H3</PositionLeft>
+    <Width>PWIDTH</Width>
+    <Height>PHEIGHT</Height>
     <IsLocked>false</IsLocked>
     <SettingsOverridden>false</SettingsOverridden>
     <TitleBarOnBottom>false</TitleBarOnBottom>
@@ -154,10 +154,10 @@
   </Portal>
   <Portal>
     <PortalPath>PLACEHOLDER_PATH\Portals\Logs</PortalPath>
-    <PositionTop>505</PositionTop>
-    <PositionLeft>1272</PositionLeft>
-    <Width>318</Width>
-    <Height>225</Height>
+    <PositionTop>V2</PositionTop>
+    <PositionLeft>H4</PositionLeft>
+    <Width>PWIDTH</Width>
+    <Height>PHEIGHT</Height>
     <IsLocked>false</IsLocked>
     <SettingsOverridden>false</SettingsOverridden>
     <TitleBarOnBottom>false</TitleBarOnBottom>
@@ -173,10 +173,10 @@
   </Portal>
   <Portal>
     <PortalPath>PLACEHOLDER_PATH\Portals\Mobile Analysis</PortalPath>
-    <PositionTop>505</PositionTop>
-    <PositionLeft>1592</PositionLeft>
-    <Width>318</Width>
-    <Height>225</Height>
+    <PositionTop>V2</PositionTop>
+    <PositionLeft>H5</PositionLeft>
+    <Width>PWIDTH</Width>
+    <Height>PHEIGHT</Height>
     <IsLocked>false</IsLocked>
     <SettingsOverridden>false</SettingsOverridden>
     <TitleBarOnBottom>false</TitleBarOnBottom>
@@ -192,10 +192,10 @@
   </Portal>
   <Portal>
     <PortalPath>PLACEHOLDER_PATH\Portals\Network</PortalPath>
-    <PositionTop>505</PositionTop>
-    <PositionLeft>1912</PositionLeft>
-    <Width>318</Width>
-    <Height>225</Height>
+    <PositionTop>V2</PositionTop>
+    <PositionLeft>H6</PositionLeft>
+    <Width>PWIDTH</Width>
+    <Height>PHEIGHT</Height>
     <IsLocked>false</IsLocked>
     <SettingsOverridden>false</SettingsOverridden>
     <TitleBarOnBottom>false</TitleBarOnBottom>
@@ -211,10 +211,10 @@
   </Portal>
   <Portal>
     <PortalPath>PLACEHOLDER_PATH\Portals\Raw Parsers and Decoders</PortalPath>
-    <PositionTop>732</PositionTop>
-    <PositionLeft>312</PositionLeft>
-    <Width>318</Width>
-    <Height>225</Height>
+    <PositionTop>V3</PositionTop>
+    <PositionLeft>H1</PositionLeft>
+    <Width>PWIDTH</Width>
+    <Height>PHEIGHT</Height>
     <IsLocked>false</IsLocked>
     <SettingsOverridden>false</SettingsOverridden>
     <TitleBarOnBottom>false</TitleBarOnBottom>
@@ -230,10 +230,10 @@
   </Portal>
   <Portal>
     <PortalPath>PLACEHOLDER_PATH\Portals\Registry</PortalPath>
-    <PositionTop>732</PositionTop>
-    <PositionLeft>632</PositionLeft>
-    <Width>318</Width>
-    <Height>225</Height>
+    <PositionTop>V3</PositionTop>
+    <PositionLeft>H2</PositionLeft>
+    <Width>PWIDTH</Width>
+    <Height>PHEIGHT</Height>
     <IsLocked>false</IsLocked>
     <SettingsOverridden>false</SettingsOverridden>
     <TitleBarOnBottom>false</TitleBarOnBottom>
@@ -249,10 +249,10 @@
   </Portal>
   <Portal>
     <PortalPath>PLACEHOLDER_PATH\Portals\Terminals</PortalPath>
-    <PositionTop>732</PositionTop>
-    <PositionLeft>952</PositionLeft>
-    <Width>318</Width>
-    <Height>225</Height>
+    <PositionTop>V3</PositionTop>
+    <PositionLeft>H3</PositionLeft>
+    <Width>PWIDTH</Width>
+    <Height>PHEIGHT</Height>
     <IsLocked>false</IsLocked>
     <SettingsOverridden>false</SettingsOverridden>
     <TitleBarOnBottom>false</TitleBarOnBottom>
@@ -268,10 +268,10 @@
   </Portal>
   <Portal>
     <PortalPath>PLACEHOLDER_PATH\Portals\Utilities</PortalPath>
-    <PositionTop>732</PositionTop>
-    <PositionLeft>1272</PositionLeft>
-    <Width>318</Width>
-    <Height>225</Height>
+    <PositionTop>V3</PositionTop>
+    <PositionLeft>H4</PositionLeft>
+    <Width>PWIDTH</Width>
+    <Height>PHEIGHT</Height>
     <IsLocked>false</IsLocked>
     <SettingsOverridden>false</SettingsOverridden>
     <TitleBarOnBottom>false</TitleBarOnBottom>
@@ -287,10 +287,10 @@
   </Portal>
   <Portal>
     <PortalPath>PLACEHOLDER_PATH\Portals\Windows Analysis</PortalPath>
-    <PositionTop>732</PositionTop>
-    <PositionLeft>1592</PositionLeft>
-    <Width>638</Width>
-    <Height>225</Height>
+    <PositionTop>V3</PositionTop>
+    <PositionLeft>H5</PositionLeft>
+    <Width>DWIDTH</Width>
+    <Height>PHEIGHT</Height>
     <IsLocked>false</IsLocked>
     <SettingsOverridden>false</SettingsOverridden>
     <TitleBarOnBottom>false</TitleBarOnBottom>

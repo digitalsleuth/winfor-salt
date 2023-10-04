@@ -4,11 +4,11 @@
 # Category: Executables
 # Author: Markus Oberhumer, Laszlo Molnar, John Reiser
 # License: Multiple Licenses (https://github.com/upx/upx/blob/devel/LICENSE)
-# Version: 4.0.1
+# Version: 4.1.0
 # Notes: 
 
-{% set version = '4.0.1' %}
-{% set hash = 'B6B066A63D434FC177F6EBAB09EF5DB52288048EEEB82D0E56FE97D874AAA423' %}
+{% set version = '4.1.0' %}
+{% set hash = '382cee168d6261a76c3b6a98b3ca2de44930bf5faa5f2dc2ced4fa3850fe8ff6' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 upx-download-only:

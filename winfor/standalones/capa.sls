@@ -4,12 +4,12 @@
 # Category: Executables
 # Author: Mandiant
 # License: Apache License 2.0 (https://github.com/mandiant/capa/blob/master/LICENSE.txt)
-# Version: 4.0.1
+# Version: 6.1.0
 # Notes: 
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set version = '4.0.1' %}
-{% set hash = '8a2f95b56c88d38b2f33be92cd3c320f090ce8bb6b9e563457b12e456f3e449f' %}
+{% set version = '6.1.0' %}
+{% set hash = '070923d5ca225ef29a670af9cc66a8d648fcaaff7e283cb1ddc73de6e3610f0f' %}
 
 include:
   - winfor.packages.git

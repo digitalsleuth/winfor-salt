@@ -4,12 +4,12 @@
 # Category: Executables
 # Author: JetBrains
 # License: EULA (https://www.jetbrains.com/legal/docs/toolbox/license_personal/)
-# Version: 2023.1.3
+# Version: 2023.2.2
 # Notes: 
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set version = '2023.1.3' %}
-{% set hash = '06f44b387f87e3e1f5982234c1c4d71957e230fa9d30ae204eb5ad5b65d17a6a' %}
+{% set version = '2023.2.2' %}
+{% set hash = '8dcfd2cc5df83b5fc54bcc4ab8b844d773e62035362d42e9b1952477a82222f4' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 dotpeek-download:

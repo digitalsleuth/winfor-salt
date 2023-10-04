@@ -4,12 +4,12 @@
 # Category: Requirements
 # Author: Adobe
 # License: https://helpx.adobe.com/ca/reader/acrobat-copyright-trademarks-third-party-notices.html
-# Version: 22.003.20282
+# Version: 23.006.20320
 # Notes: 
 
-{% set version = '22.003.20282' %}
+{% set version = '23.006.20320' %}
 {% set versionNoDots = version | replace(".","") %}
-{% set hash = '81907a894a84391103efd924620f4891a89c68e8a5ad6c6d4cbf4f1692333fef' %}
+{% set hash = '6c2e57820d298fdef5b4fc3921052ec1d609f6698252aecaecfa7f7a8b101b1d' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 adobereader-download-only:

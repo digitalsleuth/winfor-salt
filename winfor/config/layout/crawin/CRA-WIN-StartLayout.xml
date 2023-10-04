@@ -13,9 +13,8 @@
           <start:DesktopApplicationTile Size="1x1" Column="0" Row="1" DesktopApplicationID="PLACEHOLDER_PATH\kape\gkape.exe" />
           <start:DesktopApplicationTile Size="1x1" Column="1" Row="1" DesktopApplicationID="{6D809377-6AF0-444B-8957-A3773F02200E}\Magnet Forensics\MCAAv1\MCAA.exe" />
           <start:DesktopApplicationTile Size="1x1" Column="2" Row="1" DesktopApplicationID="PLACEHOLDER_PATH\magnet\WebPageSaver\WebPageSaver.exe" />
-          <start:DesktopApplicationTile Size="1x1" Column="3" Row="1" DesktopApplicationID="{6D809377-6AF0-444B-8957-A3773F02200E}\Cerbero Suite\cerpro.exe" />
           <start:DesktopApplicationTile Size="1x1" Column="4" Row="1" DesktopApplicationID="{6D809377-6AF0-444B-8957-A3773F02200E}\LSoft Technologies\Active@ Disk Editor\DiskEditor.exe" />
-          <start:DesktopApplicationTile Size="1x1" Column="5" Row="1" DesktopApplicationID="C:\xwf\xwforensics64.exe" />
+          <start:DesktopApplicationTile Size="1x1" Column="3" Row="1" DesktopApplicationID="C:\xwf\xwforensics64.exe" />
         </start:Group>
         <start:Group Name="Browsers">
           <start:DesktopApplicationTile Size="1x1" Column="0" Row="0" DesktopApplicationID="Chrome" />

@@ -4,7 +4,7 @@
 # Category: Browsers
 # Author: Mozilla Foundation
 # License: Mozilla Public License 2.0 (https://www.mozilla.org/en-US/MPL/)
-# Version: 107.0.1
+# Version: 118.0.1
 # Notes: 
 
 firefox_x64:

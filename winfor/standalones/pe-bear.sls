@@ -4,12 +4,12 @@
 # Category: Executables
 # Author: hasherezade
 # License: GNU General Public License v2 (https://github.com/hasherezade/pe-bear/blob/main/LICENSE)
-# Version: 0.6.1
+# Version: 0.6.5.2
 # Notes: 
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set version = '0.6.1' %}
-{% set hash = 'e08dd503d5699e593c7609d2d58ab73740c33a4d97bf887682349fe2f4d8a028' %}
+{% set version = '0.6.5.2' %}
+{% set hash = 'a39efd1a1cc45cf4e18d74574d275063a3866a9b86f16d3ce71a6e60f104535b' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 pe-bear-download:

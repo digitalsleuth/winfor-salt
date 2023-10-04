@@ -4,7 +4,7 @@
 # Category: Requirements
 # Author: https://gitlab.com/graphviz/graphviz/-/blob/main/AUTHORS
 # License: Eclipse Public License (https://gitlab.com/graphviz/graphviz/-/blob/main/LICENSE)
-# Version: 7.0.3
+# Version: 9.0.0
 # Notes:
 
 graphviz:

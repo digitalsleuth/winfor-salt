@@ -4,11 +4,11 @@
 # Category: Executables
 # Author: hasherezade
 # License: BSD 2-Clause Simplified License (https://github.com/hasherezade/hollows_hunter/blob/master/LICENSE)
-# Version: 0.3.5
+# Version: 0.3.6
 # Notes: 
 
-{% set version = '0.3.5' %}
-{% set hash = 'b7117f3e7f8b921914c8e0c9649560067a17343369cd581db75b1145ad581bb9' %}
+{% set version = '0.3.6' %}
+{% set hash = 'b2fd00400b84193f293bfd7e3ec04de616a9facbd58834c00a3c12a2d853270c' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 hollows-hunter-download-only:

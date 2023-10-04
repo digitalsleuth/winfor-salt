@@ -4,12 +4,12 @@
 # Category: Network
 # Author: Simon Tatham
 # License: https://tartarus.org/~simon/putty-snapshots/htmldoc/AppendixD.html#licence
-# Version: 0.78
+# Version: 0.79
 # Notes: 
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '0.78' %}
-{% set hash = 'e64775374097f1b1c8fd4173f7d5be4305b88cec26a56d003113aff2837ae08e' %}
+{% set version = '0.79' %}
+{% set hash = 'beec23b8ead065f868e9cda021265998697e797064234a87c888be96e2c70060' %}
 
 putty-download-only:
   file.managed:

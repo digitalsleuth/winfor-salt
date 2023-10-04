@@ -10,7 +10,7 @@
 {% set portals_configs = ['portals.ptl','globalsettings.ptl'] %}
 {% set ps_debloat_path = "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\Modules\\Win10Debloat" %}
 {% set start_folders = [('01','Acquisition and Analysis'),('02','Browsers'),('03','Databases'),('04','Document Analysis'),('05','Document Viewers'),('06','Email'),('07','Executables'),('08','Installers'),('09','Logs'),('10','Mobile Analysis'),('11','Network'),('12','Raw Parsers and Decoders'),('13','Registry'),('14','Terminals'),('15','Utilities'),('16','Windows Analysis')] %}
-{% set shortcuts = [('Acquisition and Analysis', ['FTK Imager','Active@ Disk Editor\Active@ Disk Editor','Arsenal Image Mounter','Autopsy\Autopsy 4.20.0','Magnet AXIOM\AXIOM Examine','Magnet AXIOM\AXIOM Process','Cerbero Suite\Cerbero Suite','gkape','Magnet ACQUIRE\Magnet ACQUIRE','Magnet Chromebook Acquisition Assistant v1\Magnet Chromebook Acquisition Assistant v1','Magnet Web Page Saver Portable V3','Tableau\Tableau Imager\Tableau Imager','X-Ways']),
+{% set shortcuts = [('Acquisition and Analysis', ['FTK Imager','Active@ Disk Editor\Active@ Disk Editor','Arsenal Image Mounter','Autopsy\Autopsy 4.20.0','Magnet AXIOM\AXIOM Examine','Magnet AXIOM\AXIOM Process','gkape','Magnet ACQUIRE\Magnet ACQUIRE','Magnet Chromebook Acquisition Assistant v1\Magnet Chromebook Acquisition Assistant v1','Magnet Web Page Saver Portable V3','Tableau\Tableau Imager\Tableau Imager','X-Ways']),
                     ('Browsers', ['Firefox','Google Chrome','Microsoft Edge']),
                     ('Databases', ['ADOQuery','DataEdit','DB Browser (SQLCipher)','DB Browser (SQLite)','DBeaver Community\DBeaver','SDBExplorer','SQLiteQuery','SQLiteStudio\SQLiteStudio','SysTools SQL MDF Viewer\SysTools SQL MDF Viewer']),
                     ('Document Analysis', ['ExifTool GUI','OffVis','PDFStreamDumper\PdfStreamDumper.exe','SSView']),
@@ -20,7 +20,7 @@
                     ('Installers', ['AutoIT Extractor','lessmsi','MSI Viewer','Py2ExeDecompiler','UniExtract']),
                     ('Logs', ['EventFinder','EZViewer','HttpLogBrowser\HttpLogBrowser','Log Parser 2.2\Log Parser 2.2','LogParser-Studio','LogViewer2']),
                     ('Mobile Analysis', ['ALEAPP-GUI','Bytecode Viewer','ILEAPP-GUI','iPhoneAnalyzer','VLEAPP-GUI','VOW Software\plist Editor Pro\plist Editor Pro']),
-                    ('Network', ['Brim','Burp Suite Community Edition\Burp Suite Community Edition','Fiddler Classic','IHB','NetScanner','NetworkMiner','PuTTY (64-bit)\PSFTP','PuTTY (64-bit)\PuTTY','Wireshark']),
+                    ('Network', ['Burp Suite Community Edition\Burp Suite Community Edition','Fiddler Classic','IHB','NetScanner','NetworkMiner','PuTTY (64-bit)\PSFTP','PuTTY (64-bit)\PuTTY','Wireshark','Zui']),
                     ('Raw Parsers and Decoders', ['Bulk Extractor 1.5.5\BEViewer with Bulk Extractor 1.5.5 (64-bit)','CyberChef','Digital Detective\DataDump v2\DataDump v2.0','Digital Detective\DCode v5\DCode v5.5','HHD Hex Editor Neo\Hex Editor Neo','HEXEdit','HxD Hex Editor\HxD','JSONView','Passware\Encryption Analyzer 2023 v1\Passware Encryption Analyzer 2023 v1 (64-bit)','PhotoRec','Redline\Redline','XMLView','WinHex']),
                     ('Registry', ['RegistryExplorer','RegRipper','Regshot x64 ANSI']),
                     ('Terminals', ['Cygwin\Cygwin64 Terminal','MobaXterm\MobaXterm','Terminal','WSL','VcXsrv\XLaunch']),

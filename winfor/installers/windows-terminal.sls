@@ -4,10 +4,10 @@
 # Category: Terminals
 # Author: Microsoft
 # License: MIT License (https://github.com/microsoft/terminal/blob/main/LICENSE)
-# Version: 1.17.11461.0
+# Version: 1.18.2681.0
 # Notes: 
 
-{% set version = '1.17.11461.0' %}
+{% set version = '1.18.2681.0' %}
 {% set user = salt['pillar.get']('winfor_user', 'forensics') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 

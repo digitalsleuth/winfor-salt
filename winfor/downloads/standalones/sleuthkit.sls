@@ -4,11 +4,11 @@
 # Category: Windows Analysis
 # Author: Brian Carrier
 # License: Multiple Licenses (https://www.sleuthkit.org/sleuthkit/licenses.php)
-# Version: 4.12.0
+# Version: 4.12.1
 # Notes: 
 
-{% set version = '4.12.0' %}
-{% set hash = 'e81b57d093f3b5e248f149a54abba1f53b24510973eebd5e931edf58a77b529d' %}
+{% set version = '4.12.1' %}
+{% set hash = '1653d69a537c7b7f1e68ca25c63ff61c765562925cf17ecbf15fae7211e87269' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 sleuthkit-download-only:

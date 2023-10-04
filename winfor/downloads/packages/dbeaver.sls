@@ -4,12 +4,12 @@
 # Category: Databases
 # Author: Serge Rider and Contributors (https://github.com/dbeaver/dbeaver/graphs/contributors)
 # License: Apache License 2.0 (https://github.com/dbeaver/dbeaver/blob/devel/LICENSE.md)
-# Version: 22.2.5
+# Version: 23.2.1
 # Notes: 
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '22.2.5' %}
-{% set hash = '0706418c965016c766c3a7a4d0b97d63d7b8717043b967d320cdf5498c0a81f6' %}
+{% set version = '23.2.1' %}
+{% set hash = '842186132afcc2da524a381e0d96399d9af2657862bcf3d9351689dd1f3e7ed4' %}
 
 dbeaver-download-only:
   file.managed:

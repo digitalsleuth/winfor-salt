@@ -4,11 +4,11 @@
 # Category: Logs
 # Author: WithSecureLabs / Countercept
 # License: GNU General Public License v3.0 (https://github.com/WithSecureLabs/chainsaw/blob/master/LICENCE)
-# Version: 2.6.0
+# Version: 2.7.3
 # Notes:
 
-{% set version = '2.6.0' %}
-{% set hash = '75135f3d6035530e1cc2cca09cb9177ed38ca17421b0d3c557d0c85685539f1e' %}
+{% set version = '2.7.3' %}
+{% set hash = '788900d9961eb5e8be6245deb17273766852067d1aa41392bf040a8040d88a29' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 
 chainsaw-defender-exclusion:

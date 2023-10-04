@@ -4,17 +4,17 @@
 # Category: Executables
 # Author: ICSharpCode (https://github.com/orgs/icsharpcode/people)
 # License: MIT License (https://github.com/icsharpcode/ILSpy/blob/master/doc/ILSpyAboutPage.txt)
-# Version: 7.2.1.6856
+# Version: 8.1.1.7464
 # Notes:
 
-{% set version = '7.2.1.6856' %}
-{% set core_version = '7.2.1' %}
-{% set hash = '8da077031a6075f5cb5edc2ce8b40cd8ac6e3d9b9c57e900277282fae41d887a' %}
+{% set version = '8.1.1.7464' %}
+{% set core_version = '8.1.1' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
+{% set hash = 'a90663a304c50201d0517d89d3aa6bdbdbcd3b9e5ed5da03e6190ed2a0e9b138' %}
 
 ilspy-download-only:
   file.managed:
-    - name: '{{ downloads }}\ILSpy_binaries_{{ version }}.zip'
-    - source: https://github.com/icsharpcode/ILSpy/releases/download/v{{ core_version }}/ILSpy_binaries_{{ version }}.zip
+    - name: '{{ downloads }}\ILSpy_Installer_{{ version }}-x64.msi'
+    - source: https://github.com/icsharpcode/ILSpy/releases/download/v{{ core_version }}/ILSpy_Installer_{{ version }}-x64.msi
     - source_hash: sha256={{ hash }}
     - makedirs: True

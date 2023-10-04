@@ -4,7 +4,7 @@
 # Category: Utilities
 # Author: Code Sector
 # License: FREEWARE (private / non-commerical)
-# Version: 3.10
+# Version: 3.12
 # Notes:
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}

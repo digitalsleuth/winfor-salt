@@ -4,7 +4,7 @@
 # Category: Databases
 # Author: Pawel Salawa
 # License: GNU General Public License v3 (https://github.com/pawelsalawa/sqlitestudio/blob/master/LICENSE)
-# Version: 3.4.1
+# Version: 3.4.4
 # Notes: 
 
 sqlitestudio:

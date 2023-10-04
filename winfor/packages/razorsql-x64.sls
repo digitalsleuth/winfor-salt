@@ -4,7 +4,7 @@
 # Category: Databases
 # Author: Richardson Software LLC
 # License: https://razorsql.com/license.txt
-# Version: 10.1.1
+# Version: 10.4.5
 # Notes:
 
 razorsql-x64:

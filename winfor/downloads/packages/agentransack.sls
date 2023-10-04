@@ -4,11 +4,11 @@
 # Category: Utilities
 # Author: Mythicsoft
 # License: End User License Agreement
-# Version: 9.0.3349.1
+# Version: 9.2.3406.1
 # Notes:
 
-{% set version = '3349' %}
-{% set hash = '8386bd1f76f47dfa64896356ba0d3cd2638b0663193f1fbfe05c1e67e7aab9f8' %}
+{% set version = '3406' %}
+{% set hash = '8e09b21b07e05bea63b750b5b35149a9b67727e6b1a5f2768aa29ef380a6b300' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 agentransack-download-only:

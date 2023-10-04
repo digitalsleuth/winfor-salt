@@ -4,11 +4,11 @@
 # Category: Windows Analysis
 # Author: Eric Kutcher
 # License: GNU General Public License v3.0 (identified within program)
-# Version: 1.0.3.7
+# Version: 1.0.3.9
 # Notes:
 
-{% set version = '1.0.3.7' %}
-{% set hash = '8DCE6A702545E11347CDC23A7BC3C67E284F332F4BDD1BB7319C4432EB598E90' %}
+{% set version = '1.0.3.9' %}
+{% set hash = '365df2f891febcba1552265be7927230ae7c526e6b4fa4df0494742bfb62df51' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 

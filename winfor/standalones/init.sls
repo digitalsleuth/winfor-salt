@@ -57,7 +57,6 @@ include:
   - winfor.standalones.magnet-web-page-saver-portable
   - winfor.standalones.psdecode
   - winfor.standalones.capa
-  - winfor.standalones.ilspy
   - winfor.standalones.exiftool
   - winfor.standalones.memprocfs
   - winfor.standalones.x-ways
@@ -92,6 +91,7 @@ include:
   - winfor.standalones.rehex
   - winfor.standalones.volatility-workbench
   - winfor.standalones.scrcpy
+  - winfor.standalones.magnet-dumpit
 
 standalones-states:
   test.nop:
@@ -154,7 +154,6 @@ standalones-states:
       - sls: winfor.standalones.magnet-web-page-saver-portable
       - sls: winfor.standalones.psdecode
       - sls: winfor.standalones.capa
-      - sls: winfor.standalones.ilspy
       - sls: winfor.standalones.exiftool
       - sls: winfor.standalones.memprocfs
       - sls: winfor.standalones.x-ways
@@ -189,3 +188,4 @@ standalones-states:
       - sls: winfor.standalones.rehex
       - sls: winfor.standalones.volatility-workbench
       - sls: winfor.standalones.scrcpy
+      - sls: winfor.standalones.magnet-dumpit

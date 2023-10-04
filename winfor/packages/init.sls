@@ -32,7 +32,6 @@ include:
   - winfor.packages.strawberryperl
   - winfor.packages.fileinsight
   - winfor.packages.ntcore-explorersuite
-  - winfor.packages.cerbero-suite
   - winfor.packages.fiddler
   - winfor.packages.mdf-viewer
   - winfor.packages.process-hacker
@@ -49,7 +48,7 @@ include:
   - winfor.packages.hashcheck
   - winfor.packages.tableau-imager
   - winfor.packages.tableau-firmware-update
-  - winfor.packages.brim
+  - winfor.packages.zui
   - winfor.packages.pst-walker
   - winfor.packages.plist-editor
   - winfor.packages.agentransack
@@ -67,6 +66,7 @@ include:
   - winfor.packages.osfmount
   - winfor.packages.winscp
   - winfor.packages.ms-powertoys
+  - winfor.packages.ilspy
 
 package-states:
   test.nop:
@@ -104,7 +104,6 @@ package-states:
       - sls: winfor.packages.strawberryperl
       - sls: winfor.packages.fileinsight
       - sls: winfor.packages.ntcore-explorersuite
-      - sls: winfor.packages.cerbero-suite
       - sls: winfor.packages.fiddler
       - sls: winfor.packages.mdf-viewer
       - sls: winfor.packages.process-hacker
@@ -121,7 +120,7 @@ package-states:
       - sls: winfor.packages.hashcheck
       - sls: winfor.packages.tableau-imager
       - sls: winfor.packages.tableau-firmware-update
-      - sls: winfor.packages.brim
+      - sls: winfor.packages.zui
       - sls: winfor.packages.pst-walker
       - sls: winfor.packages.plist-editor
       - sls: winfor.packages.agentransack
@@ -139,3 +138,4 @@ package-states:
       - sls: winfor.packages.osfmount
       - sls: winfor.packages.winscp
       - sls: winfor.packages.ms-powertoys
+      - sls: winfor.packages.ilspy

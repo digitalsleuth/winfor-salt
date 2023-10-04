@@ -4,11 +4,11 @@
 # Category: Executables
 # Author: hasherezade
 # License: BSD 2-Clause Simplified License (https://github.com/hasherezade/pe-sieve/blob/master/LICENSE)
-# Version: 0.3.5
+# Version: 0.3.6
 # Notes: 
 
-{% set version = '0.3.5' %}
-{% set hash = '87e996706571f87fdde79176531eb4851446bccc22fdeedd3be07ca78aaf0838' %}
+{% set version = '0.3.6' %}
+{% set hash = 'c16f12338cfba07f4ed77bbc70389c04382199a1484d25844e8ad96f3c51b2c7' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 pe-sieve-download-only:

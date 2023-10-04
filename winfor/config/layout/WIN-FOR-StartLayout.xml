@@ -9,8 +9,7 @@
           <start:DesktopApplicationTile Size="1x1" Column="3" Row="0" DesktopApplicationID="PLACEHOLDER_PATH\arsenal\ArsenalImageMounter.exe" />
           <start:DesktopApplicationTile Size="1x1" Column="1" Row="1" DesktopApplicationID="{7C5A40EF-A0FB-4BFC-874A-C0F2E0B9FA8E}\Magnet ACQUIRE\Acquire.exe" />
           <start:DesktopApplicationTile Size="1x1" Column="2" Row="1" DesktopApplicationID="PLACEHOLDER_PATH\magnet\WebPageSaver\WebPageSaver.exe" />
-          <start:DesktopApplicationTile Size="1x1" Column="5" Row="1" DesktopApplicationID="C:\xwf\xwforensics64.exe" />
-          <start:DesktopApplicationTile Size="1x1" Column="5" Row="0" DesktopApplicationID="{6D809377-6AF0-444B-8957-A3773F02200E}\Cerbero Suite\cerpro.exe" />
+          <start:DesktopApplicationTile Size="1x1" Column="5" Row="0" DesktopApplicationID="C:\xwf\xwforensics64.exe" />
           <start:DesktopApplicationTile Size="1x1" Column="1" Row="0" DesktopApplicationID="{6D809377-6AF0-444B-8957-A3773F02200E}\LSoft Technologies\Active@ Disk Editor\DiskEditor.exe" />
           <start:DesktopApplicationTile Size="1x1" Column="0" Row="1" DesktopApplicationID="{6D809377-6AF0-444B-8957-A3773F02200E}\Magnet Forensics\MCAAv1\MCAA.exe" />
           <start:DesktopApplicationTile Size="1x1" Column="4" Row="0" DesktopApplicationID="{6D809377-6AF0-444B-8957-A3773F02200E}\Autopsy\bin\autopsy64.exe" />
@@ -97,7 +96,7 @@
           <start:DesktopApplicationTile Size="1x1" Column="0" Row="0" DesktopApplicationID="{7C5A40EF-A0FB-4BFC-874A-C0F2E0B9FA8E}\Fiddler\Fiddler.exe" />
           <start:DesktopApplicationTile Size="1x1" Column="2" Row="0" DesktopApplicationID="{6D809377-6AF0-444B-8957-A3773F02200E}\BurpSuiteCommunity\BurpSuiteCommunity.exe" />
           <start:DesktopApplicationTile Size="1x1" Column="1" Row="0" DesktopApplicationID="{6D809377-6AF0-444B-8957-A3773F02200E}\Wireshark\Wireshark.exe" />
-          <start:DesktopApplicationTile Size="1x1" Column="3" Row="0" DesktopApplicationID="com.electron.brim" />
+          <start:DesktopApplicationTile Size="1x1" Column="3" Row="0" DesktopApplicationID="io.brimdata.zui" />
         </start:Group>
         <start:Group Name="Raw Parsers / Decoders">
           <start:DesktopApplicationTile Size="1x1" Column="1" Row="0" DesktopApplicationID="{6D809377-6AF0-444B-8957-A3773F02200E}\HHD Software\Hex Editor Neo\HexFrame.exe" />

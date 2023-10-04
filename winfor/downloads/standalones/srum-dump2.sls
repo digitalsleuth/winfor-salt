@@ -4,11 +4,11 @@
 # Category: Windows Analysis
 # Author: Mark Baggett
 # License: GNU General Public License v3 (https://github.com/MarkBaggett/srum-dump/blob/master/LICENSE)
-# Version: 2.4
+# Version: 2.5
 # Notes: 
 
-{% set version = '2.4' %}
-{% set hash = '2DA7F478429583E60176D9028FA0CB8E2FE32A6C6F25572ED1CDEBA2F3767C34' %}
+{% set version = '2.5' %}
+{% set hash = '4441b528553d74408138c01f7c1a5086533f0b4933cf5741f9ac537f1b0fdce1' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 srum-dump2-download-only:
@@ -20,9 +20,9 @@ srum-dump2-download-only:
 
 srum-dump2-template-download-only:
   file.managed:
-    - name: '{{ downloads }}\SRUM_TEMPLATE2.xlsx'
-    - source: https://github.com/MarkBaggett/srum-dump/raw/master/SRUM_TEMPLATE2.xlsx
-    - source_hash: sha256=66dc9a5e9ca74e7d36a25caf6d3437ba06a4acaa6952947b90829d45523a64e2
+    - name: '{{ downloads }}\SRUM_TEMPLATE3.xlsx'
+    - source: https://github.com/MarkBaggett/srum-dump/raw/master/SRUM_TEMPLATE3.xlsx
+    - source_hash: sha256=af7c685832208d874dd8cba1580a0b28fe52b70b1a1ec3fe2a80390c2bc5a2b4
     - makedirs: True
     - require:
       - file: srum-dump2-download-only

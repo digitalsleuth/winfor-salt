@@ -4,7 +4,7 @@
 # Category: Network
 # Author: The Wireshark Foundation (https://gitlab.com/wireshark/wireshark/-/blob/master/AUTHORS)
 # License: GNU General Public License v2 (https://gitlab.com/wireshark/wireshark/-/blob/master/COPYING)
-# Version: 4.0.5
+# Version: 4.0.8
 # Notes: 
 
 wireshark:

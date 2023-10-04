@@ -4,7 +4,7 @@
 # Category: Executables
 # Author: Hors (horsicq)
 # License: MIT License (https://github.com/horsicq/DIE-engine/blob/master/LICENSE)
-# Version: 3.06
+# Version: 3.08
 # Notes: Detect It Easy - DIE 
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
