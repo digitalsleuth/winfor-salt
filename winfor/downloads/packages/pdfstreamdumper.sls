@@ -1,5 +1,5 @@
 # Name: PDFStream Dumper
-# Website: https://github.com/dzzie/pdfstreamdumper
+# Website: http://sandsprite.com/blogs/index.php?uid=7&pid=57
 # Description: PDF Analysis tool
 # Category: Documents / Editors
 # Author: David Zimmer (dzzie)

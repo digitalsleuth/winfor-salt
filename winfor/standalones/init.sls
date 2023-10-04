@@ -92,6 +92,7 @@ include:
   - winfor.standalones.volatility-workbench
   - winfor.standalones.scrcpy
   - winfor.standalones.magnet-dumpit
+  - winfor.standalones.scdbg
 
 standalones-states:
   test.nop:
@@ -189,3 +190,4 @@ standalones-states:
       - sls: winfor.standalones.volatility-workbench
       - sls: winfor.standalones.scrcpy
       - sls: winfor.standalones.magnet-dumpit
+      - sls: winfor.standalones.scdbg

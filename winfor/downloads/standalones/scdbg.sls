@@ -2,33 +2,17 @@
 # Website: http://sandsprite.com/blogs/index.php?uid=7&pid=152
 # Description: Shellcode analysis tool
 # Category: Executables
-# Author: https://github.com/dzzie/VS_LIBEMU/blob/master/AUTHORS
+# Author: David Zimmer
 # License: 
-# Version: 9.0
+# Version: Jul 10 2023 14:21:55
 # Notes: 
 
-{% set scdbg_hash = 'e2b9ec7d08ea722dc14242fc6aefc39971aa00ed3fc26d8b84d77359bb462418' %}
-{% set gui_hash = '02654879bc42871e8a4022a71d1ec7735568cc8714068a7c1753a51909266de9' %}
-{% set manual_hash = 'C9D605BA51DA3B8E2648E150E404D6B5DE2D4B60E1896141D02F591590CA64CF' %}
+{% set hash = '9298580a436db7d07eec71314bf3ff9e6dd638acf50900051fa0fe11fd3cf147' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 scdbg-download-only:
   file.managed:
-    - name: '{{ downloads }}\scdbg.exe'
-    - source: https://github.com/dzzie/VS_LIBEMU/raw/master/scdbg.exe
-    - source_hash: sha256={{ scdbg_hash }}
-    - makedirs: True
-
-scdbg-gui-download-only:
-  file.managed:
-    - name: '{{ downloads }}\scdbg_gui_launcher.exe'
-    - source: https://github.com/dzzie/VS_LIBEMU/raw/master/gui_launcher.exe
-    - source_hash: sha256={{ gui_hash }}
-    - makedirs: True
-
-scdbg-manual-download-only:
-  file.managed:
-    - name: '{{ downloads }}\scdbg_manual_en.chm'
-    - source: https://github.com/dzzie/VS_LIBEMU/raw/master/manual_en.chm
-    - source_hash: sha256={{ manual_hash }}
+    - name: '{{ downloads }}\scdbg.zip'
+    - source: http://sandsprite.com/CodeStuff/scdbg.zip
+    - source_hash: sha256={{ hash }}
     - makedirs: True

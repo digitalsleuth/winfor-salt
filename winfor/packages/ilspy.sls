@@ -11,4 +11,4 @@
 {% set core_version = '8.1.1' %}
 
 ilspy:
-  pkg.install
+  pkg.installed

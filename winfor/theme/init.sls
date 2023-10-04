@@ -23,8 +23,8 @@
 {% set v1 = vert %}
 {% set v2 = v1 + vspacer %}
 {% set v3 = v2 + vspacer %}
-{% set horizontals = [(h1, 'H1'), (h2, 'H2'), (h3, 'H3'), (h4, 'H4'), (h5, 'H5'), (h6, 'H6')] %}
-{% set verticals = [(v1, 'V1'), (v2, 'V2'), (v3, 'V3')] %}
+{% set horizontals = [(h1, "H1"), (h2, "H2"), (h3, "H3"), (h4, "H4"), (h5, "H5"), (h6, "H6")] %}
+{% set verticals = [(v1, "V1"), (v2, "V2"), (v3, "V3")] %}
 {% set dwidth = horiz * 2 %}
 {% set shortcuts = [('Acquisition and Analysis', ['FTK Imager','Active@ Disk Editor\Active@ Disk Editor','Arsenal Image Mounter','Autopsy\Autopsy 4.20.0','Magnet AXIOM\AXIOM Examine','Magnet AXIOM\AXIOM Process','gkape','Magnet ACQUIRE\Magnet ACQUIRE','Magnet Chromebook Acquisition Assistant v1\Magnet Chromebook Acquisition Assistant v1','Magnet Web Page Saver Portable V3','OSFMount\OSFMount','Tableau\Tableau Imager\Tableau Imager','X-Ways']),
                     ('Browsers', ['Firefox','Google Chrome','Microsoft Edge']),
@@ -149,19 +149,19 @@ portals-replace-{{ vph }}:
 portals-replace-width:
   file.replace:
     - name: '{{ home }}\AppData\Local\Portals\portals.ptl'
-    - pattern: 'PWIDTH'
+    - pattern: PWIDTH
     - repl: {{ horiz }}
 
 portals-replace-dwidth:
   file.replace:
     - name: '{{ home }}\AppData\Local\Portals\portals.ptl'
-    - pattern: 'DWIDTH'
+    - pattern: DWIDTH
     - repl: {{ dwidth }}
 
 portals-replace-height:
   file.replace:
     - name: '{{ home }}\AppData\Local\Portals\portals.ptl'
-    - pattern: 'PHEIGHT'
+    - pattern: PHEIGHT
     - repl: {{ vert }}
 
 theme-start-layout-file:
