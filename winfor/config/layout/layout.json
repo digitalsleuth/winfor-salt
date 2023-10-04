@@ -1456,7 +1456,7 @@
         "Checked": true,
         "Enabled": true,
         "ExtraTiles": []
-      }
+      },
       "Zui": {
         "CbName": "packages_zui",
         "CbContent": "Zui",
