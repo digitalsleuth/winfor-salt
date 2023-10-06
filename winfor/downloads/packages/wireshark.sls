@@ -4,12 +4,12 @@
 # Category: Network
 # Author: The Wireshark Foundation (https://gitlab.com/wireshark/wireshark/-/blob/master/AUTHORS)
 # License: GNU General Public License v2 (https://gitlab.com/wireshark/wireshark/-/blob/master/COPYING)
-# Version: 4.0.8
+# Version: 4.0.10
 # Notes: 
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '4.0.8' %}
-{% set hash = '8243e019d2bd73c81de53c67ddb23d877ecec2fc1699c9aa074ccaa2d7d9b267' %}
+{% set version = '4.0.10' %}
+{% set hash = '085D9AA4F6614730F132FB5C28EC5FA445DEA79687E4C648D586DE569FFCC5E2' %}
 
 wireshark-download-only:
   file.managed:
