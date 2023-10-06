@@ -93,6 +93,7 @@ include:
   - winfor.standalones.scrcpy
   - winfor.standalones.magnet-dumpit
   - winfor.standalones.scdbg
+  - winfor.standalones.fit
 
 standalones-states:
   test.nop:
@@ -191,3 +192,4 @@ standalones-states:
       - sls: winfor.standalones.scrcpy
       - sls: winfor.standalones.magnet-dumpit
       - sls: winfor.standalones.scdbg
+      - sls: winfor.standalones.fit

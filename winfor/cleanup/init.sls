@@ -1,4 +1,3 @@
-# Restart explorer to get rid of graphical anomalies after debloat
 # Delete the C:\salt directory which contains the tempdownloads
 {% set user = salt['pillar.get']('winfor_user', 'forensics') %}
 {% set all_users = salt['user.list_users']() %}
@@ -11,13 +10,6 @@
 include:
   - winfor.config.user
 
-cleanup-restart-explorer:
-  cmd.run:
-    - names:
-      - 'Stop-Process -ProcessName "explorer"'
-      - 'start explorer'
-    - shell: powershell
-
 cleanup-delete-salt-temp-files:
   file.absent:
     - name: 'C:\salt'
@@ -29,7 +21,6 @@ desktop-cleanup:
       - '{{ home }}\Desktop\desktop.ini'
     - require:
       - user: user-{{ user }}
-      - cmd: cleanup-restart-explorer
 
 disk-cleanup:
   cmd.run:

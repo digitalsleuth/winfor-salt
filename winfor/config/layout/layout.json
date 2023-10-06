@@ -37,6 +37,17 @@
         "Enabled": true,
         "ExtraTiles": []
       },
+      "FIT": {
+        "CbName": "standalones_fit",
+        "CbContent": "FIT",
+        "DAID": "PLACEHOLDER_PATH\\fit\\fit.exe",
+        "AUMID": false,
+        "DALP": false,
+        "StartMenu": true,
+        "Checked": true,
+        "Enabled": true,
+        "ExtraTiles": []
+      },
       "FTK Imager": {
         "CbName": "packages_ftk_imager",
         "CbContent": "FTK Imager",
@@ -426,7 +437,7 @@
       "PDFStream Dumper": {
         "CbName": "packages_pdfstreamdumper",
         "CbContent": "PDFStream Dumper",
-        "DAID": "C:\\PDFStreamDumper\\PDFStreamDumper.exe",
+        "DAID": "{6D809377-6AF0-444B-8957-A3773F02200E}\\PDFStreamDumper\\PDFStreamDumper.exe",
         "AUMID": false,
         "DALP": false,
         "StartMenu": true,

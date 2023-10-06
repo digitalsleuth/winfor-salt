@@ -6,10 +6,24 @@
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set case_folders = ['Evidence', 'Export', 'Temp', 'Xways'] %}
 {% set profile_pictures = ['user.png', 'user.bmp', 'user-32.png', 'user-40.png', 'user-48.png', 'user-192.png'] %}
-{% set portals_configs = ['portals.ptl','globalsettings.ptl','layouts.ptl','license.ptl'] %}
+{% set portals_configs = ['portals.ptl','globalsettings.ptl','license.ptl'] %}
 {% set xwver = '207' %}
 {% set zips = ['FTK-Imager-4-7-1-2-portable.zip', 'FTK-Imager-3-2-0-0-portable.zip', 'searchkit.zip'] %}
 {% set folders = ['PE01', 'PE03', 'PE04', 'PE05', 'PE06', 'PE07'] %}
+{% set vert = salt['cmd.powershell']('[int]((Get-CimInstance CIM_VideoController | Select -expand CurrentVerticalResolution) / 4)') %}
+{% set horiz = salt['cmd.powershell']('[int]((Get-CimInstance CIM_VideoController | Select -expand CurrentHorizontalResolution) / 8)') %}
+{% set hspacer = horiz + 1 %}
+{% set h1 = horiz  %}
+{% set h2 = h1 + hspacer %}
+{% set h3 = h2 + hspacer %}
+{% set h4 = h3 + hspacer %}
+{% set h5 = h4 + hspacer %}
+{% set h6 = h5 + hspacer %}
+{% set vspacer = vert + 1 %}
+{% set v1 = vert %}
+{% set v2 = v1 + vspacer %}
+{% set horizontals = [(h1, "H1"), (h2, "H2"), (h3, "H3"), (h4, "H4"), (h5, "H5"), (h6, "H6")] %}
+{% set verticals = [(v1, "V1"), (v2, "V2")] %}
 {% set shortcuts = [('Acquisition and Analysis', ['FTK Imager','Active@ Disk Editor\Active@ Disk Editor','Arsenal Image Mounter','Autopsy\Autopsy 4.20.0','Magnet AXIOM\AXIOM Examine','Magnet AXIOM\AXIOM Process','Magnet ACQUIRE\Magnet ACQUIRE','Redline\Redline','Tableau\Tableau Imager\Tableau Imager','VeraCrypt 1.25.9\VeraCrypt','X-Ways']),
                     ('Browsers', ['Firefox','Google Chrome','Google Earth Pro','Microsoft Edge']),
                     ('Databases', ['ADOQuery','DataEdit','DB Browser (SQLCipher)','DB Browser (SQLite)','DBeaver Community\DBeaver','SDBExplorer','SQLiteQuery','SQLiteStudio\SQLiteStudio']),
@@ -114,6 +128,34 @@ cpcwin-portals-{{ config }}-placeholder-replace:
     - require:
       - file: cpcwin-portals-{{ config }}-copy
 {% endfor %}
+
+{% for hval, hph in horizontals %}
+cpcwin-portals-replace-{{ hph }}:
+  file.replace:
+    - name: '{{ home }}\AppData\Local\Portals\portals.ptl'
+    - pattern: {{ hph }}
+    - repl: {{ hval }}
+{% endfor %}
+
+{% for vval, vph in verticals %}
+cpcwin-portals-replace-{{ vph }}:
+  file.replace:
+    - name: '{{ home }}\AppData\Local\Portals\portals.ptl'
+    - pattern: {{ vph }}
+    - repl: {{ vval }}
+{% endfor %}
+
+cpcwin-portals-replace-width:
+  file.replace:
+    - name: '{{ home }}\AppData\Local\Portals\portals.ptl'
+    - pattern: PWIDTH
+    - repl: {{ horiz }}
+
+cpcwin-portals-replace-height:
+  file.replace:
+    - name: '{{ home }}\AppData\Local\Portals\portals.ptl'
+    - pattern: PHEIGHT
+    - repl: {{ vert }}
 
 {% for zip in zips %}
 {{ zip }}-zip-copy:
