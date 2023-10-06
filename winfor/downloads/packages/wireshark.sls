@@ -9,7 +9,7 @@
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '4.0.10' %}
-{% set hash = '085D9AA4F6614730F132FB5C28EC5FA445DEA79687E4C648D586DE569FFCC5E2' %}
+{% set hash = '085d9aa4f6614730f132fb5c28ec5fa445dea79687e4c648d586de569ffcc5e2' %}
 
 wireshark-download-only:
   file.managed:
