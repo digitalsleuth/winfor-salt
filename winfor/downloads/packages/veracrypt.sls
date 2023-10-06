@@ -4,12 +4,12 @@
 # Category: Utilities
 # Author: https://github.com/veracrypt/VeraCrypt/blob/master/doc/html/Authors.html
 # License: Apache License v2 (https://github.com/veracrypt/VeraCrypt/blob/master/License.txt)
-# Version: 1.25.9
+# Version: 1.26.7
 # Notes: 
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '1.25.9' %}
-{% set hash = '206d31c2ed1a2b0390d4dfa12e74a9b9dae88658d1f9bfa1bb433b23e2b24fd8' %}
+{% set version = '1.26.7' %}
+{% set hash = 'c802dcdda02e9a7a3f52645bf90285d3055c76038dc760131192cc23327ca8f8' %}
 
 veracrypt-download-only:
   file.managed:
