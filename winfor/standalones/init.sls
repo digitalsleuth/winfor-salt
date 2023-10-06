@@ -94,6 +94,7 @@ include:
   - winfor.standalones.magnet-dumpit
   - winfor.standalones.scdbg
   - winfor.standalones.fit
+  - winfor.standalones.apktool
 
 standalones-states:
   test.nop:
@@ -193,3 +194,4 @@ standalones-states:
       - sls: winfor.standalones.magnet-dumpit
       - sls: winfor.standalones.scdbg
       - sls: winfor.standalones.fit
+      - sls: winfor.standalones.apktool

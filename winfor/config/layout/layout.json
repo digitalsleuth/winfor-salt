@@ -1274,6 +1274,17 @@
         "Enabled": true,
         "ExtraTiles": []
       },
+      "apktool": {
+        "CbName": "standalones_apktool",
+        "CbContent": "apktool",
+        "DAID": "PLACEHOLDER_PATH\\apktool\\apktool.bat",
+        "AUMID": false,
+        "DALP": false,
+        "StartMenu": false,
+        "Checked": true,
+        "Enabled": true,
+        "ExtraTiles": []
+      },
       "Bytecode Viewer": {
         "CbName": "standalones_bytecode_viewer",
         "CbContent": "Bytecode Viewer",
