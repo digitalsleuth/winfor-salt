@@ -13,7 +13,7 @@ include:
 
 plaso:
   pip.installed:
-    - name: 'git+https://github.com/log2timeline/plaso.git
+    - name: 'git+https://github.com/log2timeline/plaso.git'
     - bin_env: 'C:\Program Files\Python310\python.exe'
     - require:
       - sls: winfor.packages.git
