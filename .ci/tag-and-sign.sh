@@ -34,7 +34,7 @@ if [ "`cat ${VERSION_FILE}`" != "${TAG_NAME}" ]; then
   echo "$TAG_NAME" > ${VERSION_FILE}
   git add ${VERSION_FILE}
   git commit -m "Updating VERSION to $TAG_NAME"
-  git push origin master
+  git push origin main
 
   echo "==> Tagging Repository"
   git tag $TAG_NAME
