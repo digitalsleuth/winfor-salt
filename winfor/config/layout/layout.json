@@ -149,6 +149,17 @@
         "Enabled": true,
         "ExtraTiles": []
       },
+      "plaso (log2timeline)": {
+        "CbName": "python3_tools_plaso",
+        "CbContent": "Plaso (log2timeline)",
+        "DAID": "",
+        "AUMID": false,
+        "DALP": false,
+        "StartMenu": false,
+        "Checked": true,
+        "Enabled": true,
+        "ExtraTiles": []
+      },
       "Tableau Imager": {
         "CbName": "packages_tableau_imager",
         "CbContent": "Tableau Imager",

@@ -26,6 +26,7 @@ include:
   - winfor.python3-tools.pdf-parser
   - winfor.python3-tools.flare-fakenet-ng
   - winfor.python3-tools.pyson4
+  - winfor.python3-tools.plaso
 
 python3-tools-states:
   test.nop:
@@ -57,6 +58,7 @@ python3-tools-states:
       - sls: winfor.python3-tools.pdf-parser
       - sls: winfor.python3-tools.flare-fakenet-ng
       - sls: winfor.python3-tools.pyson4
+      - sls: winfor.python3-tools.plaso
 
 python3-filetype-association:
   cmd.run:
