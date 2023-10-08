@@ -15,6 +15,7 @@ include:
   - winfor.installers.windbg
   - winfor.installers.casenotes-pro
   - winfor.installers.msiviewer
+  - winfor.installers.aid4mail
   
 installer-states:
   test.nop:
@@ -35,3 +36,4 @@ installer-states:
       - sls: winfor.installers.windbg
       - sls: winfor.installers.casenotes-pro
       - sls: winfor.installers.msiviewer
+      - sls: winfor.installers.aid4mail
