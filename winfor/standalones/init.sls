@@ -95,6 +95,7 @@ include:
   - winfor.standalones.scdbg
   - winfor.standalones.fit
   - winfor.standalones.apktool
+  - winfor.standalones.codetrack
 
 standalones-states:
   test.nop:
@@ -195,3 +196,4 @@ standalones-states:
       - sls: winfor.standalones.scdbg
       - sls: winfor.standalones.fit
       - sls: winfor.standalones.apktool
+      - sls: winfor.standalones.codetrack
