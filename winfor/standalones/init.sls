@@ -96,6 +96,7 @@ include:
   - winfor.standalones.fit
   - winfor.standalones.apktool
   - winfor.standalones.codetrack
+  - winfor.standalones.fex-memory-imager
 
 standalones-states:
   test.nop:
@@ -197,3 +198,4 @@ standalones-states:
       - sls: winfor.standalones.fit
       - sls: winfor.standalones.apktool
       - sls: winfor.standalones.codetrack
+      - sls: winfor.standalones.fex-memory-imager

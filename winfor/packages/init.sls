@@ -67,6 +67,7 @@ include:
   - winfor.packages.winscp
   - winfor.packages.ms-powertoys
   - winfor.packages.ilspy
+  - winfor.packages.fex-imager
 
 package-states:
   test.nop:
@@ -139,3 +140,4 @@ package-states:
       - sls: winfor.packages.winscp
       - sls: winfor.packages.ms-powertoys
       - sls: winfor.packages.ilspy
+      - sls: winfor.packages.fex-imager
