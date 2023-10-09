@@ -37,6 +37,28 @@
         "Enabled": true,
         "ExtraTiles": []
       },
+      "FEX Imager": {
+        "CbName": "packages_fex_imager",
+        "CbContent": "FEX Imager",
+        "DAID": "{6D809377-6AF0-444B-8957-A3773F02200E}\\GetData\\FEX Imager\\FEXImager.exe",
+        "AUMID": false,
+        "DALP": false,
+        "StartMenu": true,
+        "Checked": true,
+        "Enabled": true,
+        "ExtraTiles": []
+      },
+      "FEX Memory Imager": {
+        "CbName": "standalones_fex_memory_imager",
+        "CbContent": "FEX Memory Imager",
+        "DAID": "PLACEHOLDER_PATH\\fex-memory-imager\\FEX_Memory.exe",
+        "AUMID": false,
+        "DALP": false,
+        "StartMenu": false,
+        "Checked": true,
+        "Enabled": true,
+        "ExtraTiles": []
+      },
       "FIT": {
         "CbName": "standalones_fit",
         "CbContent": "FIT",
