@@ -9,7 +9,7 @@
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '118.0.1' %}
-{% set hash = '8d1f674979d137089cab8ba6f8773aa51262492a1d08e87c81785c04944f75f9' %}
+{% set hash = 'a10b0d585134734d01f68b51fa92d70dfa7749b0c0966987562819c87504b679' %}
 
 firefox_x64-download-only:
   file.managed:

@@ -7,7 +7,7 @@
 # Version: 3.1
 # Notes: 
 
-{% set hash = 'fd4012a9df1e1fcd93e473e4498e51d19a2afd9379cd657db1cc023e3c0dc7d6' %}
+{% set hash = 'a67e2d31ce96488ede8d9cdd896d368821aad4cbbd9a78d394ed29ac17a13914' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 osfmount-download-only:

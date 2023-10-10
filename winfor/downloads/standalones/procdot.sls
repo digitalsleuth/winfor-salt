@@ -15,7 +15,6 @@ procdot-defender-exclusion-download-only:
   cmd.run:
     - names:
       - 'Add-MpPreference -ExclusionPath "{{ downloads }}\"'
-      - 'Add-MpPreference -ExclusionPath "C:\salt\tempdownload\"'
     - shell: powershell
 
 procdot-download-only:

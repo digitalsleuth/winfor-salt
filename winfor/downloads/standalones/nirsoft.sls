@@ -16,7 +16,6 @@ nirsoft-defender-exclusion-download-only:
   cmd.run:
     - names:
       - 'Add-MpPreference -ExclusionPath "{{ downloads }}\"'
-      - 'Add-MpPreference -ExclusionPath "C:\salt\tempdownload\"'
     - shell: powershell
 
 nirsoft-download-only:
