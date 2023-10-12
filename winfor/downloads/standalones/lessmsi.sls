@@ -13,7 +13,7 @@
 lessmsi-download-only:
   file.managed:
   {% for version, hash in versions %}
-    - name: '{{ downloads }}\lessmsi-v{{ version }}.zip'
+    - name: '{{ downloads }}\lessmsi\lessmsi-v{{ version }}.zip'
     - source: https://github.com/activescott/lessmsi/releases/download/v{{ version }}/lessmsi-v{{ version }}.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True

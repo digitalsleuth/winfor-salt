@@ -21,7 +21,7 @@
 
 ntcore-download-only-{{ file }}:
   file.managed:
-    - name: {{ downloads }}\{{ file }}.zip
+    - name: {{ downloads }}\ntcore\{{ file }}.zip
     - source: https://ntcore.com/files/{{ file }}.zip
     - source_hash: sha256={{ hash }}
     - makedirs: true

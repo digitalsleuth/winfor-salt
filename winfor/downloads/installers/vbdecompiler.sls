@@ -13,7 +13,7 @@
 
 vbdecompiler-download-only:
   file.managed:
-    - name: '{{ downloads }}\vb_decompiler_lite.zip'
+    - name: '{{ downloads }}\vb-decompiler\vb_decompiler_lite-{{ version }}.zip'
     - source: https://www.vb-decompiler.org/files/vb_decompiler_lite.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True

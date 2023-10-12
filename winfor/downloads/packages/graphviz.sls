@@ -13,7 +13,7 @@
 
 graphviz-download-only:
   file.managed:
-    - name: '{{ downloads }}\windows_10_cmake_Release_graphviz-install-{{ version }}-win64.exe'
+    - name: '{{ downloads }}\graphviz\windows_10_cmake_Release_graphviz-install-{{ version }}-win64.exe'
     - source: https://gitlab.com/api/v4/projects/4207231/packages/generic/graphviz-releases/{{ version }}/windows_10_cmake_Release_graphviz-install-{{ version }}-win64.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

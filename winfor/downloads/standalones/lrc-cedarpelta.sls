@@ -9,10 +9,11 @@
 
 {% set hash = '2c32984adf2b5b584761f61bd58b61dfc0c62b27b117be40617fa260596d9c63' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
+{% set version = '20190905' %}
 
 lrc-cedarpelta-download-only:
   file.managed:
-    - name: '{{ downloads }}\LiveResponseCollection-Cedarpelta.zip'
+    - name: '{{ downloads }}\lrc-cedarpelta\LiveResponseCollection-Cedarpelta-{{ version }}.zip'
     - source: https://www.brimorlabs.com/Tools/LiveResponseCollection-Cedarpelta.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True

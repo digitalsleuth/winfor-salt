@@ -13,7 +13,7 @@
 
 winscp-download-only:
   file.managed:
-    - name: '{{ downloads }}\WinSCP-{{ version }}-Setup.exe'
+    - name: '{{ downloads }}\winscp\WinSCP-{{ version }}-Setup.exe'
     - source: https://downloads.sourceforge.net/project/winscp/WinSCP/{{ version }}/WinSCP-{{ version }}-Setup.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

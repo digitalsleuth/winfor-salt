@@ -12,7 +12,7 @@
 
 casenotes-pro-source-download-only:
   file.managed:
-    - name: '{{ downloads }}\cnsetup.msi'
+    - name: '{{ downloads }}\casenotes-pro\cnsetup-{{ version }}.msi'
     - source: https://github.com/digitalsleuth/winfor-salt/raw/main/winfor/files/cnsetup.msi
     - skip_verify: True
     - makedirs: True

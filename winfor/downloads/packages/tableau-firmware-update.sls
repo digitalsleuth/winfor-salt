@@ -13,7 +13,7 @@
 
 tableau-firmware-update-download-only:
   file.managed:
-    - name: '{{ downloads }}\setup_tableau_firmware_update_{{ version }}.msi'
+    - name: '{{ downloads }}\tableau\setup_tableau_firmware_update_{{ version }}.msi'
     - source: https://mimage.opentext.com/support/ecm/tableau/setup_tableau_firmware_update_{{ version }}.msi
     - source_hash: sha256={{ hash }}
     - makedirs: True

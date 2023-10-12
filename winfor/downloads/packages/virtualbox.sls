@@ -14,7 +14,7 @@
 
 virtualbox-download-only:
   file.managed:
-    - name: '{{ downloads }}\VirtualBox-{{ version }}-{{ build_number }}-Win.exe'
+    - name: '{{ downloads }}\virtualbox\VirtualBox-{{ version }}-{{ build_number }}-Win.exe'
     - source: https://download.virtualbox.org/virtualbox/{{ version }}/VirtualBox-{{ version }}-{{ build_number }}-Win.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

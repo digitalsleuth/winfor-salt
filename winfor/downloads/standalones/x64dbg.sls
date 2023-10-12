@@ -13,7 +13,7 @@
 
 x64dbg-download-only:
   file.managed:
-    - name: '{{ downloads }}\snapshot_{{ version }}.zip'
+    - name: '{{ downloads }}\x64dbg\snapshot_{{ version }}.zip'
     - source: https://github.com/x64dbg/x64dbg/releases/download/snapshot/snapshot_{{ version }}.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True

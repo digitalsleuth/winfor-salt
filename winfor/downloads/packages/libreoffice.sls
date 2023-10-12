@@ -13,7 +13,7 @@
 
 libreoffice-download-only:
   file.managed:
-    - name: '{{ downloads }}\LibreOffice_{{ version }}_Win_x86-64.msi'
+    - name: '{{ downloads }}\libreoffice\LibreOffice_{{ version }}_Win_x86-64.msi'
     - source: https://downloadarchive.documentfoundation.org/libreoffice/old/{{ version }}/win/x86_64/LibreOffice_{{ version }}_Win_x86-64.msi
     - source_hash: sha256={{ hash }}
     - makedirs: True

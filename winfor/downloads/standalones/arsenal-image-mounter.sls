@@ -15,9 +15,15 @@
 include:
   - winfor.downloads.standalones.megatools
 
+arsenal-folder:
+  file.directory:
+    - name: '{{ downloads }}\arsenal-image-mounter'
+    - win_inheritance: True
+
 arsenal-download-only:
   cmd.run:
-    - name: '{{ downloads }}\megatools\megatools.exe dl https://mega.nz/file/{{ file_value }} --path {{ downloads }}'
+    - name: '{{ downloads }}\megatools\megatools\megatools.exe dl https://mega.nz/file/{{ file_value }} --path {{ downloads }}\arsenal-image-mounter\'
     - shell: cmd
     - require:
       - sls: winfor.downloads.standalones.megatools
+      - file: arsenal-folder

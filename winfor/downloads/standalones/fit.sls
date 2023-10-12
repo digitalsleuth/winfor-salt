@@ -13,7 +13,7 @@
 
 fit-download-only:
   file.managed:
-    - name: '{{ downloads }}\fit-portable-win64-{{ version }}.zip'
+    - name: '{{ downloads }}\fit\fit-portable-win64-{{ version }}.zip'
     - source: https://github.com/fit-project/fit/releases/download/v{{ version }}/fit-portable-win64-{{ version }}.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True

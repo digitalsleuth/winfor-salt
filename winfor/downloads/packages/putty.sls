@@ -13,7 +13,7 @@
 
 putty-download-only:
   file.managed:
-    - name: '{{ downloads }}\putty-64bit-{{ version }}-installer.msi'
+    - name: '{{ downloads }}\putty\putty-64bit-{{ version }}-installer.msi'
     - source: https://the.earth.li/~sgtatham/putty/{{ version }}/w64/putty-64bit-{{ version }}-installer.msi
     - source_hash: sha256={{ hash }}
     - makedirs: True

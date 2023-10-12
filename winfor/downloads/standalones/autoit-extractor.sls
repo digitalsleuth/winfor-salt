@@ -8,10 +8,11 @@
 # Notes: 
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
+{% set version = '1.0.0' %}
 
 autoit-extractor-download-only:
   file.managed:
-    - name: '{{ downloads }}\autoit-extractor\autoit-extractor.exe'
+    - name: '{{ downloads }}\autoit-extractor\autoit-extractor-{{ version }}.exe'
     - source: 'https://github.com/digitalsleuth/autoit-extractor/raw/master/net40/AutoIt%20Extractor/bin/x64/Release/AutoIt%20Extractor.exe'
     - source_hash: sha256=d82d49e9ad153ef84670c1d0bde5f36b540d32fa037cca6127ce9e4e366b7403
     - makedirs: True

@@ -13,7 +13,7 @@
 
 agentransack-download-only:
   file.managed:
-    - name: '{{ downloads }}\agentransack_x64_msi_{{ version }}.zip'
+    - name: '{{ downloads }}\agent-ransack\agentransack_x64_msi_{{ version }}.zip'
     - source: https://download.mythicsoft.com/flp/{{ version }}/agentransack_x64_msi_{{ version }}.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True

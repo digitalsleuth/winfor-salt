@@ -13,7 +13,7 @@
 
 innoextract-download-only:
   file.managed:
-    - name: '{{ downloads }}\innoextract-{{ version }}-windows.zip'
+    - name: '{{ downloads }}\innoextract\innoextract-{{ version }}-windows.zip'
     - source: https://constexpr.org/innoextract/files/innoextract-{{ version }}-windows.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True

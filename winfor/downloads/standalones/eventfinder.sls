@@ -13,7 +13,7 @@
 
 eventfinder-download-only:
   file.managed:
-    - name: '{{ downloads }}\EventFinder.exe'
+    - name: '{{ downloads }}\eventfinder\EventFinder-{{ version }}.exe'
     - source: https://github.com/BeanBagKing/EventFinder2/releases/download/{{ version }}/EventFinder.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

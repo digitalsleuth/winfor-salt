@@ -13,7 +13,7 @@
 
 7zip-download-only:
   file.managed:
-    - name: '{{ downloads }}\7z{{ version }}-x64.msi'
+    - name: '{{ downloads }}\7zip\7z{{ version }}-x64.msi'
     - source: https://d3.7-zip.org/a/7z{{ version }}-x64.msi
     - source_hash: sha256={{ hash }}
     - makedirs: True

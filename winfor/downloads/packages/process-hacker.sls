@@ -13,7 +13,7 @@
 
 process-hacker-download-only:
   file.managed:
-    - name: '{{ downloads }}\processhacker-{{ version }}-setup.exe'
+    - name: '{{ downloads }}\process-hacker\processhacker-{{ version }}-setup.exe'
     - source: https://github.com/winsiderss/systeminformer/releases/download/v2.39/processhacker-2.39-setup.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

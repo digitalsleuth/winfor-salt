@@ -14,23 +14,23 @@
 
 megatools-download-only:
   file.managed:
-    - name: '{{ downloads }}\megatools-{{ version }}.{{ date }}-win64.zip'
+    - name: '{{ downloads }}\megatools\megatools-{{ version }}.{{ date }}-win64.zip'
     - source: 'https://megatools.megous.com/builds/builds/megatools-{{ version }}.{{ date }}-win64.zip'
     - source_hash: sha256={{ hash }}
     - makedirs: True
 
 megatools-extract-only:
   archive.extracted:
-    - name: '{{ downloads }}\'
-    - source: '{{ downloads }}\megatools-{{ version }}.{{ date }}-win64.zip'
+    - name: '{{ downloads }}\megatools\'
+    - source: '{{ downloads }}\megatools\megatools-{{ version }}.{{ date }}-win64.zip'
     - enforce_toplevel: True
     - require:
       - file: megatools-download-only
 
 megatools-folder-rename-only:
   file.rename:
-    - name: '{{ downloads }}\megatools'
-    - source: '{{ downloads }}\megatools-{{ version }}.{{ date }}-win64\'
+    - name: '{{ downloads }}\megatools\megatools'
+    - source: '{{ downloads }}\megatools\megatools-{{ version }}.{{ date }}-win64\'
     - force: True
     - makedirs: True
     - require:

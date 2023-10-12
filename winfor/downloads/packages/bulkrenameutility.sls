@@ -13,7 +13,7 @@
 
 bulkrenameutility-download-only:
   file.managed:
-    - name: '{{ downloads }}\BRU_setup.exe'
+    - name: '{{ downloads }}\bulk-rename-utility\BRU_setup-{{ version }}.exe'
     - source: https://www.bulkrenameutility.co.uk/Downloads/BRU_setup.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

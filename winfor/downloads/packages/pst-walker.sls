@@ -13,7 +13,7 @@
 
 pst-walker-download-only:
   file.managed:
-    - name: '{{ downloads }}\pstwalker{{ version }}.exe'
+    - name: '{{ downloads }}\pstwalker\pstwalker{{ version }}.exe'
     - source: https://downloads.pstwalker.com/pstwalker{{ version }}.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

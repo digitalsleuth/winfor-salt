@@ -13,7 +13,7 @@
 
 magnet-dumpit-download-only:
   file.managed:
-    - name: '{{ downloads }}\Comae-Toolkit-v{{ version }}.zip'
+    - name: '{{ downloads }}\magnetforensics\Comae-Toolkit-v{{ version }}.zip'
     - source: https://storage.googleapis.com/prod-releases/comae_toolkit/Comae-Toolkit-v{{ version }}.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True

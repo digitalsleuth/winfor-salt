@@ -13,7 +13,7 @@
 
 ppee-download-only:
   file.managed:
-    - name: '{{ downloads }}\PPEE(puppy)_{{ version }}.zip'
+    - name: '{{ downloads }}\ppee\PPEE(puppy)_{{ version }}.zip'
     - source: salt://winfor/files/ppee_puppy_{{ version }}.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True

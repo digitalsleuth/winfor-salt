@@ -14,7 +14,7 @@
 
 vscode-download-only:
   file.managed:
-    - name: '{{ downloads }}\VSCodeSetup-x64-{{ version }}.exe'
+    - name: '{{ downloads }}\vscode\VSCodeSetup-x64-{{ version }}.exe'
     - source: https://az764295.vo.msecnd.net/stable/{{ guid }}/VSCodeSetup-x64-{{ version }}.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

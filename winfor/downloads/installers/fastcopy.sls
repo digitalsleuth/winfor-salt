@@ -13,7 +13,7 @@
 
 fastcopy-download-only:
   file.managed:
-    - name: '{{ downloads }}\FastCopy{{ version }}_installer.exe'
+    - name: '{{ downloads }}\fastcopy\FastCopy{{ version }}_installer.exe'
     - source: https://github.com/FastCopyLab/FastCopyDist2/raw/main/FastCopy{{ version }}_installer.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

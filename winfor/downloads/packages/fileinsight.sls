@@ -13,7 +13,7 @@
 
 fileinsight-download-only:
   file.managed:
-    - name: '{{ downloads }}\fileinsight.msi'
+    - name: '{{ downloads }}\fileinsight\fileinsight-{{ version }}.msi'
     - source: https://github.com/digitalsleuth/salt-winrepo-ng/raw/main/files/fileinsight.msi
     - source_hash: sha256={{ hash }}
     - makedirs: True

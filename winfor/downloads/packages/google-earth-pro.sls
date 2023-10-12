@@ -14,7 +14,7 @@
 
 google-earth-pro-download-only:
   file.managed:
-    - name: '{{ downloads }}\googleearthprowin-{{ short_version }}-x64.exe'
+    - name: '{{ downloads }}\google-earth-pro\googleearthprowin-{{ short_version }}-x64.exe'
     - source: https://dl.google.com/dl/earth/client/advanced/current/googleearthprowin-{{ short_version }}-x64.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

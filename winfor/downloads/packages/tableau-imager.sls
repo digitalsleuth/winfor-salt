@@ -13,7 +13,7 @@
 
 tableau-imager-download-only:
   file.managed:
-    - name: '{{ downloads }}\setup_tableau_imager_{{ version }}.msi'
+    - name: '{{ downloads }}\tableau\setup_tableau_imager_{{ version }}.msi'
     - source: https://mimage.opentext.com/support/ecm/tableau/setup_tableau_imager_{{ version }}.msi
     - source_hash: sha256={{ hash }}
     - makedirs: True

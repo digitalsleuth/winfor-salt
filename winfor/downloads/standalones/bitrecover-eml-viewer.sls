@@ -8,10 +8,11 @@
 # Notes:
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
+{% set version = '5.0' %}
 
 bitrecover-eml-viewer-download-only:
   file.managed:
-    - name: '{{ downloads }}\bitrecover-eml-viewer\bitrecover-eml-viewer.exe'
+    - name: '{{ downloads }}\bitrecover-eml-viewer\bitrecover-eml-viewer-{{ version }}.exe'
     - source: 'https://www.bitrecover.com/dl/bitrecover-eml-viewer.exe'
     - source_hash: sha256=2C135C450D49D5805582EC5FF5D5DB3431D20B6F1B28AA7D5816547A235EFC3E
     - makedirs: True

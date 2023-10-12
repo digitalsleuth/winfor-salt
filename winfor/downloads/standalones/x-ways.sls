@@ -16,13 +16,13 @@
 {% set manualhash = "b4e990c8181a962891aa742b522c8cedabe41f8c7dbbeed4e9d3d6575e940d0a" %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
-{% if salt['file.directory_exists'](downloads) %}
+{%- if salt['file.directory_exists'](downloads + "\\x-ways") %}
 temp-directory-exists-download-only:
   test.nop
 {% else %}
 create-directory-download-only:
   file.directory:
-    - name: '{{ downloads }}'
+    - name: '{{ downloads }}\x-ways\'
     - makedirs: True
 {% endif %}
 
@@ -39,7 +39,7 @@ xways-already-downloaded-and-hash-verified-download-only:
 {% else %}
 xways-download-only:
   cmd.run:
-    - name: 'Invoke-WebRequest -Uri "http://www.x-ways.net/xwf/xw_forensics{{ version }}.zip" -Method GET -Headers @{ Authorization = "Basic {{ auth_token }}" } -UserAgent "IPWorks HTTPComponent - www.nsoftware.com" -UseBasicParsing -OutFile {{ downloads }}\xw_forensics{{ version }}.zip'
+    - name: 'Invoke-WebRequest -Uri "http://www.x-ways.net/xwf/xw_forensics{{ version }}.zip" -Method GET -Headers @{ Authorization = "Basic {{ auth_token }}" } -UserAgent "IPWorks HTTPComponent - www.nsoftware.com" -UseBasicParsing -OutFile {{ downloads }}\x-ways\xw_forensics{{ version }}.zip'
     - shell: powershell
 {% endif %}
 
@@ -49,7 +49,7 @@ xways-viewer-already-downloaded-and-hash-verified-download-only:
 {% else %}
 xways-viewer-download-only:
   cmd.run:
-    - name: 'Invoke-WebRequest -Uri "http://www.x-ways.net/res/viewer/xw_viewer.zip" -Method GET -Headers @{ Authorization = "Basic {{ auth_token }}" } -UserAgent "IPWorks HTTPComponent - www.nsoftware.com" -UseBasicParsing -OutFile {{ downloads }}\xw_viewer.zip'
+    - name: 'Invoke-WebRequest -Uri "http://www.x-ways.net/res/viewer/xw_viewer.zip" -Method GET -Headers @{ Authorization = "Basic {{ auth_token }}" } -UserAgent "IPWorks HTTPComponent - www.nsoftware.com" -UseBasicParsing -OutFile {{ downloads }}\x-ways\xw_viewer.zip'
     - shell: powershell
 {% endif %}
 
@@ -59,7 +59,7 @@ xways-tesseract-already-downloaded-and-hash-verified-download-only:
 {% else %}
 xways-tesseract-download-only:
   cmd.run:
-    - name: 'Invoke-WebRequest -Uri "http://www.x-ways.net/res/Tesseract.zip" -Method GET -Headers @{ Authorization = "Basic {{ auth_token }}" } -UserAgent "IPWorks HTTPComponent - www.nsoftware.com" -UseBasicParsing -OutFile {{ downloads }}\Tesseract.zip'
+    - name: 'Invoke-WebRequest -Uri "http://www.x-ways.net/res/Tesseract.zip" -Method GET -Headers @{ Authorization = "Basic {{ auth_token }}" } -UserAgent "IPWorks HTTPComponent - www.nsoftware.com" -UseBasicParsing -OutFile {{ downloads }}\x-ways\Tesseract.zip'
     - shell: powershell
 {% endif %}
 
@@ -69,7 +69,7 @@ xways-mplayer-already-downloaded-and-hash-verified-download-only:
 {% else %}
 xways-mplayer-download-only:
   cmd.run:
-    - name: 'Invoke-WebRequest -Uri "http://www.x-ways.net/res/mplayer/MPlayer 2018 x64.zip" -Method GET -Headers @{ Authorization = "Basic {{ auth_token }}" } -UserAgent "IPWorks HTTPComponent - www.nsoftware.com" -UseBasicParsing -OutFile {{ downloads }}\MPlayer_2018_x64.zip'
+    - name: 'Invoke-WebRequest -Uri "http://www.x-ways.net/res/mplayer/MPlayer 2018 x64.zip" -Method GET -Headers @{ Authorization = "Basic {{ auth_token }}" } -UserAgent "IPWorks HTTPComponent - www.nsoftware.com" -UseBasicParsing -OutFile {{ downloads }}\x-ways\MPlayer_2018_x64.zip'
     - shell: powershell
 {% endif %}
 
@@ -79,7 +79,7 @@ xways-manual-already-downloaded-and-hash-verified-download-only:
 {% else %}
 xways-manual-download-only:
   cmd.run:
-    - name: 'Invoke-WebRequest -Uri "http://www.x-ways.net/winhex/manual.pdf" -Method GET -Headers @{ Authorization = "Basic {{ auth_token }}" } -UserAgent "IPWorks HTTPComponent - www.nsoftware.com" -UseBasicParsing -OutFile {{ downloads }}\xways_manual.pdf'
+    - name: 'Invoke-WebRequest -Uri "http://www.x-ways.net/winhex/manual.pdf" -Method GET -Headers @{ Authorization = "Basic {{ auth_token }}" } -UserAgent "IPWorks HTTPComponent - www.nsoftware.com" -UseBasicParsing -OutFile {{ downloads }}\x-ways\xways_manual.pdf'
     - shell: powershell
 {% endif %}
 {% endif %}

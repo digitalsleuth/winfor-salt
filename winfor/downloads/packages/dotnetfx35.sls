@@ -12,7 +12,7 @@
 
 dotnetfx35-download-only:
   file.managed:
-    - name: '{{ downloads }}\dotnetfx35.exe'
+    - name: '{{ downloads }}\dotnet35\dotnetfx35.exe'
     - source: https://go.microsoft.com/fwlink/?linkid=2186537
     - source_hash: sha256={{ hash }}
     - makedirs: True

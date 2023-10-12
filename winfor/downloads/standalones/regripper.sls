@@ -12,7 +12,7 @@
 regripper-download-only:
   git.latest:
     - name: https://github.com/keydet89/RegRipper3.0.git
-    - target: '{{ downloads }}\regripper'
+    - target: '{{ downloads }}\regripper\regripper3'
     - rev: master
     - force_clone: True
     - force_reset: True

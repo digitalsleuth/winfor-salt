@@ -14,7 +14,7 @@
 
 mobaxterm-download-only:
   file.managed:
-    - name: '{{ downloads }}\MobaXterm_Installer_v{{ version }}.zip'
+    - name: '{{ downloads }}\mobaxterm\MobaXterm_Installer_v{{ version }}.zip'
     - source: "https://download.mobatek.net/{{ source_folder }}/MobaXterm_Installer_v{{ version }}.zip"
     - source_hash: sha256={{ hash }}
     - makedirs: True

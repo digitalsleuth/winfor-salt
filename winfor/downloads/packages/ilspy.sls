@@ -14,7 +14,7 @@
 
 ilspy-download-only:
   file.managed:
-    - name: '{{ downloads }}\ILSpy_Installer_{{ version }}-x64.msi'
+    - name: '{{ downloads }}\ilspy\ILSpy_Installer_{{ version }}-x64.msi'
     - source: https://github.com/icsharpcode/ILSpy/releases/download/v{{ core_version }}/ILSpy_Installer_{{ version }}-x64.msi
     - source_hash: sha256={{ hash }}
     - makedirs: True

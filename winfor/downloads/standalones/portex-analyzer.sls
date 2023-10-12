@@ -13,7 +13,7 @@
 
 portex-analyzer-download-only:
   file.managed:
-    - name: '{{ downloads }}\PortexAnalyzer\PortexAnalyzerGUI-{{ version }}-jar-with-dependencies.jar'
+    - name: '{{ downloads }}\portex-analyzer\PortexAnalyzerGUI-{{ version }}-jar-with-dependencies.jar'
     - source: https://github.com/struppigel/PortexAnalyzerGUI/releases/download/{{ version }}/PortexAnalyzerGUI-{{ version }}-jar-with-dependencies.jar
     - source_hash: sha256={{ hash }}
     - makedirs: True

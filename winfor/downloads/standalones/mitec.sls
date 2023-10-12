@@ -31,7 +31,7 @@
 {% for file, hash in files %}
 mitec-download-only-{{ file }}:
   file.managed:
-    - name: {{ downloads }}\{{ file }}.zip
+    - name: {{ downloads }}\mitec\{{ file }}.zip
     - source: http://mitec.cz/Downloads/{{ file }}.zip
     - source_hash: sha256={{ hash }}
     - makedirs: true

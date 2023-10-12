@@ -13,7 +13,7 @@
 
 free-hex-editor-neo-download-only:
   file.managed:
-    - name: '{{ downloads }}\free-hex-editor-neo.exe'
+    - name: '{{ downloads }}\free-hex-editor-neo\free-hex-editor-neo-{{ version }}.exe'
     - source: https://www.hhdsoftware.com/download/free-hex-editor-neo.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

@@ -13,7 +13,7 @@
 
 fiddler-download-only:
   file.managed:
-    - name: '{{ downloads }}\FiddlerSetup.exe'
+    - name: '{{ downloads }}\fiddler\FiddlerSetup-{{ version }}.exe'
     - source: https://telerik-fiddler.s3.amazonaws.com/fiddler/FiddlerSetup.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

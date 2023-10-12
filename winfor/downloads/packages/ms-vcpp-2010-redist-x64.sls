@@ -13,7 +13,7 @@
 
 ms-vcpp-2010-redist-x64-download-only:
   file.managed:
-    - name: '{{ downloads }}\vcpp-2010-redist-x64.exe'
+    - name: '{{ downloads }}\ms-vcpp\vcpp-2010-redist-x64-{{ version }}.exe'
     - source: https://download.microsoft.com/download/1/6/5/165255E7-1014-4D0A-B094-B6A430A6BFFC/vcredist_x64.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

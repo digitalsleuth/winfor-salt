@@ -13,7 +13,7 @@
 
 windowgrid-download-only:
   file.managed:
-    - name: '{{ downloads }}\WindowGrid_{{ version }}.zip'
+    - name: '{{ downloads }}\windowgrid\WindowGrid_{{ version }}.zip'
     - source: http://windowgrid.net/public/downloads/WindowGrid_{{ version }}.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True

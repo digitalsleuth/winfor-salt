@@ -13,7 +13,7 @@
 
 burpsuite-community-download-only:
   file.managed:
-    - name: '{{ downloads }}\Burpsuite-Community-{{ version }}-x64.exe'
+    - name: '{{ downloads }}\burpsuite\Burpsuite-Community-{{ version }}-x64.exe'
     - source: https://portswigger-cdn.net/burp/releases/download?product=community&version={{ version }}&type=WindowsX64
     - source_hash: sha256={{ hash }}
     - makedirs: True

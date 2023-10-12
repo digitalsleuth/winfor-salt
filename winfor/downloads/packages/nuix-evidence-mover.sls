@@ -13,7 +13,7 @@
 
 nuix-evidence-mover-download-only:
   file.managed:
-    - name: '{{ downloads }}\nuix_evidence_mover_6.2.1.msi'
-    - source: https://github.com/digitalsleuth/salt-winrepo-ng/raw/main/files/nuix_evidence_mover_6.2.1.msi
+    - name: '{{ downloads }}\nuix\nuix_evidence_mover_{{ version }}.msi'
+    - source: https://github.com/digitalsleuth/salt-winrepo-ng/raw/main/files/nuix_evidence_mover_{{ version }}.msi
     - source_hash: sha256={{ hash }}
     - makedirs: True

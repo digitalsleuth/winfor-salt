@@ -13,7 +13,7 @@
 
 dbeaver-download-only:
   file.managed:
-    - name: '{{ downloads }}\dbeaver-ce-{{ version }}-x86_64-setup.exe'
+    - name: '{{ downloads }}\dbeaver\dbeaver-ce-{{ version }}-x86_64-setup.exe'
     - source: https://github.com/dbeaver/dbeaver/releases/download/{{ version }}/dbeaver-ce-{{ version }}-x86_64-setup.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

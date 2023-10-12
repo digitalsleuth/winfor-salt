@@ -13,7 +13,7 @@
 
 plist-editor-download-only:
   file.managed:
-    - name: '{{ downloads }}\plisteditor_setup.exe'
+    - name: '{{ downloads }}\plist-editor\plisteditor_setup-{{ version }}.exe'
     - source: https://www.icopybot.com/plisteditor_setup.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

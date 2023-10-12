@@ -12,7 +12,7 @@
 
 densityscout-download-only:
   file.managed:
-    - name: '{{ downloads }}\densityscout_build_45_windows.zip'
+    - name: '{{ downloads }}\densityscout\densityscout_build_45_windows.zip'
     - source: https://cert.at/media/files/downloads/software/densityscout/files/densityscout_build_45_windows.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True

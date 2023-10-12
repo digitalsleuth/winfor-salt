@@ -13,7 +13,7 @@
 
 registry-viewer-download-only:
   file.managed:
-    - name: '{{ downloads }}\AccessData_Registry_Viewer_{{ version }}.exe'
+    - name: '{{ downloads }}\registry-viewer\AccessData_Registry_Viewer_{{ version }}.exe'
     - source: https://d1kpmuwb7gvu1i.cloudfront.net/AccessData_Registry_Viewer_{{ version }}.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

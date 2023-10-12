@@ -13,7 +13,7 @@
 
 mftbrowser-download-only:
   file.managed:
-    - name: '{{ downloads }}\MFTBrowser.exe'
+    - name: '{{ downloads }}\mftbrowser\MFTBrowser-{{ version }}.exe'
     - source: https://github.com/kacos2000/MFT_Browser/releases/download/v.{{ version }}/MFTBrowser.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

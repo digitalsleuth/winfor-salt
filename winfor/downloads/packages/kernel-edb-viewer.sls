@@ -13,7 +13,7 @@
 
 kernel-edb-viewer-download-only:
   file.managed:
-    - name: '{{ downloads }}\exchange-edb-viewer.exe'
+    - name: '{{ downloads }}\kernel\exchange-edb-viewer-{{ version }}.exe'
     - source: https://www.nucleustechnologies.com/downloads/exchange-edb-viewer.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

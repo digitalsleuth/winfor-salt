@@ -11,7 +11,7 @@
 
 chrome-download-only:
   file.managed:
-    - name: '{{ downloads }}\GoogleChromeStandaloneEnterprise64.msi'
+    - name: '{{ downloads }}\chrome\GoogleChromeStandaloneEnterprise64.msi'
     - source: https://dl.google.com/edgedl/chrome/install/GoogleChromeStandaloneEnterprise64.msi
     - skip_verify: True
     - makedirs: True

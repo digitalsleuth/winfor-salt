@@ -12,7 +12,7 @@
 
 teracopy-download:
   file.managed:
-    - name: '{{ downloads }}\teracopy{{ version }}.exe'
+    - name: '{{ downloads }}\teracopy\teracopy{{ version }}.exe'
     - source: https://www.codesector.com/files/teracopy.exe
     - skip_verify: True
     - makedirs: True

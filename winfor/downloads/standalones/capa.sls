@@ -13,7 +13,7 @@
 
 capa-download-only:
   file.managed:
-    - name: '{{ downloads }}\capa-v{{ version }}-windows.zip'
+    - name: '{{ downloads }}\capa\capa-v{{ version }}-windows.zip'
     - source: https://github.com/mandiant/capa/releases/download/v{{ version }}/capa-v{{ version }}-windows.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True
@@ -21,7 +21,7 @@ capa-download-only:
 capa-rules-only:
   git.latest:
     - name: https://github.com/mandiant/capa-rules.git
-    - target: '{{ downloads }}\capa-rules'
+    - target: '{{ downloads }}\capa\capa-rules'
     - rev: master
     - force_clone: True
     - force_reset: True

@@ -18,16 +18,22 @@ nirsoft-defender-exclusion-download-only:
       - 'Add-MpPreference -ExclusionPath "{{ downloads }}\"'
     - shell: powershell
 
+nirsoft-folder:
+  file.directory:
+    - name: '{{ downloads }}\nirsoft'
+    - win_inheritance: True
+
 nirsoft-download-only:
   cmd.run:
-    - name: 'wget -O {{ downloads }}\nirsoft_package_enc_{{ version }}.zip -Headers @{"Referer"="https://launcher.nirsoft.net/downloads/index.html"} https://download.nirsoft.net/nirsoft_package_enc_{{ version }}.zip'
+    - name: 'wget -O {{ downloads }}\nirsoft\nirsoft_package_enc_{{ version }}.zip -Headers @{"Referer"="https://launcher.nirsoft.net/downloads/index.html"} https://download.nirsoft.net/nirsoft_package_enc_{{ version }}.zip'
     - shell: powershell
     - require:
       - cmd: nirsoft-defender-exclusion-download-only
+      - file: nirsoft-folder
 
 standalones-nirsoft-cfg-replace-download-only:
   file.managed:
-    - name: '{{ downloads }}\NirLauncher.cfg'
+    - name: '{{ downloads }}\nirsoft\NirLauncher.cfg'
     - source: salt://winfor/files/NirLauncher.cfg
     - replace: True
 
@@ -35,7 +41,7 @@ standalones-nirsoft-cfg-replace-download-only:
 
 nirsoft-download-only-{{ nlp }}:
   file.managed:
-    - name: '{{ downloads }}\{{ nlp }}'
+    - name: '{{ downloads }}\nirsoft\{{ nlp }}'
     - source: salt://winfor/files/{{ nlp }}
     - makedirs: True
 

@@ -9,10 +9,11 @@
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set hash = '71971E63E3420F69A2B6055F90EB7EB64C8496423FE073741D159ABAC04E08A5' %}
+{% set version = '1.6.3' %}
 
 usbdetective-download-only:
   file.managed:
-    - name: '{{ downloads }}\USBDetective.zip'
+    - name: '{{ downloads }}\usbdetective\USBDetective-{{ version }}.zip'
     - source: "https://usbdetective.com/download/245/"
     - source_hash: sha256={{ hash }}
     - makedirs: True

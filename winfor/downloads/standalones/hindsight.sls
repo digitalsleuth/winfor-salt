@@ -15,7 +15,7 @@
 {% for file, hash in files %}
 hindsight-download-{{ file }}-only:
   file.managed:
-    - name: '{{ downloads }}\{{ file }}'
+    - name: '{{ downloads }}\hindsight\{{ version }}\{{ file }}'
     - source: https://github.com/obsidianforensics/hindsight/releases/download/v{{ version }}/{{ file }}
     - source_hash: sha256={{ hash }}
     - makedirs: True

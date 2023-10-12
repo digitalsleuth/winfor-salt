@@ -13,7 +13,7 @@
 
 data-dump-download-only:
   file.managed:
-    - name: '{{ downloads }}\DataDump-x86-EN-{{ version }}.zip'
+    - name: '{{ downloads }}\data-dump\DataDump-x86-EN-{{ version }}.zip'
     - source: https://www.digital-detective.net/download/download.php?downcode=nm3hquyi30jq1ea2gr8p
     - source_hash: sha256={{ hash }}
     - makedirs: True

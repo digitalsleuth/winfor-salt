@@ -13,7 +13,7 @@
 
 ksdumper11-download-only:
   file.managed:
-    - name: '{{ downloads }}\KsDumper11.zip'
+    - name: '{{ downloads }}\ksdumper\KsDumper11-{{ version }}.zip'
     - source: https://github.com/mastercodeon314/KsDumper-11/releases/download/{{ version }}/KsDumper11.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True

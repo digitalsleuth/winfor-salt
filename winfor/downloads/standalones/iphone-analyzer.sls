@@ -12,7 +12,7 @@
 
 iphone-analyzer-download-only:
   file.managed:
-    - name: '{{ downloads }}\iphoneanalyzer.fat.gui-2.1.0.jar'
+    - name: '{{ downloads }}\iphoneanalyzer\iphoneanalyzer.fat.gui-2.1.0.jar'
     - source: "https://cytranet.dl.sourceforge.net/project/iphoneanalyzer/executable%20jar%20builds/iphoneanalyzer.fat.gui-2.1.0.jar"
     - source_hash: sha256={{ hash }}
     - makedirs: True

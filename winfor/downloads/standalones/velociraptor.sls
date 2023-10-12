@@ -14,7 +14,7 @@
 
 velociraptor-download-only:
   file.managed:
-    - name: '{{ downloads }}\velociraptor-v{{ version }}-windows-amd64.exe'
+    - name: '{{ downloads }}\velociraptor\velociraptor-v{{ version }}-windows-amd64.exe'
     - source: https://github.com/Velocidex/velociraptor/releases/download/v{{ version }}/velociraptor-v{{ chg_ver }}-windows-amd64.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

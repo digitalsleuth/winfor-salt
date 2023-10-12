@@ -14,14 +14,14 @@
 
 apktool-batch-download-only:
   file.managed:
-    - name: '{{ downloads }}\apktool.bat'
+    - name: '{{ downloads }}\apktool\apktool-{{ version }}.bat'
     - source: https://raw.githubusercontent.com/iBotPeaches/Apktool/master/scripts/windows/apktool.bat
     - source_hash: sha256={{ batch_hash }}
     - makedirs: True
 
 apktool-jar-download-only:
   file.managed:
-    - name: '{{ downloads }}\apktool.jar'
+    - name: '{{ downloads }}\apktool\apktool-{{ version }}.jar'
     - source: https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_{{ version }}.jar
     - source_hash: sha256={{ jar_hash }}
     - makedirs: True

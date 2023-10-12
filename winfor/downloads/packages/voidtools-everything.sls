@@ -13,7 +13,7 @@
 
 voidtools-everything-download-only:
   file.managed:
-    - name: '{{ downloads }}\Everything-{{ version }}.x64-Setup.exe'
+    - name: '{{ downloads }}\voidtools-everything\Everything-{{ version }}.x64-Setup.exe'
     - source: https://www.voidtools.com/Everything-{{ version }}.x64-Setup.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

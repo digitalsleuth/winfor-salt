@@ -13,7 +13,7 @@
 
 python3_x64-download-only:
   file.managed:
-    - name: '{{ downloads }}\python-{{ version }}-amd64.exe'
+    - name: '{{ downloads }}\python3\python-{{ version }}-amd64.exe'
     - source: https://www.python.org/ftp/python/{{ version }}/python-{{ version }}-amd64.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

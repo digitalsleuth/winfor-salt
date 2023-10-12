@@ -13,7 +13,7 @@
 
 db-browser-sqlite-download-only:
   file.managed:
-    - name: '{{ downloads }}\DB.Browser.for.SQLite-{{ version }}-win64.msi'
+    - name: '{{ downloads }}\db-browser-sqlite\DB.Browser.for.SQLite-{{ version }}-win64.msi'
     - source: https://download.sqlitebrowser.org/DB.Browser.for.SQLite-{{ version }}-win64.msi
     - source_hash: sha256={{ hash }}
     - makedirs: True

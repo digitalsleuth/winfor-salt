@@ -13,7 +13,7 @@
 
 rufus-download-only:
   file.managed:
-    - name: '{{ downloads }}\rufus-{{ version }}.exe'
-    - source: 'https://github.com/pbatard/rufus/releases/download/v{{ version }}/rufus-{{ version }}.exe'
+    - name: '{{ downloads }}\rufus\rufus-{{ version }}.exe'
+    - source: https://github.com/pbatard/rufus/releases/download/v{{ version }}/rufus-{{ version }}.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

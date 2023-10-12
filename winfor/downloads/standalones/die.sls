@@ -13,7 +13,7 @@
 
 die-download-only:
   file.managed:
-    - name: '{{ downloads }}\die_win64_portable_{{ version }}_x64.zip'
+    - name: '{{ downloads }}\die\die_win64_portable_{{ version }}_x64.zip'
     - source: https://github.com/horsicq/DIE-engine/releases/download/{{ version }}/die_win64_portable_{{ version }}_x64.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True

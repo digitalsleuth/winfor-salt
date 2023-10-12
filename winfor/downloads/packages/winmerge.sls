@@ -13,7 +13,7 @@
 
 winmerge-download-only:
   file.managed:
-    - name: '{{ downloads }}\WinMerge-{{ version }}-x64-Setup.exe'
+    - name: '{{ downloads }}\winmerge\WinMerge-{{ version }}-x64-Setup.exe'
     - source: https://github.com/WinMerge/winmerge/releases/download/v{{ version }}/WinMerge-{{ version }}-x64-Setup.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

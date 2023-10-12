@@ -13,7 +13,7 @@
 
 vs-community-2022-download-only:
   file.managed:
-    - name: '{{ downloads }}\vs_Community_2022.exe'
+    - name: '{{ downloads }}\vs-community\vs_Community_2022-{{ version }}.exe'
     - source: https://download.visualstudio.microsoft.com/download/pr/99fe5fea-e07c-4e6e-87ef-32a88c6ec393/{{ hash }}/vs_Community.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

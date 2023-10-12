@@ -13,7 +13,7 @@
 
 chainsaw-download-only:
   file.managed:
-    - name: '{{ downloads }}\chainsaw_all_platforms+rules+examples.zip'
+    - name: '{{ downloads }}\chainsaw\chainsaw-{{ version }}.zip'
     - source: https://github.com/WithSecureLabs/chainsaw/releases/download/v{{ version }}/chainsaw_all_platforms+rules+examples.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True

@@ -9,10 +9,11 @@
 
 {% set hash = 'a67e2d31ce96488ede8d9cdd896d368821aad4cbbd9a78d394ed29ac17a13914' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
+{% set version = '3.1' %}
 
 osfmount-download-only:
   file.managed:
-    - name: '{{ downloads }}\osfmount.exe'
+    - name: '{{ downloads }}\osfmount\osfmount-{{ version }}.exe'
     - source: https://www.osforensics.com/downloads/osfmount.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

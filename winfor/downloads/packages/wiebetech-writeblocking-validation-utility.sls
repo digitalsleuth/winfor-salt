@@ -14,7 +14,7 @@
 
 wiebetech-writeblocking-validation-utility-download-only:
   file.managed:
-    - name: '{{ downloads }}\WbValUtil-{{ version }}-({{ date }})-x64.exe'
+    - name: '{{ downloads }}\wiebetech\WbValUtil-{{ version }}-({{ date }})-x64.exe'
     - source: https://wiebetech.com/downloads/1337/WbValUtil-{{ version }}-({{ date }})-x64.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

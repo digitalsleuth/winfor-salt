@@ -13,7 +13,7 @@
 
 magnet-process-capture-download-only:
   file.managed:
-    - name: '{{ downloads }}\MagnetProcessCapture{{ version }}.zip'
+    - name: '{{ downloads }}\magnetforensics\MagnetProcessCapture{{ version }}.zip'
     - source: https://storage.googleapis.com/mfi-files/free_tools/MagnetProcessCapture/MagnetProcessCapture{{ version }}.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True

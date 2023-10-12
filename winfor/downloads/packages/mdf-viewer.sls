@@ -13,7 +13,7 @@
 
 mdf-viewer-download-only:
   file.managed:
-    - name: '{{ downloads }}\mdf-viewer.exe'
+    - name: '{{ downloads }}\systools\mdf-viewer-{{ version }}.exe'
     - source: https://downloads.systoolsgroup.com/mdf-viewer.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

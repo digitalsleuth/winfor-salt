@@ -15,9 +15,15 @@
 include:
   - winfor.downloads.standalones.megatools
 
+hiber-recon-folder:
+  file.directory:
+    - name: '{{ downloads }}\hiber-recon'
+    - win_inheritance: True
+
 hiber-recon-download-only:
   cmd.run:
-    - name: '{{ downloads }}\megatools\megatools.exe dl https://mega.nz/file/{{ file_value }} --path {{ downloads }}'
+    - name: '{{ downloads }}\megatools\megatools\megatools.exe dl https://mega.nz/file/{{ file_value }} --path {{ downloads }}\hiber-recon\'
     - shell: cmd
     - require:
       - sls: winfor.downloads.standalones.megatools
+      - file: hiber-recon-folder

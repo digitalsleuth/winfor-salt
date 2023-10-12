@@ -13,7 +13,7 @@
 
 cyberchef-download-only:
   file.managed:
-    - name: '{{ downloads }}\CyberChef_v{{ version }}.zip'
+    - name: '{{ downloads }}\cyberchef\CyberChef_v{{ version }}.zip'
     - source: https://github.com/gchq/CyberChef/releases/download/v{{ version}}/CyberChef_v{{ version }}.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True

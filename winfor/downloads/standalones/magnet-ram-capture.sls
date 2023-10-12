@@ -13,7 +13,7 @@
 
 magnet-ram-capture-download-only:
   file.managed:
-    - name: '{{ downloads }}\MRC{{version}}.exe'
+    - name: '{{ downloads }}\magnetforensics\MRC{{version}}.exe'
     - source: https://storage.googleapis.com/mfi-files/free_tools/MagnetRAMCapture/MRC{{ version }}.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

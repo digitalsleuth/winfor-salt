@@ -13,7 +13,7 @@
 
 evtx-dump-download-only:
   file.managed:
-    - name: '{{ downloads }}\evtx-dump\evtx_dump.exe'
+    - name: '{{ downloads }}\evtx-dump\evtx_dump-{{ version }}.exe'
     - source: https://github.com/omerbenamram/evtx/releases/download/v{{ version }}/evtx_dump-v{{ version }}.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

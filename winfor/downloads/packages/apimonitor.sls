@@ -12,7 +12,7 @@
 
 apimonitor-download-only:
   file.managed:
-    - name: '{{ downloads }}\api-monitor-v2r13-setup-x64.exe'
+    - name: '{{ downloads }}\api-monitor\api-monitor-v2r13-setup-x64.exe'
     - source: http://www.rohitab.com/download/api-monitor-v2r13-setup-x64.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

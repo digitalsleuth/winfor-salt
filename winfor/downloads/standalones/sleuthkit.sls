@@ -13,7 +13,7 @@
 
 sleuthkit-download-only:
   file.managed:
-    - name: '{{ downloads }}\sleuthkit-{{ version }}-win32.zip'
+    - name: '{{ downloads }}\sleuthkit\sleuthkit-{{ version }}-win32.zip'
     - source: https://github.com/sleuthkit/sleuthkit/releases/download/sleuthkit-{{ version }}/sleuthkit-{{ version }}-win32.zip
     - source_hash: {{ hash }}
     - makedirs: True

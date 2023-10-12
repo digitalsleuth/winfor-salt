@@ -14,7 +14,7 @@
 
 scrcpy-download-only:
   file.managed:
-    - name: '{{ downloads }}\scrcpy-win64-v{{ version }}.zip'
+    - name: '{{ downloads }}\scrcpy\scrcpy-win64-v{{ version }}.zip'
     - source: https://github.com/Genymobile/scrcpy/releases/download/v{{ version }}/scrcpy-win64-v{{ version }}.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True

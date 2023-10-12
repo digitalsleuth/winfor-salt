@@ -13,7 +13,7 @@
 
 ftk-imager-download-only:
   file.managed:
-    - name: '{{ downloads }}\FTK-Imager-4-7-1-2-portable.zip'
+    - name: '{{ downloads }}\ftk-imager\FTK-Imager-4-7-1-2-portable.zip'
     - source: https://github.com/digitalsleuth/winfor-salt/raw/main/winfor/files/FTK-Imager-4-7-1-2-portable.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True

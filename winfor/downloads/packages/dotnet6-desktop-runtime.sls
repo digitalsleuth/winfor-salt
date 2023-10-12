@@ -13,7 +13,7 @@
 
 dotnet6-desktop-runtime-download-only:
   file.managed:
-    - name: '{{ downloads }}\windowsdesktop-runtime-6.0.7-win-x64.exe'
+    - name: '{{ downloads }}\dotnet6-desktop-runtime\windowsdesktop-runtime-6.0.7-win-x64.exe'
     - source: https://download.visualstudio.microsoft.com/download/pr/dc0e0e83-0115-4518-8b6a-590ed594f38a/65b63e41f6a80decb37fa3c5af79a53d/windowsdesktop-runtime-6.0.7-win-x64.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

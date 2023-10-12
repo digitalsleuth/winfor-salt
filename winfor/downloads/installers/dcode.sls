@@ -13,7 +13,7 @@
 
 dcode-download-only:
   file.managed:
-    - name: '{{ downloads }}\DCode-x86-EN-{{ version }}.zip'
+    - name: '{{ downloads }}\dcode\DCode-x86-EN-{{ version }}.zip'
     - source: https://www.digital-detective.net/download/downloadbac.php?downcode=ae2znu5994j1lforlh03
     - source_hash: sha256={{ hash }}
     - makedirs: True

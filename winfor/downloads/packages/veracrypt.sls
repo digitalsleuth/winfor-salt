@@ -13,7 +13,7 @@
 
 veracrypt-download-only:
   file.managed:
-    - name: '{{ downloads }}\VeraCrypt_Setup_x64_{{ version }}.msi'
+    - name: '{{ downloads }}\veracrypt\VeraCrypt_Setup_x64_{{ version }}.msi'
     - source: https://launchpad.net/veracrypt/trunk/{{ version }}/+download/VeraCrypt_Setup_x64_{{ version }}.msi
     - source_hash: sha256={{ hash }}
     - makedirs: True

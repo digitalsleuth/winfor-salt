@@ -13,7 +13,7 @@
 
 git-download-only:
   file.managed:
-    - name: '{{ downloads }}\Git-{{ version }}-64-bit.exe'
+    - name: '{{ downloads }}\git\Git-{{ version }}-64-bit.exe'
     - source: https://github.com/git-for-windows/git/releases/download/v{{ version }}.windows.1/Git-{{ version }}-64-bit.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

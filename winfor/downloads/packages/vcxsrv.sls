@@ -13,7 +13,7 @@
 
 vcxsrv-download-only:
   file.managed:
-    - name: '{{ downloads }}\vcxsrv-64.{{ version }}.installer.exe'
+    - name: '{{ downloads }}\vcxsrv\vcxsrv-64.{{ version }}.installer.exe'
     - source: https://versaweb.dl.sourceforge.net/project/vcxsrv/vcxsrv/{{ version }}/vcxsrv-64.{{ version }}.installer.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

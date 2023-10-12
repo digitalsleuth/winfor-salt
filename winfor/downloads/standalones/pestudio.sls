@@ -9,10 +9,11 @@
 
 {% set hash = 'ded56a58d7c5e06453f22a875d6a58ec0c07031e1c0873acc06b288a2d9658d8' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
+{% set version = '9.53' %}
 
 pestudio-download-only:
   file.managed:
-    - name: '{{ downloads }}\pestudio.zip'
+    - name: '{{ downloads }}\pestudio\pestudio-{{ version }}.zip'
     - source: https://www.winitor.com/tools/pestudio/current/pestudio.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True

@@ -13,7 +13,7 @@
 
 pe-sieve-download-only:
   file.managed:
-    - name: '{{ downloads }}\pe-sieve.exe'
+    - name: '{{ downloads }}\pe-sieve\pe-sieve-{{ version }}.exe'
     - source: https://github.com/hasherezade/pe-sieve/releases/download/v{{ version }}/pe-sieve64.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

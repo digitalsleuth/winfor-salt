@@ -12,7 +12,7 @@
 email-header-analyzer-download-only:
   git.latest:
     - name: https://github.com/cyberdefenders/email-header-analyzer.git
-    - target: '{{ downloads }}\email-header-analyzer'
+    - target: '{{ downloads }}\email-header-analyzer\email-header-analyzer'
     - rev: master
     - force_clone: True
     - force_reset: True

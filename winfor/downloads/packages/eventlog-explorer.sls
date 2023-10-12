@@ -13,7 +13,7 @@
 
 eventlog-explorer-download-only:
   file.managed:
-    - name: '{{ downloads }}\elex_setup.exe'
+    - name: '{{ downloads }}\eventlog-explorer\elex_setup-{{ version }}.exe'
     - source: https://eventlogxp.com/download/elex_setup.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

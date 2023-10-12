@@ -9,10 +9,11 @@
 
 {% set hash = '601395b86ea4472ae01a0041ad3470dea5ba7e4accfcd652229ed51604aed2ca' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
+{% set version = '1.3.0.2' %}
 
 kape-download-only:
   file.managed:
-    - name: '{{ downloads }}\kape.zip'
+    - name: '{{ downloads }}\kape\kape-{{ version }}.zip'
     - source: https://s3.amazonaws.com/cyb-us-prd-kape/kape.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True

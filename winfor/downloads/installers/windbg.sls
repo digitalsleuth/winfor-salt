@@ -13,7 +13,7 @@
 
 windbg-download-only:
   file.managed:
-    - name: '{{ downloads }}\windbg-{{ version }}.appinstaller'
+    - name: '{{ downloads }}\windbg\windbg-{{ version }}.appinstaller'
     - source: https://windbg.download.prss.microsoft.com/dbazure/prod/1-0-0/windbg.appinstaller
     - source_hash: sha256={{ hash }}
     - makedirs: True

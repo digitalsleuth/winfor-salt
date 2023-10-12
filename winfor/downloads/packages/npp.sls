@@ -13,7 +13,7 @@
 
 npp-download-only:
   file.managed:
-    - name: '{{ downloads }}\npp.{{ version }}.Installer.x64.exe'
+    - name: '{{ downloads }}\npp\npp.{{ version }}.Installer.x64.exe'
     - source: https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v{{ version }}/npp.{{ version }}.Installer.x64.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

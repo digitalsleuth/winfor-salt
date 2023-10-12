@@ -13,7 +13,7 @@
 
 aid4mail-download-only:
   file.managed:
-    - name: '{{ downloads }}\Aid4Mail5_Setup.zip'
+    - name: '{{ downloads }}\aid4mail\Aid4Mail5_Setup-{{ version }}.zip'
     - source: https://www.aid4mail.com/download/Aid4Mail5_Setup.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True

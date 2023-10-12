@@ -13,7 +13,7 @@
 
 logfileparser-download-only:
   file.managed:
-    - name: '{{ downloads }}\LogFileParser_v{{ version }}.zip'
+    - name: '{{ downloads }}\logfileparser\LogFileParser_v{{ version }}.zip'
     - source: https://github.com/jschicht/LogFileParser/releases/download/v{{ version }}/LogFileParser_v{{ version }}.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True

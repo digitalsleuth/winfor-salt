@@ -13,7 +13,7 @@
 
 ms-powertoys-download-only:
   file.managed:
-    - name: '{{ downloads }}\PowerToysSetup-{{ version }}-x64.exe'
+    - name: '{{ downloads }}\powertoys\PowerToysSetup-{{ version }}-x64.exe'
     - source: https://github.com/microsoft/PowerToys/releases/download/v{{ version }}/PowerToysSetup-{{ version }}-x64.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

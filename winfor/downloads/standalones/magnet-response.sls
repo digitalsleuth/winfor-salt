@@ -13,7 +13,7 @@
 
 magnet-response-download-only:
   file.managed:
-    - name: '{{ downloads }}\MagnetRESPONSEv{{ version }}.exe'
+    - name: '{{ downloads }}\magnetforensics\MagnetRESPONSEv{{ version }}.exe'
     - source: https://storage.googleapis.com/mfi-files/free_tools/MagnetRESPONSE/MagnetRESPONSEv{{ version }}.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

@@ -13,7 +13,7 @@
 
 fex-imager-download-only:
   file.managed:
-    - name: '{{ downloads }}\FEX-Imager-(v{{ version }}).exe'
+    - name: '{{ downloads }}\fex-imager\FEX-Imager-(v{{ version }}).exe'
     - source: https://download.getdata.com/support/fex/fi/FEX-Imager-(v{{ version }}).exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

@@ -13,7 +13,7 @@
 
 fex-memory-imager-download-only:
   file.managed:
-    - name: '{{ downloads }}\FEX-Memory-(v{{ version }}).zip'
+    - name: '{{ downloads }}\fex-memory-imager\FEX-Memory-(v{{ version }}).zip'
     - source: https://download.getdata.com/support/fex/memory/FEX-Memory-(v{{ version }}).zip
     - source_hash: sha256={{ hash }}
     - makedirs: True

@@ -13,7 +13,7 @@
 
 volatility-workbench-download-only:
   file.managed:
-    - name: '{{ downloads }}\VolatilityWorkbench.zip'
+    - name: '{{ downloads }}\volatility-workbench\VolatilityWorkbench-{{ version }}.zip'
     - source: https://www.osforensics.com/downloads/VolatilityWorkbench.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True

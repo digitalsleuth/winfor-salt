@@ -13,7 +13,7 @@
 
 razorsql-x64-download-only:
   file.managed:
-    - name: '{{ downloads }}\razorsql{{ version }}_setup_x64.exe'
+    - name: '{{ downloads }}\razorsql\razorsql{{ version }}_setup_x64.exe'
     - source: https://s3.dualstack.us-east-1.amazonaws.com/downloads.razorsql.com/downloads/{{ version }}/razorsql{{ version }}_setup_x64.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

@@ -13,7 +13,7 @@
 
 codetrack-download-only:
   file.managed:
-    - name: '{{ downloads }}\codetrack_1_0_3_3.zip'
+    - name: '{{ downloads }}\codetrack\codetrack_1_0_3_3.zip'
     - source: https://www.getcodetrack.com/releases/codetrack_1_0_3_3.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True

@@ -14,21 +14,21 @@
 
 trid-download-only:
   file.managed:
-    - name: '{{ downloads }}\trid_w32.zip'
+    - name: '{{ downloads }}\trid\trid_w32-{{ version }}.zip'
     - source: https://mark0.net/download/trid_w32.zip
     - source_hash: sha256={{ trid_hash }}
     - makedirs: True
 
 trid-defs-download-only:
   file.managed:
-    - name: '{{ downloads }}\triddefs.zip'
+    - name: '{{ downloads }}\trid\triddefs.zip'
     - source: https://mark0.net/download/triddefs.zip
     - skip_verify: True
     - makedirs: True
 
 trid-update-download-only:
   file.managed:
-    - name: '{{ downloads }}\tridupdate.zip'
+    - name: '{{ downloads }}\trid\tridupdate.zip'
     - source: https://mark0.net/download/tridupdate.zip
     - source_hash: sha256={{ update_hash }}
     - makedirs: True

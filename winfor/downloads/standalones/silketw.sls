@@ -8,10 +8,11 @@
 # Notes: Sample Usage - https://www.mandiant.com/resources/blog/silketw-because-free-telemetry-is-free
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
+{% set hash = '6c612c406844c72cde51bcd0660ca6bb704656549043cb5a8b8bbba5fe3d8dc3' %}
 
 silketw-download-only:
   file.managed:
-    - name: '{{ downloads }}\SilkETW_SilkService_v8.zip'
+    - name: '{{ downloads }}\silketw\SilkETW_SilkService_v8.zip'
     - source: https://github.com/mandiant/SilkETW/releases/download/v0.8/SilkETW_SilkService_v8.zip
-    - source_hash: sha256=6c612c406844c72cde51bcd0660ca6bb704656549043cb5a8b8bbba5fe3d8dc3
+    - source_hash: sha256={{ hash }}
     - makedirs: True

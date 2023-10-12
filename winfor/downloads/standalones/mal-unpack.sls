@@ -13,7 +13,7 @@
 
 mal-unpack-download-only:
   file.managed:
-    - name: '{{ downloads }}\mal_unpack64.zip'
+    - name: '{{ downloads }}\malunpack\mal_unpack64-{{ version }}.zip'
     - source: https://github.com/hasherezade/mal_unpack/releases/download/{{ version }}/mal_unpack64.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True

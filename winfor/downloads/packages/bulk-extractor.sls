@@ -13,7 +13,7 @@
 
 bulk-extractor-download-only:
   file.managed:
-    - name: '{{ downloads }}\bulk_extractor-{{ version }}-windowsinstaller.exe'
+    - name: '{{ downloads }}\bulk-extractor\bulk_extractor-{{ version }}-windowsinstaller.exe'
     - source: https://digitalcorpora.org/downloads/bulk_extractor/bulk_extractor-{{ version }}-windowsinstaller.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

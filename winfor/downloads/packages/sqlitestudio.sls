@@ -13,7 +13,7 @@
 
 sqlitestudio-download-only:
   file.managed:
-    - name: '{{ downloads }}\SQLiteStudio-{{ version }}-windows-x64-installer.exe'
+    - name: '{{ downloads }}\sqlitestudio\SQLiteStudio-{{ version }}-windows-x64-installer.exe'
     - source: https://github.com/pawelsalawa/sqlitestudio/releases/download/{{ version }}/SQLiteStudio-{{ version }}-windows-x64-installer.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

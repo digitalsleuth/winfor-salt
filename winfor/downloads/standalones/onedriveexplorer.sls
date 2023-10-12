@@ -13,7 +13,7 @@
 
 winfor-standalones-onedriveexplorer-download-only:
   file.managed:
-    - name: '{{ downloads }}\ode.zip'
+    - name: '{{ downloads }}\onedriveexplorer\onedriveexplorer-{{ version }}.zip'
     - source: https://github.com/Beercow/OneDriveExplorer/releases/download/v{{ version }}/ode.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True

@@ -13,7 +13,7 @@
 
 magnet-edd-download-only:
   file.managed:
-    - name: '{{ downloads }}\EDD{{ version }}.zip'
+    - name: '{{ downloads }}\magnetforensics\EDD{{ version }}.zip'
     - source: https://storage.googleapis.com/mfi-files/free_tools/EDD/EDD{{ version }}.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True

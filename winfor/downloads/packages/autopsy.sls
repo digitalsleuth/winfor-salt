@@ -13,7 +13,7 @@
 
 autopsy-download-only:
   file.managed:
-    - name: '{{ downloads }}\autopsy-{{ version }}-64bit.msi'
+    - name: '{{ downloads }}\autopsy\autopsy-{{ version }}-64bit.msi'
     - source: https://github.com/sleuthkit/autopsy/releases/download/autopsy-{{ version }}/autopsy-{{ version }}-64bit.msi
     - source_hash: sha256={{ hash }}
     - makedirs: True

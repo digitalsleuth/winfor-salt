@@ -9,10 +9,11 @@
 
 {% set hash = 'bfae447af0d189cdd84094583fbab0873e00775dd828e01219fc0bdfbca1c1e7' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
+{% set version = '0.9.3' %}
 
 malcat-download-only:
   file.managed:
-    - name: '{{ downloads }}\malcat_win64_lite.zip'
+    - name: '{{ downloads }}\malcat\malcat_win64_lite-{{ version }}.zip'
     - source: https://malcat.fr/latest/malcat_win64_lite.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True

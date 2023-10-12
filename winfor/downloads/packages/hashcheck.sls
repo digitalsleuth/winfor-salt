@@ -13,7 +13,7 @@
 
 hashcheck-download-only:
   file.managed:
-    - name: '{{ downloads }}\HashCheckSetup-v{{ version }}.exe'
+    - name: '{{ downloads }}\hashcheck\HashCheckSetup-v{{ version }}.exe'
     - source: https://github.com/gurnec/HashCheck/releases/download/v{{ version }}/HashCheckSetup-v{{ version }}.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

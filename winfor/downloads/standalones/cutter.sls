@@ -13,7 +13,7 @@
 
 cutter-download-only:
   file.managed:
-    - name: '{{ downloads }}\Cutter-v{{ version }}-Windows-x86_64.zip'
+    - name: '{{ downloads }}\cutter\Cutter-v{{ version }}-Windows-x86_64.zip'
     - source: https://github.com/rizinorg/cutter/releases/download/v{{ version }}/Cutter-v{{ version }}-Windows-x86_64.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True

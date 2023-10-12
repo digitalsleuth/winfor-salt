@@ -13,7 +13,7 @@
 
 wireshark-download-only:
   file.managed:
-    - name: '{{ downloads }}\Wireshark-win64-{{ version }}.exe'
+    - name: '{{ downloads }}\wireshark\Wireshark-win64-{{ version }}.exe'
     - source: https://1.na.dl.wireshark.org/win64/all-versions/Wireshark-win64-{{ version }}.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

@@ -13,7 +13,7 @@
 
 msiviewer-download-only:
   file.managed:
-    - name: '{{ downloads }}\MSIViewer_{{ version }}_Sideload.msixbundle'
+    - name: '{{ downloads }}\msiviewer\MSIViewer_{{ version }}_Sideload.msixbundle'
     - source: https://github.com/wjk/MSIExtractApp/releases/download/v{{ version }}/MSIViewer_{{ version }}_Sideload.msixbundle
     - source_hash: sha256={{ hash }}
     - makedirs: True

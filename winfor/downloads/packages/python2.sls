@@ -13,7 +13,7 @@
 
 python2_x64-download-only:
   file.managed:
-    - name: '{{ downloads }}\python-{{ version }}.amd64.msi'
+    - name: '{{ downloads }}\python2\python-{{ version }}.amd64.msi'
     - source: https://www.python.org/ftp/python/{{ version }}/python-{{ version }}.amd64.msi
     - source_hash: sha256={{ hash }}
     - makedirs: True

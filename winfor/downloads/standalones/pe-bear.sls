@@ -13,14 +13,14 @@
 
 pe-bear-download-only:
   file.managed:
-    - name: '{{ downloads }}\PE-bear_{{ version }}_x64_win_vs17.zip'
+    - name: '{{ downloads }}\pe-bear\PE-bear_{{ version }}_x64_win_vs17.zip'
     - source: https://github.com/hasherezade/pe-bear/releases/download/v{{ version }}/PE-bear_{{ version }}_x64_win_vs17.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True
 
 pe-bear-sig-download-only:
   file.managed:
-    - name: '{{ downloads }}\PE-BEAR-SIG.txt'
+    - name: '{{ downloads }}\pe-bear\PE-BEAR-SIG.txt'
     - source: https://github.com/hasherezade/pe-bear/raw/main/SIG.txt
     - source_hash: sha256=247627cd61b15afd711dd88988a8622cef50e97b5b2a0ddfe9fcfc3eae29d2f1
     - makedirs: True

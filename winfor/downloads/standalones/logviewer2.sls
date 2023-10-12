@@ -11,7 +11,7 @@
 
 logviewer2-download-only:
   file.managed:
-    - name: '{{ downloads }}\LogViewer2.v1.0.0.zip'
+    - name: '{{ downloads }}\logviewer\LogViewer2.v1.0.0.zip'
     - source: https://github.com/woanware/LogViewer2/releases/download/v1.0.0/LogViewer2.v1.0.0.zip
     - source_hash: sha256=71aad9479657e5673f56b21b58977e151fa1ed4d82d55164e25e6aeaaeea4fa2
     - makedirs: True

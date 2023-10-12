@@ -19,7 +19,7 @@ procdot-defender-exclusion-download-only:
 
 procdot-download-only:
   file.managed:
-    - name: '{{ downloads }}\procdot_{{ version }}_windows.zip'
+    - name: '{{ downloads }}\procdot\procdot_{{ version }}_windows.zip'
     - source: https://www.procdot.com/download/procdot/binaries/procdot_{{ version }}_windows.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True

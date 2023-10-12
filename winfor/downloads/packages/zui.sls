@@ -13,7 +13,7 @@
 
 zui-download-only:
   file.managed:
-    - name: '{{ downloads }}\Zui-Setup-{{ version }}.exe'
+    - name: '{{ downloads }}\zui\Zui-Setup-{{ version }}.exe'
     - source: https://github.com/brimdata/zui/releases/download/v{{ version }}/Zui-Setup-{{ version }}.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

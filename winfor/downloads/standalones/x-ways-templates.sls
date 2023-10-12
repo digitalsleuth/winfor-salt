@@ -13,7 +13,7 @@
 
 xways-templates-download:
   file.managed:
-    - name: '{{ downloads }}\xways-templates-non-standard-v{{ version }}.zip'
+    - name: '{{ downloads }}\x-ways\xways-templates-non-standard-v{{ version }}.zip'
     - source: https://github.com/digitalsleuth/xways-templates/releases/download/v{{ version }}/xways-templates-non-standard-v{{ version }}.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True

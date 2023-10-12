@@ -13,7 +13,7 @@
 
 strawberryperl_x64-download-only:
   file.managed:
-    - name: '{{ downloads }}\strawberry-perl-{{ version }}-64bit.msi'
+    - name: '{{ downloads }}\strawberry-perl\strawberry-perl-{{ version }}-64bit.msi'
     - source: http://strawberryperl.com/download/{{ version }}/strawberry-perl-{{ version }}-64bit.msi
     - source_hash: sha256={{ hash }}
     - makedirs: True

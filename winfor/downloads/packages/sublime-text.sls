@@ -13,7 +13,7 @@
 
 sublime-text-download-only:
   file.managed:
-    - name: '{{ downloads }}\sublime_text_build_{{ version }}_x64_setup.exe'
+    - name: '{{ downloads }}\sublime\sublime_text_build_{{ version }}_x64_setup.exe'
     - source: https://download.sublimetext.com/sublime_text_build_{{ version }}_x64_setup.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

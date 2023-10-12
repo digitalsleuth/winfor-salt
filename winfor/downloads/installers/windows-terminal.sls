@@ -13,7 +13,7 @@
 
 windows-terminal-download-only:
   file.managed:
-    - name: '{{ downloads }}\Microsoft.WindowsTerminal_{{ version }}_8wekyb3d8bbwe.msixbundle'
+    - name: '{{ downloads }}\windows-terminal\Microsoft.WindowsTerminal_{{ version }}_8wekyb3d8bbwe.msixbundle'
     - source: https://github.com/microsoft/terminal/releases/download/v{{ version }}/Microsoft.WindowsTerminal_{{ version }}_8wekyb3d8bbwe.msixbundle
     - skip_verify: True
     - makedirs: True

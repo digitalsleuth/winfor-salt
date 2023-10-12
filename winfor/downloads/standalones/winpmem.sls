@@ -15,7 +15,7 @@
 {% for file, hash in files %}
 winpmem-download-only-{{ file }}:
   file.managed:
-    - name: '{{ downloads }}\{{ file }}'
+    - name: '{{ downloads }}\winpmem\{{ version }}\{{ file }}'
     - source: https://github.com/Velocidex/WinPmem/releases/download/v{{ version }}/{{ file }}
     - source_hash: sha256={{ hash }}
     - makedirs: True

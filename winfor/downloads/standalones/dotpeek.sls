@@ -13,7 +13,7 @@
 
 dotpeek-download-only:
   file.managed:
-    - name: '{{ downloads }}\dotpeek\dotPeek64.exe'
+    - name: '{{ downloads }}\dotpeek\dotPeek64-{{ version }}.exe'
     - source: https://download.jetbrains.com/resharper/dotUltimate.{{ version }}/dotPeek64.{{ version }}.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

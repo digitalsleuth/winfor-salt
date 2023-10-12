@@ -13,7 +13,7 @@
 
 passware-encryption-analyzer-download-only:
   file.managed:
-    - name: '{{ downloads }}\PasswareEncryptionAnalyzer_64bit_Setup.msi'
+    - name: '{{ downloads }}\passware-encryption-analyzer\PasswareEncryptionAnalyzer_64bit_Setup-{{ version }}.msi'
     - source: https://demo.passware.com/files/PasswareEncryptionAnalyzer_64bit_Setup.msi
     - source_hash: sha256={{ hash }}
     - makedirs: True

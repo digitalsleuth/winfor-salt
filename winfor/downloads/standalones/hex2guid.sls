@@ -8,6 +8,7 @@
 # Notes:
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
+{% set version = '2022050a' %}
 
 hex2guid-cmd-download-only:
   file.managed:

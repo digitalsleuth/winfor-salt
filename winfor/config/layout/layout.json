@@ -2232,10 +2232,10 @@
         "Enabled": true,
         "ExtraTiles": []
       },
-      "USB Registry Write Blocker": {
+      "USB Write Blocker": {
         "CbName": "standalones_usb_write_blocker",
-        "CbContent": "USB Registry Write Blocker",
-        "DAID": "PLACEHOLDER_PATH\\USB-Write-Blocker_v1.2.exe",
+        "CbContent": "USB Write Blocker",
+        "DAID": "PLACEHOLDER_PATH\\USB-Write-Blocker-v2.0.exe",
         "AUMID": false,
         "DALP": false,
         "StartMenu": true,

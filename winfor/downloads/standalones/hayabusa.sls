@@ -13,7 +13,7 @@
 
 hayabusa-download-only:
   file.managed:
-    - name: '{{ downloads }}\hayabusa-{{ version }}-win-64-bit.zip'
+    - name: '{{ downloads }}\hayabusa\hayabusa-{{ version }}-win-64-bit.zip'
     - source: https://github.com/Yamato-Security/hayabusa/releases/download/v{{ version }}/hayabusa-{{ version }}-win-64-bit.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True    

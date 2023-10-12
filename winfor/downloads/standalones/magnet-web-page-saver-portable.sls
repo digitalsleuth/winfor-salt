@@ -13,7 +13,7 @@
 
 magnet-web-page-saver-download-only:
   file.managed:
-    - name: '{{ downloads }}\WebPageSaver{{ version }}-Portable.zip'
+    - name: '{{ downloads }}\magnetforensics\WebPageSaver{{ version }}-Portable.zip'
     - source: https://storage.googleapis.com/mfi-files/free_tools/WPS/portable/WebPageSaver{{ version }}-Portable.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True

@@ -14,7 +14,7 @@
 
 adobereader-download-only:
   file.managed:
-    - name: '{{ downloads }}\AcroRdrDC{{ versionNoDots }}_en_US.exe'
+    - name: '{{ downloads }}\adobe-reader\AcroRdrDC{{ versionNoDots }}_en_US.exe'
     - source: https://ardownload2.adobe.com/pub/adobe/reader/win/AcrobatDC/{{ versionNoDots }}/AcroRdrDC{{ versionNoDots }}_en_US.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

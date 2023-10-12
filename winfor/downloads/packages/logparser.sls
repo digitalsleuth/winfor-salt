@@ -13,7 +13,7 @@
 
 logparser-download-only:
   file.managed:
-    - name: '{{ downloads }}\LogParser.msi'
+    - name: '{{ downloads }}\logparser\LogParser-{{ version }}.msi'
     - source: https://download.microsoft.com/download/f/f/1/ff1819f9-f702-48a5-bbc7-c9656bc74de8/LogParser.msi
     - source_hash: sha256={{ hash }}
     - makedirs: True

@@ -13,7 +13,7 @@
 
 vcforpython27-download-only:
   file.managed:
-    - name: '{{ downloads }}\VCForPython27.msi'
+    - name: '{{ downloads }}\python2\VCForPython27-{{ version }}.msi'
     - source: https://github.com/digitalsleuth/salt-winrepo-ng/raw/main/files/VCForPython27.msi
     - source_hash: sha256={{ hash }}
     - makedirs: True

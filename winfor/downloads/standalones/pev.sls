@@ -13,7 +13,7 @@
 
 pev-download-only:
   file.managed:
-    - name: '{{ downloads }}\pev-{{ version }}-win.zip'
+    - name: '{{ downloads }}\pev\pev-{{ version }}-win.zip'
     - source: https://github.com/mentebinaria/readpe/releases/download/v{{ version }}/pev-{{ version }}-win.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True

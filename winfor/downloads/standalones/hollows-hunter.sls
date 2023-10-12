@@ -13,7 +13,7 @@
 
 hollows-hunter-download-only:
   file.managed:
-    - name: '{{ downloads }}\hollows-hunter.exe'
+    - name: '{{ downloads }}\hollows-hunter\hollows-hunter-{{ version }}.exe'
     - source: https://github.com/hasherezade/hollows_hunter/releases/download/v{{ version }}/hollows_hunter64.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

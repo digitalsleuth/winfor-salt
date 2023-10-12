@@ -13,7 +13,7 @@
 
 jd-gui-download-only:
   file.managed:
-    - name: '{{ downloads }}\jd-gui-windows-{{ version }}.zip'
+    - name: '{{ downloads }}\jd-gui\jd-gui-windows-{{ version }}.zip'
     - source: https://github.com/java-decompiler/jd-gui/releases/download/v{{ version }}/jd-gui-windows-{{ version }}.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True

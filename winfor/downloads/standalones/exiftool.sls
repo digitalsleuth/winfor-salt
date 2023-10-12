@@ -13,7 +13,7 @@
 
 exiftool-download-only:
   file.managed:
-    - name: '{{ downloads }}\exiftool-{{ version }}.zip'
+    - name: '{{ downloads }}\exiftool\exiftool-{{ version }}.zip'
     - source: https://exiftool.org/exiftool-{{ version }}.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True

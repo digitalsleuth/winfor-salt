@@ -13,7 +13,7 @@
 
 autorunner-download-only:
   file.managed:
-    - name: '{{ downloads }}\autorunner.v{{ version }}.zip'
+    - name: '{{ downloads }}\autorunner\autorunner.v{{ version }}.zip'
     - source: https://github.com/woanware/autorunner/releases/download/v{{ version }}/autorunner.v{{ version }}.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True

@@ -13,7 +13,7 @@
 
 upx-download-only:
   file.managed:
-    - name: '{{ downloads }}\upx-{{ version }}-win64.zip'
+    - name: '{{ downloads }}\upx\upx-{{ version }}-win64.zip'
     - source: https://github.com/upx/upx/releases/download/v{{ version }}/upx-{{ version }}-win64.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True

@@ -13,7 +13,7 @@
 
 httplogbrowser-download-only:
   file.managed:
-    - name: '{{ downloads }}\HttpLogBrowser-Setup.exe'
+    - name: '{{ downloads }}\httplogbrowser\HttpLogBrowser-Setup-{{ version }}.exe'
     - source: https://www.finalanalytics.com/downloads/HttpLogBrowser-Setup.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

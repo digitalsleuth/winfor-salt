@@ -13,7 +13,7 @@
 
 aurora-download-only:
   file.managed:
-    - name: '{{ downloads }}\Aurora-win32-x64-{{ version }}.zip'
+    - name: '{{ downloads }}\aurora\Aurora-win32-x64-{{ version }}.zip'
     - source: https://github.com/cyb3rfox/Aurora-Incident-Response/releases/download/{{ version }}/Aurora-win32-x64-{{ version }}.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True

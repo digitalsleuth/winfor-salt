@@ -14,7 +14,7 @@
 
 magnet-acquire-download-only:
   file.managed:
-    - name: '{{ downloads }}\Acquirev{{ file_version }}setup.exe'
+    - name: '{{ downloads }}\magnetforensics\Acquirev{{ file_version }}setup.exe'
     - source: https://prod-releases.magnetforensics.com/acquire/{{ version }}/installer/Acquirev{{ file_version }}setup.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

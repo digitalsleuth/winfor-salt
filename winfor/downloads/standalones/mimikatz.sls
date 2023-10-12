@@ -19,7 +19,7 @@ mimikatz-defender-exclusion-download-only:
 
 mimikatz-download-only:
   file.managed:
-    - name: '{{ downloads }}\mimikatz_trunk.zip'
+    - name: '{{ downloads }}\mimikatz\mimikatz-{{ version }}.zip'
     - source: https://github.com/gentilkiwi/mimikatz/releases/download/{{ version }}/mimikatz_trunk.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True

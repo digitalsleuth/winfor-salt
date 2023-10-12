@@ -13,7 +13,7 @@
 
 floss-download-only:
   file.managed:
-    - name: '{{ downloads }}\floss-v{{ version }}-windows.zip'
+    - name: '{{ downloads }}\floss\floss-v{{ version }}-windows.zip'
     - source: https://github.com/mandiant/flare-floss/releases/download/v{{ version }}/floss-v{{ version }}-windows.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True

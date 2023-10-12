@@ -13,7 +13,7 @@
 
 testdisk-download-only:
   file.managed:
-    - name: '{{ downloads }}\testdisk-{{ version }}.win64.zip'
+    - name: '{{ downloads }}\photorec\testdisk-{{ version }}.win64.zip'
     - source: https://www.cgsecurity.org/testdisk-{{ version }}.win64.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True
