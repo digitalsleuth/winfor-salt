@@ -68,6 +68,7 @@ include:
   - winfor.packages.ms-powertoys
   - winfor.packages.ilspy
   - winfor.packages.fex-imager
+  - winfor.packages.resource-hacker
 
 package-states:
   test.nop:
@@ -141,3 +142,4 @@ package-states:
       - sls: winfor.packages.ms-powertoys
       - sls: winfor.packages.ilspy
       - sls: winfor.packages.fex-imager
+      - sls: winfor.packages.resource-hacker

@@ -7,6 +7,9 @@
 # Version: 0.7.8
 # Notes: 
 
+{% set version = '0.7.8' %}
+{% set hash = 'b20edd06f50d20a0053a721f6717f52d92db2eb022d030dd93000eb3a3e108e3' %}
+
 include:
   - winfor.packages.python3
 
@@ -14,7 +17,7 @@ pdf-parser-download:
   file.managed:
     - name: 'C:\Program Files\Python310\Scripts\pdf-parser.py'
     - source: https://github.com/DidierStevens/DidierStevensSuite/raw/master/pdf-parser.py
-    - source_hash: sha256=b20edd06f50d20a0053a721f6717f52d92db2eb022d030dd93000eb3a3e108e3
+    - source_hash: sha256={{ hash }}
     - makedirs: True
     - require:
       - sls: winfor.packages.python3

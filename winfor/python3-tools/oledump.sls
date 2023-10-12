@@ -4,7 +4,7 @@
 # Category: Documents / Editors
 # Author: Didier Stevens
 # License: Public Domain
-# Version: 0.0.71
+# Version: 0.0.75
 # Notes: 
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
