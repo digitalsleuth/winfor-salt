@@ -35,7 +35,6 @@ include:
   - winfor.standalones.mal-unpack
   - winfor.standalones.hollows-hunter
   - winfor.standalones.pe-sieve
-#  - winfor.standalones.resource-hacker
   - winfor.standalones.silketw
   - winfor.standalones.upx
   - winfor.standalones.peid
@@ -137,7 +136,6 @@ standalones-states:
       - sls: winfor.standalones.mal-unpack
       - sls: winfor.standalones.hollows-hunter
       - sls: winfor.standalones.pe-sieve
-#      - sls: winfor.standalones.resource-hacker
       - sls: winfor.standalones.silketw
       - sls: winfor.standalones.upx
       - sls: winfor.standalones.peid
