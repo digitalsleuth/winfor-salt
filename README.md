@@ -1,5 +1,7 @@
 # WIN-FOR Salt States
-Windows Forensics Environment Salt States
+Windows Forensics Environment Salt States  
+
+![GitHub release (with filter)](https://img.shields.io/github/v/release/digitalsleuth/winfor-salt?style=flat&label=Latest%20Release)
 
 The design behind this is to use a barebones Windows 10 VM or a Windows machine (preferably 1909 and higher to support WSLv2).
 Once configured, and activated (to support customization features), then you can use one of the installers to
