@@ -53,7 +53,7 @@ echo "==> Downloading zip file for tag from GitHub"
 curl -qL -o /tmp/winfor-salt-${TAG_NAME}.zip https://github.com/digitalsleuth/winfor-salt/archive/$TAG_NAME.zip
 
 echo "==> Generating SHA256 of zip"
-shasum -a 256 /tmp/winfor-salt-$TAG_NAME.zip > /tmp/winfor-salt-$TAG_NAME.zip.sha256
+sha256sum /tmp/winfor-salt-$TAG_NAME.zip > /tmp/winfor-salt-$TAG_NAME.zip.sha256
 
 echo "==> Generating GPG Signature of SHA256"
 gpg --armor --clearsign --digest-algo SHA256 -u 4CF992E3 /tmp/winfor-salt-$TAG_NAME.zip.sha256
@@ -61,6 +61,15 @@ gpg --armor --clearsign --digest-algo SHA256 -u 4CF992E3 /tmp/winfor-salt-$TAG_N
 echo "==> Generating GPG Signature of zip file"
 gpg --armor --detach-sign -u 4CF992E3 /tmp/winfor-salt-$TAG_NAME.zip
 
+echo "==> Confirming the hash value for /tmp/winfor-salt-$TAG_NAME.zip"
+sha256sum -c /tmp/winfor-salt-$TAG_NAME.zip.sha256
+if [[ $? -ne 0 ]]
+then
+  echo "==> Hashes did not match, aborting"
+  exit 1
+else
+  echo "==> Hashes match, continuing"
+fi
 echo "==> Uploading winfor-salt-$TAG_NAME.zip.sha256"
 curl -XPOST -H "Authorization: token ${GITHUB_ACCESS_TOKEN}" -H "Content-Type: text/plain" -q "https://uploads.github.com/repos/digitalsleuth/winfor-salt/releases/${RELEASE_ID}/assets?name=winfor-salt-${TAG_NAME}.zip.sha256" --data-binary @/tmp/winfor-salt-$TAG_NAME.zip.sha256
 

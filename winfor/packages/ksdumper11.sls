@@ -9,8 +9,16 @@
 
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
+ksdumper11-defender-exclusion:
+  cmd.run:
+    - names:
+      - 'Add-MpPreference -ExclusionPath "C:\Program Files\KsDumper11"'
+    - shell: powershell
+
 ksdumper11:
-  pkg.installed
+  pkg.installed:
+    - require:
+      - cmd: ksdumper11-defender-exclusion
 
 ksdumper11-shortcut:
   file.shortcut:
