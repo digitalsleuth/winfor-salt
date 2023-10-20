@@ -39,10 +39,22 @@ testdisk-env:
   win_path.exists:
     - name: '{{ inpath }}\testdisk'
 
-testdisk-shortcut:
+photorec-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\PhotoRec.lnk'
     - target: '{{ inpath }}\testdisk\qphotorec_win.exe'
+    - force: True
+    - working_dir: '{{ inpath }}\testdisk\'
+    - makedirs: True
+    - require:
+      - file: testdisk-download
+      - archive: testdisk-extract
+      - file: testdisk-folder-rename
+
+testdisk-shortcut:
+  file.shortcut:
+    - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\TestDisk.lnk'
+    - target: '{{ inpath }}\testdisk\testdisk_win.exe'
     - force: True
     - working_dir: '{{ inpath }}\testdisk\'
     - makedirs: True

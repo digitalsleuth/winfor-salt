@@ -96,6 +96,12 @@ include:
   - winfor.standalones.apktool
   - winfor.standalones.codetrack
   - winfor.standalones.fex-memory-imager
+  - winfor.standalones.bintext
+  - winfor.standalones.x64dbg
+  - winfor.standalones.jd-gui
+  - winfor.standalones.glossary-generator
+  - winfor.standalones.hibernation-recon
+  - winfor.standalones.usbdetective
 
 standalones-states:
   test.nop:
@@ -197,3 +203,9 @@ standalones-states:
       - sls: winfor.standalones.apktool
       - sls: winfor.standalones.codetrack
       - sls: winfor.standalones.fex-memory-imager
+      - sls: winfor.standalones.bintext
+      - sls: winfor.standalones.x64dbg
+      - sls: winfor.standalones.jd-gui
+      - sls: winfor.standalones.glossary-generator
+      - sls: winfor.standalones.hibernation-recon
+      - sls: winfor.standalones.usbdetective

@@ -4,29 +4,35 @@
 # Modifications can be found in this repo and at
 # https://github.com/digitalsleuth/Win10-Initial-Setup-Script
 
-transfer-debloat-script:
+{% set PS_PATHS = salt['environ.get']('PSMODULEPATH') %}
+{% set FIRST_PATH = PS_PATHS.split(";")[0] %}
+{% for PS_PATH in PS_PATHS.split(";") %}
+
+transfer-debloat-script-{{ PS_PATH }}:
   file.managed:
-    - name: 'C:\Windows\System32\WindowsPowerShell\v1.0\Modules\Win10Debloat\Win10.ps1'
+    - name: '{{ PS_PATH }}\Win10Debloat\Win10.ps1'
     - source: salt://winfor/config/Win10.ps1
     - makedirs: True
     - win_inheritance: True
 
-transfer-debloat-module:
+transfer-debloat-module-{{ PS_PATH }}:
   file.managed:
-    - name: 'C:\Windows\System32\WindowsPowerShell\v1.0\Modules\Win10Debloat\Win10.psm1'
+    - name: '{{ PS_PATH }}\Win10Debloat\Win10.psm1'
     - source: salt://winfor/config/Win10.psm1
     - makedirs: True
     - win_inheritance: True
 
-transfer-debloat-preset:
+transfer-debloat-preset-{{ PS_PATH }}:
   file.managed:
-    - name: 'C:\Windows\System32\WindowsPowerShell\v1.0\Modules\Win10Debloat\debloat.preset'
+    - name: '{{ PS_PATH }}\Win10Debloat\debloat.preset'
     - source: salt://winfor/config/debloat.preset
     - makedirs: True
     - win_inheritance: True
 
+{% endfor %}
+
 debloat-windows:
   cmd.run:
     - name: 'powershell -nop -ep Bypass -File "Win10.ps1" -include "Win10.psm1" -preset "debloat.preset"'
-    - cwd: 'C:\Windows\System32\WindowsPowerShell\v1.0\Modules\Win10Debloat\'
+    - cwd: '{{ FIRST_PATH }}\Win10Debloat\'
     - shell: powershell

@@ -3,6 +3,7 @@
 {% set home = "C:\\Users\\" + user %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set START_MENU = PROGRAMDATA + '\Microsoft\Windows\Start Menu\Programs' %}
+{% set SYSTEMDRIVE = salt['environ.get']('SYSTEMDRIVE') %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set case_folders = ['Evidence', 'Export', 'Temp', 'Xways'] %}
 {% set profile_pictures = ['user.png', 'user.bmp', 'user-32.png', 'user-40.png', 'user-48.png', 'user-192.png'] %}
@@ -24,20 +25,32 @@
 {% set v2 = v1 + vspacer %}
 {% set horizontals = [(h1, "H1"), (h2, "H2"), (h3, "H3"), (h4, "H4"), (h5, "H5"), (h6, "H6")] %}
 {% set verticals = [(v1, "V1"), (v2, "V2")] %}
-{% set shortcuts = [('Acquisition and Analysis', ['FTK Imager','Active@ Disk Editor\Active@ Disk Editor','Arsenal Image Mounter','Autopsy\Autopsy 4.20.0','Magnet AXIOM\AXIOM Examine','Magnet AXIOM\AXIOM Process','Magnet ACQUIRE\Magnet ACQUIRE','Redline\Redline','Tableau\Tableau Imager\Tableau Imager','VeraCrypt 1.25.9\VeraCrypt','X-Ways']),
-                    ('Browsers', ['Firefox','Google Chrome','Google Earth Pro','Microsoft Edge']),
+{% set shortcuts = [('Acquisition and Analysis', ['FTK Imager','Active@ Disk Editor\Active@ Disk Editor','Arsenal Image Mounter','Autopsy\Autopsy 4.21.0','gkape','Magnet AXIOM\AXIOM Examine','Magnet AXIOM\AXIOM Process','Magnet ACQUIRE\Magnet ACQUIRE','Redline\Redline','Tableau\Tableau Imager\Tableau Imager','VeraCrypt 1.25.9\VeraCrypt','X-Ways']),
+                    ('Browsers', ['Firefox','Google Chrome','Microsoft Edge']),
                     ('Databases', ['ADOQuery','DataEdit','DB Browser (SQLCipher)','DB Browser (SQLite)','DBeaver Community\DBeaver','SDBExplorer','SQLiteQuery','SQLiteStudio\SQLiteStudio']),
                     ('Document Viewers', ['Acrobat Reader','EZViewer','Notepad++','Sublime Text','Visual Studio Code\Visual Studio Code']),
-                    ('E-mail', ['EHB','BitRecover EML Viewer','Kernel Exchange EDB Viewer\Kernel Exchange EDB Viewer','Kernel OST Viewer\Kernel OST Viewer','Kernel Outlook PST Viewer\Kernel Outlook PST Viewer','MailView','SysTools Outlook PST Viewer\SysTools Outlook PST Viewer']),
+                    ('E-mail', ['EHB','BitRecover EML Viewer','Kernel Exchange EDB Viewer\Kernel Exchange EDB Viewer','Kernel OST Viewer\Kernel OST Viewer','Kernel Outlook PST Viewer\Kernel Outlook PST Viewer','MailView','PST Walker Software\MSG Viewer','PST Walker Software\PST Walker','SysTools Outlook PST Viewer\SysTools Outlook PST Viewer']),
                     ('Log Parsers', ['EventFinder','EZViewer','LogParser-Studio','LogViewer2']),
                     ('Programming', ['Python 3.10\IDLE (Python 3.10 64-bit)','Visual Studio Code\Visual Studio Code','Windows PowerShell\Windows PowerShell ISE']),
-                    ('Raw Parsers', ['Bulk Extractor 1.5.5\BEViewer with Bulk Extractor 1.5.5 (64-bit)','CyberChef','Digital Detective\DCode v5\DCode v5.5','ExifTool GUI','HHD Hex Editor Neo\Hex Editor Neo','HEXEdit','HxD Hex Editor\HxD','JSONView','Passware\Encryption Analyzer 2023 v1\Passware Encryption Analyzer 2023 v1 (64-bit)','WinHex','XMLView']),
+                    ('Raw Parsers', ['Bulk Extractor 1.5.5\BEViewer with Bulk Extractor 1.5.5 (64-bit)','CyberChef','Digital Detective\DCode v5\DCode v5.5','ExifTool GUI','HHD Hex Editor Neo\Hex Editor Neo','HEXEdit','HxD Hex Editor\HxD','JSONView','Passware\Encryption Analyzer 2023 v4\Passware Encryption Analyzer 2023 v4 (64-bit)','WinHex','XMLView']),
                     ('Terminals', ['Windows PowerShell\Windows PowerShell ISE','WSL']),
-                    ('Utilities', ['Digital Detective\DCode v5\DCode v5.5','FastCopy','Glossary Generator','Hasher','IrfanView\IrfanView 64 4.60','Monolith Notes',"Nuix\\Nuix Evidence Mover\\Nuix Evidence Mover",'Rufus','USB Write Blocker','WindowGrid']),
-                    ('Windows Analysis', ['AutoRunner','gkape','Hindsight GUI','JumpListExplorer','MFTBrowser','MFTExplorer','mimikatz','NirLauncher','NTFS Log Tracker','RegistryExplorer','RegRipper','SE','ShadowExplorer','ShellBagsExplorer','Sysinternals','TimelineExplorer','Zimmerman Tools']),
+                    ('Utilities', ['Agent Ransack\Agent Ransack','Digital Detective\DCode v5\DCode v5.5','FastCopy','Glossary Generator','Google Earth Pro','Hasher','IrfanView\IrfanView 64 4.62','Monolith Notes',"Nuix\\Nuix Evidence Mover\\Nuix Evidence Mover",'Rufus','USB Write Blocker','VeraCrypt 1.26.7\VeraCrypt','Oracle VM VirtualBox\Oracle VM VirtualBox','VideoLAN\VLC media player','WindowGrid']),
+                    ('Windows Analysis', ['AutoRunner','gkape','Hibernation Recon','Hindsight GUI','JumpListExplorer','MFTBrowser','MFTExplorer','mimikatz','NirLauncher','NTFS Log Tracker','RegistryExplorer','RegRipper','SE','ShadowExplorer','ShellBagsExplorer','Sysinternals','TimelineExplorer','Zimmerman Tools']),
                     ('Write Blockers', ['Tableau\Tableau Firmware Update\Tableau Firmware Update','USB Write Blocker','CDSG\WriteBlocking Validation Utility\WriteBlocking Validation Utility'])
                    ] %}
-{% set start_folders = [('01','Acquisition and Analysis'),('02','Browsers'),('03','Databases'),('04','Document Viewers'),('05','E-mail'),('06','Log Parsers'),('07','Programming'),('08','Raw Parsers'),('09','Terminals'),('10','Utilities'),('11','Windows Analysis'),('12','Write Blockers')] %}
+{% set start_folders = [('01','Acquisition and Analysis'),
+                        ('02','Browsers'),
+                        ('03','Databases'),
+                        ('04','Document Viewers'),
+                        ('05','E-mail'),
+                        ('06','Log Parsers'),
+                        ('07','Programming'),
+                        ('08','Raw Parsers'),
+                        ('09','Terminals'),
+                        ('10','Utilities'),
+                        ('11','Windows Analysis'),
+                        ('12','Write Blockers')
+                       ] %}
 
 include:
   - winfor.packages.portals
@@ -45,7 +58,7 @@ include:
 
 cpcwin-theme-wallpaper-source:
   file.managed:
-    - name: '{{ inpath }}\cpc-wallpaper-cmpfor-4k.png'
+    - name: '{{ SYSTEMDRIVE }}\cpcwin-theme\cpc-wallpaper-cmpfor-4k.png'
     - source: salt://winfor/theme/cpcwin/cpc-wallpaper-cmpfor-4k.png
     - skip_verify: True
     - makedirs: True
@@ -81,18 +94,18 @@ cpcwin-make-{{ folder }}-folder:
 
 {% endfor %}
 
-{% for folder in shortcuts %}
-cpcwin-shortcut-{{ folder[0] }}:
+{% for folder, tool_list in shortcuts %}
+cpcwin-shortcut-{{ folder }}:
   file.directory:
-    - name: '{{ inpath }}\Portals\{{ folder[0] }}'
+    - name: '{{ inpath }}\Portals\{{ folder }}'
     - makedirs: True
     - replace: True
     - win_inheritance: True
-{% for shortcut in folder[1] %}
-{% set shortcut = shortcut + ".lnk" %}
-cpcwin-shortcut-{{ folder[0] }}-{{ shortcut }}:
+{% for tool in tool_list %}
+{% set shortcut = tool + ".lnk" %}
+cpcwin-shortcut-{{ folder }}-{{ shortcut }}:
   file.copy:
-    - name: '{{ inpath }}\Portals\{{ folder[0] }}\'
+    - name: '{{ inpath }}\Portals\{{ folder }}\'
     - source: '{{ START_MENU }}\{{ shortcut }}'
     - preserve: True
     - subdir: True
@@ -203,14 +216,14 @@ xways-folder-copy:
 
 cpc-start-layout-file:
   file.managed:
-    - name: '{{ inpath }}\WIN-FOR-StartLayout.xml'
+    - name: '{{ SYSTEMDRIVE }}\cpcwin-theme\WIN-FOR-StartLayout.xml'
     - source: salt://winfor/config/layout/WIN-FOR-StartLayout.xml
     - win_inheritance: True
     - makedirs: True
 
 cpc-start-layout-replace-placeholder:
   file.replace:
-    - name: '{{ inpath }}\WIN-FOR-StartLayout.xml'
+    - name: '{{ SYSTEMDRIVE }}\cpcwin-theme\WIN-FOR-StartLayout.xml'
     - pattern: PLACEHOLDER_PATH
     - repl: {{ inpath | regex_escape }}
     - require:
@@ -232,17 +245,17 @@ cpc-start-layout-enable-gpo:
     - user_policy:
         "Start Menu and Taskbar\\Start Layout":
           "Start Layout File":
-             '{{ inpath }}\WIN-FOR-StartLayout.xml'
+             '{{ SYSTEMDRIVE }}\cpcwin-theme\WIN-FOR-StartLayout.xml'
     - computer_policy:
         "Start Menu and Taskbar\\Start Layout":
           "Start Layout File":
-             '{{ inpath }}\WIN-FOR-StartLayout.xml'
+             '{{ SYSTEMDRIVE }}\cpcwin-theme\WIN-FOR-StartLayout.xml'
 
 {% endif %}
 
 cpc-theme-stager:
   file.managed:
-    - name: '{{ inpath }}\theme-config.cmd'
+    - name: '{{ SYSTEMDRIVE }}\cpcwin-theme\theme-config.cmd'
     - win_inheritance: True
     - makedirs: True
     - replace: True
@@ -261,7 +274,7 @@ cpc-theme-stager:
         reg add HKCU\Software\Policies\Microsoft\Windows\Explorer /v LockedStartLayout /t REG_DWORD /d 0 /f 1>nul
         {% endif %}
         reg add "HKCU\Control Panel\Colors" /v Background /t REG_SZ /d "0 0 0" /f 1>nul
-        reg add "HKCU\Control Panel\Desktop" /v WallPaper /t REG_SZ /d "{{ inpath }}\cpc-wallpaper-cmpfor-4k.png" /f 1>nul
+        reg add "HKCU\Control Panel\Desktop" /v WallPaper /t REG_SZ /d "{{ SYSTEMDRIVE }}\cpcwin-theme\cpc-wallpaper-cmpfor-4k.png" /f 1>nul
         reg add "HKCU\Control Panel\Desktop" /v WallpaperStyle /t REG_SZ /d "10" /f 1>nul
         reg add "HKCU\Control Panel\Desktop" /v TileWallpaper /t REG_SZ /d "0" /f 1>nul
         RUNDLL32.EXE USER32.DLL,UpdatePerUserSystemParameters 1, True
@@ -285,7 +298,7 @@ cpc-theme-stager-on-reboot-hkcu:
     - name: HKCU\Software\Microsoft\Windows\CurrentVersion\RunOnce
     - vname: "Win-FOR Theme Config"
     - vtype: REG_SZ
-    - vdata: '{{ inpath}}\theme-config.cmd'
+    - vdata: '{{ SYSTEMDRIVE }}\cpcwin-theme\theme-config.cmd'
     - require:
       - file: cpc-theme-stager
 
@@ -309,7 +322,7 @@ CPC Add RunOnce key to {{ user }}:
     - name: HKU\{{ user }}\Software\Microsoft\Windows\CurrentVersion\RunOnce
     - vname: "Win-FOR Theme Config"
     - vtype: REG_SZ
-    - vdata: '{{ inpath }}\theme-config.cmd'
+    - vdata: '{{ SYSTEMDRIVE }}\cpcwin-theme\theme-config.cmd'
     - require:
       - cmd: CPC Load NTUSER.DAT for {{ user }}
 

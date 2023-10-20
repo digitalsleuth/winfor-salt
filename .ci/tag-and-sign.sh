@@ -62,6 +62,7 @@ echo "==> Generating GPG Signature of zip file"
 gpg --armor --detach-sign -u 4CF992E3 /tmp/winfor-salt-$TAG_NAME.zip
 
 echo "==> Confirming the hash value for /tmp/winfor-salt-$TAG_NAME.zip"
+cat /tmp/winfor-salt-$TAG_NAME.zip.sha256
 sha256sum -c /tmp/winfor-salt-$TAG_NAME.zip.sha256
 if [[ $? -ne 0 ]]
 then

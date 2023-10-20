@@ -9,6 +9,7 @@
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set hash = '0814e5f07236313e0454413060c0dd7f6c0a0b07e6f491169e521268b485816f' %}
+{% set hasher_hash = '1693875e5f830e582dc01778cae34e50c1e28d472ced9fe1caeac89843b58cfa' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set applications = ['EZViewer','JumpListExplorer','MFTExplorer','RegistryExplorer','SDBExplorer','ShellBagsExplorer','TimelineExplorer'] %}
 
@@ -59,6 +60,21 @@ zimmerman-{{ application }}-shortcut:
       - cmd: zimmerman-tools-download
 {% endfor %}
 
+zimmerman-hasher-download:
+  file.managed:
+    - name: 'C:\salt\tempdownload\hasher.zip'
+    - source: https://f001.backblazeb2.com/file/EricZimmermanTools/hasher.zip
+    - source_hash: sha256={{ hasher_hash }}
+    - makedirs: True
+
+zimmerman-hasher-extract:
+  archive.extracted:
+    - name: '{{ inpath }}\zimmerman\'
+    - source: 'C:\salt\tempdownload\hasher.zip'
+    - enforce_toplevel: False
+    - watch:
+      - file: zimmerman-hasher-download
+
 zimmerman-hasher-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\Hasher.lnk'
@@ -68,6 +84,7 @@ zimmerman-hasher-shortcut:
     - makedirs: True
     - require:
       - cmd: zimmerman-tools-download
+      - archive: zimmerman-hasher-extract
 
 zimmerman-folder-shortcut:
   file.shortcut:

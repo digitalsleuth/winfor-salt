@@ -12,7 +12,7 @@
 
 pilfer-download:
   file.managed:
-    - name: '{{ inpath }}\pilfer.bat'
+    - name: '{{ inpath }}\pilfer\pilfer.bat'
     - source: https://github.com/digitalsleuth/forensics_tools/raw/master/pilfer.bat
     - source_hash: sha256={{ hash }}
     - makedirs: True

@@ -8,6 +8,8 @@
 # Notes: 
 
 {% set hash = '0814e5f07236313e0454413060c0dd7f6c0a0b07e6f491169e521268b485816f' %}
+{% set hasher_hash = '1693875e5f830e582dc01778cae34e50c1e28d472ced9fe1caeac89843b58cfa' %}
+{% set hasher_version = '2.0.0.0' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '2023-05-18' %}
 {% set today = salt['system.get_system_date']().replace("/","-") %}
@@ -34,3 +36,10 @@ zimmerman-tools-install-download-only:
     - shell: powershell
     - watch:
       - archive: zimmerman-tools-extract-download-only
+
+zimmerman-hasher-download-only:
+  file.managed:
+    - name: '{{ downloads }}\zimmerman\hasher-{{ hasher_version }}.zip'
+    - source: https://f001.backblazeb2.com/file/EricZimmermanTools/hasher.zip
+    - source_hash: sha256={{ hasher_hash }}
+    - makedirs: True

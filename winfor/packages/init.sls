@@ -69,6 +69,13 @@ include:
   - winfor.packages.ilspy
   - winfor.packages.fex-imager
   - winfor.packages.resource-hacker
+  - winfor.packages.bulkrenameutility
+  - winfor.packages.google-earth-pro
+  - winfor.packages.itunes
+  - winfor.packages.veracrypt
+  - winfor.packages.virtualbox
+  - winfor.packages.vlc
+  - winfor.packages.wiebetech-writeblocking-validation-utility
 
 package-states:
   test.nop:
@@ -143,3 +150,10 @@ package-states:
       - sls: winfor.packages.ilspy
       - sls: winfor.packages.fex-imager
       - sls: winfor.packages.resource-hacker
+      - sls: winfor.packages.bulkrenameutility
+      - sls: winfor.packages.google-earth-pro
+      - sls: winfor.packages.itunes
+      - sls: winfor.packages.veracrypt
+      - sls: winfor.packages.virtualbox
+      - sls: winfor.packages.vlc
+      - sls: winfor.packages.wiebetech-writeblocking-validation-utility

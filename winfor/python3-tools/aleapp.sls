@@ -48,7 +48,7 @@ python3-aleapp-env-vars:
 
 python3-aleapp-icon:
   file.managed:
-    - name: '{{ inpath }}\abrignoni-logo.ico'
+    - name: '{{ inpath }}\aleapp\abrignoni-logo.ico'
     - source: salt://winfor/files/abrignoni-logo.ico
     - source_hash: sha256=97ca171e939a3e4a3e51f4a66a46569ffc604ef9bb388f0aec7a8bceef943b98
     - makedirs: True
@@ -59,7 +59,7 @@ python3-aleapp-gui-shortcut:
     - target: '{{ inpath }}\aleapp\aleappGUI.py'
     - force: True
     - working_dir: '{{ inpath }}\aleapp\'
-    - icon_location: '{{ inpath }}\abrignoni-logo.ico'
+    - icon_location: '{{ inpath }}\aleapp\abrignoni-logo.ico'
     - makedirs: True
     - require:
       - git: python3-aleapp-source

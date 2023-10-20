@@ -51,7 +51,7 @@ winfor-python3-ileapp-env-vars:
 
 winfor-python3-ileapp-icon:
   file.managed:
-    - name: '{{ inpath }}\abrignoni-logo.ico'
+    - name: '{{ inpath }}\ileapp\abrignoni-logo.ico'
     - source: salt://winfor/files/abrignoni-logo.ico
     - source_hash: sha256=97ca171e939a3e4a3e51f4a66a46569ffc604ef9bb388f0aec7a8bceef943b98
     - makedirs: True
@@ -62,7 +62,7 @@ winfor-python3-ileapp-gui-shortcut:
     - target: '{{ inpath }}\ileapp\ileappGUI.py'
     - force: True
     - working_dir: '{{ inpath }}\ileapp\'
-    - icon_location: '{{ inpath }}\abrignoni-logo.ico'
+    - icon_location: '{{ inpath }}\ileapp\abrignoni-logo.ico'
     - makedirs: True
     - require:
       - git: winfor-python3-ileapp-source

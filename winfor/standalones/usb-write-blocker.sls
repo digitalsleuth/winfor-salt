@@ -14,7 +14,7 @@
 
 standalones-usb-write-blocker:
   file.managed:
-    - name: '{{ inpath }}\USB-Write-Blocker-v{{ version }}-x64.exe'
+    - name: '{{ inpath }}\usb-write-blocker\USB-Write-Blocker-v{{ version }}-x64.exe'
     - source: https://github.com/digitalsleuth/Registry-Write-Block/releases/download/v{{ version }}/USB-Write-Blocker-v{{ version }}-x64.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True
@@ -22,13 +22,13 @@ standalones-usb-write-blocker:
 standalones-usb-write-blocker-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\USB Write Blocker.lnk'
-    - target: '{{ inpath }}\USB-Write-Blocker-v{{ version }}-x64.exe'
+    - target: '{{ inpath }}\usb-write-blocker\USB-Write-Blocker-v{{ version }}-x64.exe'
     - force: True
-    - working_dir: '{{ inpath }}\'
+    - working_dir: '{{ inpath }}\usb-write-blocker'
     - makedirs: True
     - require:
       - file: standalones-usb-write-blocker
 
 standalones-usb-write-blocker-env-vars:
   win_path.exists:
-    - name: '{{ inpath }}\'
+    - name: '{{ inpath }}\usb-write-blocker\'

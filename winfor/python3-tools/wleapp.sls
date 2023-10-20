@@ -48,7 +48,7 @@ winfor-python3-wleapp-env-vars:
 
 winfor-python3-wleapp-icon:
   file.managed:
-    - name: '{{ inpath }}\abrignoni-logo.ico'
+    - name: '{{ inpath }}\wleapp\abrignoni-logo.ico'
     - source: salt://winfor/files/abrignoni-logo.ico
     - source_hash: sha256=97ca171e939a3e4a3e51f4a66a46569ffc604ef9bb388f0aec7a8bceef943b98
     - makedirs: True
@@ -59,7 +59,7 @@ winfor-python3-wleapp-gui-shortcut:
     - target: '{{ inpath }}\wleapp\wleappGUI.py'
     - force: True
     - working_dir: '{{ inpath }}\wleapp\'
-    - icon_location: '{{ inpath }}\abrignoni-logo.ico'
+    - icon_location: '{{ inpath }}\wleapp\abrignoni-logo.ico'
     - makedirs: True
     - require:
       - git: winfor-python3-wleapp-source
