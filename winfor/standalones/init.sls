@@ -60,7 +60,7 @@ include:
   - winfor.standalones.memprocfs
   - winfor.standalones.x-ways
   - winfor.standalones.mitec
-#  - winfor.standalones.unautoit Downloads removed, builds possible with golang
+  - winfor.standalones.unautoit
   - winfor.standalones.hindsight
   - winfor.standalones.iphone-analyzer
   - winfor.standalones.bitrecover-eml-viewer
@@ -167,7 +167,7 @@ standalones-states:
       - sls: winfor.standalones.memprocfs
       - sls: winfor.standalones.x-ways
       - sls: winfor.standalones.mitec
-#      - sls: winfor.standalones.unautoit
+      - sls: winfor.standalones.unautoit
       - sls: winfor.standalones.hindsight
       - sls: winfor.standalones.iphone-analyzer
       - sls: winfor.standalones.bitrecover-eml-viewer

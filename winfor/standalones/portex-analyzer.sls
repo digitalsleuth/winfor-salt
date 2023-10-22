@@ -13,11 +13,11 @@
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 include:
-  - winfor.installers.jre8
+  - winfor.packages.jdk17
 
 portex-analyzer-download:
   file.managed:
-    - name: '{{ inpath }}\PortexAnalyzer\PortexAnalyzerGUI-{{ version }}-jar-with-dependencies.jar'
+    - name: '{{ inpath }}\portexanalyzer\PortexAnalyzerGUI-{{ version }}-jar-with-dependencies.jar'
     - source: https://github.com/struppigel/PortexAnalyzerGUI/releases/download/{{ version }}/PortexAnalyzerGUI-{{ version }}-jar-with-dependencies.jar
     - source_hash: sha256={{ hash }}
     - makedirs: True
@@ -25,10 +25,10 @@ portex-analyzer-download:
 standalones-portex-analyzer-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\Portex Analyzer.lnk'
-    - target: '{{ inpath }}\PortexAnalyzer\PortexAnalyzerGUI-{{ version }}-jar-with-dependencies.jar'
+    - target: '{{ inpath }}\portexanalyzer\PortexAnalyzerGUI-{{ version }}-jar-with-dependencies.jar'
     - force: True
-    - working_dir: '{{ inpath }}\PortexAnalyzer\'
+    - working_dir: '{{ inpath }}\portexanalyzer\'
     - makedirs: True
     - require:
       - file: portex-analyzer-download
-      - sls: winfor.installers.jre8
+      - sls: winfor.packages.jdk17

@@ -7,7 +7,6 @@ include:
   - winfor.downloads.installers.fastcopy
   - winfor.downloads.installers.hxd
   - winfor.downloads.installers.irfanview-plugins
-  - winfor.downloads.installers.jre8
   - winfor.downloads.installers.mobaxterm
   - winfor.downloads.installers.msiviewer
   - winfor.downloads.installers.systools-pst-viewer
@@ -131,6 +130,7 @@ include:
   - winfor.downloads.packages.active-disk-editor
   - winfor.downloads.packages.adobereader
   - winfor.downloads.packages.agentransack
+  - winfor.downloads.packages.android-studio
   - winfor.downloads.packages.apimonitor
   - winfor.downloads.packages.autopsy
   - winfor.downloads.packages.bulk-extractor
@@ -158,6 +158,7 @@ include:
   - winfor.downloads.packages.ilspy
   - winfor.downloads.packages.irfanview
   - winfor.downloads.packages.itunes
+  - winfor.downloads.packages.jdk17
   - winfor.downloads.packages.kernel-edb-viewer
   - winfor.downloads.packages.kernel-ost-viewer
   - winfor.downloads.packages.kernel-pst-viewer
@@ -219,7 +220,6 @@ download-states:
       - sls: winfor.downloads.installers.fastcopy
       - sls: winfor.downloads.installers.hxd
       - sls: winfor.downloads.installers.irfanview-plugins
-      - sls: winfor.downloads.installers.jre8
       - sls: winfor.downloads.installers.mobaxterm
       - sls: winfor.downloads.installers.msiviewer
       - sls: winfor.downloads.installers.systools-pst-viewer
@@ -343,6 +343,7 @@ download-states:
       - sls: winfor.downloads.packages.active-disk-editor
       - sls: winfor.downloads.packages.adobereader
       - sls: winfor.downloads.packages.agentransack
+      - sls: winfor.downloads.packages.android-studio
       - sls: winfor.downloads.packages.apimonitor
       - sls: winfor.downloads.packages.autopsy
       - sls: winfor.downloads.packages.bulk-extractor
@@ -370,6 +371,7 @@ download-states:
       - sls: winfor.downloads.packages.ilspy
       - sls: winfor.downloads.packages.irfanview
       - sls: winfor.downloads.packages.itunes
+      - sls: winfor.downloads.packages.jdk17
       - sls: winfor.downloads.packages.kernel-edb-viewer
       - sls: winfor.downloads.packages.kernel-ost-viewer
       - sls: winfor.downloads.packages.kernel-pst-viewer

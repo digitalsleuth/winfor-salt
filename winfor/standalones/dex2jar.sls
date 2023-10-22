@@ -10,7 +10,7 @@
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 
 include:
-  - winfor.installers.jre8
+  - winfor.packages.jdk17
 
 dex2jar-download:
   file.managed:
@@ -26,7 +26,7 @@ dex2jar-extract:
     - enforce_toplevel: False
     - require:
       - file: dex2jar-download
-      - sls: winfor.installers.jre8
+      - sls: winfor.packages.jdk17
 
 dex2jar-folder-rename:
   file.rename:

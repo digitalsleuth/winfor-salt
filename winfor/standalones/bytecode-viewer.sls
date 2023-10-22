@@ -13,7 +13,7 @@
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 include:
-  - winfor.installers.jre8
+  - winfor.packages.jdk17
 
 bytecode-viewer-download:
   file.managed:
@@ -31,4 +31,4 @@ standalones-bytecode-viewer-shortcut:
     - makedirs: True
     - require:
       - file: bytecode-viewer-download
-      - sls: winfor.installers.jre8
+      - sls: winfor.packages.jdk17

@@ -932,6 +932,17 @@
         "Enabled": true,
         "ExtraTiles": []
       },
+      "Portex Analyzer": {
+        "CbName": "standalones_portex_analyzer",
+        "CbContent": "Portex Analyzer",
+        "DAID": "PLACEHOLDER_PATH\\portexanalyzer\\PortexAnalyzerGUI-0.12.12-jar-with-dependencies.jar",
+        "AUMID": false,
+        "DALP": false,
+        "StartMenu": true,
+        "Checked": true,
+        "Enabled": true,
+        "ExtraTiles": []
+      },
       "PPEE (puppy)": {
         "CbName": "standalones_ppee",
         "CbContent": "PPEE (puppy)",
@@ -1322,6 +1333,17 @@
         "CbName": "python3_tools_aleapp",
         "CbContent": "ALEAPP",
         "DAID": "PLACEHOLDER_PATH\\aleapp\\aleappGUI.py",
+        "AUMID": false,
+        "DALP": false,
+        "StartMenu": true,
+        "Checked": true,
+        "Enabled": true,
+        "ExtraTiles": []
+      },
+      "Android Studio": {
+        "CbName": "packages_android_studio",
+        "CbContent": "Android Studio",
+        "DAID": "{6D809377-6AF0-444B-8957-A3773F02200E}\\Android\\Android Studio\\bin\\studio64.exe",
         "AUMID": false,
         "DALP": false,
         "StartMenu": true,
@@ -1833,9 +1855,9 @@
         "Enabled": true,
         "ExtraTiles": []
       },
-      "Java Runtime Environment 8": {
-        "CbName": "installers_jre8",
-        "CbContent": "Java Runtime Environment 8",
+      "Java Development Kit 17": {
+        "CbName": "packages_jdk17",
+        "CbContent": "Java Development Kit 17",
         "DAID": "",
         "AUMID": false,
         "DALP": false,

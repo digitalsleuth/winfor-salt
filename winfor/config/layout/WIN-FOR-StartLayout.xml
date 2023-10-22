@@ -66,18 +66,19 @@
           <start:DesktopApplicationTile Size="1x1" Column="2" Row="2" DesktopApplicationID="PLACEHOLDER_PATH\peid\peid.exe" />
           <start:DesktopApplicationTile Size="1x1" Column="3" Row="2" DesktopApplicationID="PLACEHOLDER_PATH\pestudio\pestudio.exe" />
           <start:DesktopApplicationTile Size="1x1" Column="4" Row="2" DesktopApplicationID="PLACEHOLDER_PATH\pev\run.bat" />
-          <start:DesktopApplicationTile Size="1x1" Column="5" Row="2" DesktopApplicationID="PLACEHOLDER_PATH\ppee\PPEE.exe" />
-          <start:DesktopApplicationTile Size="1x1" Column="0" Row="3" DesktopApplicationID="PLACEHOLDER_PATH\procdot\win64\procdot.exe" />
-          <start:DesktopApplicationTile Size="1x1" Column="1" Row="3" DesktopApplicationID="wj32.ProcessHacker2" />
-          <start:DesktopApplicationTile Size="1x1" Column="2" Row="3" DesktopApplicationID="PLACEHOLDER_PATH\rehex\rehex.exe" />
-          <start:DesktopApplicationTile Size="1x1" Column="3" Row="3" DesktopApplicationID="{7C5A40EF-A0FB-4BFC-874A-C0F2E0B9FA8E}\Resource Hacker\ResourceHacker.exe" />
-          <start:DesktopApplicationTile Size="1x1" Column="4" Row="3" DesktopApplicationID="PLACEHOLDER_PATH\scdbg\gui_launcher.exe" />
-          <start:DesktopApplicationTile Size="1x1" Column="5" Row="3" DesktopApplicationID="PLACEHOLDER_PATH\scylla\Scylla_x64.exe" />
-          <start:DesktopApplicationTile Size="1x1" Column="0" Row="4" DesktopApplicationID="{7C5A40EF-A0FB-4BFC-874A-C0F2E0B9FA8E}\VB Decompiler Lite\VB Decompiler.exe" />
-          <start:Tile Size="1x1" Column="1" Row="4" AppUserModelID="Microsoft.WinDbg_8wekyb3d8bbwe!Microsoft.WinDbg" />
-          <start:DesktopApplicationTile Size="1x1" Column="2" Row="4" DesktopApplicationID="{1AC14E77-02E7-4E5D-B744-2EB1AE5198B7}\WindowsSandbox.exe" />
-          <start:DesktopApplicationTile Size="1x1" Column="3" Row="4" DesktopApplicationID="PLACEHOLDER_PATH\x64dbg\release\x64\x64dbg.exe" />
-          <start:DesktopApplicationTile Size="1x1" Column="4" Row="4" DesktopApplicationID="PLACEHOLDER_PATH\x64dbg\release\x32\x32dbg.exe" />
+          <start:DesktopApplicationTile Size="1x1" Column="5" Row="2" DesktopApplicationID="PLACEHOLDER_PATH\portexanalyzer\PortexAnalyzerGUI-0.12.12-jar-with-dependencies.jar" />
+          <start:DesktopApplicationTile Size="1x1" Column="0" Row="3" DesktopApplicationID="PLACEHOLDER_PATH\ppee\PPEE.exe" />
+          <start:DesktopApplicationTile Size="1x1" Column="1" Row="3" DesktopApplicationID="PLACEHOLDER_PATH\procdot\win64\procdot.exe" />
+          <start:DesktopApplicationTile Size="1x1" Column="2" Row="3" DesktopApplicationID="wj32.ProcessHacker2" />
+          <start:DesktopApplicationTile Size="1x1" Column="3" Row="3" DesktopApplicationID="PLACEHOLDER_PATH\rehex\rehex.exe" />
+          <start:DesktopApplicationTile Size="1x1" Column="4" Row="3" DesktopApplicationID="{7C5A40EF-A0FB-4BFC-874A-C0F2E0B9FA8E}\Resource Hacker\ResourceHacker.exe" />
+          <start:DesktopApplicationTile Size="1x1" Column="5" Row="3" DesktopApplicationID="PLACEHOLDER_PATH\scdbg\gui_launcher.exe" />
+          <start:DesktopApplicationTile Size="1x1" Column="0" Row="4" DesktopApplicationID="PLACEHOLDER_PATH\scylla\Scylla_x64.exe" />
+          <start:DesktopApplicationTile Size="1x1" Column="1" Row="4" DesktopApplicationID="{7C5A40EF-A0FB-4BFC-874A-C0F2E0B9FA8E}\VB Decompiler Lite\VB Decompiler.exe" />
+          <start:Tile Size="1x1" Column="2" Row="4" AppUserModelID="Microsoft.WinDbg_8wekyb3d8bbwe!Microsoft.WinDbg" />
+          <start:DesktopApplicationTile Size="1x1" Column="3" Row="4" DesktopApplicationID="{1AC14E77-02E7-4E5D-B744-2EB1AE5198B7}\WindowsSandbox.exe" />
+          <start:DesktopApplicationTile Size="1x1" Column="4" Row="4" DesktopApplicationID="PLACEHOLDER_PATH\x64dbg\release\x64\x64dbg.exe" />
+          <start:DesktopApplicationTile Size="1x1" Column="5" Row="4" DesktopApplicationID="PLACEHOLDER_PATH\x64dbg\release\x32\x32dbg.exe" />
         </start:Group>
         <start:Group Name="Installers">
           <start:DesktopApplicationTile Size="1x1" Column="0" Row="0" DesktopApplicationID="PLACEHOLDER_PATH\autoit-extractor\autoit-extractor.exe" />
@@ -95,12 +96,13 @@
         </start:Group>
         <start:Group Name="Mobile Analysis">
           <start:DesktopApplicationTile Size="1x1" Column="0" Row="0" DesktopApplicationID="PLACEHOLDER_PATH\aleapp\aleappGUI.py" />
-          <start:DesktopApplicationTile Size="1x1" Column="1" Row="0" DesktopApplicationID="PLACEHOLDER_PATH\bytecode-viewer\Bytecode-Viewer-2.11.2.jar" />
-          <start:DesktopApplicationTile Size="1x1" Column="2" Row="0" DesktopApplicationID="PLACEHOLDER_PATH\ileapp\ileappGUI.py" />
-          <start:DesktopApplicationTile Size="1x1" Column="3" Row="0" DesktopApplicationID="PLACEHOLDER_PATH\iphone-analyzer\iphoneanalyzer.fat.gui-2.1.0.jar" />
-          <start:DesktopApplicationTile Size="1x1" Column="4" Row="0" DesktopApplicationID="PLACEHOLDER_PATH\jd-gui\jd-gui.exe" />
-          <start:DesktopApplicationTile Size="1x1" Column="5" Row="0" DesktopApplicationID="{6D809377-6AF0-444B-8957-A3773F02200E}\VOW Software\plist Editor Pro\plistEditor.exe" />
-          <start:DesktopApplicationTile Size="1x1" Column="0" Row="1" DesktopApplicationID="PLACEHOLDER_PATH\vleapp\vleappGUI.py" />
+          <start:DesktopApplicationTile Size="1x1" Column="1" Row="0" DesktopApplicationID="{6D809377-6AF0-444B-8957-A3773F02200E}\Android\Android Studio\bin\studio64.exe" />
+          <start:DesktopApplicationTile Size="1x1" Column="2" Row="0" DesktopApplicationID="PLACEHOLDER_PATH\bytecode-viewer\Bytecode-Viewer-2.11.2.jar" />
+          <start:DesktopApplicationTile Size="1x1" Column="3" Row="0" DesktopApplicationID="PLACEHOLDER_PATH\ileapp\ileappGUI.py" />
+          <start:DesktopApplicationTile Size="1x1" Column="4" Row="0" DesktopApplicationID="PLACEHOLDER_PATH\iphone-analyzer\iphoneanalyzer.fat.gui-2.1.0.jar" />
+          <start:DesktopApplicationTile Size="1x1" Column="5" Row="0" DesktopApplicationID="PLACEHOLDER_PATH\jd-gui\jd-gui.exe" />
+          <start:DesktopApplicationTile Size="1x1" Column="0" Row="1" DesktopApplicationID="{6D809377-6AF0-444B-8957-A3773F02200E}\VOW Software\plist Editor Pro\plistEditor.exe" />
+          <start:DesktopApplicationTile Size="1x1" Column="1" Row="1" DesktopApplicationID="PLACEHOLDER_PATH\vleapp\vleappGUI.py" />
         </start:Group>
         <start:Group Name="Network">
           <start:DesktopApplicationTile Size="1x1" Column="0" Row="0" DesktopApplicationID="{6D809377-6AF0-444B-8957-A3773F02200E}\BurpSuiteCommunity\BurpSuiteCommunity.exe" />

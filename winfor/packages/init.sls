@@ -76,6 +76,7 @@ include:
   - winfor.packages.virtualbox
   - winfor.packages.vlc
   - winfor.packages.wiebetech-writeblocking-validation-utility
+  - winfor.packages.android-studio
 
 package-states:
   test.nop:
@@ -157,3 +158,4 @@ package-states:
       - sls: winfor.packages.virtualbox
       - sls: winfor.packages.vlc
       - sls: winfor.packages.wiebetech-writeblocking-validation-utility
+      - sls: winfor.packages.android-studio

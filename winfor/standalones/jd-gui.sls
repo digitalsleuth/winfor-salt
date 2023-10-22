@@ -13,7 +13,7 @@
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 include:
-  - winfor.installers.jre8
+  - winfor.packages.jdk17
 
 jd-gui-download:
   file.managed:
@@ -22,7 +22,7 @@ jd-gui-download:
     - source_hash: sha256={{ hash }}
     - makedirs: True
     - require:
-      - sls: winfor.installers.jre8
+      - sls: winfor.packages.jdk17
 
 jd-gui-extract:
   archive.extracted:
