@@ -20,12 +20,6 @@
 {% set PROGRAMFILES = salt['environ.get']('PROGRAMFILES') %}
 {% set PUBLIC = salt['environ.get']('PUBLIC') %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% if salt['file.file_exists'](PROGRAMFILES + "\\Portals\\Portals.exe") %}
-Portals installed - Not creating desktop folders:
-  test.nop
-{% else %}
-Portals not installed - creating desktop folders:
-  test.nop
 
 {% for folder, tool_list in shortcuts %}
 shortcut-public-desktop-{{ folder }}:
@@ -34,6 +28,9 @@ shortcut-public-desktop-{{ folder }}:
     - makedirs: True
     - replace: True
     - win_inheritance: True
+    - unless:
+      - fun: file.file_exists
+        path: '{{ PROGRAMFILES }}\Portals\Portals.exe'
 {% for tool in tool_list %}
 {% set shortcut = tool + ".lnk" %}
 shortcut-public-desktop-{{ folder }}-{{ shortcut }}:
@@ -45,6 +42,8 @@ shortcut-public-desktop-{{ folder }}-{{ shortcut }}:
     - onlyif:
       - fun: file.file_exists
         path: '{{ START_MENU }}\{{ shortcut }}'
+    - unless:
+      - fun: file.file_exists
+        path: '{{ PROGRAMFILES }}\Portals\Portals.exe'
 {% endfor %}
 {% endfor %}
-{% endif %}
