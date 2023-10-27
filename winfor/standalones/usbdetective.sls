@@ -4,12 +4,12 @@
 # Category: Windows Analysis
 # Author: Jason Hale
 # License: Software License Agreement (https://usbdetective.com/docs/usbdla.pdf)
-# Version: 1.6.3
+# Version: 1.6.4
 # Notes: 
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
-{% set hash = '71971E63E3420F69A2B6055F90EB7EB64C8496423FE073741D159ABAC04E08A5' %}
+{% set hash = 'c1a2a8e5936e187ecee8ad85b0efa42290598c987bacc1fbd8c587d5a6fbe799' %}
 
 usbdetective-download:
   file.managed:

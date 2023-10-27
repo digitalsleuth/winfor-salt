@@ -1,4 +1,8 @@
-{% set paths = ["HKEY_CLASSES_ROOT\Directory\shell\Windows.PowershellAsAdmin","HKEY_CLASSES_ROOT\Directory\Background\shell\Windows.PowershellAsAdmin","HKEY_CLASSES_ROOT\Drive\shell\Windows.PowershellAsAdmin","HKEY_CLASSES_ROOT\LibraryFolder\Background\shell\Windows.PowershellAsAdmin"] %}
+{% set paths = ["HKEY_CLASSES_ROOT\Directory\shell\Windows.PowershellAsAdmin",
+                "HKEY_CLASSES_ROOT\Directory\Background\shell\Windows.PowershellAsAdmin",
+                "HKEY_CLASSES_ROOT\Drive\shell\Windows.PowershellAsAdmin",
+                "HKEY_CLASSES_ROOT\LibraryFolder\Background\shell\Windows.PowershellAsAdmin"
+               ] %}
 
 {% for path in paths %}
 canonical-name-{{ path }}:

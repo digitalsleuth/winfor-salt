@@ -80,4 +80,3 @@ linked-connections-cmd:
     - vname: EnableLinkedConnections
     - vtype: REG_DWORD
     - vdata: 1
-
