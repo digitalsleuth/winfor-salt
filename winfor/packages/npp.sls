@@ -4,7 +4,7 @@
 # Category: Documents / Editors
 # Author: Don Ho
 # License: GNU General Public License 2.0 (https://notepad-plus-plus.org/)
-# Version: 8.5.7
+# Version: 8.5.8
 # Notes: 
 
 npp:
