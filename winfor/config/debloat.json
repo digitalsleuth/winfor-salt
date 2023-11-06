@@ -1,0 +1,1693 @@
+[
+	{
+		"Header": "Application",
+		"Name": "Application",
+		"StackName": "ApplicationStack",
+		"Settings": {
+			"Adobe Flash": {
+				"Options": [
+					"EnableAdobeFlash",
+					"DisableAdobeFlash"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Developer Mode": {
+				"Options": [
+					"EnableDeveloperMode",
+					"DisableDeveloperMode"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Edge Preload": {
+				"Options": [
+					"EnableEdgePreload",
+					"DisableEdgePreload"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Edge Shortcut Creation": {
+				"Options": [
+					"EnableEdgeShortcutCreation",
+					"DisableEdgeShortcutCreation"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Enable / Disable OneDrive": {
+				"Options": [
+					"EnableOneDrive",
+					"DisableOneDrive"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Fax Printer": {
+				"Options": [
+					"AddFaxPrinter",
+					"RemoveFaxPrinter"
+				],
+				"RadioButtonContents": "Add-Remove"
+			},
+			"First Logon Animation": {
+				"Options": [
+					"EnableFirstLogonAnimation",
+					"DisableFirstLogonAnimation"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Full Screen Optimizations": {
+				"Options": [
+					"EnableFullscreenOptims",
+					"DisableFullscreenOptims"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"IE First Run Wizard": {
+				"Options": [
+					"EnableIEFirstRun",
+					"DisableIEFirstRun"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Install / Uninstall .NET 2,3,3.5 Runtimes": {
+				"Options": [
+					"InstallNET23",
+					"UninstallNET23"
+				],
+				"RadioButtonContents": "Install-Uninstall"
+			},
+			"Install / Uninstall Fax And Scan": {
+				"Options": [
+					"InstallFaxAndScan",
+					"UninstallFaxAndScan"
+				],
+				"RadioButtonContents": "Install-Uninstall"
+			},
+			"Install / Uninstall Hello Face": {
+				"Options": [
+					"InstallHelloFace",
+					"UninstallHelloFace"
+				],
+				"RadioButtonContents": "Install-Uninstall"
+			},
+			"Install / Uninstall Hyper-V": {
+				"Options": [
+					"InstallHyperV",
+					"UninstallHyperV"
+				],
+				"RadioButtonContents": "Install-Uninstall"
+			},
+			"Install / Uninstall Internet Explorer": {
+				"Options": [
+					"InstallInternetExplorer",
+					"UninstallInternetExplorer"
+				],
+				"RadioButtonContents": "Install-Uninstall"
+			},
+			"Install / Uninstall Linux Subsystem": {
+				"Options": [
+					"InstallLinuxSubsystem",
+					"UninstallLinuxSubsystem"
+				],
+				"RadioButtonContents": "Install-Uninstall"
+			},
+			"Install / Uninstall Math Recognizer": {
+				"Options": [
+					"InstallMathRecognizer",
+					"UninstallMathRecognizer"
+				],
+				"RadioButtonContents": "Install-Uninstall"
+			},
+			"Install / Uninstall Microsoft Bloat": {
+				"Options": [
+					"InstallMsftBloat",
+					"UninstallMsftBloat"
+				],
+				"RadioButtonContents": "Install-Uninstall"
+			},
+			"Install / Uninstall OneDrive": {
+				"Options": [
+					"InstallOneDrive",
+					"UninstallOneDrive"
+				],
+				"RadioButtonContents": "Install-Uninstall"
+			},
+			"Install / Uninstall PDF Printer": {
+				"Options": [
+					"InstallPDFPrinter",
+					"UninstallPDFPrinter"
+				],
+				"RadioButtonContents": "Install-Uninstall"
+			},
+			"Install / Uninstall PowerShell ISE": {
+				"Options": [
+					"InstallPowerShellISE",
+					"UninstallPowerShellISE"
+				],
+				"RadioButtonContents": "Install-Uninstall"
+			},
+			"Install / Uninstall PowerShell v2": {
+				"Options": [
+					"InstallPowerShellV2",
+					"UninstallPowerShellV2"
+				],
+				"RadioButtonContents": "Install-Uninstall"
+			},
+			"Install / Uninstall SSH Client": {
+				"Options": [
+					"InstallSSHClient",
+					"UninstallSSHClient"
+				],
+				"RadioButtonContents": "Install-Uninstall"
+			},
+			"Install / Uninstall SSH Server": {
+				"Options": [
+					"InstallSSHServer",
+					"UninstallSSHServer"
+				],
+				"RadioButtonContents": "Install-Uninstall"
+			},
+			"Install / Uninstall Telnet Client": {
+				"Options": [
+					"InstallTelnetClient",
+					"UninstallTelnetClient"
+				],
+				"RadioButtonContents": "Install-Uninstall"
+			},
+			"Install / Uninstall Third Party Bloat": {
+				"Options": [
+					"InstallThirdPartyBloat",
+					"UninstallThirdPartyBloat"
+				],
+				"RadioButtonContents": "Install-Uninstall"
+			},
+			"Install / Uninstall Windows Media Player": {
+				"Options": [
+					"InstallMediaPlayer",
+					"UninstallMediaPlayer"
+				],
+				"RadioButtonContents": "Install-Uninstall"
+			},
+			"Install / Uninstall Windows Store": {
+				"Options": [
+					"InstallWindowsStore",
+					"UninstallWindowsStore"
+				],
+				"RadioButtonContents": "Install-Uninstall"
+			},
+			"Install / Uninstall Work Folders": {
+				"Options": [
+					"InstallWorkFolders",
+					"UninstallWorkFolders"
+				],
+				"RadioButtonContents": "Install-Uninstall"
+			},
+			"Install / Uninstall XPS Printer": {
+				"Options": [
+					"InstallXPSPrinter",
+					"UninstallXPSPrinter"
+				],
+				"RadioButtonContents": "Install-Uninstall"
+			},
+			"News and Interests": {
+				"Options": [
+					"EnableNewsAndInterests",
+					"DisableNewsAndInterests"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Photo Viewer Association": {
+				"Options": [
+					"SetPhotoViewerAssociation",
+					"UnsetPhotoViewerAssociation"
+				],
+				"RadioButtonContents": "Set-Unset"
+			},
+			"Photo Viewer Open With": {
+				"Options": [
+					"AddPhotoViewerOpenWith",
+					"RemovePhotoViewerOpenWith"
+				],
+				"RadioButtonContents": "Add-Remove"
+			},
+			"WMP Media Sharing": {
+				"Options": [
+					"EnableMediaSharing",
+					"DisableMediaSharing"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Xbox Features": {
+				"Options": [
+					"EnableXboxFeatures",
+					"DisableXboxFeatures"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			}
+		}
+	},
+	{
+		"Header": "Explorer UI",
+		"Name": "ExplorerUI",
+		"StackName": "ExplorerUIStack",
+		"Settings": {
+			"3D Objects Visibility in File Explorer": {
+				"Options": [
+					"Hide3DObjectsFromExplorer",
+					"Show3DObjectsInExplorer"
+				],
+				"RadioButtonContents": "Hide-Show"
+			},
+			"3D Objects Visibility in This PC": {
+				"Options": [
+					"Hide3DObjectsFromThisPC",
+					"Show3DObjectsInThisPC"
+				],
+				"RadioButtonContents": "Hide-Show"
+			},
+			"Build Number on Desktop": {
+				"Options": [
+					"HideBuildNumberFromDesktop",
+					"ShowBuildNumberOnDesktop"
+				],
+				"RadioButtonContents": "Hide-Show"
+			},
+			"Control Panel on Desktop": {
+				"Options": [
+					"HideUserFolderFromDesktop",
+					"ShowUserFolderOnDesktop"
+				],
+				"RadioButtonContents": "Hide-Show"
+			},
+			"Desktop Icons": {
+				"Options": [
+					"HideDesktopIcons",
+					"ShowDesktopIcons"
+				],
+				"RadioButtonContents": "Hide-Show"
+			},
+			"Desktop Visibility in File Explorer": {
+				"Options": [
+					"HideDesktopFromExplorer",
+					"ShowDesktopInExplorer"
+				],
+				"RadioButtonContents": "Hide-Show"
+			},
+			"Desktop Visibility in This PC": {
+				"Options": [
+					"HideDesktopFromThisPC",
+					"ShowDesktopInThisPC"
+				],
+				"RadioButtonContents": "Hide-Show"
+			},
+			"Documents Visibility in File Explorer": {
+				"Options": [
+					"HideDocumentsFromExplorer",
+					"ShowDocumentsInExplorerC"
+				],
+				"RadioButtonContents": "Hide-Show"
+			},
+			"Documents Visibility in This PC": {
+				"Options": [
+					"HideDocumentsFromThisPC",
+					"ShowDocumentsInThisPC"
+				],
+				"RadioButtonContents": "Hide-Show"
+			},
+			"Downloads Visibility in File Explorer": {
+				"Options": [
+					"HideDownloadsFromExplorer",
+					"ShowDownloadsInExplorer"
+				],
+				"RadioButtonContents": "Hide-Show"
+			},
+			"Downloads Visibility in This PC": {
+				"Options": [
+					"HideDownloadsFromThisPC",
+					"ShowDownloadsInThisPC"
+				],
+				"RadioButtonContents": "Hide-Show"
+			},
+			"Empty Drives": {
+				"Options": [
+					"HideEmptyDrives",
+					"ShowEmptyDrives"
+				],
+				"RadioButtonContents": "Hide-Show"
+			},
+			"Encrypted / Compressed Files Color": {
+				"Options": [
+					"HideEncCompFilesColor",
+					"ShowEncCompFilesColor"
+				],
+				"RadioButtonContents": "Hide-Show"
+			},
+			"Explorer Title Full Path": {
+				"Options": [
+					"HideExplorerTitleFullPath",
+					"ShowExplorerTitleFullPath"
+				],
+				"RadioButtonContents": "Hide-Show"
+			},
+			"Folder Merge Conflicts": {
+				"Options": [
+					"HideFolderMergeConflicts",
+					"ShowFolderMergeConflicts"
+				],
+				"RadioButtonContents": "Hide-Show"
+			},
+			"Give Access To.. Menu": {
+				"Options": [
+					"HideGiveAccessToMenu",
+					"ShowGiveAccessToMenu"
+				],
+				"RadioButtonContents": "Hide-Show"
+			},
+			"Hidden Files": {
+				"Options": [
+					"HideHiddenFiles",
+					"ShowHiddenFiles"
+				],
+				"RadioButtonContents": "Hide-Show"
+			},
+			"Include in Library Menu": {
+				"Options": [
+					"HideIncludeInLibraryMenu",
+					"ShowIncludeInLibraryMenu"
+				],
+				"RadioButtonContents": "Hide-Show"
+			},
+			"Known File Extensions": {
+				"Options": [
+					"HideKnownExtensions",
+					"ShowKnownExtensions"
+				],
+				"RadioButtonContents": "Hide-Show"
+			},
+			"Launch Folders in a Separate Process": {
+				"Options": [
+					"EnableFldrSeparateProcess",
+					"DisableFldrSeparateProcess"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Music Visibility in File Explorer": {
+				"Options": [
+					"HideMusicFromExplorer",
+					"ShowMusicInExplorer"
+				],
+				"RadioButtonContents": "Hide-Show"
+			},
+			"Music Visibility in This PC": {
+				"Options": [
+					"HideMusisFromThisPC",
+					"ShowMusicInThisPC"
+				],
+				"RadioButtonContents": "Hide-Show"
+			},
+			"Nav Pane All Folders": {
+				"Options": [
+					"HideNavPaneAllFolders",
+					"ShowNavPaneAllFolders"
+				],
+				"RadioButtonContents": "Hide-Show"
+			},
+			"Nav Pane Expand": {
+				"Options": [
+					"EnableNavPaneExpand",
+					"DisableNavPaneExpand"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Nav Pane Libraries": {
+				"Options": [
+					"HideNavPaneLibraries",
+					"ShowNavPaneLibraries"
+				],
+				"RadioButtonContents": "Hide-Show"
+			},
+			"Network on Desktop": {
+				"Options": [
+					"HideNetworkFromDesktop",
+					"ShowNetworkOnDesktop"
+				],
+				"RadioButtonContents": "Hide-Show"
+			},
+			"Network Visibility in File Explorer": {
+				"Options": [
+					"HideNetworkFromExplorer",
+					"ShowNetworkInExporer"
+				],
+				"RadioButtonContents": "Hide-Show"
+			},
+			"New File Explorer Opening Folder ": {
+				"Options": [
+					"SetExplorerThisPC",
+					"SetExplorerQuickAccess"
+				],
+				"RadioButtonContents": "This PC-Quick Access"
+			},
+			"Pictures Visibility in File Explorer": {
+				"Options": [
+					"HidePicturesFromExplorer",
+					"ShowPicturesInExplorer"
+				],
+				"RadioButtonContents": "Hide-Show"
+			},
+			"Pictures Visibility in This PC": {
+				"Options": [
+					"HidePicturesFromThisPC",
+					"ShowPicturesInThisPC"
+				],
+				"RadioButtonContents": "Hide-Show"
+			},
+			"Quick Access": {
+				"Options": [
+					"HideQuickAccess",
+					"ShowQuickAccess"
+				],
+				"RadioButtonContents": "Hide-Show"
+			},
+			"Recent Shortcuts": {
+				"Options": [
+					"HideRecentShortcuts",
+					"ShowRecentShortcuts"
+				],
+				"RadioButtonContents": "Hide-Show"
+			},
+			"Recycle Bin on Desktop": {
+				"Options": [
+					"HideRecycleBinFromDesktop",
+					"ShowRecycleBinOnDesktop"
+				],
+				"RadioButtonContents": "Hide-Show"
+			},
+			"Restore Folder Windows": {
+				"Options": [
+					"EnableRestoreFldrWindows",
+					"DisableRestoreFldrWindows"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Select Checkboxes": {
+				"Options": [
+					"HideSelectCheckboxes",
+					"ShowSelectCheckboxes"
+				],
+				"RadioButtonContents": "Hide-Show"
+			},
+			"Share Menu": {
+				"Options": [
+					"HideShareMenu",
+					"ShowShareMenu"
+				],
+				"RadioButtonContents": "Hide-Show"
+			},
+			"Sharing Wizard": {
+				"Options": [
+					"EnableSharingWizard",
+					"DisableSharingWizard"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Super Hidden Files": {
+				"Options": [
+					"HideSuperHiddenFiles",
+					"ShowSuperHiddenFiles"
+				],
+				"RadioButtonContents": "Hide-Show"
+			},
+			"Sync Notifications": {
+				"Options": [
+					"HideSyncNotifications",
+					"ShowSyncNotifications"
+				],
+				"RadioButtonContents": "Hide-Show"
+			},
+			"This PC on Desktop": {
+				"Options": [
+					"HideThisPCFromDesktop",
+					"ShowThisPCOnDesktop"
+				],
+				"RadioButtonContents": "Hide-Show"
+			},
+			"Thumbnail Cache": {
+				"Options": [
+					"EnableThumbnailCache",
+					"ShowThumbnailCache"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Thumbnails": {
+				"Options": [
+					"EnableThumbnails",
+					"DisableThumbnails"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Thumbs DB Creation on Network Folders": {
+				"Options": [
+					"EnableThumbsDBOnNetwork",
+					"DisableThumbsDBOnNetwork"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"User Folder on Desktop": {
+				"Options": [
+					"HideUserFolderFromDesktop",
+					"ShowUserFolderOnDesktop"
+				],
+				"RadioButtonContents": "Hide-Show"
+			},
+			"Videos Visibility in File Explorer": {
+				"Options": [
+					"HideVideosFromExplorer",
+					"ShowVideosInExplorer"
+				],
+				"RadioButtonContents": "Hide-Show"
+			},
+			"Videos Visibility in This PC": {
+				"Options": [
+					"HideVideosFromThisPC",
+					"ShowVideosInThisPC"
+				],
+				"RadioButtonContents": "Hide-Show"
+			}
+		}
+	},
+	{
+		"Header": "Network",
+		"Name": "Network",
+		"StackName": "NetworkStack",
+		"Settings": {
+			"Automatic Install of Network Devices": {
+				"Options": [
+					"EnableNetDevicesAutoInst",
+					"DisableNetDevicesAutoInst"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Client for MS Networks": {
+				"Options": [
+					"EnableMSNetClient",
+					"DisableMSNetClient"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Connection Sharing": {
+				"Options": [
+					"EnableConnectionSharing",
+					"DisableConnectionSharing"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Current Network Profile": {
+				"Options": [
+					"SetCurrentNetworkPrivate",
+					"SetCurrentNetworkPublic"
+				],
+				"RadioButtonContents": "Set Private-Set Public"
+			},
+			"Home Groups": {
+				"Options": [
+					"EnableHomeGroups",
+					"DisableHomeGroups"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"IPv4": {
+				"Options": [
+					"EnableIPv4",
+					"DisableIPv4"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"IPv6": {
+				"Options": [
+					"EnableIPv6",
+					"DisableIPv6"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"LLDP": {
+				"Options": [
+					"EnableLLDP",
+					"DisableLLDP"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"LLMNR": {
+				"Options": [
+					"EnableLLMNR",
+					"DisableLLMNR"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"LLTD": {
+				"Options": [
+					"EnableLLTD",
+					"DisableLLTD"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Net Connectivity Status Indicator": {
+				"Options": [
+					"EnableNCSIProbe",
+					"DisableNCSIProbe"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"NetBIOS": {
+				"Options": [
+					"EnableNetBIOS",
+					"DisableNetBIOS"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Quality of Service (QoS)": {
+				"Options": [
+					"EnableQoS",
+					"DisableQoS"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Remote Assistance": {
+				"Options": [
+					"EnableRemoteAssistance",
+					"DisableRemoteAssistance"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Remote Desktop": {
+				"Options": [
+					"EnableRemoteDesktop",
+					"DisableRemoteDesktop"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"SMB Server": {
+				"Options": [
+					"EnableSMBServer",
+					"DisableSMBServer"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"SMB v1": {
+				"Options": [
+					"EnableSMB1",
+					"DisableSMB1"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Unknown Network Profiles": {
+				"Options": [
+					"SetUnknownNetworksPrivate",
+					"SetUnknownNetworksPublic"
+				],
+				"RadioButtonContents": "Set Private-Set Public"
+			}
+		}
+	},
+	{
+		"Header": "Privacy",
+		"Name": "Privacy",
+		"StackName": "PrivacyStack",
+		"Settings": {
+			"Activity History": {
+				"Options": [
+					"EnableActivityHistory",
+					"DisableActivityHistory"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Advertising ID": {
+				"Options": [
+					"EnableAdvertisingID",
+					"DisableAdvertisingID"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"App Suggestions": {
+				"Options": [
+					"EnableAppSuggestions",
+					"DisableAppSuggestions"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Biometrics": {
+				"Options": [
+					"EnableBiometrics",
+					"DisableBiometrics"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Camera": {
+				"Options": [
+					"EnableCamera",
+					"DisableCamera"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Clear Recent Files on exit": {
+				"Options": [
+					"EnableClearRecentFiles",
+					"DisableClearRecentFiles"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Cortana": {
+				"Options": [
+					"EnableCortana",
+					"DisableCortana"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Diagnostic Tracking Service": {
+				"Options": [
+					"EnableDiagTrack",
+					"DisableDiagTrack"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Error Reporting": {
+				"Options": [
+					"EnableErrorReporting",
+					"DisableErrorReporting"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Feedback": {
+				"Options": [
+					"EnableFeedback",
+					"DisableFeedback"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Location": {
+				"Options": [
+					"EnableLocation",
+					"DisableLocation"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Map Updates": {
+				"Options": [
+					"EnableMapUpdates",
+					"DisableMapUpdates"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Microphone": {
+				"Options": [
+					"EnableMicrophone",
+					"DisableMicrophone"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"P2P Update Delivery Optimizations": {
+				"Options": [
+					"SetP2PUpdateLocal",
+					"SetP2PUpdateInternet",
+					"SetP2PUpdateDisable"
+				],
+				"RadioButtonContents": "Set Local-Set Internet-Disable"
+			},
+			"Recent Files Lists": {
+				"Options": [
+					"EnableRecentFiles",
+					"DisableRecentFiles"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Sensors": {
+				"Options": [
+					"EnableSensors",
+					"DisableSensors"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"SmartScreen": {
+				"Options": [
+					"EnableSmartScreen",
+					"DisableSmartScreen"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Tailored Experiences": {
+				"Options": [
+					"EnableTailoredExperiences",
+					"DisableTailoredExperiences"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Telemetry": {
+				"Options": [
+					"EnableTelemetry",
+					"DisableTelemetry"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Web Access to Language List": {
+				"Options": [
+					"EnableWebLangList",
+					"DisableWebLangList"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"WebSearch": {
+				"Options": [
+					"EnableWebSearch",
+					"DisableWebSearch"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"WiFiSense": {
+				"Options": [
+					"EnableWiFiSense",
+					"DisableWiFiSense"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Wireless App Protocol (WAP) Push": {
+				"Options": [
+					"EnableWAPPush",
+					"DisableWAPPush"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			}
+		}
+	},
+	{
+		"Header": "Security",
+		"Name": "Security",
+		"StackName": "SecurityStack",
+		"Settings": {
+			".NET Strong Crypto": {
+				"Options": [
+					"EnableDotNetStrongCrypto",
+					"DisableDotNetStrongCrypto"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Account Protection Warning": {
+				"Options": [
+					"HideAccountProtectionWarn",
+					"ShowAccountProtectionWarn"
+				],
+				"RadioButtonContents": "Hide-Show"
+			},
+			"Admin Shares": {
+				"Options": [
+					"EnableAdminShares",
+					"DisableAdminShares"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Boot Recovery": {
+				"Options": [
+					"EnableBootRecovery",
+					"DisableBootRecovery"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Controlled Folder Access": {
+				"Options": [
+					"EnableCtrldFolderAccess",
+					"DisableCtrldFolderAccess"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Core Isolation Memory Integrity": {
+				"Options": [
+					"EnableCIMemoryIntegrity",
+					"DisableCIMemoryIntegrity"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Defender": {
+				"Options": [
+					"EnableDefender",
+					"DisableDefender"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Defender Application Guard": {
+				"Options": [
+					"EnableDefenderAppGuard",
+					"DisableDefenderAppGuard"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Defender Cloud": {
+				"Options": [
+					"EnableDefenderCloud",
+					"DisableDefenderCloud"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Defender Tray Icon": {
+				"Options": [
+					"HideDefenderTrayIcon",
+					"ShowDefenderTrayIcon"
+				],
+				"RadioButtonContents": "Hide-Show"
+			},
+			"DEP Opt In / Out": {
+				"Options": [
+					"SetDEPOptIn",
+					"SetDEPOptOut"
+				],
+				"RadioButtonContents": "Set Opt In-Set Opt Out"
+			},
+			"Download Blocking": {
+				"Options": [
+					"EnableDownloadBlocking",
+					"DisableDownloadBlocking"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"F8 Boot Menu": {
+				"Options": [
+					"EnableF8BootMenu",
+					"DisableF8BootMenu"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Firewall": {
+				"Options": [
+					"EnableFirewall",
+					"DisableFirewall"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Meltdown Compatibility Flag": {
+				"Options": [
+					"EnableMeltdownCompatFlag",
+					"DisableMeltdownCompatFlag"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Recovery and Reset": {
+				"Options": [
+					"EnableRecoveryAndReset",
+					"DisableRecoveryAndReset"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Sharing Mapped Drives": {
+				"Options": [
+					"EnableSharingMappedDrives",
+					"DisableSharingMappedDrives"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"UAC": {
+				"Options": [
+					"SetUACLow",
+					"SetUACHigh"
+				],
+				"RadioButtonContents": "Set Low-Set High"
+			},
+			"Windows Scripting Host": {
+				"Options": [
+					"EnableScriptHost",
+					"DisableScriptHost"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			}
+		}
+	},
+	{
+		"Header": "Server",
+		"Name": "Server",
+		"StackName": "ServerStack",
+		"Settings": {
+			"Audio": {
+				"Options": [
+					"EnableAudio",
+					"DisableAudio"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Ctrl-Alt-Del Login": {
+				"Options": [
+					"EnableCtrlAltDelLogin",
+					"DisableCtrlAltDelLogin"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"IE Enhanced Security": {
+				"Options": [
+					"EnableIEEnhancedSecurity",
+					"DisableIEEnhancedSecurity"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Password Policy": {
+				"Options": [
+					"EnablePasswordPolicy",
+					"DisablePasswordPolicy"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Server Manager On Login": {
+				"Options": [
+					"HideServerManagerOnLogin",
+					"ShowServerManagerOnLogin"
+				],
+				"RadioButtonContents": "Hide-Show"
+			},
+			"Shutdown Tracker": {
+				"Options": [
+					"EnableShutdownTracker",
+					"DisableShutdownTracker"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			}
+		}
+	},
+	{
+		"Header": "Service",
+		"Name": "Service",
+		"StackName": "ServiceStack",
+		"Settings": {
+			"Auto Reboot On Crash": {
+				"Options": [
+					"EnableAutoRebootOnCrash",
+					"DisableAutoRebootOnCrash"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Auto Restart Sign-On": {
+				"Options": [
+					"EnableAutoRestartSignOn",
+					"DisableAutoRestartSignOn"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Autoplay": {
+				"Options": [
+					"EnableAutoplay",
+					"DisableAutoplay"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Autorun": {
+				"Options": [
+					"EnableAutorun",
+					"DisableAutorun"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"BIOS Time": {
+				"Options": [
+					"SetBIOSTimeUTC",
+					"SetBIOSTimeLocal"
+				],
+				"RadioButtonContents": "Set UTC-Set Local"
+			},
+			"Clipboard History": {
+				"Options": [
+					"EnableClipboardHistory",
+					"DisableClipboardHistory"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Defragmentation": {
+				"Options": [
+					"EnableDefragmentation",
+					"DisableDefragmentation"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Fast Startup": {
+				"Options": [
+					"EnableFastStartup",
+					"DisableFastStartup"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Hibernation": {
+				"Options": [
+					"EnableHibernation",
+					"DisableHibernation"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Indexing": {
+				"Options": [
+					"EnableIndexing",
+					"DisableIndexing"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Maintenance Wake-up": {
+				"Options": [
+					"EnableMaintenanceWakeUp",
+					"DisableMaintenanceWakeUp"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"NTFS Last Access": {
+				"Options": [
+					"EnableNTFSLastAccess",
+					"DisableNTFSLastAccess"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"NTFS Long Paths": {
+				"Options": [
+					"EnableNTFSLongPaths",
+					"DisableNTFSLongPaths"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Recycle Bin": {
+				"Options": [
+					"EnableRecycleBin",
+					"DisableRecycleBin"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Restore Points": {
+				"Options": [
+					"EnableRestorePoints",
+					"DisableRestorePoints"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Shared Experiences": {
+				"Options": [
+					"EnableSharedExperiences",
+					"DisableSharedExperiences"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Sleep Button": {
+				"Options": [
+					"EnableSleepButton",
+					"DisableSleepButton"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Sleep Timeout": {
+				"Options": [
+					"EnableSleepTimeout",
+					"DisableSleepTimeout"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Storage Sense": {
+				"Options": [
+					"EnableStorageSense",
+					"DisableStorageSense"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Superfetch": {
+				"Options": [
+					"EnableSuperfetch",
+					"DisableSuperfetch"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Update Auto Download": {
+				"Options": [
+					"EnableUpdateAutoDownload",
+					"DisableUpdateAutoDownload"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Update Driver": {
+				"Options": [
+					"EnableUpdateDriver",
+					"DisableUpdateDriver"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Update MS Products": {
+				"Options": [
+					"EnableUpdateMSProducts",
+					"DisableUpdateMSProducts"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Update MSRT": {
+				"Options": [
+					"EnableUpdateMSRT",
+					"DisableUpdateMSRT"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Update Restart": {
+				"Options": [
+					"EnableUpdateRestart",
+					"DisableUpdateRestart"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			}
+		}
+	},
+    {
+		"Header": "Unpinning",
+		"Name": "Unpinning",
+		"StackName": "UnpinningStack",
+		"Settings": {
+			"Unpin Start Menu Tiles": {
+				"Options": [
+					"EnableUnpinStartMenuTiles",
+					"DisableUnpinStartMenuTiles"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Unpin Taskbar Icons": {
+				"Options": [
+					"EnableUnpinTaskbarIcons",
+					"DisableUnpinTaskbarIcons"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			}
+		}
+	},
+	{
+		"Header": "UWP",
+		"Name": "UWP",
+		"StackName": "UWPStack",
+		"Settings": {
+			"Account Info": {
+				"Options": [
+					"EnableUWPAccountInfo",
+					"DisableUWPAccountInfo"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Background Apps": {
+				"Options": [
+					"EnableUWPBackgroundApps",
+					"DisableUWPBackgroundApps"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Calendar": {
+				"Options": [
+					"EnableUWPCalendar",
+					"DisableUWPCalendar"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Call History": {
+				"Options": [
+					"EnableUWPCallHistory",
+					"DisableUWPCallHistory"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Contacts": {
+				"Options": [
+					"EnableUWPContacts",
+					"DisableUWPContacts"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Diagnostic Info": {
+				"Options": [
+					"EnableUWPDiagInfo",
+					"DisableUWPDiagInfo"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Email": {
+				"Options": [
+					"EnableUWPEmail",
+					"DisableUWPEmail"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"File System": {
+				"Options": [
+					"EnableUWPFileSystem",
+					"DisableUWPFileSystem"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Messaging": {
+				"Options": [
+					"EnableUWPMessaging",
+					"DisableUWPMessaging"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Notifications": {
+				"Options": [
+					"EnableUWPNotifications",
+					"DisableUWPNotifications"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Other Devices": {
+				"Options": [
+					"EnableUWPOtherDevices",
+					"DisableUWPOtherDevices"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Phone Calls": {
+				"Options": [
+					"EnableUWPPhoneCalls",
+					"DisableUWPPhoneCalls"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Radios": {
+				"Options": [
+					"EnableUWPRadios",
+					"DisableUWPRadios"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Swap File": {
+				"Options": [
+					"EnableUWPSwapFile",
+					"DisableUWPSwapFile"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Tasks": {
+				"Options": [
+					"EnableUWPTasks",
+					"DisableUWPTasks"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Voice Activation": {
+				"Options": [
+					"EnableUWPVoiceActivation",
+					"DisableUWPVoiceActivation"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			}
+		}
+	},
+	{
+		"Header": "Windows UI",
+		"Name": "WindowsUI",
+		"StackName": "WindowsUIStack",
+		"Settings": {
+			"Accessibility Keys": {
+				"Options": [
+					"EnableAccessibilityKeys",
+					"DisableAccessibilityKeys"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Action Center": {
+				"Options": [
+					"EnableActionCenter",
+					"DisableActionCenter"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Aero Shake": {
+				"Options": [
+					"EnableAeroShake",
+					"DisableAeroShake"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"App Light/Dark Mode": {
+				"Options": [
+					"SetAppsLightMode",
+					"SetAppsDarkMode"
+				],
+				"RadioButtonContents": "Set Light Mode-Set Dark Mode"
+			},
+			"Change Sound Scheme": {
+				"Options": [
+					"EnableChangingSoundScheme",
+					"DisableChangingSoundScheme"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Control Panel Icon Style": {
+				"Options": [
+					"SetControlPanelSmallIcons",
+					"SetControlPanelLargeIcons",
+					"SetControlPanelCategories"
+				],
+				"RadioButtonContents": "Small-Large-Categories"
+			},
+			"EN (English) Keyboard": {
+				"Options": [
+					"AddENKeyboard",
+					"RemoveENKeyboard"
+				],
+				"RadioButtonContents": "Add-Remove"
+			},
+			"Enhanced Pointer Precision": {
+				"Options": [
+					"EnableEnhPointerPrecision",
+					"DisableEnhPointerPrecision"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"F1 Help Key": {
+				"Options": [
+					"EnableF1HelpKey",
+					"DisableF1HelpKey"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"File Delete Confirm": {
+				"Options": [
+					"EnableFileDeleteConfirm",
+					"DisableFileDeleteConfirm"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"File Operations Details": {
+				"Options": [
+					"HideFileOperationsDetails",
+					"ShowFileOperationsDetails"
+				],
+				"RadioButtonContents": "Hide-Show"
+			},
+			"Lock Screen": {
+				"Options": [
+					"EnableLockScreen",
+					"DisableLockScreen"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Lock Screen Blur": {
+				"Options": [
+					"EnableLockScreenBlur",
+					"DisableLockScreenBlur"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Lock Screen RS1": {
+				"Options": [
+					"EnableLockScreenRS1",
+					"DisableLockScreenRS1"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Meet Now": {
+				"Options": [
+					"EnableMeetNow",
+					"DisableMeetNow"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Most Used Apps": {
+				"Options": [
+					"HideMostUsedApps",
+					"ShowMostUsedApps"
+				],
+				"RadioButtonContents": "Hide-Show"
+			},
+			"Network on Lock Screen": {
+				"Options": [
+					"HideNetworkFromLockScreen",
+					"ShowNetworkOnLockScreen"
+				],
+				"RadioButtonContents": "Hide-Show"
+			},
+			"New App Prompt": {
+				"Options": [
+					"EnableNewAppPrompt",
+					"DisableNewAppPrompt"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"News Feeds": {
+				"Options": [
+					"EnableNewsFeeds",
+					"DisableNewsFeeds"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Num Lock On Boot": {
+				"Options": [
+					"EnableNumlock",
+					"DisableNumlock"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Recently Added Apps": {
+				"Options": [
+					"HideRecentlyAddedApps",
+					"ShowRecentlyAddedApps"
+				],
+				"RadioButtonContents": "Hide-Show"
+			},
+			"Search App in MS Store": {
+				"Options": [
+					"EnableSearchAppInStore",
+					"DisableSearchAppInStore"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Seconds in Task Bar": {
+				"Options": [
+					"HideSecondsFromTaskbar",
+					"ShowSecondsInTaskbar"
+				],
+				"RadioButtonContents": "Hide-Show"
+			},
+			"Shortcut Arrow": {
+				"Options": [
+					"HideShortcutArrow",
+					"ShowShortcutArrow"
+				],
+				"RadioButtonContents": "Hide-Show"
+			},
+			"Shortcut In Name": {
+				"Options": [
+					"EnableShortcutInName",
+					"DisableShortcutInName"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Shutdown On Lock Screen": {
+				"Options": [
+					"HideShutdownFromLockScreen",
+					"ShowShutdownOnLockScreen"
+				],
+				"RadioButtonContents": "Hide-Show"
+			},
+			"Sound Scheme": {
+				"Options": [
+					"SetSoundSchemeNone",
+					"SetSoundSchemeDefault"
+				],
+				"RadioButtonContents": "No Scheme-Default"
+			},
+			"Startup Sound": {
+				"Options": [
+					"EnableStartupSound",
+					"DisableStartupSound"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"System Light/Dark Mode": {
+				"Options": [
+					"SetSystemLightMode",
+					"SetSystemDarkMode"
+				],
+				"RadioButtonContents": "Set Light Mode-Set Dark Mode"
+			},
+			"Task Bar Chat Icon": {
+				"Options": [
+					"HideTaskbarChatIcon",
+					"ShowTaskbarChatIcon"
+				],
+				"RadioButtonContents": "Hide-Show"
+			},
+			"Task Bar Combine": {
+				"Options": [
+					"SetTaskbarCombineWhenFull",
+					"SetTaskbarCombineNever",
+					"SetTaskbarCombineAlways"
+				],
+				"RadioButtonContents": "When Full-Never-Always"
+			},
+			"Task Bar Icon Size": {
+				"Options": [
+					"ShowSmallTaskbarIcons",
+					"ShowLargeTaskbarIcons"
+				],
+				"RadioButtonContents": "Small-Large"
+			},
+			"Task Bar People Icon": {
+				"Options": [
+					"HideTaskbarPeopleIcon",
+					"ShowTaskbarPeopleIcon"
+				],
+				"RadioButtonContents": "Hide-Show"
+			},
+			"Task Bar Search Icon and Box": {
+				"Options": [
+					"HideTaskbarSearch",
+					"ShowTaskbarSearchBox",
+					"ShowTaskbarSearchIcon"
+				],
+				"RadioButtonContents": "Hide-Show-Show Icon Only"
+			},
+			"Task Manager Details": {
+				"Options": [
+					"HideTaskManagerDetails",
+					"ShowTaskManagerDetails"
+				],
+				"RadioButtonContents": "Hide-Show"
+			},
+			"Task View": {
+				"Options": [
+					"HideTaskView",
+					"ShowTaskView"
+				],
+				"RadioButtonContents": "Hide-Show"
+			},
+			"Title Bar Color": {
+				"Options": [
+					"EnableTitleBarColor",
+					"DisableTitleBarColor"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Tray Icons": {
+				"Options": [
+					"HideTrayIcons",
+					"ShowTrayIcons"
+				],
+				"RadioButtonContents": "Hide-Show"
+			},
+			"Verbose Status": {
+				"Options": [
+					"EnableVerboseStatus",
+					"DisableVerboseStatus"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"Visual FX Profile (Performance / Appearance)": {
+				"Options": [
+					"SetVisualFXPerformance",
+					"SetVisualFXAppearance"
+				],
+				"RadioButtonContents": "Set Performance-Set Appearance"
+			},
+			"Widgets": {
+				"Options": [
+					"EnableWidgets",
+					"DisableWidgets"
+				],
+				"RadioButtonContents": "Enable-Disable"
+			},
+			"WinX Menu Cmd or PowerShell": {
+				"Options": [
+					"SetWinXMenuPowershell",
+					"SetWinXMenuCmd"
+				],
+				"RadioButtonContents": "Set PowerShell-Set Cmd Prompt"
+			}
+		}
+	}
+]
