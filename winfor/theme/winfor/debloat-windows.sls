@@ -11,21 +11,21 @@
 transfer-debloat-script-{{ PS_PATH }}:
   file.managed:
     - name: '{{ PS_PATH }}\Win10Debloat\Win10.ps1'
-    - source: salt://winfor/theme/winfor/Win10.ps1
+    - source: salt://winfor/config/Win10.ps1
     - makedirs: True
     - win_inheritance: True
 
 transfer-debloat-module-{{ PS_PATH }}:
   file.managed:
     - name: '{{ PS_PATH }}\Win10Debloat\Win10.psm1'
-    - source: salt://winfor/theme/winfor/Win10.psm1
+    - source: salt://winfor/config/Win10.psm1
     - makedirs: True
     - win_inheritance: True
 
 transfer-debloat-preset-{{ PS_PATH }}:
   file.managed:
     - name: '{{ PS_PATH }}\Win10Debloat\debloat.preset'
-    - source: salt://winfor/theme/winfor/debloat.preset
+    - source: salt://winfor/config/debloat.preset
     - makedirs: True
     - win_inheritance: True
 

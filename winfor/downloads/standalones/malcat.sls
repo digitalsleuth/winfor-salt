@@ -4,12 +4,12 @@
 # Category: Executables
 # Author: Malcat EL
 # License: https://malcat.fr/index.html#faq6
-# Version: 0.9.3
+# Version: 0.9.4
 # Notes: 
 
-{% set hash = 'bfae447af0d189cdd84094583fbab0873e00775dd828e01219fc0bdfbca1c1e7' %}
+{% set hash = '0b8f746dcf71abfea333bf4784d79686627a8a6dc2cd991c96e30ffe65bdebc4' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '0.9.3' %}
+{% set version = '0.9.4' %}
 
 malcat-download-only:
   file.managed:
