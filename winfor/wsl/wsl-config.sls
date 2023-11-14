@@ -17,13 +17,6 @@ wsl-config-version:
     - require:
       - sls: winfor.wsl.wsl2-update
 
-wsl-update-command:
-  cmd.run:
-    - name: 'wsl --update'
-    - shell: cmd
-    - require:
-      - cmd: wsl-config-version
-
 {% if salt['file.file_exists']('C:\\salt\\tempdownload\\WIN-FOR-20.04.tar') and salt['file.check_hash']('C:\\salt\\tempdownload\\WIN-FOR-20.04.tar', hash)%}
 
 wsl-template-already-downloaded:
@@ -37,14 +30,31 @@ wsl-get-template:
     - source: https://sourceforge.net/projects/winfor/files/wsl/WIN-FOR-20.04.tar/download
     - source_hash: sha256={{ hash }}
     - makedirs: True
+    - unless:
+      - fun: file.file_exists
+        path: '{{ inpath }}\wsl\ext4.vhdx'
 
 {% endif %}
+
+wsl-update-command:
+  cmd.run:
+    - name: 'wsl --update'
+    - shell: cmd
+    - require:
+      - cmd: wsl-config-version
+    - unless:
+      - fun: file.file_exists
+        path: '{{ inpath }}\wsl\ext4.vhdx'
+
 
 wsl-make-install-directory:
   file.directory:
     - name: '{{ inpath }}\wsl\'
     - win_inheritance: True
     - makedirs: True
+    - unless:
+      - fun: file.file_exists
+        path: '{{ inpath }}\wsl\ext4.vhdx'
 
 wsl-import-template:
   cmd.run:
@@ -52,6 +62,9 @@ wsl-import-template:
     - shell: cmd
     - require:
       - file: wsl-make-install-directory
+    - unless:
+      - fun: file.file_exists
+        path: '{{ inpath }}\wsl\ext4.vhdx'
 
 wsl-get-cast:
   cmd.run:

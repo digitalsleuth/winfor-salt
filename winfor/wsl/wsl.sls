@@ -10,6 +10,7 @@
 {% set user = salt['pillar.get']('winfor_user', 'forensics') %}
 {% set SID = salt['user.info'](user).uid %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
+{% set version = salt['cp.get_file_str']("C:\ProgramData\Salt Project\Salt\srv\salt\winfor\VERSION") %}
 
 include:
   - winfor.config.user
@@ -76,6 +77,18 @@ wsl-set-uac-2:
     - vtype: REG_DWORD
     - vdata: 0
 
+wsl-powershell-stager:
+  file.managed:
+    - name: 'C:\salt\tempdownload\wsl-after-reboot.ps1'
+    - source: salt://winfor/wsl/wsl.ps1
+    - win_inheritance: True
+    - makedirs: True
+    - require:
+      - reg: powershell-execution-policy
+      - reg: powershell-execution-policy-path
+      - reg: wsl-set-uac-1
+      - reg: wsl-set-uac-2
+
 wsl-config-stager:
   file.managed:
     - name: 'C:\salt\tempdownload\wsl-config.cmd'
@@ -87,26 +100,27 @@ wsl-config-stager:
       - reg: powershell-execution-policy-path
       - reg: wsl-set-uac-1
       - reg: wsl-set-uac-2
+      - file: wsl-powershell-stager
 
-wsl-config-stager-customize:
+wsl-powershell-stager-customize:
   file.replace:
-    - name: 'C:\salt\tempdownload\wsl-config.cmd'
+    - name: 'C:\salt\tempdownload\wsl-after-reboot.ps1'
     - pattern: _this_user_
     - repl: {{ user }}
     - count: 1
     - require:
-      - file: wsl-config-stager
+      - file: wsl-powershell-stager
       - user: user-{{ user }}
 
 wsl-config-stager-customize-path:
   file.replace:
-    - name: 'C:\salt\tempdownload\wsl-config.cmd'
+    - name: 'C:\salt\tempdownload\wsl-after-reboot.ps1'
     - pattern: _this_path_
     - repl: {{ inpath | regex_escape }}
     - count: 1
     - require:
-      - file: wsl-config-stager
-      - file: wsl-config-stager-customize
+      - file: wsl-powershell-stager
+      - file: wsl-powershell-stager-customize
       - user: user-{{ user }}
 
 wsl-config-run-on-reboot:
@@ -119,12 +133,13 @@ wsl-config-run-on-reboot:
       - dism: wsl-install
       - dism: vmp-install
       - file: wsl-config-stager
-      - file: wsl-config-stager-customize
+      - file: wsl-powershell-stager
+      - file: wsl-powershell-stager-customize
       - file: wsl-config-stager-customize-path
 
 wsl-log-append:
   file.append:
-    - name: 'C:\winfor-wsl.log'
+    - name: 'C:\winfor-saltstack-{{ version|trim }}-wsl.log'
     - text: 'GOING FOR REBOOT NOW'
 
 system-restart:
@@ -136,6 +151,7 @@ system-restart:
       - dism: wsl-install
       - dism: vmp-install
       - file: wsl-config-stager
-      - file: wsl-config-stager-customize
+      - file: wsl-powershell-stager
+      - file: wsl-powershell-stager-customize
       - file: wsl-config-stager-customize-path
       - reg: wsl-config-run-on-reboot
