@@ -8,7 +8,7 @@
 # Notes: 
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set hash = '601395b86ea4472ae01a0041ad3470dea5ba7e4accfcd652229ed51604aed2ca' %}
+{% set hash = '95db018c3da57f081886511338ea920272fb9a7e64e1f885a3307e692071b674' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 kape-download:
