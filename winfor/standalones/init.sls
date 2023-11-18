@@ -102,6 +102,7 @@ include:
   - winfor.standalones.glossary-generator
   - winfor.standalones.hibernation-recon
   - winfor.standalones.usbdetective
+  - winfor.standalones.total-pe-2
 
 standalones-states:
   test.nop:
@@ -209,3 +210,4 @@ standalones-states:
       - sls: winfor.standalones.glossary-generator
       - sls: winfor.standalones.hibernation-recon
       - sls: winfor.standalones.usbdetective
+      - sls: winfor.standalones.total-pe-2

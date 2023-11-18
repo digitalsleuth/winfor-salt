@@ -800,6 +800,17 @@
         "Enabled": true,
         "ExtraTiles": []
       },
+      "IDA Free": {
+        "CbName": "packages_ida_free",
+        "CbContent": "IDA Free",
+        "DAID": "{6D809377-6AF0-444B-8957-A3773F02200E}\\IDA Freeware 8.3\\ida64.exe",
+        "AUMID": false,
+        "DALP": false,
+        "StartMenu": true,
+        "Checked": true,
+        "Enabled": true,
+        "ExtraTiles": []
+      },
       "ilspy": {
         "CbName": "packages_ilspy",
         "CbContent": "ilspy",
@@ -1038,6 +1049,17 @@
         "AUMID": false,
         "DALP": false,
         "StartMenu": false,
+        "Checked": true,
+        "Enabled": true,
+        "ExtraTiles": []
+      },
+      "Total PE 2": {
+        "CbName": "standalones_total_pe_2",
+        "CbContent": "Total PE 2",
+        "DAID": "PLACEHOLDER_PATH\\total-pe-2\\TotalPE.exe",
+        "AUMID": false,
+        "DALP": false,
+        "StartMenu": true,
         "Checked": true,
         "Enabled": true,
         "ExtraTiles": []
