@@ -2,7 +2,7 @@
 {% set PROGRAM_FILES = salt['environ.get']('PROGRAMFILES') %}
 {% set START_MENU = PROGRAMDATA + '\Microsoft\Windows\Start Menu\Programs' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set hash = 'a8de96cc2d018e374266a97e566c133da6e43afde7fe3e094bdeb2d265da4398' %}
+{% set hash = 'ea026fdfcbec6dd4fe87e9053d0e6e185f50ed5696af68e331aad8b131ffe4e9' %}
 {% set castver = '0.14.0' %}
 {% set wslver = '1.2.5.0' %}
 
