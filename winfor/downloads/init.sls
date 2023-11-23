@@ -69,6 +69,7 @@ include:
   - winfor.downloads.standalones.mal-unpack
   - winfor.downloads.standalones.megatools
   - winfor.downloads.standalones.memprocfs
+  - winfor.downloads.standalones.memprocfs-analyzer
   - winfor.downloads.standalones.mftbrowser
   - winfor.downloads.standalones.mimikatz
   - winfor.downloads.standalones.mitec
