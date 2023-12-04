@@ -103,6 +103,7 @@ include:
   - winfor.standalones.hibernation-recon
   - winfor.standalones.usbdetective
   - winfor.standalones.total-pe-2
+  - winfor.standalones.memprocfs-analyzer
 
 standalones-states:
   test.nop:
@@ -211,3 +212,4 @@ standalones-states:
       - sls: winfor.standalones.hibernation-recon
       - sls: winfor.standalones.usbdetective
       - sls: winfor.standalones.total-pe-2
+      - sls: winfor.standalones.memprocfs-analyzer

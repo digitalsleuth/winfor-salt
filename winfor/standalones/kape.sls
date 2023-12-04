@@ -35,6 +35,13 @@ kape-folder-move:
     - require:
       - archive: kape-extract
 
+kape-sync:
+  cmd.run:
+    - name: '{{ inpath }}\kape\kape.exe --sync'
+    - shell: cmd
+    - require:
+      - file: kape-folder-move
+
 kape-env-vars:
   win_path.exists:
     - name: '{{ inpath }}\kape\'

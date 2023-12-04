@@ -1343,6 +1343,17 @@
         "Checked": true,
         "Enabled": true,
         "ExtraTiles": []
+      },
+      "Zirolite": {
+        "CbName": "standalones_zircolite",
+        "CbContent": "Zircolite",
+        "DAID": "",
+        "AUMID": false,
+        "DALP": false,
+        "StartMenu": false,
+        "Checked": true,
+        "Enabled": true,
+        "ExtraTiles": []
       }
     }
   },
@@ -1493,6 +1504,17 @@
       "Fakenet-NG": {
         "CbName": "python3_tools_flare_fakenet_ng",
         "CbContent": "Fakenet-NG",
+        "DAID": "",
+        "AUMID": false,
+        "DALP": false,
+        "StartMenu": false,
+        "Checked": true,
+        "Enabled": true,
+        "ExtraTiles": []
+      },
+      "IPInfo": {
+        "CbName": "standalones_ipinfo",
+        "CbContent": "IPInfo",
         "DAID": "",
         "AUMID": false,
         "DALP": false,
@@ -1695,6 +1717,17 @@
         "Enabled": true,
         "ExtraTiles": []
       },
+      "MemProcFS-Analyzer": {
+        "CbName": "standalones_memprocfs_analyzer",
+        "CbContent": "MemProcFS Analyzer",
+        "DAID": "",
+        "AUMID": false,
+        "DALP": false,
+        "StartMenu": false,
+        "Checked": true,
+        "Enabled": true,
+        "ExtraTiles": []
+      },
       "Passware Encryption Analyzer": {
         "CbName": "packages_passware_encryption_analyzer",
         "CbContent": "Passware Encryption Analyzer",
@@ -1855,6 +1888,17 @@
         "Enabled": true,
         "ExtraTiles": []
       },
+      "Elasticsearch": {
+        "CbName": "standalones_elasticsearch",
+        "CbContent": "Elasticsearch",
+        "DAID": "",
+        "AUMID": false,
+        "DALP": false,
+        "StartMenu": false,
+        "Checked": true,
+        "Enabled": true,
+        "ExtraTiles": []
+      },
       "Git": {
         "CbName": "packages_git",
         "CbContent": "Git",
@@ -1880,6 +1924,17 @@
       "Java Development Kit 17": {
         "CbName": "packages_jdk17",
         "CbContent": "Java Development Kit 17",
+        "DAID": "",
+        "AUMID": false,
+        "DALP": false,
+        "StartMenu": false,
+        "Checked": true,
+        "Enabled": true,
+        "ExtraTiles": []
+      },
+      "Kibana": {
+        "CbName": "standalones_kibana",
+        "CbContent": "Kibana",
         "DAID": "",
         "AUMID": false,
         "DALP": false,
@@ -1917,6 +1972,17 @@
         "AUMID": false,
         "DALP": false,
         "StartMenu": true,
+        "Checked": true,
+        "Enabled": true,
+        "ExtraTiles": []
+      },
+      "nuget": {
+        "CbName": "packages_nuget",
+        "CbContent": "nuget",
+        "DAID": "",
+        "AUMID": false,
+        "DALP": false,
+        "StartMenu": false,
         "Checked": true,
         "Enabled": true,
         "ExtraTiles": []
@@ -2089,10 +2155,43 @@
         "Enabled": true,
         "ExtraTiles": []
       },
+      "ClamAV": {
+        "CbName": "packages_clamav",
+        "CbContent": "ClamAV",
+        "DAID": "",
+        "AUMID": false,
+        "DALP": false,
+        "StartMenu": false,
+        "Checked": true,
+        "Enabled": true,
+        "ExtraTiles": []
+      },
+      "Dokany": {
+        "CbName": "packages_dokany",
+        "CbContent": "Dokany",
+        "DAID": "",
+        "AUMID": false,
+        "DALP": false,
+        "StartMenu": false,
+        "Checked": true,
+        "Enabled": true,
+        "ExtraTiles": []
+      },
       "Encrypted Disk Detector (EDD)": {
         "CbName": "standalones_magnet_edd",
         "CbContent": "Encrypted Disk Detector (EDD)",
         "DAID": "PLACEHOLDER_PATH\\magnet\\EDD\\EDDv310.exe",
+        "AUMID": false,
+        "DALP": false,
+        "StartMenu": false,
+        "Checked": true,
+        "Enabled": true,
+        "ExtraTiles": []
+      },
+      "entropy": {
+        "CbName": "standalones_entropy",
+        "CbContent": "entropy",
+        "DAID": "",
         "AUMID": false,
         "DALP": false,
         "StartMenu": false,
@@ -2155,6 +2254,17 @@
         "Enabled": true,
         "ExtraTiles": []
       },
+      "ImportExcel": {
+        "CbName": "packages_importexcel",
+        "CbContent": "ImportExcel",
+        "DAID": "",
+        "AUMID": false,
+        "DALP": false,
+        "StartMenu": false,
+        "Checked": true,
+        "Enabled": true,
+        "ExtraTiles": []
+      },
       "Irfanview x64": {
         "CbName": "packages_irfanview",
         "CbContent": "Irfanview x64",
@@ -2181,6 +2291,17 @@
         "CbName": "packages_itunes",
         "CbContent": "iTunes",
         "DAID": "Apple.iTunes",
+        "AUMID": false,
+        "DALP": false,
+        "StartMenu": true,
+        "Checked": true,
+        "Enabled": true,
+        "ExtraTiles": []
+      },
+      "jq": {
+        "CbName": "standalones_jq",
+        "CbContent": "jq",
+        "DAID": "",
         "AUMID": false,
         "DALP": false,
         "StartMenu": true,
@@ -2396,6 +2517,28 @@
         "Checked": true,
         "Enabled": true,
         "ExtraTiles": []
+      },
+      "xsv": {
+        "CbName": "standalones_xsv",
+        "CbContent": "xsv",
+        "DAID": "xsv",
+        "AUMID": false,
+        "DALP": false,
+        "StartMenu": true,
+        "Checked": true,
+        "Enabled": true,
+        "ExtraTiles": []
+      },
+      "Yara": {
+        "CbName": "standalones_yara",
+        "CbContent": "Yara",
+        "DAID": "",
+        "AUMID": false,
+        "DALP": false,
+        "StartMenu": true,
+        "Checked": true,
+        "Enabled": true,
+        "ExtraTiles": []
       }
     }
   },
@@ -2507,6 +2650,17 @@
         "CbName": "standalones_lrc_cedarpelta",
         "CbContent": "Live Response Collection (Cedarpelta)",
         "DAID": "PLACEHOLDER_PATH\\lrc-cedarpelta\\Windows_Live_Response\\Windows Live Response Collection.exe",
+        "AUMID": false,
+        "DALP": false,
+        "StartMenu": true,
+        "Checked": true,
+        "Enabled": true,
+        "ExtraTiles": []
+      },
+      "lnk_parser": {
+        "CbName": "standalones_lnk_parser",
+        "CbContent": "lnk_parser",
+        "DAID": "",
         "AUMID": false,
         "DALP": false,
         "StartMenu": true,

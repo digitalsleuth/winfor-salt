@@ -12,6 +12,7 @@
 {% set hasher_hash = '1693875e5f830e582dc01778cae34e50c1e28d472ced9fe1caeac89843b58cfa' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set applications = ['EZViewer','JumpListExplorer','MFTExplorer','RegistryExplorer','SDBExplorer','ShellBagsExplorer','TimelineExplorer'] %}
+{% set sync_tools = ['EvtxECmd','RECmd'] %}
 
 zimmerman-tools:
   file.managed:
@@ -35,6 +36,15 @@ zimmerman-tools-download:
     - shell: powershell
     - watch:
       - archive: zimmerman-tools-install
+
+{% for tool in sync_tools %}
+zimmerman-tools-sync-{{ tool }}:
+  cmd.run
+    - name: '{{ inpath }}\zimmerman\net6\{{ tool }}\{{ tool }}.exe --sync'
+    - shell: cmd
+    - require:
+      - cmd: zimmerman-tools-download
+{% endfor %}
 
 zimmerman-env-vars:
   win_path.exists:

@@ -4,14 +4,14 @@
 # Category: Raw Parsers / Decoders
 # Author: Ulf Frisk
 # License: GNU Affero GPL v3.0 - https://github.com/ufrisk/MemProcFS/blob/master/LICENSE
-# Version: 5.8.7
+# Version: 5.8.17
 # Notes: 
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set short = '5_archive' %}
-{% set version = '5.8.7' %}
-{% set date = '20230930' %}
-{% set hash = '13bd3bdb4840fe109c04db3b80e6bded97b18915f30290588713b2d57adbf61c' %}
+{% set version = '5.8.17' %}
+{% set date = '20231128' %}
+{% set hash = '22196c8fdd09db229ed8ee649e56b406a5f8dd43f7728cfe13cd1618aaef7085' %}
 
 memprocfs-download:
   file.managed:
@@ -20,7 +20,7 @@ memprocfs-download:
     - source_hash: sha256={{ hash }}
     - makedirs: True
 
-memprocfs-unzip:
+memprocfs-extract:
   archive.extracted:
     - name: '{{ inpath }}\memprocfs\'
     - source: 'C:\salt\tempdownload\MemProcFS_files_and_binaries_v{{ version }}-win_x64-{{ date }}.zip'
@@ -28,6 +28,18 @@ memprocfs-unzip:
     - require:
       - file: memprocfs-download
 
+memprocfs-version-file:
+  file.managed:
+    - name: '{{ inpath }}\memprocfs\Version.txt'
+    - contents:
+      - {{ version }}
+    - require:
+      - archive: memprocfs-extract
+
 memprocfs-env-vars:
   win_path.exists:
     - name: '{{ inpath }}\memprocfs\'
+    - require:
+      - archive: memprocfs-extract
+      - file: memprocfs-version-file
+
