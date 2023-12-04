@@ -39,7 +39,7 @@ zimmerman-tools-download:
 
 {% for tool in sync_tools %}
 zimmerman-tools-sync-{{ tool }}:
-  cmd.run
+  cmd.run:
     - name: '{{ inpath }}\zimmerman\net6\{{ tool }}\{{ tool }}.exe --sync'
     - shell: cmd
     - require:
