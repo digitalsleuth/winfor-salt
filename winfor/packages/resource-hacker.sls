@@ -4,10 +4,10 @@
 # Category: Executables
 # Author: Angus Johnson
 # License: Freeware (http://www.angusj.com/resourcehacker - License to Use)
-# Version: 5.2.4
+# Version: 5.2.6
 # Notes: 
 
-{% set version = '5.2.4' %}
+{% set version = '5.2.6' %}
 
 resource-hacker:
   pkg.installed

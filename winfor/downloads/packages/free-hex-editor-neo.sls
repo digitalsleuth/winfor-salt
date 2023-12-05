@@ -4,12 +4,12 @@
 # Category: Raw Parsers / Decoders
 # Author: HHD Software
 # License: EULA (https://www.hhdsoftware.com/company/terms-of-use)
-# Version: 7.37.00.8578
+# Version: 7.40.00.8622
 # Notes: 
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '7.37.00.8578' %}
-{% set hash = '87949cb4ba705968c975ee42421bfb671aae3f481fe0017b10a08e7e722bcd2a' %}
+{% set version = '7.40.00.8622' %}
+{% set hash = 'f470f440dacb1a7d05e1ac94415003e27238e06b35df7f0e3c58f20e97087ed7' %}
 
 free-hex-editor-neo-download-only:
   file.managed:

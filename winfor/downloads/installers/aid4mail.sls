@@ -4,11 +4,11 @@
 # Category: Email
 # Author: Fookes Software Ltd
 # License: Copyright (https://www.aid4mail.com/terms)
-# Version: 5.1.4 build 889
+# Version: 5.1.5 build 895
 # Notes: Free Trial / Limited Free Conversion
 
-{% set version = '5.1.4' %}
-{% set hash = 'df599c5a421c663952f80cd27c0635d27c82b83b493e42e172f158806cc9c83e' %}
+{% set version = '5.1.5' %}
+{% set hash = 'da4f9fbc565f411deeddf28b3c59bfdeced3bf5d721f9e85ff9397fc193cc20b' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 aid4mail-download-only:
