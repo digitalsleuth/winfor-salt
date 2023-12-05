@@ -4,9 +4,9 @@
 # Category: Requirements
 # Author: Ross Patterson
 # License: Free To Use - Terms and Conditions (https://rosspat.dev/privacy/)
-# Version: 3.0.2.2
+# Version: 3.1.0.2
 # Notes:
 
 portals:
   pkg.installed:
-    - version: '3.0.2.2'
+    - version: '3.1.0.2'

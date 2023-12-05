@@ -4,13 +4,13 @@
 # Category: Requirements
 # Author: Ross Patterson
 # License: Free To Use - Terms and Conditions (https://rosspat.dev/privacy/)
-# Version: 3.0.2.2
+# Version: 3.1.0.2
 # Notes:
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '3.0.2.2' %}
+{% set version = '3.1.0.2' %}
 {% set dashes = version | replace(".","-") %}
-{% set hash = '931b210cfd3f5f39e3fccd687f8b49be8bd8fb92f34fd3465307e9a4f998ddca' %}
+{% set hash = 'a6fee7e94c0bbacae1b526bafd30b40765991d9f520fedc26a2cb6ea023be2d2' %}
 
 portals-download-only:
   file.managed:
