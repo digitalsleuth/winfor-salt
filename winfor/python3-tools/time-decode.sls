@@ -4,7 +4,7 @@
 # Category: Raw Parsers / Decoders
 # Author: Corey Forman
 # License: MIT License (https://github.com/digitalsleuth/time_decode/blob/master/LICENSE)
-# Version: 4.2
+# Version: 7.0.0
 # Notes: 
 
 include:
@@ -13,5 +13,6 @@ include:
 time-decode:
   pip.installed:
     - bin_env: 'C:\Program Files\Python310\python.exe'
+    - upgrade: True
     - require:
       - sls: winfor.packages.python3
