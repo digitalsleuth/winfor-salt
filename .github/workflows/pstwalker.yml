@@ -1,0 +1,21 @@
+# This workflow should query to see if the configured version of PST Walker is still available
+
+name: check-pstwalker-exists
+
+on:
+  schedule:
+      - cron: "0 0 * * *"
+  
+  workflow_dispatch:
+ 
+jobs:
+  pstwalker_check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@main
+      - name: Check PST Walker presence
+        run: |
+          VER=$(cat /home/runner/work/winfor-salt/winfor-salt/winfor/downloads/packages/pst-walker.sls | grep "set version" | awk -F\' '{print tolower($2)}')
+          STATUS_CODE=$(curl -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:120.0) Gecko/20100101 Firefox/120.0" -s -I https://downloads.pstwalker.com/pstwalker$VER.exe | grep "HTTP/2" | awk '{print $2}')
+          if [[ "$STATUS_CODE" != "200" ]]; then echo "CURRENT VERSION OF PST WALKER NOT AVAILABLE" && exit 1; else echo "PST Walker $VER still current version" && exit 0; fi
+
