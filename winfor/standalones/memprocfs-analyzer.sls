@@ -46,6 +46,13 @@ memprocfs-analyzer-extract:
     - require:
       - file: memprocfs-analyzer-download
 
+{% if salt['file.directory_exists'](inpath + "\\memprocfs-analyzer") %}
+memprocfs-analyzer-delete-directory:
+  file.absent:
+    - name: '{{ inpath }}\memprocfs-analyzer\'
+    - force: True
+{% endif %}
+
 memprocfs-analyzer-folder-rename:
   file.rename:
     - name: '{{ inpath }}\memprocfs-analyzer'
@@ -73,7 +80,7 @@ memprocfs-analyzer-ps1-rename:
 
 memprocfs-analyzer-yara:
   git.latest:
-    - name: https://github.com/evild3ad/yara
+    - name: https://github.com/evild3ad/yara.git
     - target: '{{ inpath }}\memprocfs-analyzer\yara'
     - rev: main
     - force_clone: True

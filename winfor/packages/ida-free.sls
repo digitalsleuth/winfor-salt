@@ -7,5 +7,15 @@
 # Version: 8.3
 # Notes: 
 
+{% set version = '8.3' %}
+
 ida-free:
   pkg.installed
+
+ida-remove-shortcut:
+  file.absent:
+    - name: 'C:\Users\Public\Desktop\IDA Freeware {{ version }}.lnk'
+    - require:
+      - pkg: ida-free
+    - watch:
+      - pkg: ida-free

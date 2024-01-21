@@ -14,7 +14,7 @@
 iphone-analyzer-download:
   file.managed:
     - name: '{{ inpath }}\iphone-analyzer\iphoneanalyzer.fat.gui-2.1.0.jar'
-    - source: "https://newcontinuum.dl.sourceforge.net/project/iphoneanalyzer/executable%20jar%20builds/iphoneanalyzer.fat.gui-2.1.0.jar"
+    - source: "https://gigenet.dl.sourceforge.net/project/iphoneanalyzer/executable%20jar%20builds/iphoneanalyzer.fat.gui-2.1.0.jar"
     - source_hash: sha256={{ hash }}
     - makedirs: True
 

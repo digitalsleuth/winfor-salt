@@ -126,6 +126,7 @@
           <start:DesktopApplicationTile Size="1x1" Column="2" Row="1" DesktopApplicationID="PLACEHOLDER_PATH\testdisk\qphotorec_win.exe" />
           <start:DesktopApplicationTile Size="1x1" Column="3" Row="1" DesktopApplicationID="PLACEHOLDER_PATH\testdisk\photorec_win.exe" />
           <start:DesktopApplicationTile Size="1x1" Column="4" Row="1" DesktopApplicationID="PLACEHOLDER_PATH\testdisk\testdisk_win.exe" />
+          <start:DesktopApplicationTile Size="1x1" Column="5" Row="1" DesktopApplicationID="PLACEHOLDER_PATH\time-decode\Time Decode GUI.exe" />
         </start:Group>
         <start:Group Name="Registry">
           <start:DesktopApplicationTile Size="1x1" Column="0" Row="0" DesktopApplicationID="PLACEHOLDER_PATH\regripper\rr.exe" />

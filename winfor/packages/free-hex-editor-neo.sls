@@ -4,7 +4,7 @@
 # Category: Raw Parsers / Decoders
 # Author: HHD Software
 # License: EULA (https://www.hhdsoftware.com/company/terms-of-use)
-# Version: 7.40.00.8622
+# Version: 7.41.00.8634
 # Notes: 
 
 {% set user = salt['pillar.get']('winfor_user', 'forensics') %}
@@ -32,4 +32,6 @@ free-hex-editor-icon:
     {% endif %}
     - require:
       - user: user-{{ user }}
+      - pkg: free-hex-editor-neo
+    - watch:
       - pkg: free-hex-editor-neo

@@ -52,7 +52,7 @@ zircolite-update:
     - name: '{{ inpath }}\zircolite\zircolite_win10.exe --update-rules'
     - shell: cmd
     - require:
-      - file: zircolite-folder-copy
+      - file: zircolite-rename
 
 zircolite-env:
   win_path.exists:

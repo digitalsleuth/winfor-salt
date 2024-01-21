@@ -478,6 +478,17 @@
         "Enabled": true,
         "ExtraTiles": []
       },
+      "peepdf-3": {
+        "CbName": "python3_tools_peepdf_3",
+        "CbContent": "peepdf-3",
+        "DAID": "",
+        "AUMID": false,
+        "DALP": false,
+        "StartMenu": false,
+        "Checked": true,
+        "Enabled": true,
+        "ExtraTiles": []
+      },
       "rtfdump.py": {
         "CbName": "python3_tools_rtfdump",
         "CbContent": "rtfdump.py",
@@ -1793,6 +1804,17 @@
         "AUMID": false,
         "DALP": false,
         "StartMenu": false,
+        "Checked": true,
+        "Enabled": true,
+        "ExtraTiles": []
+      },
+      "Time Decode GUI": {
+        "CbName": "standalones_time_decode_gui",
+        "CbContent": "Time Decode GUI",
+        "DAID": "PLACEHOLDER_PATH\\time-decode\\Time Decode GUI.exe",
+        "AUMID": false,
+        "DALP": false,
+        "StartMenu": true,
         "Checked": true,
         "Enabled": true,
         "ExtraTiles": []

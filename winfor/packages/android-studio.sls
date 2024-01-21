@@ -4,11 +4,13 @@
 # Category: Mobile Analysis
 # Author: Google
 # License: 
-# Version: 2022.3.1.20
-# Notes: Comes with adb and fastboot
+# Version: 2023.1.1.27
+# Notes: Comes with adb and fastboot, error code 1223 does not represent error - marked as success.
 
-{% set cmdline_version = '10406996' %}
-{% set cmdline_hash = '9b782a54d246ba5d207110fddd1a35a91087a8aaf4057e9df697b1cbc0ef60fc' %}
+{% set cmdline_version = '11076708' %}
+{% set cmdline_hash = '4d6931209eebb1bfb7c7e8b240a6a3cb3ab24479ea294f3539429574b1eec862' %}
+{% set as_version = '2023.1.1.27' %}
+{% set as_hash = '266f89313953e9ee01677a8b038588b1aacc4b6f687bc1046a5d65f08eac9f2f' %}
 {% set build_version = '34.0.0' %}
 {% set platform_version = '34.0.5' %}
 {% set PROGRAM_FILES = salt['environ.get']('PROGRAMFILES') %}
@@ -18,10 +20,20 @@
 include:
   - winfor.packages.jdk17
 
-android-studio:
-  pkg.installed:
+android-studio-download:
+  file.managed:
+    - name: 'C:\salt\tempdownload\android-studio-{{ as_version }}-windows.exe'
+    - source: https://redirector.gvt1.com/edgedl/android/studio/install/{{ as_version }}/android-studio-{{ as_version }}-windows.exe
+    - source_hash: sha256={{ as_hash }}
+    - makedirs: True
     - require:
       - pkg: jdk17
+
+android-studio-install:
+  cmd.run:
+    - name: 'C:\salt\tempdownload\android-studio-{{ as_version }}-windows.exe /S'
+    - shell: cmd
+    - success_retcodes: 1223
 
 cmdline-tools:
   file.managed:

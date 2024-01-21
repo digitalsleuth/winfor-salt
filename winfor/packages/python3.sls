@@ -7,9 +7,14 @@
 # Version: 3.10.1150.0
 # Notes:
 
+include:
+  - winfor.repos
+
 python3_x64:
   pkg.installed:
     - version: '3.10.1150.0'
+    - require:
+      - sls: winfor.repos
 
 python3-wheel:
   pip.installed:

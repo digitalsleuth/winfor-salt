@@ -25,12 +25,16 @@ mobaxterm-archive:
     - enforce_toplevel: False
     - watch:
       - file: mobaxterm
+    - require:
+      - file: mobaxterm
 
 mobaxterm-install:
   cmd.run:
     - name: "msiexec /i MobaXterm_installer_{{ version }}.msi DESKTOP_SHORTCUT=FALSE /qn /norestart"
     - cwd: 'C:\salt\tempdownload\mobaxterm'
     - shell: cmd
+    - require:
+      - archive: mobaxterm-archive
 
 mobaxterm-del-shortcut:
   file.absent:
