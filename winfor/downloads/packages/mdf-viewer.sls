@@ -4,12 +4,12 @@
 # Category: Databases
 # Author: SysTools
 # License: EULA (https://www.systoolsgroup.com/eula.html)
-# Version: 11.0
+# Version: 12.0
 # Notes: 
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '11.0' %}
-{% set hash = 'abaefb4e37fb02e6fafb875cf73a8f8411adc71e6872af570d877d525eacde87' %}
+{% set version = '12.0' %}
+{% set hash = '1309e4856df6ce608f47ca41398a61a0e02e3fd46b9dadb029479e611fdfa32b' %}
 
 mdf-viewer-download-only:
   file.managed:

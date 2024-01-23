@@ -4,7 +4,7 @@
 # Category: Databases
 # Author: SysTools
 # License: EULA (https://www.systoolsgroup.com/eula.html)
-# Version: 11.0
+# Version: 12.0
 # Notes: 
 
 mdf-viewer:
