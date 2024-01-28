@@ -1,0 +1,19 @@
+ <Portal>
+    <PortalPath>PLACEHOLDER_PATH\Portals\CATEGORY</PortalPath>
+    <PositionTop>VV</PositionTop>
+    <PositionLeft>HV</PositionLeft>
+    <Width>PWIDTH</Width>
+    <Height>PHEIGHT</Height>
+    <IsLocked>false</IsLocked>
+    <SettingsOverridden>false</SettingsOverridden>
+    <TitleBarOnBottom>false</TitleBarOnBottom>
+    <TitleBarHidden>false</TitleBarHidden>
+    <IsMinimized>false</IsMinimized>
+    <SortType>Name</SortType>
+    <SortOrder>Ascending</SortOrder>
+    <IsVisible>true</IsVisible>
+    <CustomSortOrderEnabled>false</CustomSortOrderEnabled>
+    <TitlebarPosition>Top</TitlebarPosition>
+    <CustomSortOrder />
+    <DisplayNumber>0</DisplayNumber>
+  </Portal>
