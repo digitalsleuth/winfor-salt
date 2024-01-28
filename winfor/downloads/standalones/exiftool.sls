@@ -4,11 +4,11 @@
 # Category: Documents / Editors
 # Author: Phil Harvey
 # License: https://exiftool.org/#license
-# Version: 12.67
+# Version: 12.74
 # Notes:
 
-{% set version = '12.67' %}
-{% set hash = '6ec1ee420183c427d49289db15faad7a216d43cb53d2ae5d2885a6a2d50e4699' %}
+{% set version = '12.74' %}
+{% set hash = '6bd46e8b4742d26889e9bfce5fcdacc56837a1e967a37cd1155dfc465cfc91f3' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 exiftool-download-only:
