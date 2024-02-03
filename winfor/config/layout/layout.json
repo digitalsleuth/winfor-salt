@@ -2326,7 +2326,7 @@
         "DAID": "",
         "AUMID": false,
         "DALP": false,
-        "StartMenu": true,
+        "StartMenu": false,
         "Checked": true,
         "Enabled": true,
         "ExtraTiles": []
@@ -2557,7 +2557,7 @@
         "DAID": "",
         "AUMID": false,
         "DALP": false,
-        "StartMenu": true,
+        "StartMenu": false,
         "Checked": true,
         "Enabled": true,
         "ExtraTiles": []
@@ -2685,7 +2685,7 @@
         "DAID": "",
         "AUMID": false,
         "DALP": false,
-        "StartMenu": true,
+        "StartMenu": false,
         "Checked": true,
         "Enabled": true,
         "ExtraTiles": []
