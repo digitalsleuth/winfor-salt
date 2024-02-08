@@ -7,7 +7,7 @@
 # Version: 3.5.0
 # Notes: Retcode below is set to '2' for success because the Cygwin installer (even though on Windows) attempts to search for /etc/setup/setup.rc or /etc/setup/installed.db and fails with retcode 2. This causes Saltstack to read an ERROR and result: False, even though the pkg state returns 'install success'.
 
-{% set hash = '0acdba4df3f78d232ce05cb90bf96b5235fa10158e54b7a56f9b8825cace40fb' %}
+{% set hash = '3d9e0143268f52aecaff76f81553c880ec9a353eb5a6e22bd6d34bad8251710c' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '3.5.0' %}
 
