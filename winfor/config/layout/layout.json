@@ -2265,6 +2265,17 @@
         "Enabled": true,
         "ExtraTiles": []
       },
+      "Hash Generator": {
+        "CbName": "standalones_hash_generator",
+        "CbContent": "Hash Generator",
+        "DAID": "PLACEHOLDER_PATH\\hash-generator\\hash-generator.exe",
+        "AUMID": false,
+        "DALP": false,
+        "StartMenu": true,
+        "Checked": true,
+        "Enabled": true,
+        "ExtraTiles": []
+      },
       "Hex2GUID": {
         "CbName": "standalones_hex2guid",
         "CbContent": "Hex2GUID",
