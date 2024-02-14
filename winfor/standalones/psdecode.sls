@@ -7,7 +7,7 @@
 # Version: 5.0
 # Notes: 
 
-{% set hash = '11ea04fb322c8d6f51522d4b61f448038d8354f1de004b5bdfb452ea74f83bb6' %}
+{% set hash = 'd831eb5b56d3cf08cc0a9d11e05850717521eac7c3daceac2c3664c6aba5e360' %}
 {% set PS_PATHS = salt['environ.get']('PSMODULEPATH') %}
 
 {% for PS_PATH in PS_PATHS.split(";") %}
