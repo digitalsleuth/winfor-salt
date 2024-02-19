@@ -92,7 +92,7 @@ wsl-install-remnux:
     - name: 'wsl -d WIN-FOR echo forensics | wsl -d WIN-FOR sudo -S cast install --mode addon --user forensics remnux'
     - shell: cmd
     - require:
-      - cmd: wsl-install-sift
+      - cmd: wsl-install-cast
 
 wsl-shortcut:
   file.shortcut:
