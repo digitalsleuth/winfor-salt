@@ -4,12 +4,12 @@
 # Category: Requirements
 # Author: Microsoft
 # License: 
-# Version: 15.9.34118.181
+# Version: 15.9.34601.69
 # Notes: 
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '15.9.34118.181' %}
-{% set hash = '137b8591f2c772d0fe53225015eab5f2e75d0d51cf9c384a0ab5162e2aecaf59' %}
+{% set version = '15.9.34601.69' %}
+{% set hash = '6570215835c8d18da2ec133f4389ff6ecfc87011369f74fc575dea221d721a2c' %}
 
 ms-vcpp-2015-build-tools-download-only:
   file.managed:

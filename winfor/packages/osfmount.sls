@@ -4,7 +4,7 @@
 # Category: Acquisition and Analysis
 # Author: PassMark
 # License: Free (EULA, contained in software)
-# Version: 3.1
+# Version: 3.1.1003.0
 # Notes: 
 
 {% set user = salt['pillar.get']('winfor_user', 'forensics') %}

@@ -17,12 +17,12 @@
 {% set jq_ver = '1.7' %}
 {% set kib_ver = '8.11.1' %}
 {% set lnk_ver = '0.2.0' %}
-{% set memprocfs_ver = '5.8.17' %}
-{% set memprocfs_date = '20231119' %}
+{% set memprocfs_ver = '5.9.3' %}
+{% set memprocfs_date = '20240309' %}
 {% set xsv_ver = '0.13.0' %}
 {% set yara_ver = '4.3.2' %}
 {% set yara_sub = '2150' %}
-{% set zir_ver = '2.9.10' %}
+{% set zir_ver = '2.10.0' %}
 
 include:
   - winfor.downloads.packages.clamav

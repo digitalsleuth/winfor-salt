@@ -4,15 +4,15 @@
 # Category: Mobile Analysis
 # Author: Google
 # License: 
-# Version: 2023.1.1.27
+# Version: 2023.2.1.23
 # Notes: Comes with adb and fastboot, error code 1223 does not represent error - marked as success.
 
 {% set cmdline_version = '11076708' %}
 {% set cmdline_hash = '4d6931209eebb1bfb7c7e8b240a6a3cb3ab24479ea294f3539429574b1eec862' %}
-{% set as_version = '2023.1.1.27' %}
-{% set as_hash = '266f89313953e9ee01677a8b038588b1aacc4b6f687bc1046a5d65f08eac9f2f' %}
-{% set build_version = '34.0.0' %}
-{% set platform_version = '34.0.5' %}
+{% set as_version = '2023.2.1.23' %}
+{% set as_hash = '754049e35ffc060512eb6813e44e1a2b9dba1dabe8277274fd46638e196c3285' %}
+{% set build_version = '35.0.0' %}
+{% set platform_version = '35.0.0' %}
 {% set PROGRAM_FILES = salt['environ.get']('PROGRAMFILES') %}
 {% set broken_files = ['apkanalyzer.bat','lint.bat','screenshot2.bat'] %}
 {% set install = 'echo y|"C:\Program Files\Common Files\Oracle\Java\javapath\java.exe" -Dcom.android.sdklib.toolsdir="C:\Program Files\Android\Android Studio\Sdk\cmdline-tools\latest" -classpath "C:\Program Files\Android\Android Studio\Sdk\cmdline-tools\latest\lib\sdkmanager-classpath.jar" com.android.sdklib.tool.sdkmanager.SdkManagerCli' %}
