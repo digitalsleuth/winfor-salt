@@ -4,7 +4,7 @@
 # Category: Requirements
 # Author: Microsoft
 # License: Apache v2.0 (https://github.com/NuGet/NuGet.Client/blob/dev/LICENSE.txt)
-# Version: 2.8.5.208
+# Version: Minimum version 2.8.5.208 is for PowerShell only.
 # Notes:
 
 nuget-install:
