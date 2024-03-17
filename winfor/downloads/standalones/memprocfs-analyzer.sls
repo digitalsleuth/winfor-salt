@@ -196,7 +196,7 @@ yara-file-copy-download-only:
 zircolite-file-copy-download-only:
   file.copy:
     - name: '{{ downloads }}\memprocfs-analyzer\memprocfs-analyzer\Tools\Zircolite\'
-    - source: '{{ downloads }}\zircolite\zircolite_win10_x64-{{ zir_ver }}.7z'
+    - source: '{{ downloads }}\zircolite\zircolite_win10_x64_{{ zir_ver }}.7z'
     - makedirs: True
     - force: True
     - win_inheritance: True

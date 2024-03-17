@@ -15,6 +15,7 @@ mimikatz-defender-exclusion-download-only:
   cmd.run:
     - names:
       - 'Add-MpPreference -ExclusionPath "{{ downloads }}\"'
+      - 'Add-MpPreference -ExclusionPath "{{ PROGRAMDATA }}\Salt Project\Salt\var\"'
     - shell: powershell
 
 mimikatz-download-only:
