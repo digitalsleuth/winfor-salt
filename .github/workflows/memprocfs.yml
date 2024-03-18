@@ -18,8 +18,7 @@ jobs:
         run: |
           VERSION=$(cat /home/runner/work/winfor-salt/winfor-salt/winfor/standalones/memprocfs.sls | grep "set version" | awk -F\' '{print $2}')
           DATE=$(cat /home/runner/work/winfor-salt/winfor-salt/winfor/standalones/memprocfs.sls | grep "set date" | awk -F\' '{print $2}')
-          SHORT=$(cat /home/runner/work/winfor-salt/winfor-salt/winfor/standalones/memprocfs.sls | grep "set short" | awk -F\' '{print $2}')
           PREVIOUS_HASH=$(cat /home/runner/work/winfor-salt/winfor-salt/winfor/standalones/memprocfs.sls | grep "set hash" | awk -F\' '{print tolower($2)}')
-          wget https://github.com/ufrisk/MemProcFS/releases/download/v$SHORT/MemProcFS_files_and_binaries_v$VERSION-win_x64-$DATE.zip
+          wget https://github.com/ufrisk/MemProcFS/releases/download/v5_archive/MemProcFS_files_and_binaries_v$VERSION-win_x64-$DATE.zip
           CURRENT_HASH=$(sha256sum MemProcFS_files_and_binaries_v${VERSION}-win_x64-${DATE}.zip | awk '{print tolower($1)}')
           if [[ "$PREVIOUS_HASH" != "$CURRENT_HASH" ]]; then echo "HASH UPDATED - $CURRENT_HASH" && exit 1; else echo "No hash changes" && exit 0; fi
