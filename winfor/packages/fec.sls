@@ -4,7 +4,7 @@
 # Category: Email
 # Author: Arman Gungor - Metaspike
 # License:
-# Version: 3.88.0.15
+# Version: 3.89.0.16
 # Notes:
 
 forensic-email-collector:
