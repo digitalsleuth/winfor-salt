@@ -16,7 +16,7 @@ include:
 
 msiviewer-install:
   cmd.run:
-    - name: 'winget install --silent -e --id "9MZTR9QS01GN" --accept-source-agreements --accept-package-agreements'
+    - name: 'winget install --silent -e --id "9MZTR9QS01GN" --accept-source-agreements --accept-package-agreements --source msstore'
     - shell: cmd
     - success_retcodes: 2316632107
     - require:

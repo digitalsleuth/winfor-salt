@@ -4,11 +4,11 @@
 # Category: Executables
 # Author: Pavel Yosifovich
 # License: MIT License (https://github.com/zodiacon/TotalPE2/blob/master/LICENSE.txt)
-# Version: 0.6.5.0
+# Version: 0.6.5.1
 # Notes: 
 
-{% set version = '0.6.5.0' %}
-{% set hash = '0c3ed7a9621fa2df29cf641a91d24df34b3acf5efeb1ed3efc05de1235ed2655' %}
+{% set version = '0.6.5.1' %}
+{% set hash = 'ee9bb11f81c16998534134afb37cf1a3a168f1ca36aa273be1bb6e6feffc7229' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
