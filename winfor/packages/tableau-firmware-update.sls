@@ -4,7 +4,7 @@
 # Category: Utilities
 # Author: OpenText
 # License: EULA
-# Version: 22.3.2
+# Version: 23.4.3
 # Notes: 
 
 {% set user = salt['pillar.get']('winfor_user', 'forensics') %}
