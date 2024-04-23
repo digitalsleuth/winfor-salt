@@ -4,12 +4,12 @@
 # Category: Logs
 # Author: FinalAnalytics
 # License: EULA (https://www.finalanalytics.com/downloads/HttpLogBrowser-EULA.pdf)
-# Version: 4.6.2.0
+# Version: 4.6.3.0
 # Notes: 
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '4.6.2.0' %}
-{% set hash = 'D5AC49BB17C0FF594FC96F5FD6729C93B5DE6AF694F6837DC5D7980EFC81BCD4' %}
+{% set version = '4.6.3.0' %}
+{% set hash = 'ee20614d473a5e533a9b7d0b8e488bec9ea5bd97031224f4b8a5e18be84465e1' %}
 
 httplogbrowser-download-only:
   file.managed:
