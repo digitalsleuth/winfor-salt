@@ -24,7 +24,7 @@
                 ('MailView', 'C2590633A9B13CC9D46A41A2980347057C84D8788A4597B83FFCC057FFD5B774'),
                 ('EXE', 'b82ef588e3fd2c83fde19d8ce75fdaf474b935d3fc19ad549a2782875d036c58'),
                 ('XMLView', 'c64a87ee9d26096d3a2efc63d2c1b38fb5440a825fa5b1bdc0d50cbb2d6b7960'),
-                ('JSONView', '0f687010c7337ff95acf701d8d3883893393b43ba2dd01e9153240e0c46d6839'),
+                ('JSONView', 'd41df649be0c5ab404b84747578c8dcac6b8a577c5b1227b093deb085187fb7a'),
                 ('PhotoView', '6BCBB3AAFD3DB71E7CBDFB75D78934101DED79A5792F52FBAE600EC16910795C')
                ] %}
 
