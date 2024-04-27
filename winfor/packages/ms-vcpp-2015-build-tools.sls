@@ -4,7 +4,7 @@
 # Category: Requirements
 # Author: Microsoft
 # License: 
-# Version: 15.9.34601.69
+# Version: 15.9.34729.27
 # Notes: 
 
 ms-vcpp-2015-build-tools:

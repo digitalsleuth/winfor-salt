@@ -4,12 +4,12 @@
 # Category: Network
 # Author: Telerik
 # License: 
-# Version: 5.0.20211.51073
+# Version: 5.0.20242.10753
 # Notes: 
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '5.0.20211.51073' %}
-{% set hash = '5c92f0738c290eac319d4ac3006b5725f1d2163fbfe68dbb2047e07920f4d5e8' %}
+{% set version = '5.0.20242.10753' %}
+{% set hash = '06812518a722af6f98fbd8c3a5ace0cad1c6d53477972618728e64bafcbc948c' %}
 
 fiddler-download-only:
   file.managed:
