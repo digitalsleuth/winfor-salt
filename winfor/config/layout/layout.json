@@ -1428,6 +1428,17 @@
         "Enabled": true,
         "ExtraTiles": []
       },
+      "iBackup Viewer": {
+        "CbName": "packages_ibackup_viewer",
+        "CbContent": "iBackup Viewer",
+        "DAID": "{7C5A40EF-A0FB-4BFC-874A-C0F2E0B9FA8E}\\iMacTools\\iBackup Viewer\\iBackup Viewer.exe",
+        "AUMID": false,
+        "DALP": false,
+        "StartMenu": true,
+        "Checked": true,
+        "Enabled": true,
+        "ExtraTiles": []
+      },
       "ILEAPP": {
         "CbName": "python3_tools_ileapp",
         "CbContent": "ILEAPP",
