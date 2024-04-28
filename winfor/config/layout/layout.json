@@ -2177,6 +2177,17 @@
         "Enabled": true,
         "ExtraTiles": []
       },
+      "Caffeine": {
+        "CbName": "standalones_caffeine",
+        "CbContent": "Caffeine",
+        "DAID": "",
+        "AUMID": false,
+        "DALP": false,
+        "StartMenu": false,
+        "Checked": true,
+        "Enabled": true,
+        "ExtraTiles": []
+      },
       "CAiNE ISO": {
         "CbName": "standalones_caine",
         "CbContent": "CAiNE ISO",
