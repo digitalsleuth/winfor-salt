@@ -14,7 +14,7 @@ include:
   - winfor.python3-tools.xlmmacrodeobfuscator
   - winfor.python3-tools.oletools
   - winfor.python3-tools.pdfid
-  - winfor.python3-tools.wleapp
+#  - winfor.python3-tools.wleapp - PySimpleGUI is pinned to an outdated version
   - winfor.python3-tools.aleapp
   - winfor.python3-tools.ileapp
   - winfor.python3-tools.vleapp
@@ -46,7 +46,7 @@ python3-tools-states:
       - sls: winfor.python3-tools.xlmmacrodeobfuscator
       - sls: winfor.python3-tools.oletools
       - sls: winfor.python3-tools.pdfid
-      - sls: winfor.python3-tools.wleapp
+#      - sls: winfor.python3-tools.wleapp
       - sls: winfor.python3-tools.aleapp
       - sls: winfor.python3-tools.ileapp
       - sls: winfor.python3-tools.vleapp

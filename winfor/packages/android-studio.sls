@@ -76,7 +76,7 @@ cmdline-tools-fix-{{ file }}:
 
 build-tools-install:
   cmd.run:
-    - name: '{{ install }} "build-tools;{{ build_version }}"'
+    - name: '{{ install }} "build-tools;34.0.0"'
     - cwd: '{{ PROGRAM_FILES }}\Android\Android Studio\Sdk\cmdline-tools\latest\bin\'
     - shell: cmd
     - require:

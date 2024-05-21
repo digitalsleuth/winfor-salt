@@ -4,11 +4,11 @@
 # Category: Raw Parsers / Decoders
 # Author: Craig Wilson (https://www.digital-detective.net)
 # License: 
-# Version: 5.5.21194.40
+# Version: 5.6.24123.1
 # Notes: 
 
-{% set version = '5.5.21194.40' %}
-{% set hash = 'dbb23d6ea4f572fbaec017fb8acc2a8b62b74fafa81ea4a388966ec14087a9e4' %}
+{% set version = '5.6.24123.1' %}
+{% set hash = '9ffe1106ee9d9f55b53d5707621d5990f493604e20f3dbdb0d22ec1b8ecb2458' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 dcode-download-only:

@@ -188,7 +188,6 @@
           <start:DesktopApplicationTile Size="1x1" Column="3" Row="2" DesktopApplicationID="PLACEHOLDER_PATH\usbdetective\USB Detective.exe" />
           <start:DesktopApplicationTile Size="1x1" Column="4" Row="2" DesktopApplicationID="PLACEHOLDER_PATH\volatility-workbench\VolatilityWorkbench.exe" />
           <start:DesktopApplicationTile Size="1x1" Column="5" Row="2" DesktopApplicationID="PLACEHOLDER_PATH\windowstimeline\WindowsTimeline.exe" />
-          <start:DesktopApplicationTile Size="1x1" Column="0" Row="3" DesktopApplicationID="PLACEHOLDER_PATH\wleapp\wleappGUI.py" />
           <start:DesktopApplicationTile Size="1x1" Column="1" Row="3" DesktopApplicationID="PLACEHOLDER_PATH\zimmerman" />
         </start:Group>
       </defaultlayout:StartLayout>

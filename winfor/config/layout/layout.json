@@ -2976,17 +2976,6 @@
         "Enabled": true,
         "ExtraTiles": []
       },
-      "WLEAPP": {
-        "CbName": "python3_tools_wleapp",
-        "CbContent": "WLEAPP",
-        "DAID": "PLACEHOLDER_PATH\\wleapp\\wleappGUI.py",
-        "AUMID": false,
-        "DALP": false,
-        "StartMenu": true,
-        "Checked": true,
-        "Enabled": true,
-        "ExtraTiles": []
-      },
       "WMI Parser": {
         "CbName": "standalones_wmi_parser",
         "CbContent": "WMI Parser",

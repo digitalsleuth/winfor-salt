@@ -1,82 +1,72 @@
-directory-shell-admin:
+{% set paths = ["HKEY_CLASSES_ROOT\Directory\shell\Windows.CmdAsAdmin",
+                "HKEY_CLASSES_ROOT\Drive\shell\Windows.CmdAsAdmin",
+               ] %}
+
+{% for path in paths %}
+
+cmd-admin-{{ path }}:
   reg.present:
-    - name: HKEY_CLASSES_ROOT\Directory\shell\Windows.CmdAsAdmin
+    - name: {{ path }}
     - vtype: REG_SZ
     - vdata: "Open Command Prompt here as Administrator"
 
-directory-shell-admin-icon:
+cmd-admin-icon-{{ path }}:
   reg.present:
-    - name: HKEY_CLASSES_ROOT\Directory\shell\Windows.CmdAsAdmin
+    - name: {{ path }}
     - vname: Icon
     - vtype: REG_SZ
-    - vdata: imageres.dll,-5324
+    - vdata: imageres.dll,-5323
 
-directory-shell-admin-command:
+cmd-admin-position-{{ path }}:
   reg.present:
-    - name: HKEY_CLASSES_ROOT\Directory\shell\Windows.CmdAsAdmin\command
+    - name: {{ path }}
+    - vname: Position
+    - vtype: REG_SZ
+    - vdata: Bottom
+
+cmd-admin-LUA-{{ path }}:
+  reg.present:
+    - name: {{ path }}
+    - vname: HasLUAShield
+    - vtype: REG_SZ
+
+cmd-admin-command-{{ path }}:
+  reg.present:
+    - name: {{ path }}\command
     - vtype: REG_SZ
     - vdata: "cmd /c echo|set/p=\"%L\"|powershell -nop -W 1 -noni -nol \"SaPs 'cmd' -Args '/c \"\"\"cd /d',$([char]34+$Input+[char]34),'^&^& start /b cmd.exe\"\"\"' -Verb RunAs\""
 
-directory-background-shell:
+{% endfor %}
+
+cmd-admin-background:
   reg.present:
     - name: HKEY_CLASSES_ROOT\Directory\Background\shell\Windows.CmdAsAdmin
     - vtype: REG_SZ
     - vdata: "Open Command Prompt here as Administrator"
 
-directory-background-shell-icon:
+cmd-admin-background-icon:
   reg.present:
     - name: HKEY_CLASSES_ROOT\Directory\Background\shell\Windows.CmdAsAdmin
-    - vname: Icon
     - vtype: REG_SZ
-    - vdata: imageres.dll,-5324
+    - vname: Icon
+    - vdata: imageres.dll,-5323
 
-directory-background-shell-command:
+cmd-admin-background-position:
+  reg.present:
+    - name: HKEY_CLASSES_ROOT\Directory\Background\shell\Windows.CmdAsAdmin
+    - vtype: REG_SZ
+    - vname: Position
+    - vdata: Bottom
+
+cmd-admin-background-LUA:
+  reg.present:
+    - name: HKEY_CLASSES_ROOT\Directory\Background\shell\Windows.CmdAsAdmin
+    - vtype: REG_SZ
+    - vname: HasLUAShield
+
+cmd-admin-background-command:
   reg.present:
     - name: HKEY_CLASSES_ROOT\Directory\Background\shell\Windows.CmdAsAdmin\command
     - vtype: REG_SZ
     - vdata: "cmd /c echo|set/p=\"%V\"|powershell -nop -W 1 -noni -nol \"SaPs 'cmd' -Args '/c \"\"\"cd /d',$([char]34+$Input+[char]34),'^&^& start /b cmd.exe\"\"\"' -Verb RunAs\""
 
-drive-shell-admin:
-  reg.present:
-    - name: HKEY_CLASSES_ROOT\Drive\shell\Windows.CmdAsAdmin
-    - vtype: REG_SZ
-    - vdata: "Open Command Prompt here as Administrator"
-
-drive-shell-icon:
-  reg.present:
-    - name: HKEY_CLASSES_ROOT\Drive\shell\Windows.CmdAsAdmin
-    - vname: Icon
-    - vtype: REG_SZ
-    - vdata: imageres.dll,-5324
-
-drive-shell-command:
-  reg.present:
-    - name: HKEY_CLASSES_ROOT\Drive\shell\Windows.CmdAsAdmin\command
-    - vtype: REG_SZ
-    - vdata: "cmd /c echo|set/p=\"%L\"|powershell -nop -W 1 -noni -nol \"SaPs 'cmd' -Args '/c \"\"\"cd /d',$([char]34+$Input+[char]34),'^&^& start /b cmd.exe\"\"\"' -Verb RunAs\""
-
-library-background-shell:
-  reg.present:
-    - name: HKEY_CLASSES_ROOT\LibraryFolder\background\shell\Windows.CmdAsAdmin
-    - vtype: REG_SZ
-    - vdata: "Open Command Prompt here as Administrator"
-
-library-background-shell-icon:
-  reg.present:
-    - name: HKEY_CLASSES_ROOT\LibraryFolder\background\shell\Windows.CmdAsAdmin
-    - vname: Icon
-    - vtype: REG_SZ
-    - vdata: imageres.dll,-5324
-
-library-background-shell-command:
-  reg.present:
-    - name: HKEY_CLASSES_ROOT\LibraryFolder\background\shell\Windows.CmdAsAdmin\command
-    - vtype: REG_SZ
-    - vdata: "cmd /c echo|set/p=\"%L\"|powershell -nop -W 1 -noni -nol \"SaPs 'cmd' -Args '/c \"\"\"cd /d',$([char]34+$Input+[char]34),'^&^& start /b cmd.exe\"\"\"' -Verb RunAs\""
-
-linked-connections-cmd:
-  reg.present:
-    - name: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
-    - vname: EnableLinkedConnections
-    - vtype: REG_DWORD
-    - vdata: 1

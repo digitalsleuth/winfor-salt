@@ -4,16 +4,16 @@
 # Category: Raw Parsers / Decoders
 # Author: Craig Wilson (https://www.digital-detective.net)
 # License: 
-# Version: 5.5.21194.40
+# Version: 5.6.24123.1
 # Notes: 
 
-{% set version = '5.5.21194.40' %}
-{% set hash = 'dbb23d6ea4f572fbaec017fb8acc2a8b62b74fafa81ea4a388966ec14087a9e4' %}
+{% set version = '5.6.24123.1' %}
+{% set hash = '9ffe1106ee9d9f55b53d5707621d5990f493604e20f3dbdb0d22ec1b8ecb2458' %}
 
 dcode:
   file.managed:
     - name: 'C:\salt\tempdownload\DCode-x86-EN-{{ version }}.zip'
-    - source: https://www.digital-detective.net/download/downloadbac.php?downcode=ae2znu5994j1lforlh03
+    - source: https://www.digital-detective.net/download/download.php?downcode=ae2znu5994j1lforlh03
     - source_hash: sha256={{ hash }}
     - makedirs: True
 

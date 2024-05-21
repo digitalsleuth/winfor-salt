@@ -4,10 +4,10 @@
 # Category: Windows Analysis
 # Author: Andrea Fortuna
 # License: MIT License (https://github.com/andreafortuna/autotimeliner/blob/master/LICENSE)
-# Version: 1.1.0
+# Version: 1.1.1
 # Notes: 
 
-{% set hash = 'e4807cb89dcb71a4bb95364f314131511aeea65b49f1f378b6b64dca98a1806c' %}
+{% set hash = '7784eac3234071127898ed85e277459831ee08ada7b6a1644736e5814394d2c4' %}
 
 include:
   - winfor.packages.python3

@@ -8,24 +8,16 @@
 # Notes: 
 
 {% set version = '1.2402.24001.0' %}
-{% set hash = '9c28769af133e803a0eadeb5e4aea11175565b7683158d4eb0eae09e045d2366' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set PROGRAM_FILES = salt['environ.get']('PROGRAMFILES') %}
 {% set LOCALAPPDATA = salt['environ.get']('LOCALAPPDATA') %}
 
-windbg-download:
-  file.managed:
-    - name: 'C:\salt\tempdownload\windbg.appinstaller'
-    - source: https://windbg.download.prss.microsoft.com/dbazure/prod/1-0-0/windbg.appinstaller
-    - source_hash: sha256={{ hash }}
-    - makedirs: True
+include:
+  - winfor.installers.windows-winget
 
-windbg-install:
+windbg-winget-install:
   cmd.run:
-    - name: 'Add-AppxPackage -AppInstallerFile C:\salt\tempdownload\windbg.appinstaller'
-    - shell: powershell
-    - require:
-      - file: windbg-download
+    - name: winget install --silent Microsoft.WinDbg --accept-source-agreements --accept-package-agreements
 
 windbg-shortcut:
   file.shortcut:
@@ -35,4 +27,4 @@ windbg-shortcut:
     - working_dir: '{{ LOCALAPPDATA }}\Microsoft\WindowsApps\'
     - icon_location: '{{ PROGRAM_FILES }}\WindowsApps\Microsoft.WinDbg_{{ version }}_x64__8wekyb3d8bbwe\DbgX.Shell.exe'
     - require:
-      - cmd: windbg-install
+      - cmd: windbg-winget-install

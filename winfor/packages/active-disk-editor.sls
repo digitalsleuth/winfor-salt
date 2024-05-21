@@ -4,7 +4,7 @@
 # Category: Acquisition and Analysis
 # Author: LSoft Technologies
 # License: https://www.lsoft.net/terms/
-# Version: 23.0.1
+# Version: 24
 # Notes: 
 
 active-disk-editor:
