@@ -7,5 +7,8 @@
 # Version: 4.28
 # Notes:
 
+include:
+  - winfor.repos
+
 msg-viewer:
   pkg.installed

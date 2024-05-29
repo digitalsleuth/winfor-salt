@@ -7,6 +7,9 @@
 # Version: 20.3
 # Notes: 
 
+include:
+  - winfor.repos
+
 kernel-pst-viewer:
   pkg.installed
 

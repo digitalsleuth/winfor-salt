@@ -9,6 +9,9 @@
 
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
+include:
+  - winfor.repos
+
 zui:
   pkg.installed
 

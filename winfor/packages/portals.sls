@@ -7,6 +7,9 @@
 # Version: 3.2.1.0
 # Notes:
 
+include:
+  - winfor.repos
+
 portals:
   pkg.installed:
     - version: '3.2.1.0'

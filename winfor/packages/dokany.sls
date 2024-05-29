@@ -9,5 +9,8 @@
 
 {% set version = '2.0.6.1000' %}
 
+include:
+  - winfor.repos
+
 dokany:
   pkg.installed

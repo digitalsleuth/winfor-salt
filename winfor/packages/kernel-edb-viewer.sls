@@ -7,5 +7,8 @@
 # Version: 15.9
 # Notes: 
 
+include:
+  - winfor.repos
+
 kernel-edb-viewer:
   pkg.installed

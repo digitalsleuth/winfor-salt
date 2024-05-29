@@ -18,6 +18,7 @@
 
 include:
   - winfor.config.user
+  - winfor.repos
 
 pdfstreamdumper:
   pkg.installed

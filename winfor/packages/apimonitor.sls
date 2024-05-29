@@ -7,5 +7,8 @@
 # Version: v2r13
 # Notes: 
 
+include:
+  - winfor.repos
+
 apimonitor:
   pkg.installed

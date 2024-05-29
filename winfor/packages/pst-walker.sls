@@ -7,5 +7,8 @@
 # Version: 7.26
 # Notes:
 
+include:
+  - winfor.repos
+
 pst-walker:
   pkg.installed

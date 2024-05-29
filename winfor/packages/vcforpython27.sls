@@ -7,5 +7,8 @@
 # Version: 9.0.1.30729
 # Notes:
 
+include:
+  - winfor.repos
+
 vcforpython27:
   pkg.installed

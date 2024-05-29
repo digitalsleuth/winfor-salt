@@ -7,5 +7,8 @@
 # Version: 4.6.3.0
 # Notes: 
 
+include:
+  - winfor.repos
+
 httplogbrowser:
   pkg.installed

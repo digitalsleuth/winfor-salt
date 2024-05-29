@@ -18,6 +18,7 @@
 
 include:
   - winfor.config.user
+  - winfor.repos
 
 google-earth-pro:
   pkg.installed

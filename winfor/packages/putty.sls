@@ -7,5 +7,8 @@
 # Version: 0.79
 # Notes: 
 
+include:
+  - winfor.repos
+
 putty:
   pkg.installed

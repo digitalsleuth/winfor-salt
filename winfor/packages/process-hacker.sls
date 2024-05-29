@@ -7,6 +7,9 @@
 # Version: 2.39.0.124
 # Notes: 
 
+include:
+  - winfor.repos
+
 process-hacker:
   pkg.installed:
     - version: '2.39.0.124'

@@ -7,5 +7,8 @@
 # Version: 15.9.34729.27
 # Notes: 
 
+include:
+  - winfor.repos
+
 ms-vcpp-2015-build-tools:
   pkg.installed

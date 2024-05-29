@@ -7,5 +7,8 @@
 # Version: 17.0.4 (2022)
 # Notes: Installation and application are 17.0.4, but environment is 2022
 
+include:
+  - winfor.repos
+
 vs-community-2022:
   pkg.installed

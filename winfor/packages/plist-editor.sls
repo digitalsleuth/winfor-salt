@@ -7,6 +7,9 @@
 # Version: 2.5.0
 # Notes: Free Trial
 
+include:
+  - winfor.repos
+
 plist-editor:
   pkg.installed
 

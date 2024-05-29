@@ -7,5 +7,8 @@
 # Version: 10.4.5
 # Notes:
 
+include:
+  - winfor.repos
+
 razorsql-x64:
   pkg.installed

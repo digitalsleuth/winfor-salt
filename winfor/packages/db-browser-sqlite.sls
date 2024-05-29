@@ -7,5 +7,8 @@
 # Version: 3.12.2
 # Notes: 
 
+include:
+  - winfor.repos
+
 db-browser-sqlite:
   pkg.installed

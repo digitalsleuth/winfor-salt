@@ -7,5 +7,8 @@
 # Version: 2.38.1
 # Notes: 
 
+include:
+  - winfor.repos
+
 git:
   pkg.installed

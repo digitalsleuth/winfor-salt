@@ -7,5 +7,8 @@
 # Version: 24
 # Notes: 
 
+include:
+  - winfor.repos
+
 active-disk-editor:
   pkg.installed

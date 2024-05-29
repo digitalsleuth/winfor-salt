@@ -866,6 +866,17 @@
         "Enabled": true,
         "ExtraTiles": []
       },
+      "maldump": {
+        "CbName": "python3_tools_maldump",
+        "CbContent": "maldump",
+        "DAID": "",
+        "AUMID": false,
+        "DALP": false,
+        "StartMenu": false,
+        "Checked": true,
+        "Enabled": true,
+        "ExtraTiles": []
+      },
       "mal_unpack": {
         "CbName": "standalones_mal_unpack",
         "CbContent": "mal_unpack",
@@ -1677,6 +1688,28 @@
         "CbName": "installers_dcode",
         "CbContent": "DCode",
         "DAID": "{7C5A40EF-A0FB-4BFC-874A-C0F2E0B9FA8E}\\Digital Detective\\DCode v5\\DCode.exe",
+        "AUMID": false,
+        "DALP": false,
+        "StartMenu": true,
+        "Checked": true,
+        "Enabled": true,
+        "ExtraTiles": []
+      },
+      "deark": {
+        "CbName": "standarlones_deark",
+        "CbContent": "deark",
+        "DAID": "",
+        "AUMID": false,
+        "DALP": false,
+        "StartMenu": false,
+        "Checked": true,
+        "Enabled": true,
+        "ExtraTiles": []
+      },
+      "DROID": {
+        "CbName": "standalones_droid",
+        "CbContent": "DROID",
+        "DAID": "PLACEHOLDER_PATH\\droid\\droid.bat",
         "AUMID": false,
         "DALP": false,
         "StartMenu": true,

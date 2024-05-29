@@ -7,5 +7,8 @@
 # Version: 5.32.1.1
 # Notes: 
 
+include:
+  - winfor.repos
+
 strawberryperl_x64:
   pkg.installed

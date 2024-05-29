@@ -9,6 +9,9 @@
 
 {% set version = '8.3' %}
 
+include:
+  - winfor.repos
+
 ida-free:
   pkg.installed
 

@@ -7,5 +7,8 @@
 # Version: 3.4.4.0
 # Notes: 
 
+include:
+  - winfor.repos
+
 bulkrenameutility:
   pkg.installed

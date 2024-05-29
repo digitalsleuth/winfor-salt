@@ -7,5 +7,8 @@
 # Version: 23.2.1
 # Notes: 
 
+include:
+  - winfor.repos
+
 dbeaver:
   pkg.installed

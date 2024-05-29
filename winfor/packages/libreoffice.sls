@@ -7,5 +7,8 @@
 # Version: 7.6.2.1
 # Notes: 
 
+include:
+  - winfor.repos
+
 libreoffice:
   pkg.installed

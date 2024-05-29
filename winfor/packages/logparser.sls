@@ -7,5 +7,8 @@
 # Version: 2.2.10
 # Notes: 
 
+include:
+  - winfor.repos
+
 logparser:
   pkg.installed

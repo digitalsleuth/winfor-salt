@@ -7,5 +7,8 @@
 # Version: 2.4.0.55
 # Notes:
 
+include:
+  - winfor.repos
+
 hashcheck:
   pkg.installed

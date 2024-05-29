@@ -7,5 +7,8 @@
 # Version: IV
 # Notes: 
 
+include:
+  - winfor.repos
+
 ntcore-explorersuite:
   pkg.installed

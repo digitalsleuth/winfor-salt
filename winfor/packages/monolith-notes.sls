@@ -20,6 +20,7 @@
 
 include:
   - winfor.config.user
+  - winfor.repos
 
 monolith-notes:
   pkg.installed

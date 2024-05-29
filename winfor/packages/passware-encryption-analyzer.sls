@@ -8,6 +8,10 @@
 # Notes:
 
 {% set version = '2024.2.0.4023' %}
+
+include:
+  - winfor.repos
+
 Check for previous Passware versions and remove:
   pkg.removed:
     - name: passware-encryption-analyzer

@@ -8,11 +8,22 @@
 # Notes:
 
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set defender_status = salt['cmd.run']('powershell -c "(Get-Service windefend).Status"') %}
+
+include:
+  - winfor.repos
 
 ksdumper11-defender-exclusion:
   cmd.run:
+{% if defender_status == "Running" %}
     - names:
+      - 'echo "Defender is {{ defender_status }}"'
       - 'Add-MpPreference -ExclusionPath "C:\Program Files\KsDumper11"'
+      - 'Add-MpPreference -ExclusionPath "{{ PROGRAMDATA }}\Salt Project\Salt\var"'
+{% else %}
+    - name:
+      - 'echo "Defender is {{ defender_status }}"'
+{% endif %}
     - shell: powershell
 
 ksdumper11:

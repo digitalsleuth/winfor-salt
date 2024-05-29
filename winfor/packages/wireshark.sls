@@ -7,5 +7,8 @@
 # Version: 4.0.10
 # Notes: 
 
+include:
+  - winfor.repos
+
 wireshark:
   pkg.installed

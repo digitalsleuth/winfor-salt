@@ -4,18 +4,18 @@
 # Category: Network
 # Author: NETRESEC AB
 # License: GNU General Public License (GPL) v2.0 (https://www.netresec.com/?page=NetworkMinerSourceCode)
-# Version: 2.8.1
+# Version: 2.9
 # Notes: 
 
-{% set version = '2-8-1' %}
-{% set hash = '34e8ba09d6bb47463c0e154b7a8eef26922b8dd61000e95d1880aa8c175507e1' %}
+{% set version = '2-9' %}
+{% set hash = 'c610f6ba647ddd9c718e87018ee40595a4d72a52a6b3b7ceb53caf4fa8de6f05' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 
 network-miner-download:
   file.managed:
     - name: 'C:\salt\tempdownload\NetworkMiner_{{ version }}.zip'
-    - source: https://www.netresec.com/?download=NetworkMiner
+    - source: https://download.netresec.com/networkminer/NetworkMiner_{{ version }}.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True
 

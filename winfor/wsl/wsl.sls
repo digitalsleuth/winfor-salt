@@ -11,15 +11,24 @@
 {% set SID = salt['user.info'](user).uid %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set version = salt['cp.get_file_str']("C:\ProgramData\Salt Project\Salt\srv\salt\winfor\VERSION") %}
+{% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set defender_status = salt['cmd.run']('powershell -c "(Get-Service windefend).Status"') %}
 
 include:
   - winfor.config.user
 
 wsl-defender-exclusion:
   cmd.run:
+{% if defender_status == "Running" %}
     - names:
-      - 'Add-MpPreference -ExclusionPath "{{ inpath }}\"'
-      - 'Add-MpPreference -ExclusionPath "C:\salt\tempdownload\"'
+      - 'echo "Defender is {{ defender_status }}"'
+      - 'Add-MpPreference -ExclusionPath "{{ inpath }}"'
+      - 'Add-MpPreference -ExclusionPath "C:\salt\tempdownload"'
+      - 'Add-MpPreference -ExclusionPath "{{ PROGRAMDATA }}\Salt Project\Salt\var"'
+{% else %}
+    - name:
+      - 'echo "Defender is {{ defender_status }}"'
+{% endif %}
     - shell: powershell
 
 wsl-cleanup:

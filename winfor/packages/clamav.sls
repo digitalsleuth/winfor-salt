@@ -9,6 +9,9 @@
 
 {% set configs = ['freshclam','clamd'] %}
 
+include:
+  - winfor.repos
+
 clamav:
   pkg.installed
 

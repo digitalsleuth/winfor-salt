@@ -10,12 +10,21 @@
 {% set version = '2.8.1' %}
 {% set hash = '2881fc8a3999281b05f4edbfa8941e518c83f60a53d713076f8df666cadae17f' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
+{% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set defender_status = salt['cmd.run']('powershell -c "(Get-Service windefend).Status"') %}
 
 chainsaw-defender-exclusion:
   cmd.run:
+{% if defender_status == "Running" %}
     - names:
-      - 'Add-MpPreference -ExclusionPath "{{ inpath }}\"'
-      - 'Add-MpPreference -ExclusionPath "C:\salt\tempdownload\"'
+      - 'echo "Defender is {{ defender_status }}"'
+      - 'Add-MpPreference -ExclusionPath "{{ inpath }}"'
+      - 'Add-MpPreference -ExclusionPath "C:\salt\tempdownload"'
+      - 'Add-MpPreference -ExclusionPath "{{ PROGRAMDATA }}\Salt Project\Salt\var"'
+{% else %}
+    - name:
+      - 'echo "Defender is {{ defender_status }}"'
+{% endif %}
     - shell: powershell
 
 chainsaw-download:

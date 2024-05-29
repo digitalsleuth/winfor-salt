@@ -7,6 +7,9 @@
 # Version: 12.0
 # Notes: 
 
+include:
+  - winfor.repos
+
 mdf-viewer:
   pkg.installed
 

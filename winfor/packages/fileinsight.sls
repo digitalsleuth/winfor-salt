@@ -7,5 +7,8 @@
 # Version: 3.0
 # Notes: 
 
+include:
+  - winfor.repos
+
 fileinsight:
   pkg.installed

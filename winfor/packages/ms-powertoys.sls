@@ -7,5 +7,8 @@
 # Version: 0.74.1
 # Notes:
 
+include:
+  - winfor.repos
+
 ms-powertoys:
   pkg.installed

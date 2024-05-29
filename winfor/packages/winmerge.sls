@@ -7,5 +7,8 @@
 # Version: 2.16.32
 # Notes:
 
+include:
+  - winfor.repos
+
 winmerge:
   pkg.installed

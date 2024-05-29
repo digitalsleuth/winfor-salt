@@ -7,5 +7,8 @@
 # Version: 17.0.9
 # Notes: 
 
+include:
+  - winfor.repos
+
 jdk17:
   pkg.installed

@@ -7,6 +7,9 @@
 # Version: 4.21.0
 # Notes: 
 
+include:
+  - winfor.repos
+
 autopsy:
   pkg.installed:
     - version: '4.21.0'

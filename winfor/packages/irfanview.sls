@@ -7,5 +7,8 @@
 # Version: 4.62
 # Notes:
 
+include:
+  - winfor.repos
+
 irfanview:
   pkg.installed

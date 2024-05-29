@@ -7,6 +7,9 @@
 # Version: 1.20.14.0
 # Notes: 
 
+include:
+  - winfor.repos
+
 vcxsrv:
   pkg.installed
 

@@ -1,3 +1,11 @@
+{% set current_commit = salt['cmd.run']('powershell -c "(Invoke-RestMethod -Uri https://api.github.com/repos/digitalsleuth/salt-winrepo-ng/commits)[0].sha"') -%}
+{% set head = "C:\\ProgramData\\Salt Project\\Salt\\srv\\salt\\win\\repo-ng\\salt-winrepo-ng\\.git\\HEAD" %}
+{% if salt['file.file_exists'](head) %}
+{%- set local_commit = salt['file.read'](head)|trim -%}
+{% else %}
+{% set local_commit = '' %}
+{% endif %}
+
 repo-add-1:
   file.replace:
     - name: 'C:\ProgramData\Salt Project\salt\conf\minion'
@@ -27,6 +35,11 @@ repo-add-3:
       - file: repo-add-1
       - file: repo-add-2
 
+{% if local_commit == current_commit %}
+Local repo up-to-date with online repo:
+  test.nop
+{% else %}
+
 repo-update:
   cmd.run:
     - name: '"C:\Program Files\Salt Project\Salt\salt-call.bat" --local winrepo.update_git_repos'
@@ -40,3 +53,5 @@ repo-refresh-db:
     - name: '"C:\Program Files\Salt Project\Salt\salt-call.bat" --local pkg.refresh_db'
     - require:
       - cmd: repo-update
+
+{% endif %}

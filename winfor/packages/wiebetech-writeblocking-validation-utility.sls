@@ -7,5 +7,8 @@
 # Version: 2.1.0.7
 # Notes: 
 
+include:
+  - winfor.repos
+
 wiebetech-writeblocking-validation-utility:
   pkg.installed

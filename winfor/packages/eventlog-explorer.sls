@@ -9,6 +9,9 @@
 
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
+include:
+  - winfor.repos
+
 eventlog-explorer:
   pkg.installed
 

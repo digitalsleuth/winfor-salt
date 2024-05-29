@@ -7,6 +7,9 @@
 # Version: 7.0.10-158379
 # Notes: 
 
+include:
+  - winfor.repos
+
 virtualbox:
   pkg.installed
 

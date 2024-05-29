@@ -7,5 +7,8 @@
 # Version: 3.89.0.16
 # Notes:
 
+include:
+  - winfor.repos
+
 forensic-email-collector:
   pkg.latest

@@ -7,6 +7,9 @@
 # Version: 7.5
 # Notes:
 
+include:
+  - winfor.repos
+
 4n6-email-forensics-wizard:
   pkg.installed
 

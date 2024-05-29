@@ -27,6 +27,7 @@ include:
   - winfor.python3-tools.flare-fakenet-ng
   - winfor.python3-tools.pyson4
   - winfor.python3-tools.plaso
+  - winfor.python3-tools.maldump
 
 python3-tools-states:
   test.nop:
@@ -59,6 +60,7 @@ python3-tools-states:
       - sls: winfor.python3-tools.flare-fakenet-ng
       - sls: winfor.python3-tools.pyson4
       - sls: winfor.python3-tools.plaso
+      - sls: winfor.python3-tools.maldump
 
 python3-filetype-association:
   cmd.run:

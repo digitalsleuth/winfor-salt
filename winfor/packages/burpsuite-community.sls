@@ -7,5 +7,8 @@
 # Version: v2023.10.1.2
 # Notes:
 
+include:
+  - winfor.repos
+
 burpsuite-community:
   pkg.installed

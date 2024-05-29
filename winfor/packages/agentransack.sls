@@ -7,5 +7,8 @@
 # Version: 9.2.3434.1
 # Notes:
 
+include:
+  - winfor.repos
+
 agentransack:
   pkg.installed

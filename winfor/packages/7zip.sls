@@ -7,6 +7,9 @@
 # Version: 23.01
 # Notes: 
 
+include:
+  - winfor.repos
+
 7zip:
   pkg.installed
 

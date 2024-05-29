@@ -18,6 +18,7 @@
 
 include:
   - winfor.config.user
+  - winfor.repos
 
 free-hex-editor-neo:
   pkg.installed

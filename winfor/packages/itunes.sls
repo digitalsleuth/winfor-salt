@@ -7,6 +7,9 @@
 # Version: 12.12.10.1
 # Notes:
 
+include:
+  - winfor.repos
+
 itunes:
   pkg.installed
 

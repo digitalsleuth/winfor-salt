@@ -10,6 +10,9 @@
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set PROGRAMFILES = salt['environ.get']('PROGRAMFILES') %}
 
+include:
+  - winfor.repos
+
 fex-imager:
   pkg.installed
 

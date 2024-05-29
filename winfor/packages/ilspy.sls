@@ -10,5 +10,8 @@
 {% set version = '8.1.1.7464' %}
 {% set core_version = '8.1.1' %}
 
+include:
+  - winfor.repos
+
 ilspy:
   pkg.installed

@@ -7,5 +7,8 @@
 # Version: 1.06
 # Notes:
 
+include:
+  - winfor.repos
+
 magnet-chromebook-acquisition:
   pkg.installed

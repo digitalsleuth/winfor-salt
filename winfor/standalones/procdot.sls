@@ -11,6 +11,7 @@
 {% set version = '1_22_57' %}
 {% set hash = '927cd36dbb4dc0be94afb6021ca7f747dd3f17aad383583bc71aa6e36a762849' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set defender_status = salt['cmd.run']('powershell -c "(Get-Service windefend).Status"') %}
 
 include:
   - winfor.packages.7zip
@@ -18,9 +19,16 @@ include:
 
 procdot-defender-exclusion:
   cmd.run:
+{% if defender_status == "Running" %}
     - names:
-      - 'Add-MpPreference -ExclusionPath "{{ inpath }}\"'
-      - 'Add-MpPreference -ExclusionPath "C:\salt\tempdownload\"'
+      - 'echo "Defender is {{ defender_status }}"'
+      - 'Add-MpPreference -ExclusionPath "{{ inpath }}"'
+      - 'Add-MpPreference -ExclusionPath "C:\salt\tempdownload"'
+      - 'Add-MpPreference -ExclusionPath "{{ PROGRAMDATA }}\Salt Project\Salt\var"'
+{% else %}
+    - name:
+      - 'echo "Defender is {{ defender_status }}"'
+{% endif %}
     - shell: powershell
 
 procdot-download:

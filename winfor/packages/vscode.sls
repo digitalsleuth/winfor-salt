@@ -7,5 +7,8 @@
 # Version: 1.82.3
 # Notes: 
 
+include:
+  - winfor.repos
+
 vscode:
   pkg.installed

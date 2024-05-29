@@ -7,6 +7,9 @@
 # Version: 2.7.18
 # Notes: 
 
+include:
+  - winfor.repos
+
 python2_x64:
   pkg.installed
 

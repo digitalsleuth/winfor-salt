@@ -7,5 +7,8 @@
 # Version: 4152
 # Notes: 
 
+include:
+  - winfor.repos
+
 sublime-text:
   pkg.installed

@@ -7,6 +7,9 @@
 # Version: 20.3.3
 # Notes:
 
+include:
+  - winfor.repos
+
 tableau-imager:
   pkg.installed
 

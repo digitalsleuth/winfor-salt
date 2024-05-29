@@ -10,13 +10,20 @@
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set version = '2.2.0-20220919' %}
+{% set defender_status = salt['cmd.run']('powershell -c "(Get-Service windefend).Status"') %}
 
 mimikatz-defender-exclusion:
   cmd.run:
+{% if defender_status == "Running" %}
     - names:
+      - 'echo "Defender is {{ defender_status }}"'
       - 'Add-MpPreference -ExclusionPath "{{ inpath }}"'
       - 'Add-MpPreference -ExclusionPath "C:\salt\tempdownload"'
       - 'Add-MpPreference -ExclusionPath "{{ PROGRAMDATA }}\Salt Project\Salt\var"'
+{% else %}
+    - name:
+      - 'echo "Defender is {{ defender_status }}"'
+{% endif %}
     - shell: powershell
 
 mimikatz-download:

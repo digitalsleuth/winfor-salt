@@ -7,6 +7,9 @@
 # Version: 4.27.30
 # Notes: 
 
+include:
+  - winfor.repos
+
 ibackup-viewer:
   pkg.installed
 

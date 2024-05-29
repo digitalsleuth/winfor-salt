@@ -11,12 +11,19 @@
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set hash = '7accd179e8a6b2fc907e7e8d087c52a7f48084852724b03d25bebcada1acbca5' %}
+{% set defender_status = salt['cmd.run']('powershell -c "(Get-Service windefend).Status"') %}
 
 mimikatz-defender-exclusion-download-only:
   cmd.run:
+{% if defender_status == "Running" %}
     - names:
-      - 'Add-MpPreference -ExclusionPath "{{ downloads }}\"'
-      - 'Add-MpPreference -ExclusionPath "{{ PROGRAMDATA }}\Salt Project\Salt\var\"'
+      - 'echo "Defender is {{ defender_status }}"'
+      - 'Add-MpPreference -ExclusionPath "{{ downloads }}"'
+      - 'Add-MpPreference -ExclusionPath "{{ PROGRAMDATA }}\Salt Project\Salt\var"'
+{% else %}
+    - name:
+      - 'echo "Defender is {{ defender_status }}"'
+{% endif %}
     - shell: powershell
 
 mimikatz-download-only:

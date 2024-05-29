@@ -7,5 +7,8 @@
 # Version: 118.0.1
 # Notes: 
 
+include:
+  - winfor.repos
+
 firefox_x64:
   pkg.installed

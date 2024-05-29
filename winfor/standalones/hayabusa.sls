@@ -10,12 +10,21 @@
 {% set version = '2.9.0' %}
 {% set hash = '870a6d07ea2a4ba82d19a98b4e656269ef88ebc7286ad8607bbeaaace4a84d44' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
+{% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set defender_status = salt['cmd.run']('powershell -c "(Get-Service windefend).Status"') %}
 
 hayabusa-defender-exclusion:
   cmd.run:
+{% if defender_status == "Running" %}
     - names:
-      - 'Add-MpPreference -ExclusionPath "{{ inpath }}\"'
-      - 'Add-MpPreference -ExclusionPath "C:\salt\tempdownload\"'
+      - 'echo "Defender is {{ defender_status }}"'
+      - 'Add-MpPreference -ExclusionPath "{{ inpath }}"'
+      - 'Add-MpPreference -ExclusionPath "C:\salt\tempdownload"'
+      - 'Add-MpPreference -ExclusionPath "{{ PROGRAMDATA }}\Salt Project\Salt\var"'
+{% else %}
+    - name:
+      - 'echo "Defender is {{ defender_status }}"'
+{% endif %}
     - shell: powershell
 
 hayabusa-download:

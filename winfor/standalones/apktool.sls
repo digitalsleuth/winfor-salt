@@ -13,6 +13,7 @@
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 
 include:
+  - winfor.repos
   - winfor.packages.jdk17
 
 apktool-batch-download:
@@ -30,6 +31,7 @@ apktool-jar-download:
     - makedirs: True
     - require:
       - file: apktool-batch-download
+      - sls: winfor.repos
       - sls: winfor.packages.jdk17
 
 apktool-path:

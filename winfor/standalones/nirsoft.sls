@@ -12,6 +12,7 @@
 {% set hash = '974689a110f00bd43ee30f060cb8489eee59c6b71037f8fd7a68658b8a5b7900' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set nlps = ['eztools.nlp', 'mitec.nlp', 'sysinternals6.nlp'] %}
+{% set defender_status = salt['cmd.run']('powershell -c "(Get-Service windefend).Status"') %}
 
 include:
   - winfor.packages.7zip
@@ -20,9 +21,16 @@ include:
 
 nirsoft-defender-exclusion:
   cmd.run:
-    - names: 
-      - 'Add-MpPreference -ExclusionPath "{{ inpath }}\"'
-      - 'Add-MpPreference -ExclusionPath "C:\salt\tempdownload\"'
+{% if defender_status == "Running" %}
+    - names:
+      - 'echo "Defender is {{ defender_status }}"'
+      - 'Add-MpPreference -ExclusionPath "{{ inpath }}"'
+      - 'Add-MpPreference -ExclusionPath "C:\salt\tempdownload"'
+      - 'Add-MpPreference -ExclusionPath "{{ PROGRAMDATA }}\Salt Project\Salt\var"'
+{% else %}
+    - name:
+      - 'echo "Defender is {{ defender_status }}"'
+{% endif %}
     - shell: powershell
 
 nirsoft-download:

@@ -7,6 +7,9 @@
 # Version: 3.4.4
 # Notes: 
 
+include:
+  - winfor.repos
+
 sqlitestudio:
   pkg.installed
 

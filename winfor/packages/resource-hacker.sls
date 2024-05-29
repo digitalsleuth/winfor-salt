@@ -9,5 +9,8 @@
 
 {% set version = '5.2.6' %}
 
+include:
+  - winfor.repos
+
 resource-hacker:
   pkg.installed

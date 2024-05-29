@@ -7,6 +7,9 @@
 # Version: 6.2.1
 # Notes:
 
+include:
+  - winfor.repos
+
 nuix-evidence-mover:
   pkg.installed
 

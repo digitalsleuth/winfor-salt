@@ -7,6 +7,9 @@
 # Version: 2.0.0.7
 # Notes: 
 
+include:
+  - winfor.repos
+
 registry-viewer:
   pkg.installed
 

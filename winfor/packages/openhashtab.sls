@@ -7,5 +7,8 @@
 # Version: 3.0.4
 # Notes: 
 
+include:
+  - winfor.repos
+
 openhashtab:
   pkg.installed

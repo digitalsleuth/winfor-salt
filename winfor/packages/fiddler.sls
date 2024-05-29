@@ -12,6 +12,9 @@
 {% set SHORTCUT1 = 'Microsoft\Windows\Start Menu\Programs\Fiddler Classic.lnk' %}
 {% set SHORTCUT2 = 'Microsoft\Windows\Start Menu\Programs\Fiddler ScriptEditor.lnk' %}
 
+include:
+  - winfor.repos
+
 fiddler:
   pkg.installed
 

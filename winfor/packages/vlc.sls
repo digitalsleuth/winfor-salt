@@ -7,6 +7,9 @@
 # Version: 3.0.18
 # Notes: 
 
+include:
+  - winfor.repos
+
 vlc:
   pkg.installed
 

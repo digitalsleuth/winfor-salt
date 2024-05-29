@@ -7,5 +7,8 @@
 # Version: 1.5.5
 # Notes: 
 
+include:
+  - winfor.repos
+
 bulk-extractor:
   pkg.installed

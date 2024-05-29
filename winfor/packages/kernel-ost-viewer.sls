@@ -7,6 +7,9 @@
 # Version: 21.1
 # Notes: 
 
+include:
+  - winfor.repos
+
 kernel-ost-viewer:
   pkg.installed
 

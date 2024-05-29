@@ -7,5 +7,8 @@
 # Version: 3.12
 # Notes:
 
+include:
+  - winfor.repos
+
 teracopy:
   pkg.installed

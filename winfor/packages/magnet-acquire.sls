@@ -7,5 +7,8 @@
 # Version: 2.68.0.36478
 # Notes:
 
+include:
+  - winfor.repos
+
 magnet-acquire:
   pkg.installed

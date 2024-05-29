@@ -7,5 +7,8 @@
 # Version: 9.0.0
 # Notes:
 
+include:
+  - winfor.repos
+
 graphviz:
   pkg.installed

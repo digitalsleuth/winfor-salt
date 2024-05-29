@@ -7,5 +7,8 @@
 # Version: 10.0.40219
 # Notes:
 
+include:
+  - winfor.repos
+
 ms-vcpp-2010-sp1-mfc-redist_x64:
   pkg.installed
