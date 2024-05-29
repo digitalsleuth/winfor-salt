@@ -4,12 +4,12 @@
 # Category: Network
 # Author: PortSwigger
 # License: https://portswigger.net/burp/tc-community
-# Version: v2023.10.1.2
+# Version: v2024.4.4
 # Notes:
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '2023.10.1.2' %}
-{% set hash = '080fdd5a3f809f321cf35167b84708fc5fda030084010fff200c5075f5c61540' %}
+{% set version = '2024.4.4' %}
+{% set hash = '9a0e0bc60efe212cd3587d18d1baac37be097d42397ee1c74a7cebe8565db6e6' %}
 
 burpsuite-community-download-only:
   file.managed:

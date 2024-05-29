@@ -4,7 +4,7 @@
 # Category: Requirements
 # Author: Adobe
 # License: https://helpx.adobe.com/ca/reader/acrobat-copyright-trademarks-third-party-notices.html
-# Version: 23.006.20320
+# Version: 24.002.20749
 # Notes: 
 
 {% set user = salt['pillar.get']('winfor_user', 'forensics') %}

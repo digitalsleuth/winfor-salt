@@ -4,11 +4,11 @@
 # Category: Requirements
 # Author: Igor Pavlov
 # License: GNU LGPL (https://www.7-zip.org/faq.html)
-# Version: 23.01
+# Version: 24.06
 # Notes: 
 
-{% set version = '2301' %}
-{% set hash = '0ba639b6dacdf573d847c911bd147c6384381a54dac082b1e8c77bc73d58958b' %}
+{% set version = '2406' %}
+{% set hash = '946e32bf1eb545146ad47287d0837b01de86329c20f7081fc171d543a8578ec9' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 7zip-download-only:

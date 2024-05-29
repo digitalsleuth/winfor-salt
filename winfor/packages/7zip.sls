@@ -4,7 +4,7 @@
 # Category: Requirements
 # Author: Igor Pavlov
 # License: GNU LGPL (https://www.7-zip.org/faq.html)
-# Version: 23.01
+# Version: 24.06
 # Notes: 
 
 include:
