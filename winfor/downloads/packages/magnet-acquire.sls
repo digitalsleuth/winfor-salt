@@ -4,13 +4,13 @@
 # Category: Acquisition and Analysis
 # Author: Jad Saliba - Magnet Forensics
 # License: EULA
-# Version: 2.68.0.36478
+# Version: 2.74.0.39439
 # Notes:
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '2.68.0.36478' %}
-{% set file_version = '2680.36478' %}
-{% set hash = '9e8f1573fbd28b27b4e88e502a19d2b59d91fa15ccb371b1312d4ce2e4ca82fa' %}
+{% set version = '2.74.0.39439' %}
+{% set file_version = '2740.39439' %}
+{% set hash = '31f1cda096b8761d4cb0af6b2978b24574bd685ffe235b3e8e607e0c0a22b0cf' %}
 
 magnet-acquire-download-only:
   file.managed:
