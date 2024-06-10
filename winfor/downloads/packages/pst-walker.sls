@@ -4,12 +4,12 @@
 # Category: Email
 # Author: PST Walker
 # License: GNU General Public License (GPL) (https://www.pstwalker.com/licensing-policy.html)
-# Version: 7.26
+# Version: 7.27
 # Notes:
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '726' %}
-{% set hash = '8fd545124a7cb95aab6aef06718c61b8d3b74189a4840d34850f5419afebb054' %}
+{% set version = '727' %}
+{% set hash = 'e4e23b7a864c088cc752ea5240adcac189fda858bec43cfe19fb38ccf4a75b80' %}
 
 pst-walker-download-only:
   file.managed:
