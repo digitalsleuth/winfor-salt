@@ -104,6 +104,7 @@ include:
   - winfor.standalones.usbdetective
   - winfor.standalones.total-pe-2
   - winfor.standalones.memprocfs-analyzer
+  - winfor.standalones.itunes-backup-explorer
 
 standalones-states:
   test.nop:
@@ -213,3 +214,4 @@ standalones-states:
       - sls: winfor.standalones.usbdetective
       - sls: winfor.standalones.total-pe-2
       - sls: winfor.standalones.memprocfs-analyzer
+      - sls: winfor.standalones.itunes-backup-explorer

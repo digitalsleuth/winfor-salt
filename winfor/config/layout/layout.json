@@ -1472,6 +1472,17 @@
         "Enabled": true,
         "ExtraTiles": []
       },
+      "iTunes Backup Explorer": {
+        "CbName": "standalones_itunes_backup_explorer",
+        "CbContent": "iTunes Backup Explorer",
+        "DAID": "PLACEHOLDER_PATH\\itunes-backup-explorer\\itunes-backup-explorer-1.4.jar",
+        "AUMID": false,
+        "DALP": false,
+        "StartMenu": true,
+        "Checked": true,
+        "Enabled": true,
+        "ExtraTiles": []
+      },
       "jd-gui": {
         "CbName": "standalones_jd_gui",
         "CbContent": "jd-gui",
