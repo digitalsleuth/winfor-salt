@@ -4,7 +4,7 @@
 # Category: Raw Parsers / Decoders
 # Author: Corey Forman
 # License: MIT License (https://github.com/digitalsleuth/time_decode/blob/master/LICENSE)
-# Version: 7.1.0
+# Version: 8.0.0
 # Notes: 
 
 include:
