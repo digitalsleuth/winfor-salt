@@ -4,17 +4,17 @@
 # Category: Acquisition and Analysis
 # Author: Stefan Fleischmann
 # License: License Dependent - https://www.x-ways.net/terminology.html
-# Version: 20.9 SR-3 x64
+# Version: 21.2
 # Notes:
 
-{% set version = "209" %}
+{% set version = "212" %}
 {% set auth_token = "TOKENPLACEHOLDER" %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
-{% set xwhash = "e72d85e01c02fbe5862e4b143e2291d5e4295170712042892871fed11cd3b9ab" %}
-{% set xviewerhash = "544b69c75823d351abb35a2eaa7d7ba40760e012db22cdf45c0f82b6392a1f3b" %}
-{% set mplayerhash = "a3a13bbda7ba0052c71521124e428f490648ea452f3bcbcf31860b9d0120ed25" %}
-{% set tesseracthash = "95c484205c6474b7b7ef5109a3412666090857c44999cf72f06f55dc9c239310" %}
-{% set manualhash = "b4e990c8181a962891aa742b522c8cedabe41f8c7dbbeed4e9d3d6575e940d0a" %}
+{% set xwhash = "657581128359ed0a00dd4432ed621c40a8a2a82bf2dd0bff172684bdb987d3d8" %}
+{% set xviewerhash = "ac1890a9cc12e7d0efa785933c738d9b35f1d235a7ee626d6daf466cf1429451" %}
+{% set mplayerhash = "9032481e21819bc02c01b11ab11ab82c022e3566eea42bf420c67def85f86fae" %}
+{% set tesseracthash = "d071607267792631168d534bd89cd6905ee5d79b392542f81ab945a6e7ce72bd" %}
+{% set manualhash = "ac470910b3f7c614e5f6bc91ac62bc9a9fa7657615da3721f835c5d9228735c2" %}
 
 include:
   - winfor.standalones.x-ways-templates
@@ -72,7 +72,7 @@ xways-mplayer-already-downloaded-and-hash-verified:
 {% else %}
 xways-mplayer-download:
   cmd.run:
-    - name: 'Invoke-WebRequest -Uri "http://www.x-ways.net/res/mplayer/MPlayer 2018 x64.zip" -Method GET -Headers @{ Authorization = "Basic {{ auth_token }}" } -UserAgent "IPWorks HTTPComponent - www.nsoftware.com" -UseBasicParsing -OutFile C:\salt\tempdownload\MPlayer_2018_x64.zip'
+    - name: 'Invoke-WebRequest -Uri "http://www.x-ways.net/res/mplayer/MPlayer 2022 x64.zip" -Method GET -Headers @{ Authorization = "Basic {{ auth_token }}" } -UserAgent "IPWorks HTTPComponent - www.nsoftware.com" -UseBasicParsing -OutFile C:\salt\tempdownload\MPlayer_2022_x64.zip'
     - shell: powershell
 {% endif %}
 
