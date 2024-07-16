@@ -9,7 +9,7 @@
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set hash = '0814e5f07236313e0454413060c0dd7f6c0a0b07e6f491169e521268b485816f' %}
-{% set hasher_hash = '1693875e5f830e582dc01778cae34e50c1e28d472ced9fe1caeac89843b58cfa' %}
+{% set hasher_hash = '14ee103793fae4f165adc5e0a9424ca75ea0a4dc2e823dcc2b7cdeb2ae94483c' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set applications = ['EZViewer','JumpListExplorer','MFTExplorer','RegistryExplorer','SDBExplorer','ShellBagsExplorer','TimelineExplorer'] %}
 {% set sync_tools = ['EvtxECmd','RECmd'] %}

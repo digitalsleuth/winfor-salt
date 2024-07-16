@@ -66,7 +66,7 @@ xways-tesseract-download:
     - shell: powershell
 {% endif %}
 
-{% if salt['file.file_exists']('C:\\salt\\tempdownload\\MPlayer_2018_x64.zip') and salt['file.check_hash']('C:\\salt\\tempdownload\\MPlayer_2018_x64.zip', mplayerhash)%}
+{% if salt['file.file_exists']('C:\\salt\\tempdownload\\MPlayer_2022_x64.zip') and salt['file.check_hash']('C:\\salt\\tempdownload\\MPlayer_2022_x64.zip', mplayerhash)%}
 xways-mplayer-already-downloaded-and-hash-verified:
   test.nop
 {% else %}
@@ -111,7 +111,7 @@ xways-tesseract-extract:
 xways-mplayer-extract:
   archive.extracted:
     - name: 'C:\xwf\'
-    - source: 'C:\salt\tempdownload\MPlayer_2018_x64.zip'
+    - source: 'C:\salt\tempdownload\MPlayer_2022_x64.zip'
     - enforce_toplevel: False
     - require:
       - archive: xways-extract

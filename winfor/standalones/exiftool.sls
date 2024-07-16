@@ -4,27 +4,35 @@
 # Category: Documents / Editors
 # Author: Phil Harvey
 # License: https://exiftool.org/#license
-# Version: 12.74
+# Version: 12.89
 # Notes:
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set version = '12.74' %}
-{% set hash = '6bd46e8b4742d26889e9bfce5fcdacc56837a1e967a37cd1155dfc465cfc91f3' %}
+{% set version = '12.89' %}
+{% set hash = '344dd534c5cfcb46658151774a0762eff59501f84a26057a68dd48019bed789e' %}
 
 exiftool-download:
   file.managed:
-    - name: 'C:\salt\tempdownload\exiftool-{{ version }}.zip'
-    - source: https://exiftool.org/exiftool-{{ version }}.zip
+    - name: 'C:\salt\tempdownload\exiftool-{{ version }}_64.zip'
+    - source: https://exiftool.org/exiftool-{{ version }}_64.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True
 
 exiftool-extract:
   archive.extracted:
-    - name: '{{ inpath }}\exiftool\'
-    - source: 'C:\salt\tempdownload\exiftool-{{ version }}.zip'
+    - name: '{{ inpath }}\'
+    - source: 'C:\salt\tempdownload\exiftool-{{ version }}_64.zip'
     - enforce_toplevel: False
     - watch:
       - file: exiftool-download
+
+exiftool-folder-rename:
+  file.rename:
+    - name: '{{ inpath }}\exiftool'
+    - source: '{{ inpath }}\exiftool-{{ version }}_64'
+    - force: True
+    - require:
+      - archive: exiftool-extract
 
 exiftool-rename:
   file.rename:
@@ -33,6 +41,7 @@ exiftool-rename:
     - force: True
     - require:
       - archive: exiftool-extract
+      - file: exiftool-folder-rename
 
 exiftool-kml-fmt:
   file.managed:

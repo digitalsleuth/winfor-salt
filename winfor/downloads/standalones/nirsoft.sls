@@ -4,11 +4,11 @@
 # Category: Windows Analysis
 # Author: Nir Sofer
 # License: 
-# Version: 1.30.6
+# Version: 1.30.12
 # Notes: 
 
-{% set version = '1.30.6' %}
-{% set hash = '974689a110f00bd43ee30f060cb8489eee59c6b71037f8fd7a68658b8a5b7900' %}
+{% set version = '1.30.12' %}
+{% set hash = 'ee3f5602179491c5e673fb054e00ada820a19d42add6e8d319ff76983522ef7f' %}
 {% set nlps = ['eztools.nlp', 'mitec.nlp', 'sysinternals6.nlp'] %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}

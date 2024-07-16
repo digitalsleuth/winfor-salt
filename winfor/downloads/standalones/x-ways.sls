@@ -63,7 +63,7 @@ xways-tesseract-download-only:
     - shell: powershell
 {% endif %}
 
-{% if salt['file.file_exists'](downloads + 'MPlayer_2018_x64.zip') and salt['file.check_hash'](downloads + 'MPlayer_2018_x64.zip', mplayerhash)%}
+{% if salt['file.file_exists'](downloads + 'MPlayer_2022_x64.zip') and salt['file.check_hash'](downloads + 'MPlayer_2022_x64.zip', mplayerhash)%}
 xways-mplayer-already-downloaded-and-hash-verified-download-only:
   test.nop
 {% else %}
