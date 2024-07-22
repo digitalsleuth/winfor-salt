@@ -7,7 +7,7 @@
 # Version: 2024.04
 # Notes: Release version does not update with script
 
-{% set hash = '3da77ea9a48fb82cb76485dff5b9a0ea0cf4319ff99d3310a35976266b00a7a0' %}
+{% set hash = '76722d773a12fdf2df0be3c6026ab7439df25c6e97055c337ece390558f00d57' %}
 
 include:
   - winfor.packages.python3
