@@ -4,17 +4,18 @@
 # Category: Documents / Editors
 # Author: Jose Miguel Esparza and Corey Forman
 # License: GNU General Public License (GPL) v3: https://github.com/digitalsleuth/peepdf-3/blob/main/COPYING
-# Version: 3.0.3
+# Version: 4.0.0
 # Notes:
 
-{% set version = '3.0.3' %}
+{% set version = '4.0.0' %}
 
 include:
   - winfor.packages.python3
   - winfor.python3-tools.stpyv8
 
-peepdf-3:
+peepdf-3-install:
   pip.installed:
+    - name: peepdf-3
     - bin_env: 'C:\Program Files\Python310\python.exe'
     - upgrade: True
     - require:
