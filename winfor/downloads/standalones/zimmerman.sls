@@ -4,14 +4,14 @@
 # Category: Windows Analysis
 # Author: Eric Zimmerman
 # License: MIT License (https://github.com/EricZimmerman/Issues/blob/master/LICENSE)
-# Version: 2023-05-18
+# Version: 2024-08-20
 # Notes: 
 
-{% set hash = '0814e5f07236313e0454413060c0dd7f6c0a0b07e6f491169e521268b485816f' %}
+{% set hash = '4a8cf59440b8a7e3a8902aa9d4a0cd1dc25d0fc4a802f497ccb830800d14c738' %}
 {% set hasher_hash = '14ee103793fae4f165adc5e0a9424ca75ea0a4dc2e823dcc2b7cdeb2ae94483c' %}
 {% set hasher_version = '2.1.0.0' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '2023-05-18' %}
+{% set version = '2024-08-20' %}
 {% set today = salt['system.get_system_date']().replace("/","-") %}
 
 zimmerman-tools-download-only:
@@ -40,6 +40,6 @@ zimmerman-tools-install-download-only:
 zimmerman-hasher-download-only:
   file.managed:
     - name: '{{ downloads }}\zimmerman\hasher-{{ hasher_version }}.zip'
-    - source: https://f001.backblazeb2.com/file/EricZimmermanTools/hasher.zip
+    - source: https://download.mikestammer.com/hasher.zip
     - source_hash: sha256={{ hasher_hash }}
     - makedirs: True

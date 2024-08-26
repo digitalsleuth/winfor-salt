@@ -4,11 +4,11 @@
 # Category: Email
 # Author: Fookes Software Ltd
 # License: Copyright (https://www.aid4mail.com/terms)
-# Version: 5.1.7 (https://www.aid4mail.com/support/solutions/articles/aid4mail-5-version-history)
+# Version: 5.1.8 (https://www.aid4mail.com/support/solutions/articles/aid4mail-5-version-history)
 # Notes: Free Trial / Limited Free Conversion
 
-{% set hash = '0d15cfedf9b9e26a5056b83073fcae74e9caca06bd20103729decd9dd8e50bdf' %}
-{% set version = '5.1.7' %}
+{% set hash = '85def03a8fbfe07777d129324a5b66d664e6e36a7e177ac6c4a385272134b6cc' %}
+{% set version = '5.1.8' %}
 
 aid4mail-download:
   file.managed:

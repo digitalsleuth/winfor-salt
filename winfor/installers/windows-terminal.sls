@@ -4,27 +4,48 @@
 # Category: Terminals
 # Author: Microsoft
 # License: MIT License (https://github.com/microsoft/terminal/blob/main/LICENSE)
-# Version: 1.19.11213.0
+# Version: 1.20.11781.0
 # Notes: 
 
-{% set version = '1.19.11213.0' %}
+{% set version = '1.20.11781.0' %}
 {% set user = salt['pillar.get']('winfor_user', 'forensics') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set TERMINAL_VERSION = salt['cmd.run']('powershell -c "(Get-AppxPackage -Name Microsoft.WindowsTerminal).Version"') %}
+{% set TERMINAL_PKG = salt['cmd.run']('powershell -c "(Get-AppxPackage -Name Microsoft.WindowsTerminal).PackageFullName"') %}
 
-windows-terminal:
+{% if TERMINAL_PKG != '' %}
+Microsoft Terminal is installed - checking if upgrade required:
+  test.nop
+
+{% if TERMINAL_VERSION.split('.') | map('int') | list >= version.split('.') | map('int') | list %}
+Selected version is lower than the installed version - not replacing existing Microsoft Terminal:
+  test.nop
+
+{% else %}
+Selected version is higher than the installed version - removing and upgrading Microsoft Terminal:
+  test.nop
+
+windows-terminal-remove-existing:
+  cmd.run:
+    - name: "Remove-AppxPackage -Package {{ TERMINAL_PKG }} -AllUsers"
+    - shell: powershell
+
+windows-terminal-bundle-upgrade:
   file.managed:
     - name: 'C:\salt\tempdownload\Microsoft.WindowsTerminal_{{ version }}_8wekyb3d8bbwe.msixbundle'
     - source: https://github.com/microsoft/terminal/releases/download/v{{ version }}/Microsoft.WindowsTerminal_{{ version }}_8wekyb3d8bbwe.msixbundle
     - skip_verify: True
     - makedirs: True
+    - require:
+      - cmd: windows-terminal-remove-existing
 
-windows-terminal-install:
+windows-terminal-install-upgrade:
   cmd.run:
     - name: "dism /Online /Add-ProvisionedAppxPackage /PackagePath:Microsoft.WindowsTerminal_{{ version }}_8wekyb3d8bbwe.msixbundle /SkipLicense"
     - shell: cmd
     - cwd: 'C:\salt\tempdownload\'
 
-windows-terminal-shortcut:
+windows-terminal-shortcut-upgrade:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\Terminal.lnk'
     - target: 'C:\Program Files\WindowsApps\Microsoft.WindowsTerminal_{{ version }}_x64__8wekyb3d8bbwe\wt.exe'
@@ -32,5 +53,36 @@ windows-terminal-shortcut:
     - working_dir: 'C:\Program Files\WindowsApps\Microsoft.WindowsTerminal_{{ version }}_x64__8wekyb3d8bbwe\'
     - makedirs: True
     - require:
-      - file: windows-terminal
-      - cmd: windows-terminal-install
+      - file: windows-terminal-bundle-upgrade
+      - cmd: windows-terminal-install-upgrade
+
+{% endif %}
+{% else %}
+Microsoft Terminal is not installed - installing:
+  test.nop
+
+windows-terminal-bundle-new:
+  file.managed:
+    - name: 'C:\salt\tempdownload\Microsoft.WindowsTerminal_{{ version }}_8wekyb3d8bbwe.msixbundle'
+    - source: https://github.com/microsoft/terminal/releases/download/v{{ version }}/Microsoft.WindowsTerminal_{{ version }}_8wekyb3d8bbwe.msixbundle
+    - skip_verify: True
+    - makedirs: True
+
+windows-terminal-install-new:
+  cmd.run:
+    - name: "dism /Online /Add-ProvisionedAppxPackage /PackagePath:Microsoft.WindowsTerminal_{{ version }}_8wekyb3d8bbwe.msixbundle /SkipLicense"
+    - shell: cmd
+    - cwd: 'C:\salt\tempdownload\'
+
+windows-terminal-shortcut-new:
+  file.shortcut:
+    - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\Terminal.lnk'
+    - target: 'C:\Program Files\WindowsApps\Microsoft.WindowsTerminal_{{ version }}_x64__8wekyb3d8bbwe\wt.exe'
+    - force: True
+    - working_dir: 'C:\Program Files\WindowsApps\Microsoft.WindowsTerminal_{{ version }}_x64__8wekyb3d8bbwe\'
+    - makedirs: True
+    - require:
+      - file: windows-terminal-bundle-new
+      - cmd: windows-terminal-install-new
+{% endif %}
+
