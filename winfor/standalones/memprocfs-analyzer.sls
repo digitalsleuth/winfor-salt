@@ -97,7 +97,7 @@ memprocfs-analyzer-yara:
 memprocfs-analyzer-{{ tool }}-requirement:
   file.managed:
     - name: '{{ filePath }}'
-    - source: https://f001.backblazeb2.com/file/EricZimmermanTools/net6/{{ tool }}.zip
+    - source: https://download.mikestammer.com/net6/{{ tool }}.zip
     - skip_verify: True
     - makedirs: True
 
