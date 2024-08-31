@@ -20,6 +20,7 @@ hiber-recon-folder:
   file.directory:
     - name: '{{ downloads }}\hiber-recon'
     - win_inheritance: True
+    - makedirs: True
 
 {% if salt['file.file_exists'](hiber_zip) and salt['file.check_hash'](hiber_zip, hash) %}
 hiber-recon-already-exists:

@@ -20,6 +20,7 @@ arsenal-folder:
   file.directory:
     - name: '{{ downloads }}\arsenal-image-mounter'
     - win_inheritance: True
+    - makedirs: True
 
 {% if salt['file.file_exists'](arsenal_zip) and salt['file.check_hash'](arsenal_zip, hash) %}
 arsenal-already-exists:
