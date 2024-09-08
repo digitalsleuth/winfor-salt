@@ -4,17 +4,17 @@
 # Category: Acquisition and Analysis
 # Author: Magnet Forensics
 # License: EULA
-# Version: 1.70
+# Version: 1.71
 # Notes:
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set hash = 'f0b901e89c237d9699d9dcc6a645c1c351705ae8601c9c975089cbf64c37e351' %}
-{% set version = '170' %}
+{% set hash = '426f6878add75b54a78f2a4e029b96d3a759cf4762345d5e3f95591a533319e4' %}
+{% set version = '171' %}
 
 magnet-response-download:
   file.managed:
     - name: 'C:\salt\tempdownload\MagnetRESPONSEv{{ version }}.exe'
-    - source: https://storage.googleapis.com/mfi-files/free_tools/MagnetRESPONSE/MagnetRESPONSEv{{ version }}.exe
+    - source: https://storage.googleapis.com/mfi-files/free_tools/MagnetRESPONSE/MagnetRESPONSEv{{ version }}_Self_Extracting_Archive.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True
 
