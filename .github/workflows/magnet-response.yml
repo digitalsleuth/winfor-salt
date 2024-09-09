@@ -19,5 +19,5 @@ jobs:
           MAGNET_VERSION=$(cat /home/runner/work/winfor-salt/winfor-salt/winfor/standalones/magnet-response.sls | grep "set version" | awk -F\' '{print tolower($2)}')
           wget https://storage.googleapis.com/mfi-files/free_tools/MagnetRESPONSE/MagnetRESPONSEv${MAGNET_VERSION}_Self_Extracting_Archive.exe
           PREVIOUS_HASH=$(cat /home/runner/work/winfor-salt/winfor-salt/winfor/standalones/magnet-response.sls | grep "set hash" | awk -F\' '{print tolower($2)}')
-          CURRENT_HASH=$(sha256sum MagnetRESPONSEv${MAGNET_VERSION}.exe | awk '{print $1}')
+          CURRENT_HASH=$(sha256sum MagnetRESPONSEv${MAGNET_VERSION}_Self_Extracting_Archive.exe | awk '{print $1}')
           if [[ "$PREVIOUS_HASH" != "$CURRENT_HASH" ]]; then echo "HASH UPDATED - $CURRENT_HASH" && exit 1; else echo "No hash changes" && exit 0; fi
