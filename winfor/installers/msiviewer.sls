@@ -10,13 +10,14 @@
 {% set version = '2.0.1' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set PROGRAM_FILES = salt['environ.get']('PROGRAMFILES') %}
+{% set LOCALAPPDATA = salt['environ.get']('LOCALAPPDATA') %}
 
 include:
   - winfor.installers.windows-winget
 
 msiviewer-install:
   cmd.run:
-    - name: 'winget install --silent -e --id "9MZTR9QS01GN" --accept-source-agreements --accept-package-agreements --source msstore'
+    - name: '{{ LOCALAPPDATA }}\Microsoft\WindowsApps\winget.exe install --silent -e --id "9MZTR9QS01GN" --accept-source-agreements --accept-package-agreements --source msstore'
     - shell: cmd
     - success_retcodes: 2316632107
     - require:

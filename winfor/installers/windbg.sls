@@ -17,7 +17,7 @@ include:
 
 windbg-winget-install:
   cmd.run:
-    - name: winget install --silent Microsoft.WinDbg --accept-source-agreements --accept-package-agreements --source winget
+    - name: '{{ LOCALAPPDATA }}\Microsoft\WindowsApps\winget.exe install --silent Microsoft.WinDbg --accept-source-agreements --accept-package-agreements --source winget'
 
 windbg-shortcut:
   file.shortcut:
