@@ -4,11 +4,11 @@
 # Category: Raw Parsers / Decoders
 # Author: Craig Wilson (https://www.digital-detective.net)
 # License: 
-# Version: 2.2.23081.23
+# Version: 2.3.24262.11
 # Notes: x86
 
-{% set version = '2.2.23081.23' %}
-{% set hash = '19de76d21c0e6722d4e542821b9cdaf2431eb480ac499e8b464ba614b4c453b1' %}
+{% set version = '2.3.24262.11' %}
+{% set hash = '5a6ce7be7ed6bb38db624df3b2c7e029755ddc9a7176aa4ae1220dbcaaf0693c' %}
 
 data-dump:
   file.managed:
