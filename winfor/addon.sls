@@ -4,7 +4,6 @@ include:
   - winfor.packages
   - winfor.installers
   - winfor.standalones
-  - winfor.python2-tools
   - winfor.python3-tools
   - winfor.cleanup
 
@@ -19,6 +18,5 @@ addon-version-file:
       - sls: winfor.packages
       - sls: winfor.installers
       - sls: winfor.standalones
-      - sls: winfor.python2-tools
       - sls: winfor.python3-tools
       - sls: winfor.cleanup

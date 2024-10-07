@@ -17,7 +17,6 @@ include:
   - winfor.packages.npp
   - winfor.packages.adobereader
   - winfor.packages.python3
-  - winfor.packages.python2
   - winfor.packages.dbeaver
   - winfor.packages.sublime-text
   - winfor.packages.passware-encryption-analyzer
@@ -100,7 +99,6 @@ package-states:
       - sls: winfor.packages.npp
       - sls: winfor.packages.adobereader
       - sls: winfor.packages.python3
-      - sls: winfor.packages.python2
       - sls: winfor.packages.dbeaver
       - sls: winfor.packages.sublime-text
       - sls: winfor.packages.passware-encryption-analyzer

@@ -185,7 +185,6 @@ include:
   - winfor.downloads.packages.process-hacker
   - winfor.downloads.packages.pst-walker
   - winfor.downloads.packages.putty
-  - winfor.downloads.packages.python2
   - winfor.downloads.packages.python3
   - winfor.downloads.packages.razorsql-x64
   - winfor.downloads.packages.registry-viewer
@@ -195,7 +194,6 @@ include:
   - winfor.downloads.packages.tableau-firmware-update
   - winfor.downloads.packages.tableau-imager
   - winfor.downloads.packages.teracopy
-  - winfor.downloads.packages.vcforpython27
   - winfor.downloads.packages.vcxsrv
   - winfor.downloads.packages.veracrypt
   - winfor.downloads.packages.virtualbox
@@ -398,7 +396,6 @@ download-states:
       - sls: winfor.downloads.packages.process-hacker
       - sls: winfor.downloads.packages.pst-walker
       - sls: winfor.downloads.packages.putty
-      - sls: winfor.downloads.packages.python2
       - sls: winfor.downloads.packages.python3
       - sls: winfor.downloads.packages.razorsql-x64
       - sls: winfor.downloads.packages.registry-viewer
@@ -408,7 +405,6 @@ download-states:
       - sls: winfor.downloads.packages.tableau-firmware-update
       - sls: winfor.downloads.packages.tableau-imager
       - sls: winfor.downloads.packages.teracopy
-      - sls: winfor.downloads.packages.vcforpython27
       - sls: winfor.downloads.packages.vcxsrv
       - sls: winfor.downloads.packages.veracrypt
       - sls: winfor.downloads.packages.virtualbox
