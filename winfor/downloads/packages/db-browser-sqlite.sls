@@ -4,16 +4,16 @@
 # Category: Databases
 # Author: https://sqlitebrowser.org/about/
 # License: Mozilla Public License v2 (https://github.com/sqlitebrowser/sqlitebrowser/blob/master/LICENSE)
-# Version: 3.12.2
+# Version: 3.13.0
 # Notes: 
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '3.12.2' %}
-{% set hash = '723d601f125b0d2402d9ea191e4b310345ec52f76b61e117bf49004a2ff9b8ae' %}
+{% set version = '3.13.0' %}
+{% set hash = '4fd5a308481fa8ff3008bcbd069da03944698f1397b509f22a43bfda93dfccd3' %}
 
 db-browser-sqlite-download-only:
   file.managed:
-    - name: '{{ downloads }}\db-browser-sqlite\DB.Browser.for.SQLite-{{ version }}-win64.msi'
-    - source: https://download.sqlitebrowser.org/DB.Browser.for.SQLite-{{ version }}-win64.msi
+    - name: '{{ downloads }}\db-browser-sqlite\DB.Browser.for.SQLite-v{{ version }}-win64.msi'
+    - source: https://download.sqlitebrowser.org/DB.Browser.for.SQLite-v{{ version }}-win64.msi
     - source_hash: sha256={{ hash }}
     - makedirs: True
