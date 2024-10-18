@@ -4,12 +4,12 @@
 # Category: Utilities
 # Author: OpenText
 # License: EULA
-# Version: 23.4.3
+# Version: 24.3.3
 # Notes: 
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '23.4' %}
-{% set hash = '9774e53015a5810d3841d67e569f9fdfb41d47cdb530c33571ec9025343c19dd' %}
+{% set version = '24.3' %}
+{% set hash = '7300de0f4db47c7ba7c1f50e1a40b9f9f46f6fc89ee471b9d62492dcfa1821bf' %}
 
 tableau-firmware-update-download-only:
   file.managed:
