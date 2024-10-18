@@ -4,7 +4,7 @@
 # Category: Utilities
 # Author: OpenText
 # License: EULA
-# Version: 23.4.3
+# Version: 24.3.3
 # Notes: 
 
 {% set user = salt['pillar.get']('winfor_user', 'forensics') %}
@@ -20,23 +20,8 @@ include:
   - winfor.config.user
   - winfor.repos
 
-tableau-certificate-copy:
-  file.managed:
-    - name: 'C:\salt\tempdownload\tableau.cer'
-    - source: salt://winfor/files/tableau.cer
-    - makedirs: True
-
-tableau-certificate-install:
-  certutil.add_store:
-    - name: 'C:\salt\tempdownload\tableau.cer'
-    - store: TrustedPublisher
-    - require:
-      - file: tableau-certificate-copy
-
 tableau-firmware-update:
-  pkg.installed:
-    - require:
-      - certutil: tableau-certificate-install
+  pkg.installed
 
 tableau-firmware-update-icon-del:
   file.absent:

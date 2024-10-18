@@ -4,7 +4,7 @@
 # Category: Raw Parsers / Decoders
 # Author: Corey Forman
 # License: GNU General Public License v3 (https://github.com/digitalsleuth/pyson4/blob/master/LICENSE)
-# Version: 1.1
+# Version: 1.2
 # Notes: pyson4, pyson4.py
 
 include:
