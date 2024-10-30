@@ -96,7 +96,7 @@ xways-extract:
 xways-viewer-extract:
   archive.extracted:
     - name: 'C:\xwf\'
-    - source: 'C:\salt\tempdownload\xw_viewer.zip'
+    - source: 'C:\salt\tempdownload\xw_viewer_{{ xviewer_ver }}.zip'
     - enforce_toplevel: False
     - require:
       - archive: xways-extract
