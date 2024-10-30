@@ -4,13 +4,14 @@
 # Category: Acquisition and Analysis
 # Author: Stefan Fleischmann
 # License: License Dependent - https://www.x-ways.net/terminology.html
-# Version: 21.2
+# Version: 21.3
 # Notes:
 
-{% set version = "212" %}
+{% set version = "213" %}
 {% set auth_token = "TOKENPLACEHOLDER" %}
-{% set xwhash = "657581128359ed0a00dd4432ed621c40a8a2a82bf2dd0bff172684bdb987d3d8" %}
-{% set xviewerhash = "ac1890a9cc12e7d0efa785933c738d9b35f1d235a7ee626d6daf466cf1429451" %}
+{% set xwhash = "13a444d9f92853a4f17b0126c5a482557c1bc261fb46961ddbf2b5d533c9f8fb" %}
+{% set xviewerhash = "00d573f24f55521869ecd896a47b1e3838e4ad24c701178b565663d79882222f" %}
+{% set xviewer_ver = "857" %}
 {% set mplayerhash = "9032481e21819bc02c01b11ab11ab82c022e3566eea42bf420c67def85f86fae" %}
 {% set tesseracthash = "d071607267792631168d534bd89cd6905ee5d79b392542f81ab945a6e7ce72bd" %}
 {% set manualhash = "ac470910b3f7c614e5f6bc91ac62bc9a9fa7657615da3721f835c5d9228735c2" %}
@@ -43,13 +44,13 @@ xways-download-only:
     - shell: powershell
 {% endif %}
 
-{% if salt['file.file_exists'](downloads + 'xw_viewer.zip') and salt['file.check_hash'](downloads + 'xw_viewer.zip', xviewerhash)%}
+{% if salt['file.file_exists'](downloads + 'xw_viewer_' + xviewer_ver + '.zip') and salt['file.check_hash'](downloads + 'xw_viewer_' + xviewer_ver + '.zip', xviewerhash)%}
 xways-viewer-already-downloaded-and-hash-verified-download-only:
   test.nop
 {% else %}
 xways-viewer-download-only:
   cmd.run:
-    - name: 'Invoke-WebRequest -Uri "http://www.x-ways.net/res/viewer/xw_viewer.zip" -Method GET -Headers @{ Authorization = "Basic {{ auth_token }}" } -UserAgent "IPWorks HTTPComponent - www.nsoftware.com" -UseBasicParsing -OutFile {{ downloads }}\x-ways\xw_viewer.zip'
+    - name: 'Invoke-WebRequest -Uri "http://www.x-ways.net/res/viewer/xw_viewer_{{ xviewer_ver }}.zip" -Method GET -Headers @{ Authorization = "Basic {{ auth_token }}" } -UserAgent "IPWorks HTTPComponent - www.nsoftware.com" -UseBasicParsing -OutFile {{ downloads }}\x-ways\xw_viewer_{{ xviewer_ver }}.zip'
     - shell: powershell
 {% endif %}
 

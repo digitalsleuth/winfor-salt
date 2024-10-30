@@ -9,8 +9,8 @@
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set version = '1.11.1' %}
-{% set date = '20230212' %}
-{% set hash = 'FD3FFB6330C89783A37DF0B349EDC95C8018E919680A6AD518D27D4FA789954F' %}
+{% set date = '20241028' %}
+{% set hash = '41abc4548dbe2f2b633221c6310a8fb0f31658846eac816e2d87cffc042c000b' %}
 
 megatools-download:
   file.managed:

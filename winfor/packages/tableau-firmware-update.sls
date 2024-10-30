@@ -20,8 +20,23 @@ include:
   - winfor.config.user
   - winfor.repos
 
+tableau-certificate-copy:
+  file.managed:
+    - name: 'C:\salt\tempdownload\tableau.cer'
+    - source: salt://winfor/files/tableau.cer
+    - makedirs: True
+
+tableau-certificate-install:
+  certutil.add_store:
+    - name: 'C:\salt\tempdownload\tableau.cer'
+    - store: TrustedPublisher
+    - require:
+      - file: tableau-certificate-copy
+
 tableau-firmware-update:
-  pkg.installed
+  pkg.installed:
+    - require:
+      - certutil: tableau-certificate-install
 
 tableau-firmware-update-icon-del:
   file.absent:
@@ -32,5 +47,6 @@ tableau-firmware-update-icon-del:
       - 'C:\Users\{{ current_user }}\Desktop\Tableau Firmware Update.lnk'
     {% endif %}
     - require:
+      - certutil: tableau-certificate-install
       - pkg: tableau-firmware-update
       - user: user-{{ user }}
