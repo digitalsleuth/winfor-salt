@@ -24,6 +24,14 @@ python3-aleapp-source:
     - require:
       - sls: winfor.packages.git
 
+python3-aleapp-patch-requirements:
+  file.line:
+    - name: '{{ inpath }}\aleapp\requirements.txt'
+    - mode: delete
+    - content: "packaging==20.1"
+    - require:
+      - git: python3-aleapp-source
+
 python3-aleapp-requirements:
   pip.installed:
     - requirements: '{{ inpath }}\aleapp\requirements.txt'
@@ -31,6 +39,7 @@ python3-aleapp-requirements:
     - require:
       - git: python3-aleapp-source
       - sls: winfor.packages.python3
+      - file: python3-aleapp-patch-requirements
 
 python3-aleapp-header:
   file.prepend:
@@ -50,7 +59,7 @@ python3-aleapp-icon:
   file.managed:
     - name: '{{ inpath }}\aleapp\abrignoni-logo.ico'
     - source: salt://winfor/files/abrignoni-logo.ico
-    - source_hash: sha256=97ca171e939a3e4a3e51f4a66a46569ffc604ef9bb388f0aec7a8bceef943b98
+    - skip_verify: True
     - makedirs: True
 
 python3-aleapp-gui-shortcut:

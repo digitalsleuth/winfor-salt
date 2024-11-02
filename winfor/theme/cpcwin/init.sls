@@ -11,8 +11,8 @@
 {% set xwver = '207' %}
 {% set zips = ['FTK-Imager-4-7-1-2-portable.zip', 'FTK-Imager-3-2-0-0-portable.zip', 'searchkit.zip'] %}
 {% set folders = ['PE01', 'PE03', 'PE04', 'PE05', 'PE06', 'PE07'] %}
-{% set vert = salt['cmd.powershell']('[int]((Get-CimInstance CIM_VideoController | Select -expand CurrentVerticalResolution) / 4)') %}
-{% set horiz = salt['cmd.powershell']('[int]((Get-CimInstance CIM_VideoController | Select -expand CurrentHorizontalResolution) / 8)') %}
+{% set vert = salt['cmd.powershell']('[int]((Get-CimInstance CIM_VideoController | Select -expand CurrentVerticalResolution) / 4)') | int %}
+{% set horiz = salt['cmd.powershell']('[int]((Get-CimInstance CIM_VideoController | Select -expand CurrentHorizontalResolution) / 8)') | int %}
 {% set hspacer = horiz + 1 %}
 {% set h1 = horiz  %}
 {% set h2 = h1 + hspacer %}

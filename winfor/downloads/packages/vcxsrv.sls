@@ -4,16 +4,16 @@
 # Category: Utilities
 # Author: Marha
 # License: GNU General Public License v3 (https://sourceforge.net/p/vcxsrv/code/ci/master/tree/COPYING)
-# Version: 1.20.14.0
+# Version: 21.1.13.0
 # Notes: 
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '1.20.14.0' %}
-{% set hash = '7a5cd7d9d0ac982f09c8a93051fc48ab072fcc4b52237d1b91494363b9dad27e' %}
+{% set version = '21.1.13.0' %}
+{% set hash = '970243B0E2C652949225D250BF37E87E2F321435D4D3757E94FF762E4578A281' %}
 
 vcxsrv-download-only:
   file.managed:
     - name: '{{ downloads }}\vcxsrv\vcxsrv-64.{{ version }}.installer.exe'
-    - source: https://versaweb.dl.sourceforge.net/project/vcxsrv/vcxsrv/{{ version }}/vcxsrv-64.{{ version }}.installer.exe
+    - source: https://github.com/marchaesen/vcxsrv/releases/download/{{ version.split(".")[:-1] | join(".") }}/vcxsrv-64.{{ version }}.installer.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

@@ -14,7 +14,7 @@ include:
   - winfor.packages.python3
   - winfor.packages.git
 
-winfor-python3-wleapp-source:
+python3-wleapp-source:
   git.latest:
     - name: https://github.com/abrignoni/wleapp
     - target: '{{ inpath }}\wleapp'
@@ -24,36 +24,45 @@ winfor-python3-wleapp-source:
     - require:
       - sls: winfor.packages.git
 
-winfor-python3-wleapp-requirements:
+python3-wleapp-patch-requirements:
+  file.line:
+    - name: '{{ inpath }}\wleapp\requirements.txt'
+    - mode: delete
+    - content: "packaging==20.1"
+    - require:
+      - git: python3-wleapp-source
+
+python3-wleapp-requirements:
   pip.installed:
     - requirements: '{{ inpath }}\wleapp\requirements.txt'
     - bin_env: 'C:\Program Files\Python310\python.exe'
     - require:
-      - git: winfor-python3-wleapp-source
+      - git: python3-wleapp-source
       - sls: winfor.packages.python3
+      - file: python3-wleapp-patch-requirements
 
-winfor-python3-wleapp-header:
+python3-wleapp-header:
   file.prepend:
     - names:
       - '{{ inpath }}\wleapp\wleapp.py'
       - '{{ inpath }}\wleapp\wleappGUI.py'
     - text: '#!/usr/bin/python3'
     - require:
-      - git: winfor-python3-wleapp-source
-      - pip: winfor-python3-wleapp-requirements
+      - git: python3-wleapp-source
+      - pip: python3-wleapp-requirements
 
-winfor-python3-wleapp-env-vars:
+python3-wleapp-env-vars:
   win_path.exists:
     - name: '{{ inpath }}\wleapp\'
 
-winfor-python3-wleapp-icon:
+python3-wleapp-icon:
   file.managed:
     - name: '{{ inpath }}\wleapp\abrignoni-logo.ico'
     - source: salt://winfor/files/abrignoni-logo.ico
-    - source_hash: sha256=97ca171e939a3e4a3e51f4a66a46569ffc604ef9bb388f0aec7a8bceef943b98
+    - skip_verify: True
     - makedirs: True
 
-winfor-python3-wleapp-gui-shortcut:
+python3-wleapp-gui-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\WLEAPP-GUI.lnk'
     - target: '{{ inpath }}\wleapp\wleappGUI.py'
@@ -62,8 +71,8 @@ winfor-python3-wleapp-gui-shortcut:
     - icon_location: '{{ inpath }}\wleapp\abrignoni-logo.ico'
     - makedirs: True
     - require:
-      - git: winfor-python3-wleapp-source
-      - pip: winfor-python3-wleapp-requirements
-      - file: winfor-python3-wleapp-header
-      - win_path: winfor-python3-wleapp-env-vars
-      - file: winfor-python3-wleapp-icon
+      - git: python3-wleapp-source
+      - pip: python3-wleapp-requirements
+      - file: python3-wleapp-header
+      - win_path: python3-wleapp-env-vars
+      - file: python3-wleapp-icon

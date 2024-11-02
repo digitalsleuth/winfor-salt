@@ -15,7 +15,7 @@ include:
   - winfor.packages.git
   - winfor.packages.ms-vcpp-2015-build-tools
 
-winfor-python3-ileapp-source:
+python3-ileapp-source:
   git.latest:
     - name: https://github.com/abrignoni/ileapp
     - target: '{{ inpath }}\ileapp'
@@ -26,37 +26,46 @@ winfor-python3-ileapp-source:
     - require:
       - sls: winfor.packages.git
 
-winfor-python3-ileapp-requirements:
+python3-ileapp-patch-requirements:
+  file.line:
+    - name: '{{ inpath }}\ileapp\requirements.txt'
+    - mode: delete
+    - content: "packaging==20.1"
+    - require:
+      - git: python3-ileapp-source
+
+python3-ileapp-requirements:
   pip.installed:
     - requirements: '{{ inpath }}\ileapp\requirements.txt'
     - bin_env: 'C:\Program Files\Python310\python.exe'
     - require:
-      - git: winfor-python3-ileapp-source
+      - git: python3-ileapp-source
       - sls: winfor.packages.python3
       - sls: winfor.packages.ms-vcpp-2015-build-tools
+      - file: python3-ileapp-patch-requirements
 
-winfor-python3-ileapp-header:
+python3-ileapp-header:
   file.prepend:
     - names:
       - '{{ inpath }}\ileapp\ileapp.py'
       - '{{ inpath }}\ileapp\ileappGUI.py'
     - text: '#!/usr/bin/python3'
     - require:
-      - git: winfor-python3-ileapp-source
-      - pip: winfor-python3-ileapp-requirements
+      - git: python3-ileapp-source
+      - pip: python3-ileapp-requirements
 
-winfor-python3-ileapp-env-vars:
+python3-ileapp-env-vars:
   win_path.exists:
     - name: '{{ inpath }}\ileapp\'
 
-winfor-python3-ileapp-icon:
+python3-ileapp-icon:
   file.managed:
     - name: '{{ inpath }}\ileapp\abrignoni-logo.ico'
     - source: salt://winfor/files/abrignoni-logo.ico
-    - source_hash: sha256=97ca171e939a3e4a3e51f4a66a46569ffc604ef9bb388f0aec7a8bceef943b98
+    - skip_verify: True
     - makedirs: True
 
-winfor-python3-ileapp-gui-shortcut:
+python3-ileapp-gui-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\ILEAPP-GUI.lnk'
     - target: '{{ inpath }}\ileapp\ileappGUI.py'
@@ -65,8 +74,8 @@ winfor-python3-ileapp-gui-shortcut:
     - icon_location: '{{ inpath }}\ileapp\abrignoni-logo.ico'
     - makedirs: True
     - require:
-      - git: winfor-python3-ileapp-source
-      - pip: winfor-python3-ileapp-requirements
-      - file: winfor-python3-ileapp-header
-      - win_path: winfor-python3-ileapp-env-vars
-      - file: winfor-python3-ileapp-icon
+      - git: python3-ileapp-source
+      - pip: python3-ileapp-requirements
+      - file: python3-ileapp-header
+      - win_path: python3-ileapp-env-vars
+      - file: python3-ileapp-icon

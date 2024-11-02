@@ -9,8 +9,8 @@
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set profile_pictures = ['user.png', 'user.bmp', 'user-32.png', 'user-40.png', 'user-48.png', 'user-192.png'] %}
 {% set portals_configs = ['portals.ptl','globalsettings.ptl','license.ptl'] %}
-{% set vert = salt['cmd.powershell']('[int]((Get-CimInstance CIM_VideoController | Select -expand CurrentVerticalResolution) / 5)') %}
-{% set horiz = salt['cmd.powershell']('[int]((Get-CimInstance CIM_VideoController | Select -expand CurrentHorizontalResolution) / 8)') %}
+{% set vert = salt['cmd.powershell']('[int]((Get-CimInstance CIM_VideoController | Select -expand CurrentVerticalResolution) / 5)') | int %}
+{% set horiz = salt['cmd.powershell']('[int]((Get-CimInstance CIM_VideoController | Select -expand CurrentHorizontalResolution) / 8)') | int %}
 {% set hspacer = horiz + 1 %}
 {% set h1 = horiz  %}
 {% set h2 = h1 + hspacer %}
@@ -51,7 +51,7 @@
                     ('Executables', ['rohitab.com\API Monitor v2\API Monitor v2 (Alpha) 64-bit','Explorer Suite\CFF Explorer','BinText','Cutter','DIE','dotPeek64','ExeInfoPE','McAfee FileInsight\FileInsight','IDA Freeware 8.3\IDA Freeware 8.3','ILSpy','KsDumper11','Magnet Process Capture','MalCat','Explorer Suite\Tools\PE Detective','Process Hacker 2\PE Viewer','PE-Bear','PEiD','PEStudio','Portex Analyzer','PPEE','Process Hacker 2\Process Hacker 2','Regshot x64 Unicode','Rehex','Resource Hacker','Scylla x64','Explorer Suite\Signature Explorer','Explorer Suite\Task Explorer (64-bit)','Total PE 2','VB Decompiler Lite\VB Decompiler Lite','WinDbg','x64dbg','x32dbg']),
                     ('Installers', ['AutoIT Extractor','lessmsi','MSI Viewer','Py2ExeDecompiler','UniExtract']),
                     ('Logs', ['EventFinder','EZViewer','HttpLogBrowser\HttpLogBrowser','Log Parser 2.2\Log Parser 2.2','LogParser-Studio','LogViewer2']),
-                    ('Mobile Analysis', ['ALEAPP-GUI','Android Studio\Android Studio','Bytecode Viewer','iBackup Viewer\iBackup Viewer','ILEAPP-GUI','iPhoneAnalyzer','iTunes Backup Analyzer','JD-GUI','VLEAPP-GUI','VOW Software\plist Editor Pro\plist Editor Pro']),
+                    ('Mobile Analysis', ['ALEAPP-GUI','Android Studio\Android Studio','Bytecode Viewer','iBackup Viewer\iBackup Viewer','ILEAPP-GUI','iPhoneAnalyzer','iTunes Backup Analyzer','JD-GUI','VLEAPP-GUI','VOW Software\plist Editor Pro\plist Editor Pro','UFADE']),
                     ('Network', ['Burp Suite Community Edition\Burp Suite Community Edition','Fiddler Classic','IHB','NetScanner','NetworkMiner','PuTTY (64-bit)\PSFTP','PuTTY (64-bit)\PuTTY','WinSCP','Wireshark','Zui']),
                     ('Raw Parsers and Decoders', ['Bulk Extractor 1.5.5\BEViewer with Bulk Extractor 1.5.5 (64-bit)','CyberChef','Digital Detective\DataDump v2\DataDump v2.2','Digital Detective\DCode v5\DCode v5.5','DROID','HHD Hex Editor Neo\Hex Editor Neo','HEXEdit','HxD Hex Editor\HxD','JSONView','Passware\Encryption Analyzer 2024 v1\Passware Encryption Analyzer 2024 v1 (64-bit)','PhotoRec','QPhotoRec','TestDisk','Time Decode','Redline\Redline','XMLView','WinHex']),
                     ('Registry', ['RegistryExplorer','RegRipper','Regshot x64 ANSI']),
