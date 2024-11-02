@@ -24,6 +24,14 @@ python3-vleapp-source:
     - require:
       - sls: winfor.packages.git
 
+python3-vleapp-patch-requirements:
+  file.line:
+    - name: '{{ inpath }}\vleapp\requirements.txt'
+    - mode: delete
+    - content: "packaging==20.1"
+    - require:
+      - git: python3-vleapp-source
+
 python3-vleapp-requirements:
   pip.installed:
     - requirements: '{{ inpath }}\vleapp\requirements.txt'
@@ -31,6 +39,7 @@ python3-vleapp-requirements:
     - require:
       - git: python3-vleapp-source
       - sls: winfor.packages.python3
+      - file: python3-vleapp-patch-requirements
 
 python3-vleapp-header:
   file.prepend:
@@ -50,7 +59,7 @@ python3-vleapp-icon:
   file.managed:
     - name: '{{ inpath }}\vleapp\abrignoni-logo.ico'
     - source: salt://winfor/files/abrignoni-logo.ico
-    - source_hash: sha256=97ca171e939a3e4a3e51f4a66a46569ffc604ef9bb388f0aec7a8bceef943b98
+    - skip_verify: True
     - makedirs: True
 
 python3-vleapp-gui-shortcut:

@@ -4,11 +4,11 @@
 # Category: Utilities
 # Author: FastCopy Lab - https://fastcopy.jp/company.html
 # License: Copyright - All rights reserved - https://fastcopy.jp/help/fastcopy_eng.htm#license
-# Version: 5.4.1
+# Version: 5.8.0
 # Notes:
 
-{% set version = '5.4.1' %}
-{% set hash = '5e331238b2cb9e90d1548b61d1e09b5534c0219fa4e76b5b3e7b9634a056b523' %}
+{% set version = '5.8.0' %}
+{% set hash = '5374571a36fc6012ff56fcc4871cd960d32c9840237cfb1b4e0a5c03e9324aec' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 fastcopy-download-only:
