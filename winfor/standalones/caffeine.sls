@@ -4,11 +4,11 @@
 # Category: Utilities
 # Author: Tom Revell
 # License: Free
-# Version: 1.97
+# Version: 1.98
 # Notes: 32-bit and 64-bit executables, execute from command line for additional parameters
 
-{% set hash = '083b16e4100e7a59f8ac5094938a88da47b2547f5b9eac21cc55c96ad9200585' %}
-{% set version = '1.97' %}
+{% set hash = '4a259c348e59eb51bbb75aac7fdcc798705496d575892ee1e01fff6970d5ba1c' %}
+{% set version = '1.98' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 
 caffeine-download:

@@ -34,6 +34,8 @@ android-studio-install:
     - name: 'C:\salt\tempdownload\android-studio-{{ as_version }}-windows.exe /S'
     - shell: cmd
     - success_retcodes: 1223
+    - require:
+      - file: android-studio-download
 
 cmdline-tools:
   file.managed:
@@ -41,6 +43,8 @@ cmdline-tools:
     - source: https://dl.google.com/android/repository/commandlinetools-win-{{ cmdline_version }}_latest.zip
     - source_hash: sha256={{ cmdline_hash }}
     - makedirs: True
+    - require:
+      - cmd: android-studio-install
 
 sdk-folder:
   file.directory:
@@ -48,6 +52,8 @@ sdk-folder:
     - makedirs: True
     - replace: True
     - win_inheritance: True
+    - require:
+      - cmd: android-studio-install
 
 cmdline-extract:
   archive.extracted:
@@ -56,6 +62,7 @@ cmdline-extract:
     - enforce_toplevel: False
     - require:
       - file: sdk-folder
+      - cmd: android-studio-install
 
 cmdline-tools-rename:
   file.rename:
@@ -64,6 +71,7 @@ cmdline-tools-rename:
     - force: True
     - require:
       - archive: cmdline-extract
+      - cmd: android-studio-install
 
 {% for file in broken_files %} 
 cmdline-tools-fix-{{ file }}:
@@ -72,6 +80,8 @@ cmdline-tools-fix-{{ file }}:
     - pattern: '%~dp0\\..'
     - repl: '"%~dp0\\.."'
     - count: 1
+    - require:
+      - cmd: android-studio-install
 {% endfor %}
 
 build-tools-install:
@@ -81,6 +91,7 @@ build-tools-install:
     - shell: cmd
     - require:
       - file: cmdline-tools-rename
+      - cmd: android-studio-install
 
 platform-tools-install:
   cmd.run:

@@ -4,18 +4,18 @@
 # Category: Windows Analysis
 # Author: Junghoon Oh (blueangel)
 # License: 
-# Version: 1.71
+# Version: 1.8
 # Notes: 
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
-{% set hash = '87046624daec5c64676e3c7f9821e0d9651dd9782b62ca11bc04a192500a9063' %}
-{% set version = '1.71' %}
+{% set hash = 'f53564a35a21d5e83ba4fb4e01e5fe4779de98d8f1d6934062046e83ece35ec6' %}
+{% set version = '1.8' %}
 
 ntfs-log-tracker-download:
   file.managed:
     - name: 'C:\salt\tempdownload\ntfs-log-tracker-v{{ version }}.zip'
-    - source: 'https://drive.google.com/uc?id=1ZmVbRiY3ijP_jAMv6sZPpNNxPIS3gmlM&export=download'
+    - source: 'https://drive.usercontent.google.com/download?id=1n6rDDEqUYx580CnTyU2w6L9Qj7qeqYJt&export=download'
     - source_hash: sha256={{ hash }}
     - makedirs: True
 

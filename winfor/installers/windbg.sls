@@ -5,7 +5,7 @@
 # Author: Microsoft
 # License: Third-party Notices within app
 # Version: 1.2402.24001.0
-# Notes: 
+# Notes: retcode 2316632107 means no available upgrades
 
 {% set version = '1.2402.24001.0' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
@@ -18,6 +18,8 @@ include:
 windbg-winget-install:
   cmd.run:
     - name: '{{ LOCALAPPDATA }}\Microsoft\WindowsApps\winget.exe install --silent Microsoft.WinDbg --accept-source-agreements --accept-package-agreements --source winget'
+    - shell: cmd
+    - success_retcodes: 2316632107
 
 windbg-shortcut:
   file.shortcut:
