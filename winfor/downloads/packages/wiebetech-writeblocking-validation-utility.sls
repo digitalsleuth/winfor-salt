@@ -1,7 +1,7 @@
 # Name: Wiebetech Write Blocking Validation Utility
 # Website: https://wiebetech.com
 # Description: Write blocker capability testing
-# Category: Write Blockers
+# Category: Utilities
 # Author: Wiebetech
 # License: Free To Use
 # Version: 2.1.1.0

@@ -4,10 +4,10 @@
 # Category: Utilities
 # Author: Corey Forman (digitalsleuth)
 # License: MIT (https://github.com/digitalsleuth/WIN-FOR/blob/main/LICENSE)
-# Version: 6.0.0
+# Version: 10.0.0
 # Notes: 
 
-{% set version = "6.0.0" %}
+{% set version = "10.0.0" %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set hash = '' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
