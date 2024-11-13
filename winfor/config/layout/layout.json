@@ -1227,9 +1227,20 @@
         "Enabled": true,
         "ExtraTiles": []
       },
-      "Pyinstaller Extractor": {
+      "PyInstaller Extractor": {
         "CbName": "python3_tools_pyinstxtractor",
-        "CbContent": "Pyinstaller Extractor",
+        "CbContent": "PyInstaller Extractor",
+        "DAID": "",
+        "AUMID": false,
+        "DALP": false,
+        "StartMenu": false,
+        "Checked": true,
+        "Enabled": true,
+        "ExtraTiles": []
+      },
+      "PyInstaller Extractor NG": {
+        "CbName": "standalones_pyinstxtractor-ng",
+        "CbContent": "PyInstaller Extractor NG",
         "DAID": "",
         "AUMID": false,
         "DALP": false,

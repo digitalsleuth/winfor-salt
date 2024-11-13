@@ -106,6 +106,7 @@ include:
   - winfor.standalones.memprocfs-analyzer
   - winfor.standalones.itunes-backup-explorer
   - winfor.standalones.ufade
+  - winfor.standalones.pyinstxtractor-ng
 
 standalones-states:
   test.nop:
@@ -217,3 +218,4 @@ standalones-states:
       - sls: winfor.standalones.memprocfs-analyzer
       - sls: winfor.standalones.itunes-backup-explorer
       - sls: winfor.standalones.ufade
+      - sls: winfor.standalones.pyinstxtractor-ng
