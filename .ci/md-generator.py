@@ -104,15 +104,15 @@ def parse_header(base_path, file_name):
                     fields.append((key, value))
                 else:
                     get_logger().warning(
-                        f"file: {file_path} - line does not match with regex: {line}"
+                        f"mismatched regex: {file_path}"
                     )
 
     if not fields:
-        raise KeyError(f"no header: {file_path}")
+        raise KeyError(f"header missing: {file_path}")
     elif not name:
-        raise KeyError(f"found header but no name field: {file_path}")
+        raise KeyError(f"name missing: {file_path}")
     elif not category:
-        raise KeyError(f"found header but no category: {file_path}")
+        raise KeyError(f"category missing: {file_path}")
 
     if os.name == "posix":
         state_file_path = os.path.splitext(file_name)[0].strip("./").replace("/", ".")
