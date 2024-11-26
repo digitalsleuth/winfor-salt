@@ -1239,7 +1239,7 @@
         "ExtraTiles": []
       },
       "PyInstaller Extractor NG": {
-        "CbName": "standalones_pyinstxtractor-ng",
+        "CbName": "standalones_pyinstxtractor_ng",
         "CbContent": "PyInstaller Extractor NG",
         "DAID": "",
         "AUMID": false,
