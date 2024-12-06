@@ -2844,6 +2844,17 @@
         "Enabled": true,
         "ExtraTiles": []
       },
+      "python-evtx": {
+        "CbName": "python3_tools_python_evtx",
+        "CbContent": "python-evtx",
+        "DAID": "",
+        "AUMID": false,
+        "DALP": false,
+        "StartMenu": false,
+        "Checked": true,
+        "Enabled": true,
+        "ExtraTiles": []
+      },
       "Shadow Explorer": {
         "CbName": "standalones_shadowexplorer",
         "CbContent": "Shadow Explorer",
