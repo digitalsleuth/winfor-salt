@@ -4,16 +4,16 @@
 # Category: Acquisition and Analysis
 # Author: Exterro Inc / AccessData
 # License: EULA
-# Version: 4.7.1.2
+# Version: 4.7.3.81
 # Notes:
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '4.7.1.2' %}
-{% set hash = '3f77a248732d5a8416365084b30006776cd0c0cda7b0ea462e4b3ffce2bcf88d' %}
+{% set version = '4.7.3.81' %}
+{% set hash = '443843a3923a55d479d6ebb339dfbec12b5c1aabed196bf0541669abbe9b1c51' %}
 
 ftk-imager-download-only:
   file.managed:
-    - name: '{{ downloads }}\ftk-imager\FTK-Imager-4-7-1-2-portable.zip'
-    - source: https://github.com/digitalsleuth/winfor-salt/raw/main/winfor/files/FTK-Imager-4-7-1-2-portable.zip
+    - name: '{{ downloads }}\ftk-imager\FTK-Imager-x64-{{ version }}.exe'
+    - source: https://d1kpmuwb7gvu1i.cloudfront.net/Imgr/{{ version }}%20Release/Exterro_FTK_Imager_%28x64%29-{{ version }}.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

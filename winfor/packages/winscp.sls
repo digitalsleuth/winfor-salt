@@ -4,7 +4,7 @@
 # Category: Network
 # Author: Martin Prikryl
 # License: GNU General Public License v3 (https://github.com/winscp/winscp/blob/master/license.txt)
-# Version: 6.1.2
+# Version: 6.3.6
 # Notes:
 
 include:

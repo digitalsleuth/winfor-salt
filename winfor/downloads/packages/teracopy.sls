@@ -4,13 +4,13 @@
 # Category: Utilities
 # Author: Code Sector
 # License: FREEWARE (private / non-commerical)
-# Version: 3.12
+# Version: 3.17
 # Notes:
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '310' %}
+{% set version = '317' %}
 
-teracopy-download:
+teracopy-download-only:
   file.managed:
     - name: '{{ downloads }}\teracopy\teracopy{{ version }}.exe'
     - source: https://www.codesector.com/files/teracopy.exe

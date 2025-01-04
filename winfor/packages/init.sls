@@ -77,6 +77,7 @@ include:
   - winfor.packages.wiebetech-writeblocking-validation-utility
   - winfor.packages.android-studio
   - winfor.packages.ida-free
+  - winfor.packages.reko
 
 package-states:
   test.nop:
@@ -159,3 +160,4 @@ package-states:
       - sls: winfor.packages.wiebetech-writeblocking-validation-utility
       - sls: winfor.packages.android-studio
       - sls: winfor.packages.ida-free
+      - sls: winfor.packages.reko

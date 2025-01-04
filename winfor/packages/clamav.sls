@@ -4,7 +4,7 @@
 # Category: Utilities
 # Author: Cisco / Talos - https://www.clamav.net/about
 # License: GNU General Public License v2.0 (https://github.com/Cisco-Talos/clamav/blob/main/COPYING.txt)
-# Version: 1.3.1
+# Version: 1.4.1
 # Notes: 
 
 {% set configs = ['freshclam','clamd'] %}

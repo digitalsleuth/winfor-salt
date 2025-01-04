@@ -29,6 +29,7 @@ include:
   - winfor.downloads.standalones.codetrack
   - winfor.downloads.standalones.cutter
   - winfor.downloads.standalones.cyberchef
+  - winfor.downloads.standalones.deark
   - winfor.downloads.standalones.densityscout
   - winfor.downloads.standalones.dex2jar
   - winfor.downloads.standalones.die
@@ -240,6 +241,7 @@ download-states:
       - sls: winfor.downloads.standalones.codetrack
       - sls: winfor.downloads.standalones.cutter
       - sls: winfor.downloads.standalones.cyberchef
+      - sls: winfor.downloads.standalones.deark
       - sls: winfor.downloads.standalones.densityscout
       - sls: winfor.downloads.standalones.dex2jar
       - sls: winfor.downloads.standalones.die

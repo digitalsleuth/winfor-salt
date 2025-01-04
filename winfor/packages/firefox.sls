@@ -4,7 +4,7 @@
 # Category: Browsers
 # Author: Mozilla Foundation
 # License: Mozilla Public License 2.0 (https://www.mozilla.org/en-US/MPL/)
-# Version: 118.0.1
+# Version: 133.0.3
 # Notes: 
 
 include:

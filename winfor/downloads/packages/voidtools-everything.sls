@@ -4,12 +4,12 @@
 # Category: Utilities
 # Author: David Carpenter
 # License: https://www.voidtools.com/License.txt
-# Version: 1.4.1.1024
+# Version: 1.4.1.1026
 # Notes:
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '1.4.1.1024' %}
-{% set hash = 'b2afe799584c913532c673f99ade45113bf5a5b605a964ce9fa837f563b6fc21' %}
+{% set version = '1.4.1.1026' %}
+{% set hash = 'dae32a49b6052f0ec70895dd4e35b2b26222f7f4c19c36d9d309033e2fb622bc' %}
 
 voidtools-everything-download-only:
   file.managed:

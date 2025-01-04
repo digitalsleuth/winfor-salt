@@ -4,12 +4,12 @@
 # Category: Browsers
 # Author: Mozilla Foundation
 # License: Mozilla Public License 2.0 (https://www.mozilla.org/en-US/MPL/)
-# Version: 118.0.1
+# Version: 133.0.3
 # Notes: 
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '118.0.1' %}
-{% set hash = 'a10b0d585134734d01f68b51fa92d70dfa7749b0c0966987562819c87504b679' %}
+{% set version = '133.0.3' %}
+{% set hash = '4e6f266c706ab183f3c9c1c9e619e8641eab4e9a93cbd09f34452197d98a0c9e' %}
 
 firefox_x64-download-only:
   file.managed:
