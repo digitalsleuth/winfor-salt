@@ -3,7 +3,7 @@
 {% set START_MENU = PROGRAMDATA + '\Microsoft\Windows\Start Menu\Programs' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set hash = 'ea026fdfcbec6dd4fe87e9053d0e6e185f50ed5696af68e331aad8b131ffe4e9' %}
-{% set castver = '0.14.0' %}
+{% set castver = '0.15.10' %}
 {% set wslver = '1.2.5.0' %}
 
 include:
@@ -68,17 +68,31 @@ wsl-import-template:
 
 wsl-get-cast:
   cmd.run:
-    - name: 'wsl -d WIN-FOR echo forensics | wsl -d WIN-FOR sudo -S wget -O /tmp/cast_v{{ castver }}_linux_amd64.deb https://github.com/ekristen/cast/releases/download/v{{ castver }}/cast_v{{ castver }}_linux_amd64.deb'
+    - name: 'wsl -d WIN-FOR echo forensics | wsl -d WIN-FOR sudo -S wget -O /tmp/cast-v{{ castver }}-linux-amd64.deb https://github.com/ekristen/cast/releases/download/v{{ castver }}/cast-v{{ castver }}-linux-amd64.deb'
     - shell: cmd
     - require:
       - cmd: wsl-import-template
 
 wsl-install-cast:
   cmd.run:
-    - name: 'wsl -d WIN-FOR echo forensics | wsl -d WIN-FOR sudo -S apt-get install -y /tmp/cast_v{{ castver }}_linux_amd64.deb'
+    - name: 'wsl -d WIN-FOR echo forensics | wsl -d WIN-FOR sudo -S apt-get install -y /tmp/cast-v{{ castver }}-linux-amd64.deb'
     - shell: cmd
     - require:
       - cmd: wsl-get-cast
+
+wsl-remove-cast-temp:
+  cmd.run:
+    - name: 'wsl -d WIN-FOR echo forensics | wsl -d WIN-FOR sudo -S rm /tmp/cast-v{{ castver }}-linux-amd64.deb'
+    - shell: cmd
+    - require:
+      - cmd: wsl-install-cast
+
+wsl-make-keyrings-dir:
+  cmd.run:
+    - name: 'wsl -d WIN-FOR echo forensics | wsl -d WIN-FOR sudo -S mkdir -p /etc/apt/keyrings'
+    - shell: cmd
+    - require:
+      - cmd: wsl-install-cast
 
 wsl-install-sift:
   cmd.run:
