@@ -4,7 +4,7 @@
 # Category: Windows Analysis
 # Author: Volatility Foundation
 # License: Volatility Software License (https://www.volatilityfoundation.org/license/vsl-v1.0)
-# Version: 3
+# Version: 2.8.0
 # Notes:
 
 include:
@@ -69,7 +69,7 @@ volatility3-linux-symbols-download:
   file.managed:
     - name: 'C:\salt\tempdownload\linux.zip'
     - source: https://downloads.volatilityfoundation.org/volatility3/symbols/linux.zip
-    - source_hash: sha256=d9d03616858c8247d62921656c1238e54daa7aa024c1b496ec624fd90c6231e2
+    - source_hash: sha256=58bb7da2ed1e491ce922d04a59881d201e233b5605c9fd5a7f0c08ee528253c6
     - makedirs: True
 
 volatility3-linux-symbols-extract:

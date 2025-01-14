@@ -4,12 +4,12 @@
 # Category: Utilities
 # Author: TGRMN Software
 # License: EULA (https://www.bulkrenameutility.co.uk/License.php)
-# Version: 4.0.0.2
+# Version: 4.0.0.4
 # Notes: 
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set hash = 'c4b51d575017e2dafae6b999cfaed973ef1c790a7b357bb0403aeef5f828b303' %}
-{% set version = '4.0.0.2' %}
+{% set hash = '94f0181aa752b728224b0520cd17efead7610f08124e8750255e5ae933d261e7' %}
+{% set version = '4.0.0.4' %}
 
 bulkrenameutility-portable-download-only:
   file.managed:

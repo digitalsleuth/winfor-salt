@@ -8,7 +8,7 @@
 # Notes: 
 
 {% set hash = '7ccb8de9821339bad495e03821e870c0c2bb6d5b99e71d90ff4730e1b63e28bd' %}
-{% set hasher_hash = '14ee103793fae4f165adc5e0a9424ca75ea0a4dc2e823dcc2b7cdeb2ae94483c' %}
+{% set hasher_hash = '1fa5f2e91eed2c819a107a160a56d6cc3e12807355741db6dde4395cb6d527bf' %}
 {% set hasher_version = '2.1.0.0' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '2024-08-20' %}

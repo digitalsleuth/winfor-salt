@@ -4,12 +4,12 @@
 # Category: Acquisition and Analysis
 # Author: Elcomsoft
 # License: EULA (https://www.elcomsoft.com/legal.html)
-# Version: 2.20.1011.6893
+# Version: 2.21.1024.8145
 # Notes:
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '2.20.1011.6893' %}
-{% set hash = '675ca40709c5b8b64ef19ac43db306d919203423fe1e63033226c0706bc05c7b' %}
+{% set version = '2.21.1024.8145' %}
+{% set hash = 'f6dcaa7c94be5346524d532003a535305eb70eea5ca16cc4e98333dc292a4e3c' %}
 
 elcomsoft-efdd-download-only:
   file.managed:
