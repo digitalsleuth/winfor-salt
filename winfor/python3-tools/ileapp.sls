@@ -38,6 +38,7 @@ python3-ileapp-requirements:
   pip.installed:
     - requirements: '{{ inpath }}\ileapp\requirements.txt'
     - bin_env: 'C:\Program Files\Python310\python.exe'
+    - cwd: '{{ inpath }}\ileapp'
     - require:
       - git: python3-ileapp-source
       - sls: winfor.packages.python3

@@ -4,11 +4,11 @@
 # Category: Documents / Editors
 # Author: Didier Stevens
 # License: Public Domain
-# Version: 0.7.9
+# Version: 0.7.10
 # Notes: 
 
-{% set version = '0.7.9' %}
-{% set hash = 'fa7c25a75d51df0e56a44b414a96972883ca92e60e654e3105451f6505f0e015' %}
+{% set version = '0.7.10' %}
+{% set hash = '3b64bf74578965058b3a44e6d29d0e701f7008a6629eef29c029f3043a0a6aea' %}
 
 include:
   - winfor.packages.python3
