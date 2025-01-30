@@ -9,7 +9,7 @@
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
-{% set hash = '9566d3fcfc6a5e1b67b5cbefadb10585ffb43101ffe01f778cb0af11ce046620' %}
+{% set hash = 'deb4721296f8d1e624f10712c4a66b17ac61a19d33dac5c1671a93dfb406f255' %}
 
 exeinfope-download:
   file.managed:
