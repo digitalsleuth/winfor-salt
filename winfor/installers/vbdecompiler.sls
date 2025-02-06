@@ -8,7 +8,7 @@
 # Notes: 
 
 {% set version = '12.5' %}
-{% set hash = '77e833921eac180428ba500d3deddf699814cc870c40d7ac2f700e71c1261be6' %}
+{% set hash = 'ec754e61a55c6d4dfe1c5606749334abfbfd9e7a8b5363baf75aec8b5cde9811' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 vbdecompiler-download:
