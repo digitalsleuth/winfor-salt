@@ -8,9 +8,8 @@
 {% set case_folders = ['Evidence', 'Export', 'Temp', 'Xways'] %}
 {% set profile_pictures = ['user.png', 'user.bmp', 'user-32.png', 'user-40.png', 'user-48.png', 'user-192.png'] %}
 {% set portals_configs = ['portals.ptl','globalsettings.ptl','license.ptl'] %}
-{% set xwver = '207' %}
 {% set zips = ['FTK-Imager-4-7-1-2-portable.zip', 'FTK-Imager-3-2-0-0-portable.zip', 'searchkit.zip'] %}
-{% set folders = ['PE01', 'PE03', 'PE04', 'PE05', 'PE06', 'PE07'] %}
+{% set folders = ['PE01', 'PE03', 'PE04', 'PE05', 'PE06', 'PE07', 'PE08'] %}
 {% set vert = salt['cmd.powershell']('[int]((Get-CimInstance CIM_VideoController | Select -expand CurrentVerticalResolution) / 4)') | int %}
 {% set horiz = salt['cmd.powershell']('[int]((Get-CimInstance CIM_VideoController | Select -expand CurrentHorizontalResolution) / 8)') | int %}
 {% set hspacer = horiz + 1 %}
@@ -36,7 +35,7 @@
                     ('Terminals', ['Windows PowerShell\Windows PowerShell ISE','WSL']),
                     ('Utilities', ['Agent Ransack\Agent Ransack','Digital Detective\DCode v5\DCode v5.5','FastCopy','Glossary Generator','Google Earth Pro','Hasher','Hash Generator','IrfanView\IrfanView 64 4.62','Monolith Notes',"Nuix\\Nuix Evidence Mover\\Nuix Evidence Mover",'Rufus','USB Write Blocker','VeraCrypt 1.26.7\VeraCrypt','Oracle VM VirtualBox\Oracle VM VirtualBox','VideoLAN\VLC media player','WindowGrid']),
                     ('Windows Analysis', ['AutoRunner','gkape','Hibernation Recon','Hindsight GUI','JumpListExplorer','MFTBrowser','MFTExplorer','mimikatz','NirLauncher','NTFS Log Tracker','RegistryExplorer','RegRipper','SE','ShadowExplorer','ShellBagsExplorer','Sysinternals','TimelineExplorer','Zimmerman Tools']),
-                    ('Write Blockers', ['Tableau\Tableau Firmware Update\Tableau Firmware Update','USB Write Blocker','CDSG\WriteBlocking Validation Utility\WriteBlocking Validation Utility'])
+                    ('Write Blockers', ['Tableau Firmware Update','USB Write Blocker','CDSG\WriteBlocking Validation Utility\WriteBlocking Validation Utility'])
                    ] %}
 {% set start_folders = [('01','Acquisition and Analysis'),
                         ('02','Browsers'),
@@ -206,7 +205,7 @@ xways-file-type-categories-user:
 
 xways-folder-copy:
   file.copy:
-    - name: 'C:\CASE_FOLDER_STRUCTURE\X-Ways{{ xwver }}'
+    - name: 'C:\CASE_FOLDER_STRUCTURE\xwf'
     - source: 'C:\xwf'
     - preserve: True
     - subdir: True

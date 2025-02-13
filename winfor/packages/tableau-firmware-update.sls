@@ -7,6 +7,7 @@
 # Version: 24.3.3
 # Notes: 
 
+{% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set user = salt['pillar.get']('winfor_user', 'forensics') %}
 {% set current_user = salt['environ.get']('USERNAME') %}
 {% set all_users = salt['user.list_users']() %}
@@ -50,3 +51,12 @@ tableau-firmware-update-icon-del:
       - certutil: tableau-certificate-install
       - pkg: tableau-firmware-update
       - user: user-{{ user }}
+
+tableau-firmware-update-shortcut:
+  file.shortcut:
+    - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\Tableau Firmware Update.lnk'
+    - target: 'C:\Program Files (x86)\Tableau\Tableau Firmware Update\tabup.exe'
+    - force: True
+    - working_dir: 'C:\Program Files (x86)\Tableau\Tableau Firmware Update\'
+    - require:
+      - pkg: tableau-firmware-update

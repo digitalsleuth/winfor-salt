@@ -4,11 +4,11 @@
 # Category: Acquisition and Analysis
 # Author: Magnet Forensics
 # License: EULA
-# Version: 20230117
+# Version: 20250131
 # Notes: 
 
-{% set version = '20230117' %}
-{% set hash = '4cb72d4153ec955a4625f519123c6b404b5d0f09cd3d5ba953c142df228871a6' %}
+{% set version = '20250131' %}
+{% set hash = '096b559844030e79e9bc017b91dc23ab064f6f1f23d78b385b8b5c3172ed99f3' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 magnet-dumpit-download-only:
