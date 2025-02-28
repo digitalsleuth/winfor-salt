@@ -4,7 +4,7 @@
 # Category: Raw Parsers / Decoders
 # Author: HHD Software
 # License: EULA (https://www.hhdsoftware.com/company/terms-of-use)
-# Version: 7.46.00.8715
+# Version: 7.50.04.8813
 # Notes: 
 
 {% set user = salt['pillar.get']('winfor_user', 'forensics') %}
