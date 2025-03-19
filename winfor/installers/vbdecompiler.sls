@@ -9,7 +9,6 @@
 
 {% set version = '12.5' %}
 {% set hash = 'ec754e61a55c6d4dfe1c5606749334abfbfd9e7a8b5363baf75aec8b5cde9811' %}
-{% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 vbdecompiler-download:
   file.managed:
