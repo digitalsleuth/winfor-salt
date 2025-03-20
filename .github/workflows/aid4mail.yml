@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@main
       - name: Check Aid4Mail Hash
         run: |
-          wget https://www.aid4mail.com/download/Aid4Mail5_Setup.zip
+          wget https://www.aid4mail.com/download/Aid4Mail6_Setup.zip
           PREVIOUS_HASH=$(cat /home/runner/work/winfor-salt/winfor-salt/winfor/installers/aid4mail.sls | grep "set hash" | awk -F\' '{print tolower($2)}')
-          CURRENT_HASH=$(sha256sum Aid4Mail5_Setup.zip | awk '{print $1}')
+          CURRENT_HASH=$(sha256sum Aid4Mail6_Setup.zip | awk '{print $1}')
           if [[ "$PREVIOUS_HASH" != "$CURRENT_HASH" ]]; then echo "HASH UPDATED - $CURRENT_HASH" && exit 1; else echo "No hash changes" && exit 0; fi
