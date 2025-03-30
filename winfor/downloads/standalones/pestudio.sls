@@ -7,7 +7,7 @@
 # Version: 9.61
 # Notes: 
 
-{% set hash = '7ebbb5e97644b000aab1af70663e2766b66f5731c677dbd6e40c2ff5d6d2fc57' %}
+{% set hash = 'c1e2d0c1fbf5951486cf3d850cc24b11b66e25e0a5b77a623e2eb13ffad9ddd9' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '9.61' %}
 
