@@ -4,11 +4,11 @@
 # Category: Network
 # Author: NETRESEC AB
 # License: GNU General Public License (GPL) v2.0 (https://www.netresec.com/?page=NetworkMinerSourceCode)
-# Version: 2.9
+# Version: 3.0
 # Notes: 
 
-{% set version = '2-9' %}
-{% set hash = 'c610f6ba647ddd9c718e87018ee40595a4d72a52a6b3b7ceb53caf4fa8de6f05' %}
+{% set version = '3-0' %}
+{% set hash = '5d074a54e2f2f26d0a2cf5a2833ab08345f1a0eeba2bdf746835545ec23e3032' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 network-miner-download-only:
