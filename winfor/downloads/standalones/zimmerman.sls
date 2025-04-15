@@ -4,14 +4,14 @@
 # Category: Windows Analysis
 # Author: Eric Zimmerman
 # License: MIT License (https://github.com/EricZimmerman/Issues/blob/master/LICENSE)
-# Version: 2024-10-28
+# Version: 2025-04-13
 # Notes: 
 
-{% set hash = '7ccb8de9821339bad495e03821e870c0c2bb6d5b99e71d90ff4730e1b63e28bd' %}
+{% set hash = 'e9993b590056016e75972ec34b25864fc7f88f574f15cf87f65b990177a1516c' %}
 {% set hasher_hash = '1fa5f2e91eed2c819a107a160a56d6cc3e12807355741db6dde4395cb6d527bf' %}
 {% set hasher_version = '2.1.0.0' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '2024-08-20' %}
+{% set version = '2025-04-13' %}
 {% set today = salt['system.get_system_date']().replace("/","-") %}
 
 zimmerman-tools-download-only:
