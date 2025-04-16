@@ -4,13 +4,13 @@
 # Category: Utilities
 # Author: Corey Forman (digitalsleuth)
 # License: MIT License (https://github.com/digitalsleuth/hash-generator/blob/main/LICENSE)
-# Version: 2.0.0
+# Version: 2.1.0
 # Notes: 
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set hash = '8f54a62c26544401dcea25a801011f5a0a7d3c5c8a8efbb67c4417e359a40164' %}
+{% set hash = 'E3C40DD20884351B6553FF64E985D18D8EB6C1BFD165CA18814F84D028CB492C' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
-{% set version = '2.0.0' %}
+{% set version = '2.1.0' %}
 
 hash-generator-download:
   file.managed:
