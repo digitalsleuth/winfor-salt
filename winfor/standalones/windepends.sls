@@ -4,12 +4,12 @@
 # Category: Executables
 # Author: hfiref0x
 # License: MIT License (https://github.com/hfiref0x/WinDepends/blob/master/LICENSE)
-# Version: 1.0.0.2412
+# Version: 1.0.0.2504
 # Notes: In Beta
 
-{% set version = '1.0.0.2412' %}
-{% set snapshot = '2412' %}
-{% set hash = '0cbbc30791aeb4fd0395273534691b2a3ff2de40f3cd0a4de04a11febdac1aee' %}
+{% set version = '1.0.0.2504' %}
+{% set snapshot = '2504' %}
+{% set hash = '55edc345c9bedfa03b99b21f17c3b357c5c9b526ade9ee61e540f0f4925057fa' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 

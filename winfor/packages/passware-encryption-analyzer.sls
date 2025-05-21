@@ -4,10 +4,10 @@
 # Category: Raw Parsers / Decoders
 # Author: Passware - Dmitry Sumin
 # License: EULA - https://www.passware.com/files/Passware-EULA.pdf
-# Version: 2025.1.0.4433
+# Version: 2025.2.1.4623
 # Notes:
 
-{% set version = '2025.1.0.4433' %}
+{% set version = '2025.2.1.4623' %}
 
 include:
   - winfor.repos

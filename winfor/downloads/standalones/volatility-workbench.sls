@@ -4,12 +4,12 @@
 # Category: Windows Analysis
 # Author: OSForensics
 # License: Volatility Software License (https://www.volatilityfoundation.org/license/vsl-v1.0)
-# Version: 3.0.1009
+# Version: 3.0.1011
 # Notes:
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '3.0.1009' %}
-{% set hash = 'e66bab3e5c867d3ccba9879dfc2e5576fcca21fd764a8a31fee992edbceacbcc' %}
+{% set version = '3.0.1011' %}
+{% set hash = 'e2225ee260a5ee5ed2151016d57d76459bcdf5e84ead4325e34947913b557428' %}
 
 volatility-workbench-download-only:
   file.managed:

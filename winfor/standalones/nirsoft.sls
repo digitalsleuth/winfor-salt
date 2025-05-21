@@ -4,12 +4,12 @@
 # Category: Windows Analysis
 # Author: Nir Sofer
 # License: 
-# Version: 1.30.14
+# Version: 1.30.19
 # Notes: 
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set version = '1.30.14' %}
-{% set hash = '7969d1c07f5cef6392bcc2e250a59cf04bef31726b4aca0542f0b52a63144330' %}
+{% set version = '1.30.19' %}
+{% set hash = '4431989909910dcf1c69dbe92d410399badb87a19fbe0545718ff8ed4dd59b26' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set nlps = ['eztools.nlp', 'mitec.nlp', 'sysinternals6.nlp'] %}
 {% set defender_status = salt['cmd.run']('powershell -c "(Get-Service windefend).Status"') %}
