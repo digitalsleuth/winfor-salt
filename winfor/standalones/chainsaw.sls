@@ -4,11 +4,11 @@
 # Category: Logs
 # Author: WithSecureLabs / Countercept
 # License: GNU General Public License v3.0 (https://github.com/WithSecureLabs/chainsaw/blob/master/LICENCE)
-# Version: 2.8.1
+# Version: 2.12.2
 # Notes:
 
-{% set version = '2.8.1' %}
-{% set hash = '2881fc8a3999281b05f4edbfa8941e518c83f60a53d713076f8df666cadae17f' %}
+{% set version = '2.12.2' %}
+{% set hash = '483dfa39e7864b03bb4cf7cdf044568d4d2804cbcb08eb36da1af6353699ec7f' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set defender_status = salt['cmd.run']('powershell -c "(Get-Service windefend).Status"') %}
@@ -40,6 +40,7 @@ chainsaw-extract:
     - source: 'C:\salt\tempdownload\chainsaw_all_platforms+rules+examples.zip'
     - enforce_toplevel: False
     - overwrite: True
+    - if_missing: '{{ inpath }}\chainsaw'
     - require:
       - file: chainsaw-download
       - cmd: chainsaw-defender-exclusion

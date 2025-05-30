@@ -74,7 +74,6 @@ include:
   - winfor.packages.veracrypt
   - winfor.packages.virtualbox
   - winfor.packages.vlc
-  - winfor.packages.wiebetech-writeblocking-validation-utility
   - winfor.packages.android-studio
   - winfor.packages.ida-free
   - winfor.packages.reko
@@ -157,7 +156,6 @@ package-states:
       - sls: winfor.packages.veracrypt
       - sls: winfor.packages.virtualbox
       - sls: winfor.packages.vlc
-      - sls: winfor.packages.wiebetech-writeblocking-validation-utility
       - sls: winfor.packages.android-studio
       - sls: winfor.packages.ida-free
       - sls: winfor.packages.reko

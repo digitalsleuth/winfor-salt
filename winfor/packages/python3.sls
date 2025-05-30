@@ -4,15 +4,25 @@
 # Category: Requirements
 # Author: Python Software Foundation
 # License: Python Software Foundation License Version 2.0 (https://docs.python.org/3.10/license.html)
-# Version: 3.10.1150.0
+# Version: 3.10.11150.0
 # Notes:
+
+{% set installed = salt['cmd.run']('powershell -c "(Get-ItemProperty HKLM:\\Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\* | Where-Object {$_.DisplayName -match \'^Python 3\' } | Select-Object -ExpandProperty DisplayVersion | Select -First 1)"') %}
+{% set version = '3.10.11150' %}
+{% set major = installed.split(".")[0] %}
+{% set minor = installed.split(".")[1] %}
 
 include:
   - winfor.repos
 
+{% if installed and major == '3' and (minor | int) >= 10 %}
+Python {{ major }}.{{ minor }} already installed:
+  test.nop
+{% else %}
+
 python3_x64:
   pkg.installed:
-    - version: '3.10.1150.0'
+    - version: '3.10.11150.0'
     - require:
       - sls: winfor.repos
 
@@ -39,3 +49,5 @@ python3-symlink:
     - win_inheritance: True
     - require:
       - pkg: python3_x64
+
+{% endif %}

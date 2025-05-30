@@ -4,7 +4,7 @@
 # Category: Utilities
 # Author: Microsoft
 # License: MIT (https://github.com/microsoft/PowerToys/blob/main/LICENSE)
-# Version: 0.86.0
+# Version: 0.91.1
 # Notes:
 
 include:

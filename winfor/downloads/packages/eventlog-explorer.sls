@@ -9,7 +9,7 @@
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '5.6' %}
-{% set hash = 'c66638722f2012138b2bfa8c8095658e5bd8b5c2659e294b5d9b425e3513d333' %}
+{% set hash = '00abac84773a33728d57100a7e900e62376ccffa' %}
 
 eventlog-explorer-download-only:
   file.managed:

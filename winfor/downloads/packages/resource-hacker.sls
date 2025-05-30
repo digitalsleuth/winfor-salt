@@ -4,12 +4,12 @@
 # Category: Executables
 # Author: Angus Johnson
 # License: Freeware (http://www.angusj.com/resourcehacker - License to Use)
-# Version: 5.2.6
+# Version: 5.2.8
 # Notes: 
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '5.2.6' %}
-{% set hash = '246457363396dcea4cc3d19ce2a431897bac948ae1694d3e87cc0ebaf2ea39f5' %}
+{% set version = '5.2.8' %}
+{% set hash = 'b611be2f35cb44efd1c29df03e7ebe62bd556a500585680e1afa5e073eaf1756' %}
 
 resource-hacker-download-only:
   file.managed:

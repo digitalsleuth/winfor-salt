@@ -4,12 +4,12 @@
 # Category: Windows Analysis
 # Author: Arsenal Recon
 # License: EULA
-# Version: 1.2.2.86
+# Version: 1.2.3.87
 # Notes:
 
-{% set hash = 'de71fb354e5d9a6193c165f18d775819f1277014a7317371cdec14060857f606' %}
-{% set version = '1.2.2.86' %}
-{% set file_value = 'z4Q2iD4C#1I8eFUnuV-x-OOuFJ7G-8YWcNPDfrV26w3aL2mnqGPI' %}
+{% set hash = 'bd76ae4f98908b400c8beaa676b862d953c4aa49853634e663ef1f2ac84069a1' %}
+{% set version = '1.2.3.87' %}
+{% set file_value = '3kRRxSZA#y98k7mBJKpygPxFu5Txi_-l9iDnyN3GzYxzjTVb3z-I' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set hiber_zip = downloads + '\\hiber-recon\\Hibernation-Recon-v' + version + '.zip' %}
 

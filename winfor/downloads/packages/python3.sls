@@ -4,12 +4,12 @@
 # Category: Requirements
 # Author: Python Software Foundation
 # License: Python Software Foundation License Version 2.0 (https://docs.python.org/3.10/license.html)
-# Version: 3.10.1150.0
+# Version: 3.10.11
 # Notes:
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '3.10.1' %}
-{% set hash = '8b89b75032ddfbdac80225dc288f5ec276f5cda00d4000226abda1158f90f7a4' %}
+{% set version = '3.10.11' %}
+{% set hash = 'd8dede5005564b408ba50317108b765ed9c3c510342a598f9fd42681cbe0648b' %}
 
 python3_x64-download-only:
   file.managed:

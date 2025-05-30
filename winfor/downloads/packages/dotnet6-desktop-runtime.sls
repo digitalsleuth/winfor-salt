@@ -9,7 +9,7 @@
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '6.0.36' %}
-{% set hash = 'd669f26726fd40649f21613b6289c29f6329fd9242f8e4af4f979cc8f4f92739' %}
+{% set hash = '0d20debb26fc8b2bc84f25fbd9d4596a6364af8517ebf012e8b871127b798941' %}
 {% set guid = 'f6b6c5dc-e02d-4738-9559-296e938dabcb' %}
 {% set dl_hash = 'b66d365729359df8e8ea131197715076' %}
 

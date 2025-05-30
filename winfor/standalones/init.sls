@@ -23,7 +23,7 @@ include:
   - winfor.standalones.cutter
   - winfor.standalones.regshot
   - winfor.standalones.scylla
-  - winfor.standalones.srum-dump2
+  - winfor.standalones.srum-dump
   - winfor.standalones.setdllcharacteristics
   - winfor.standalones.pilfer
   - winfor.standalones.vssmount
@@ -135,7 +135,7 @@ standalones-states:
       - sls: winfor.standalones.cutter
       - sls: winfor.standalones.regshot
       - sls: winfor.standalones.scylla
-      - sls: winfor.standalones.srum-dump2
+      - sls: winfor.standalones.srum-dump
       - sls: winfor.standalones.setdllcharacteristics
       - sls: winfor.standalones.pilfer
       - sls: winfor.standalones.vssmount

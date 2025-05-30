@@ -4,7 +4,7 @@
 # Category: Windows Analysis
 # Author: Eric Zimmerman
 # License: MIT License (https://github.com/EricZimmerman/Issues/blob/master/LICENSE)
-# Version: 2025-04-13
+# Version: 2025-05-29
 # Notes: 
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
@@ -40,7 +40,7 @@ zimmerman-tools-download:
 {% for tool in sync_tools %}
 zimmerman-tools-sync-{{ tool }}:
   cmd.run:
-    - name: '{{ inpath }}\zimmerman\net6\{{ tool }}\{{ tool }}.exe --sync'
+    - name: '{{ inpath }}\zimmerman\net9\{{ tool }}\{{ tool }}.exe --sync'
     - shell: cmd
     - require:
       - cmd: zimmerman-tools-download
@@ -49,22 +49,22 @@ zimmerman-tools-sync-{{ tool }}:
 zimmerman-env-vars:
   win_path.exists:
     - names:
-      - '{{ inpath }}\zimmerman\net6\'
-      - '{{ inpath }}\zimmerman\net6\EvtxeCmd\'
-      - '{{ inpath }}\zimmerman\net6\RECmd\'
-      - '{{ inpath }}\zimmerman\net6\RegistryExplorer\'
-      - '{{ inpath }}\zimmerman\net6\ShellBagsExplorer\'
-      - '{{ inpath }}\zimmerman\net6\SQLECmd\'
-      - '{{ inpath }}\zimmerman\net6\iisGeolocate\'
-      - '{{ inpath }}\zimmerman\net6\SDBExplorer\'
+      - '{{ inpath }}\zimmerman\net9\'
+      - '{{ inpath }}\zimmerman\net9\EvtxeCmd\'
+      - '{{ inpath }}\zimmerman\net9\RECmd\'
+      - '{{ inpath }}\zimmerman\net9\RegistryExplorer\'
+      - '{{ inpath }}\zimmerman\net9\ShellBagsExplorer\'
+      - '{{ inpath }}\zimmerman\net9\SQLECmd\'
+      - '{{ inpath }}\zimmerman\net9\iisGeolocate\'
+      - '{{ inpath }}\zimmerman\net9\SDBExplorer\'
 
 {% for application in applications %}
 zimmerman-{{ application }}-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\{{ application }}.lnk'
-    - target: '{{ inpath }}\zimmerman\net6\{{ application }}\{{ application }}.exe'
+    - target: '{{ inpath }}\zimmerman\net9\{{ application }}\{{ application }}.exe'
     - force: True
-    - working_dir: '{{ inpath }}\zimmerman\net6\{{ application }}\'
+    - working_dir: '{{ inpath }}\zimmerman\net9\{{ application }}\'
     - makedirs: True
     - require:
       - cmd: zimmerman-tools-download

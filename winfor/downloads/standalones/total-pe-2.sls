@@ -8,7 +8,7 @@
 # Notes:
 
 {% set version = '0.6.5.1' %}
-{% set hash = 'c0c2af261f8b4e47be845ce6740fa2d51b9baa4731795a22b7ed46a4b84ecdc0' %}
+{% set hash = '265bf06eb5e14e5ee2e2a2b261215b914f3885fe543873a1c97795decd89e03e' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 total-pe-2-download-only:
