@@ -353,6 +353,8 @@
         "AUMID": false,
         "DALP": false,
         "StartMenu": true,
+        "Checked": true,
+        "Enabled": true,
         "ExtraTiles": []
       },
       "msoffcrypto-crack.py": {
