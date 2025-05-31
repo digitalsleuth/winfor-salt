@@ -9,7 +9,6 @@
 
 include:
   - winfor.config.user
-  - winfor.cleanup.desktop-folders
 
 cleanup-delete-salt-temp-files:
   file.absent:
