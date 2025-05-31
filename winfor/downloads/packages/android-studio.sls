@@ -4,15 +4,15 @@
 # Category: Mobile Analysis
 # Author: Google
 # License: 
-# Version: 2023.2.1.23
+# Version: 2024.3.2.15
 # Notes: Emulator comes with Android Studio, adb and fastboot are in the platform-tools, Build Tools can be downloaded using sdkmanager in the cmdline tools
 
-{% set as_version = '2023.2.1.23' %}
-{% set as_hash = '754049e35ffc060512eb6813e44e1a2b9dba1dabe8277274fd46638e196c3285' %}
-{% set cmdline_version = '11076708' %}
-{% set cmdline_hash = '4d6931209eebb1bfb7c7e8b240a6a3cb3ab24479ea294f3539429574b1eec862' %}
-{% set platform_version = '35.0.0' %}
-{% set platform_hash = '7ab78a8f8b305ae4d0de647d99c43599744de61a0838d3a47bda0cdffefee87e' %}
+{% set cmdline_version = '13114758' %}
+{% set cmdline_hash = '98b565cb657b012dae6794cefc0f66ae1efb4690c699b78a614b4a6a3505b003' %}
+{% set as_version = '2024.3.2.15' %}
+{% set as_hash = 'da717086ed055c9d91658fb973336d2973244874dd333c863e0236f98b6660d1' %}
+{% set platform_version = '36.0.0' %}
+{% set platform_hash = '24bd8bebbbb58b9870db202b5c6775c4a49992632021c60750d9d8ec8179d5f0' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 android-studio-download-only:
@@ -31,7 +31,7 @@ cmdline-tools-download-only:
 
 platform-tools-download-only:
   file.managed:
-    - name: '{{ downloads }}\android-studio\platform-tools_r{{ platform_version }}-windows.zip'
-    - source: https://dl.google.com/android/repository/platform-tools_r{{ platform_version }}-windows.zip
+    - name: '{{ downloads }}\android-studio\platform-tools-latest-windows.zip'
+    - source: https://dl.google.com/android/repository/platform-tools-latest-windows.zip
     - source_hash: sha256={{ platform_hash }}
     - makedirs: True

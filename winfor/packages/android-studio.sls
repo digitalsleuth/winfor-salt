@@ -4,13 +4,13 @@
 # Category: Mobile Analysis
 # Author: Google
 # License: 
-# Version: 2023.2.1.23
+# Version: 2024.3.2.15
 # Notes: Comes with adb and fastboot, error code 1223 does not represent error - marked as success.
 
-{% set cmdline_version = '11076708' %}
-{% set cmdline_hash = '4d6931209eebb1bfb7c7e8b240a6a3cb3ab24479ea294f3539429574b1eec862' %}
-{% set as_version = '2023.2.1.23' %}
-{% set as_hash = '754049e35ffc060512eb6813e44e1a2b9dba1dabe8277274fd46638e196c3285' %}
+{% set cmdline_version = '13114758' %}
+{% set cmdline_hash = '98b565cb657b012dae6794cefc0f66ae1efb4690c699b78a614b4a6a3505b003' %}
+{% set as_version = '2024.3.2.15' %}
+{% set as_hash = 'da717086ed055c9d91658fb973336d2973244874dd333c863e0236f98b6660d1' %}
 {% set build_version = '35.0.0' %}
 {% set platform_version = '35.0.0' %}
 {% set PROGRAM_FILES = salt['environ.get']('PROGRAMFILES') %}
