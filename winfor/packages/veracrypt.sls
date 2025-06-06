@@ -4,7 +4,7 @@
 # Category: Utilities
 # Author: https://github.com/veracrypt/VeraCrypt/blob/master/doc/html/Authors.html
 # License: Apache License v2 (https://github.com/veracrypt/VeraCrypt/blob/master/License.txt)
-# Version: 1.26.7
+# Version: 1.26.24
 # Notes: 
 
 {% set user = salt['pillar.get']('winfor_user', 'user') %}

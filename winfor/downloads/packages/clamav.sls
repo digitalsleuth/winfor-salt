@@ -4,11 +4,11 @@
 # Category: Utilities
 # Author: Cisco / Talos - https://www.clamav.net/about
 # License: GNU General Public License v2.0 (https://github.com/Cisco-Talos/clamav/blob/main/COPYING.txt)
-# Version: 1.4.1
+# Version: 1.4.2
 # Notes:
 
-{% set version = '1.4.1' %}
-{% set hash = '3d28bfddffef323583a20ac1c257801e6405ea68fba661b81c5cbec4560eaffa' %}
+{% set version = '1.4.2' %}
+{% set hash = '65308fd2ad2d550206380e406fed22f74b49c35b3f39ed8cc28d52363c8f1f2b' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 clamav-download-only:

@@ -4,11 +4,11 @@
 # Category: Utilities
 # Author: Doug Finke
 # License: Apache License v2.0 (https://github.com/dfinke/ImportExcel/blob/master/LICENSE.txt)
-# Version: 7.8.6
+# Version: 7.8.10
 # Notes: Installed directly from PSGallery
 
-{% set version = '7.8.6' %}
-{% set hash = '2567c01157a0b229a127e311d6187fb8b76d88f739dc35623272c06649755144' %}
+{% set version = '7.8.10' %}
+{% set hash = '23723a8eb5fb5020bc170bd4c492fea0efbcf4c517ae48b8509ec9f650e08b19' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 importexcel-download-only:

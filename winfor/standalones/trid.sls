@@ -4,11 +4,11 @@
 # Category: Executables
 # Author: Marco Pontello
 # License: Free for personal / non-commercial use
-# Version: 2.2.4
+# Version: 2.24
 # Notes:
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set version = '2.2.4' %}
+{% set version = '2.24' %}
 {% set trid_hash = 'ea7f82363912f5b3c79217ba8716425ec3f2514887f788dcd5a2821d0b1fc83f' %}
 {% set update_hash = '3596167b5fa2f4adb3b6ee013c3f111a5c9e3b52f948e70e27423d8e69a1bb12' %}
 

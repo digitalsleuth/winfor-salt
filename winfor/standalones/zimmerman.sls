@@ -14,6 +14,9 @@
 {% set applications = ['EZViewer','JumpListExplorer','MFTExplorer','RegistryExplorer','SDBExplorer','ShellBagsExplorer','TimelineExplorer'] %}
 {% set sync_tools = ['EvtxECmd','RECmd'] %}
 
+include:
+  - winfor.packages.dotnet9-desktop-runtime
+
 zimmerman-tools:
   file.managed:
     - name: 'C:\salt\tempdownload\Get-ZimmermanTools.zip'
@@ -36,6 +39,8 @@ zimmerman-tools-download:
     - shell: powershell
     - watch:
       - archive: zimmerman-tools-install
+    - require:
+      - sls: winfor.packages.dotnet9-desktop-runtime
 
 {% for tool in sync_tools %}
 zimmerman-tools-sync-{{ tool }}:

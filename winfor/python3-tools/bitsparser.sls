@@ -8,6 +8,7 @@
 # Notes: 
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
+{% set version = '1.0' %}
 
 include:
   - winfor.packages.git

@@ -4,16 +4,16 @@
 # Category: Executables
 # Author: JetBrains
 # License: EULA (https://www.jetbrains.com/legal/docs/toolbox/license_personal/)
-# Version: 2023.2.2
+# Version: 2025.1.2
 # Notes: 
 
-{% set version = '2023.2.2' %}
-{% set hash = '8dcfd2cc5df83b5fc54bcc4ab8b844d773e62035362d42e9b1952477a82222f4' %}
+{% set version = '2025.1.2' %}
+{% set hash = 'b0bca127b8b9db181d76dee5d8021f62a10b0bc3569b5f6ecc4ed9fddb07b19e' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 dotpeek-download-only:
   file.managed:
     - name: '{{ downloads }}\dotpeek\dotPeek64-{{ version }}.exe'
-    - source: https://download.jetbrains.com/resharper/dotUltimate.{{ version }}/dotPeek64.{{ version }}.exe
+    - source: https://download.jetbrains.com/resharper/dotUltimate.{{ version }}/JetBrains.dotPeek.{{ version }}.web.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

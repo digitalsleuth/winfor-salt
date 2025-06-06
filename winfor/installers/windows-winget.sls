@@ -20,8 +20,9 @@ windows-winget-download:
 
 windows-winget-install:
   cmd.run:
-    - name: "dism /Online /Add-ProvisionedAppxPackage /PackagePath:Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle /SkipLicense"
+    - name: "dism /Online /quiet /norestart /Add-ProvisionedAppxPackage /PackagePath:Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle /SkipLicense"
     - shell: cmd
+    - success_retcodes: 3010
     - cwd: 'C:\salt\tempdownload\'
     - require:
       - file: windows-winget-download

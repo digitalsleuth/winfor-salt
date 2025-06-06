@@ -4,11 +4,11 @@
 # Category: Requirements
 # Author: Microsoft
 # License: Apache v2.0 (https://github.com/NuGet/NuGet.Client/blob/dev/LICENSE.txt)
-# Version: 6.9.1 is for standalone binary only.
+# Version: 6.14.0 is for standalone binary only.
 # Notes:
 
-{% set version = '6.9.1' %}
-{% set hash = '82bb13e2365e1e5ee7d0975618dcf90b279427de8a7ecb338b9b78bfc457d51b' %}
+{% set version = '6.14.0' %}
+{% set hash = '92dbed160ddee0f64b901e907439e021211b428e57c089ecc12fc38dcc4bd9a5' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 nuget-download-only:

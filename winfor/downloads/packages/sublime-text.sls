@@ -4,12 +4,12 @@
 # Category: Documents / Editors
 # Author: Sublime HQ Pty Ltd
 # License: EULA (https://www.sublimehq.com/eula)
-# Version: 4189
+# Version: 4200
 # Notes: 
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '4189' %}
-{% set hash = '59bbd4e519d7205944af458dc026d98f131d57a05760402a72ea462f631e47ea' %}
+{% set version = '4200' %}
+{% set hash = '3d3c70e51aef08f85d7160bcc70793bed9acec250973090ab67d98987bce7c7e' %}
 
 sublime-text-download-only:
   file.managed:

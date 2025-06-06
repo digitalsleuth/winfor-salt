@@ -4,12 +4,12 @@
 # Category: Executables
 # Author: hasherezade
 # License: BSD 2-Clause Simplified License (https://github.com/hasherezade/mal_unpack/blob/master/LICENSE)
-# Version: 0.9.7
+# Version: 0.9.9
 # Notes: 
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set version = '0.9.7' %}
-{% set hash = '3e33c60584e7d3df759d96f4b974e7b683288d9666f9fea266e0448706fe47c2' %}
+{% set version = '0.9.9' %}
+{% set hash = '81b9e998dea96aaf6067b77a8faf26dc417a0ea7c768cb66a14563af54692bad' %}
 
 mal-unpack-download:
   file.managed:

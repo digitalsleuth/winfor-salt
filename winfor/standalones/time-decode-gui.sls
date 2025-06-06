@@ -14,7 +14,7 @@
 
 time-decode-download:
   file.managed:
-    - name: '{{ inpath }}\time-decode\Time Decode.exe'
+    - name: '{{ inpath }}\time-decode\time-decode-gui.exe'
     - source: https://github.com/digitalsleuth/time_decode/releases/download/v{{ version }}/Time.Decode.v{{ version }}.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True
@@ -22,7 +22,7 @@ time-decode-download:
 time-decode-gui-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\Time Decode.lnk'
-    - target: '{{ inpath }}\time-decode\Time Decode.exe'
+    - target: '{{ inpath }}\time-decode\time-decode-gui.exe'
     - force: True
     - working_dir: '{{ inpath }}\time-decode\'
     - makedirs: True

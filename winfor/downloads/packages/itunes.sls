@@ -4,16 +4,17 @@
 # Category: Utilities
 # Author: Apple
 # License: EULA
-# Version: 12.12.10.1
+# Version: 12.13.7.1
 # Notes:
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '12.12.10.1' %}
-{% set hash = '31465167704b2fd795aafc14cf5c04261d7c3ae663d087f63842e431aa204abc' %}
+{% set version = '12.13.7.1' %}
+{% set hash = '2f5a7f4a85e24810297cb3ef63fd6d743df1c62edfc5e4ca3677c7b083bc2ff0' %}
+{% set url_path = '082-11723-20250331-b31ec27c-f9dd-42b1-9af3-2e2590232c09' %}
 
 itunes-download-only:
   file.managed:
     - name: '{{ downloads }}\itunes\iTunes64Setup-{{ version }}.exe'
-    - source: https://secure-appldnld.apple.com/itunes12/042-32480-20230911-CC326CC1-E6C1-4F7C-A717-18493F59FE2E/iTunes64Setup.exe
+    - source: https://secure-appldnld.apple.com/itunes12/{{ url_path }}/iTunes64Setup.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

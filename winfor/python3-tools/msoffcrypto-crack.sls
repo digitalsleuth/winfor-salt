@@ -8,6 +8,7 @@
 # Notes: 
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
+{% set version = '0.0.5' %}
 
 include:
   - winfor.packages.python3

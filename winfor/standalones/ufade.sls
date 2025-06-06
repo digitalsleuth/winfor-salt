@@ -2,14 +2,14 @@
 # Website: https://github.com/prosch88/UFADE
 # Description: Standalone tool to extract data from Apple Devices
 # Category: Mobile Analysis
-# Author: prosch88
+# Author: Christian Peter (prosch88)
 # License: GNU General Public License 3 (https://github.com/prosch88/UFADE/blob/main/LICENSE)
-# Version: 0.9.4
+# Version: 0.9.9
 # Notes: 
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set version = '0.9.4' %}
-{% set hash = '054f612e9c6d7c9010a080abb6070e60955fa98221a1b89c35aed8982177be8b' %}
+{% set version = '0.9.9' %}
+{% set hash = 'b35dc415fe2df1c6218ffe10a643c36212cd6af4b6e3d78b1ed7eb886c085e3c' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 ufade-download:

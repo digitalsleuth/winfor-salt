@@ -4,15 +4,12 @@
 # Category: Windows Analysis
 # Author: Brian Carrier
 # License: Multiple Licenses (https://www.sleuthkit.org/sleuthkit/licenses.php)
-# Version: 4.12.1
+# Version: 4.14.0
 # Notes: 
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set version = '4.12.1' %}
-{% set hash = '1653d69a537c7b7f1e68ca25c63ff61c765562925cf17ecbf15fae7211e87269' %}
-
-include:
-  - winfor.packages.strawberryperl
+{% set version = '4.14.0' %}
+{% set hash = '76a803a0dbbe203cf19c79e583413a2aa470aaf1f6349488f35d3ef7cb779a2a' %}
 
 sleuthkit-download:
   file.managed:
@@ -28,7 +25,6 @@ sleuthkit-extract:
     - enforce_toplevel: False
     - require:
       - file: sleuthkit-download
-      - sls: winfor.packages.strawberryperl
 
 sleuthkit-folder-rename:
   file.rename:
@@ -38,14 +34,6 @@ sleuthkit-folder-rename:
     - makedirs: True
     - require:
       - archive: sleuthkit-extract
-
-sleuthkit-mactime-wrapper:
-  file.managed:
-    - name: '{{ inpath }}\sleuthkit\bin\mactime.cmd'
-    - win_inheritance: True
-    - contents:
-      - '@echo off'
-      - perl {{ inpath }}\sleuthkit\bin\mactime.pl %*
 
 '{{ inpath }}\sleuthkit\bin':
   win_path.exists

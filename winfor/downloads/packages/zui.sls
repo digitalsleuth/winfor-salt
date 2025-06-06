@@ -4,11 +4,11 @@
 # Category: Network
 # Author: Brim Data
 # License: GNU General Public License (GPL) (https://github.com/brimdata/zui/blob/main/apps/zui/LICENSE.txt)
-# Version: 1.3.0
+# Version: 1.18.0
 # Notes:
 
-{% set version = '1.3.0' %}
-{% set hash = '38bb9077def7aca1ecb5c0fab00e96dc0c41543b6e6d6541295687f2bcaac1a0' %}
+{% set version = '1.18.0' %}
+{% set hash = '4150273579dbe40c77c873b3269d733a13023e34868231b0e44c54a3925b8a4c' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 zui-download-only:

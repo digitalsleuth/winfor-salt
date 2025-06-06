@@ -4,12 +4,12 @@
 # Category: Executables
 # Author: uxmal et al (https://github.com/uxmal/reko/blob/master/AUTHORS)
 # License: GNU General Public License 2.0 (https://github.com/uxmal/reko/blob/master/COPYING)
-# Version: 0.11.6
+# Version: 0.12.0
 # Notes:
 
-{% set version = '0.11.6' %}
-{% set ver_hash = '58fe816db3' %}
-{% set hash = 'eb8bd9801d125f7c648a52c89878cbce0e83595db9772adec2e8067b2c977c75' %}
+{% set version = '0.12.0' %}
+{% set ver_hash = '99a6fb0170' %}
+{% set hash = 'a73c9cc6a4c9bf8ffcb5077ea2ccc096da97cb4f297c800642b70393989c19cc' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 reko-download-only:

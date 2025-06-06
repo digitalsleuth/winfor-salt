@@ -4,11 +4,11 @@
 # Category: Windows Analysis
 # Author: Costas K.
 # License: MIT License (https://github.com/kacos2000/MFT_Browser/blob/master/LICENSE)
-# Version: 1.0.72.0
+# Version: 1.0.80
 # Notes:
 
-{% set version = '1.0.72.0' %}
-{% set hash = '65c36420e2db2f3d4a068bc905f6b788c9376736b183c94e9893cb00a5d53119' %}
+{% set version = '1.0.80' %}
+{% set hash = '478bb7ee1f6b33caeae9bc39298a12ccc3f99834a550cfaff5b7848a7dcc9b0b' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 mftbrowser-download-only:

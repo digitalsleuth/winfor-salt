@@ -4,7 +4,7 @@
 # Category: Email
 # Author: Arman Gungor - Metaspike
 # License:
-# Version: 4.1.423.1108
+# Version: 4.1.455.1255
 # Notes:
 
 include:

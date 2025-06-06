@@ -4,7 +4,7 @@
 # Category: Network
 # Author: Brim Data
 # License: GNU General Public License (GPL) (https://github.com/brimdata/zui/blob/main/apps/zui/LICENSE.txt)
-# Version: 1.3.0
+# Version: 1.18.0
 # Notes:
 
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}

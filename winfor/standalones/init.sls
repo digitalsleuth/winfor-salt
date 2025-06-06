@@ -9,7 +9,6 @@ include:
   - winfor.standalones.usb-write-blocker
   - winfor.standalones.ntfs-log-tracker
   - winfor.standalones.logfileparser
-  - winfor.standalones.dotpeek
   - winfor.standalones.kape
   - winfor.standalones.autorunner
   - winfor.standalones.sleuthkit
@@ -104,9 +103,10 @@ include:
   - winfor.standalones.usbdetective
   - winfor.standalones.total-pe-2
   - winfor.standalones.memprocfs-analyzer
-  - winfor.standalones.itunes-backup-explorer
   - winfor.standalones.ufade
   - winfor.standalones.pyinstxtractor-ng
+  - winfor.standalones.ghidra
+  - winfor.standalones.fex-cloud-capture
 
 standalones-states:
   test.nop:
@@ -121,7 +121,6 @@ standalones-states:
       - sls: winfor.standalones.usb-write-blocker
       - sls: winfor.standalones.ntfs-log-tracker
       - sls: winfor.standalones.logfileparser
-      - sls: winfor.standalones.dotpeek
       - sls: winfor.standalones.kape
       - sls: winfor.standalones.autorunner
       - sls: winfor.standalones.sleuthkit
@@ -216,6 +215,7 @@ standalones-states:
       - sls: winfor.standalones.usbdetective
       - sls: winfor.standalones.total-pe-2
       - sls: winfor.standalones.memprocfs-analyzer
-      - sls: winfor.standalones.itunes-backup-explorer
       - sls: winfor.standalones.ufade
       - sls: winfor.standalones.pyinstxtractor-ng
+      - sls: winfor.standalones.ghidra
+      - sls: winfor.standalones.fex-cloud-capture

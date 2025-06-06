@@ -4,11 +4,12 @@
 # Category: Mobile Analysis
 # Author: Alexis Brignoni
 # License: MIT License (https://github.com/abrignoni/ALEAPP/blob/main/LICENSE)
-# Version: 3.1.1
+# Version: 3.4.0
 # Notes: 
 
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
+{% set version = '3.4.0' %}
 
 include:
   - winfor.packages.python3

@@ -183,7 +183,7 @@ include:
   - winfor.downloads.packages.pdfstreamdumper
   - winfor.downloads.packages.plist-editor
   - winfor.downloads.packages.portals
-  - winfor.downloads.packages.process-hacker
+  - winfor.downloads.packages.systeminformer
   - winfor.downloads.packages.pst-walker
   - winfor.downloads.packages.putty
   - winfor.downloads.packages.python3
@@ -395,7 +395,7 @@ download-states:
       - sls: winfor.downloads.packages.pdfstreamdumper
       - sls: winfor.downloads.packages.plist-editor
       - sls: winfor.downloads.packages.portals
-      - sls: winfor.downloads.packages.process-hacker
+      - sls: winfor.downloads.packages.systeminformer
       - sls: winfor.downloads.packages.pst-walker
       - sls: winfor.downloads.packages.putty
       - sls: winfor.downloads.packages.python3

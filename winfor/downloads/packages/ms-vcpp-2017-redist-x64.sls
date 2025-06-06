@@ -4,13 +4,13 @@
 # Category: Requirements
 # Author: Microsoft
 # License: EULA
-# Version: 14.42.34433
+# Version: 14.44.35208.0
 # Notes:
 
-{% set version = '14.42.34433' %}
-{% set subpath = 'c7dac50a-e3e8-40f6-bbb2-9cc4e3dfcabe/1821577409C35B2B9505AC833E246376CC68A8262972100444010B57226F0940' %}
+{% set version = '14.44.35208.0' %}
+{% set subpath = '40b59c73-1480-4caf-ab5b-4886f176bf71/D62841375B90782B1829483AC75695CCEF680A8F13E7DE569B992EF33C6CD14A' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set hash = '1821577409c35b2b9505ac833e246376cc68a8262972100444010b57226f0940' %}
+{% set hash = 'd62841375b90782b1829483ac75695ccef680a8f13e7de569b992ef33c6cd14a' %}
 
 ms-vcpp-2017-redist-x64-download-only:
   file.managed:

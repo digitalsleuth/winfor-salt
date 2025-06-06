@@ -7,11 +7,14 @@
 # Version: 5.0
 # Notes: 
 
+{% set hash = '012599f3a3abeca988964dbab47b1c3fb31cfe164d6bf724d406859d785ddab2' %}
+{% set version = '5.0' %}
+
 pst-viewer-download:
   file.managed:
     - name: 'C:\salt\tempdownload\outlook-pst-viewer.exe'
     - source: https://downloads.systoolsgroup.com/outlook-pst-viewer.exe
-    - source_hash: sha256=012599f3a3abeca988964dbab47b1c3fb31cfe164d6bf724d406859d785ddab2
+    - source_hash: sha256={{ hash }}
     - makedirs: True
 
 pst-viewer-install:

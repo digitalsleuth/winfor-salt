@@ -54,7 +54,7 @@
           <start:DesktopApplicationTile Size="1x1" Column="2" Row="0" DesktopApplicationID="PLACEHOLDER_PATH\codetrack\Codetrack.exe" />
           <start:DesktopApplicationTile Size="1x1" Column="3" Row="0" DesktopApplicationID="PLACEHOLDER_PATH\cutter\cutter.exe" />
           <start:DesktopApplicationTile Size="1x1" Column="4" Row="0" DesktopApplicationID="PLACEHOLDER_PATH\die\die.exe" />
-          <start:DesktopApplicationTile Size="1x1" Column="5" Row="0" DesktopApplicationID="PLACEHOLDER_PATH\dotpeek\dotPeek64.exe" />
+          <start:DesktopApplicationTile Size="1x1" Column="5" Row="0" DesktopApplicationID="{7C5A40EF-A0FB-4BFC-874A-C0F2E0B9FA8E}\JetBrains\Installations\dotPeek251_000\dotPeek64.exe" />
           <start:DesktopApplicationTile Size="1x1" Column="0" Row="1" DesktopApplicationID="PLACEHOLDER_PATH\ExeinfoPe\exeinfope.exe" />
           <start:DesktopApplicationTile Size="1x1" Column="1" Row="1" DesktopApplicationID="{7C5A40EF-A0FB-4BFC-874A-C0F2E0B9FA8E}\McAfee\FileInsight\FileInsight.exe" />
           <start:DesktopApplicationTile Size="1x1" Column="2" Row="1" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\ILSpy.lnk" />
@@ -69,7 +69,7 @@
           <start:DesktopApplicationTile Size="1x1" Column="5" Row="2" DesktopApplicationID="PLACEHOLDER_PATH\portexanalyzer\PortexAnalyzerGUI-0.12.12-jar-with-dependencies.jar" />
           <start:DesktopApplicationTile Size="1x1" Column="0" Row="3" DesktopApplicationID="PLACEHOLDER_PATH\ppee\PPEE.exe" />
           <start:DesktopApplicationTile Size="1x1" Column="1" Row="3" DesktopApplicationID="PLACEHOLDER_PATH\procdot\win64\procdot.exe" />
-          <start:DesktopApplicationTile Size="1x1" Column="2" Row="3" DesktopApplicationID="wj32.ProcessHacker2" />
+          <start:DesktopApplicationTile Size="1x1" Column="2" Row="3" DesktopApplicationID="SystemInformer" />
           <start:DesktopApplicationTile Size="1x1" Column="3" Row="3" DesktopApplicationID="PLACEHOLDER_PATH\rehex\rehex.exe" />
           <start:DesktopApplicationTile Size="1x1" Column="4" Row="3" DesktopApplicationID="{7C5A40EF-A0FB-4BFC-874A-C0F2E0B9FA8E}\Resource Hacker\ResourceHacker.exe" />
           <start:DesktopApplicationTile Size="1x1" Column="5" Row="3" DesktopApplicationID="PLACEHOLDER_PATH\scdbg\gui_launcher.exe" />

@@ -4,11 +4,11 @@
 # Category: Network
 # Author: https://github.com/orgs/ipinfo/people
 # License: Apache License v2.0 (https://github.com/ipinfo/cli/blob/master/LICENSE)
-# Version: 3.2.0
+# Version: 3.3.1
 # Notes: 
 
-{% set version = '3.2.0' %}
-{% set hash = '14e924260c31066d73496a35bd59a4e229701768e105645d5d191119f0685aaf' %}
+{% set version = '3.3.1' %}
+{% set hash = 'fd72d65840c4f5e15767cf30d4aea8bd584e3e049fb81f0c8227c82c203b810f' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 
 ipinfo-download:

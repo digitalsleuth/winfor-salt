@@ -4,10 +4,10 @@
 # Category: Terminals
 # Author: Microsoft
 # License: MIT License (https://github.com/microsoft/terminal/blob/main/LICENSE)
-# Version: 1.20.11781.0
+# Version: 1.22.11141.0
 # Notes: 
 
-{% set version = '1.20.11781.0' %}
+{% set version = '1.22.11141.0' %}
 {% set user = salt['pillar.get']('winfor_user', 'forensics') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set TERMINAL_VERSION = salt['cmd.run']('powershell -c "(Get-AppxPackage -Name Microsoft.WindowsTerminal).Version"') %}
@@ -41,8 +41,9 @@ windows-terminal-bundle-upgrade:
 
 windows-terminal-install-upgrade:
   cmd.run:
-    - name: "dism /Online /Add-ProvisionedAppxPackage /PackagePath:Microsoft.WindowsTerminal_{{ version }}_8wekyb3d8bbwe.msixbundle /SkipLicense"
+    - name: 'dism /online /quiet /norestart /Add-ProvisionedAppxPackage /PackagePath:Microsoft.WindowsTerminal_{{ version }}_8wekyb3d8bbwe.msixbundle /SkipLicense'
     - shell: cmd
+    - success_retcodes: 3010
     - cwd: 'C:\salt\tempdownload\'
 
 windows-terminal-shortcut-upgrade:
@@ -70,8 +71,9 @@ windows-terminal-bundle-new:
 
 windows-terminal-install-new:
   cmd.run:
-    - name: "dism /Online /Add-ProvisionedAppxPackage /PackagePath:Microsoft.WindowsTerminal_{{ version }}_8wekyb3d8bbwe.msixbundle /SkipLicense"
+    - name: 'dism /online /quiet /norestart /Add-ProvisionedAppxPackage /PackagePath:Microsoft.WindowsTerminal_{{ version }}_8wekyb3d8bbwe.msixbundle /SkipLicense'
     - shell: cmd
+    - success_retcodes: 3010
     - cwd: 'C:\salt\tempdownload\'
 
 windows-terminal-shortcut-new:

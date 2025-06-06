@@ -4,12 +4,12 @@
 # Category: Raw Parsers / Decoders
 # Author: Jason Summers
 # License: MIT (https://github.com/jsummers/deark/blob/master/COPYING)
-# Version: 1.6.8
+# Version: 1.7.0
 # Notes: 
 
-{% set version = '1.6.8' %}
+{% set version = '1.7.0' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set hash = 'ad4846a0eb4a8247e9893f42a8ab2b89750a0fea060d60626684746bf511f6a4' %}
+{% set hash = '7c3752c2c783cd6c4e22e527f1d72dbee9166883a156d25fbf98f73a8c44c8be' %}
 
 include:
   - winfor.packages.7zip

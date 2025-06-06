@@ -4,11 +4,11 @@
 # Category: Raw Parsers / Decoders
 # Author: Christophe Grenier
 # License: GNU General Public License v2.0 (https://git.cgsecurity.org/cgit/testdisk/tree/COPYING)
-# Version: 7.1
+# Version: 7.2
 # Notes:
 
-{% set version = '7.1' %}
-{% set hash = '2A82C5F4A29EE467AB1EFF82BAD1F9C10F71569512161ACFABD58E9B8A3DA314' %}
+{% set version = '7.2' %}
+{% set hash = 'e97e203ce77b6b1a3a37d01beccf069dc6c4632b579ffbb82ae739cdda229f38' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 

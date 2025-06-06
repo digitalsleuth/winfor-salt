@@ -23,7 +23,7 @@ srum-dump-env-vars:
   win_path.exists:
     - name: '{{ inpath }}\srum-dump\'
 
-standalones-srum-dump-shortcut:
+srum-dump-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\SRUM-DUMP.lnk'
     - target: '{{ inpath }}\srum-dump\srum-dump.exe'
@@ -32,4 +32,3 @@ standalones-srum-dump-shortcut:
     - makedirs: True
     - require:
       - file: srum-dump-download
-      - file: srum-dump-template-download

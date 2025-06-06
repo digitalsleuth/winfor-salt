@@ -8,6 +8,7 @@
 # Notes:
 
 {% set hash = 'a28367c083ee77378130964e9fa7fbc9ce0c1a5cbc29f983fe1f02af9b0fd089' %}
+{% set version = '3.04' %}
 
 include:
   - winfor.packages.python3

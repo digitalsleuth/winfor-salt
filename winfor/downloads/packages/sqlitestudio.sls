@@ -4,12 +4,12 @@
 # Category: Databases
 # Author: Pawel Salawa
 # License: GNU General Public License v3 (https://github.com/pawelsalawa/sqlitestudio/blob/master/LICENSE)
-# Version: 3.4.4
+# Version: 3.4.17
 # Notes: 
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '3.4.4' %}
-{% set hash = '4428f83914717fa581b4bd1eca35573739aa8ebea14e58b0392decd41b631a72' %}
+{% set version = '3.4.17' %}
+{% set hash = '5018ea571c2a3416944267d387cb75eea99d46ebd010f6aa5c35df1f7690c894' %}
 
 sqlitestudio-download-only:
   file.managed:

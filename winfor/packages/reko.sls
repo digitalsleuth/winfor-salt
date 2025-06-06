@@ -4,16 +4,16 @@
 # Category: Executables
 # Author: uxmal et al (https://github.com/uxmal/reko/blob/master/AUTHORS)
 # License: GNU General Public License 2.0 (https://github.com/uxmal/reko/blob/master/COPYING)
-# Version: 0.11.6
+# Version: 0.12.0
 # Notes:
 
-{% set version = '0.11.6' %}
+{% set version = '0.12.0' %}
 
 include:
   - winfor.repos
-  - winfor.packages.dotnet6-desktop-runtime
+  - winfor.packages.dotnet8-desktop-runtime
 
 reko:
   pkg.installed:
     - require:
-      - sls: winfor.packages.dotnet6-desktop-runtime
+      - sls: winfor.packages.dotnet8-desktop-runtime

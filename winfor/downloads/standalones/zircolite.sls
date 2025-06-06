@@ -4,11 +4,11 @@
 # Category: Logs
 # Author: Wagga (wagga40)
 # License: GNU Lesser Public License v3.0 (https://github.com/wagga40/Zircolite#license)
-# Version: 2.10.0
+# Version: 2.40.0
 # Notes:
 
-{% set version = '2.10.0' %}
-{% set hash = '0cb5193ec3ed5b5e6275d4c5a35596219b14394f4b2ff795560a9b8038483fb9' %}
+{% set version = '2.40.0' %}
+{% set hash = '6e867b3b9a4aa4a376fd46121000f81da7c9011451caa329de877c7a7ef597b2' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set defender_status = salt['cmd.run']('powershell -c "(Get-Service windefend).Status"') %}
@@ -28,8 +28,8 @@ zircolite-defender-exclusion-download-only:
 
 zircolite-download-only:
   file.managed:
-    - name: '{{ downloads }}\zircolite\zircolite_win10_x64_{{ version }}.7z'
-    - source: https://github.com/wagga40/Zircolite/releases/download/{{ version }}/zircolite_win10_x64_{{ version }}.7z
+    - name: '{{ downloads }}\zircolite\zircolite_win_x64_{{ version }}.7z'
+    - source: https://github.com/wagga40/Zircolite/releases/download/{{ version }}/zircolite_win_x64_{{ version }}.7z
     - source_hash: sha256={{ hash }}
     - makedirs: True
     - require:

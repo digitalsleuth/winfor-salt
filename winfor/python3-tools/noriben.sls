@@ -4,10 +4,11 @@
 # Category: Executables
 # Author: Brian Baskin (Rurik)
 # License: Apache License v2 (https://github.com/Rurik/Noriben/blob/master/LICENSE)
-# Version: 1.8.7
+# Version: 2.0.1
 # Notes: 
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
+{% set version = '2.0.1' %}
 
 include:
   - winfor.packages.git

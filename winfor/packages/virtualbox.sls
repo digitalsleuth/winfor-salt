@@ -4,7 +4,7 @@
 # Category: Utilities
 # Author: Oracle
 # License: https://www.oracle.com/html/terms.html
-# Version: 7.0.10-158379
+# Version: 7.1.10-169112
 # Notes: 
 
 include:
@@ -15,6 +15,6 @@ virtualbox:
 
 remove-virtualbox-shortcut:
   file.absent:
-    - name: 'C:\Users\Public\Desktop\Oracle VM VirtualBox.lnk'
+    - name: 'C:\Users\Public\Desktop\Oracle VirtualBox.lnk'
     - require:
       - pkg: virtualbox

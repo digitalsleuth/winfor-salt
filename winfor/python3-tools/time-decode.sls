@@ -4,8 +4,10 @@
 # Category: Raw Parsers / Decoders
 # Author: Corey Forman
 # License: MIT License (https://github.com/digitalsleuth/time_decode/blob/master/LICENSE)
-# Version: 9.0.0
+# Version: 10.1.0
 # Notes: 
+
+{% set version = '10.1.0' %}
 
 include:
   - winfor.packages.python3

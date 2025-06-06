@@ -4,11 +4,11 @@
 # Category: Raw Parsers / Decoders
 # Author: Martin Willing / evild3ad
 # License: GNU General Public License v3.0 (https://github.com/evild3ad/MemProcFS-Analyzer/blob/main/LICENSE)
-# Version: 1.0
+# Version: 1.1.0
 # Notes: 
 
-{% set version = '1.0' %}
-{% set hash = '8a67034ccadf009fde757b7b0d42fbd87cc5faf9640d975905e12595dffb23a7' %}
+{% set version = '1.1.0' %}
+{% set hash = '5726e945b01563bb60aa8a2ecd47a7cda7d64fe0a453981d51c82d8fc1d50421' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set tools = ['AmcacheParser','AppCompatCacheParser','EvtxECmd','RECmd','SBECmd'] %}
 

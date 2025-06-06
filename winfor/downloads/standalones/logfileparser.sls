@@ -4,11 +4,11 @@
 # Category: Windows Analysis
 # Author: Joakim Schicht
 # License: MIT (https://github.com/jschicht/LogFileParser/blob/master/LICENSE.md)
-# Version: 2.0.0.50
+# Version: 2.0.0.53
 # Notes: 
 
-{% set hash = '92fe01ffcc76ce9ab5c579dfa37f9cfcb5d705250c99c09b948f66702eae1eec' %}
-{% set version = '2.0.0.50' %}
+{% set hash = '68fb4f9f54135e1951febf825de37e47fe13b2ac2733fcc63e8fe26dd729e58a' %}
+{% set version = '2.0.0.53' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 logfileparser-download-only:

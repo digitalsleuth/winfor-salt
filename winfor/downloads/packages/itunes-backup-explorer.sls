@@ -4,16 +4,16 @@
 # Category: Mobile Analysis
 # Author: Maxi Herczegh
 # License: MIT License (https://github.com/MaxiHuHe04/iTunes-Backup-Explorer/blob/master/LICENSE | 3RD-PARTY-LICENSES.txt)
-# Version: 1.4
-# Notes: Requires Java 11+
+# Version: 1.7
+# Notes:
 
-{% set version = '1.4' %}
-{% set hash = 'c47ae074a9ffe82d31907e113ef2052ebe250c8281b984b9d7d57c39a457e35a' %}
+{% set version = '1.7' %}
+{% set hash = '2220e9a64258201eba64f19ae6ad8d1f6bb1c375ff3ad2284cfefc36c2c02e20' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 itunes-backup-explorer-download-only:
   file.managed:
-    - name: '{{ downloads }}\itunes-backup-explorer\itunes-backup-explorer-{{ version }}.jar'
-    - source: https://github.com/MaxiHuHe04/iTunes-Backup-Explorer/releases/download/v{{ version }}/itunes-backup-explorer-{{ version }}.jar
+    - name: '{{ downloads }}\itunes-backup-explorer\iTunes_Backup_Explorer-{{ version }}_win_x64.msi'
+    - source: https://github.com/MaxiHuHe04/iTunes-Backup-Explorer/releases/download/v{{ version }}/iTunes_Backup_Explorer-{{ version }}_win_x64.msi
     - source_hash: sha256={{ hash }}
     - makedirs: True

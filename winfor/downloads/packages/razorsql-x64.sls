@@ -4,12 +4,12 @@
 # Category: Databases
 # Author: Richardson Software LLC
 # License: https://razorsql.com/license.txt
-# Version: 10.4.5
+# Version: 10.6.5
 # Notes:
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '10_4_5' %}
-{% set hash = '58e42157adf7b743a27eb814fd970d922dd9349296e7d0431da3b99a9f602a85' %}
+{% set version = '10_6_5' %}
+{% set hash = '6a152577aed473084b124e6b7e59a247140c1b132e5c4352d0bcfe6c97c212ab' %}
 
 razorsql-x64-download-only:
   file.managed:

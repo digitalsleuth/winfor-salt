@@ -4,8 +4,8 @@
 # Category: Requirements
 # Author: Microsoft
 # License: https://aka.ms/VSLicensingPaper
-# Version: 17.0.4 (2022)
-# Notes: Installation and application are 17.0.4, but environment is 2022
+# Version: 17.14.4 (2022)
+# Notes: Installation and application are 17.14.4, but environment is 2022
 
 include:
   - winfor.repos

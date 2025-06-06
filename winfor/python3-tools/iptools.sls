@@ -7,6 +7,8 @@
 # Version: 1.1
 # Notes: 
 
+{% set version = '1.1' %}
+
 include:
   - winfor.packages.python3
 

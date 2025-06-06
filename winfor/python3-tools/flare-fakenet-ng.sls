@@ -4,8 +4,10 @@
 # Category: Network
 # Author: https://github.com/mandiant/flare-fakenet-ng/blob/master/AUTHORS
 # License: Apache License 2.0 (https://github.com/mandiant/flare-fakenet-ng/blob/master/LICENSE.txt)
-# Version: 3.0
+# Version: 3.5
 # Notes: 
+
+{% set version = '3.5' %}
 
 include:
   - winfor.packages.git

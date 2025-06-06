@@ -4,8 +4,10 @@
 # Category: Executables
 # Author: Czech Republic National Cyber and Information Security Agency
 # License: https://github.com/NUKIB/maldump/blob/main/LICENSE
-# Version: 0.4.0
+# Version: 0.5.0
 # Notes: 
+
+{% set version = '0.5.0' %}
 
 include:
   - winfor.packages.python3

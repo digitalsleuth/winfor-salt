@@ -33,30 +33,24 @@ wsl-defender-exclusion:
 
 wsl-cleanup:
   cmd.run:
-    - name: 'dism.exe /online /cleanup-image /revertpendingactions'
+    - name: 'dism /online /cleanup-image /revertpendingactions'
     - shell: cmd
 
 wsl-install:
-  dism.feature_installed:
-    - name: Microsoft-Windows-Subsystem-Linux
-    - restart: False
-    - enable_parent: True
-    - unless:
-      - fun: cmd.run
-        cmd: 'dism /online /get-featureinfo /featurename:Microsoft-Windows-Subsystem-Linux | findstr "Enabled"'
-        shell: cmd
-        python_shell: True
+  cmd.run:
+    - name: 'dism /online /quiet /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart'
+    - shell: cmd
+    - success_retcodes: 3010
+    - require:
+      - cmd: wsl-cleanup
 
 vmp-install:
-  dism.feature_installed:
-    - name: VirtualMachinePlatform
-    - restart: False
-    - enable_parent: True
-    - unless:
-      - fun: cmd.run
-        cmd: 'dism /online /get-featureinfo /featurename:VirtualMachinePlatform | findstr "Enabled"'
-        shell: cmd
-        python_shell: True
+  cmd.run:
+    - name: 'dism /online /quiet /enable-feature /featurename:VirtualMachinePlatform /all /norestart'
+    - shell: cmd
+    - success_retcodes: 3010
+    - require:
+      - cmd: wsl-install
 
 powershell-execution-policy:
   reg.present:
@@ -139,8 +133,8 @@ wsl-config-run-on-reboot:
     - vtype: REG_SZ
     - vdata: 'C:\Windows\system32\cmd.exe /q /c C:\salt\tempdownload\wsl-config.cmd'
     - require:
-      - dism: wsl-install
-      - dism: vmp-install
+      - cmd: wsl-install
+      - cmd: vmp-install
       - file: wsl-config-stager
       - file: wsl-powershell-stager
       - file: wsl-powershell-stager-customize
@@ -157,8 +151,8 @@ system-restart:
     - in_seconds: True
     - only_on_pending_reboot: False
     - require:
-      - dism: wsl-install
-      - dism: vmp-install
+      - cmd: wsl-install
+      - cmd: vmp-install
       - file: wsl-config-stager
       - file: wsl-powershell-stager
       - file: wsl-powershell-stager-customize

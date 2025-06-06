@@ -4,14 +4,14 @@
 # Category: Windows Analysis
 # Author: Obsidian Forensics
 # License: Apache v2.0 (https://github.com/obsidianforensics/hindsight/blob/master/LICENSE.md)
-# Version: 2023.03
+# Version: 2025.03
 # Notes:
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
-{% set version = '2023.03' %}
-{% set files = [('hindsight.exe', 'b49787e3ba3ec57cb699798824f9b210558df8799afc66ddc1f340289eb027b0'),
-                ('hindsight_gui.exe', '83e27d433763e781ac40d04021eb21a779e75a118ab0cee20e9fecaf0d82d417')] %}
+{% set version = '2025.03' %}
+{% set files = [('hindsight.exe', '7c3fc422e47a6dedaf527078cc051ce0a7f43f7aed46e79553d980a9c681ad49'),
+                ('hindsight_gui.exe', 'd7303835064db741fe16dc20511737bb806731ccdb738d12e16a071a4191ecce')] %}
 
 {% for file, hash in files %}
 hindsight-download-{{ file }}:

@@ -7,6 +7,8 @@
 # Version: 2.0
 # Notes: This version has been modified from the original, and is not stored online at this time
 
+{% set version = '2.0' %}
+
 include:
   - winfor.packages.python3
 

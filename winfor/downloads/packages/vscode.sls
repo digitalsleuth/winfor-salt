@@ -4,13 +4,13 @@
 # Category: Documents / Editors
 # Author: Microsoft
 # License: Code - MIT License (https://github.com/microsoft/vscode/blob/main/LICENSE.txt) / Product (https://code.visualstudio.com/License/)
-# Version: 1.96.3
+# Version: 1.100.3
 # Notes: 
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '1.96.3' %}
-{% set guid = '91fbdddc47bc9c09064bf7acf133d22631cbf083' %}
-{% set hash = 'dae685ed2708caf087c89a028818bae8c59983549b6d052164c1b3df21465cb3' %}
+{% set version = '1.100.3' %}
+{% set guid = '258e40fedc6cb8edf399a463ce3a9d32e7e1f6f3' %}
+{% set hash = '50d5ca1f05bf8b46842cdc7849b4c71f561edfea107fd077c2c53037f912ee4a' %}
 
 vscode-download-only:
   file.managed:

@@ -4,11 +4,11 @@
 # Category: Requirements
 # Author: https://github.com/nodejs/node/blob/main/README.md#current-project-team-members
 # License: Various (https://github.com/nodejs/node/blob/main/LICENSE)
-# Version: 18.16.0
+# Version: 22.16.0
 # Notes:
 
-{% set version = '18.16.0' %}
-{% set hash = '5bfb6f3ab89e198539408f7e0e8ec0b0bd5efe8898573ec05b381228efb45a5d' %}
+{% set version = '22.16.0' %}
+{% set hash = 'e2f2802202513e1bf41f7c00307635f6c6fe31c0275c1e03d269d45a76e5fc2e' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 node.js-download-only:

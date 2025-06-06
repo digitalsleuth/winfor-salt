@@ -5,27 +5,35 @@
 # Author: Passware - Dmitry Sumin
 # License: EULA - https://www.passware.com/files/Passware-EULA.pdf
 # Version: 2025.2.1.4623
-# Notes:
+# Notes: 
 
 {% set version = '2025.2.1.4623' %}
+{% set pkg = 'passware-encryption-analyzer' %}
+{% macro passware_version_check(pkg_name, expected_version) %}
+$v = (C:\Program` Files\Salt` Project\Salt\salt-call.exe --local pkg.version {{ pkg_name }} --out json | ConvertFrom-Json).local;
+if ($v -eq '{{ expected_version }}') { 'already installed' } else { '' }
+{% endmacro %}
 
 include:
   - winfor.repos
 
-Check for previous Passware versions and remove:
+Remove outdated Passware:
   pkg.removed:
-    - name: passware-encryption-analyzer
-    - onlyif:
+    - name: {{ pkg }}
+    - unless:
       - fun: cmd.run
-        cmd: $installedVersion = (C:\Program` Files\Salt` Project\Salt\salt-call.exe --local pkg.version passware-encryption-analyzer); if ($installedVersion -isnot [Array]) {exit 12345} else {exit 0}
+        cmd: {{ passware_version_check(pkg, version) | indent(10) }}
         shell: powershell
         python_shell: True
 
 saltutil.clear_cache:
-  module.run
+  module.run:
+    - require:
+      - pkg: Remove outdated Passware
 
-passware-encryption-analyzer:
+Install Passware {{ version }}:
   pkg.installed:
+    - name: {{ pkg }}
     - version: {{ version }}
     - require:
-      - pkg: Check for previous Passware versions and remove
+      - module: saltutil.clear_cache

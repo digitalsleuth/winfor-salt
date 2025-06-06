@@ -7,6 +7,8 @@
 # Version: 1.0.0b1
 # Notes: 
 
+{% set version = '1.0.0b1' %}
+
 include:
   - winfor.packages.python3
   - winfor.python3-tools.python-dateutil

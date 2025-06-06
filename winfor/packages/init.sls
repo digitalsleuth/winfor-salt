@@ -3,6 +3,9 @@ include:
   - winfor.packages.git
   - winfor.packages.dotnetfx35
   - winfor.packages.dotnet6-desktop-runtime
+  - winfor.packages.dotnet8-desktop-runtime
+  - winfor.packages.dotnet9-desktop-runtime
+  - winfor.packages.dotpeek
   - winfor.packages.vscode
   - winfor.packages.autopsy
   - winfor.packages.firefox
@@ -28,12 +31,12 @@ include:
   - winfor.packages.apimonitor
   - winfor.packages.putty
   - winfor.packages.wireshark
-  - winfor.packages.strawberryperl
+#  - winfor.packages.strawberryperl
   - winfor.packages.fileinsight
   - winfor.packages.ntcore-explorersuite
   - winfor.packages.fiddler
   - winfor.packages.mdf-viewer
-  - winfor.packages.process-hacker
+  - winfor.packages.systeminformer
   - winfor.packages.free-hex-editor-neo
   - winfor.packages.pdfstreamdumper
   - winfor.packages.burpsuite-community
@@ -77,6 +80,7 @@ include:
   - winfor.packages.android-studio
   - winfor.packages.ida-free
   - winfor.packages.reko
+  - winfor.packages.binary-ninja
 
 package-states:
   test.nop:
@@ -85,6 +89,9 @@ package-states:
       - sls: winfor.packages.git
       - sls: winfor.packages.dotnetfx35
       - sls: winfor.packages.dotnet6-desktop-runtime
+      - sls: winfor.packages.dotnet8-desktop-runtime
+      - sls: winfor.packages.dotnet9-desktop-runtime
+      - sls: winfor.packages.dotpeek
       - sls: winfor.packages.vscode
       - sls: winfor.packages.autopsy
       - sls: winfor.packages.firefox
@@ -110,12 +117,12 @@ package-states:
       - sls: winfor.packages.apimonitor
       - sls: winfor.packages.putty
       - sls: winfor.packages.wireshark
-      - sls: winfor.packages.strawberryperl
+#      - sls: winfor.packages.strawberryperl
       - sls: winfor.packages.fileinsight
       - sls: winfor.packages.ntcore-explorersuite
       - sls: winfor.packages.fiddler
       - sls: winfor.packages.mdf-viewer
-      - sls: winfor.packages.process-hacker
+      - sls: winfor.packages.systeminformer
       - sls: winfor.packages.free-hex-editor-neo
       - sls: winfor.packages.pdfstreamdumper
       - sls: winfor.packages.burpsuite-community
@@ -159,3 +166,4 @@ package-states:
       - sls: winfor.packages.android-studio
       - sls: winfor.packages.ida-free
       - sls: winfor.packages.reko
+      - sls: winfor.packages.binary-ninja

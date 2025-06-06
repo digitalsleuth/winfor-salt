@@ -4,12 +4,12 @@
 # Category: Mobile Analysis
 # Author: Konloch
 # License: GNU General Public License v3 (https://github.com/Konloch/bytecode-viewer/blob/master/LICENSE)
-# Version: 2.11.2
+# Version: 2.12
 # Notes: 
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set version = '2.11.2' %}
-{% set hash = '536ad387424106083f76cd0cb7c051a22aff21f08663ba2539c11f1ddef9147f' %}
+{% set version = '2.12' %}
+{% set hash = 'dc5f6669409d7d0bbba40c735875a39960c1777f11bb13a1819bb12917808c5c' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 include:

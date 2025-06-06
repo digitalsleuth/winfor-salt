@@ -7,6 +7,8 @@
 # Version: 5.0.0
 # Notes: Commands: usn, usn.py
 
+{% set version = '5.0.0' %}
+
 include:
   - winfor.packages.python3
 

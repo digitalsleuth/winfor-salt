@@ -8,7 +8,7 @@
 # Notes: 
 
 windows-sandbox:
-  dism.feature_installed:
-    - name: Containers-DisposableClientVM
-    - restart: False
-    - enable_parent: True
+  cmd.run:
+    - name: 'dism /online /quiet /norestart /Enable-Feature /FeatureName:Containers-DisposableClientVM /all'
+    - shell: cmd
+    - success_retcodes: 3010

@@ -4,10 +4,10 @@
 # Category: Executables
 # Author: Microsoft
 # License: Third-party Notices within app
-# Version: 1.2402.24001.0
+# Version: 1.2502.25002.0
 # Notes: retcode 2316632107 means no available upgrades
 
-{% set version = '1.2402.24001.0' %}
+{% set version = '1.2502.25002.0' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set PROGRAM_FILES = salt['environ.get']('PROGRAMFILES') %}
 {% set LOCALAPPDATA = salt['environ.get']('LOCALAPPDATA') %}

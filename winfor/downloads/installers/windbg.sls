@@ -4,12 +4,12 @@
 # Category: Executables
 # Author: Microsoft
 # License: Third-party Notices within app
-# Version: 1.2402.24001.0
+# Version: 1.2502.25002.0
 # Notes: 
 
-{% set version = '1.2402.24001.0' %}
+{% set version = '1.2502.25002.0' %}
 {% set dashes = version | replace(".","-") %}
-{% set hash = 'e941076cb4d7912d32a22ea87ad2693c01fa465227b4d1ead588283518de428f' %}
+{% set hash = '2802c9da1eccdfd488d1364aa601170d44dc37e2c8354be514f5f5a40c9cfcda' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 windbg-download-only:

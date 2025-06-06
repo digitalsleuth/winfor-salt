@@ -4,12 +4,12 @@
 # Category: Requirements
 # Author: https://gitlab.com/graphviz/graphviz/-/blob/main/AUTHORS
 # License: Eclipse Public License (https://gitlab.com/graphviz/graphviz/-/blob/main/LICENSE)
-# Version: 9.0.0
+# Version: 12.2.1
 # Notes:
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '9.0.0' %}
-{% set hash = '01670c7e5bf637656bd89cd8484d517f3b5bc77f8666ceb29ddcc17e095b0f61' %}
+{% set version = '12.2.1' %}
+{% set hash = '6809d0095919844a6c557092d2005605450d8ad2ef69ed89d7bc3ee791b6f9da' %}
 
 graphviz-download-only:
   file.managed:

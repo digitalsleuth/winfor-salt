@@ -4,11 +4,11 @@
 # Category: Windows Analysis
 # Author: AbdulRhman Alfaifi
 # License: MIT License (https://github.com/AbdulRhmanAlfaifi/lnk_parser/blob/master/LICENSE)
-# Version: 0.2.0
+# Version: 0.4.1
 # Notes: 
 
-{% set version = '0.2.0' %}
-{% set hash = 'f8c4bef56771a64d2f8abd5d9e17f463565bf700efee085b71f84cd97259c1cd' %}
+{% set version = '0.4.1' %}
+{% set hash = '08b9858911669e023aa4a0f03e630e1f6f6fb531bd0b768c48616a9074f0f1e4' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 lnk-parser-download-only:

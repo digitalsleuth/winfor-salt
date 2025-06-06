@@ -8,7 +8,7 @@
 # Notes: 
 
 dotnetfx35:
-  dism.feature_installed:
-    - name: NetFx3
-    - restart: False
-    - enable_parent: True
+  cmd.run:
+    - name: 'dism /online /quiet /norestart /enable-feature /FeatureName:NetFx3 /all'
+    - shell: cmd
+    - success_retcodes: 3010
