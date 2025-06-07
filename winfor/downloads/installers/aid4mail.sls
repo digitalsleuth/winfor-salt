@@ -8,7 +8,7 @@
 # Notes: Free Trial / Limited Free Conversion
 
 {% set version = '6.1.0' %}
-{% set hash = 'd8ad794d9688773b96376a1eebc7539708999e724635f661a43adf25602cb75f' %}
+{% set hash = '5f17de29a1a099594d9cc6bd651ab26aacafc00a891dbb06b015eae38e4883cb' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 aid4mail-download-only:
