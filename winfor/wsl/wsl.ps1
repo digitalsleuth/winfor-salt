@@ -7,7 +7,7 @@ $saltArgs = "-l info --local --retcode-passthrough --log-file=`"$wslLogFile`" --
 $runningUser = New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())
 if (-Not $runningUser.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
     Write-Host "[!] Not running as administrator, please re-run this script as Administrator" -ForegroundColor Red
-    Read-Host "Press any key to continue"
+    break
 }
 Write-Host "[+] Downloading WIN-FOR template and installing SIFT & REMnux" -ForegroundColor Green
 Start-Process -Wait -FilePath $filePath -ArgumentList ($saltArgs) | Out-Null

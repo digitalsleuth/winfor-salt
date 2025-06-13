@@ -30,3 +30,15 @@ disk-cleanup:
 clear-salt-cache:
   cmd.run:
     - name: '"C:\Program Files\Salt Project\Salt\salt-call.exe" --local saltutil.clear_cache'
+
+Rebooting to complete setup in 10 seconds:
+  test.nop
+
+system-restart-after-cleanup:
+  system.reboot:
+    - timeout: 10
+    - in_seconds: True
+    - only_on_pending_reboot: False
+    - require:
+      - cmd: disk-cleanup
+      - cmd: clear-salt-cache
