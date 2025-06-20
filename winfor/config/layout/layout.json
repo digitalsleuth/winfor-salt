@@ -236,6 +236,17 @@
         "Checked": true,
         "Enabled": true,
         "ExtraTiles": []
+      },
+      "ZAPiXDESK": {
+        "CbName": "standalones_zapixdesk",
+        "CbContent": "ZAPiXDESK",
+        "DAID": "",
+        "AUMID": false,
+        "DALP": false,
+        "StartMenu": false,
+        "Checked": true,
+        "Enabled": true,
+        "ExtraTiles": []
       }
     }
   },

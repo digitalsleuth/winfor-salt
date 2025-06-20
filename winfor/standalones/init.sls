@@ -107,6 +107,7 @@ include:
   - winfor.standalones.pyinstxtractor-ng
   - winfor.standalones.ghidra
   - winfor.standalones.fex-cloud-capture
+  - winfor.standalones.zapixdesk
 
 standalones-states:
   test.nop:
@@ -219,3 +220,4 @@ standalones-states:
       - sls: winfor.standalones.pyinstxtractor-ng
       - sls: winfor.standalones.ghidra
       - sls: winfor.standalones.fex-cloud-capture
+      - sls: winfor.standalones.zapixdesk
