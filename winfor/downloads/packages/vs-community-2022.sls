@@ -9,7 +9,7 @@
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '17.14.4' %}
-{% set guid = '94bbe6f9-0426-4afe-b73c-fbc458070e33'
+{% set guid = '94bbe6f9-0426-4afe-b73c-fbc458070e33' %}
 {% set hash = '9cb02802530e36d67736f0e770025c782327b89ce1145ff580028f081d4d1f49' %}
 
 vs-community-2022-download-only:
