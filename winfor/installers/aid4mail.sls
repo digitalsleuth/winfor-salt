@@ -7,7 +7,7 @@
 # Version: 6.1.2 (https://www.aid4mail.com/support/solutions/articles/aid4mail-version-history)
 # Notes: Free Trial / Limited Free Conversion
 
-{% set hash = 'af32fa2299943829b5136d1d496dcaf02b0833b4d9e6609cfdf291868e0649a9' %}
+{% set hash = '75459b9f9bcd172c18d040fa731986bfa3fc6b736feb7de3cef0c4649760a204' %}
 {% set version = '6.1.2' %}
 
 aid4mail-download:
