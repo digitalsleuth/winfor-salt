@@ -38,7 +38,7 @@ system-restart-after-cleanup:
   system.reboot:
     - timeout: 10
     - in_seconds: True
-    - only_on_pending_reboot: False
+    - only_on_pending_reboot: True
     - require:
       - cmd: disk-cleanup
       - cmd: clear-salt-cache
