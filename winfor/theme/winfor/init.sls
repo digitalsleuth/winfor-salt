@@ -182,14 +182,14 @@ portals-replace-height:
 
 theme-start-layout-file:
   file.managed:
-    - name: '{{ SYSTEMDRIVE }}\winfor-theme\WIN-FOR-StartLayout.xml'
-    - source: salt://winfor/config/layout/WIN-FOR-StartLayout.xml
+    - name: '{{ SYSTEMDRIVE }}\winfor-theme\Win-FOR-StartLayout.xml'
+    - source: salt://winfor/config/layout/Win-FOR-StartLayout.xml
     - win_inheritance: True
     - makedirs: True
 
 theme-start-layout-replace-placeholder:
   file.replace:
-    - name: '{{ SYSTEMDRIVE }}\winfor-theme\WIN-FOR-StartLayout.xml'
+    - name: '{{ SYSTEMDRIVE }}\winfor-theme\Win-FOR-StartLayout.xml'
     - pattern: PLACEHOLDER_PATH
     - repl: {{ inpath | regex_escape }}
     - require:
@@ -211,11 +211,11 @@ theme-start-layout-enable-gpo:
     - user_policy:
         "Start Menu and Taskbar\\Start Layout":
           "Start Layout File":
-             '{{ SYSTEMDRIVE }}\winfor-theme\WIN-FOR-StartLayout.xml'
+             '{{ SYSTEMDRIVE }}\winfor-theme\Win-FOR-StartLayout.xml'
     - computer_policy:
         "Start Menu and Taskbar\\Start Layout":
           "Start Layout File":
-             '{{ SYSTEMDRIVE }}\winfor-theme\WIN-FOR-StartLayout.xml'
+             '{{ SYSTEMDRIVE }}\winfor-theme\Win-FOR-StartLayout.xml'
 
 {% endif %}
 
