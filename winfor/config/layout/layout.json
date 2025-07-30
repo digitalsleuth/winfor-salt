@@ -1849,6 +1849,17 @@
         "Enabled": true,
         "ExtraTiles": []
       },
+      "HexWalk": {
+        "CbName": "standalones_hexwalk",
+        "CbContent": "HexWalk",
+        "DAID": "PLACEHOLDER_PATH\\hexwalk\\hexwalk.exe",
+        "AUMID": false,
+        "DALP": false,
+        "StartMenu": true,
+        "Checked": true,
+        "Enabled": true,
+        "ExtraTiles": []
+      },
       "HxD": {
         "CbName": "installers_hxd",
         "CbContent": "HxD",
