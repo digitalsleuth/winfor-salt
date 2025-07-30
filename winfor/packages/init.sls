@@ -81,6 +81,7 @@ include:
   - winfor.packages.ida-free
   - winfor.packages.reko
   - winfor.packages.binary-ninja
+  - winfor.packages.hax
 
 package-states:
   test.nop:
@@ -167,3 +168,4 @@ package-states:
       - sls: winfor.packages.ida-free
       - sls: winfor.packages.reko
       - sls: winfor.packages.binary-ninja
+      - sls: winfor.packages.hax

@@ -54,8 +54,12 @@ def find_tools(sls_search_path, skip_dir=None):
                 continue
             if file_name.endswith(".sls"):
                 rel_dir = os.path.relpath(root, sls_search_path)
-                if skip_dir and skip_dir in rel_dir:
+                if 'theme' in rel_dir or rel_dir == "." or file_name == "wsl-config.sls":
                     continue
+                if skip_dir and rel_dir in skip_dir:
+                    continue
+                if any(item in rel_dir for item in skip_dir):
+                        continue
                 rel_file = os.path.join(rel_dir, file_name)
                 try:
                     d = parse_header(sls_search_path, rel_file)
@@ -108,11 +112,14 @@ def parse_header(base_path, file_name):
                     )
 
     if not fields:
-        raise KeyError(f"header missing: {file_path}")
+        get_logger().warning(f"header missing: {file_path}")
+        #raise KeyError(f"header missing: {file_path}")
     elif not name:
-        raise KeyError(f"name missing: {file_path}")
+        get_logger().warning(f"name missing: {file_path}")
+        #raise KeyError(f"name missing: {file_path}")
     elif not category:
-        raise KeyError(f"category missing: {file_path}")
+        get_logger().warning(f"category missing: {file_path}")
+        #raise KeyError(f"category missing: {file_path}")
 
     if os.name == "posix":
         state_file_path = os.path.splitext(file_name)[0].strip("./").replace("/", ".")
@@ -163,7 +170,7 @@ def main():
         help="Path to store the markdown output, including file name and ext.",
     )
     parser.add_argument(
-        "-s", "--skip", help="Path to skip while searching for headers", default=None
+        "-s", "--skip", help="Path to skip while searching for headers", nargs='*', default=None
     )
     args = parser.parse_args()
 

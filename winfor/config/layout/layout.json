@@ -1838,6 +1838,17 @@
         "Enabled": true,
         "ExtraTiles": []
       },
+      "H@x": {
+        "CbName": "packages_hax",
+        "CbContent": "H@x",
+        "DAID": "{6D809377-6AF0-444B-8957-A3773F02200E}\\Hax\\Hax.exe",
+        "AUMID": false,
+        "DALP": false,
+        "StartMenu": true,
+        "Checked": true,
+        "Enabled": true,
+        "ExtraTiles": []
+      },
       "Hex Editor Neo": {
         "CbName": "packages_free_hex_editor_neo",
         "CbContent": "Hex Editor Neo",
