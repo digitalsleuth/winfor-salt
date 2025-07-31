@@ -16,5 +16,5 @@ jobs:
       - name: Check Hax presence
         run: |
           VER=$(cat /home/runner/work/winfor-salt/winfor-salt/winfor/downloads/packages/hax.sls | grep "set version" | awk -F\' '{print tolower($2)}')
-          STATUS_CODE=$(curl -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:120.0) Gecko/20100101 Firefox/120.0" -s -I https://thefreetoolproject.eu/hax/Hax-{$VER}-win64.exe | grep "HTTP/2" | awk '{print $2}')
+          STATUS_CODE=$(curl -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:120.0) Gecko/20100101 Firefox/120.0" -s -I https://thefreetoolproject.eu/hax/Hax-{$VER}-win64.exe | grep "HTTP/1.1" | awk '{print $2}')
           if [[ "$STATUS_CODE" != "200" ]]; then echo "$STATUS_CODE - CURRENT VERSION OF HAX $VER NOT AVAILABLE" && exit 1; else echo "HAX $VER still current version" && exit 0; fi
