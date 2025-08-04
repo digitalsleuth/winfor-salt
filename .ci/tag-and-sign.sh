@@ -56,10 +56,10 @@ echo "==> Generating SHA256 of zip"
 sha256sum /tmp/winfor-salt-$TAG_NAME.zip > /tmp/winfor-salt-$TAG_NAME.zip.sha256
 
 echo "==> Generating GPG Signature of SHA256"
-gpg --armor --clearsign --digest-algo SHA256 -u 4CF992E3 /tmp/winfor-salt-$TAG_NAME.zip.sha256
+gpg --armor --clearsign --digest-algo SHA256 -u $GPG_SIGN_KEY /tmp/winfor-salt-$TAG_NAME.zip.sha256
 
 echo "==> Generating GPG Signature of zip file"
-gpg --armor --detach-sign -u 4CF992E3 /tmp/winfor-salt-$TAG_NAME.zip
+gpg --armor --detach-sign -u $GPG_SIGN_KEY /tmp/winfor-salt-$TAG_NAME.zip
 
 echo "==> Confirming the hash value for /tmp/winfor-salt-$TAG_NAME.zip"
 cat /tmp/winfor-salt-$TAG_NAME.zip.sha256
