@@ -4,12 +4,12 @@
 # Category: Raw Parsers / Decoders
 # Author: https://thefreetoolproject.eu/#DOWNLOADS
 # License: GNU General Public License v3
-# Version: 1.1.4
+# Version: 1.1.6
 # Notes: 
 
-{% set version = '1.1.4' %}
+{% set version = '1.1.6' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set hash = 'c023af66b10244b0a07367c5cbb120b19936c055acb2fa4c556c021bdedfeb8a' %}
+{% set hash = 'fec46541cd878f8ff984947753874c31eacb5b5ca36429233767ab8c4e031a30' %}
 
 hax-download-only:
   file.managed:
