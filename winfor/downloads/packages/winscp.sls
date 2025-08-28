@@ -4,11 +4,11 @@
 # Category: Network
 # Author: Martin Prikryl
 # License: GNU General Public License v3 (https://github.com/winscp/winscp/blob/master/license.txt)
-# Version: 6.5.1
+# Version: 6.5.3
 # Notes:
 
-{% set version = '6.5.1' %}
-{% set hash = 'a54eca431fdfbbf489805d995c1ebeaf7ff5a4e5ad825cc529f1b0f7525815ab' %}
+{% set version = '6.5.3' %}
+{% set hash = '66de37a79900c3eebc8225058cae5e2db3df939308ba6b2d518b39c98e4f41da' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 winscp-download-only:
