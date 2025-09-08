@@ -4,12 +4,12 @@
 # Category: Email
 # Author: Arman Gungor - Metaspike
 # License: 
-# Version: 4.1.525.75
+# Version: 4.1.547.120
 # Notes:
 
-{% set version = '4.1.525.75' %}
-{% set hash = '1863d0f95b9e0a6de322ef9dd0052c3e7cc442d2f00dba89ab019e1b93088166' %}
-{% set folder_hash = '47c62775a4d9' %}
+{% set version = '4.1.547.120' %}
+{% set hash = '1309f5fbc31971108486e966c7dd49d8adc9681e5df24d68edb184e8616f4f94' %}
+{% set folder_hash = 'aead6e23bf58' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 fec-download-only:
