@@ -52,7 +52,7 @@
                     ('Installers', ['AutoIT Extractor','lessmsi','MSI Viewer','Py2ExeDecompiler','UniExtract']),
                     ('Logs', ['EventFinder','EZViewer','HttpLogBrowser\HttpLogBrowser','Log Parser 2.2\Log Parser 2.2','LogParser-Studio','LogViewer2']),
                     ('Mobile Analysis', ['ALEAPP-GUI','Android Studio\Android Studio','Bytecode Viewer','iBackup Viewer\iBackup Viewer','ILEAPP-GUI','iPhoneAnalyzer','iTunes Backup Explorer\iTunes Backup Explorer','JD-GUI','VLEAPP-GUI','VOW Software\plist Editor Pro\plist Editor Pro','UFADE']),
-                    ('Network', ['Burp Suite Community Edition\Burp Suite Community Edition','Fiddler Classic','IHB','NetScanner','NetworkMiner','PuTTY (64-bit)\PSFTP','PuTTY (64-bit)\PuTTY','WinSCP','Wireshark','Zui']),
+                    ('Network', ['Burp Suite Community Edition\Burp Suite Community Edition','Cyotek WebCopy\WebCopy','Fiddler Classic','IHB','NetScanner','NetworkMiner','PuTTY (64-bit)\PSFTP','PuTTY (64-bit)\PuTTY','WinHTTrack\WinHTTrack Website Copier','WinSCP','Wireshark','Zui']),
                     ('Raw Parsers and Decoders', ['Bulk Extractor 1.5.5\BEViewer with Bulk Extractor 1.5.5 (64-bit)','CyberChef','Digital Detective\DataDump v2\DataDump v2.2','Digital Detective\DCode v5\DCode v5.6','DROID','Hax\Hax','HHD Hex Editor Neo\Hex Editor Neo','HEXEdit','HxD Hex Editor\HxD','JSONView','Passware\Encryption Analyzer 2025 v2\Passware Encryption Analyzer 2025 v2 (64-bit)','PhotoRec','QPhotoRec','TestDisk','Time Decode','Redline\Redline','XMLView','WinHex']),
                     ('Registry', ['RegistryExplorer','RegRipper','Regshot x64 ANSI']),
                     ('Terminals', ['Cygwin\Cygwin64 Terminal','MobaXterm\MobaXterm','Terminal','WSL','VcXsrv\XLaunch']),

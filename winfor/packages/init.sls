@@ -82,6 +82,8 @@ include:
   - winfor.packages.reko
   - winfor.packages.binary-ninja
   - winfor.packages.hax
+  - winfor.packages.httrack
+  - winfor.packages.webcopy
 
 package-states:
   test.nop:
@@ -169,3 +171,5 @@ package-states:
       - sls: winfor.packages.reko
       - sls: winfor.packages.binary-ninja
       - sls: winfor.packages.hax
+      - sls: winfor.packages.httrack
+      - sls: winfor.packages.webcopy
