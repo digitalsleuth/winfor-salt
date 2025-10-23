@@ -4,16 +4,16 @@
 # Category: Utilities
 # Author: TGRMN Software
 # License: EULA (https://www.bulkrenameutility.co.uk/License.php)
-# Version: 4.0.0.9
+# Version: 4.1.0.0
 # Notes: 
 
-{% set version = '4.0.0.9' %}
-{% set hash = '9ca2abd23bb19966f42020461b6bd6bf9a2f8a5e076601e38758aa768bd6f2fb' %}
+{% set version = '4.1.0.0' %}
+{% set hash = '043d511228707ccb864b62eac1df59a8d6cde5c0876494c2cc8d0dc73e86f8ac' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 bulkrenameutility-download-only:
   file.managed:
     - name: '{{ downloads }}\bulk-rename-utility\BRU_setup_{{ version }}.exe'
-    - source: https://www.bulkrenameutility.co.uk/Downloads/BRU_setup.exe
+    - source: https://www.s3.tgrmn.com/bru4/BRU_setup_{{ version }}.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True
