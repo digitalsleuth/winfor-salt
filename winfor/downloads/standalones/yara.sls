@@ -14,7 +14,7 @@
 
 yara-download-only:
   file.managed:
-    - name: '{{ downloads }}\yara\yara-v{{ version }}-win64.zip'
+    - name: '{{ downloads }}\yara\yara-{{ version }}-{{ subversion }}-win64.zip'
     - source: https://github.com/VirusTotal/yara/releases/download/v{{ version }}/yara-{{ version }}-{{ subversion }}-win64.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True
