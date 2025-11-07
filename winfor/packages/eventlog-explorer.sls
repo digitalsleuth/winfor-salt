@@ -4,7 +4,7 @@
 # Category: Logs
 # Author: FSPro
 # License: Multiple (https://eventlogxp.com/order.html)
-# Version: 5.6
+# Version: 5.7
 # Notes:
 
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}

@@ -4,13 +4,13 @@
 # Category: Utilities
 # Author: Google
 # License: Terms of Service (https://www.google.com/help/terms_maps/)
-# Version: 7.3.6.9345
+# Version: 7.3.6.10441
 # Notes:
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '7.3.6.9345' %}
+{% set version = '7.3.6.10441' %}
 {% set short_version = '7.3.6' %}
-{% set hash = '663d2e45bdf7df41d3d9a355a99c121d10a3830a23fc66bc554f1c532f6e2238' %}
+{% set hash = 'd8aa6d38d95d92d18601f94b1da092b34f9d275ade630fb972baff8bf1e4ebd8' %}
 
 google-earth-pro-download-only:
   file.managed:

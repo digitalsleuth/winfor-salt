@@ -12,7 +12,7 @@
 {% set as_version = '2024.3.2.15' %}
 {% set as_hash = 'da717086ed055c9d91658fb973336d2973244874dd333c863e0236f98b6660d1' %}
 {% set platform_version = '36.0.0' %}
-{% set platform_hash = '24bd8bebbbb58b9870db202b5c6775c4a49992632021c60750d9d8ec8179d5f0' %}
+{% set platform_hash = '12c2841f354e92a0eb2fd7bf6f0f9bf8538abce7bd6b060ac8349d6f6a61107c' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 android-studio-download-only:

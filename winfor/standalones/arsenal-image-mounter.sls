@@ -4,13 +4,13 @@
 # Category: Acquisition and Analysis
 # Author: Arsenal Recon
 # License: https://github.com/ArsenalRecon/Arsenal-Image-Mounter/blob/master/LICENSE.md
-# Version: 3.11.307
+# Version: 3.12.331
 # Notes:
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set hash = '20895e52b591224981cf19cf964723c0fa136742eacbefcb49723835a871d4d6' %}
-{% set version = '3.11.307' %}
-{% set file_value = 'moRzyaAI#OqEYd9dD4cY3PFiMdIjWSlavFnI2rU06zXFPj9zULCk' %}
+{% set hash = '5827f7ad3b8b9d83c5e6bafecdda73d58e61b75363096792c9e490d029be497b' %}
+{% set version = '3.12.331' %}
+{% set file_value = 'zkxRCYjL#vbHEgZdFtLoIYNVvZNBID3cp642YOJO5SXH5atMhQ4I' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 include:

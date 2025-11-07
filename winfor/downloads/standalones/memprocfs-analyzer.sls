@@ -14,14 +14,14 @@
 {% set entropy_ver = '1.1' %}
 {% set elastic_ver = '9.0.1' %}
 {% set ipinfo_ver = '3.3.1' %}
-{% set jq_ver = '1.8' %}
+{% set jq_ver = '1.8.1' %}
 {% set kib_ver = '9.0.1' %}
 {% set lnk_ver = '0.4.1' %}
 {% set memprocfs_ver = '5.14.13' %}
 {% set memprocfs_date = '20250530' %}
 {% set xsv_ver = '0.13.0' %}
-{% set yara_ver = '4.5.4' %}
-{% set yara_sub = '' %}
+{% set yara_ver = '4.5.5' %}
+{% set yara_sub = '2368' %}
 {% set zir_ver = '2.40.0' %}
 
 include:
@@ -186,7 +186,7 @@ xsv-file-copy-download-only:
 yara-file-copy-download-only:
   file.copy:
     - name: '{{ downloads }}\memprocfs-analyzer\memprocfs-analyzer\Tools\YARA\'
-    - source: '{{ downloads }}\yara\yara-master-{{ yara_ver }}-win64.zip'
+    - source: '{{ downloads }}\yara\yara-{{ yara_ver }}-{{ yara_sub }}-win64.zip'
     - makedirs: True
     - force: True
     - win_inheritance: True

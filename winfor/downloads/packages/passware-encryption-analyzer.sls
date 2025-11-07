@@ -4,12 +4,12 @@
 # Category: Raw Parsers / Decoders
 # Author: Passware - Dmitry Sumin
 # License: EULA - https://www.passware.com/files/Passware-EULA.pdf
-# Version: 2025.2.1.4623
+# Version: 2025.4.0.4899
 # Notes:
 
-{% set version = '2025.2.1.4623' %}
+{% set version = '2025.4.0.4899' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set hash = 'e555d2e3c1714735aae4618b79957b70e864bbc37147637867e7b03174502767' %}
+{% set hash = '8bd8cbd2e401256e000347b82d489c5bc9be069f11e5d0f8a10ff023b44bc915' %}
 
 passware-encryption-analyzer-download-only:
   file.managed:

@@ -4,12 +4,12 @@
 # Category: Terminals
 # Author: Mobatek (https://www.mobatek.net/aboutus.html)
 # License: https://mobaxterm.mobatek.net/license.html
-# Version: 25.2
+# Version: 25.3
 # Notes: Home Edition
 
-{% set version = '25.2' %}
-{% set source_folder = '2522025040602403' %}
-{% set hash = 'cdcf61ffede716ad566fefcbeebda7f02eb6a51d299b8eff5d87988c8e839c3b' %}
+{% set version = '25.3' %}
+{% set source_folder = '2532025092512146' %}
+{% set hash = '17efd554dff3a01e991a891ab7ae66c135a5a3438e1a790bf8e44096c47b220f' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 mobaxterm-download-only:

@@ -4,12 +4,12 @@
 # Category: Utilities
 # Author: Monolith Forensics
 # License: EULA
-# Version: 1.0.2
+# Version: 2.0.0
 # Notes:
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '1.0.2' %}
-{% set hash = '0e0e70ef1cd3d66127fcfe139d8f9b146f08824352ffebb758cef23aa03bf8d5' %}
+{% set version = '2.0.0' %}
+{% set hash = '422fcc3c7c77d6f3b100051ddf47cf2c7c1f9405c8edfcc0f5d71d666f407499' %}
 
 monolith-notes-download-only:
   file.managed:

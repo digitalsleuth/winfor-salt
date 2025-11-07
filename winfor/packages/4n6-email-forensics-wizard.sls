@@ -4,7 +4,7 @@
 # Category: Email
 # Author: 4n6 Software
 # License: https://forensiksoft.com/terms/
-# Version: 7.5
+# Version: 7.6
 # Notes:
 
 include:

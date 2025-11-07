@@ -4,10 +4,10 @@
 # Category: Executables
 # Author: Vector 35
 # License: Non-commercial / Student License (https://docs.binary.ninja/about/license.html)
-# Version: 5.0.7486.0
+# Version: 5.1.8104
 # Notes: 
 
-{% set version = '5.0.7486.0' %}
+{% set version = '5.1.8104' %}
 
 include:
   - winfor.repos

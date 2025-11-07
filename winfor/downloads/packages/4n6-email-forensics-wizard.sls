@@ -4,12 +4,12 @@
 # Category: Email
 # Author: 4n6 Software
 # License: https://forensiksoft.com/terms/
-# Version: 7.5
+# Version: 7.6
 # Notes:
 
-{% set hash = 'c3af2d8ac883f12ed1b07a92c5c405d17f3ed8b5e4bb8b88bb4ff86e7c8d5ceb' %}
+{% set hash = 'aa0baad06c45e34e393ff6fb8451448b6a9b801a29af0cb6a492d708f505e115' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '7.5' %}
+{% set version = '7.6' %}
 
 4n6-email-forensics-wizard-download-only:
   file.managed:

@@ -4,11 +4,11 @@
 # Category: Utilities
 # Author: Stephen Dolan et al (https://github.com/jqlang/jq/blob/master/AUTHORS)
 # License: Multi-license (https://github.com/jqlang/jq/blob/master/COPYING)
-# Version: 1.8.0
+# Version: 1.8.1
 # Notes: 
 
-{% set version = '1.8.0' %}
-{% set hash = 'b45fcbb27dcb9e9848ac39889a8bf86457b8d9d31e7c56387c6eab80008fd1f4' %}
+{% set version = '1.8.1' %}
+{% set hash = '23cb60a1354eed6bcc8d9b9735e8c7b388cd1fdcb75726b93bc299ef22dd9334' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 
 jq-download:
