@@ -13,7 +13,7 @@
 {% set hash_content = hash_query.get('body').splitlines() %}
 {% set ns = namespace(exiftool_hash='') %}
 {% for line in hash_content %}
-{% if 'SHA2-256(exiftool-' ~ exiftool_version ~ '_64.zip)' in line %}
+{% if 'SHA2-256(exiftool-' ~ version ~ '_64.zip)' in line %}
 {% set ns.exiftool_hash = line.split()[-1].strip() %}
 {% endif %}
 {% endfor %}
