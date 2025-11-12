@@ -4,11 +4,11 @@
 # Category: Executables
 # Author: DotFix Software
 # License: https://www.vb-decompiler.org/license.htm
-# Version: 12.7
+# Version: 12.8
 # Notes: 
 
-{% set version = '12.7' %}
-{% set hash = '522f6bbbd9f786152e52b7864792413dae176ceddcc0bc1b1bcc5ada5d0886de' %}
+{% set version = '12.8' %}
+{% set hash = '5d383c8e58951f655a4e099d2c98bb610fc94360e47b27ce54b784f50277ae79' %}
 
 vbdecompiler-download:
   file.managed:
