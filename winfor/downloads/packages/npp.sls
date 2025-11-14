@@ -4,12 +4,12 @@
 # Category: Documents / Editors
 # Author: Don Ho
 # License: GNU General Public License 2.0 (https://notepad-plus-plus.org/)
-# Version: 8.8.5
+# Version: 8.8.7
 # Notes: 
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '8.8.5' %}
-{% set hash = 'c6d1e5aacbf69aa18df4caf1346fd69638491a5ad0085729bae91c662d1c62bb' %}
+{% set version = '8.8.7' %}
+{% set hash = '49d2531893b09cb6a8e3429ca0a734e871a2d96fa2575c0eec3229d383fa233a' %}
 
 npp-download-only:
   file.managed:

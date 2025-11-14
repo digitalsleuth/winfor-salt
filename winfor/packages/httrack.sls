@@ -10,5 +10,5 @@
 include:
   - winfor.repos
 
-winhttrack:
+httrack:
   pkg.installed
