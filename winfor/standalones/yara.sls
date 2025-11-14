@@ -14,7 +14,7 @@
 
 yara-download:
   file.managed:
-    - name: 'C:\salt\tempdownload\yara-v{{ version }}-win64.zip'
+    - name: 'C:\salt\tempdownload\yara-{{ version }}-{{ subversion }}-win64.zip'
     - source: https://github.com/VirusTotal/yara/releases/download/v{{ version }}/yara-{{ version }}-{{ subversion }}-win64.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True
@@ -22,7 +22,7 @@ yara-download:
 yara-extract:
   archive.extracted:
     - name: '{{ inpath }}\yara\'
-    - source: 'C:\salt\tempdownload\yara-master-v{{ version }}-win64.zip'
+    - source: 'C:\salt\tempdownload\yara-{{ version }}-{{ subversion }}-win64.zip'
     - enforce_toplevel: False
     - require:
       - file: yara-download

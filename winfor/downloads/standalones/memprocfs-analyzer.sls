@@ -4,11 +4,11 @@
 # Category: Windows Analysis
 # Author: Martin Willing / evild3ad
 # License: GNU General Public License v3.0 (https://github.com/evild3ad/MemProcFS-Analyzer/blob/main/LICENSE)
-# Version: 1.1.0
+# Version: 1.2.0
 # Notes: 
 
-{% set version = '1.1.0' %}
-{% set hash = '5726e945b01563bb60aa8a2ecd47a7cda7d64fe0a453981d51c82d8fc1d50421' %}
+{% set version = '1.2.0' %}
+{% set hash = '82feda3b50f172b84776ba8f21e1c52fecdf08e177a7ecbc667add6c8b624cd6' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set tools = ['AmcacheParser','AppCompatCacheParser','EvtxECmd','RECmd','SBECmd'] %}
 {% set entropy_ver = '1.1' %}
@@ -17,8 +17,8 @@
 {% set jq_ver = '1.8.1' %}
 {% set kib_ver = '9.0.1' %}
 {% set lnk_ver = '0.4.1' %}
-{% set memprocfs_ver = '5.14.13' %}
-{% set memprocfs_date = '20250530' %}
+{% set memprocfs_ver = '5.16.7' %}
+{% set memprocfs_date = '20251113' %}
 {% set xsv_ver = '0.13.0' %}
 {% set yara_ver = '4.5.5' %}
 {% set yara_sub = '2368' %}
@@ -42,7 +42,7 @@ include:
 memprocfs-analyzer-download-only:
   file.managed:
     - name: '{{ downloads }}\memprocfs-analyzer\MemProcFS-Analyzer-v{{ version }}.zip'
-    - source: https://github.com/evild3ad/MemProcFS-Analyzer/releases/download/v{{ version }}/MemProcFS-Analyzer-v{{ version }}.zip
+    - source: https://github.com/LETHAL-FORENSICS/MemProcFS-Analyzer/releases/download/v{{ version }}/MemProcFS-Analyzer-v{{ version }}.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True
 
@@ -77,7 +77,7 @@ memprocfs-analyzer-yara-download-only:
 memprocfs-analyzer-{{ tool }}-requirement-download-only:
   file.managed:
     - name: '{{ filePath }}'
-    - source: https://download.mikestammer.com/net6/{{ tool }}.zip
+    - source: https://download.mikestammer.com/net9/{{ tool }}.zip
     - skip_verify: True
     - makedirs: True
 

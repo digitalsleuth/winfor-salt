@@ -1,14 +1,14 @@
 # Name: MemProcFS-Analyzer
-# Website: https://github.com/evild3ad/MemProcFS-Analyzer
+# Website: https://github.com/LETHAL-FORENSICS/MemProcFS-Analyzer
 # Description: Powershell script utilizing MemProcFS for additional analysis
 # Category: Raw Parsers / Decoders
 # Author: Martin Willing / evild3ad
-# License: GNU General Public License v3.0 (https://github.com/evild3ad/MemProcFS-Analyzer/blob/main/LICENSE)
-# Version: 1.1.0
+# License: GNU General Public License v3.0 (https://github.com/LETHAL-FORENSICS/MemProcFS-Analyzer/blob/main/LICENSE)
+# Version: 1.2.0
 # Notes: 
 
-{% set version = '1.1.0' %}
-{% set hash = '5726e945b01563bb60aa8a2ecd47a7cda7d64fe0a453981d51c82d8fc1d50421' %}
+{% set version = '1.2.0' %}
+{% set hash = '82feda3b50f172b84776ba8f21e1c52fecdf08e177a7ecbc667add6c8b624cd6' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set tools = ['AmcacheParser','AppCompatCacheParser','EvtxECmd','RECmd','SBECmd'] %}
 
@@ -34,7 +34,7 @@ include:
 memprocfs-analyzer-download:
   file.managed:
     - name: 'C:\salt\tempdownload\MemProcFS-Analyzer-v{{ version }}.zip'
-    - source: https://github.com/evild3ad/MemProcFS-Analyzer/releases/download/v{{ version }}/MemProcFS-Analyzer-v{{ version }}.zip
+    - source: https://github.com/LETHAL-FORENSICS/MemProcFS-Analyzer/releases/download/v{{ version }}/MemProcFS-Analyzer-v{{ version }}.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True
 
@@ -97,7 +97,7 @@ memprocfs-analyzer-yara:
 memprocfs-analyzer-{{ tool }}-requirement:
   file.managed:
     - name: '{{ filePath }}'
-    - source: https://download.mikestammer.com/net6/{{ tool }}.zip
+    - source: https://download.mikestammer.com/net9/{{ tool }}.zip
     - skip_verify: True
     - makedirs: True
 
