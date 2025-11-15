@@ -56,7 +56,7 @@ memprocfs-analyzer-delete-directory:
 memprocfs-analyzer-folder-rename:
   file.rename:
     - name: '{{ inpath }}\memprocfs-analyzer'
-    - source: '{{ inpath }}\MemProcFS-Analyzer-v{{ version }}\'
+    - source: '{{ inpath }}\MemProcFS-Analyzer-main\'
     - force: True
     - makedirs: True
     - require:
