@@ -9,7 +9,7 @@
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set version = '2025.11.11' %}
-{% set hash = '4061ad6ab8e6b2e5c9e9ab25dedbc4de25d96aa5f1afbdb14a6232e0d3642dd2' %}
+{% set hash = 'f544fd336bfce496870060c8bc56fd7f084e8f696e51676497fa0330310d0a0a' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 sysinternals:
