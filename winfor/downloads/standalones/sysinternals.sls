@@ -8,7 +8,7 @@
 # Notes: 
 
 {% set version = '2025.11.11' %}
-{% set hash = 'f544fd336bfce496870060c8bc56fd7f084e8f696e51676497fa0330310d0a0a' %}
+{% set hash = 'ba441238eb68b33aa7b9abf141ee9bc5393dfce2e174135095b898840b0b6c58' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 sysinternals-download-only:
