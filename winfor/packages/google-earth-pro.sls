@@ -7,7 +7,7 @@
 # Version: 7.3.6.10441
 # Notes:
 
-{% set user = salt['pillar.get']('winfor_user', 'user') %}
+{% set user = salt['pillar.get']('winfor_user', 'forensics') %}
 {% set current_user = salt['environ.get']('USERNAME') %}
 {% set all_users = salt['user.list_users']() %}
 {% if user in all_users %}

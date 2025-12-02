@@ -4,7 +4,7 @@
 # Category: Documents / Editors
 # Author: Phil Harvey
 # License: https://exiftool.org/#license
-# Version: 13.41
+# Version: 13.42
 # Notes:
 
 {% set version_query = salt['http.query']('https://exiftool.org/ver.txt', backend='requests', verify_ssl=True) %}

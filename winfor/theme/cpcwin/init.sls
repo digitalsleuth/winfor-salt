@@ -1,4 +1,4 @@
-{% set user = salt['pillar.get']('winfor_user', 'user') %}
+{% set user = salt['pillar.get']('winfor_user', 'forensics') %}
 {% set release = grains['osrelease'] %}
 {% set home = "C:\\Users\\" + user %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}

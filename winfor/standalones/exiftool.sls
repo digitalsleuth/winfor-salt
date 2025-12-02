@@ -4,7 +4,7 @@
 # Category: Documents / Editors
 # Author: Phil Harvey
 # License: https://exiftool.org/#license
-# Version: 13.41
+# Version: 13.42
 # Notes:
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
