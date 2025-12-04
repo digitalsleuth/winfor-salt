@@ -4,11 +4,11 @@
 # Category: Utilities
 # Author: Irfan Skiljan
 # License: https://www.irfanview.com/eula.htm
-# Version: 4.72
+# Version: 4.73
 # Notes:
 
-{% set version = '472' %}
-{% set hash = 'fd42553c31ca827eca015845526f2ca42b73ea2f7d2deb42d2381417f8554ef3' %}
+{% set version = '473' %}
+{% set hash = '79979C55958F473209E9B7BDDAF1410F0BF4C48BE6D2D02AE3BADEADCCF74DA3' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 irfanview-plugins-download-only:

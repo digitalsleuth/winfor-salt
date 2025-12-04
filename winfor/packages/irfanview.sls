@@ -4,7 +4,7 @@
 # Category: Utilities
 # Author: Irfan Skiljan
 # License: https://www.irfanview.com/eula.htm
-# Version: 4.72
+# Version: 4.73
 # Notes:
 
 include:
