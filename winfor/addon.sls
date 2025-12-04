@@ -1,4 +1,5 @@
 include:
+  - winfor.set-version
   - winfor.config.user
   - winfor.repos
   - winfor.python3-tools
@@ -7,12 +8,10 @@ include:
   - winfor.standalones
   - winfor.cleanup
 
-addon-version-file:
-  file.managed:
-    - name: 'C:\winfor-version'
-    - source: salt://winfor/VERSION
-    - replace: True
+addon-states:
+  test.nop:
     - require:
+      - sls: winfor.set-version
       - sls: winfor.config.user
       - sls: winfor.repos
       - sls: winfor.python3-tools
