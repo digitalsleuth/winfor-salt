@@ -222,7 +222,7 @@
         "AUMID": false,
         "DALP": false,
         "StartMenu": true,
-        "Checked": true,
+        "Checked": false,
         "Enabled": true,
         "ExtraTiles": []
       },
@@ -233,7 +233,7 @@
         "AUMID": false,
         "DALP": false,
         "StartMenu": false,
-        "Checked": true,
+        "Checked": false,
         "Enabled": true,
         "ExtraTiles": []
       },
@@ -2741,7 +2741,7 @@
       "Win-FOR Customizer": {
         "CbName": "standalones_winfor_customizer",
         "CbContent": "Win-FOR Customizer",
-        "DAID": "PLACEHOLDER_PATH\\winfor-customizer-v8.0.0.exe",
+        "DAID": "PLACEHOLDER_PATH\\winfor-v11.1.0.exe",
         "AUMID": false,
         "DALP": false,
         "StartMenu": true,
