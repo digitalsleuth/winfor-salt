@@ -15,7 +15,7 @@
 megatools-download-only:
   file.managed:
     - name: '{{ downloads }}\megatools\megatools-{{ version }}.{{ date }}-win64.zip'
-    - source: 'https://megatools.megous.com/builds/builds/megatools-{{ version }}.{{ date }}-win64.zip'
+    - source: https://xff.cz/builds/builds/megatools-{{ version }}.{{ date }}-win64.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True
 
