@@ -9,7 +9,7 @@
 
 {% set version = '2.3.0.1000' %}
 {% set old = '2.0.6.1000' %}
-{% set installed = salt['cmd.run']('powershell -c "(Get-ItemProperty HKLM:\\Software\Microsoft\\Windows\\CurrentVersion\\Uninstall\\* | Where-Object {$_.DisplayName -clike \'Dokan*\' } | Select-Object -ExpandProperty DisplayVersion)"') %}
+{% set installed = salt['cmd.run']('powershell -c "(Get-ItemProperty HKLM:\\Software\Microsoft\\Windows\\CurrentVersion\\Uninstall\\* | Where-Object {$_.DisplayName -clike \'Dokan*\' }).DisplayVersion"') %}
 
 include:
   - winfor.repos
