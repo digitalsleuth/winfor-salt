@@ -14,7 +14,7 @@
 scdbg-download:
   file.managed:
     - name: 'C:\salt\tempdownload\scdbg.zip'
-    - source: http://sandsprite.com/CodeStuff/scdbg.zip
+    - source: https://sandsprite.com/CodeStuff/scdbg.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True
 

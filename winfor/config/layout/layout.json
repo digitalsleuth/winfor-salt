@@ -1105,7 +1105,7 @@
         "DALP": false,
         "StartMenu": true,
         "Checked": true,
-        "Enabled": true,
+        "Enabled": false,
         "ExtraTiles": []
       },
       "Scylla": {
@@ -2537,7 +2537,7 @@
         "DALP": false,
         "StartMenu": false,
         "Checked": true,
-        "Enabled": true,
+        "Enabled": false,
         "ExtraTiles": []
       },
       "iTunes": {

@@ -4,12 +4,12 @@
 # Category: Email
 # Author: Nucleus Technologies
 # License: EULA (https://www.nucleustechnologies.com/eula.pdf)
-# Version: 23.2
+# Version: 25.0
 # Notes: 
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '23.2' %}
-{% set hash = '2148a11019de7744e60fda025c6f9549665b9ece5e6b5eaa47f4021161bb8cb8' %}
+{% set version = '25.0' %}
+{% set hash = 'f09e131efe586754ba41550179c793be39a0efecf697a14d875abd9685d2f8e8' %}
 
 kernel-edb-viewer-download-only:
   file.managed:

@@ -14,6 +14,6 @@
 scdbg-download-only:
   file.managed:
     - name: '{{ downloads }}\scdbg\scdbg-{{ version }}.zip'
-    - source: http://sandsprite.com/CodeStuff/scdbg.zip
+    - source: https://sandsprite.com/CodeStuff/scdbg.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True

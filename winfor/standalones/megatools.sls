@@ -15,7 +15,7 @@
 megatools-download:
   file.managed:
     - name: 'C:\salt\tempdownload\megatools-{{ version }}.{{ date }}-win64.zip'
-    - source: https://xff.cz/builds/builds/megatools-{{ version }}.{{ date }}-win64.zip
+    - source: https://xff.cz/megatools/builds/builds/megatools-{{ version }}.{{ date }}-win64.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True
 

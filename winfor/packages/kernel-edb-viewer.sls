@@ -4,7 +4,7 @@
 # Category: Email
 # Author: Nucleus Technologies
 # License: EULA (https://www.nucleustechnologies.com/eula.pdf)
-# Version: 23.2
+# Version: 25.0
 # Notes: 
 
 include:
