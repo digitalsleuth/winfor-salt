@@ -4,11 +4,11 @@
 # Category: Logs
 # Author: Yamato Security
 # License: GNU General Public License v3.0 (https://github.com/Yamato-Security/hayabusa/blob/main/LICENSE.txt)
-# Version: 3.3.0
+# Version: 3.7.0
 # Notes:
 
-{% set version = '3.3.0' %}
-{% set hash = '37bee154170429d272f3c5b228957d62c116d44cd52e6d3fb24e4b49785d6bbd' %}
+{% set version = '3.7.0' %}
+{% set hash = '6c5ed99560d0896bb8a38d53f19da5958c461a519d78b989dfdc8462fbf8b227' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 hayabusa-download-only:

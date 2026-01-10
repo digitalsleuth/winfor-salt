@@ -11,20 +11,23 @@
 {% set hash = '927cd36dbb4dc0be94afb6021ca7f747dd3f17aad383583bc71aa6e36a762849' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
-{% set defender_status = salt['cmd.run']('powershell -c "(Get-Service windefend).Status"') %}
+{% set defender_status = salt['cmd.powershell']('((Get-Service) -match "WinDefend").Name') %}
+
+{% if defender_status.lower() == "windefend" %}
 
 procdot-defender-exclusion-download-only:
   cmd.run:
-{% if defender_status == "Running" %}
     - names:
-      - 'echo "Defender is {{ defender_status }}"'
+      - 'echo "Defender is present on the system."'
       - 'Add-MpPreference -ExclusionPath "{{ downloads }}"'
       - 'Add-MpPreference -ExclusionPath "{{ PROGRAMDATA }}\Salt Project\Salt\var"'
-{% else %}
-    - name:
-      - 'echo "Defender is {{ defender_status }}"'
-{% endif %}
     - shell: powershell
+{% else %}
+
+"Defender is not present on the system - no exclusions required to download procdot.":
+  test.nop
+
+{% endif %}
 
 procdot-download-only:
   file.managed:
@@ -32,7 +35,3 @@ procdot-download-only:
     - source: https://www.procdot.com/download/procdot/binaries/procdot_{{ version }}_windows.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True
-    - require:
-      - cmd: procdot-defender-exclusion-download-only
-    - watch:
-      - cmd: procdot-defender-exclusion-download-only

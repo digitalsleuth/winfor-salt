@@ -4,28 +4,31 @@
 # Category: Logs
 # Author: WithSecureLabs / Countercept
 # License: GNU General Public License v3.0 (https://github.com/WithSecureLabs/chainsaw/blob/master/LICENCE)
-# Version: 2.12.2
+# Version: 2.13.1
 # Notes:
 
-{% set version = '2.12.2' %}
-{% set hash = '483dfa39e7864b03bb4cf7cdf044568d4d2804cbcb08eb36da1af6353699ec7f' %}
+{% set version = '2.13.1' %}
+{% set hash = '58bbf38cbc897413c49076a7f9251c0705a8a2bbd70fb3a68a86653061c76725' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
-{% set defender_status = salt['cmd.run']('powershell -c "(Get-Service windefend).Status"') %}
+{% set defender_status = salt['cmd.powershell']('((Get-Service) -match "WinDefend").Name') %}
+
+{% if defender_status.lower() == "windefend" %}
 
 chainsaw-defender-exclusion:
   cmd.run:
-{% if defender_status == "Running" %}
     - names:
-      - 'echo "Defender is {{ defender_status }}"'
+      - 'echo "Defender is present on the system."'
       - 'Add-MpPreference -ExclusionPath "{{ inpath }}"'
       - 'Add-MpPreference -ExclusionPath "C:\salt\tempdownload"'
       - 'Add-MpPreference -ExclusionPath "{{ PROGRAMDATA }}\Salt Project\Salt\var"'
-{% else %}
-    - name:
-      - 'echo "Defender is {{ defender_status }}"'
-{% endif %}
     - shell: powershell
+{% else %}
+
+"Defender is not present on the system - no exclusions required for Chainsaw":
+  test.nop
+
+{% endif %}
 
 chainsaw-download:
   file.managed:
@@ -43,7 +46,6 @@ chainsaw-extract:
     - if_missing: '{{ inpath }}\chainsaw'
     - require:
       - file: chainsaw-download
-      - cmd: chainsaw-defender-exclusion
 
 chainsaw-rename:
   file.rename:

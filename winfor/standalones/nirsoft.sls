@@ -4,41 +4,41 @@
 # Category: Windows Analysis
 # Author: Nir Sofer
 # License: 
-# Version: 1.30.19
+# Version: 1.30.22
 # Notes: 
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set version = '1.30.19' %}
-{% set hash = '4431989909910dcf1c69dbe92d410399badb87a19fbe0545718ff8ed4dd59b26' %}
+{% set version = '1.30.22' %}
+{% set hash = 'c057afcf3094b407597c86209500c2f85dc41b81404372fc28ca215fc5ba4a04' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set nlps = ['eztools.nlp', 'mitec.nlp', 'sysinternals6.nlp'] %}
-{% set defender_status = salt['cmd.run']('powershell -c "(Get-Service windefend).Status"') %}
+{% set defender_status = salt['cmd.powershell']('((Get-Service) -match "WinDefend").Name') %}
 
 include:
   - winfor.packages.7zip
   - winfor.standalones.sysinternals
   - winfor.standalones.mitec
 
+{% if defender_status.lower() == "windefend" %}
 nirsoft-defender-exclusion:
   cmd.run:
-{% if defender_status == "Running" %}
     - names:
-      - 'echo "Defender is {{ defender_status }}"'
+      - 'echo "Defender is present on the system."'
       - 'Add-MpPreference -ExclusionPath "{{ inpath }}"'
       - 'Add-MpPreference -ExclusionPath "C:\salt\tempdownload"'
       - 'Add-MpPreference -ExclusionPath "{{ PROGRAMDATA }}\Salt Project\Salt\var"'
-{% else %}
-    - name:
-      - 'echo "Defender is {{ defender_status }}"'
-{% endif %}
     - shell: powershell
+{% else %}
+
+"Defender is not present on the system - no exclusions required for Nirsoft":
+  test.nop
+
+{% endif %}
 
 nirsoft-download:
   cmd.run:
     - name: 'wget -O C:\salt\tempdownload\nirsoft_package_enc_{{ version }}.zip -Headers @{"Referer"="https://launcher.nirsoft.net/downloads/index.html"} https://download.nirsoft.net/nirsoft_package_enc_{{ version }}.zip'
     - shell: powershell
-    - require:
-      - cmd: nirsoft-defender-exclusion
 
 nirsoft-extract:
   cmd.run:
@@ -46,9 +46,6 @@ nirsoft-extract:
     - shell: cmd
     - require:
       - cmd: nirsoft-download
-      - cmd: nirsoft-defender-exclusion
-    - watch:
-      - cmd: nirsoft-defender-exclusion
 
 nirsoft-env-vars:
   win_path.exists:

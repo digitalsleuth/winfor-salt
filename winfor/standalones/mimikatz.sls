@@ -10,21 +10,24 @@
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set version = '2.2.0-20220919' %}
-{% set defender_status = salt['cmd.run']('powershell -c "(Get-Service windefend).Status"') %}
+{% set defender_status = salt['cmd.powershell']('((Get-Service) -match "WinDefend").Name') %}
+
+{% if defender_status.lower() == "windefend" %}
 
 mimikatz-defender-exclusion:
   cmd.run:
-{% if defender_status == "Running" %}
     - names:
-      - 'echo "Defender is {{ defender_status }}"'
+      - 'echo "Defender is present on the system."'
       - 'Add-MpPreference -ExclusionPath "{{ inpath }}"'
       - 'Add-MpPreference -ExclusionPath "C:\salt\tempdownload"'
       - 'Add-MpPreference -ExclusionPath "{{ PROGRAMDATA }}\Salt Project\Salt\var"'
-{% else %}
-    - name:
-      - 'echo "Defender is {{ defender_status }}"'
-{% endif %}
     - shell: powershell
+{% else %}
+
+"Defender is not present on the system - no exclusions required for mimikatz.":
+  test.nop
+
+{% endif %}
 
 mimikatz-download:
   file.managed:
@@ -32,8 +35,6 @@ mimikatz-download:
     - source: https://github.com/gentilkiwi/mimikatz/releases/download/{{ version }}/mimikatz_trunk.zip
     - source_hash: sha256=7accd179e8a6b2fc907e7e8d087c52a7f48084852724b03d25bebcada1acbca5
     - makedirs: True
-    - require:
-      - cmd: mimikatz-defender-exclusion
 
 mimikatz-extract:
   archive.extracted:

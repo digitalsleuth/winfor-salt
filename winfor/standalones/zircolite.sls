@@ -11,24 +11,28 @@
 {% set hash = '6e867b3b9a4aa4a376fd46121000f81da7c9011451caa329de877c7a7ef597b2' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
-{% set defender_status = salt['cmd.run']('powershell -c "(Get-Service windefend).Status"') %}
+{% set defender_status = salt['cmd.powershell']('((Get-Service) -match "WinDefend").Name') %}
 
 include:
   - winfor.packages.7zip
 
+{% if defender_status.lower() == "windefend" %}
+
 zircolite-defender-exclusion:
   cmd.run:
-{% if defender_status == "Running" %}
     - names:
-      - 'echo "Defender is {{ defender_status }}"'
+      - 'echo "Defender is present on the system."'
       - 'Add-MpPreference -ExclusionPath "{{ inpath }}"'
       - 'Add-MpPreference -ExclusionPath "C:\salt\tempdownload"'
       - 'Add-MpPreference -ExclusionPath "{{ PROGRAMDATA }}\Salt Project\Salt\var"'
-{% else %}
-    - name:
-      - 'echo "Defender is {{ defender_status }}"'
-{% endif %}
     - shell: powershell
+
+{% else %}
+
+"Defender is not present on the system - no exclusions required for Zircolite.":
+  test.nop
+
+{% endif %}
 
 zircolite-download:
   file.managed:
@@ -36,8 +40,6 @@ zircolite-download:
     - source: https://github.com/wagga40/Zircolite/releases/download/{{ version }}/zircolite_win_x64_{{ version }}.7z
     - source_hash: sha256={{ hash }}
     - makedirs: True
-    - require:
-      - cmd: zircolite-defender-exclusion
 
 zircolite-extract:
   cmd.run:

@@ -8,28 +8,28 @@
 # Notes:
 
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
-{% set defender_status = salt['cmd.run']('powershell -c "(Get-Service windefend).Status"') %}
+{% set defender_status = salt['cmd.powershell']('((Get-Service) -match "WinDefend").Name') %}
 
 include:
   - winfor.repos
 
+{% if defender_status.lower() == "windefend" %}
 ksdumper11-defender-exclusion:
   cmd.run:
-{% if defender_status == "Running" %}
     - names:
-      - 'echo "Defender is {{ defender_status }}"'
+      - 'echo "Defender is present on the system."'
       - 'Add-MpPreference -ExclusionPath "C:\Program Files\KsDumper11"'
       - 'Add-MpPreference -ExclusionPath "{{ PROGRAMDATA }}\Salt Project\Salt\var"'
-{% else %}
-    - name:
-      - 'echo "Defender is {{ defender_status }}"'
-{% endif %}
     - shell: powershell
+{% else %}
+
+"Defender is not present on the system - No exclusions required for ksdumper11":
+  test.nop
+
+{% endif %}
 
 ksdumper11:
-  pkg.installed:
-    - require:
-      - cmd: ksdumper11-defender-exclusion
+  pkg.installed
 
 ksdumper11-shortcut:
   file.shortcut:

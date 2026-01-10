@@ -14,7 +14,7 @@ name=All Utilities
 ShowAll=1
 
 [Software0]
-exe=PLACEHOLDER_PATH\zimmerman\net6\AmcacheParser.exe
+exe=PLACEHOLDER_PATH\zimmerman\net9\AmcacheParser.exe
 url=https://f001.backblazeb2.com/file/EricZimmermanTools/AmcacheParser.zip
 group=0
 Name=AmcacheParser
@@ -23,7 +23,7 @@ ShortDesc=Amcache.hve parser with lots of extra features. Handles locked files
 LongDesc=
 
 [Software1]
-exe=PLACEHOLDER_PATH\zimmerman\net6\AppCompatCacheParser.exe
+exe=PLACEHOLDER_PATH\zimmerman\net9\AppCompatCacheParser.exe
 url=https://f001.backblazeb2.com/file/EricZimmermanTools/AppCompatCacheParser.zip
 group=0
 Name=AppCompatCacheParser
@@ -32,7 +32,7 @@ ShortDesc=AppCompatCache aka ShimCache parser. Handles locked files
 LongDesc=
 
 [Software2]
-exe=PLACEHOLDER_PATH\zimmerman\net6\JLECmd.exe
+exe=PLACEHOLDER_PATH\zimmerman\net9\JLECmd.exe
 url=https://f001.backblazeb2.com/file/EricZimmermanTools/JLECmd.zip
 group=0
 Name=JLECmd
@@ -41,7 +41,7 @@ ShortDesc=Jump List parser
 LongDesc=
 
 [Software3]
-exe=PLACEHOLDER_PATH\zimmerman\net6\JumpListExplorer\JumpListExplorer.exe
+exe=PLACEHOLDER_PATH\zimmerman\net9\JumpListExplorer\JumpListExplorer.exe
 url=https://f001.backblazeb2.com/file/EricZimmermanTools/JumpListExplorer.zip
 group=1
 Name=JumpListExplorer
@@ -50,7 +50,7 @@ ShortDesc=GUI based Jump List viewer
 LongDesc=
 
 [Software4]
-exe=PLACEHOLDER_PATH\zimmerman\net6\LECmd.exe
+exe=PLACEHOLDER_PATH\zimmerman\net9\LECmd.exe
 url=https://f001.backblazeb2.com/file/EricZimmermanTools/LECmd.zip
 group=0
 Name=LECmd
@@ -59,7 +59,7 @@ ShortDesc=Parse lnk files
 LongDesc=
 
 [Software5]
-exe=PLACEHOLDER_PATH\zimmerman\net6\MFTECmd.exe
+exe=PLACEHOLDER_PATH\zimmerman\net9\MFTECmd.exe
 url=https://f001.backblazeb2.com/file/EricZimmermanTools/MFTECmd.zip
 group=0
 Name=MFTECmd
@@ -68,7 +68,7 @@ ShortDesc=$MFT, $Boot, $J, $SDS, and $LogFile parser. Handles locked files
 LongDesc=
 
 [Software6]
-exe=PLACEHOLDER_PATH\zimmerman\net6\PECmd.exe
+exe=PLACEHOLDER_PATH\zimmerman\net9\PECmd.exe
 url=https://f001.backblazeb2.com/file/EricZimmermanTools/PECmd.zip
 group=0
 Name=PECmd
@@ -77,7 +77,7 @@ ShortDesc=Prefetch parser
 LongDesc=
 
 [Software7]
-exe=PLACEHOLDER_PATH\zimmerman\net6\RecentFileCacheParser.exe
+exe=PLACEHOLDER_PATH\zimmerman\net9\RecentFileCacheParser.exe
 url=https://f001.backblazeb2.com/file/EricZimmermanTools/RecentFileCacheParser.zip
 group=0
 Name=RecentFileCacheParser
@@ -86,7 +86,7 @@ ShortDesc=RecentFileCache parser
 LongDesc=
 
 [Software8]
-exe=PLACEHOLDER_PATH\zimmerman\net6\SBECmd.exe
+exe=PLACEHOLDER_PATH\zimmerman\net9\SBECmd.exe
 url=https://ericzimmerman.github.io/Software/SDBExplorer.zip
 group=0
 Name=SBECmd
@@ -95,7 +95,7 @@ ShortDesc=Shellbags parser
 LongDesc=
 
 [Software9]
-exe=PLACEHOLDER_PATH\zimmerman\net6\ShellBagsExplorer\ShellBagsExplorer.exe
+exe=PLACEHOLDER_PATH\zimmerman\net9\ShellBagsExplorer\ShellBagsExplorer.exe
 url=https://f001.backblazeb2.com/file/EricZimmermanTools/ShellBagsExplorer.zip
 group=1
 Name=ShellBagsExplorer
@@ -105,7 +105,7 @@ ShortDesc=GUI for browsing shellbags data. Handles locked files
 LongDesc=
 
 [Software10]
-exe=PLACEHOLDER_PATH\zimmerman\net6\SDBExplorer\SDBExplorer.exe
+exe=PLACEHOLDER_PATH\zimmerman\net9\SDBExplorer\SDBExplorer.exe
 url=https://f001.backblazeb2.com/file/EricZimmermanTools/SDBExplorer.zip
 group=1
 Name=SDBExplorer
@@ -116,7 +116,7 @@ LongDesc=
 
 
 [Software11]
-exe=PLACEHOLDER_PATH\zimmerman\net6\TimelineExplorer\TimelineExplorer.exe
+exe=PLACEHOLDER_PATH\zimmerman\net9\TimelineExplorer\TimelineExplorer.exe
 url=https://f001.backblazeb2.com/file/EricZimmermanTools/TimelineExplorer.zip
 group=1
 Name=TimelineExplorer
@@ -125,7 +125,7 @@ ShortDesc=View CSV and Excel files, filter, group, sort, etc. with ease
 LongDesc=
 
 [Software12]
-exe=PLACEHOLDER_PATH\zimmerman\net6\WxTCmd.exe
+exe=PLACEHOLDER_PATH\zimmerman\net9\WxTCmd.exe
 url=https://f001.backblazeb2.com/file/EricZimmermanTools/WxTCmd.zip
 group=0
 Name=WxTCmd
@@ -134,7 +134,7 @@ ShortDesc=Windows 10 Timeline database parser
 LongDesc=
 
 [Software13]
-exe=PLACEHOLDER_PATH\zimmerman\net6\RegistryExplorer\RegistryExplorer.exe
+exe=PLACEHOLDER_PATH\zimmerman\net9\RegistryExplorer\RegistryExplorer.exe
 help=RegistryExplorer\RegistryExplorerManual.pdf
 url=Registy viewer with searching, multi-hive support, plugins, and more. Handles locked files
 group=1
@@ -144,7 +144,7 @@ ShortDesc=Registy viewer with searching, multi-hive support, plugins, and more
 LongDesc=
 
 [Software14]
-exe=PLACEHOLDER_PATH\zimmerman\net6\RECmd\RECmd.exe
+exe=PLACEHOLDER_PATH\zimmerman\net9\RECmd\RECmd.exe
 url=Registy viewer with searching, multi-hive support, plugins, and more. Handles locked files
 group=0
 Name=RECmd
@@ -153,7 +153,7 @@ ShortDesc=Registy viewer with searching, multi-hive support, plugins, and more
 LongDesc=
 
 [Software15]
-exe=PLACEHOLDER_PATH\zimmerman\net6\VSCMount.exe
+exe=PLACEHOLDER_PATH\zimmerman\net9\VSCMount.exe
 url=https://f001.backblazeb2.com/file/EricZimmermanTools/VSCMount.zip
 group=0
 Name=VSCMount
@@ -171,7 +171,7 @@ ShortDesc=Hash all the things
 LongDesc=
 
 [Software17]
-exe=PLACEHOLDER_PATH\zimmerman\net6\bstrings.exe
+exe=PLACEHOLDER_PATH\zimmerman\net9\bstrings.exe
 url=https://f001.backblazeb2.com/file/EricZimmermanTools/bstrings.zip
 group=0
 Name=Bstrings
@@ -180,7 +180,7 @@ ShortDesc=Find them strings yo. Built in regex patterns. Handles locked files
 LongDesc=
 
 [Software18]
-exe=PLACEHOLDER_PATH\zimmerman\net6\RBCmd.exe
+exe=PLACEHOLDER_PATH\zimmerman\net9\RBCmd.exe
 url=https://f001.backblazeb2.com/file/EricZimmermanTools/RBCmd.zip
 group=0
 Name=RBCmd
@@ -198,7 +198,7 @@ ShortDesc=	A simple app that shows current time (local and UTC) and optionally, 
 LongDesc=
 
 [Software20]
-exe=PLACEHOLDER_PATH\zimmerman\net6\iisGeolocate\iisGeolocate.exe
+exe=PLACEHOLDER_PATH\zimmerman\net9\iisGeolocate\iisGeolocate.exe
 url=https://f001.backblazeb2.com/file/EricZimmermanTools/iisGeolocate.zip
 group=0
 Name=iisGeolocate
@@ -207,7 +207,7 @@ ShortDesc=Geolocate IP addresses found in IIS logs
 LongDesc=
 
 [Software21]
-exe=PLACEHOLDER_PATH\zimmerman\net6\EZViewer\EZViewer.exe
+exe=PLACEHOLDER_PATH\zimmerman\net9\EZViewer\EZViewer.exe
 url=https://f001.backblazeb2.com/file/EricZimmermanTools/EZViewer.zip
 group=0
 Name=EZViewer

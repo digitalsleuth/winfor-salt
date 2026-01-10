@@ -4,11 +4,11 @@
 # Category: Windows Analysis
 # Author: WithSecureLabs / Countercept
 # License: GNU General Public License v3.0 (https://github.com/WithSecureLabs/chainsaw/blob/master/LICENCE)
-# Version: 2.8.1
+# Version: 2.13.1
 # Notes:
 
-{% set version = '2.8.1' %}
-{% set hash = '2881fc8a3999281b05f4edbfa8941e518c83f60a53d713076f8df666cadae17f' %}
+{% set version = '2.13.1' %}
+{% set hash = '58bbf38cbc897413c49076a7f9251c0705a8a2bbd70fb3a68a86653061c76725' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 chainsaw-download-only:
