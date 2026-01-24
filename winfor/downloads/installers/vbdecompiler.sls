@@ -8,7 +8,7 @@
 # Notes: 
 
 {% set version = '12.8' %}
-{% set hash = '5d383c8e58951f655a4e099d2c98bb610fc94360e47b27ce54b784f50277ae79' %}
+{% set hash = '163349edab8740d8200da4d49c795144af301cb585892e44099f5edbee7a4707' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 vbdecompiler-download-only:
