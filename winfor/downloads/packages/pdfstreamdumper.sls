@@ -14,6 +14,6 @@
 pdfstreamdumper-download-only:
   file.managed:
     - name: '{{ downloads }}\pdfstreamdumper\PDFStreamDumper_Setup-{{ version }}.exe'
-    - source: https://sandsprite.com/CodeStuff/PDFStreamDumper_Setup.exe
+    - source: https://github.com/digitalsleuth/salt-winrepo-ng/blob/main/files/PDFStreamDumper_Setup_{{ version }}.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

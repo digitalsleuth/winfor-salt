@@ -4,12 +4,12 @@
 # Category: Utilities
 # Author: Microsoft
 # License: MIT License (https://github.com/microsoft/winget-cli/blob/master/LICENSE)
-# Version: 1.12.350
+# Version: 1.12.460
 # Notes: 
 
 {% set user = salt['pillar.get']('winfor_user', 'forensics') %}
 {% set LOCALAPPDATA = salt['environ.get']('LOCALAPPDATA') %}
-{% set version = '1.12.350' %}
+{% set version = '1.12.460' %}
 
 windows-winget-download:
   file.managed:
