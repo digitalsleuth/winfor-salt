@@ -4,12 +4,12 @@
 # Category: Windows Analysis
 # Author: FSPro
 # License: Multiple (https://eventlogxp.com/order.html)
-# Version: 5.7
+# Version: 5.8
 # Notes:
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '5.7' %}
-{% set hash = 'e2be7332f60dd66c2ad3fe497c0e7937c01bf3627367346b28ed548b5c683eee' %}
+{% set version = '5.8' %}
+{% set hash = '278a4fdb8b372dfc23e6c6c354302e2c3675a0690bfc4837fbadda75011e2aff' %}
 
 eventlog-explorer-download-only:
   file.managed:
