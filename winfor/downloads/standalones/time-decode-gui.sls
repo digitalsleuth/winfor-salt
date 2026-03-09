@@ -4,11 +4,11 @@
 # Category: Raw Parsers / Decoders
 # Author: Corey Forman
 # License: MIT License (https://github.com/digitalsleuth/time_decode/blob/master/LICENSE)
-# Version: 10.3.1
+# Version: 10.4.0
 # Notes:
 
-{% set version = '10.3.1' %}
-{% set hash = 'e09dd19894fec29f0eeb7676e8b273c076f09b12accd8c98a2d13c8a3e83aab8' %}
+{% set version = '10.4.0' %}
+{% set hash = '89aa179e044422289281315da37564fcb02a72ee72ee814bf9eaba0b72a26615' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 time-decode-download-only:
