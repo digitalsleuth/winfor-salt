@@ -401,6 +401,28 @@
         "Enabled": true,
         "ExtraTiles": []
       },
+      "MS Word Parser Standalone": {
+        "CbName": "standalones_ms_word_parser",
+        "CbContent": "MS Word Parser GUI",
+        "DAID": "PLACEHOLDER_PATH\\ms-word-parser\\parse-docx.exe",
+        "AUMID": false,
+        "DALP": false,
+        "StartMenu": true,
+        "Checked": true,
+        "Enabled": true,
+        "ExtraTiles": []
+      },
+      "MS Word Parser Python": {
+        "CbName": "python3_tools_ms_word_parser",
+        "CbContent": "MS Word Parser Python",
+        "DAID": "",
+        "AUMID": false,
+        "DALP": false,
+        "StartMenu": false,
+        "Checked": true,
+        "Enabled": true,
+        "ExtraTiles": []
+      },
       "Notepad++": {
         "CbName": "packages_npp",
         "CbContent": "Notepad++",
@@ -3148,6 +3170,17 @@
         "AUMID": false,
         "DALP": false,
         "StartMenu": false,
+        "Checked": true,
+        "Enabled": true,
+        "ExtraTiles": []
+      },
+      "Windexter": {
+        "CbName": "standalones_windexter",
+        "CbContent": "Windexter",
+        "DAID": "PLACEHOLDER_PATH\\windexter\\Windexter.exe",
+        "AUMID": false,
+        "DALP": false,
+        "StartMenu": true,
         "Checked": true,
         "Enabled": true,
         "ExtraTiles": []

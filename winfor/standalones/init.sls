@@ -108,6 +108,7 @@ include:
   - winfor.standalones.ghidra
   - winfor.standalones.fex-cloud-capture
   - winfor.standalones.zapixdesk
+  - winfor.standalones.ms-word-parser
 
 standalones-states:
   test.nop:
@@ -221,3 +222,4 @@ standalones-states:
       - sls: winfor.standalones.ghidra
       - sls: winfor.standalones.fex-cloud-capture
       - sls: winfor.standalones.zapixdesk
+      - sls: winfor.standalones.ms-word-parser
