@@ -12,7 +12,7 @@
 innounp-download-only:
   file.managed:
     - name: '{{ downloads }}\innounp\innounp050.rar'
-    - source: 'https://versaweb.dl.sourceforge.net/project/innounp/innounp/innounp%200.50/innounp050.rar'
+    - source: 'https://cytranet-dal.dl.sourceforge.net/project/innounp/innounp/innounp%200.50/innounp050.rar'
     - source_hash: sha256=1d8837540ccc15d98245a1c73fd08f404b2a7bdfe7dc9bed2fdece818ff6df67
     - makedirs: True
 

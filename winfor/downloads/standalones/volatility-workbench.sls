@@ -9,7 +9,7 @@
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '3.0.1014' %}
-{% set hash = 'a9d9b6944b77a9d9a14180d5f173767e756c27a29cb810ebb27e285c39c1dcf9' %}
+{% set hash = 'bcc9e91d817ad3a7c91e7e30a4c256d8b64635eae4ea82e3c10faf9181323880' %}
 
 volatility-workbench-download-only:
   file.managed:
