@@ -24,17 +24,17 @@
 {% set v2 = v1 + vspacer %}
 {% set horizontals = [(h1, "H1"), (h2, "H2"), (h3, "H3"), (h4, "H4"), (h5, "H5"), (h6, "H6")] %}
 {% set verticals = [(v1, "V1"), (v2, "V2")] %}
-{% set shortcuts = [('Acquisition and Analysis', ['FTK Imager','Active@ Disk Editor\Active@ Disk Editor','Arsenal Image Mounter','Autopsy\Autopsy 4.21.0','gkape','Magnet AXIOM\AXIOM Examine','Magnet AXIOM\AXIOM Process','Magnet ACQUIRE\Magnet ACQUIRE','Redline\Redline','Tableau\Tableau Imager\Tableau Imager','VeraCrypt 1.25.9\VeraCrypt','X-Ways']),
+{% set shortcuts = [('Acquisition and Analysis', ['FTK Imager','Active@ Disk Editor\Active@ Disk Editor','Arsenal Image Mounter','Autopsy\Autopsy 4.22.0','gkape','Magnet AXIOM\AXIOM Examine','Magnet AXIOM\AXIOM Process','Magnet ACQUIRE\Magnet ACQUIRE','Redline\Redline','Tableau\Tableau Imager\Tableau Imager','VeraCrypt 1.25.9\VeraCrypt','X-Ways']),
                     ('Browsers', ['Firefox','Google Chrome','Microsoft Edge']),
                     ('Databases', ['ADOQuery','DataEdit','DB Browser (SQLCipher)','DB Browser (SQLite)','DBeaver Community\DBeaver','SDBExplorer','SQLiteQuery','SQLiteStudio\SQLiteStudio']),
                     ('Document Viewers', ['Acrobat Reader','EZViewer','Notepad++','Sublime Text','Visual Studio Code\Visual Studio Code']),
                     ('E-mail', ['EHB','BitRecover EML Viewer','Kernel Exchange EDB Viewer\Kernel Exchange EDB Viewer','Kernel OST Viewer\Kernel OST Viewer','Kernel Outlook PST Viewer\Kernel Outlook PST Viewer','MailView','PST Walker Software\MSG Viewer','PST Walker Software\PST Walker','SysTools Outlook PST Viewer\SysTools Outlook PST Viewer']),
                     ('Log Parsers', ['EventFinder','EZViewer','LogParser-Studio','LogViewer2']),
                     ('Programming', ['Python 3.10\IDLE (Python 3.10 64-bit)','Visual Studio Code\Visual Studio Code','Windows PowerShell\Windows PowerShell ISE']),
-                    ('Raw Parsers', ['Bulk Extractor 1.5.5\BEViewer with Bulk Extractor 1.5.5 (64-bit)','CyberChef','Digital Detective\DCode v5\DCode v5.5','ExifTool GUI','HHD Hex Editor Neo\Hex Editor Neo','HEXEdit','HxD Hex Editor\HxD','JSONView','Passware\Encryption Analyzer 2024 v1\Passware Encryption Analyzer 2024 v1 (64-bit)','Time Decode','WinHex','XMLView']),
+                    ('Raw Parsers', ['Bulk Extractor 1.5.5\BEViewer with Bulk Extractor 1.5.5 (64-bit)','CyberChef','Digital Detective\DCode v5\DCode v5.6','ExifTool GUI','HHD Hex Editor Neo\Hex Editor Neo','HEXEdit','HxD Hex Editor\HxD','JSONView','Passware\Encryption Analyzer 2026 v1\Passware Encryption Analyzer 2026 v1 (64-bit)','Time Decode','WinHex','XMLView']),
                     ('Terminals', ['Windows PowerShell\Windows PowerShell ISE','WSL']),
-                    ('Utilities', ['Agent Ransack\Agent Ransack','Digital Detective\DCode v5\DCode v5.5','FastCopy','Glossary Generator','Google Earth Pro','Hasher','Hash Generator','IrfanView\IrfanView 64 4.62','Monolith Notes',"Nuix\\Nuix Evidence Mover\\Nuix Evidence Mover",'Rufus','USB Write Blocker','VeraCrypt 1.26.7\VeraCrypt','Oracle VM VirtualBox\Oracle VM VirtualBox','VideoLAN\VLC media player','WindowGrid']),
-                    ('Windows Analysis', ['AutoRunner','gkape','Hibernation Recon','Hindsight GUI','JumpListExplorer','MFTBrowser','MFTExplorer','mimikatz','NirLauncher','NTFS Log Tracker','RegistryExplorer','RegRipper','SE','ShadowExplorer','ShellBagsExplorer','Sysinternals','TimelineExplorer','Zimmerman Tools']),
+                    ('Utilities', ['Agent Ransack\Agent Ransack','Digital Detective\DCode v5\DCode v5.5','FastCopy','Glossary Generator','Google Earth Pro','Hasher','Hash Generator','IrfanView\IrfanView 64 4.73','Monolith Notes',"Nuix\\Nuix Evidence Mover\\Nuix Evidence Mover",'Rufus','USB Write Blocker','VeraCrypt 1.26.7\VeraCrypt','Oracle VM VirtualBox\Oracle VM VirtualBox','VideoLAN\VLC media player','WindowGrid']),
+                    ('Windows Analysis', ['AutoRunner','gkape','Hibernation Recon','Hindsight GUI','JumpListExplorer','MFTBrowser','MFTExplorer','mimikatz','NirLauncher','NTFS Log Tracker','RegistryExplorer','RegRipper','SE','ShadowExplorer','ShellBagsExplorer','Sysinternals','TimelineExplorer','Windexter','Zimmerman Tools']),
                     ('Write Blockers', ['Tableau Firmware Update','USB Write Blocker','CDSG\WriteBlocking Validation Utility\WriteBlocking Validation Utility'])
                    ] %}
 {% set start_folders = [('01','Acquisition and Analysis'),
@@ -303,8 +303,8 @@ cpc-theme-stager-on-reboot-hkcu:
 
 cpc-theme-suggest-reboot:
   cmd.run:
-    - name: 'msg %username% "The theme will be fully applied once you log off then log back in."'
-    - shell: cmd
+    - name: Start-Process powershell -WindowStyle Hidden -ArgumentList "-command `"Add-Type -AssemblyName System.Windows.Forms; [System.Windows.Forms.MessageBox]::Show('The theme will be fully applied once you log off and then log back in.', 'Win-FOR Theme')`""
+    - shell: powershell
     - require:
       - file: cpc-theme-stager
       - reg: cpc-theme-stager-on-reboot-hkcu
@@ -335,8 +335,8 @@ CPC Unload NTUSER.DAT for {{ user }}:
 
 cpc-theme-suggest-reboot:
   cmd.run:
-    - name: 'msg %username% "The theme will be fully applied for {{ user }} the next time they log on."'
-    - shell: cmd
+    - name: Start-Process powershell -WindowStyle Hidden -ArgumentList "-command `"Add-Type -AssemblyName System.Windows.Forms; [System.Windows.Forms.MessageBox]::Show('The theme will be fully applied for {{ user }} when they log in.', 'Win-FOR Theme')`""
+    - shell: powershell
     - require:
       - file: cpc-theme-stager
       - cmd: CPC Load NTUSER.DAT for {{ user }}

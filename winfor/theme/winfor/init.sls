@@ -56,7 +56,7 @@
                     ('Raw Parsers and Decoders', ['Bulk Extractor 1.5.5\BEViewer with Bulk Extractor 1.5.5 (64-bit)','CyberChef','Digital Detective\DataDump v2\DataDump v2.2','Digital Detective\DCode v5\DCode v5.6','DROID','Hax\Hax','HHD Hex Editor Neo\Hex Editor Neo','HEXEdit','HxD Hex Editor\HxD','JSONView','Passware\Encryption Analyzer 2025 v2\Passware Encryption Analyzer 2025 v2 (64-bit)','PhotoRec','QPhotoRec','TestDisk','Time Decode','Redline\Redline','XMLView','WinHex']),
                     ('Registry', ['RegistryExplorer','RegRipper','Regshot x64 ANSI']),
                     ('Terminals', ['Cygwin\Cygwin64 Terminal','MobaXterm\MobaXterm','Terminal','WSL','VcXsrv\XLaunch']),
-                    ('Utilities', ['Agent Ransack\Agent Ransack','Aurora','Digital Detective\DCode v5\DCode v5.6','EZViewer','FastCopy','Glossary Generator','Google Earth Pro','Hasher','Hash Generator','IrfanView\IrfanView 64 4.62','iTunes\iTunes','Monolith Notes',"Nuix\\Nuix Evidence Mover\\Nuix Evidence Mover",'Rufus','Sysinternals','Tableau Firmware Update','TeraCopy','USB Write Blocker','VeraCrypt 1.26.24\VeraCrypt','Oracle VM VirtualBox\Oracle VM VirtualBox','VideoLAN\VLC media player','CDSG\WriteBlocking Validation Utility\WriteBlocking Validation Utility','WinMerge\WinMerge']),
+                    ('Utilities', ['Agent Ransack\Agent Ransack','Aurora','Digital Detective\DCode v5\DCode v5.6','EZViewer','FastCopy','Glossary Generator','Google Earth Pro','Hasher','Hash Generator','IrfanView\IrfanView 64 4.73','iTunes\iTunes','Monolith Notes',"Nuix\\Nuix Evidence Mover\\Nuix Evidence Mover",'Rufus','Sysinternals','Tableau Firmware Update','TeraCopy','USB Write Blocker','VeraCrypt 1.26.24\VeraCrypt','Oracle VM VirtualBox\Oracle VM VirtualBox','VideoLAN\VLC media player','CDSG\WriteBlocking Validation Utility\WriteBlocking Validation Utility','WinMerge\WinMerge']),
                     ('Windows Analysis', ['AutoRunner','Event Log Explorer','EXE','Hibernation Recon','JumpListExplorer','Live Response Collection - Cedarpelta','LogFileParser64','MFTBrowser','MFTExplorer','NirLauncher','NTFS Log Tracker','OneDriveExplorer-GUI','Redline\Redline','RegistryExplorer','RegRipper','SE','ShadowExplorer','ShellBagsExplorer','SRUM-DUMP2','ThumbCache Viewer','TimelineExplorer','USB Detective','Volatility Workbench','Windexter','Windows Timeline'])
                    ] %}
 
@@ -274,8 +274,8 @@ theme-stager-on-reboot-hkcu:
 
 theme-suggest-reboot:
   cmd.run:
-    - name: 'msg %username% "The theme will be fully applied once you log off then log back in."'
-    - shell: cmd
+    - name: Start-Process powershell -WindowStyle Hidden -ArgumentList "-command `"Add-Type -AssemblyName System.Windows.Forms; [System.Windows.Forms.MessageBox]::Show('The theme will be fully applied once you log off and then log back in.', 'Win-FOR Theme')`""
+    - shell: powershell
     - require:
       - file: theme-stager
       - reg: theme-stager-on-reboot-hkcu
@@ -306,7 +306,7 @@ Unload NTUSER.DAT for {{ user }}:
 
 theme-suggest-reboot:
   cmd.run:
-    - name: 'msg %username% "The theme will be fully applied for {{ user }} the next time they log on."'
+    - name: Start-Process powershell -WindowStyle Hidden -ArgumentList "-command `"Add-Type -AssemblyName System.Windows.Forms; [System.Windows.Forms.MessageBox]::Show('The theme will be fully applied for {{ user }} when they log in.', 'Win-FOR Theme')`""
     - shell: cmd
     - require:
       - file: theme-stager
