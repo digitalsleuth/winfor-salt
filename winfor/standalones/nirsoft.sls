@@ -47,12 +47,6 @@ nirsoft-extract:
     - require:
       - cmd: nirsoft-download
 
-nirsoft-env-vars:
-  win_path.exists:
-    - name: '{{ inpath }}\nirsoft\'
-    - require:
-      - cmd: nirsoft-download
-
 nirsoft-nirlauncher-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\NirLauncher.lnk'

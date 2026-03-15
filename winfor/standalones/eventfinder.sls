@@ -12,6 +12,9 @@
 {% set hash = '7460425d281455ef6f74e7262e09ee2d86ef8b0754cade399044fc67e5561854' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
+include:
+  - winfor.config.shims
+
 eventfinder-download:
   file.managed:
     - name: '{{ inpath }}\eventfinder\EventFinder.exe'
@@ -20,9 +23,11 @@ eventfinder-download:
     - makedirs: True
     - replace: True
 
-eventfinder-env-vars:
-  win_path.exists:
-    - name: '{{ inpath }}\eventfinder\'
+eventfinder-shim:
+  cmd.run:
+    - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\eventfinder\eventfinder.exe -OutPath {{ inpath }}\shims\eventfinder.exe'
+    - require:
+      - sls: winfor.config.shims
 
 standalones-eventfinder-shortcut:
   file.shortcut:

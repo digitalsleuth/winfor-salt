@@ -12,6 +12,7 @@
 
 include:
   - winfor.packages.git
+  - winfor.config.shims
 
 standalones-regripper:
   git.latest:
@@ -23,9 +24,17 @@ standalones-regripper:
     - require:
       - sls: winfor.packages.git
 
-regripper-env-vars:
-  win_path.exists:
-    - name: '{{ inpath }}\regripper\'
+regripper-rip-shim:
+  cmd.run:
+    - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\regripper\rip.exe -OutPath {{ inpath }}\shims\rip.exe'
+    - require:
+      - sls: winfor.config.shims
+
+regripper-rr-shim:
+  cmd.run:
+    - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\regripper\rr.exe -OutPath {{ inpath }}\shims\rr.exe'
+    - require:
+      - sls: winfor.config.shims
 
 standalones-regripper-shortcut:
   file.shortcut:

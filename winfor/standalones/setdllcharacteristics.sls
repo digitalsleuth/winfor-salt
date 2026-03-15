@@ -9,6 +9,9 @@
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 
+include:
+  - winfor.config.shims
+
 setdll-download:
   file.managed:
     - name: 'C:\salt\tempdownload\setdllcharacteristics_v0_0_0_1.zip'
@@ -24,6 +27,8 @@ setdll-extract:
     - require:
       - file: setdll-download
 
-setdll-env-vars:
-  win_path.exists:
-    - name: '{{ inpath }}\setdll\'
+setdll-shim:
+  cmd.run:
+    - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\setdll\setdllcharacteristics.exe -OutPath {{ inpath }}\shims\setdll.exe'
+    - require:
+      - sls: winfor.config.shims

@@ -20,10 +20,6 @@ windowstimeline-download:
     - makedirs: True
     - overwrite: True
 
-windowstimeline-env:
-  win_path.exists:
-    - name: '{{ inpath }}\windowstimeline\'
-
 windowstimeline-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\Windows Timeline.lnk'

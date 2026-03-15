@@ -10,6 +10,9 @@
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
+include:
+  - winfor.config.shims
+
 bintext-download:
   file.managed:
     - name: 'C:\salt\tempdownload\bintext303.zip'
@@ -25,9 +28,11 @@ bintext-extract:
     - require:
       - file: bintext-download
 
-bintext-env-vars:
-  win_path.exists:
-    - name: {{ inpath }}\bintext\
+bintext-shim:
+  cmd.run:
+    - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\bintext\bintext.exe -OutPath {{ inpath }}\shims\bintext.exe'
+    - require:
+      - sls: winfor.config.shims
 
 standalones-bintext-shortcut:
   file.shortcut:

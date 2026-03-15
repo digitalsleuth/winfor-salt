@@ -9,6 +9,9 @@
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 
+include:
+  - winfor.config.shims
+
 wmi-parser-download:
   file.managed:
     - name: 'C:\salt\tempdownload\wmi-parser.v0.0.2.zip'
@@ -24,6 +27,8 @@ wmi-parser-extract:
     - require:
       - file: wmi-parser-download
 
-wmi-parser-env-vars:
-  win_path.exists:
-    - name: '{{ inpath }}\wmi-parser'
+wmi-parser-shim:
+  cmd.run:
+    - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\wmi-parser\wmi-parser.exe -OutPath {{ inpath }}\shims\wmi-parser.exe'
+    - require:
+      - sls: winfor.config.shims

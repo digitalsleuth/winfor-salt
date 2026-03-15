@@ -27,10 +27,6 @@ thumbcacheviewer-extract:
     - require:
       - file: thumbcacheviewer-download
 
-thumbcacheviewer-env:
-  win_path.exists:
-    - name: '{{ inpath }}\thumbcacheviewer\'
-
 thumbcacheviewer-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\ThumbCache Viewer.lnk'

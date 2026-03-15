@@ -4,21 +4,20 @@
 # Category: Mobile Analysis
 # Author: Google
 # License: 
-# Version: 2024.3.2.15
+# Version: 2025.3.2.6
 # Notes: Emulator comes with Android Studio, adb and fastboot are in the platform-tools, Build Tools can be downloaded using sdkmanager in the cmdline tools
 
-{% set cmdline_version = '13114758' %}
-{% set cmdline_hash = '98b565cb657b012dae6794cefc0f66ae1efb4690c699b78a614b4a6a3505b003' %}
-{% set as_version = '2024.3.2.15' %}
-{% set as_hash = 'da717086ed055c9d91658fb973336d2973244874dd333c863e0236f98b6660d1' %}
-{% set platform_version = '36.0.0' %}
-{% set platform_hash = '12c2841f354e92a0eb2fd7bf6f0f9bf8538abce7bd6b060ac8349d6f6a61107c' %}
+{% set cmdline_version = '14742923' %}
+{% set cmdline_hash = 'cc610ccbe83faddb58e1aa68e8fc8743bb30aa5e83577eceb4cc168dae95f9ee' %}
+{% set as_version = '2025.3.2.6' %}
+{% set as_hash = '77115e3aee8fd47a936e5ade7659316ccab34d60d36f259bb78581bab0096681' %}
+{% set platform_hash = 'b024d4f319d6ad3004de1ba7b96a5c7c5f3512e8b14126308d598b4ab93dcead' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 android-studio-download-only:
   file.managed:
     - name: '{{ downloads }}\android-studio\android-studio-{{ as_version }}-windows.exe'
-    - source: https://redirector.gvt1.com/edgedl/android/studio/install/{{ as_version }}/android-studio-{{ as_version }}-windows.exe
+    - source: https://redirector.gvt1.com/edgedl/android/studio/install/{{ as_version }}/android-studio-panda2-windows.exe
     - source_hash: sha256={{ as_hash }}
     - makedirs: True
 

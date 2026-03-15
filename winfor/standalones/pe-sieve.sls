@@ -4,12 +4,15 @@
 # Category: Executables
 # Author: hasherezade
 # License: BSD 2-Clause Simplified License (https://github.com/hasherezade/pe-sieve/blob/master/LICENSE)
-# Version: 0.4.1
+# Version: 0.4.1.1
 # Notes: 
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set version = '0.4.1' %}
-{% set hash = '3fb0b6c407dff0fcfedc78e1cbadb936b46c7732a44bcfad5b6cc57c318c4e43' %}
+{% set version = '0.4.1.1' %}
+{% set hash = '9f3ff2884a2c61006cd0a92b7572a815b8dc17012be7747a6abd6ca07c503a3b' %}
+
+include:
+  - winfor.config.shims
 
 pe-sieve-download:
   file.managed:
@@ -18,6 +21,8 @@ pe-sieve-download:
     - source_hash: sha256={{ hash }}
     - makedirs: True
 
-pe-sieve-env-vars:
-  win_path.exists:
-    - name: '{{ inpath }}\pe-sieve\'
+pe-sieve-shim:
+  cmd.run:
+    - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\pe-sieve\pe-sieve.exe -OutPath {{ inpath }}\shims\pe-sieve.exe'
+    - require:
+      - sls: winfor.config.shims

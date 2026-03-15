@@ -11,6 +11,9 @@
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set hash = 'c1e2d0c1fbf5951486cf3d850cc24b11b66e25e0a5b77a623e2eb13ffad9ddd9' %}
 
+include:
+  - winfor.config.shims
+
 pestudio-download:
   file.managed:
     - name: 'C:\salt\tempdownload\pestudio.zip'
@@ -26,11 +29,13 @@ pestudio-extract:
     - require:
       - file: pestudio-download
 
-pestudio-env-vars:
-  win_path.exists:
-    - name: '{{ inpath }}\pestudio\'
+pestudio-shim:
+  cmd.run:
+    - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\pestudio\pestudio.exe -OutPath {{ inpath }}\shims\pestudio.exe'
+    - require:
+      - sls: winfor.config.shims
 
-standalones-pestudio-shortcut:
+pestudio-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\PEStudio.lnk'
     - target: '{{ inpath }}\pestudio\pestudio.exe'

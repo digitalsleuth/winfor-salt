@@ -4,7 +4,7 @@
 # Category: Documents / Editors
 # Author: Phil Harvey
 # License: https://exiftool.org/#license
-# Version: 13.42
+# Version: 13.52
 # Notes:
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
@@ -18,6 +18,9 @@
 {% set ns.exiftool_hash = line.split()[-1].strip() %}
 {% endif %}
 {% endfor %}
+
+include:
+  - winfor.config.shims
 
 exiftool-download:
   file.managed:
@@ -71,8 +74,8 @@ exiftool-kml-batch-placeholder:
     - require:
       - file: exiftool-kml-batch
 
-exiftool-env-vars:
-  win_path.exists:
-    - name: '{{ inpath }}\exiftool\'
+exiftool-shim:
+  cmd.run:
+    - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\exiftool\exiftool.exe -OutPath {{ inpath }}\shims\exiftool.exe'
     - require:
-      - file: exiftool-rename
+      - sls: winfor.config.shims

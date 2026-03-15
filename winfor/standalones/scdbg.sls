@@ -11,10 +11,13 @@
 {% set hash = '9298580a436db7d07eec71314bf3ff9e6dd638acf50900051fa0fe11fd3cf147' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
+include:
+  - winfor.config.shims
+
 scdbg-download:
   file.managed:
     - name: 'C:\salt\tempdownload\scdbg.zip'
-    - source: https://sandsprite.com/CodeStuff/scdbg.zip
+    - source: salt://winfor/files/scdbg.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True
 
@@ -26,11 +29,11 @@ scdbg-extract:
     - require:
       - file: scdbg-download
 
-scdbg-env-vars:
-  win_path.exists:
-    - name: '{{ inpath }}\scdbg\'
+scdbg-shim:
+  cmd.run:
+    - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\scdbg\scdbg.exe -OutPath {{ inpath }}\shims\scdbg.exe'
     - require:
-      - archive: scdbg-extract
+      - sls: winfor.config.shims
 
 standalones-scdbg-shortcut:
   file.shortcut:

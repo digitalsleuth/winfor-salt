@@ -26,10 +26,6 @@ usbdetective-extract:
     - watch:
       - file: usbdetective-download
 
-usbdetective-env-vars:
-  win_path.exists:
-    - name: '{{ inpath }}\usbdetective'
-
 standalones-usbdetective-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\USB Detective.lnk'

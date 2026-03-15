@@ -11,6 +11,9 @@
 {% set hash = 'fd72d65840c4f5e15767cf30d4aea8bd584e3e049fb81f0c8227c82c203b810f' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 
+include:
+  - winfor.config.shims
+
 ipinfo-download:
   file.managed:
     - name: 'C:\salt\tempdownload\ipinfo_{{ version }}_windows_amd64.zip'
@@ -35,10 +38,8 @@ ipinfo-rename:
     - require:
       - archive: ipinfo-extract
 
-ipinfo-env:
-  win_path.exists:
-    - name: '{{ inpath }}\ipinfo\'
+ipinfo-shim:
+  cmd.run:
+    - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\ipinfo\ipinfo.exe -OutPath {{ inpath }}\shims\ipinfo.exe'
     - require:
-      - file: ipinfo-download
-      - archive: ipinfo-extract
-      - file: ipinfo-rename
+      - sls: winfor.config.shims

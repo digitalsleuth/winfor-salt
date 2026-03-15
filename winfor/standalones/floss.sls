@@ -12,6 +12,9 @@
 {% set hash = '6c71089b8c629c69424b042769f1565f71adc6cd24b2f8d3713c96fa7fdac2fb' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
+include:
+  - winfor.config.shims
+
 floss-download:
   file.managed:
     - name: 'C:\salt\tempdownload\floss-v{{ version }}-windows.zip'
@@ -27,6 +30,8 @@ floss-extract:
     - require:
       - file: floss-download
 
-floss-env-vars:
-  win_path.exists:
-    - name: '{{ inpath }}\floss\'
+floss-shim:
+  cmd.run:
+    - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\floss\floss.exe -OutPath {{ inpath }}\shims\floss.exe'
+    - require:
+      - sls: winfor.config.shims

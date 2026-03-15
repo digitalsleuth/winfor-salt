@@ -11,6 +11,9 @@
 {% set hash = '78971932f891f970aefcf483cdaa6aa5769b4a6083df8eccb3218f5a3aa6590c' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 
+include:
+  - winfor.config.shims
+
 entropy-download:
   file.managed:
     - name: 'C:\salt\tempdownload\entropy-{{ version }}-win64.zip'
@@ -34,8 +37,8 @@ entropy-version-file:
     - require:
       - archive: entropy-extract
 
-entropy-env:
-  win_path.exists:
-    - name: '{{ inpath }}\entropy\'
+entropy-shim:
+  cmd.run:
+    - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\entropy\entropy.exe -OutPath {{ inpath }}\shims\entropy.exe'
     - require:
-      - archive: entropy-extract
+      - sls: winfor.config.shims

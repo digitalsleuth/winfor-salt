@@ -14,6 +14,7 @@
 
 include:
   - winfor.packages.ms-vcpp-2017-redist-x64
+  - winfor.config.shims
 
 dependencies-download:
   file.managed:
@@ -41,8 +42,8 @@ dependencies-shortcut:
     - require:
       - archive: dependencies-extract
 
-dependencies-env-vars:
-  win_path.exists:
-    - name: '{{ inpath }}\dependencies'
+dependencies-shim:
+  cmd.run:
+    - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\dependencies\Dependencies.exe -OutPath {{ inpath }}\shims\dependencies.exe'
     - require:
-      - archive: dependencies-extract
+      - sls: winfor.config.shims

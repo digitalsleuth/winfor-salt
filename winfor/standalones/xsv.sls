@@ -11,6 +11,9 @@
 {% set hash = '3e319c08456031a9683c19c998ac9f61756a2e456413db17c8e6819b17818a1a' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 
+include:
+  - winfor.config.shims
+
 xsv-download:
   file.managed:
     - name: 'C:\salt\tempdownload\xsv-{{ version }}-x86_64-pc-windows-msvc.zip'
@@ -26,8 +29,8 @@ xsv-extract:
     - require:
       - file: xsv-download
 
-xsv-env:
-  win_path.exists:
-    - name: '{{ inpath }}\xsv\'
+xsv-shim:
+  cmd.run:
+    - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\xsv\xsv.exe -OutPath {{ inpath }}\shims\xsv.exe'
     - require:
-      - archive: xsv-extract
+      - sls: winfor.config.shims

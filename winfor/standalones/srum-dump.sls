@@ -4,13 +4,16 @@
 # Category: Windows Analysis
 # Author: Mark Baggett
 # License: GNU General Public License v3 (https://github.com/MarkBaggett/srum-dump/blob/master/LICENSE)
-# Version: 3.0
+# Version: 3.2
 # Notes: 
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set version = '3.0' %}
-{% set hash = 'bbb461a5d5445da91d93583586c638a9482204ccb896a54ddf6a86671d5d2399' %}
+{% set version = '3.2' %}
+{% set hash = '43984652664baf21ebf44e660d70b59a61d38f36f8e4ff6dcd54640b24d7794a' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+
+include:
+  - winfor.config.shims
 
 srum-dump-download:
   file.managed:
@@ -19,9 +22,11 @@ srum-dump-download:
     - source_hash: sha256={{ hash }}
     - makedirs: True
 
-srum-dump-env-vars:
-  win_path.exists:
-    - name: '{{ inpath }}\srum-dump\'
+srum-dump-shim:
+  cmd.run:
+    - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\srum-dump\srum-dump.exe -OutPath {{ inpath }}\shims\srum-dump.exe'
+    - require:
+      - sls: winfor.config.shims
 
 srum-dump-shortcut:
   file.shortcut:

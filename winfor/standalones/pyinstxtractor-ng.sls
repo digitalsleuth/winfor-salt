@@ -11,6 +11,9 @@
 {% set hash = '33f8225db6d057e903b9eba3eddf2e92e564cd1b59382106b4569583b3fedfb0' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 
+include:
+  - winfor.config.shims
+
 pyinstxtractor-ng-download:
   file.managed:
     - name: '{{ inpath }}\pyinstxtractor-ng\pyinstxtractor-ng.exe'
@@ -18,9 +21,8 @@ pyinstxtractor-ng-download:
     - source_hash: sha256={{ hash }}
     - makedirs: True
 
-pyinstxtractor-ng-env-vars:
-  win_path.exists:
-    - name: '{{ inpath }}\pyinstxtractor-ng\'
+pyinstxtractor-ng-shim:
+  cmd.run:
+    - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\pyinstxtractor-ng\pyinstxtractor-ng.exe -OutPath {{ inpath }}\shims\pyinstxtractor-ng.exe'
     - require:
-      - file: pyinstxtractor-ng-download
-
+      - sls: winfor.config.shims

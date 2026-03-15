@@ -10,6 +10,9 @@
 {% set hash = '1EA4C6A32D244DA91E70371054648F25529F69E06548F16C9DA75A9CFC8A2915' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 
+include:
+  - winfor.config.shims
+
 densityscout-download:
   file.managed:
     - name: 'C:\salt\tempdownload\densityscout_build_45_windows.zip'
@@ -25,6 +28,8 @@ densityscout-extract:
     - require:
       - file: densityscout-download
 
-densityscout-env:
-  win_path.exists:
-    - name: '{{ inpath }}\densityscout\win64\'
+densityscout-shim:
+  cmd.run:
+    - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\densityscout\win64\densityscout.exe -OutPath {{ inpath }}\shims\densityscout.exe'
+    - require:
+      - sls: winfor.config.shims

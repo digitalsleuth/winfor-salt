@@ -12,6 +12,9 @@
 {% set date = '20250706' %}
 {% set hash = 'bd1269e50d9c45e369c14e287c1754c9506e1b11efcc0cd4bb95d460c9d782b5' %}
 
+include:
+  - winfor.config.shims
+
 megatools-download:
   file.managed:
     - name: 'C:\salt\tempdownload\megatools-{{ version }}.{{ date }}-win64.zip'
@@ -36,9 +39,10 @@ megatools-folder-rename:
     - require:
       - archive: megatools-extract
 
-megatools-env-vars:
-  win_path.exists:
-    - name: '{{ inpath }}\megatools\'
+megatools-shim:
+  cmd.run:
+    - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\megatools\megatools.exe -OutPath {{ inpath }}\shims\megatools.exe'
     - require:
+      - sls: winfor.config.shims
       - file: megatools-download
       - archive: megatools-extract

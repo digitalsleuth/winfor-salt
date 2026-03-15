@@ -4,15 +4,16 @@
 # Category: Raw Parsers / Decoders
 # Author: Jason Summers
 # License: MIT (https://github.com/jsummers/deark/blob/master/COPYING)
-# Version: 1.7.0
+# Version: 1.7.2
 # Notes: 
 
-{% set version = '1.7.0' %}
+{% set version = '1.7.2' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set hash = '7c3752c2c783cd6c4e22e527f1d72dbee9166883a156d25fbf98f73a8c44c8be' %}
+{% set hash = 'e2163169b18781425e87566abf21a235513cef457a4bd27c14c304cf9a872971' %}
 
 include:
   - winfor.packages.7zip
+  - winfor.config.shims
 
 deark-download:
   file.managed:
@@ -42,6 +43,8 @@ deark-folder-rename:
     - require:
       - cmd: deark-extract
 
-deark-env-vars:
-  win_path.exists:
-    - name: '{{ inpath }}\deark\x64\'
+deark-shim:
+  cmd.run:
+    - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\deark\x64\deark.exe -OutPath {{ inpath }}\shims\deark.exe'
+    - require:
+      - sls: winfor.config.shims

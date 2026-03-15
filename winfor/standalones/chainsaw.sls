@@ -13,6 +13,9 @@
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set defender_status = salt['cmd.powershell']('((Get-Service) -match "WinDefend").Name') %}
 
+include:
+  - winfor.config.shims
+
 {% if defender_status.lower() == "windefend" %}
 
 chainsaw-defender-exclusion:
@@ -55,6 +58,8 @@ chainsaw-rename:
     - require:
       - archive: chainsaw-extract
 
-chainsaw-env:
-  win_path.exists:
-    - name: '{{ inpath }}\chainsaw\'
+chainsaw-shim:
+  cmd.run:
+    - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\chainsaw\chainsaw.exe -OutPath {{ inpath }}\shims\chainsaw.exe'
+    - require:
+      - sls: winfor.config.shims

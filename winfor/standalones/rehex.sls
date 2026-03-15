@@ -4,13 +4,16 @@
 # Category: Executables
 # Author: Daniel Collins
 # License: GNU General Public License v2 (https://github.com/solemnwarning/rehex/blob/master/LICENSE.txt)
-# Version: 0.62.0
+# Version: 0.63.4
 # Notes:
 
-{% set version = '0.62.0' %}
-{% set hash = 'bfe76cdf4bdfe94180ab25882901bd6479488c0865aa38d318e7f4d6cf2cb58e' %}
+{% set version = '0.63.4' %}
+{% set hash = '68fd81bdea7fac87d77b2db6dd71bedcc77600d476db9a155012524b6d3db822' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+
+include:
+  - winfor.config.shims
 
 rehex-download:
   file.managed:
@@ -48,6 +51,8 @@ rehex-shortcut:
       - archive: rehex-extract
       - file: rehex-folder-rename
 
-rehex-env-vars:
-  win_path.exists:
-    - name: '{{ inpath }}\rehex'
+rehex-shim:
+  cmd.run:
+    - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\rehex\rehex.exe -OutPath {{ inpath }}\shims\rehex.exe'
+    - require:
+      - sls: winfor.config.shims

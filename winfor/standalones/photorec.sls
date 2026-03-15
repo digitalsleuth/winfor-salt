@@ -12,6 +12,9 @@
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
+include:
+  - winfor.config.shims
+
 testdisk-download:
   file.managed:
     - name: 'C:\salt\tempdownload\testdisk-{{ version }}.win64.zip'
@@ -35,9 +38,17 @@ testdisk-folder-rename:
     - require:
       - archive: testdisk-extract
 
-testdisk-env:
-  win_path.exists:
-    - name: '{{ inpath }}\testdisk'
+photorec-shim:
+  cmd.run:
+    - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\testdisk\photorec_win.exe -OutPath {{ inpath }}\shims\photorec.exe'
+    - require:
+      - sls: winfor.config.shims
+
+testdisk-shim:
+  cmd.run:
+    - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\testdisk\testdisk_win.exe -OutPath {{ inpath }}\shims\testdisk.exe'
+    - require:
+      - sls: winfor.config.shims
 
 qphotorec-shortcut:
   file.shortcut:

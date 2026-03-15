@@ -4,11 +4,11 @@
 # Category: Windows Analysis
 # Author: Mark Baggett
 # License: GNU General Public License v3 (https://github.com/MarkBaggett/srum-dump/blob/master/LICENSE)
-# Version: 3.0
+# Version: 3.2
 # Notes: 
 
-{% set version = '3.0' %}
-{% set hash = 'bbb461a5d5445da91d93583586c638a9482204ccb896a54ddf6a86671d5d2399' %}
+{% set version = '3.2' %}
+{% set hash = '43984652664baf21ebf44e660d70b59a61d38f36f8e4ff6dcd54640b24d7794a' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 srum-dump-download-only:

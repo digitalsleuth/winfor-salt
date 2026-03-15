@@ -12,6 +12,7 @@
 
 include:
   - winfor.packages.7zip
+  - winfor.config.shims
 
 innounp-download:
   file.managed:
@@ -28,7 +29,9 @@ innounp-extract:
       - file: innounp-download
       - sls: winfor.packages.7zip
 
-innounp-env-vars:
-  win_path.exists:
-    - name: '{{ inpath }}\innounp\'
+innounp-shim:
+  cmd.run:
+    - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\innounp\innounp.exe -OutPath {{ inpath }}\shims\innounp.exe'
+    - require:
+      - sls: winfor.config.shims
 

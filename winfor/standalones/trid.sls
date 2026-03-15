@@ -4,70 +4,47 @@
 # Category: Executables
 # Author: Marco Pontello
 # License: Free for personal / non-commercial use
-# Version: 2.24
+# Version: 2.47
 # Notes:
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set version = '2.24' %}
-{% set trid_hash = 'ea7f82363912f5b3c79217ba8716425ec3f2514887f788dcd5a2821d0b1fc83f' %}
-{% set update_hash = '3596167b5fa2f4adb3b6ee013c3f111a5c9e3b52f948e70e27423d8e69a1bb12' %}
+{% set version = '2.47' %}
+{% set hash = '5683d49089d6f08312ad0736f47f212fbedd4a92af700eab34ee4b242e6060c3' %}
+
+include:
+  - winfor.config.shims
 
 trid-download:
   file.managed:
-    - name: 'C:\salt\tempdownload\trid_w32.zip'
-    - source: https://mark0.net/download/trid_w32.zip
-    - source_hash: sha256={{ trid_hash }}
-    - makedirs: True
-
-trid-defs-download:
-  file.managed:
-    - name: 'C:\salt\tempdownload\triddefs.zip'
-    - source: https://mark0.net/download/triddefs.zip
-    - skip_verify: True
-    - makedirs: True
-
-trid-update-download:
-  file.managed:
-    - name: 'C:\salt\tempdownload\tridupdate.zip'
-    - source: https://mark0.net/download/tridupdate.zip
-    - source_hash: sha256={{ update_hash }}
+    - name: 'C:\salt\tempdownload\trid_win64.zip'
+    - source: https://mark0.net/download/trid_win64.zip
+    - source_hash: sha256={{ hash }}
     - makedirs: True
 
 trid-extract:
   archive.extracted:
-    - name: '{{ inpath }}\trid'
-    - source: 'C:\salt\tempdownload\trid_w32.zip'
+    - name: 'C:\salt\tempdownload\trid'
+    - source: 'C:\salt\tempdownload\trid_win64.zip'
     - enforce_toplevel: False
     - require:
       - file: trid-download
 
-trid-defs-extract:
-  archive.extracted:
-    - name: '{{ inpath }}\trid'
-    - source: 'C:\salt\tempdownload\triddefs.zip'
-    - enforce_toplevel: False
+trid-install:
+  cmd.run:
+    - name: 'TrID_setup.exe /VERYSILENT /SUPPRESSMSGBOXES /NORESTART /MERGETASKS=!RUNCODE,!DESKTOPICON /DIR="{{ inpath }}\trid\"'
+    - cwd: 'C:\salt\tempdownload\trid'
     - require:
-      - file: trid-defs-download
+      - archive: trid-extract
 
-trid-update-extract:
-  archive.extracted:
-    - name: '{{ inpath }}\trid'
-    - source: 'C:\salt\tempdownload\tridupdate.zip'
-    - enforce_toplevel: False
+trid-update:
+  cmd.run:
+    - name: 'trid.exe -u'
+    - cwd: '{{ inpath }}\trid\'
     - require:
-      - file: trid-update-download
+      - cmd: trid-install
 
-trid-update-header:
-  file.replace:
-    - name: '{{ inpath }}\trid\tridupdate.py'
-    - pattern: '^#!/usr/bin/env python$'
-    - repl: '#!/usr/bin/python3'
-    - backup: False
-    - prepend_if_not_found: False
-    - count: 1
+trid-shim:
+  cmd.run:
+    - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\trid\trid.exe -OutPath {{ inpath }}\shims\trid.exe'
     - require:
-      - archive: trid-update-extract
-
-trid-env:
-  win_path.exists:
-    - name: '{{ inpath }}\trid'
+      - sls: winfor.config.shims

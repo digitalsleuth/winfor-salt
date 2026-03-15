@@ -12,6 +12,9 @@
 {% set hash = 'bc09ddee32a418e412a3f075fedd9cdc5054c31e7b4459f6f12f645eeefa5245' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
+include:
+  - winfor.config.shims
+
 smi-parser-download:
   file.managed:
     - name: '{{ inpath }}\smi-parser\smi-parser.exe'
@@ -19,8 +22,8 @@ smi-parser-download:
     - source_hash: sha256={{ hash }}
     - makedirs: True
 
-smi-parser-env-vars:
-  win_path.exists:
-    - name: '{{ inpath }}\smi-parser\'
+smi-parser-shim:
+  cmd.run:
+    - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\smi-parser\smi-parser.exe -OutPath {{ inpath }}\shims\smi-parser.exe'
     - require:
-      - file: smi-parser-download
+      - sls: winfor.config.shims

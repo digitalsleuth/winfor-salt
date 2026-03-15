@@ -11,6 +11,9 @@
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set hash = '5d572cc193f7a7286de300392e4df2697d15edb6c1dbb9caaceed6515607c967' %}
 
+include:
+  - winfor.config.shims
+
 exeinfope-download:
   file.managed:
     - name: 'C:\salt\tempdownload\exeinfope.zip'
@@ -26,9 +29,11 @@ exeinfope-extract:
     - require:
       - file: exeinfope-download
 
-exeinfope-env-vars:
-  win_path.exists:
-    - name: '{{ inpath }}\exeinfope\'
+exeinfope-shim:
+  cmd.run:
+    - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\exeinfope\exeinfope.exe -OutPath {{ inpath }}\shims\exeinfope.exe'
+    - require:
+      - sls: winfor.config.shims
 
 standalones-exeinfope-shortcut:
   file.shortcut:

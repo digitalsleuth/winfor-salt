@@ -36,10 +36,6 @@ ntfs-log-tracker-folder-rename:
     - require:
       - archive: ntfs-log-tracker-extract
 
-ntfs-log-tracker-env-vars:
-  win_path.exists:
-    - name: '{{ inpath }}\ntfs-log-tracker\'
-
 standalones-ntfs-log-tracker-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\NTFS Log Tracker.lnk'

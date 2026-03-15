@@ -9,6 +9,9 @@
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 
+include:
+  - winfor.config.shims
+
 officemalscanner-download:
   file.managed:
     - name: 'C:\salt\tempdownload\OfficeMalScanner.zip'
@@ -24,6 +27,8 @@ officemalscanner-extract:
     - require:
       - file: officemalscanner-download
 
-officemalscanner-env-vars:
-  win_path.exists:
-    - name: '{{ inpath }}\officemalscanner'
+officemalscanner-shim:
+  cmd.run:
+    - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\officemalscanner\officemalscanner.exe -OutPath {{ inpath }}\shims\officemalscanner.exe'
+    - require:
+      - sls: winfor.config.shims

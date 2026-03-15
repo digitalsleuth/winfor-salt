@@ -13,9 +13,10 @@
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set applications = ['EZViewer','JumpListExplorer','MFTExplorer','RegistryExplorer','SDBExplorer','ShellBagsExplorer','TimelineExplorer'] %}
 {% set sync_tools = ['EvtxECmd','RECmd'] %}
-
+{% set shim_paths = ['AmcacheParser.exe', 'AppCompatCacheParser.exe', 'bstrings.exe', 'JLECmd.exe', 'LECmd.exe', 'MFTECmd.exe', 'EvtxeCmd\EvtxeCmd.exe', 'iisGeolocate\iisGeolocate.exe', 'RECmd\RECmd.exe', 'SQLECmd\SQLECmd.exe', 'PECmd.exe', 'RBCmd.exe', 'rla.exe', 'SBECmd.exe', 'SrumECmd.exe', 'SumECmd.exe','VSCMount.exe', 'WxTCmd.exe', 'RecentFileCacheParser.exe'] %}
 include:
   - winfor.packages.dotnet9-desktop-runtime
+  - winfor.config.shims
 
 zimmerman-tools:
   file.managed:
@@ -45,23 +46,19 @@ zimmerman-tools-download:
 {% for tool in sync_tools %}
 zimmerman-tools-sync-{{ tool }}:
   cmd.run:
-    - name: '{{ inpath }}\zimmerman\net9\{{ tool }}\{{ tool }}.exe --sync'
+    - name: '{{ inpath }}\\zimmerman\\net9\\{{ tool }}\\{{ tool }}.exe --sync'
     - shell: cmd
     - require:
       - cmd: zimmerman-tools-download
 {% endfor %}
 
-zimmerman-env-vars:
-  win_path.exists:
-    - names:
-      - '{{ inpath }}\zimmerman\net9\'
-      - '{{ inpath }}\zimmerman\net9\EvtxeCmd\'
-      - '{{ inpath }}\zimmerman\net9\RECmd\'
-      - '{{ inpath }}\zimmerman\net9\RegistryExplorer\'
-      - '{{ inpath }}\zimmerman\net9\ShellBagsExplorer\'
-      - '{{ inpath }}\zimmerman\net9\SQLECmd\'
-      - '{{ inpath }}\zimmerman\net9\iisGeolocate\'
-      - '{{ inpath }}\zimmerman\net9\SDBExplorer\'
+{% for tool in shim_paths %}
+zimmerman-{{ tool.split("\\")[0].split(".exe")[0] }}-shim:
+  cmd.run:
+    - name: 'powershell -nop -ep Bypass -File {{ inpath }}\\New-Shim.ps1 -SourceExe {{ inpath }}\\zimmerman\\net9\\{{ tool }} -OutPath {{ inpath }}\\shims\\{{ tool.split("\\")[-1] }}'
+    - require:
+      - sls: winfor.config.shims
+{% endfor %}
 
 {% for application in applications %}
 zimmerman-{{ application }}-shortcut:

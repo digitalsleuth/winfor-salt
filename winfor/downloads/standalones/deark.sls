@@ -4,12 +4,12 @@
 # Category: Raw Parsers / Decoders
 # Author: Jason Summers
 # License: MIT (https://github.com/jsummers/deark/blob/master/COPYING)
-# Version: 1.7.0
+# Version: 1.7.2
 # Notes: 
 
-{% set version = '1.7.0' %}
+{% set version = '1.7.2' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set hash = '7c3752c2c783cd6c4e22e527f1d72dbee9166883a156d25fbf98f73a8c44c8be' %}
+{% set hash = 'e2163169b18781425e87566abf21a235513cef457a4bd27c14c304cf9a872971' %}
 
 deark-download-only:
   file.managed:

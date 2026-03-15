@@ -4,12 +4,15 @@
 # Category: Mobile Analysis
 # Author: Genymobile
 # License: Apache License 2.0 (https://github.com/Genymobile/scrcpy/blob/master/LICENSE)
-# Version: 3.2
+# Version: 3.3.4
 # Notes:
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set version = '3.2' %} 
-{% set hash = 'eaa27133e0520979873ba57ad651560a4cc2618373bd05450b23a84d32beafd0' %}
+{% set version = '3.3.4' %} 
+{% set hash = 'd8a155b7c180b7ca4cdadd40712b8750b63f3aab48cb5b8a2a39ac2d0d4c5d38' %}
+
+include:
+  - winfor.config.shims
 
 scrcpy-download:
   file.managed:
@@ -35,9 +38,8 @@ scrcpy-folder-rename:
     - require:
       - archive: scrcpy-extract
 
-scrcpy-env-vars:
-  win_path.exists:
-    - name: '{{ inpath }}\scrcpy\'
+scrcpy-shim:
+  cmd.run:
+    - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\scrcpy\scrcpy.exe -OutPath {{ inpath }}\shims\scrcpy.exe'
     - require:
-      - archive: scrcpy-extract
-      - file: scrcpy-folder-rename
+      - sls: winfor.config.shims

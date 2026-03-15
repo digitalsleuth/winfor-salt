@@ -13,6 +13,7 @@
 
 include:
   - winfor.packages.git
+  - winfor.config.shims
 
 capa-download:
   file.managed:
@@ -40,6 +41,8 @@ capa-rules:
       - sls: winfor.packages.git
       - archive: capa-extract
 
-capa-env-vars:
-  win_path.exists:
-    - name: '{{ inpath }}\capa\'
+capa-shim:
+  cmd.run:
+    - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\capa\capa.exe -OutPath {{ inpath }}\shims\capa.exe'
+    - require:
+      - sls: winfor.config.shims

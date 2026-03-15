@@ -12,6 +12,9 @@
 {% set hash = '352396c8a3d9b31b157a4820abd3b9347fc934a2314cdda8a4f566a5570163e4' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 
+include:
+  - winfor.config.shims
+
 yara-download:
   file.managed:
     - name: 'C:\salt\tempdownload\yara-{{ version }}-{{ subversion }}-win64.zip'
@@ -27,9 +30,14 @@ yara-extract:
     - require:
       - file: yara-download
 
-yara-env:
-  win_path.exists:
-    - name: '{{ inpath }}\yara\'
+yara-shim:
+  cmd.run:
+    - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\yara\yara64.exe -OutPath {{ inpath }}\shims\yara.exe'
     - require:
-      - archive: yara-extract
+      - sls: winfor.config.shims
 
+yarac-shim:
+  cmd.run:
+    - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\yara\yarac64.exe -OutPath {{ inpath }}\shims\yarac.exe'
+    - require:
+      - sls: winfor.config.shims

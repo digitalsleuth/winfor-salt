@@ -8,6 +8,8 @@
 # Notes: 
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
+include:
+  - winfor.config.shims
 
 unautoit-download:
   file.managed:
@@ -16,8 +18,8 @@ unautoit-download:
     - source_hash: sha256=d771f7adc7882cf23a387434fbd0ab1902c0326df6035b2a239ebcbd256b52e9
     - makedirs: True
 
-unautoit-env-vars:
-  win_path.exists:
-    - name: '{{ inpath }}\unautoit\'
+unautoit-shim:
+  cmd.run:
+    - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\unautoit\unautoit.exe -OutPath {{ inpath }}\shims\unautoit.exe'
     - require:
-      - file: unautoit-download
+      - sls: winfor.config.shims

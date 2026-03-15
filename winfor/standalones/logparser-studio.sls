@@ -13,6 +13,7 @@
 
 include:
   - winfor.packages.logparser
+  - winfor.config.shims
 
 logparser-studio-download:
   file.managed:
@@ -40,9 +41,11 @@ logparser-studio-rename:
     - require:
       - archive: logparser-studio-extract
 
-logparser-studio-env-vars:
-  win_path.exists:
-    - name: '{{ inpath }}\logparser-studio'
+logparser-studio-shim:
+  cmd.run:
+    - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\logparser-studio\LPS.exe -OutPath {{ inpath }}\shims\LPS.exe'
+    - require:
+      - sls: winfor.config.shims
 
 standalones-logparser-studio-shortcut:
   file.shortcut:

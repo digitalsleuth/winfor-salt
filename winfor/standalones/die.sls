@@ -12,6 +12,9 @@
 {% set hash = '6e84ac8d3abdfba60078a36fa7f6b492b20c2af2c502e0a4579f41367ac37c80' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
+include:
+  - winfor.config.shims
+
 die-download:
   file.managed:
     - name: 'C:\salt\tempdownload\die_win64_portable_{{ version }}_x64.zip'
@@ -27,9 +30,11 @@ die-extract:
     - require:
       - file: die-download
 
-die-env-vars:
-  win_path.exists:
-    - name: '{{ inpath }}\die\'
+die-shim:
+  cmd.run:
+    - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\die\die.exe -OutPath {{ inpath }}\shims\die.exe'
+    - require:
+      - sls: winfor.config.shims
 
 standalones-die-shortcut:
   file.shortcut:

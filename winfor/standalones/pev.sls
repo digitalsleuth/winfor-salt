@@ -12,6 +12,9 @@
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
+include:
+  - winfor.config.shims
+
 pev-download:
   file.managed:
     - name: 'C:\salt\tempdownload\pev-{{ version }}-win.zip'
@@ -35,9 +38,11 @@ pev-folder-rename:
     - require:
       - archive: pev-extract
 
-pev-env:
-  win_path.exists:
-    - name: '{{ inpath }}\pev\'
+pev-shim:
+  cmd.run:
+    - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\pev\readpe.exe -OutPath {{ inpath }}\shims\readpe.exe'
+    - require:
+      - sls: winfor.config.shims
 
 pev-shortcut:
   file.shortcut:

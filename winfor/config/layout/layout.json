@@ -1127,7 +1127,7 @@
         "DALP": false,
         "StartMenu": true,
         "Checked": true,
-        "Enabled": false,
+        "Enabled": true,
         "ExtraTiles": []
       },
       "Scylla": {

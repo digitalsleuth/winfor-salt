@@ -15,6 +15,7 @@
 
 include:
   - winfor.packages.7zip
+  - winfor.config.shims
 
 {% if defender_status.lower() == "windefend" %}
 
@@ -65,8 +66,8 @@ zircolite-update:
     - require:
       - file: zircolite-rename
 
-zircolite-env:
-  win_path.exists:
-    - name: '{{ inpath }}\zircolite\'
+zircolite-shim:
+  cmd.run:
+    - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\zircolite\zircolite_win_x64_{{ version }}.exe -OutPath {{ inpath }}\shims\zircolite.exe'
     - require:
-      - file: zircolite-rename
+      - sls: winfor.config.shims

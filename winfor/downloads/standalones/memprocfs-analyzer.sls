@@ -16,9 +16,9 @@
 {% set ipinfo_ver = '3.3.1' %}
 {% set jq_ver = '1.8.1' %}
 {% set kib_ver = '9.0.1' %}
-{% set lnk_ver = '0.4.1' %}
-{% set memprocfs_ver = '5.16.7' %}
-{% set memprocfs_date = '20251113' %}
+{% set lnk_ver = '0.4.3' %}
+{% set memprocfs_ver = '5.17.3' %}
+{% set memprocfs_date = '20260312' %}
 {% set xsv_ver = '0.13.0' %}
 {% set yara_ver = '4.5.5' %}
 {% set yara_sub = '2368' %}
@@ -166,7 +166,7 @@ kibana-file-copy-download-only:
 lnk-parser-file-copy-download-only:
   file.copy:
     - name: '{{ downloads }}\memprocfs-analyzer\memprocfs-analyzer\Tools\lnk_parser\lnk_parser.exe'
-    - source: '{{ downloads }}\lnk-parser\lnk_parser_x86_64-{{ lnk_ver }}.exe'
+    - source: '{{ downloads }}\lnk-parser\lnk_parser_v{{ lnk_ver }}.exe'
     - makedirs: True
     - force: True
     - win_inheritance: True

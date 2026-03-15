@@ -13,7 +13,7 @@
 
 windexter-download-only:
   file.managed:
-    - name: '{{ inpath }}\windexter\Windexter-v{{ version }}.exe'
+    - name: '{{ downloads }}\windexter\Windexter-v{{ version }}.exe'
     - source: https://github.com/digitalsleuth/windexter/releases/download/v{{ version }}/Windexter-v{{ version }}.0.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

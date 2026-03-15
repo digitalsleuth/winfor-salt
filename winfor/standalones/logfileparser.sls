@@ -12,6 +12,9 @@
 {% set hash = '68fb4f9f54135e1951febf825de37e47fe13b2ac2733fcc63e8fe26dd729e58a' %}
 {% set version = '2.0.0.53' %}
 
+include:
+  - winfor.config.shims
+
 standalones-logfileparser:
   file.managed:
     - name: 'C:\salt\tempdownload\LogFileParser_v{{ version }}.zip'
@@ -27,11 +30,11 @@ logfileparser-extract:
     - require:
       - file: standalones-logfileparser
 
-logfileparser-env-vars:
-  win_path.exists:
-    - name: '{{ inpath }}\logfileparser\'
+logfileparser-shim:
+  cmd.run:
+    - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\logfileparser\logfileparser.exe -OutPath {{ inpath }}\shims\logfileparser.exe'
     - require:
-      - archive: logfileparser-extract
+      - sls: winfor.config.shims
 
 standalones-logfileparser-shortcut:
   file.shortcut:

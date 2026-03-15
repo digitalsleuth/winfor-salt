@@ -4,12 +4,15 @@
 # Category: Executables
 # Author: hasherezade
 # License: BSD 2-Clause Simplified License (https://github.com/hasherezade/hollows_hunter/blob/master/LICENSE)
-# Version: 0.4.1
+# Version: 0.4.1.1
 # Notes: 
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set version = '0.4.1' %}
-{% set hash = '4d6a3a2f786ab06820758b815e184d5fbad5dfd5140c106a7c5c9589e50dbe99' %}
+{% set version = '0.4.1.1' %}
+{% set hash = '56a58a8bbf2cec9a5c7c68129e8863af6181fb51dfc25226f1a756aba66b4707' %}
+
+include:
+  - winfor.config.shims
 
 hollows-hunter-download:
   file.managed:
@@ -18,6 +21,8 @@ hollows-hunter-download:
     - source_hash: sha256={{ hash }}
     - makedirs: True
 
-hollows-hunter-env-vars:
-  win_path.exists:
-    - name: '{{ inpath }}\hollows-hunter\'
+hollows-hunter-shim:
+  cmd.run:
+    - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\hollows-hunter\hollows-hunter.exe -OutPath {{ inpath }}\shims\hollows-hunter.exe'
+    - require:
+      - sls: winfor.config.shims

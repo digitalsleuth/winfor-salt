@@ -4,14 +4,18 @@
 # Category: Windows Analysis
 # Author: Obsidian Forensics
 # License: Apache v2.0 (https://github.com/obsidianforensics/hindsight/blob/master/LICENSE.md)
-# Version: 2025.03
+# Version: 2026.01
 # Notes:
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
-{% set version = '2025.03' %}
-{% set files = [('hindsight.exe', '7c3fc422e47a6dedaf527078cc051ce0a7f43f7aed46e79553d980a9c681ad49'),
-                ('hindsight_gui.exe', 'd7303835064db741fe16dc20511737bb806731ccdb738d12e16a071a4191ecce')] %}
+{% set version = '2026.01' %}
+{% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
+{% set files = [('hindsight.exe', '823d18cba5112874d4fbee7e3fb05de679fb708d45d0b7cad9ec7ee7f687d36b'),
+                ('hindsight_gui.exe', 'ac5fea980f66188e3db26831154620885edda7d350716e42738a0728e66eaa86')] %}
+
+include:
+  - winfor.config.shims
 
 {% for file, hash in files %}
 hindsight-download-{{ file }}:
@@ -23,9 +27,17 @@ hindsight-download-{{ file }}:
     - replace: True
 {% endfor %}
 
-hindsight-path:
-  win_path.exists:
-    - name: '{{ inpath }}\hindsight\'
+hindsight-shim:
+  cmd.run:
+    - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\hindsight\hindsight.exe -OutPath {{ inpath }}\shims\hindsight.exe'
+    - require:
+      - sls: winfor.config.shims
+
+hindsight-gui-shim:
+  cmd.run:
+    - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\hindsight\hindsight_gui.exe -OutPath {{ inpath }}\shims\hindsight_gui.exe'
+    - require:
+      - sls: winfor.config.shims
 
 standalones-hindsight-gui-shortcut:
   file.shortcut:

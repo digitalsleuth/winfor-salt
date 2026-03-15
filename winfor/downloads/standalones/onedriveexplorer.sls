@@ -4,11 +4,11 @@
 # Category: Windows Analysis
 # Author: Brian Maloney
 # License: MIT License (https://github.com/Beercow/OneDriveExplorer/blob/master/LICENSE)
-# Version: 2025.05.30
+# Version: 2026.01.06
 # Notes:
 
-{% set version = '2025.05.30' %}
-{% set hash = '08dffab933ca9033c76f26a4f407311736d5f50dcb365e0673c3e27b39f0e5fd' %}
+{% set version = '2026.01.06' %}
+{% set hash = 'c46ca6d010c6fd0e0a09963c54697e5c04a48dcc49082f737e90e397b00a2c0c' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 winfor-standalones-onedriveexplorer-download-only:

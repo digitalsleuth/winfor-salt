@@ -11,6 +11,9 @@
 {% set hash = '2c32984adf2b5b584761f61bd58b61dfc0c62b27b117be40617fa260596d9c63' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
+include:
+  - winfor.config.shims
+
 lrc-cedarpelta-download:
   file.managed:
     - name: 'C:\salt\tempdownload\LiveResponseCollection-Cedarpelta.zip'
@@ -35,9 +38,11 @@ lrc-cedarpelta-folder-move:
     - require:
       - archive: lrc-cedarpelta-extract
 
-lrc-cedarpelta-env-vars:
-  win_path.exists:
-    - name: '{{ inpath }}\lrc-cedarpelta\'
+lrc-cedarpelta-shim:
+  cmd.run:
+    - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe "{{ inpath }}\lrc-cedarpelta\Windows_Live_Response\Windows Live Response Collection.exe" -OutPath {{ inpath }}\shims\lrc-cedarpelta.exe'
+    - require:
+      - sls: winfor.config.shims
 
 standalones-lrc-cedarpelta-shortcut:
   file.shortcut:

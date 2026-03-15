@@ -12,6 +12,9 @@
 {% set hash = '972c5b39b3796ed5cf77a2c602822c31f992e5c3a7b4210aa90a3a323de92440' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
+include:
+  - winfor.config.shims
+
 standalones-usb-write-blocker:
   file.managed:
     - name: '{{ inpath }}\usb-write-blocker\USB-Write-Blocker-v{{ version }}-x64.exe'
@@ -29,6 +32,8 @@ standalones-usb-write-blocker-shortcut:
     - require:
       - file: standalones-usb-write-blocker
 
-standalones-usb-write-blocker-env-vars:
-  win_path.exists:
-    - name: '{{ inpath }}\usb-write-blocker\'
+usb-write-blocker-shim:
+  cmd.run:
+    - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\usb-write-blocker\USB-Write-Blocker-v{{ version }}-x64.exe -OutPath {{ inpath }}\shims\usb-write-blocker.exe'
+    - require:
+      - sls: winfor.config.shims

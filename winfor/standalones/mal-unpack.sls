@@ -4,12 +4,15 @@
 # Category: Executables
 # Author: hasherezade
 # License: BSD 2-Clause Simplified License (https://github.com/hasherezade/mal_unpack/blob/master/LICENSE)
-# Version: 0.9.9
+# Version: 1.0
 # Notes: 
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set version = '0.9.9' %}
-{% set hash = '81b9e998dea96aaf6067b77a8faf26dc417a0ea7c768cb66a14563af54692bad' %}
+{% set version = '1.0' %}
+{% set hash = '2ff766297c088e6a24b2ff9d92a11fc7585fe8c8444668161cd1e9875fb373a1' %}
+
+include:
+  - winfor.config.shims
 
 mal-unpack-download:
   file.managed:
@@ -26,7 +29,9 @@ mal-unpack-extract:
     - require:
       - file: mal-unpack-download
 
-mal-unpack-env-vars:
-  win_path.exists:
-    - name: '{{ inpath }}\mal-unpack\'
+mal-unpack-shim:
+  cmd.run:
+    - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\mal-unpack\mal_unpack.exe -OutPath {{ inpath }}\shims\mal-unpack.exe'
+    - require:
+      - sls: winfor.config.shims
 

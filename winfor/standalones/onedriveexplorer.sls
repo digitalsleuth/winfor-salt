@@ -4,13 +4,16 @@
 # Category: Windows Analysis
 # Author: Brian Maloney
 # License: MIT License (https://github.com/Beercow/OneDriveExplorer/blob/master/LICENSE)
-# Version: 2025.05.30
+# Version: 2026.01.06
 # Notes:
 
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set version = '2025.05.30' %}
-{% set hash = '08dffab933ca9033c76f26a4f407311736d5f50dcb365e0673c3e27b39f0e5fd' %}
+{% set version = '2026.01.06' %}
+{% set hash = 'c46ca6d010c6fd0e0a09963c54697e5c04a48dcc49082f737e90e397b00a2c0c' %}
+
+include:
+  - winfor.config.shims
 
 standalones-onedriveexplorer-source:
   file.managed:
@@ -27,9 +30,11 @@ standalones-onedriveexplorer-extract:
     - require:
       - file: standalones-onedriveexplorer-source
 
-standalones-onedriveexplorer-env-vars:
-  win_path.exists:
-    - name: '{{ inpath }}\onedriveexplorer\'
+onedriveexplorer-shim:
+  cmd.run:
+    - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\onedriveexplorer\onedriveexplorer.exe -OutPath {{ inpath }}\shims\onedriveexplorer.exe'
+    - require:
+      - sls: winfor.config.shims
 
 standalones-onedriveexplorer-gui-shortcut:
   file.shortcut:

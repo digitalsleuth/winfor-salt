@@ -10,6 +10,9 @@
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
+include:
+  - winfor.config.shims
+
 logviewer2-download:
   file.managed:
     - name: 'C:\salt\tempdownload\LogViewer2.v1.0.0.zip'
@@ -25,9 +28,11 @@ logviewer2-extracted:
     - require:
       - file: logviewer2-download
 
-logviewer2-env-vars:
-  win_path.exists:
-    - name: '{{ inpath }}\logviewer2\'
+logviewer2-shim:
+  cmd.run:
+    - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\logviewer2\Logviewer2.exe -OutPath {{ inpath }}\shims\logviewer2.exe'
+    - require:
+      - sls: winfor.config.shims
 
 logviewer2-shortcut:
   file.shortcut:

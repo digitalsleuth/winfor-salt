@@ -13,7 +13,7 @@
 
 ms-word-parser-download-only:
   file.managed:
-    - name: '{{ inpath }}\ms-word-parser\parse-docx-gui-v{{ version }}.exe'
+    - name: '{{ downloads }}\ms-word-parser\parse-docx-gui-v{{ version }}.exe'
     - source: https://github.com/jjrboucher/MS-Word-Parser/releases/download/v{{ version }}/parse-docx-v{{ version }}.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

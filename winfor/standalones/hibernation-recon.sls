@@ -16,6 +16,7 @@
 include:
   - winfor.standalones.megatools
   - winfor.packages.dotnet6-desktop-runtime
+  - winfor.config.shims
 
 hiber-recon-remove-previous:
   file.absent:
@@ -63,8 +64,8 @@ standalones-hiber-recon-shortcut:
       - archive: hiber-recon-extract
       - file: hiber-recon-folder-rename
 
-standalones-hiber-recon-path:
-  win_path.exists:
-    - name: '{{ inpath }}\hibernation-recon\'
+hibernation-recon-shim:
+  cmd.run:
+    - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\hibernation-recon\HibernationRecon.exe -OutPath {{ inpath }}\shims\HibernationRecon.exe'
     - require:
-      - file: standalones-hiber-recon-shortcut
+      - sls: winfor.config.shims

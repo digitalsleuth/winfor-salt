@@ -9,6 +9,9 @@
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 
+include:
+  - winfor.config.shims
+
 silketw-download:
   file.managed:
     - name: 'C:\salt\tempdownload\SilkETW_SilkService_v8.zip'
@@ -24,8 +27,8 @@ silketw-extract:
     - require:
       - file: silketw-download
 
-silketw-env-vars:
-  win_path.exists:
-    - names:
-      - '{{ inpath }}\silketw\v8\SilkETW\'
-      - '{{ inpath }}\silketw\v8\SilkService\'
+silketw-shim:
+  cmd.run:
+    - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\silketw\v8\SilkETW\SilkETW.exe -OutPath {{ inpath }}\shims\silketw.exe'
+    - require:
+      - sls: winfor.config.shims

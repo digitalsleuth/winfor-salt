@@ -4,16 +4,16 @@
 # Category: Windows Analysis
 # Author: AbdulRhman Alfaifi
 # License: MIT License (https://github.com/AbdulRhmanAlfaifi/lnk_parser/blob/master/LICENSE)
-# Version: 0.4.1
+# Version: 0.4.3
 # Notes: 
 
-{% set version = '0.4.1' %}
-{% set hash = '08b9858911669e023aa4a0f03e630e1f6f6fb531bd0b768c48616a9074f0f1e4' %}
+{% set version = '0.4.3' %}
+{% set hash = 'd647b635dba8fc671596b9b3332e807eafce515d915767037bb33759d44fe2e7' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 lnk-parser-download-only:
   file.managed:
-    - name: '{{ downloads }}\lnk-parser\lnk_parser_x86_64-{{ version }}.exe'
-    - source: https://github.com/AbdulRhmanAlfaifi/lnk_parser/releases/download/v{{ version }}/lnk_parser_x86_64.exe
+    - name: '{{ downloads }}\lnk-parser\lnk_parser_v{{ version }}.exe'
+    - source: https://github.com/AbdulRhmanAlfaifi/lnk_parser/releases/download/v{{ version }}/lnk_parser_v{{ version }}.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

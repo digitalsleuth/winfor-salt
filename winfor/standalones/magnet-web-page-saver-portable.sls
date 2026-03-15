@@ -38,6 +38,3 @@ standalones-wps-shortcut:
       - file: magnet-web-page-saver-download
       - archive: magnet-web-page-saver-extract
 
-magnet-web-page-saver-env-vars:
-  win_path.exists:
-    - name: '{{ inpath }}\magnet\WebPageSaver\'

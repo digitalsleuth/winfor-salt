@@ -11,6 +11,9 @@
 {% set hash = '95db018c3da57f081886511338ea920272fb9a7e64e1f885a3307e692071b674' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
+include:
+  - winfor.config.shims
+
 kape-download:
   file.managed:
     - name: 'C:\salt\tempdownload\kape.zip'
@@ -42,9 +45,11 @@ kape-sync:
     - require:
       - file: kape-folder-move
 
-kape-env-vars:
-  win_path.exists:
-    - name: '{{ inpath }}\kape\'
+kape-shim:
+  cmd.run:
+    - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\kape\kape.exe -OutPath {{ inpath }}\shims\kape.exe'
+    - require:
+      - sls: winfor.config.shims
 
 standalones-gkape-shortcut:
   file.shortcut:

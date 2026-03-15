@@ -14,6 +14,7 @@
 
 include:
   - winfor.standalones.sysinternals
+  - winfor.config.shims
 
 autorunner-download:
   file.managed:
@@ -49,11 +50,12 @@ autorunner-config-2:
     - require:
       - file: autorunner-config-1
 
-autorunner-env-vars:
-  win_path.exists:
-    - name: '{{ inpath }}\autorunner\'
+autorunner-shim:
+  cmd.run:
+    - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\autorunner\autorunner.exe -OutPath {{ inpath }}\shims\autorunner.exe'
     - require:
-      - file: autorunner-config-2
+      - sls: winfor.config.shims
+
 
 standalones-autorunner-shortcut:
   file.shortcut:
