@@ -1,3 +1,10 @@
+<#
+.SYNOPSIS
+    Creates a C# compiled shim executable that redirects to a source EXE.
+    The purpose is to avoid adding paths to the env PATH variable for 
+    the installation of multiple standalone executables.
+#>
+
 param(
     [Parameter(Mandatory=$true, Position=0)] 
     [string]$SourceExe,
@@ -18,7 +25,6 @@ if (-not $csc) {
     return
 }
 
-# Extract Icon logic (Simplified for brevity)
 $tempIcon = [IO.Path]::GetTempFileName() + ".ico"
 Add-Type -AssemblyName System.Drawing
 try {
@@ -32,7 +38,7 @@ $manifestPath = [IO.Path]::GetTempFileName() + ".manifest"
 @"
 <?xml version="1.0" encoding="utf-8"?>
 <assembly manifestVersion="1.0" xmlns="urn:schemas-microsoft-com:asm.v1">
-  <assemblyIdentity version="1.0.0.0" name="New-Shim.App"/>
+  <assemblyIdentity version="1.0.1.0" name="New-Shim.App"/>
   <trustInfo xmlns="urn:schemas-microsoft-com:asm.v2">
     <security>
       <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
@@ -102,8 +108,10 @@ class UniversalShim {
     }
 }
 "@
+$tmpOut = [System.IO.Path]::GetTempFileName()
+$tmpErr = [System.IO.Path]::GetTempFileName()
 $source | Out-File -FilePath $tempSource -Encoding UTF8
 $compileArgs = "/target:exe /win32icon:`"$tempIcon`" /win32manifest:`"$manifestPath`" /out:`"$OutPath`" `"$tempSource`""
-Start-Process -FilePath $csc -ArgumentList $compileArgs -Wait -NoNewWindow
-Remove-Item $tempSource, $manifestPath -ErrorAction SilentlyContinue
+Start-Process -FilePath $csc -ArgumentList $compileArgs -RedirectStandardOutput $tmpOut -RedirectStandardError $tmpErr -Wait -NoNewWindow
+Remove-Item $tempSource, $manifestPath, $tmpOut, $tmpErr -ErrorAction SilentlyContinue -Force
 if ($tempIcon) { Remove-Item $tempIcon }
