@@ -533,6 +533,17 @@
         "Enabled": true,
         "ExtraTiles": []
       },
+      "PDFXplorer": {
+        "CbName": "packages_pdfxplorer",
+        "CbContent": "PDFXplorer",
+        "DAID": "%ALLUSERSPROFILE%\\Microsoft\\Windows\\Start Menu\\Programs\\PDFXplorer.lnk",
+        "AUMID": false,
+        "DALP": true,
+        "StartMenu": true,
+        "Checked": true,
+        "Enabled": true,
+        "ExtraTiles": []
+      },
       "peepdf-3": {
         "CbName": "python3_tools_peepdf_3",
         "CbContent": "peepdf-3",
