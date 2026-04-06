@@ -4,16 +4,16 @@
 # Category: Utilities
 # Author: OpenText
 # License: EULA
-# Version: 24.3.3
+# Version: 25.4.17
 # Notes: 
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '24.3' %}
-{% set hash = '7300de0f4db47c7ba7c1f50e1a40b9f9f46f6fc89ee471b9d62492dcfa1821bf' %}
+{% set version = '25.4' %}
+{% set hash = '90cb1591aa1571426bd29502197fd7fd972d96b95fa18843ad179a660a41c0ab' %}
 
 tableau-firmware-update-download-only:
   file.managed:
     - name: '{{ downloads }}\tableau\setup_tableau_firmware_update_{{ version }}.msi'
-    - source: https://mimage.opentext.com/support/ecm/tableau/setup_tableau_firmware_update_{{ version }}.msi
+    - source: https://digitalintelligence.com/files/setup_tableau_firmware_update_{{ version }}.msi
     - source_hash: sha256={{ hash }}
     - makedirs: True
