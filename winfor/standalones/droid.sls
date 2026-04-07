@@ -4,13 +4,13 @@
 # Category: Raw Parsers / Decoders
 # Author: The National Archives
 # License: BSD License (https://raw.github.com/digital-preservation/droid/master/license.md)
-# Version: 6.9.3
+# Version: 6.9.12
 # Notes: Command Line and GUI, this will utilize the GUI by default, updates signature database on install
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set version = '6.9.3' %}
+{% set version = '6.9.12' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
-{% set hash = '43ea56f3573804542967fa5a1ef46f0632ff6c8fc75b35dacacd17c751ed7abb' %}
+{% set hash = 'd89e38cbddab1ec6676cbe565387b78821b2d285446fb668f86b9c9107c7eac0' %}
 
 droid-download:
   file.managed:
