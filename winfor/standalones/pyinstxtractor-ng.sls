@@ -4,11 +4,11 @@
 # Category: Installers
 # Author: ExtremeCoders-RE
 # License: GNU General Public License v3.0 (https://github.com/pyinstxtractor/pyinstxtractor-ng/blob/main/LICENSE)
-# Version: 2025.01.05
+# Version: 2026.04.07
 # Notes: 
 
-{% set version = '2025.01.05' %}
-{% set hash = '33f8225db6d057e903b9eba3eddf2e92e564cd1b59382106b4569583b3fedfb0' %}
+{% set version = '2026.04.07' %}
+{% set hash = 'd19488732ff8237f5a1ed47d2a3d36620077975854854102e65837c5aad69ca5' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 
 include:
