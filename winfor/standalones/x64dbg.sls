@@ -4,18 +4,18 @@
 # Category: Executables
 # Author: Duncan Ogilvie (mrexodia)
 # License: GNU General Public License v3 (https://github.com/x64dbg/x64dbg/blob/development/LICENSE)
-# Version: 2025-03-15_15-57
+# Version: 2026-04-20_19-04
 # Notes: 
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set version = '2025-03-15_15-57' %}
-{% set hash = '490a428d209c0ed87ed050db6e47b5f626ae98a7f69917c9f87f14a7c53afca0' %}
+{% set version = '2026-04-20_19-04' %}
+{% set hash = '985561ea9fbd5e3cc557c9b5868ec608fcf450bfc88f0ac4a7279ded2a9ce7ec' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 x64dbg-download:
   file.managed:
     - name: 'C:\salt\tempdownload\snapshot_{{ version }}.zip'
-    - source: https://github.com/x64dbg/x64dbg/releases/download/snapshot/snapshot_{{ version }}.zip
+    - source: https://github.com/x64dbg/x64dbg/releases/download/{{ version.split("_")[0] | replace("-",".") }}/snapshot_{{ version }}.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True
 
