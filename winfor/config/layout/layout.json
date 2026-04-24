@@ -928,8 +928,8 @@
         "AUMID": false,
         "DALP": false,
         "StartMenu": true,
-        "Checked": true,
-        "Enabled": true,
+        "Checked": false,
+        "Enabled": false,
         "ExtraTiles": []
       },
       "Magnet Process Capture": {

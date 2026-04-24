@@ -11,7 +11,7 @@
 {% set cmdline_hash = 'cc610ccbe83faddb58e1aa68e8fc8743bb30aa5e83577eceb4cc168dae95f9ee' %}
 {% set as_version = '2025.3.2.6' %}
 {% set as_hash = '77115e3aee8fd47a936e5ade7659316ccab34d60d36f259bb78581bab0096681' %}
-{% set platform_hash = 'b024d4f319d6ad3004de1ba7b96a5c7c5f3512e8b14126308d598b4ab93dcead' %}
+{% set platform_hash = '4fe305812db074cea32903a489d061eb4454cbc90a49e8fea677f4b7af764918' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 android-studio-download-only:
