@@ -2251,6 +2251,17 @@
         "Enabled": true,
         "ExtraTiles": []
       },
+      "Microsoft Visual C++ 2017 Redistributable": {
+        "CbName": "packages_ms_vcpp_2017_redist_x64",
+        "CbContent": "Microsoft Visual C++ 2017 Redistributable",
+        "DAID": "",
+        "AUMID": false,
+        "DALP": false,
+        "StartMenu": false,
+        "Checked": true,
+        "Enabled": true,
+        "ExtraTiles": []
+      },
       "Node.js": {
         "CbName": "packages_nodejs",
         "CbContent": "Node.js",

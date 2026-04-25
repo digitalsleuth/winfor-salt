@@ -15,6 +15,7 @@
 
 include:
   - winfor.standalones.megatools
+  - winfor.packages.dotnet10-desktop-runtime
 
 arsenal-remove-previous:
   file.absent:
@@ -27,6 +28,7 @@ arsenal-download:
     - require:
       - sls: winfor.standalones.megatools
       - file: arsenal-remove-previous
+      - sls: winfor.packages.dotnet10-desktop-runtime
 
 arsenal-extract:
   archive.extracted:

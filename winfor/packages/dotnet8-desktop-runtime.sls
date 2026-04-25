@@ -4,7 +4,7 @@
 # Category: Requirements
 # Author: Microsoft
 # License: EULA
-# Version: 8.0.11.34221
+# Version: 8.0.16.34817
 # Notes:
 
 {% set installed = salt['cmd.run']('powershell -c "(Get-ItemProperty HKLM:\\Software\Microsoft\\Windows\\CurrentVersion\\Uninstall\\* | Where-Object {$_.DisplayName -clike \'Microsoft Windows Desktop Runtime - 8*(x64)\' } | Select-Object -ExpandProperty DisplayVersion)"') %}
