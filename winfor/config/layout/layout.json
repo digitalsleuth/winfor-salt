@@ -2163,6 +2163,17 @@
         "Enabled": true,
         "ExtraTiles": []
       },
+      ".NET 10 Desktop Runtime": {
+        "CbName": "packages_dotnet10_desktop_runtime",
+        "CbContent": ".NET 10 Desktop Runtime",
+        "DAID": "",
+        "AUMID": false,
+        "DALP": false,
+        "StartMenu": false,
+        "Checked": true,
+        "Enabled": true,
+        "ExtraTiles": []
+      },
       "Elasticsearch": {
         "CbName": "standalones_elasticsearch",
         "CbContent": "Elasticsearch",
