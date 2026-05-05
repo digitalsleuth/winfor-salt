@@ -20,7 +20,7 @@ include:
 memprocfs-analyzer-folder-copy-offline:
   file.rename:
     - name: '{{ inpath }}\memprocfs-analyzer'
-    - source: '{{ downloads }}\memprocfs-analyzer\memprocfs-analyzer'
+    - source: '{{ downloads }}\memprocfs-analyzer\mpfsa'
     - force: True
     - makedirs: True
     - recurse: True
