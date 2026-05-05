@@ -28,6 +28,7 @@ include:
 #  - winfor.python3-tools.plaso
   - winfor.python3-tools.maldump
   - winfor.python3-tools.python-evtx
+  - winfor.python3-tools.email-header-analyzer
 
 python3-tools-states:
   test.nop:
@@ -61,6 +62,7 @@ python3-tools-states:
 #      - sls: winfor.python3-tools.plaso
       - sls: winfor.python3-tools.maldump
       - sls: winfor.python3-tools.python-evtx
+      - sls: winfor.python3-tools.email-header-analyzer
 
 python3-filetype-association:
   cmd.run:

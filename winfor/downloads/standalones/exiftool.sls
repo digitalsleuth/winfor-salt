@@ -25,3 +25,15 @@ exiftool-download-only:
     - source: https://exiftool.org/exiftool-{{ version }}_64.zip
     - source_hash: sha256={{ ns.exiftool_hash }}
     - makedirs: True
+
+exiftool-kml-fmt-download-only:
+  file.managed:
+    - name: '{{ downloads }}\exiftool\kml.fmt'
+    - source: salt://winfor/files/kml.fmt
+    - makedirs: True
+
+exiftool-kml-batch-download-only:
+  file.managed:
+    - name: '{{ downloads }}\exiftool\exif_kml.bat'
+    - source: salt://winfor/files/exif_kml.bat
+    - makedirs: True

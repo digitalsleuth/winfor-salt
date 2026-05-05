@@ -4,11 +4,11 @@
 # Category: Requirements
 # Author: Elastic
 # License: Elastic License 2.0 (https://github.com/elastic/kibana/blob/main/licenses/ELASTIC-LICENSE-2.0.txt)
-# Version: 9.0.1
+# Version: 9.3.3
 # Notes: 
 
-{% set version = '9.0.1' %}
-{% set hash = '5362ba48677fcf11ac0880e582ac553c89549582e91e4a113818c1ef9c54fa33' %}
+{% set version = '9.3.3' %}
+{% set hash = 'f09d94a1b385b19e987e02d366a94c1596915713b09023745d95113ee3eb25c5' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 
 kibana-download:

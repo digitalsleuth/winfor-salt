@@ -4,7 +4,7 @@
 # Category: Acquisition and Analysis
 # Author: Jad Saliba - Magnet Forensics
 # License: EULA
-# Version: 2.92.0.43217
+# Version: 2.95.0.43864
 # Notes:
 
 include:

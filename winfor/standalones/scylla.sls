@@ -28,24 +28,15 @@ scylla-extract:
       - file: scylla-download
       - sls: winfor.packages.7zip
 
-standalones-scylla-shortcut-1:
+{% for arch in ['x64', 'x86'] %}
+scylla-shortcut-{{ arch }}:
   file.shortcut:
-    - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\Scylla x64.lnk'
-    - target: '{{ inpath }}\scylla\Scylla_x64.exe'
+    - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\Scylla {{ arch }}.lnk'
+    - target: '{{ inpath }}\scylla\Scylla_{{ arch }}.exe'
     - force: True
     - working_dir: '{{ inpath }}\scylla\'
     - makedirs: True
     - require:
       - file: scylla-download
       - cmd: scylla-extract
-
-standalones-scylla-shortcut-2:
-  file.shortcut:
-    - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\Scylla x86.lnk'
-    - target: '{{ inpath }}\scylla\Scylla_x86.exe'
-    - force: True
-    - working_dir: '{{ inpath }}\scylla\'
-    - makedirs: True
-    - require:
-      - file: scylla-download
-      - cmd: scylla-extract
+{% endfor %}

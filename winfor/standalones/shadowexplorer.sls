@@ -7,12 +7,16 @@
 # Version: 0.9.462.0
 # Notes: 
 
+{% set version = '0.9.462.0' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
+include:
+  - winfor.packages.dotnetfx35
+
 shadow-explorer-download:
   file.managed:
-    - name: 'C:\salt\tempdownload\ShadowExplorer-0.9-portable.zip'
+    - name: 'C:\salt\tempdownload\ShadowExplorer-{{ version }}-portable.zip'
     - source: https://www.shadowexplorer.com/uploads/ShadowExplorer-0.9-portable.zip
     - source_hash: sha256=92590121920b130a7787c25036d17cf4bd188f1de7cfac6d98c254eef531bb92
     - makedirs: True
@@ -20,7 +24,7 @@ shadow-explorer-download:
 shadow-explorer-extract:
   archive.extracted:
     - name: '{{ inpath }}\'
-    - source: 'C:\salt\tempdownload\ShadowExplorer-0.9-portable.zip'
+    - source: 'C:\salt\tempdownload\ShadowExplorer-{{ version }}-portable.zip'
     - enforce_toplevel: False
     - require:
       - file: shadow-explorer-download

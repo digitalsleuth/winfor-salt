@@ -4,15 +4,21 @@
 # Category: Utilities
 # Author: First Response
 # License: EULA
-# Version: 2.17.8.30
+# Version: 2.18.4.3
 # Notes:
 
-{% set version = '2.17.8.30' %}
+{% set version = '2.18.4.3' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
+{% set hash = '107c64c7c858aba9bc8d58a330b19943465f540e30fa33a953672826ad1b55ec' %}
 
-casenotes-pro-source-download-only:
+include:
+  - winfor.downloads.packages.ms-vcpp-2010-redist-x64
+
+casenotes-pro-download-only:
   file.managed:
-    - name: '{{ downloads }}\casenotes-pro\cnsetup-{{ version }}.msi'
-    - source: https://github.com/digitalsleuth/winfor-salt/raw/main/winfor/files/cnsetup.msi
-    - skip_verify: True
+    - name: '{{ downloads }}\casenotes-pro\CaseNotesInstaller-{{ version }}.zip'
+    - source: https://github.com/finbarr996/First-Response-CaseNotes/releases/download/{{ version }}/CaseNotesInstaller.zip
+    - source_hash: sha256={{ hash }}
     - makedirs: True
+    - require:
+      - sls: winfor.downloads.packages.ms-vcpp-2010-redist-x64

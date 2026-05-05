@@ -21,3 +21,9 @@ cygwin-install:
     - name: 'C:\salt\tempdownload\setup-x86_64.exe -R C:\cygwin64\ -d -X -l C:\cygwin64\ -q -O -s https://mirror.csclub.uwaterloo.ca/cygwin/'
     - shell: cmd
     - success_retcodes: 2
+
+cygwin-env-vars:
+  win_path.exists:
+    - name: 'C:\cygwin64\'
+    - require:
+      - cmd: cygwin-install

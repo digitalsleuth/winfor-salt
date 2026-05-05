@@ -7,6 +7,7 @@
 # Version: 0.0.9.5
 # Notes: 
 
+{% set version = '0.0.9.5' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set hash = '5d572cc193f7a7286de300392e4df2697d15edb6c1dbb9caaceed6515607c967' %}

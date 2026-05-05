@@ -4,16 +4,19 @@
 # Category: Installers
 # Author: Scott Willeke (activescott)
 # License: MIT License (https://github.com/activescott/lessmsi/blob/master/LICENSE)
-# Version: 1.10.0
+# Version: 2.12.9
 # Notes: 
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set versions = [('1.10.0', 'fdf6a3aab9c893966057004b64e2931af431a3459d323666e2e75c33a6825816')] %}
+{% set version = '2.12.9' %}
+{% set hash = '5b4e187e74b184ad3a63ccf06c3d17dae2b8c4b6c298a996dbd51a9f6db29d21' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+
+include:
+  - winfor.config.shims
 
 lessmsi-download:
   file.managed:
-  {% for version, hash in versions %}
     - name: 'C:\salt\tempdownload\lessmsi-v{{ version }}.zip'
     - source: https://github.com/activescott/lessmsi/releases/download/v{{ version }}/lessmsi-v{{ version }}.zip
     - source_hash: sha256={{ hash }}
@@ -24,7 +27,8 @@ lessmsi-extract:
     - name: '{{ inpath }}\lessmsi'
     - source: 'C:\salt\tempdownload\lessmsi-v{{ version }}.zip'
     - enforce_toplevel: False
-  {% endfor %}
+    - require:
+      - file: lessmsi-download
 
 lessmsi-shortcut:
   file.shortcut:
@@ -36,3 +40,9 @@ lessmsi-shortcut:
     - require:
       - file: lessmsi-download
       - archive: lessmsi-extract
+
+lessmsi-shim:
+  cmd.run:
+    - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\lessmsi\lessmsi.exe -OutPath {{ inpath }}\shims\lessmsi.exe'
+    - require:
+      - sls: winfor.config.shims

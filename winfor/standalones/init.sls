@@ -70,7 +70,6 @@ include:
   - winfor.standalones.shadowexplorer
   - winfor.standalones.chainsaw
   - winfor.standalones.densityscout
-  - winfor.standalones.email-header-analyzer
   - winfor.standalones.photorec
   - winfor.standalones.thumbcacheviewer
   - winfor.standalones.windows-timeline
@@ -184,7 +183,6 @@ standalones-states:
       - sls: winfor.standalones.shadowexplorer
       - sls: winfor.standalones.chainsaw
       - sls: winfor.standalones.densityscout
-      - sls: winfor.standalones.email-header-analyzer
       - sls: winfor.standalones.photorec
       - sls: winfor.standalones.thumbcacheviewer
       - sls: winfor.standalones.windows-timeline

@@ -12,12 +12,17 @@
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set version = '2.1.0' %}
 
+include:
+  - winfor.packages.dotnet8-desktop-runtime
+
 hash-generator-download:
   file.managed:
     - name: '{{ inpath }}\hash-generator\hash-generator.exe'
     - source: https://github.com/digitalsleuth/hash-generator/releases/download/v{{ version }}/Hash.Generator.v{{ version }}.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True
+    - require:
+      - sls: winfor.packages.dotnet8-desktop-runtime
 
 hash-generator-shortcut:
   file.shortcut:

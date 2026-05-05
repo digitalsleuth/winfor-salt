@@ -7,7 +7,8 @@
 # Version: 10.0.7.50000
 # Notes:
 
-{% set installed = salt['cmd.run']('powershell -c "(Get-ItemProperty HKLM:\\Software\Microsoft\\Windows\\CurrentVersion\\Uninstall\\* | Where-Object {$_.DisplayName -clike \'Microsoft Windows Desktop Runtime - 10*(x64)\' } | Select-Object -ExpandProperty DisplayVersion)"') %}
+{% from 'winfor/_macros/is_installed.jinja' import check_installed %}
+{% set installed = check_installed('Microsoft Windows Desktop Runtime - 10*(x64)') | trim == 'true' %}
 
 include:
   - winfor.repos

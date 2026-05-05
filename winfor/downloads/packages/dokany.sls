@@ -4,11 +4,11 @@
 # Category: Utilities
 # Author: Liryna
 # License: GNU Lesser General Public License v3.0 / MIT (https://github.com/dokan-dev/dokany/blob/master/license.mit.txt / https://github.com/dokan-dev/dokany/blob/master/license.lgpl.txt)
-# Version: 2.3.0.1000
+# Version: 2.3.1.1000
 # Notes:
 
-{% set version = '2.3.0.1000' %}
-{% set hash = '1aec3fda5497ea3e4847c8e033a2834c720fa69b5e1c060b6a4d32d0199e8e29' %}
+{% set version = '2.3.1.1000' %}
+{% set hash = '69ff8cb37bfec3a75921c85ffd1c6370b50a9ec4ecef2cf3a009d488dcbf5465' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 dokany-download-only:

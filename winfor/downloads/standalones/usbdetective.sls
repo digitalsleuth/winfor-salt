@@ -9,7 +9,7 @@
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set hash = 'c1a2a8e5936e187ecee8ad85b0efa42290598c987bacc1fbd8c587d5a6fbe799' %}
-{% set version = '1.6.3' %}
+{% set version = '1.6.4' %}
 
 usbdetective-download-only:
   file.managed:

@@ -4,32 +4,21 @@
 # Category: Raw Parsers / Decoders
 # Author: Martin Willing / evild3ad
 # License: GNU General Public License v3.0 (https://github.com/LETHAL-FORENSICS/MemProcFS-Analyzer/blob/main/LICENSE)
-# Version: 1.2.0
+# Version: 1.2.1
 # Notes: 
 
-{% set version = '1.2.0' %}
-{% set hash = '82feda3b50f172b84776ba8f21e1c52fecdf08e177a7ecbc667add6c8b624cd6' %}
+{% set version = '1.2.1' %}
+{% set hash = '4a699827cefc5a162a24ae737583979ef540b521fa6e61c0890d7dbdcaf7d3c5' %}
+{% set updater_hash = '7e03c8f3258eb444c12fee805004825066394eaa091e05ccc0b5cf7b32b9391f' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set tools = ['AmcacheParser','AppCompatCacheParser','EvtxECmd','RECmd','SBECmd'] %}
 
 include:
   - winfor.repos
-  - winfor.packages.nuget
   - winfor.packages.clamav
   - winfor.packages.dokany
-  - winfor.packages.git
   - winfor.packages.importexcel
   - winfor.packages.python3
-  - winfor.standalones.memprocfs
-  - winfor.standalones.elasticsearch
-  - winfor.standalones.entropy
-  - winfor.standalones.ipinfo
-  - winfor.standalones.jq
-  - winfor.standalones.kibana
-  - winfor.standalones.lnk-parser
-  - winfor.standalones.xsv
-  - winfor.standalones.yara
-  - winfor.standalones.zircolite
+  - winfor.packages.dotnet9-desktop-runtime
 
 memprocfs-analyzer-download:
   file.managed:
@@ -61,172 +50,39 @@ memprocfs-analyzer-folder-rename:
     - makedirs: True
     - require:
       - archive: memprocfs-analyzer-extract
+    - watch:
+      - memprocfs-analyzer-extract
 
-memprocfs-analyzer-disable-updater:
-  cmd.run:
-    - name: Get-Content {{ inpath }}\memprocfs-analyzer\MemProcFS-Analyzer.ps1 | ForEach-Object { $_ -replace '^Updater', '#Updater'} | Set-Content -Encoding UTF8 {{ inpath }}\memprocfs-analyzer\MemProcFS-Analyzer-NoUpdater.ps1
-    - shell: powershell
-    - require:
-      - file: memprocfs-analyzer-folder-rename
-
-memprocfs-analyzer-ps1-rename:
-  file.rename:
-    - name: '{{ inpath }}\memprocfs-analyzer\MemProcFS-Analyzer.ps1'
-    - source: '{{ inpath }}\memprocfs-analyzer\MemProcFS-Analyzer-NoUpdater.ps1'
-    - force: True
-    - makedirs: True
-    - require:
-      - cmd: memprocfs-analyzer-disable-updater
-
-memprocfs-analyzer-yara:
-  git.latest:
-    - name: https://github.com/evild3ad/yara.git
-    - target: '{{ inpath }}\memprocfs-analyzer\yara'
-    - rev: main
-    - force_clone: True
-    - force_reset: True
-    - require:
-      - sls: winfor.packages.git
-      - sls: winfor.standalones.memprocfs
-      - file: memprocfs-analyzer-folder-rename
-
-{% for tool in tools %}
-  {% set filePath = "C:\\salt\\tempdownload\\" + tool + ".zip" %}
-  {% set outFile = inpath + "\\memprocfs-analyzer\\Tools\\" + tool + "\\SHA1.txt" %}
-
-memprocfs-analyzer-{{ tool }}-requirement:
+memprocfs-analyzer-modify-updater:
   file.managed:
-    - name: '{{ filePath }}'
-    - source: https://download.mikestammer.com/net9/{{ tool }}.zip
-    - skip_verify: True
+    - name: '{{ inpath }}\memprocfs-analyzer\Updater.ps1'
+    - source: https://raw.githubusercontent.com/LETHAL-FORENSICS/MemProcFS-Analyzer/7f9c61d9ca3ed0dcf5568972138a05b414a5a26c/Updater.ps1
+    - source_hash: sha256={{ updater_hash }}
     - makedirs: True
-
-memprocfs-analyzer-{{ tool }}-requirement-extract:
-  archive.extracted:
-  {% if tool == 'EvtxECmd' or tool == 'RECmd' %}
-    - name: '{{ inpath }}\memprocfs-analyzer\Tools\'
-  {% else %}
-    - name: '{{ inpath }}\memprocfs-analyzer\Tools\{{ tool }}\'
-  {% endif %}
-    - source: '{{ filePath }}'
-    - enforce_toplevel: False
+    - force: True
     - require:
-      - file: memprocfs-analyzer-{{ tool }}-requirement
+      - archive: memprocfs-analyzer-extract
+      - file: memprocfs-analyzer-folder-rename
 
-memprocfs-analyzer-{{ tool }}-hash:
+memprocfs-analyzer-updater:
   cmd.run:
-    - name: 'Get-FileHash -Algorithm SHA1 -Path {{ filePath }} | Select -ExpandProperty Hash | Out-File {{ outFile }}'
-    - shell: powershell
+    - name: 'powershell -nop -ep Bypass -File {{ inpath }}\memprocfs-analyzer\Updater.ps1'
+    - cwd: '{{ inpath }}\memprocfs-analyzer'
     - require:
-      - archive: memprocfs-analyzer-{{ tool }}-requirement-extract
-    - onlyif:
-      - fun: file.file_exists
-        path: '{{ filePath }}'
-
-{% endfor %}
+      - file: memprocfs-analyzer-modify-updater
+    - watch:
+      - file: memprocfs-analyzer-modify-updater
 
 evtxecmd-sync:
   cmd.run:
     - name: '{{ inpath }}\memprocfs-analyzer\Tools\EvtxECmd\EvtxECmd.exe --sync'
     - shell: cmd
+    - require:
+      - cmd: memprocfs-analyzer-updater
 
 recmd-sync:
   cmd.run:
     - name: '{{ inpath }}\memprocfs-analyzer\Tools\RECmd\RECmd.exe --sync'
     - shell: cmd
-
-memprocfs-folder-copy:
-  file.copy:
-    - name: '{{ inpath }}\memprocfs-analyzer\Tools\MemProcFS'
-    - source: '{{ inpath }}\memprocfs'
-    - makedirs: True
-    - force: True
-    - win_inheritance: True
-
-elasticsearch-folder-copy:
-  file.copy:
-    - name: '{{ inpath }}\memprocfs-analyzer\Tools\Elasticsearch'
-    - source: '{{ inpath }}\elasticsearch'
-    - makedirs: True
-    - force: True
-    - win_inheritance: True
-
-entropy-folder-copy:
-  file.copy:
-    - name: '{{ inpath }}\memprocfs-analyzer\Tools\entropy'
-    - source: '{{ inpath }}\entropy'
-    - makedirs: True
-    - force: True
-    - win_inheritance: True
-
-ipinfo-folder-copy:
-  file.copy:
-    - name: '{{ inpath }}\memprocfs-analyzer\Tools\IPinfo'
-    - source: '{{ inpath }}\ipinfo'
-    - makedirs: True
-    - force: True
-    - win_inheritance: True
-
-jq-folder-copy:
-  file.copy:
-    - name: '{{ inpath }}\memprocfs-analyzer\Tools\jq'
-    - source: '{{ inpath }}\jq'
-    - makedirs: True
-    - force: True
-    - win_inheritance: True
-
-jq-file-rename:
-  file.rename:
-    - name: '{{ inpath }}\memprocfs-analyzer\Tools\jq\jq-win64.exe'
-    - source: '{{ inpath }}\memprocfs-analyzer\Tools\jq\jq.exe'
-    - makedirs: True
-    - force: True
-    - win_inheritance: True
-
-kibana-folder-copy:
-  file.copy:
-    - name: '{{ inpath }}\memprocfs-analyzer\Tools\Kibana'
-    - source: '{{ inpath }}\kibana'
-    - makedirs: True
-    - force: True
-    - win_inheritance: True
-
-lnk-parser-folder-copy:
-  file.copy:
-    - name: '{{ inpath }}\memprocfs-analyzer\Tools\lnk_parser'
-    - source: '{{ inpath }}\lnk-parser'
-    - makedirs: True
-    - force: True
-    - win_inheritance: True
-
-lnk-parser-file-rename:
-  file.rename:
-    - name: '{{ inpath }}\memprocfs-analyzer\Tools\lnk_parser\lnk_parser_x86_64.exe'
-    - source: '{{ inpath }}\memprocfs-analyzer\Tools\lnk_parser\lnk_parser.exe'
-    - makedirs: True
-    - force: True
-    - win_inheritance: True
-
-xsv-folder-copy:
-  file.copy:
-    - name: '{{ inpath }}\memprocfs-analyzer\Tools\xsv'
-    - source: '{{ inpath }}\xsv'
-    - makedirs: True
-    - force: True
-    - win_inheritance: True
-
-yara-folder-copy:
-  file.copy:
-    - name: '{{ inpath }}\memprocfs-analyzer\Tools\YARA'
-    - source: '{{ inpath }}\yara'
-    - makedirs: True
-    - force: True
-    - win_inheritance: True
-
-zircolite-folder-copy:
-  file.copy:
-    - name: '{{ inpath }}\memprocfs-analyzer\Tools\Zircolite'
-    - source: '{{ inpath }}\zircolite'
-    - makedirs: True
-    - force: True
-    - win_inheritance: True
+    - require:
+      - cmd: memprocfs-analyzer-updater

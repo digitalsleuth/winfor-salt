@@ -4,11 +4,11 @@
 # Category: Installers
 # Author: William Kent
 # License: MIT (https://github.com/wjk/MSIExtractApp/blob/main/LICENSE)
-# Version: 2.0.1
+# Version: 3.0.1
 # Notes: Installed via winget
 
-{% set version = '2.0.1' %}
-{% set hash = '3e5ee1ee91d69ad901243e0bcb4f0877948f43d0e2e060d2e70abb6e64c0a883' %}
+{% set version = '3.0.1' %}
+{% set hash = 'd0a11bf5ce84f20b490bbd54a992a0bbc62ddc464bef0696523fb2776baeac02' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 msiviewer-download-only:

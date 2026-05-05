@@ -4,11 +4,11 @@
 # Category: Requirements
 # Author: Elastic
 # License: Server Side Public License / Elastic License 2.0 / Apache License 2.0 (https://github.com/elastic/elasticsearch/blob/main/LICENSE.txt)
-# Version: 9.0.1
+# Version: 9.3.3
 # Notes: 
 
-{% set version = '9.0.1' %}
-{% set hash = '080aacc0044fd38b1e6ba187d0bd53c35cf89e93d132b3dbde7d23b2500ad601' %}
+{% set version = '9.3.3' %}
+{% set hash = '4e080936fb9fbb99e8fa146cda54decfe59088f61de8d1ad0b42c996b2d0bccb' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 
 elasticsearch-download:

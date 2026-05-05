@@ -4,12 +4,12 @@
 # Category: Executables
 # Author: Marco Pontello
 # License: Free for personal / non-commercial use
-# Version: 2.47
+# Version: 2.48
 # Notes:
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '2.47' %}
-{% set hash = '5683d49089d6f08312ad0736f47f212fbedd4a92af700eab34ee4b242e6060c3' %}
+{% set version = '2.48' %}
+{% set hash = '65d339cc3f758a9d78e41f2c418955dfcd8c4a5152682e8cc9af0f551d169a4b' %}
 
 trid-download-only:
   file.managed:

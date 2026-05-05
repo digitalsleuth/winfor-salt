@@ -7,11 +7,13 @@
 # Version: 1.9.0
 # Notes: 
 
+{% set version = '1.9.1-beta_r321' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
+{% set hash = '5933d59f591e1e68ce7819904f8cb1118fc935bdfe89581599d0560ec9b97cd6' %}
 
 regshot-download-only:
   file.managed:
-    - name: '{{ downloads }}\regshot\Regshot-1.9.0.7z'
-    - source: https://netactuate.dl.sourceforge.net/project/regshot/regshot/1.9.0/Regshot-1.9.0.7z
-    - source_hash: sha256=a92327ffa25f456dff86bae60d42dc8e85e8f3cf987d1d0449d0402a39827d85
+    - name: '{{ downloads }}\regshot\Regshot-{{ version }}.7z'
+    - source: https://cytranet-dal.dl.sourceforge.net/project/regshot/regshot/{{ version.split("_")[0] }}/Regshot-{{ version }}.7z
+    - source_hash: sha256={{ hash }}
     - makedirs: True

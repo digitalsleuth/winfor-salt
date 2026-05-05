@@ -25,3 +25,11 @@ peid-userdb-download-only:
     - makedirs: True
     - require:
       - file: peid-download-only
+
+peid-icon-download-only:
+  file.managed:
+    - name: '{{ downloads }}\peid\peid.ico'
+    - source: salt://winfor/files/peid.ico
+    - skip_verify: True
+    - require:
+      - file: peid-download-only

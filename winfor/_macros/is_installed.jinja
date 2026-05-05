@@ -1,0 +1,29 @@
+{# winfor/_macros/is_installed.jinja #}
+
+{% macro check_installed(display_name_pattern) -%}
+{%- set result = salt['cmd.run_all'](
+    'powershell -NoProfile -c "$hives = @('
+    + '\'HKLM:\\Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\*\','
+    + '\'HKLM:\\Software\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\*\','
+    + '\'HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\*\''
+    + '); $hives | ForEach-Object { Get-ItemProperty $_ -ErrorAction SilentlyContinue }'
+    + ' | Where-Object { $_.DisplayName -clike \'*' + display_name_pattern + '*\' }'
+    + ' | Select-Object -First 1"',
+    output_loglevel='quiet'
+) -%}
+{{ (result.stdout | trim | length > 0) | lower }}
+{%- endmacro %}
+
+{% macro get_version(display_name_pattern) -%}
+{%- set result = salt['cmd.run_all'](
+    'powershell -NoProfile -c "$hives = @('
+    + '\'HKLM:\\Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\*\','
+    + '\'HKLM:\\Software\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\*\','
+    + '\'HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\*\''
+    + '); ($hives | ForEach-Object { Get-ItemProperty $_ -ErrorAction SilentlyContinue }'
+    + ' | Where-Object { $_.DisplayName -clike \'*' + display_name_pattern + '*\' }'
+    + ' | Select-Object -First 1 -ExpandProperty DisplayVersion)"',
+    output_loglevel='quiet'
+) -%}
+{{ result.stdout | trim }}
+{%- endmacro %}

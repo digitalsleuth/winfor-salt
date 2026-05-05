@@ -4,13 +4,13 @@
 # Category: Windows Analysis
 # Author: Mike Cohen (scudette)
 # License: GNU Affero General Public License v3 (https://github.com/Velocidex/velociraptor/blob/master/LICENSE)
-# Version: 0.75.6
+# Version: 0.76.1
 # Notes: 
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set version = '0.75' %}
-{% set chg_ver = '0.75.6' %}
-{% set hash = '09e6c312c5003e4326e3f71cb2d06a596826b50a911aabe76925790f95e67c33' %}
+{% set version = '0.76' %}
+{% set chg_ver = '0.76.1' %}
+{% set hash = '1380bb6373604c68360d8eaede811cb6e19b826b4116b808907d5b9ab049ac2b' %}
 
 include:
   - winfor.config.shims

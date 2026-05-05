@@ -45,3 +45,8 @@ droid-signature-update:
     - require:
       - archive: droid-extract
 
+droid-env-vars:
+  win_path.exists:
+    - name: '{{ inpath }}\droid\'
+    - require:
+      - archive: droid-extract

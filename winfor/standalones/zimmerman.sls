@@ -4,12 +4,14 @@
 # Category: Windows Analysis
 # Author: Eric Zimmerman
 # License: MIT License (https://github.com/EricZimmerman/Issues/blob/master/LICENSE)
-# Version: 2025-05-29
+# Version: 2026.5.0
 # Notes: 
 
+{% set version = '2026.5.0' %}
+{% set hash = '12c7e9e3990959e374feb1919590428f7044feb1de9940c454c58ff41f488094' %}
+{% set hasher_hash = 'a8a343013d6ed5b6988ebce1b3a561df51ab5928bc3a0f489a7e175f8f6f89d4' %}
+{% set hasher_version = '2026.5.0' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set hash = 'e9993b590056016e75972ec34b25864fc7f88f574f15cf87f65b990177a1516c' %}
-{% set hasher_hash = '1fa5f2e91eed2c819a107a160a56d6cc3e12807355741db6dde4395cb6d527bf' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set applications = ['EZViewer','JumpListExplorer','MFTExplorer','RegistryExplorer','SDBExplorer','ShellBagsExplorer','TimelineExplorer'] %}
 {% set sync_tools = ['EvtxECmd','RECmd'] %}
@@ -21,7 +23,7 @@ include:
 zimmerman-tools:
   file.managed:
     - name: 'C:\salt\tempdownload\Get-ZimmermanTools.zip'
-    - source: https://f001.backblazeb2.com/file/EricZimmermanTools/Get-ZimmermanTools.zip
+    - source: https://download.ericzimmermanstools.com/Get-ZimmermanTools.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True
 
@@ -33,9 +35,18 @@ zimmerman-tools-install:
     - watch:
       - file: zimmerman-tools
 
+zimmerman-tools-fix-index-url:
+  file.replace:
+    - name: '{{ inpath }}\zimmerman\Get-ZimmermanTools.ps1'
+    - pattern: '"https://raw.githubusercontent.com/EricZimmerman/ericzimmerman.github.io/master/index.md"'
+    - repl: '"https://raw.githubusercontent.com/EricZimmerman/ericzimmerman.github.io/refs/heads/master/docs/index.md"'
+    - backup: False
+    - require:
+      - archive: zimmerman-tools-install
+
 zimmerman-tools-download:
   cmd.run:
-    - name: 'powershell -nop -ep bypass -File Get-ZimmermanTools.ps1 -Dest {{ inpath }}\zimmerman'
+    - name: '.\Get-ZimmermanTools.ps1 -Dest {{ inpath }}\zimmerman -NetVersion 9'
     - cwd: {{ inpath }}\zimmerman
     - shell: powershell
     - watch:
@@ -75,7 +86,7 @@ zimmerman-{{ application }}-shortcut:
 zimmerman-hasher-download:
   file.managed:
     - name: 'C:\salt\tempdownload\hasher.zip'
-    - source: https://download.mikestammer.com/hasher.zip
+    - source: https://download.ericzimmermanstools.com/hasher.zip
     - source_hash: sha256={{ hasher_hash }}
     - makedirs: True
 

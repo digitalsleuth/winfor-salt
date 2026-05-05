@@ -13,7 +13,7 @@
 
 windowstimeline-download-only:
   file.managed:
-    - name: '{{ downloads }}\windows-timeline\WindowsTimeline-{{ version }}.exe'
+    - name: '{{ downloads }}\windowstimeline\WindowsTimeline-{{ version }}.exe'
     - source: https://github.com/kacos2000/WindowsTimeline/releases/download/v.{{ version }}/WindowsTimeline.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

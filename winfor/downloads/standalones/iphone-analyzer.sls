@@ -7,12 +7,13 @@
 # Version: 2.1.0
 # Notes: 
 
+{% set version = '2.1.0' %}
 {% set hash = '6499C78336ED937D24A0D1046B369C5847B84A0B06CA9561210E834A85BCB44A' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 iphone-analyzer-download-only:
   file.managed:
-    - name: '{{ downloads }}\iphoneanalyzer\iphoneanalyzer.fat.gui-2.1.0.jar'
-    - source: "https://deac-fra.dl.sourceforge.net/project/iphoneanalyzer/executable%20jar%20builds/iphoneanalyzer.fat.gui-2.1.0.jar"
+    - name: '{{ downloads }}\iphone-analyzer\iphoneanalyzer.fat.gui-{{ version }}.jar'
+    - source: "https://deac-fra.dl.sourceforge.net/project/iphoneanalyzer/executable%20jar%20builds/iphoneanalyzer.fat.gui-{{ version }}.jar"
     - source_hash: sha256={{ hash }}
     - makedirs: True

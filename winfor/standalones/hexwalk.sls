@@ -4,12 +4,12 @@
 # Category: Raw Parsers / Decoders
 # Author: Carmix
 # License: GNU General Public License v3 (https://github.com/gcarmix/HexWalk/blob/main/LICENSE)
-# Version: 1.9.1
+# Version: 1.10.0
 # Notes: 
 
-{% set inpath = salt["pillar.get"]("inpath", "C:\standalone") %}
-{% set version = "1.9.1" %}
-{% set hash = "93f4845b0f31229dac347b79926270be57c29aa3c8e763309a0dbba8fba525a9" %}
+{% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
+{% set version = "1.10.0" %}
+{% set hash = '60987a9f2003ed8955c90ae2157a60dc3bb39758431edff1cc4265dbd069850a' %}
 {% set PROGRAMDATA = salt["environ.get"]("PROGRAMDATA") %}
 
 hexwalk-download:
@@ -26,6 +26,23 @@ hexwalk-extract:
     - enforce_toplevel: False
     - require:
       - file: hexwalk-download
+
+hexwalk-folder-copy:
+  file.copy:
+    - name: '{{ inpath }}\hexwalk'
+    - source: '{{ inpath }}\hexwalk_{{ version }}_Windows_X64\hexwalk'
+    - force: True
+    - makedirs: True
+    - recurse: True
+    - win_inheritance: True
+    - require:
+      - archive: hexwalk-extract
+
+hexwalk-original-folder-absent:
+  file.absent:
+    - name: '{{ inpath }}\hexwalk_{{ version }}_Windows_X64'
+    - require:
+      - file: hexwalk-folder-copy
 
 hexwalk-shortcut:
   file.shortcut:

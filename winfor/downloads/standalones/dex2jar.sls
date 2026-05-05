@@ -4,15 +4,16 @@
 # Category: Mobile Analysis
 # Author: Bob Pan (pxb1988)
 # License: Apache License v2.0 (https://github.com/pxb1988/dex2jar/blob/2.x/LICENSE.txt)
-# Version: 2.1
+# Version: 2.4
 # Notes: 
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '2.1' %}
+{% set version = '2.4' %}
+{% set hash = 'ee7c45eb3c1d2474a6145d8d447e651a736a22d9664b6d3d3be5a5a817dda23a' %}
 
 dex2jar-download-only:
   file.managed:
-    - name: '{{ downloads }}\dex2jar\dex2jar-{{ version }}.zip'
-    - source: https://github.com/pxb1988/dex2jar/releases/download/v{{ version }}/dex2jar-{{ version }}.zip
-    - source_hash: sha256=7a9bdf843d43de4d1e94ec2e7b6f55825017b0c4a7ee39ff82660e2493a46f08
+    - name: '{{ downloads }}\dex2jar\dex-tools-v{{ version }}.zip'
+    - source: https://github.com/pxb1988/dex2jar/releases/download/v{{ version }}/dex-tools-v{{ version }}.zip
+    - source_hash: sha256={{ hash }}
     - makedirs: True

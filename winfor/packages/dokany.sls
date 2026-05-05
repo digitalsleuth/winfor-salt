@@ -4,21 +4,27 @@
 # Category: Utilities
 # Author: Liryna
 # License: GNU Lesser General Public License v3.0 / MIT (https://github.com/dokan-dev/dokany/blob/master/license.mit.txt / https://github.com/dokan-dev/dokany/blob/master/license.lgpl.txt)
-# Version: 2.3.0.1000
+# Version: 2.3.1.1000
 # Notes:
 
-{% set version = '2.3.0.1000' %}
-{% set old = '2.0.6.1000' %}
-{% set installed = salt['cmd.run']('powershell -c "(Get-ItemProperty HKLM:\\Software\Microsoft\\Windows\\CurrentVersion\\Uninstall\\* | Where-Object {$_.DisplayName -clike \'Dokan*\' }).DisplayVersion"') %}
+{% set version = '2.3.1.1000' %}
+{% from 'winfor/_macros/is_installed.jinja' import check_installed, get_version %}
+{% set installed = check_installed('Dokan Library') | trim == 'true' %}
+{% set installed_version = get_version('Dokan Library') | trim %}
+{% if installed and installed_version | length > 0 and installed_version != version %}
 
-include:
-  - winfor.repos
+Dokany {{ installed_version }} must be removed before {{ version }} can be installed, and the new version MUST be installed after a reboot. Not proceeding with dokany install.:
+  test.nop
 
-{% if installed and installed != version %}
-Dokany {{ installed }} must be removed before {{ version }} can be installed, and the new version MUST be installed after a reboot. Not proceeding with dokany install.:
+{% elif installed and installed_version | length > 0 and installed_version == version %}
+
+Dokany {{ version }} is already installed:
   test.nop
 
 {% else %}
+
+include:
+  - winfor.repos
 
 dokany:
   pkg.installed

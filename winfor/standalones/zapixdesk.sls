@@ -4,7 +4,7 @@
 # Category: Acquisition and Analysis
 # Author: Alberto Magno and Corey Forman (digitalsleuth)
 # License: GNU General Public License v3.0 (https://github.com/kraftdenker/ZAPiXDESK/blob/main/LICENSE)
-# Version: 2.0
+# Version: 2.1
 # Notes:
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}

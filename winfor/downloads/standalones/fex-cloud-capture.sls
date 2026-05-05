@@ -4,11 +4,11 @@
 # Category: Acquisition and Analysis
 # Author: GetData Forensics
 # License: Free
-# Version: 1.20
+# Version: 1.30
 # Notes: 
 
-{% set version = '1.20' %}
-{% set hash = '80ad5221522ba83f04d0a5af29c8b3e60a1d9e6c96932683c334f21b5e35d0ec' %}
+{% set version = '1.30' %}
+{% set hash = 'ea2c3ffbfcc2ab217f7fe78473544cae73f2b21c9af55ae1916d2b0cc16fa53f' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 fex-cloud-capture-download-only:

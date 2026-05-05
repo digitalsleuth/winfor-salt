@@ -17,3 +17,19 @@ kape-download-only:
     - source: https://s3.amazonaws.com/cyb-us-prd-kape/kape.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True
+
+kape-extract-download-only:
+  archive.extracted:
+    - name: '{{ downloads }}\kape\'
+    - source: '{{ downloads }}\kape\kape-{{ version }}.zip'
+    - enforce_toplevel: False
+    - require:
+      - file: kape-download-only
+
+kape-sync-download-only:
+  cmd.run:
+    - name: '{{ downloads }}\kape\KAPE\kape.exe --sync'
+    - shell: cmd
+    - require:
+      - archive: kape-extract-download-only
+

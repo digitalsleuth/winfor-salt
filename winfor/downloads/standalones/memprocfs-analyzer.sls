@@ -4,40 +4,19 @@
 # Category: Windows Analysis
 # Author: Martin Willing / evild3ad
 # License: GNU General Public License v3.0 (https://github.com/evild3ad/MemProcFS-Analyzer/blob/main/LICENSE)
-# Version: 1.2.0
+# Version: 1.2.1
 # Notes: 
 
-{% set version = '1.2.0' %}
-{% set hash = '82feda3b50f172b84776ba8f21e1c52fecdf08e177a7ecbc667add6c8b624cd6' %}
+{% set version = '1.2.1' %}
+{% set hash = '4a699827cefc5a162a24ae737583979ef540b521fa6e61c0890d7dbdcaf7d3c5' %}
+{% set updater_hash = '7e03c8f3258eb444c12fee805004825066394eaa091e05ccc0b5cf7b32b9391f' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set tools = ['AmcacheParser','AppCompatCacheParser','EvtxECmd','RECmd','SBECmd'] %}
-{% set entropy_ver = '1.1' %}
-{% set elastic_ver = '9.0.1' %}
-{% set ipinfo_ver = '3.3.1' %}
-{% set jq_ver = '1.8.1' %}
-{% set kib_ver = '9.0.1' %}
-{% set lnk_ver = '0.4.3' %}
-{% set memprocfs_ver = '5.17.3' %}
-{% set memprocfs_date = '20260312' %}
-{% set xsv_ver = '0.13.0' %}
-{% set yara_ver = '4.5.5' %}
-{% set yara_sub = '2368' %}
-{% set zir_ver = '2.40.0' %}
 
 include:
   - winfor.downloads.packages.clamav
   - winfor.downloads.packages.dokany
   - winfor.downloads.packages.importexcel
-  - winfor.downloads.standalones.memprocfs
-  - winfor.downloads.standalones.elasticsearch
-  - winfor.downloads.standalones.entropy
-  - winfor.downloads.standalones.ipinfo
-  - winfor.downloads.standalones.jq
-  - winfor.downloads.standalones.kibana
-  - winfor.downloads.standalones.lnk-parser
-  - winfor.downloads.standalones.xsv
-  - winfor.downloads.standalones.yara
-  - winfor.downloads.standalones.zircolite
+  - winfor.downloads.packages.dotnet9-desktop-runtime
 
 memprocfs-analyzer-download-only:
   file.managed:
@@ -48,7 +27,7 @@ memprocfs-analyzer-download-only:
 
 memprocfs-analyzer-extract-download-only:
   archive.extracted:
-    - name: '{{ downloads }}\memprocfs-analyzer\'
+    - name: '{{ downloads }}\memprocfs-analyzer'
     - source: '{{ downloads }}\memprocfs-analyzer\MemProcFS-Analyzer-v{{ version }}.zip'
     - enforce_toplevel: False
     - require:
@@ -57,148 +36,42 @@ memprocfs-analyzer-extract-download-only:
 memprocfs-analyzer-folder-rename-download-only:
   file.rename:
     - name: '{{ downloads }}\memprocfs-analyzer\memprocfs-analyzer'
-    - source: '{{ downloads }}\memprocfs-analyzer\MemProcFS-Analyzer-v{{ version }}\'
+    - source: '{{ downloads }}\memprocfs-analyzer\MemProcFS-Analyzer-main\'
     - force: True
     - makedirs: True
     - require:
       - archive: memprocfs-analyzer-extract-download-only
 
-memprocfs-analyzer-yara-download-only:
-  git.latest:
-    - name: https://github.com/evild3ad/yara
-    - target: '{{ downloads }}\memprocfs-analyzer\yara'
-    - rev: main
-    - force_clone: True
-    - force_reset: True
-
-{% for tool in tools %}
-  {% set filePath = downloads + "\\" + tool + ".zip" %}
-  {% set outFile = downloads + "\\memprocfs-analyzer\\memprocfs-analyzer\\Tools\\" + tool + "\\SHA1.txt" %}
-memprocfs-analyzer-{{ tool }}-requirement-download-only:
+memprocfs-analyzer-modify-updater-download-only:
   file.managed:
-    - name: '{{ filePath }}'
-    - source: https://download.mikestammer.com/net9/{{ tool }}.zip
-    - skip_verify: True
+    - name: '{{ downloads }}\memprocfs-analyzer\memprocfs-analyzer\Updater.ps1'
+    - source: https://raw.githubusercontent.com/LETHAL-FORENSICS/MemProcFS-Analyzer/7f9c61d9ca3ed0dcf5568972138a05b414a5a26c/Updater.ps1
+    - source_hash: sha256={{ updater_hash }}
     - makedirs: True
-
-memprocfs-analyzer-{{ tool }}-requirement-extract-download-only:
-  archive.extracted:
-  {% if tool == 'EvtxECmd' or tool == 'RECmd' %}
-    - name: '{{ downloads }}\memprocfs-analyzer\memprocfs-analyzer\Tools\'
-  {% else %}
-    - name: '{{ downloads }}\memprocfs-analyzer\memprocfs-analyzer\Tools\{{ tool }}\'
-  {% endif %}
-    - source: '{{ filePath }}'
-    - enforce_toplevel: False
+    - force: True
     - require:
-      - file: memprocfs-analyzer-{{ tool }}-requirement-download-only
+      - archive: memprocfs-analyzer-extract-download-only
+      - file: memprocfs-analyzer-folder-rename-download-only
 
-memprocfs-analyzer-{{ tool }}-hash-download-only:
+memprocfs-analyzer-updater-download-only:
   cmd.run:
-    - name: 'Get-FileHash -Algorithm SHA1 -Path {{ filePath }} | Select -ExpandProperty Hash | Out-File {{ outFile }}'
-    - shell: powershell
+    - name: 'powershell -nop -ep Bypass -File {{ downloads }}\memprocfs-analyzer\memprocfs-analyzer\Updater.ps1'
+    - cwd: '{{ downloads }}\memprocfs-analyzer\memprocfs-analyzer'
     - require:
-      - archive: memprocfs-analyzer-{{ tool }}-requirement-extract-download-only
-    - onlyif:
-      - fun: file.file_exists
-        path: '{{ filePath }}'
+      - file: memprocfs-analyzer-modify-updater-download-only
+    - watch:
+      - file: memprocfs-analyzer-modify-updater-download-only
 
-{% endfor %}
-
-memprocfs-extract-download-only:
-  archive.extracted:
-    - name: '{{ downloads }}\memprocfs-analyzer\memprocfs-analyzer\Tools\MemProcFS\'
-    - source: '{{ downloads }}\memprocfs\MemProcFS_files_and_binaries_v{{ memprocfs_ver }}-win_x64-{{ memprocfs_date }}.zip'
-    - enforce_toplevel: False
+evtxecmd-sync-download-only:
+  cmd.run:
+    - name: '{{ downloads }}\memprocfs-analyzer\memprocfs-analyzer\Tools\EvtxECmd\EvtxECmd.exe --sync'
+    - shell: cmd
     - require:
-      - sls: winfor.downloads.standalones.memprocfs
+      - cmd: memprocfs-analyzer-updater-download-only
 
-elasticsearch-file-copy-download-only:
-  file.copy:
-    - name: '{{ downloads }}\memprocfs-analyzer\memprocfs-analyzer\Tools\Elasticsearch\'
-    - source: '{{ downloads }}\elasticsearch\elasticsearch-{{ elastic_ver }}-windows-x86_x64.zip'
-    - makedirs: True
-    - force: True
-    - win_inheritance: True
+recmd-sync-download-only:
+  cmd.run:
+    - name: '{{ downloads }}\memprocfs-analyzer\memprocfs-analyzer\Tools\RECmd\RECmd.exe --sync'
+    - shell: cmd
     - require:
-      - sls: winfor.downloads.standalones.elasticsearch
-
-entropy-file-copy-download-only:
-  file.copy:
-    - name: '{{ downloads }}\memprocfs-analyzer\memprocfs-analyzer\Tools\entropy\'
-    - source: '{{ downloads }}\entropy\entropy-{{ entropy_ver }}-win64.zip'
-    - makedirs: True
-    - force: True
-    - win_inheritance: True
-    - require:
-      - sls: winfor.downloads.standalones.entropy
-
-ipinfo-file-copy-download-only:
-  file.copy:
-    - name: '{{ downloads }}\memprocfs-analyzer\memprocfs-analyzer\Tools\IPinfo\'
-    - source: '{{ downloads }}\ipinfo\ipinfo_{{ ipinfo_ver }}_windows_amd64.zip'
-    - makedirs: True
-    - force: True
-    - win_inheritance: True
-    - require:
-      - sls: winfor.downloads.standalones.ipinfo
-
-jq-file-copy-download-only:
-  file.copy:
-    - name: '{{ downloads }}\memprocfs-analyzer\memprocfs-analyzer\Tools\jq\jq.exe'
-    - source: '{{ downloads }}\jq\jq-win64-{{ jq_ver }}.exe'
-    - makedirs: True
-    - force: True
-    - win_inheritance: True
-    - require:
-      - sls: winfor.downloads.standalones.jq
-
-kibana-file-copy-download-only:
-  file.copy:
-    - name: '{{ downloads }}\memprocfs-analyzer\memprocfs-analyzer\Tools\Kibana\'
-    - source: '{{ downloads }}\kibana\kibana-{{ kib_ver }}-windows-x86_x64.zip'
-    - makedirs: True
-    - force: True
-    - win_inheritance: True
-    - require:
-      - sls: winfor.downloads.standalones.kibana
-
-lnk-parser-file-copy-download-only:
-  file.copy:
-    - name: '{{ downloads }}\memprocfs-analyzer\memprocfs-analyzer\Tools\lnk_parser\lnk_parser.exe'
-    - source: '{{ downloads }}\lnk-parser\lnk_parser_v{{ lnk_ver }}.exe'
-    - makedirs: True
-    - force: True
-    - win_inheritance: True
-    - require:
-      - sls: winfor.downloads.standalones.lnk-parser
-
-xsv-file-copy-download-only:
-  file.copy:
-    - name: '{{ downloads }}\memprocfs-analyzer\memprocfs-analyzer\Tools\xsv\'
-    - source: '{{ downloads }}\xsv\xsv-{{ xsv_ver }}-x86_64-pc-windows-msvc.zip'
-    - makedirs: True
-    - force: True
-    - win_inheritance: True
-    - require:
-      - sls: winfor.downloads.standalones.xsv
-
-yara-file-copy-download-only:
-  file.copy:
-    - name: '{{ downloads }}\memprocfs-analyzer\memprocfs-analyzer\Tools\YARA\'
-    - source: '{{ downloads }}\yara\yara-{{ yara_ver }}-{{ yara_sub }}-win64.zip'
-    - makedirs: True
-    - force: True
-    - win_inheritance: True
-    - require:
-      - sls: winfor.downloads.standalones.yara
-
-zircolite-file-copy-download-only:
-  file.copy:
-    - name: '{{ downloads }}\memprocfs-analyzer\memprocfs-analyzer\Tools\Zircolite\'
-    - source: '{{ downloads }}\zircolite\zircolite_win_x64_{{ zir_ver }}.7z'
-    - makedirs: True
-    - force: True
-    - win_inheritance: True
-    - require:
-      - sls: winfor.downloads.standalones.zircolite
+      - cmd: memprocfs-analyzer-updater-download-only

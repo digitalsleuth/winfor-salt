@@ -4,16 +4,34 @@
 # Category: Executables
 # Author: Hors (horsicq)
 # License: MIT License (https://github.com/horsicq/DIE-engine/blob/master/LICENSE)
-# Version: 3.10
+# Version: 3.21
 # Notes: Detect It Easy - DIE 
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set version = '3.10' %}
-{% set hash = '6e84ac8d3abdfba60078a36fa7f6b492b20c2af2c502e0a4579f41367ac37c80' %}
+{% set version = '3.21' %}
+{% set hash = '078f2934f267392247f9c7b759a1c2457a48bc2000b25b80c2f129955ee4a3b9' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set defender_status = salt['cmd.powershell']('((Get-Service) -match "WinDefend").Name') %}
 
 include:
   - winfor.config.shims
+
+{% if defender_status.lower() == "windefend" %}
+
+die-defender-exclusion:
+  cmd.run:
+    - names:
+      - 'echo "Defender is present on the system."'
+      - 'Add-MpPreference -ExclusionPath "{{ inpath }}"'
+      - 'Add-MpPreference -ExclusionPath "C:\salt\tempdownload"'
+      - 'Add-MpPreference -ExclusionPath "{{ PROGRAMDATA }}\Salt Project\Salt\var"'
+    - shell: powershell
+{% else %}
+
+"Defender is not present on the system - no exclusions required for die.":
+  test.nop
+
+{% endif %}
 
 die-download:
   file.managed:
@@ -24,7 +42,7 @@ die-download:
 
 die-extract:
   archive.extracted:
-    - name: '{{ inpath }}\die'
+    - name: '{{ inpath }}\'
     - source: 'C:\salt\tempdownload\die_win64_portable_{{ version }}_x64.zip'
     - enforce_toplevel: False
     - require:
@@ -36,7 +54,7 @@ die-shim:
     - require:
       - sls: winfor.config.shims
 
-standalones-die-shortcut:
+die-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\DIE.lnk'
     - target: '{{ inpath }}\die\die.exe'

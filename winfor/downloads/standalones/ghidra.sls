@@ -4,13 +4,13 @@
 # Category: Executables
 # Author: National Security Agency
 # License: Apache License 2.0 (https://github.com/NationalSecurityAgency/ghidra/blob/master/LICENSE)
-# Version: 11.3.2
+# Version: 12.0.4
 # Notes: 
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '11.3.2' %}
-{% set hash = '99d45035bdcc3d6627e7b1232b7b379905a9fad76c772c920602e2b5d8b2dac2' %}
-{% set date = '20250415' %}
+{% set version = '12.0.4' %}
+{% set hash = 'c3b458661d69e26e203d739c0c82d143cc8a4a29d9e571f099c2cf4bda62a120' %}
+{% set date = '20260303' %}
 
 ghidra-download-only:
   file.managed:

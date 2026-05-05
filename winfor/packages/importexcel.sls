@@ -4,10 +4,10 @@
 # Category: Utilities
 # Author: Doug Finke
 # License: Apache License v2.0 (https://github.com/dfinke/ImportExcel/blob/master/LICENSE.txt)
-# Version: 7.8.6
+# Version: 7.8.10
 # Notes: Installed directly from PSGallery
 
-{% set version = '7.8.6' %}
+{% set version = '7.8.10' %}
 
 include:
   - winfor.packages.nuget
