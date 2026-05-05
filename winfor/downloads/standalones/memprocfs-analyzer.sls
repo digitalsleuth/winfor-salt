@@ -35,7 +35,7 @@ memprocfs-analyzer-extract-download-only:
 
 memprocfs-analyzer-folder-rename-download-only:
   file.rename:
-    - name: '{{ downloads }}\memprocfs-analyzer\memprocfs-analyzer'
+    - name: '{{ downloads }}\memprocfs-analyzer\mpfsa\'
     - source: '{{ downloads }}\memprocfs-analyzer\MemProcFS-Analyzer-main\'
     - force: True
     - makedirs: True
@@ -44,7 +44,7 @@ memprocfs-analyzer-folder-rename-download-only:
 
 memprocfs-analyzer-modify-updater-download-only:
   file.managed:
-    - name: '{{ downloads }}\memprocfs-analyzer\memprocfs-analyzer\Updater.ps1'
+    - name: '{{ downloads }}\memprocfs-analyzer\mpfsa\Updater.ps1'
     - source: https://raw.githubusercontent.com/LETHAL-FORENSICS/MemProcFS-Analyzer/7f9c61d9ca3ed0dcf5568972138a05b414a5a26c/Updater.ps1
     - source_hash: sha256={{ updater_hash }}
     - makedirs: True
@@ -55,8 +55,8 @@ memprocfs-analyzer-modify-updater-download-only:
 
 memprocfs-analyzer-updater-download-only:
   cmd.run:
-    - name: 'powershell -nop -ep Bypass -File {{ downloads }}\memprocfs-analyzer\memprocfs-analyzer\Updater.ps1'
-    - cwd: '{{ downloads }}\memprocfs-analyzer\memprocfs-analyzer'
+    - name: 'powershell -nop -ep Bypass -File {{ downloads }}\memprocfs-analyzer\mpfsa\Updater.ps1'
+    - cwd: '{{ downloads }}\memprocfs-analyzer\mpfsa'
     - require:
       - file: memprocfs-analyzer-modify-updater-download-only
     - watch:
@@ -64,14 +64,14 @@ memprocfs-analyzer-updater-download-only:
 
 evtxecmd-sync-download-only:
   cmd.run:
-    - name: '{{ downloads }}\memprocfs-analyzer\memprocfs-analyzer\Tools\EvtxECmd\EvtxECmd.exe --sync'
+    - name: '{{ downloads }}\memprocfs-analyzer\mpfsa\Tools\EvtxECmd\EvtxECmd.exe --sync'
     - shell: cmd
     - require:
       - cmd: memprocfs-analyzer-updater-download-only
 
 recmd-sync-download-only:
   cmd.run:
-    - name: '{{ downloads }}\memprocfs-analyzer\memprocfs-analyzer\Tools\RECmd\RECmd.exe --sync'
+    - name: '{{ downloads }}\memprocfs-analyzer\mpfsa\Tools\RECmd\RECmd.exe --sync'
     - shell: cmd
     - require:
       - cmd: memprocfs-analyzer-updater-download-only
