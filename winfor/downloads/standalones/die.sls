@@ -26,7 +26,7 @@ die-defender-exclusion-download-only:
     - shell: powershell
 {% else %}
 
-"Defender is not present on the system - no exclusions required to download die.":
+"Defender is not present on the system - no exclusions required to download DiE.":
   test.nop
 
 {% endif %}
