@@ -17,6 +17,7 @@ include:
   - winfor.downloads.packages.dokany
   - winfor.downloads.packages.importexcel
   - winfor.downloads.packages.dotnet9-desktop-runtime
+  - winfor.packages.nuget
 
 memprocfs-analyzer-download-only:
   file.managed:
@@ -24,10 +25,16 @@ memprocfs-analyzer-download-only:
     - source: https://github.com/LETHAL-FORENSICS/MemProcFS-Analyzer/releases/download/v{{ version }}/MemProcFS-Analyzer-v{{ version }}.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True
+    - require:
+      - sls: winfor.packages.nuget
+      - sls: winfor.downloads.packages.clamav
+      - sls: winfor.downloads.packages.dokany
+      - sls: winfor.downloads.packages.importexcel
+      - sls: winfor.downloads.packages.dotnet9-desktop-runtime
 
 memprocfs-analyzer-extract-download-only:
   archive.extracted:
-    - name: '{{ downloads }}\memprocfs-analyzer'
+    - name: '{{ downloads }}\memprocfs-analyzer\'
     - source: '{{ downloads }}\memprocfs-analyzer\MemProcFS-Analyzer-v{{ version }}.zip'
     - enforce_toplevel: False
     - require:
@@ -35,7 +42,7 @@ memprocfs-analyzer-extract-download-only:
 
 memprocfs-analyzer-folder-rename-download-only:
   file.rename:
-    - name: '{{ downloads }}\memprocfs-analyzer\mpfsa\'
+    - name: '{{ downloads }}\memprocfs-analyzer\mpfsa'
     - source: '{{ downloads }}\memprocfs-analyzer\MemProcFS-Analyzer-main\'
     - force: True
     - makedirs: True
@@ -61,17 +68,3 @@ memprocfs-analyzer-updater-download-only:
       - file: memprocfs-analyzer-modify-updater-download-only
     - watch:
       - file: memprocfs-analyzer-modify-updater-download-only
-
-evtxecmd-sync-download-only:
-  cmd.run:
-    - name: '{{ downloads }}\memprocfs-analyzer\mpfsa\Tools\EvtxECmd\EvtxECmd.exe --sync'
-    - shell: cmd
-    - require:
-      - cmd: memprocfs-analyzer-updater-download-only
-
-recmd-sync-download-only:
-  cmd.run:
-    - name: '{{ downloads }}\memprocfs-analyzer\mpfsa\Tools\RECmd\RECmd.exe --sync'
-    - shell: cmd
-    - require:
-      - cmd: memprocfs-analyzer-updater-download-only
