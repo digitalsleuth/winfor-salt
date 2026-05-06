@@ -8,7 +8,7 @@
 # Notes: 
 
 {% set version = '2026.5.0' %}
-{% set hash = '12c7e9e3990959e374feb1919590428f7044feb1de9940c454c58ff41f488094' %}
+{% set hash = '7cdf8356400351612875ac2e1e26edde084b5f738242790d32ae0c83883f548b' %}
 {% set hasher_hash = 'a8a343013d6ed5b6988ebce1b3a561df51ab5928bc3a0f489a7e175f8f6f89d4' %}
 {% set hasher_version = '2026.5.0' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
@@ -34,15 +34,6 @@ zimmerman-tools-install:
     - enforce_toplevel: False
     - watch:
       - file: zimmerman-tools
-
-zimmerman-tools-fix-index-url:
-  file.replace:
-    - name: '{{ inpath }}\zimmerman\Get-ZimmermanTools.ps1'
-    - pattern: '"https://raw.githubusercontent.com/EricZimmerman/ericzimmerman.github.io/master/index.md"'
-    - repl: '"https://raw.githubusercontent.com/EricZimmerman/ericzimmerman.github.io/refs/heads/master/docs/index.md"'
-    - backup: False
-    - require:
-      - archive: zimmerman-tools-install
 
 zimmerman-tools-download:
   cmd.run:
