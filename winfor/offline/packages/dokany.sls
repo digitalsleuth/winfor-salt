@@ -26,7 +26,7 @@ Dokany {{ version }} (offline) is already installed:
 
 dokany-install-offline:
   cmd.run:
-    - name: 'msiexec /i {{ downloads }}\dokany\Dokan_x64-{{ version }}.exe /qn /norestart'
+    - name: 'msiexec /i {{ downloads }}\dokany\Dokan_x64-{{ version }}.msi /qn /norestart'
     - shell: cmd
 
 {% endif %}
