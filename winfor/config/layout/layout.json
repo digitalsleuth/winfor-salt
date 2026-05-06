@@ -2419,6 +2419,17 @@
         "Enabled": true,
         "ExtraTiles": []
       },
+      "CaseNotes Pro": {
+        "CbName": "installers_casenotes_pro",
+        "CbContent": "CaseNotes Pro",
+        "DAID": "{6D809377-6AF0-444B-8957-A3773F02200E}\\First Response\\CaseNotes Professional\\CaseNotesPro.exe",
+        "AUMID": false,
+        "DALP": false,
+        "StartMenu": true,
+        "Checked": true,
+        "Enabled": true,
+        "ExtraTiles": []
+      },
       "ClamAV": {
         "CbName": "packages_clamav",
         "CbContent": "ClamAV",
