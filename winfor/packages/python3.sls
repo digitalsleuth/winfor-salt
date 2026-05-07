@@ -7,18 +7,20 @@
 # Version: 3.10.11150.0
 # Notes:
 
-{% set installed = salt['cmd.run']('powershell -c "(Get-ItemProperty HKLM:\\Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\* | Where-Object {$_.DisplayName -match \'^Python 3\' } | Select-Object -ExpandProperty DisplayVersion | Select -First 1)"') %}
 {% set version = '3.10.11150' %}
-{% set major = installed.split(".")[0] %}
-{% set minor = installed.split(".")[1] %}
+{% from 'winfor/_macros/is_installed.jinja' import check_installed, get_version %}
+{% set installed = check_installed('Python 3') | trim == 'true' %}
+{% set installed_version = get_version('Python 3') | trim %}
+{% if installed and installed_version | length > 0 and installed_version != version %}
+  {% if installed_version.split(".")[0] == '3' and (installed_version.split(".")[1] | int) >= 10 %}
+
+Python {{ major }}.{{ minor }} or above is already installed:
+  test.nop
+  {% else %}
 
 include:
   - winfor.repos
 
-{% if installed and major == '3' and (minor | int) >= 10 %}
-Python {{ major }}.{{ minor }} already installed:
-  test.nop
-{% else %}
 
 python3_x64:
   pkg.installed:
@@ -59,4 +61,5 @@ python3-symlink:
     - require:
       - pkg: python3_x64
 
+  {% endif %}
 {% endif %}
