@@ -1783,7 +1783,7 @@
     "HeaderName": "header_raw",
     "HeaderContent": "Raw Parsers / Decoders",
     "Tools": {
-      "1768": {
+      "1768 Script": {
         "CbName": "python3_tools_1768_script",
         "CbContent": "1768.py",
         "DAID": "",
