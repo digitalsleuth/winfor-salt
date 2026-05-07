@@ -1784,7 +1784,7 @@
     "HeaderContent": "Raw Parsers / Decoders",
     "Tools": {
       "1768": {
-        "CbName": "python3_tools_1768",
+        "CbName": "python3_tools_1768_script",
         "CbContent": "1768.py",
         "DAID": "",
         "AUMID": false,

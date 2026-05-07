@@ -14,7 +14,7 @@
 include:
   - winfor.packages.python3
 
-1768:
+1768-download:
   file.managed:
     - name: 'C:\Program Files\Python310\Scripts\1768.py'
     - source: https://github.com/DidierStevens/DidierStevensSuite/raw/refs/heads/master/1768.py
@@ -29,7 +29,7 @@ include:
       - '@echo off'
       - 'python3 "C:\Program Files\Python310\Scripts\1768.py" %*'
     - require:
-      - file: 1768
+      - file: 1768-download
       - sls: winfor.packages.python3
 
 1768-requirements:
@@ -40,4 +40,4 @@ include:
     - bin_env: 'C:\Program Files\Python310\python.exe'
     - require:
       - sls: winfor.packages.python3
-      - file: 1768
+      - file: 1768-download
