@@ -4,11 +4,11 @@
 # Category: Executables
 # Author: ExeinfoASL
 # License: None Listed
-# Version: 0.0.9.5
+# Version: 0.0.9.7
 # Notes: 
 
-{% set version = '0.0.9.5' %}
-{% set hash = '5d572cc193f7a7286de300392e4df2697d15edb6c1dbb9caaceed6515607c967' %}
+{% set version = '0.0.9.7' %}
+{% set hash = '812e210f834a60845b2cc11136817a244dd9a0137994d33d9f2cd2ab662dc797' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 exeinfope-download-only:

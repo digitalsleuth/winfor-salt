@@ -4,66 +4,72 @@
 # Category: Mobile Analysis
 # Author: Alexis Brignoni
 # License: MIT License (https://github.com/abrignoni/ALEAPP/blob/main/LICENSE)
-# Version: 3.4.0
+# Version: 3.4.1
 # Notes: 
 
-{% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set version = '3.4.1' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set version = '3.4.0' %}
+{% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set hash = '16516091fa560aeecc1f7e06509b863a448606055ddf66ac5355f2c2b28ded4a' %}
 
 include:
   - winfor.packages.python3
-  - winfor.packages.git
 
-python3-aleapp-source:
-  git.latest:
-    - name: https://github.com/abrignoni/aleapp
-    - target: '{{ inpath }}\aleapp'
-    - rev: main
-    - force_clone: True
-    - force_reset: True
+aleapp-source:
+  file.managed:
+    - name: '{{ inpath }}\aleapp\ALEAPP-{{ version }}.zip'
+    - source: https://github.com/abrignoni/ALEAPP/archive/refs/tags/v{{ version }}.zip
+    - source_hash: sha256={{ hash }}
+    - makedirs: True
+
+aleapp-source-extract:
+  archive.extracted:
+    - name: '{{ inpath }}\aleapp\'
+    - source: '{{ inpath }}\aleapp\ALEAPP-{{ version }}.zip'
+    - enforce_toplevel: False
     - require:
-      - sls: winfor.packages.git
+      - file: aleapp-source
 
-python3-aleapp-patch-requirements:
+aleapp-patch-requirements:
   file.line:
     - name: '{{ inpath }}\aleapp\requirements.txt'
     - mode: delete
     - content: "packaging==20.1"
     - require:
-      - git: python3-aleapp-source
+      - file: aleapp-source
+      - archive: aleapp-source-extract
 
-python3-aleapp-requirements:
+aleapp-requirements:
   pip.installed:
     - requirements: '{{ inpath }}\aleapp\requirements.txt'
     - bin_env: 'C:\Program Files\Python310\python.exe'
     - require:
-      - git: python3-aleapp-source
+      - git: aleapp-source
       - sls: winfor.packages.python3
-      - file: python3-aleapp-patch-requirements
+      - file: aleapp-patch-requirements
 
-python3-aleapp-header:
+aleapp-header:
   file.prepend:
     - names:
       - '{{ inpath }}\aleapp\aleapp.py'
       - '{{ inpath }}\aleapp\aleappGUI.py'
     - text: '#!/usr/bin/python3'
     - require:
-      - git: python3-aleapp-source
-      - pip: python3-aleapp-requirements
+      - file: aleapp-source
+      - pip: aleapp-requirements
 
-python3-aleapp-env-vars:
+aleapp-env-vars:
   win_path.exists:
     - name: '{{ inpath }}\aleapp\'
 
-python3-aleapp-icon:
+aleapp-icon:
   file.managed:
     - name: '{{ inpath }}\aleapp\abrignoni-logo.ico'
     - source: salt://winfor/files/abrignoni-logo.ico
     - skip_verify: True
     - makedirs: True
 
-python3-aleapp-gui-shortcut:
+aleapp-gui-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\ALEAPP-GUI.lnk'
     - target: '{{ inpath }}\aleapp\aleappGUI.py'
@@ -72,8 +78,8 @@ python3-aleapp-gui-shortcut:
     - icon_location: '{{ inpath }}\aleapp\abrignoni-logo.ico'
     - makedirs: True
     - require:
-      - git: python3-aleapp-source
-      - pip: python3-aleapp-requirements
-      - file: python3-aleapp-header
-      - win_path: python3-aleapp-env-vars
-      - file: python3-aleapp-icon
+      - git: aleapp-source
+      - pip: aleapp-requirements
+      - file: aleapp-header
+      - win_path: aleapp-env-vars
+      - file: aleapp-icon

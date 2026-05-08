@@ -49,7 +49,6 @@ include:
   - winfor.downloads.packages.ilspy
   - winfor.downloads.packages.importexcel
   - winfor.downloads.packages.irfanview
-  - winfor.downloads.packages.itunes
   - winfor.downloads.packages.jdk17
   - winfor.downloads.packages.kernel-edb-viewer
   - winfor.downloads.packages.kernel-ost-viewer
@@ -303,7 +302,6 @@ download-states:
       - sls: winfor.downloads.packages.ilspy
       - sls: winfor.downloads.packages.importexcel
       - sls: winfor.downloads.packages.irfanview
-      - sls: winfor.downloads.packages.itunes
       - sls: winfor.downloads.packages.jdk17
       - sls: winfor.downloads.packages.kernel-edb-viewer
       - sls: winfor.downloads.packages.kernel-ost-viewer

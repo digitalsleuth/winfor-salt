@@ -2563,7 +2563,7 @@
         "ExtraTiles": []
       },
       "iTunes": {
-        "CbName": "packages_itunes",
+        "CbName": "installers_itunes",
         "CbContent": "iTunes",
         "DAID": "Apple.iTunes",
         "AUMID": false,

@@ -4,11 +4,11 @@
 # Category: Windows Analysis
 # Author: ANSSI-FR
 # License: CeCILL Free Software License Agreement v2.1 (https://github.com/ANSSI-FR/bmc-tools/blob/master/LICENCE.txt)
-# Version: 3.04
+# Version: 3.05
 # Notes:
 
-{% set hash = 'a28367c083ee77378130964e9fa7fbc9ce0c1a5cbc29f983fe1f02af9b0fd089' %}
-{% set version = '3.04' %}
+{% set hash = '4f2453a968e0d0dc66dc0afdb2e79c1af36bfdbae5a06e3c8c89a616ad82ca92' %}
+{% set version = '3.05' %}
 
 include:
   - winfor.packages.python3
