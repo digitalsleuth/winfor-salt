@@ -4,10 +4,10 @@
 # Category: Executables
 # Author: Rocky R. Bernstein
 # License: GNU General Public License v3 (https://github.com/rocky/python-decompile3/blob/master/COPYING)
-# Version: 3.9.2
+# Version: 3.9.3
 # Notes: 
 
-{% set version = '3.9.2' %}
+{% set version = '3.9.3' %}
 
 include:
   - winfor.packages.git
