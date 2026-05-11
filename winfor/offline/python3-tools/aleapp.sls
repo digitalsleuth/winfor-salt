@@ -50,7 +50,7 @@ aleapp-gui-shortcut-offline:
     - target: '{{ inpath }}\aleapp\aleappGUI.py'
     - force: True
     - working_dir: '{{ inpath }}\aleapp\'
-    - icon_location: '{{ inpath }}\aleapp\abrignoni-logo.ico'
+    - icon_location: '{{ inpath }}\aleapp\aleapp.ico'
     - makedirs: True
     - require:
       - cmd: aleapp-requirements-install-offline
