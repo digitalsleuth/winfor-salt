@@ -4,80 +4,75 @@
 # Category: Mobile Analysis
 # Author: Alexis Brignoni
 # License: MIT License (https://github.com/abrignoni/iLEAPP/blob/main/LICENSE)
-# Version: 2.2.0
+# Version: 2.3.1
 # Notes: 
 
-{% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set version = '2.3.1' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set version = '2.2.0' %}
+{% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set hash = 'fe5d74d033b43533c7954195832c729cbf090177211f159299f6e499b6457a45' %}
 
 include:
   - winfor.packages.python3
-  - winfor.packages.git
   - winfor.packages.ms-vcpp-2015-build-tools
 
-python3-ileapp-source:
-  git.latest:
-    - name: https://github.com/abrignoni/ileapp
-    - target: '{{ inpath }}\ileapp'
-    - rev: main
-    - force_clone: True
-    - force_reset: True
-    - force_fetch: True
-    - require:
-      - sls: winfor.packages.git
+ileapp-source:
+  file.managed:
+    - name: '{{ inpath }}\ileapp\iLEAPP-{{ version }}.zip'
+    - source: https://github.com/abrignoni/ileapp/archive/refs/tags/v{{ version }}.zip
+    - source_hash: sha256={{ hash }}
+    - makedirs: True
 
-python3-ileapp-patch-requirements:
-  file.line:
-    - name: '{{ inpath }}\ileapp\requirements.txt'
-    - mode: delete
-    - content: "packaging==20.1"
+ileapp-source-extract:
+  archive.extracted:
+    - name: '{{ inpath }}\ileapp\'
+    - source: '{{ inpath }}\ileapp\ileapp-{{ version }}.zip'
+    - enforce_toplevel: False
     - require:
-      - git: python3-ileapp-source
+      - file: ileapp-source
 
-python3-ileapp-requirements:
+ileapp-requirements:
   pip.installed:
     - requirements: '{{ inpath }}\ileapp\requirements.txt'
     - bin_env: 'C:\Program Files\Python310\python.exe'
     - cwd: '{{ inpath }}\ileapp'
     - require:
-      - git: python3-ileapp-source
+      - file: ileapp-source
       - sls: winfor.packages.python3
       - sls: winfor.packages.ms-vcpp-2015-build-tools
-      - file: python3-ileapp-patch-requirements
 
-python3-ileapp-header:
+ileapp-header:
   file.prepend:
     - names:
       - '{{ inpath }}\ileapp\ileapp.py'
       - '{{ inpath }}\ileapp\ileappGUI.py'
     - text: '#!/usr/bin/python3'
     - require:
-      - git: python3-ileapp-source
-      - pip: python3-ileapp-requirements
+      - file: ileapp-source
+      - pip: ileapp-requirements
 
-python3-ileapp-env-vars:
+ileapp-env-vars:
   win_path.exists:
     - name: '{{ inpath }}\ileapp\'
 
-python3-ileapp-icon:
+ileapp-icon:
   file.managed:
-    - name: '{{ inpath }}\ileapp\abrignoni-logo.ico'
-    - source: salt://winfor/files/abrignoni-logo.ico
+    - name: '{{ inpath }}\ileapp\ileapp.ico'
+    - source: salt://winfor/files/ileapp.ico
     - skip_verify: True
     - makedirs: True
 
-python3-ileapp-gui-shortcut:
+ileapp-gui-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\ILEAPP-GUI.lnk'
     - target: '{{ inpath }}\ileapp\ileappGUI.py'
     - force: True
     - working_dir: '{{ inpath }}\ileapp\'
-    - icon_location: '{{ inpath }}\ileapp\abrignoni-logo.ico'
+    - icon_location: '{{ inpath }}\ileapp\ileapp.ico'
     - makedirs: True
     - require:
-      - git: python3-ileapp-source
-      - pip: python3-ileapp-requirements
-      - file: python3-ileapp-header
-      - win_path: python3-ileapp-env-vars
-      - file: python3-ileapp-icon
+      - file: ileapp-source
+      - pip: ileapp-requirements
+      - file: ileapp-header
+      - win_path: ileapp-env-vars
+      - file: ileapp-icon

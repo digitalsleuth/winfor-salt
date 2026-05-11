@@ -41,8 +41,9 @@ aleap-folder-rename:
 aleapp-patch-requirements-download-only:
   file.line:
     - name: '{{ downloads }}\aleapp\requirements.txt'
-    - mode: delete
-    - content: "packaging==20.1"
+    - mode: replace
+    - match: "packaging==20.1"
+    - content: "packaging==24.1"
     - require:
       - file: aleapp-source-download-only
       - archive: aleapp-source-extract-download-only
@@ -67,8 +68,8 @@ aleapp-header-download-only:
 
 aleapp-icon-download-only:
   file.managed:
-    - name: '{{ downloads }}\aleapp\abrignoni-logo.ico'
-    - source: salt://winfor/files/abrignoni-logo.ico
+    - name: '{{ downloads }}\aleapp\aleapp.ico'
+    - source: salt://winfor/files/aleapp.ico
     - skip_verify: True
     - makedirs: True
 
