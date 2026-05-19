@@ -38,7 +38,20 @@ python3-symlink-offline:
     - require:
       - cmd: python3-x64-offline
 
+python3-filetype-association-offline:
+  cmd.run:
+    - name: 'ftype Python.File="C:\Windows\py.exe" %L %*'
+    - shell: cmd
+
+python3-pathext-offline:
+  cmd.run:
+    - names:
+      - setx /M PATHEXT "%PATHEXT:;.PY;.PYW=%"
+      - setx /M PATHEXT "%PATHEXT%;.PY;.PYW"
+    - shell: cmd
+
 {% else %}
 "Python {{ version }} is already installed":
   test.nop
 {% endif %}
+
