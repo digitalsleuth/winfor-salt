@@ -4,12 +4,12 @@
 # Category: Mobile Analysis
 # Author: Alexis Brignoni
 # License: MIT License (https://github.com/abrignoni/VLEAPP/blob/main/LICENSE)
-# Version: 2.1.2
+# Version: 2.2.0
 # Notes: 
 
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set version = '2.1.2' %}
+{% set version = '2.2.0' %}
 
 include:
   - winfor.packages.python3

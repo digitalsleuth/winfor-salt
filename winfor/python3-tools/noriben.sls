@@ -7,8 +7,9 @@
 # Version: 2.0.4
 # Notes: 
 
-{% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set version = '2.0.4' %}
+{% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
+{% set files = ['Noriben', 'NoribenSandbox', 'NoribenRead'] %}
 
 include:
   - winfor.packages.git
@@ -32,6 +33,14 @@ noriben-header:
       - git: noriben-clone
       - sls: winfor.packages.python3
 
-noriben-env-vars:
-  win_path.exists:
-    - name: '{{ inpath }}\noriben\'
+{% for file in files %}
+noriben-wrapper-{{ file }}:
+  file.managed:
+    - name: 'C:\Program Files\Python310\Scripts\{{ file }}.cmd'
+    - win_inheritance: True
+    - contents:
+      - '@echo off'
+      - '"C:\Program Files\Python310\python.exe" "{{ inpath }}\noriben\{{ file }}.py" %*'
+    - require:
+      - sls: winfor.packages.python3
+{% endfor %}

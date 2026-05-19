@@ -42,17 +42,12 @@ oledump-header:
       - sls: winfor.packages.python3
       - sls: winfor.python3-tools.olefile
 
-oledump-env-vars:
-  win_path.exists:
-    - name: '{{ inpath }}\oledump\'
-
 oledump-wrapper:
   file.managed:
-    - name: '{{ inpath }}\oledump\oledump.cmd'
+    - name: 'C:\Program Files\Python310\Scripts\oledump.cmd'
     - win_inheritance: True
     - contents:
       - '@echo off'
       - '"C:\Program Files\Python310\python.exe" {{ inpath }}\oledump\oledump.py %*'
     - require:
       - file: oledump-header
-      - win_path: oledump-env-vars

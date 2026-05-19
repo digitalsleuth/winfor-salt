@@ -4,8 +4,10 @@
 # Category: Requirements
 # Author: Helder Eijs (Legrandin)
 # License: Public Domain / BSD (https://github.com/Legrandin/pycryptodome/blob/master/LICENSE.rst)
-# Version: 3.16.0
+# Version: 3.23.0
 # Notes: 
+
+{% set version = '3.23.0' %}
 
 include:
   - winfor.packages.python3

@@ -4,8 +4,10 @@
 # Category: Documents / Editors
 # Author: Philippe Lagadec
 # License: https://github.com/decalage2/oletools/blob/master/LICENSE.md
-# Version: 0.60.1
+# Version: 0.60.2
 # Notes: 
+
+{% set version = '0.60.2' %}
 
 include:
   - winfor.packages.python3

@@ -4,8 +4,10 @@
 # Category: Acquisition and Analysis
 # Author: https://github.com/log2timeline/plaso/blob/main/AUTHORS
 # License: Apache License v2 (https://github.com/log2timeline/plaso/blob/main/LICENSE)
-# Version: 20231224
+# Version: 20260512
 # Notes: log2timeline.py, psort.py, psteal.py
+
+{% set version = '20260512' %}
 
 include:
   - winfor.packages.git

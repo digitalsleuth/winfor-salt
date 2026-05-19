@@ -4,9 +4,10 @@
 # Category: Documents / Editors
 # Author: Didier Stevens
 # License: Public Domain
-# Version: 0.0.12
+# Version: 0.0.15
 # Notes: 
 
+{% set version = '0.0.15' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set files = ['rtfdump.py','rtf.yara'] %}
 
@@ -35,17 +36,12 @@ rtfdump-header:
       - sls: winfor.packages.python3
       - sls: winfor.python3-tools.yara-python
 
-rtfdump-env-vars:
-  win_path.exists:
-    - name: '{{ inpath }}\rtfdump\'
-
 rtfdump-wrapper:
   file.managed:
-    - name: '{{ inpath }}\rtfdump\rtfdump.cmd'
+    - name: 'C:\Program Files\Python310\Scripts\rtfdump.cmd'
     - win_inheritance: True
     - contents:
       - '@echo off'
       - '"C:\Program Files\Python310\python.exe" {{ inpath }}\rtfdump\rtfdump.py %*'
     - require:
       - file: rtfdump-header
-      - win_path: rtfdump-env-vars

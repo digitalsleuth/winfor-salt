@@ -30,7 +30,7 @@ aleapp-source-extract-download-only:
     - require:
       - file: aleapp-source-download-only
 
-aleap-folder-rename:
+aleapp-folder-rename:
   file.rename:
     - name: '{{ downloads }}\aleapp'
     - source: '{{ downloads }}\ALEAPP-{{ version }}'

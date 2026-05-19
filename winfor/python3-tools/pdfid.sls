@@ -4,9 +4,10 @@
 # Category: Documents / Editors
 # Author: Didier Stevens
 # License: Public Domain
-# Version: 0.2.8
+# Version: 0.2.10
 # Notes: 
 
+{% set version = '0.2.10' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set files = ['pdfid.py','pdfid.ini','plugin_embeddedfile.py','plugin_nameobfuscation.py','plugin_triage.py','plugin_list'] %}
 
@@ -33,17 +34,12 @@ pdfid-header:
     - require:
       - sls: winfor.packages.python3
 
-pdfid-env-vars:
-  win_path.exists:
-    - name: '{{ inpath }}\pdfid\'
-
 pdfid-wrapper:
   file.managed:
-    - name: '{{ inpath }}\pdfid\pdfid.cmd'
+    - name: 'C:\Program Files\Python310\Scripts\pdfid.cmd'
     - win_inheritance: True
     - contents:
       - '@echo off'
       - '"C:\Program Files\Python310\python.exe" {{ inpath }}\pdfid\pdfid.py %*'
     - require:
       - file: pdfid-header
-      - win_path: pdfid-env-vars

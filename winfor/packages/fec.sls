@@ -4,12 +4,12 @@
 # Category: Email
 # Author: Arman Gungor - Metaspike
 # License:
-# Version: 4.4.787.1266
+# Version: 4.4.803.1410
 # Notes:
 
-{% set url_hash = "66c4cba67301" %}
-{% set version = "4.4.787.1266" %}
-{% set hash = "DC017B2A0D2E14169783185628EA6D941EAE5C50C1FECEEF466EC28B0DE2A2E9" %}
+{% set url_hash = "01401b5ba718" %}
+{% set version = '4.4.803.1410' %}
+{% set hash = '11406e1f2329c6b090b64005e7ab439d1018308ed596ad9d4084f8c1980092bf' %}
 
 forensic-email-collector:
   file.managed:

@@ -7,8 +7,9 @@
 # Version: 0.0.5
 # Notes: 
 
-{% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set version = '0.0.5' %}
+{% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
+{% set hash = 'f0a78b7263704d8740a7d4738a8b3d5cfc6037de619953b444a0019551826367' %}
 
 include:
   - winfor.packages.python3
@@ -18,7 +19,7 @@ msoffcrypto-crack-download:
   file.managed:
     - name: '{{ inpath }}\msoffcrypto-crack\msoffcrypto-crack.py'
     - source: https://github.com/DidierStevens/DidierStevensSuite/raw/master/msoffcrypto-crack.py
-    - source_hash: sha256=f0a78b7263704d8740a7d4738a8b3d5cfc6037de619953b444a0019551826367
+    - source_hash: sha256={{ hash }}
     - makedirs: True
     - require:
       - sls: winfor.packages.python3
