@@ -21,7 +21,7 @@ itunes-download:
 
 itunes-install:
   cmd.run:
-    - name: "C:\salt\tempdownload\iTunes64Setup.exe /quiet /qn ALLUSERS=1 /norestart"
+    - name: 'C:\salt\tempdownload\iTunes64Setup.exe /quiet /qn ALLUSERS=1 /norestart'
     - shell: cmd
     - success_retcodes: 3010
     - require:
