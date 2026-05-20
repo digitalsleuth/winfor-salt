@@ -61,5 +61,21 @@ python3-symlink:
     - require:
       - pkg: python3_x64
 
+python3-filetype-association-package-state:
+  cmd.run:
+    - name: 'ftype Python.File="C:\Windows\py.exe" %L %*'
+    - shell: cmd
+    - require:
+      - pkg: python3_x64
+
+python3-pathext-package-state:
+  cmd.run:
+    - names:
+      - setx /M PATHEXT "%PATHEXT:;.PY;.PYW=%"
+      - setx /M PATHEXT "%PATHEXT%;.PY;.PYW"
+    - shell: cmd
+    - require:
+      - pkg: python3_x64
+
   {% endif %}
 {% endif %}

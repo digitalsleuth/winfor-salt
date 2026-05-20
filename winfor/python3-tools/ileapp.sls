@@ -18,18 +18,33 @@ include:
 
 ileapp-source:
   file.managed:
-    - name: '{{ inpath }}\ileapp\iLEAPP-{{ version }}.zip'
+    - name: '{{ inpath }}\iLEAPP-{{ version }}.zip'
     - source: https://github.com/abrignoni/ileapp/archive/refs/tags/v{{ version }}.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True
 
 ileapp-source-extract:
   archive.extracted:
-    - name: '{{ inpath }}\ileapp\'
-    - source: '{{ inpath }}\ileapp\ileapp-{{ version }}.zip'
+    - name: '{{ inpath }}\'
+    - source: '{{ inpath }}\ileapp-{{ version }}.zip'
     - enforce_toplevel: False
     - require:
       - file: ileapp-source
+
+ileapp-folder-rename:
+  file.rename:
+    - name: '{{ inpath }}\ileapp'
+    - source: '{{ inpath }}\iLEAPP-{{ version }}'
+    - makedirs: True
+    - force: True
+    - require:
+      - archive: ileapp-source-extract
+
+ileapp-remove-archive:
+  file.absent:
+    - name: '{{ inpath }}\iLEAPP-{{ version }}.zip'
+    - require:
+      - file: ileapp-folder-rename
 
 ileapp-requirements:
   pip.installed:

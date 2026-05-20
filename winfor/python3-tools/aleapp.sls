@@ -17,18 +17,33 @@ include:
 
 aleapp-source:
   file.managed:
-    - name: '{{ inpath }}\aleapp\ALEAPP-{{ version }}.zip'
+    - name: '{{ inpath }}\ALEAPP-{{ version }}.zip'
     - source: https://github.com/abrignoni/ALEAPP/archive/refs/tags/v{{ version }}.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True
 
 aleapp-source-extract:
   archive.extracted:
-    - name: '{{ inpath }}\aleapp\'
-    - source: '{{ inpath }}\aleapp\ALEAPP-{{ version }}.zip'
+    - name: '{{ inpath }}\'
+    - source: '{{ inpath }}\ALEAPP-{{ version }}.zip'
     - enforce_toplevel: False
     - require:
       - file: aleapp-source
+
+aleapp-folder-rename:
+  file.rename:
+    - name: '{{ inpath }}\aleapp'
+    - source: '{{ inpath }}\ALEAPP-{{ version }}\'
+    - makedirs: True
+    - force: True
+    - require:
+      - archive: aleapp-source-extract
+
+aleapp-archive-remove:
+  file.absent:
+    - name: '{{ inpath }}\ALEAPP-{{ version }}.zip'
+    - require:
+      - file: aleapp-folder-rename
 
 aleapp-patch-requirements:
   file.line:

@@ -58,7 +58,7 @@ zircolite-wrapper:
     - win_inheritance: True
     - contents:
       - '@echo off'
-      - 'python3 "{{ inpath }}\zircolite\zircolite.py" %*'
+      - '"C:\Program Files\Python310\python.exe" "{{ inpath }}\zircolite\zircolite.py" %*'
 
 zircolite-update-rules:
   cmd.run:

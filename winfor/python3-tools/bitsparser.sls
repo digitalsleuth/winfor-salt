@@ -18,7 +18,7 @@ bitsparser-clone:
   git.latest:
     - name: https://github.com/digitalsleuth/bitsparser
     - target: '{{ inpath }}\bitsparser'
-    - rev: master
+    - rev: main
     - force_clone: True
     - force_reset: True
     - require:

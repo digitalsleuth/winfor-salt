@@ -33,3 +33,5 @@ pdfstreamdumper-icon-remove:
     - require:
       - user: user-{{ user }}
       - pkg: pdfstreamdumper
+    - watch:
+      - pkg: pdfstreamdumper

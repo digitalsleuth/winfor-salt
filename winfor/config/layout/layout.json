@@ -2635,8 +2635,8 @@
         "AUMID": false,
         "DALP": false,
         "StartMenu": false,
-        "Checked": true,
-        "Enabled": true,
+        "Checked": false,
+        "Enabled": false,
         "ExtraTiles": []
       },
       "Rufus": {

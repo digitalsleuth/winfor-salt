@@ -58,8 +58,8 @@ python3-vleapp-env-vars:
 
 python3-vleapp-icon:
   file.managed:
-    - name: '{{ inpath }}\vleapp\abrignoni-logo.ico'
-    - source: salt://winfor/files/abrignoni-logo.ico
+    - name: '{{ inpath }}\vleapp\vleapp.ico'
+    - source: salt://winfor/files/vleapp.ico
     - skip_verify: True
     - makedirs: True
 
@@ -69,7 +69,7 @@ python3-vleapp-gui-shortcut:
     - target: '{{ inpath }}\vleapp\vleappGUI.py'
     - force: True
     - working_dir: '{{ inpath }}\vleapp\'
-    - icon_location: '{{ inpath }}\vleapp\abrignoni-logo.ico'
+    - icon_location: '{{ inpath }}\vleapp\vleapp.ico'
     - makedirs: True
     - require:
       - git: python3-vleapp-source
