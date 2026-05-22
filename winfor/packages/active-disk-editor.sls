@@ -4,7 +4,7 @@
 # Category: Acquisition and Analysis
 # Author: LSoft Technologies
 # License: https://www.lsoft.net/terms/
-# Version: 26
+# Version: 26.1.3
 # Notes: 
 
 include:

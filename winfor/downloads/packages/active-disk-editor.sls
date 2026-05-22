@@ -4,12 +4,12 @@
 # Category: Acquisition and Analysis
 # Author: LSoft Technologies
 # License: https://www.lsoft.net/terms/
-# Version: 26
+# Version: 26.1.3
 # Notes: 
 
-{% set hash = '1f1ce93cedc102bc4bc2e168a8713778cfc9e787b47757a88d849fd52586de77' %}
+{% set version = '26.1.3' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '26' %}
+{% set hash = '00b4462977a01fd6bf05d64d0115cc605c73a06e6bd9d6e332a01a198b310296' %}
 
 active-disk-editor-download-only:
   file.managed:
