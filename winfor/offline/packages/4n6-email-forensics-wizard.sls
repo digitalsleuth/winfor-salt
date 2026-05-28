@@ -4,16 +4,16 @@
 # Category: Email
 # Author: 4n6 Software
 # License: https://forensiksoft.com/terms/
-# Version: 7.5
+# Version: 7.6
 # Notes:
 
-{% set hash = 'c3af2d8ac883f12ed1b07a92c5c405d17f3ed8b5e4bb8b88bb4ff86e7c8d5ceb' %}
-{% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '7.5' %}
+{% set version = '7.6' %}
+{% set pkg = 'setup-email-forensics-wizard-'~ version ~'.exe' %}
+{% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 
-4n6-email-forensics-wizard-download-only:
-  file.managed:
-    - name: '{{ downloads }}\4n6-email-forensics\setup-email-forensics-wizard-{{ version }}.exe'
-    - source: https://forensiksoft.com/tools/setup-email-forensics-wizard.exe
-    - source_hash: sha256={{ hash }}
-    - makedirs: True
+4n6-email-forensics-wizard-install-offline:
+  cmd.run:
+    - name: '{{ pkg }} /VERYSILENT /ALLUSERS /SUPPRESSMSGBOXES /NORESTART /SP- /MERGETASKS=!DESKTOPICON,!RUNCODE'
+    - shell: cmd
+    - cwd: '{{ downloads }}\4n6-email-forensics\'
+

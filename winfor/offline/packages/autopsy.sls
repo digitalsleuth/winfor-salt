@@ -4,16 +4,15 @@
 # Category: Acquisition and Analysis
 # Author: Brian Carrier / Basis Technology
 # License: Apache 2.0 (https://github.com/sleuthkit/autopsy/blob/master/README.txt)
-# Version: 4.21.0
+# Version: 4.22.0
 # Notes: 
 
-{% set version = '4.21.0' %}
-{% set hash = '8401a11e0e276274f078eb613ce8494dd894617d436ba326be1cda0d2fd8ef0a' %}
-{% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
+{% set version = '4.22.0' %}
+{% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set PROGRAM_FILES = "%ProgramFiles%" %}
 
-autopsy-download-only:
-  file.managed:
-    - name: '{{ downloads }}\autopsy\autopsy-{{ version }}-64bit.msi'
-    - source: https://github.com/sleuthkit/autopsy/releases/download/autopsy-{{ version }}/autopsy-{{ version }}-64bit.msi
-    - source_hash: sha256={{ hash }}
-    - makedirs: True
+autopsy-install-offline:
+  cmd.run:
+    - name: 'msiexec /i autopsy-{{ version }}-64bit.msi APPDIR="{{ PROGRAM_FILES}}\Autopsy\" /quiet /norestart'
+    - shell: cmd
+    - cwd: '{{ downloads }}\autopsy'

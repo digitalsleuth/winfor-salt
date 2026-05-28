@@ -7,13 +7,33 @@
 # Version: 0.9.634
 # Notes: 
 
-{% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '0.9.634' %}
-{% set hash = 'c26068186f63dcce9cc57502be742c728110eab07570c319a0d7d10587a6e22d' %}
+{% set PROGRAM_FILES = "%ProgramFiles%" %}
+{% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set user = salt['pillar.get']('winfor_user', 'forensics') %}
+{% set current_user = salt['environ.get']('USERNAME') %}
+{% set all_users = salt['user.list_users']() %}
+{% if user in all_users %}
+  {% set home = salt['user.info'](user).home %}
+{% else %}
+{% set home = "C:\\Users\\" + user %}
+{% endif %}
 
-pdfstreamdumper-download-only:
-  file.managed:
-    - name: '{{ downloads }}\pdfstreamdumper\PDFStreamDumper_Setup-{{ version }}.exe'
-    - source: http://sandsprite.com/CodeStuff/PDFStreamDumper_Setup.exe
-    - source_hash: sha256={{ hash }}
-    - makedirs: True
+pdfstreamdumper-install-offline:
+  cmd.run:
+    - name: '{{ downloads }}\pdfstreamdumper\PDFStreamDumper-Setup-{{ version }}.exe /VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP- /MERGETASKS=!DESKTOPICON,!RUNCODE /DIR="{{ PROGRAM_FILES }}\PDFStreamDumper"'
+    - cwd: '{{ downloads }}\pdfstreamdumper'
+    - shell: cmd
+
+pdfstreamdumper-icon-remove-offline:
+  file.absent:
+    - names:
+      - '{{ home }}\Desktop\PdfStreamDumper.exe.lnk'
+    {% if user != current_user %}
+      - 'C:\Users\{{ current_user }}\Desktop\PdfStreamDumper.exe.lnk'
+    {% endif %}
+    - require:
+      - user: user-{{ user }}
+      - cmd: pdfstreamdumper-install-offline
+    - watch:
+      - cmd: pdfstreamdumper-install-offline

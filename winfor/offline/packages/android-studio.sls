@@ -4,34 +4,90 @@
 # Category: Mobile Analysis
 # Author: Google
 # License: 
-# Version: 2022.3.1.20
+# Version: 2025.3.2.6
 # Notes: Emulator comes with Android Studio, adb and fastboot are in the platform-tools, Build Tools can be downloaded using sdkmanager in the cmdline tools
 
-{% set as_version = '2022.3.1.20' %}
-{% set as_hash = '495d55bdd8bc1b8c6a41fcc5a31f8db0fbcd3199a82fc4b0847d32f99fbe11b6' %}
-{% set cmdline_version = '10406996' %}
-{% set cmdline_hash = '9b782a54d246ba5d207110fddd1a35a91087a8aaf4057e9df697b1cbc0ef60fc' %}
-{% set platform_version = '34.0.5' %}
-{% set platform_hash = '3f8320152704377de150418a3c4c9d07d16d80a6c0d0d8f7289c22c499e33571' %}
-{% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
+{% set cmdline_version = '14742923' %}
+{% set as_version = '2025.3.2.6' %}
+{% set bt_version = '34' %}
+{% set em_version = '36.6.9' %}
+{% set PROGRAM_FILES = salt['environ.get']('PROGRAMFILES') %}
+{% set broken_files = ['apkanalyzer.bat','lint.bat','screenshot2.bat'] %}
+{% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set install = 'echo y|"C:\Program Files\Common Files\Oracle\Java\javapath\java.exe" -Dcom.android.sdklib.toolsdir="C:\Program Files\Android\Android Studio\Sdk\cmdline-tools\latest" -classpath "C:\Program Files\Android\Android Studio\Sdk\cmdline-tools\latest\lib\sdkmanager-classpath.jar" com.android.sdklib.tool.sdkmanager.SdkManagerCli' %}
 
-android-studio-download-only:
-  file.managed:
-    - name: '{{ downloads }}\android-studio\android-studio-{{ as_version }}-windows.exe'
-    - source: https://redirector.gvt1.com/edgedl/android/studio/install/{{ as_version }}/android-studio-{{ as_version }}-windows.exe
-    - source_hash: sha256={{ as_hash }}
-    - makedirs: True
+include:
+  - winfor.offline.packages.jdk17
 
-cmdline-tools-download-only:
-  file.managed:
-    - name: '{{ downloads }}\android-studio\cmdline-tools-win-{{ cmdline_version }}_latest.zip'
-    - source: https://dl.google.com/android/repository/commandlinetools-win-{{ cmdline_version }}_latest.zip
-    - source_hash: sha256={{ cmdline_hash }}
-    - makedirs: True
+android-studio-install-offline:
+  cmd.run:
+    - name: '{{ downloads }}\android-studio\android-studio-{{ as_version }}-windows.exe /S'
+    - shell: cmd
+    - success_retcodes: 1223
 
-platform-tools-download-only:
-  file.managed:
-    - name: '{{ downloads }}\android-studio\platform-tools_r{{ platform_version }}-windows.zip'
-    - source: https://dl.google.com/android/repository/platform-tools_r{{ platform_version }}-windows.zip
-    - source_hash: sha256={{ platform_hash }}
+sdk-folder-offline:
+  file.directory:
+    - name: '{{ PROGRAM_FILES }}\Android\Android Studio\Sdk\cmdline-tools'
     - makedirs: True
+    - replace: True
+    - win_inheritance: True
+    - require:
+      - cmd: android-studio-install-offline
+
+cmdline-extract-offline:
+  archive.extracted:
+    - name: '{{ PROGRAM_FILES }}\Android\Android Studio\Sdk\cmdline-tools'
+    - source: '{{ downloads }}\android-studio\cmdline-tools-win-{{ cmdline_version }}_latest.zip'
+    - enforce_toplevel: False
+    - require:
+      - file: sdk-folder-offline
+      - cmd: android-studio-install-offline
+
+cmdline-tools-rename-offline:
+  file.rename:
+    - name: '{{ PROGRAM_FILES }}\Android\Android Studio\Sdk\cmdline-tools\latest'
+    - source: '{{ PROGRAM_FILES }}\Android\Android Studio\Sdk\cmdline-tools\cmdline-tools'
+    - force: True
+    - require:
+      - archive: cmdline-extract-offline
+      - cmd: android-studio-install-offline
+
+{% for file in broken_files %}
+cmdline-tools-fix-{{ file }}-offline:
+  file.replace:
+    - name: '{{ PROGRAM_FILES }}\Android\Android Studio\Sdk\cmdline-tools\latest\bin\{{ file }}'
+    - pattern: '%~dp0\\..'
+    - repl: '"%~dp0\\.."'
+    - count: 1
+    - require:
+      - cmd: android-studio-install-offline
+{% endfor %}
+
+build-tools-extract-offline:
+  archive.extracted:
+    - name: '{{ PROGRAM_FILES }}\Android\Android Studio\Sdk\build-tools'
+    - source: '{{ downloads }}\android-studio\build-tools-{{ bt_version }}-windows.zip'
+    - enforce_toplevel: False
+    - require:
+      - file: sdk-folder-offline
+      - cmd: android-studio-install-offline
+
+platform-tools-extract-offline:
+  archive.extracted:
+    - name: '{{ PROGRAM_FILES }}\Android\Android Studio\Sdk\'
+    - source: '{{ downloads }}\android-studio\platform-tools-latest-windows.zip'
+    - force: True
+
+emulator-extract-offline:
+  archive.extracted:
+    - name: '{{ PROGRAM_FILES }}\Android\Android Studio\Sdk\'
+    - source: '{{ downloads }}\android-studio\emulator-windows_x64-{{ em_version }}.zip'
+    - force: True
+    - require:
+      - file: sdk-folder-offline
+
+platform-tools-path-offline:
+  win_path.exists:
+    - name: '{{ PROGRAM_FILES }}\Android\Android Studio\Sdk\platform-tools\'
+    - require:
+      - archive: platform-tools-extract-offline

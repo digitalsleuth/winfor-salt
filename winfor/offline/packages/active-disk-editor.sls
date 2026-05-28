@@ -4,16 +4,14 @@
 # Category: Acquisition and Analysis
 # Author: LSoft Technologies
 # License: https://www.lsoft.net/terms/
-# Version: 23.0.1
+# Version: 26.1.3
 # Notes: 
 
-{% set hash = 'f4525250c8efa68fc442d3590781e39fbc9cbb106cc5c513d67ffb31d6f5ab38' %}
-{% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '23.0.1' %}
+{% set version = '26.1.3' %}
+{% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 
-active-disk-editor-download-only:
-  file.managed:
-    - name: '{{ downloads }}\active-disk-editor\diskeditor-freeware-{{ version }}.exe'
-    - source: https://www.disk-editor.org/download/diskeditor-freeware.exe
-    - source_hash: sha256={{ hash }}
-    - makedirs: True
+active-disk-editor-offline:
+  cmd.run:
+    - name: 'diskeditor-freeware-{{ version }}.exe /VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-'
+    - shell: cmd
+    - cwd: '{{ downloads }}\active-disk-editor'
