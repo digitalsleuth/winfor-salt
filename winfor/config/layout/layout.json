@@ -2152,6 +2152,17 @@
         "Enabled": true,
         "ExtraTiles": []
       },
+      "Desktop Fences Plus": {
+        "CbName": "standalones_desktop_fences",
+        "CbContent": "Desktop Fences Plus",
+        "DAID": "PLACEHOLDER_PATH\\desktop-fences\\Desktop Fences.exe",
+        "AUMID": false,
+        "DALP": false,
+        "StartMenu": true,
+        "Checked": true,
+        "Enabled": true,
+        "ExtraTiles": []
+      },
       "Elasticsearch": {
         "CbName": "standalones_elasticsearch",
         "CbContent": "Elasticsearch",
@@ -2456,6 +2467,17 @@
         "CbName": "standalones_magnet_edd",
         "CbContent": "Encrypted Disk Detector (EDD)",
         "DAID": "PLACEHOLDER_PATH\\magnet\\EDD\\EDDv310.exe",
+        "AUMID": false,
+        "DALP": false,
+        "StartMenu": false,
+        "Checked": true,
+        "Enabled": true,
+        "ExtraTiles": []
+      },
+      "Encrypted Disk Hunter": {
+        "CbName": "standalones_elcomsoft_eedh",
+        "CbContent": "Encrypted Disk Hunter",
+        "DAID": "PLACEHOLDER_PATH\\elcomsoft-eedh\\eedh.exe",
         "AUMID": false,
         "DALP": false,
         "StartMenu": false,
