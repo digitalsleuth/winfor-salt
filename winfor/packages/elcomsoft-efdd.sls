@@ -4,11 +4,11 @@
 # Category: Acquisition and Analysis
 # Author: Elcomsoft
 # License: EULA (https://www.elcomsoft.com/legal.html)
-# Version: 2.21.1024.8145
+# Version: 2.21.1036.8165
 # Notes:
 
-{% set version = '2.21.1024.8145' %}
-{% set hash = 'f6dcaa7c94be5346524d532003a535305eb70eea5ca16cc4e98333dc292a4e3c' %}
+{% set version = '2.21.1036.8165' %}
+{% set hash = '480b643d4165b78f89a6d4a964711a9b7309abbd6f897dc5f9dd63b89f0776a8' %}
 
 {% if salt['file.directory_exists']('C:\\salt\\tempdownload\\elcomsoft-efdd\\') %}
 elcomsoft-temp-directory-exists:

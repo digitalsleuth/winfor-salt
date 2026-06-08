@@ -4,14 +4,14 @@
 # Category: Executables
 # Author: JetBrains
 # License: EULA (https://www.jetbrains.com/legal/docs/toolbox/license_personal/)
-# Version: 2025.1.2
+# Version: 2026.1.2
 # Notes: 
 
-{% set version = '2025.1.2' %}
+{% set version = '2026.1.2' %}
 
 include:
   - winfor.repos
 
 dotpeek:
   pkg.installed:
-    - version: '2025.1.2'
+    - version: {{ version }}
