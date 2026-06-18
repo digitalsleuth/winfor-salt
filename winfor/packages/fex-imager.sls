@@ -4,7 +4,7 @@
 # Category: Acquisition and Analysis
 # Author: GetData Forensics
 # License: Free
-# Version: 2.2.1.304
+# Version: 2.2.1.306
 # Notes: 
 
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
