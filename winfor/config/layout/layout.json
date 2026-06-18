@@ -2152,10 +2152,10 @@
         "Enabled": true,
         "ExtraTiles": []
       },
-      "Desktop Fences Plus": {
-        "CbName": "standalones_desktop_fences",
-        "CbContent": "Desktop Fences Plus",
-        "DAID": "PLACEHOLDER_PATH\\desktop-fences\\Desktop Fences.exe",
+      "Desktop Frames Plus": {
+        "CbName": "standalones_desktop_frames",
+        "CbContent": "Desktop Frames Plus",
+        "DAID": "PLACEHOLDER_PATH\\desktop-frames\\Desktop Frames.exe",
         "AUMID": false,
         "DALP": false,
         "StartMenu": true,
