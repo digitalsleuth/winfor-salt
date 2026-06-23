@@ -13,7 +13,7 @@
 
 magnet-chromebook-acquisition:
   file.managed:
-    - name: '{{ downloads }}\magnetforensics\MCAA_Setup_v106.exe'
+    - name: '{{ downloads }}\magnetforensics\magnet-chromebook-acquisition-{{ version }}.exe'
     - source: https://github.com/digitalsleuth/salt-winrepo-ng/raw/main/files/MCAA_Setup_v106.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

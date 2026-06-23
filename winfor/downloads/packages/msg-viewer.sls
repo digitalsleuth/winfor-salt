@@ -13,7 +13,7 @@
 
 msg-viewer-download-only:
   file.managed:
-    - name: '{{ downloads }}\pstwalker\msgviewer{{ version }}.exe'
+    - name: '{{ downloads }}\msg-viewer\msg-viewer-{{ version }}.exe'
     - source: https://downloads.pstwalker.com/msgviewer{{ version }}.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

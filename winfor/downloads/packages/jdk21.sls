@@ -13,7 +13,7 @@
 
 jdk21-download-only:
   file.managed:
-    - name: '{{ downloads }}\jdk21\jdk-{{ version }}_windows-x64_bin.exe'
+    - name: '{{ downloads }}\jdk21\jdk-{{ version }}-x64.exe'
     - source: https://download.oracle.com/java/21/archive/jdk-{{ version }}_windows-x64_bin.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

@@ -4,16 +4,16 @@
 # Category: Utilities
 # Author: Microsoft
 # License: MIT (https://github.com/microsoft/PowerToys/blob/main/LICENSE)
-# Version: 0.91.1
+# Version: 0.100.0
 # Notes:
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '0.91.1' %}
-{% set hash = 'ec4bc3a8625775866b0ed4577ccf83e6ec7b1a0ad267379ddbaf4fe49c7b5bdd' %}
+{% set version = '0.100.0' %}
+{% set hash = '740c01945528e453c02490921ca2bd0e399021a80cf90dcf01db53158377d0e8' %}
 
 ms-powertoys-download-only:
   file.managed:
-    - name: '{{ downloads }}\powertoys\PowerToysSetup-{{ version }}-x64.exe'
+    - name: '{{ downloads }}\powertoys\powertoys-{{ version }}-x64.exe'
     - source: https://github.com/microsoft/PowerToys/releases/download/v{{ version }}/PowerToysSetup-{{ version }}-x64.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

@@ -13,7 +13,7 @@
 
 kernel-ost-viewer-download-only:
   file.managed:
-    - name: '{{ downloads }}\kernel\freekernelostviewer-{{ version }}.exe'
+    - name: '{{ downloads }}\kernel\kernel-ost-viewer-{{ version }}.exe'
     - source: https://www.nucleustechnologies.com/downloads/freekernelostviewer.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

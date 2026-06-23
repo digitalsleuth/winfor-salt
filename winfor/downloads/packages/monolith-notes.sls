@@ -13,7 +13,7 @@
 
 monolith-notes-download-only:
   file.managed:
-    - name: '{{ downloads }}\monolith\Monolith Notes Setup-{{ version }}.exe'
+    - name: '{{ downloads }}\monolith-notes\monolith-notes-{{ version }}.exe'
     - source: https://monolith-cloud.nyc3.cdn.digitaloceanspaces.com/updates/notes/Monolith%20Notes%20Setup.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

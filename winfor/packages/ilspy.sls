@@ -4,14 +4,17 @@
 # Category: Executables
 # Author: ICSharpCode (https://github.com/orgs/icsharpcode/people)
 # License: MIT License (https://github.com/icsharpcode/ILSpy/blob/master/doc/ILSpyAboutPage.txt)
-# Version: 8.1.1.7464
+# Version: 10.1.0.8386
 # Notes:
 
-{% set version = '8.1.1.7464' %}
-{% set core_version = '8.1.1' %}
+{% set version = '10.1.0.8386' %}
+{% set core_version = '10.1' %}
 
 include:
   - winfor.repos
+  - winfor.packages.dotnet10-desktop-runtime
 
 ilspy:
-  pkg.installed
+  pkg.installed:
+    - require:
+      - sls: winfor.packages.dotnet10-desktop-runtime

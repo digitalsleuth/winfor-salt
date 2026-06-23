@@ -13,7 +13,7 @@
 
 irfanview-plugins-download-only:
   file.managed:
-    - name: '{{ downloads }}\irfanview\iview{{ version }}_plugins_x64_setup.exe'
+    - name: '{{ downloads }}\irfanview\irfanview-plugins-{{ version }}-x64.exe'
     - source: https://download.fileforum.com/download/1099412658-1/iview{{ version }}_plugins_x64_setup.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

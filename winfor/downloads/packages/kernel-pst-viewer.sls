@@ -13,7 +13,7 @@
 
 kernel-pst-viewer-download-only:
   file.managed:
-    - name: '{{ downloads }}\kernel\freekernelpstviewer-{{ version }}.exe'
+    - name: '{{ downloads }}\kernel\kernel-pst-viewer-{{ version }}.exe'
     - source: https://www.nucleustechnologies.com/downloads/freekernelpstviewer.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

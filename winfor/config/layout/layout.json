@@ -899,17 +899,6 @@
         "Enabled": true,
         "ExtraTiles": []
       },
-      "KsDumper 11": {
-        "CbName": "packages_ksdumper11",
-        "CbContent": "KsDumper 11",
-        "DAID": "{6D809377-6AF0-444B-8957-A3773F02200E}\\KsDumper11\\KsDumper11.exe",
-        "AUMID": false,
-        "DALP": false,
-        "StartMenu": true,
-        "Checked": false,
-        "Enabled": false,
-        "ExtraTiles": []
-      },
       "Magnet Process Capture": {
         "CbName": "standalones_magnet_process_capture",
         "CbContent": "Magnet Process Capture",
