@@ -1,0 +1,259 @@
+include:
+  - winfor.offline.standalones.apktool
+  - winfor.offline.standalones.arsenal-image-mounter
+  - winfor.offline.standalones.aurora
+  - winfor.offline.standalones.autoit-extractor
+  - winfor.offline.standalones.autorunner
+  - winfor.offline.standalones.bintext
+  - winfor.offline.standalones.bitrecover-eml-viewer
+  - winfor.offline.standalones.bulkrenameutility-portable
+  - winfor.offline.standalones.bytecode-viewer
+  - winfor.offline.standalones.caffeine
+  - winfor.offline.standalones.caine
+  - winfor.offline.standalones.capa
+  - winfor.offline.standalones.chainsaw
+  - winfor.offline.standalones.codetrack
+  - winfor.offline.standalones.cutter
+  - winfor.offline.standalones.cyberchef
+  - winfor.offline.standalones.deark
+  - winfor.offline.standalones.densityscout
+  - winfor.offline.standalones.dependencies
+  - winfor.offline.standalones.dex2jar
+  - winfor.offline.standalones.die
+  - winfor.offline.standalones.droid
+  - winfor.offline.standalones.elasticsearch
+  - winfor.offline.standalones.entropy
+  - winfor.offline.standalones.eventfinder
+  - winfor.offline.standalones.evtx-dump
+  - winfor.offline.standalones.exeinfope
+  - winfor.offline.standalones.exiftool
+  - winfor.offline.standalones.fex-cloud-capture
+  - winfor.offline.standalones.fex-memory-imager
+  - winfor.offline.standalones.floss
+  - winfor.offline.standalones.ghidra
+  - winfor.offline.standalones.glossary-generator
+  - winfor.offline.standalones.hash-generator
+  - winfor.offline.standalones.hayabusa
+  - winfor.offline.standalones.hexwalk
+  - winfor.offline.standalones.hibernation-recon
+  - winfor.offline.standalones.hindsight
+  - winfor.offline.standalones.hollows-hunter
+  - winfor.offline.standalones.innoextract
+  - winfor.offline.standalones.innounp
+  - winfor.offline.standalones.iphone-analyzer
+  - winfor.offline.standalones.ipinfo
+  - winfor.offline.standalones.jd-gui
+  - winfor.offline.standalones.jq
+  - winfor.offline.standalones.kansa
+  - winfor.offline.standalones.kape
+  - winfor.offline.standalones.kibana
+  - winfor.offline.standalones.lessmsi
+  - winfor.offline.standalones.lnk-parser
+  - winfor.offline.standalones.logfileparser
+  - winfor.offline.standalones.logparser-studio
+  - winfor.offline.standalones.logviewer2
+  - winfor.offline.standalones.lrc-cedarpelta
+  - winfor.offline.standalones.magnet-dumpit
+  - winfor.offline.standalones.magnet-edd
+  - winfor.offline.standalones.magnet-process-capture
+  - winfor.offline.standalones.magnet-ram-capture
+  - winfor.offline.standalones.magnet-response
+  - winfor.offline.standalones.magnet-web-page-saver-portable
+  - winfor.offline.standalones.malcat
+  - winfor.offline.standalones.mal-unpack
+  - winfor.offline.standalones.megatools
+  - winfor.offline.standalones.memprocfs-analyzer
+  - winfor.offline.standalones.memprocfs
+  - winfor.offline.standalones.mftbrowser
+  - winfor.offline.standalones.mimikatz
+  - winfor.offline.standalones.mitec
+  - winfor.offline.standalones.ms-word-parser
+  - winfor.offline.standalones.network-miner
+  - winfor.offline.standalones.nirsoft
+  - winfor.offline.standalones.ntcore
+  - winfor.offline.standalones.ntfs-log-tracker
+  - winfor.offline.standalones.officemalscanner
+  - winfor.offline.standalones.offvis
+  - winfor.offline.standalones.onedriveexplorer
+  - winfor.offline.standalones.pe-bear
+  - winfor.offline.standalones.peid
+  - winfor.offline.standalones.pe-sieve
+  - winfor.offline.standalones.pestudio
+  - winfor.offline.standalones.pev
+  - winfor.offline.standalones.photorec
+  - winfor.offline.standalones.pilfer
+  - winfor.offline.standalones.portex-analyzer
+  - winfor.offline.standalones.ppee
+  - winfor.offline.standalones.psdecode
+  - winfor.offline.standalones.py2exedecompiler
+  - winfor.offline.standalones.pyinstxtractor-ng
+  - winfor.offline.standalones.regripper
+  - winfor.offline.standalones.regshot
+  - winfor.offline.standalones.rehex
+  - winfor.offline.standalones.rufus
+  - winfor.offline.standalones.scdbg
+  - winfor.offline.standalones.scrcpy
+  - winfor.offline.standalones.scylla
+  - winfor.offline.standalones.setdllcharacteristics
+  - winfor.offline.standalones.shadowexplorer
+  - winfor.offline.standalones.silketw
+  - winfor.offline.standalones.sleuthkit
+  - winfor.offline.standalones.smi-parser
+  - winfor.offline.standalones.srum-dump
+  - winfor.offline.standalones.sysinternals
+  - winfor.offline.standalones.thumbcacheviewer
+  - winfor.offline.standalones.trid
+  - winfor.offline.standalones.ufade
+  - winfor.offline.standalones.unautoit
+  - winfor.offline.standalones.uniextract2
+  - winfor.offline.standalones.upx
+  - winfor.offline.standalones.usbdetective
+  - winfor.offline.standalones.usb-write-blocker
+  - winfor.offline.standalones.velociraptor
+  - winfor.offline.standalones.volatility-workbench
+  - winfor.offline.standalones.vssmount
+  - winfor.offline.standalones.windepends
+  - winfor.offline.standalones.windexter
+  - winfor.offline.standalones.windowgrid
+  - winfor.offline.standalones.windows-timeline
+  - winfor.offline.standalones.winfor-customizer
+  - winfor.offline.standalones.winpmem
+  - winfor.offline.standalones.wmi-parser
+  - winfor.offline.standalones.x64dbg
+  - winfor.offline.standalones.xsv
+  - winfor.offline.standalones.x-ways
+  - winfor.offline.standalones.x-ways-templates
+  - winfor.offline.standalones.yara
+  - winfor.offline.standalones.zapixdesk
+  - winfor.offline.standalones.zimmerman
+
+offline-standalones-states:
+  test.nop:
+    - require:
+      - sls: winfor.offline.standalones.apktool
+      - sls: winfor.offline.standalones.arsenal-image-mounter
+      - sls: winfor.offline.standalones.aurora
+      - sls: winfor.offline.standalones.autoit-extractor
+      - sls: winfor.offline.standalones.autorunner
+      - sls: winfor.offline.standalones.bintext
+      - sls: winfor.offline.standalones.bitrecover-eml-viewer
+      - sls: winfor.offline.standalones.bulkrenameutility-portable
+      - sls: winfor.offline.standalones.bytecode-viewer
+      - sls: winfor.offline.standalones.caffeine
+      - sls: winfor.offline.standalones.caine
+      - sls: winfor.offline.standalones.capa
+      - sls: winfor.offline.standalones.chainsaw
+      - sls: winfor.offline.standalones.codetrack
+      - sls: winfor.offline.standalones.cutter
+      - sls: winfor.offline.standalones.cyberchef
+      - sls: winfor.offline.standalones.deark
+      - sls: winfor.offline.standalones.densityscout
+      - sls: winfor.offline.standalones.dependencies
+      - sls: winfor.offline.standalones.dex2jar
+      - sls: winfor.offline.standalones.die
+      - sls: winfor.offline.standalones.droid
+      - sls: winfor.offline.standalones.elasticsearch
+      - sls: winfor.offline.standalones.entropy
+      - sls: winfor.offline.standalones.eventfinder
+      - sls: winfor.offline.standalones.evtx-dump
+      - sls: winfor.offline.standalones.exeinfope
+      - sls: winfor.offline.standalones.exiftool
+      - sls: winfor.offline.standalones.fex-cloud-capture
+      - sls: winfor.offline.standalones.fex-memory-imager
+      - sls: winfor.offline.standalones.floss
+      - sls: winfor.offline.standalones.ghidra
+      - sls: winfor.offline.standalones.glossary-generator
+      - sls: winfor.offline.standalones.hash-generator
+      - sls: winfor.offline.standalones.hayabusa
+      - sls: winfor.offline.standalones.hexwalk
+      - sls: winfor.offline.standalones.hibernation-recon
+      - sls: winfor.offline.standalones.hindsight
+      - sls: winfor.offline.standalones.hollows-hunter
+      - sls: winfor.offline.standalones.innoextract
+      - sls: winfor.offline.standalones.innounp
+      - sls: winfor.offline.standalones.iphone-analyzer
+      - sls: winfor.offline.standalones.ipinfo
+      - sls: winfor.offline.standalones.jd-gui
+      - sls: winfor.offline.standalones.jq
+      - sls: winfor.offline.standalones.kansa
+      - sls: winfor.offline.standalones.kape
+      - sls: winfor.offline.standalones.kibana
+      - sls: winfor.offline.standalones.lessmsi
+      - sls: winfor.offline.standalones.lnk-parser
+      - sls: winfor.offline.standalones.logfileparser
+      - sls: winfor.offline.standalones.logparser-studio
+      - sls: winfor.offline.standalones.logviewer2
+      - sls: winfor.offline.standalones.lrc-cedarpelta
+      - sls: winfor.offline.standalones.magnet-dumpit
+      - sls: winfor.offline.standalones.magnet-edd
+      - sls: winfor.offline.standalones.magnet-process-capture
+      - sls: winfor.offline.standalones.magnet-ram-capture
+      - sls: winfor.offline.standalones.magnet-response
+      - sls: winfor.offline.standalones.magnet-web-page-saver-portable
+      - sls: winfor.offline.standalones.malcat
+      - sls: winfor.offline.standalones.mal-unpack
+      - sls: winfor.offline.standalones.megatools
+      - sls: winfor.offline.standalones.memprocfs-analyzer
+      - sls: winfor.offline.standalones.memprocfs
+      - sls: winfor.offline.standalones.mftbrowser
+      - sls: winfor.offline.standalones.mimikatz
+      - sls: winfor.offline.standalones.mitec
+      - sls: winfor.offline.standalones.ms-word-parser
+      - sls: winfor.offline.standalones.network-miner
+      - sls: winfor.offline.standalones.nirsoft
+      - sls: winfor.offline.standalones.ntcore
+      - sls: winfor.offline.standalones.ntfs-log-tracker
+      - sls: winfor.offline.standalones.officemalscanner
+      - sls: winfor.offline.standalones.offvis
+      - sls: winfor.offline.standalones.onedriveexplorer
+      - sls: winfor.offline.standalones.pe-bear
+      - sls: winfor.offline.standalones.peid
+      - sls: winfor.offline.standalones.pe-sieve
+      - sls: winfor.offline.standalones.pestudio
+      - sls: winfor.offline.standalones.pev
+      - sls: winfor.offline.standalones.photorec
+      - sls: winfor.offline.standalones.pilfer
+      - sls: winfor.offline.standalones.portex-analyzer
+      - sls: winfor.offline.standalones.ppee
+      - sls: winfor.offline.standalones.psdecode
+      - sls: winfor.offline.standalones.py2exedecompiler
+      - sls: winfor.offline.standalones.pyinstxtractor-ng
+      - sls: winfor.offline.standalones.regripper
+      - sls: winfor.offline.standalones.regshot
+      - sls: winfor.offline.standalones.rehex
+      - sls: winfor.offline.standalones.rufus
+      - sls: winfor.offline.standalones.scdbg
+      - sls: winfor.offline.standalones.scrcpy
+      - sls: winfor.offline.standalones.scylla
+      - sls: winfor.offline.standalones.setdllcharacteristics
+      - sls: winfor.offline.standalones.shadowexplorer
+      - sls: winfor.offline.standalones.silketw
+      - sls: winfor.offline.standalones.sleuthkit
+      - sls: winfor.offline.standalones.smi-parser
+      - sls: winfor.offline.standalones.srum-dump
+      - sls: winfor.offline.standalones.sysinternals
+      - sls: winfor.offline.standalones.thumbcacheviewer
+      - sls: winfor.offline.standalones.trid
+      - sls: winfor.offline.standalones.ufade
+      - sls: winfor.offline.standalones.unautoit
+      - sls: winfor.offline.standalones.uniextract2
+      - sls: winfor.offline.standalones.upx
+      - sls: winfor.offline.standalones.usbdetective
+      - sls: winfor.offline.standalones.usb-write-blocker
+      - sls: winfor.offline.standalones.velociraptor
+      - sls: winfor.offline.standalones.volatility-workbench
+      - sls: winfor.offline.standalones.vssmount
+      - sls: winfor.offline.standalones.windepends
+      - sls: winfor.offline.standalones.windexter
+      - sls: winfor.offline.standalones.windowgrid
+      - sls: winfor.offline.standalones.windows-timeline
+      - sls: winfor.offline.standalones.winfor-customizer
+      - sls: winfor.offline.standalones.winpmem
+      - sls: winfor.offline.standalones.wmi-parser
+      - sls: winfor.offline.standalones.x64dbg
+      - sls: winfor.offline.standalones.xsv
+      - sls: winfor.offline.standalones.x-ways
+      - sls: winfor.offline.standalones.x-ways-templates
+      - sls: winfor.offline.standalones.yara
+      - sls: winfor.offline.standalones.zapixdesk
+      - sls: winfor.offline.standalones.zimmerman

@@ -1,0 +1,171 @@
+include:
+  - winfor.offline.packages.7zip
+  - winfor.offline.packages.git
+  - winfor.offline.packages.dotnetfx35
+  - winfor.offline.packages.dotnet6-desktop-runtime
+  - winfor.offline.packages.dotnet8-desktop-runtime
+  - winfor.offline.packages.dotnet9-desktop-runtime
+  - winfor.offline.packages.dotpeek
+  - winfor.offline.packages.vscode
+  - winfor.offline.packages.autopsy
+  - winfor.offline.packages.firefox
+  - winfor.offline.packages.chrome
+  - winfor.offline.packages.ftk-imager
+  - winfor.offline.packages.httplogbrowser
+  - winfor.offline.packages.db-browser-sqlite
+  - winfor.offline.packages.bulk-extractor
+  - winfor.offline.packages.vs-community-2026
+  - winfor.offline.packages.vcxsrv
+  - winfor.offline.packages.libreoffice
+  - winfor.offline.packages.npp
+  - winfor.offline.packages.adobereader
+  - winfor.offline.packages.python3
+  - winfor.offline.packages.dbeaver
+  - winfor.offline.packages.sublime-text
+  - winfor.offline.packages.passware-encryption-analyzer
+  - winfor.offline.packages.logparser
+  - winfor.offline.packages.active-disk-editor
+  - winfor.offline.packages.kernel-pst-viewer  
+  - winfor.offline.packages.kernel-ost-viewer
+  - winfor.offline.packages.kernel-edb-viewer
+  - winfor.offline.packages.apimonitor
+  - winfor.offline.packages.putty
+  - winfor.offline.packages.wireshark
+  - winfor.offline.packages.fileinsight
+  - winfor.offline.packages.ntcore-explorersuite
+  - winfor.offline.packages.fiddler
+  - winfor.offline.packages.mdf-viewer
+  - winfor.offline.packages.systeminformer
+  - winfor.offline.packages.free-hex-editor-neo
+  - winfor.offline.packages.pdfstreamdumper
+  - winfor.offline.packages.burpsuite-community
+  - winfor.offline.packages.magnet-chromebook-acquisition
+  - winfor.offline.packages.magnet-acquire
+  - winfor.offline.packages.openhashtab
+  - winfor.offline.packages.irfanview
+  - winfor.offline.packages.razorsql-x64
+  - winfor.offline.packages.letos
+  - winfor.offline.packages.4n6-email-forensics-wizard
+  - winfor.offline.packages.hashcheck
+  - winfor.offline.packages.tableau-imager
+  - winfor.offline.packages.tableau-firmware-update
+  - winfor.offline.packages.zui
+  - winfor.offline.packages.pst-walker
+  - winfor.offline.packages.plist-editor
+  - winfor.offline.packages.agentransack
+  - winfor.offline.packages.winmerge
+  - winfor.offline.packages.eventlog-explorer
+  - winfor.offline.packages.ksdumper11
+  - winfor.offline.packages.monolith-notes
+  - winfor.offline.packages.nuix-evidence-mover
+  - winfor.offline.packages.elcomsoft-efdd
+  - winfor.offline.packages.voidtools-everything
+  - winfor.offline.packages.synchrony
+  - winfor.offline.packages.msg-viewer
+  - winfor.offline.packages.fec
+  - winfor.offline.packages.teracopy
+  - winfor.offline.packages.osfmount
+  - winfor.offline.packages.winscp
+  - winfor.offline.packages.ms-powertoys
+  - winfor.offline.packages.ilspy
+  - winfor.offline.packages.fex-imager
+  - winfor.offline.packages.resource-hacker
+  - winfor.offline.packages.bulkrenameutility
+  - winfor.offline.packages.google-earth-pro
+  - winfor.offline.packages.veracrypt
+  - winfor.offline.packages.virtualbox
+  - winfor.offline.packages.vlc
+  - winfor.offline.packages.android-studio
+  - winfor.offline.packages.ida-free
+  - winfor.offline.packages.reko
+  - winfor.offline.packages.binary-ninja
+  - winfor.offline.packages.hax
+  - winfor.offline.packages.httrack
+  - winfor.offline.packages.webcopy
+
+offline-package-states:
+  test.nop:
+    - require:
+      - sls: winfor.offline.packages.7zip
+      - sls: winfor.offline.packages.git
+      - sls: winfor.offline.packages.dotnetfx35
+      - sls: winfor.offline.packages.dotnet6-desktop-runtime
+      - sls: winfor.offline.packages.dotnet8-desktop-runtime
+      - sls: winfor.offline.packages.dotnet9-desktop-runtime
+      - sls: winfor.offline.packages.dotpeek
+      - sls: winfor.offline.packages.vscode
+      - sls: winfor.offline.packages.autopsy
+      - sls: winfor.offline.packages.firefox
+      - sls: winfor.offline.packages.chrome
+      - sls: winfor.offline.packages.ftk-imager
+      - sls: winfor.offline.packages.httplogbrowser
+      - sls: winfor.offline.packages.db-browser-sqlite
+      - sls: winfor.offline.packages.bulk-extractor
+      - sls: winfor.offline.packages.vs-community-2026
+      - sls: winfor.offline.packages.vcxsrv
+      - sls: winfor.offline.packages.libreoffice
+      - sls: winfor.offline.packages.npp
+      - sls: winfor.offline.packages.adobereader
+      - sls: winfor.offline.packages.python3
+      - sls: winfor.offline.packages.dbeaver
+      - sls: winfor.offline.packages.sublime-text
+      - sls: winfor.offline.packages.passware-encryption-analyzer
+      - sls: winfor.offline.packages.logparser
+      - sls: winfor.offline.packages.active-disk-editor
+      - sls: winfor.offline.packages.kernel-pst-viewer
+      - sls: winfor.offline.packages.kernel-ost-viewer
+      - sls: winfor.offline.packages.kernel-edb-viewer
+      - sls: winfor.offline.packages.apimonitor
+      - sls: winfor.offline.packages.putty
+      - sls: winfor.offline.packages.wireshark
+      - sls: winfor.offline.packages.fileinsight
+      - sls: winfor.offline.packages.ntcore-explorersuite
+      - sls: winfor.offline.packages.fiddler
+      - sls: winfor.offline.packages.mdf-viewer
+      - sls: winfor.offline.packages.systeminformer
+      - sls: winfor.offline.packages.free-hex-editor-neo
+      - sls: winfor.offline.packages.pdfstreamdumper
+      - sls: winfor.offline.packages.burpsuite-community
+      - sls: winfor.offline.packages.magnet-chromebook-acquisition
+      - sls: winfor.offline.packages.magnet-acquire
+      - sls: winfor.offline.packages.openhashtab
+      - sls: winfor.offline.packages.irfanview
+      - sls: winfor.offline.packages.razorsql-x64
+      - sls: winfor.offline.packages.letos
+      - sls: winfor.offline.packages.4n6-email-forensics-wizard
+      - sls: winfor.offline.packages.hashcheck
+      - sls: winfor.offline.packages.tableau-imager
+      - sls: winfor.offline.packages.tableau-firmware-update
+      - sls: winfor.offline.packages.zui
+      - sls: winfor.offline.packages.pst-walker
+      - sls: winfor.offline.packages.plist-editor
+      - sls: winfor.offline.packages.agentransack
+      - sls: winfor.offline.packages.winmerge
+      - sls: winfor.offline.packages.eventlog-explorer
+      - sls: winfor.offline.packages.ksdumper11
+      - sls: winfor.offline.packages.monolith-notes
+      - sls: winfor.offline.packages.nuix-evidence-mover
+      - sls: winfor.offline.packages.elcomsoft-efdd
+      - sls: winfor.offline.packages.voidtools-everything
+      - sls: winfor.offline.packages.synchrony
+      - sls: winfor.offline.packages.msg-viewer
+      - sls: winfor.offline.packages.fec
+      - sls: winfor.offline.packages.teracopy
+      - sls: winfor.offline.packages.osfmount
+      - sls: winfor.offline.packages.winscp
+      - sls: winfor.offline.packages.ms-powertoys
+      - sls: winfor.offline.packages.ilspy
+      - sls: winfor.offline.packages.fex-imager
+      - sls: winfor.offline.packages.resource-hacker
+      - sls: winfor.offline.packages.bulkrenameutility
+      - sls: winfor.offline.packages.google-earth-pro
+      - sls: winfor.offline.packages.veracrypt
+      - sls: winfor.offline.packages.virtualbox
+      - sls: winfor.offline.packages.vlc
+      - sls: winfor.offline.packages.android-studio
+      - sls: winfor.offline.packages.ida-free
+      - sls: winfor.offline.packages.reko
+      - sls: winfor.offline.packages.binary-ninja
+      - sls: winfor.offline.packages.hax
+      - sls: winfor.offline.packages.httrack
+      - sls: winfor.offline.packages.webcopy
