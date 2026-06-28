@@ -1,5 +1,5 @@
 # Name: Resource Hacker
-# Website: http://www.angusj.com/resourcehacker
+# Website: https://www.angusj.com/resourcehacker
 # Description: Compiler and Decompiler for Windows applications
 # Category: Executables
 # Author: Angus Johnson

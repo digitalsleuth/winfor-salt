@@ -13,7 +13,7 @@
 
 ftk-imager-download-only:
   file.managed:
-    - name: '{{ downloads }}\ftk-imager\FTK-Imager-x64-{{ version }}.exe'
+    - name: '{{ downloads }}\ftk-imager\ftk-imager-{{ version }}.exe'
     - source: https://d1kpmuwb7gvu1i.cloudfront.net/Imgr/{{ version }}%20Release/Exterro_FTK_Imager_%28x64%29-{{ version }}.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

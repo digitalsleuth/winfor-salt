@@ -13,7 +13,7 @@
 
 binary-ninja-free-download-only:
   file.managed:
-    - name: '{{ downloads }}\binary-ninja\binaryninja_free_win64-{{ version }}.exe'
+    - name: '{{ downloads }}\binary-ninja\binary-ninja-{{ version }}.exe'
     - source: https://cdn.binary.ninja/installers/binaryninja_free_win64.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

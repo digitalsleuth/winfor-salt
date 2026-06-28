@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@main
       - name: Check PSDecode Hash
         run: |
-          wget https://github.com/CybercentreCanada/assemblyline-service-overpower/raw/main/tools/PSDecode.psm1
+          wget -nv https://github.com/CybercentreCanada/assemblyline-service-overpower/raw/main/tools/PSDecode.psm1
           PREVIOUS_HASH=$(cat /home/runner/work/winfor-salt/winfor-salt/winfor/standalones/psdecode.sls | grep "set hash" | awk -F\' '{print $2}')
           CURRENT_HASH=$(sha256sum PSDecode.psm1 | awk '{print $1}')
           if [[ "$PREVIOUS_HASH" != "$CURRENT_HASH" ]]; then echo "HASH UPDATED - $CURRENT_HASH" && exit 1; else echo "No hash changes" && exit 0; fi

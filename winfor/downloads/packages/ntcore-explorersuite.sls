@@ -13,7 +13,7 @@
 
 ntcore-explorersuite-download-only:
   file.managed:
-    - name: '{{ downloads }}\ntcore\ExplorerSuite-{{ version }}.exe'
+    - name: '{{ downloads }}\ntcore-explorersuite\ntcore-explorersuite-{{ version }}.exe'
     - source: https://ntcore.com/files/ExplorerSuite.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

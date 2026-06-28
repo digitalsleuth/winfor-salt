@@ -13,7 +13,7 @@
 
 node.js-download-only:
   file.managed:
-    - name: '{{ downloads }}\nodejs\node-v{{ version }}-x64.msi'
+    - name: '{{ downloads }}\nodejs\nodejs-{{ version }}.msi'
     - source: https://nodejs.org/dist/v{{ version }}/node-v{{ version }}-x64.msi
     - source_hash: sha256={{ hash }}
     - makedirs: True

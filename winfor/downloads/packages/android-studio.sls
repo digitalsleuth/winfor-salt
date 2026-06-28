@@ -21,35 +21,35 @@
 
 android-studio-download-only:
   file.managed:
-    - name: '{{ downloads }}\android-studio\android-studio-{{ as_version }}-windows.exe'
+    - name: '{{ downloads }}\android-studio\android-studio-{{ as_version }}.exe'
     - source: https://redirector.gvt1.com/edgedl/android/studio/install/{{ as_version }}/android-studio-panda2-windows.exe
     - source_hash: sha256={{ as_hash }}
     - makedirs: True
 
 cmdline-tools-download-only:
   file.managed:
-    - name: '{{ downloads }}\android-studio\cmdline-tools-win-{{ cmdline_version }}_latest.zip'
+    - name: '{{ downloads }}\android-studio\cmdline-tools-{{ cmdline_version }}.zip'
     - source: https://dl.google.com/android/repository/commandlinetools-win-{{ cmdline_version }}_latest.zip
     - source_hash: sha256={{ cmdline_hash }}
     - makedirs: True
 
 platform-tools-download-only:
   file.managed:
-    - name: '{{ downloads }}\android-studio\platform-tools-latest-windows.zip'
+    - name: '{{ downloads }}\android-studio\platform-tools.zip'
     - source: https://dl.google.com/android/repository/platform-tools-latest-windows.zip
     - source_hash: sha256={{ platform_hash }}
     - makedirs: True
 
 build-tools-download-only:
   file.managed:
-    - name: '{{ downloads }}\android-studio\build-tools-{{ bt_version }}-windows.zip'
+    - name: '{{ downloads }}\android-studio\build-tools-{{ bt_version }}.zip'
     - source: https://dl.google.com/android/repository/build-tools_r{{ bt_version }}-windows.zip
     - source_hash: sha256={{ bt_hash }}
     - makedirs: True
 
 emulator-download-only:
   file.managed:
-    - name: '{{ downloads }}\android-studio\emulator-windows_x64-{{ em_version }}.zip'
+    - name: '{{ downloads }}\android-studio\emulator-windows-{{ em_version }}.zip'
     - source: https://redirector.gvt1.com/edgedl/android/repository/emulator-windows_x64-{{ em_sub }}.zip
     - source_hash: sha256={{ em_hash }}
     - makedirs: True

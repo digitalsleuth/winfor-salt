@@ -13,7 +13,7 @@
 
 ida-free-download-only:
   file.managed:
-    - name: '{{ downloads }}\ida-free\ida-free_{{ version }}_windows.exe'
+    - name: '{{ downloads }}\ida-free\ida-free-{{ version }}.exe'
     - source: https://out7.hex-rays.com/files/idafree{{ version|replace(".","") }}_windows.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

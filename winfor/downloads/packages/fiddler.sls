@@ -13,7 +13,7 @@
 
 fiddler-download-only:
   file.managed:
-    - name: '{{ downloads }}\fiddler\FiddlerSetup-{{ version }}.exe'
+    - name: '{{ downloads }}\fiddler\fiddler-{{ version }}.exe'
     - source: https://downloads.getfiddler.com/fiddler-classic/FiddlerSetup.{{ version }}-latest.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

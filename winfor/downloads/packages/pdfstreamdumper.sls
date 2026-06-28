@@ -13,7 +13,7 @@
 
 pdfstreamdumper-download-only:
   file.managed:
-    - name: '{{ downloads }}\pdfstreamdumper\PDFStreamDumper-Setup-{{ version }}.exe'
+    - name: '{{ downloads }}\pdfstreamdumper\pdfstreamdumper-{{ version }}.exe'
     - source: https://github.com/digitalsleuth/salt-winrepo-ng/raw/refs/heads/main/files/PDFStreamDumper_Setup_{{ version }}.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

@@ -14,7 +14,7 @@
 
 systeminformer-download-only:
   file.managed:
-    - name: '{{ downloads }}\systeminformer\systeminformer-{{ version }}-release-setup.exe'
+    - name: '{{ downloads }}\systeminformer\systeminformer-{{ version }}.{{ subversion }}.exe'
     - source: https://github.com/winsiderss/systeminformer/releases/download/v{{ version }}.{{ subversion }}/systeminformer-{{ version }}-release-setup.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

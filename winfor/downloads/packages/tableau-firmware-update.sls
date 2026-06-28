@@ -13,7 +13,13 @@
 
 tableau-firmware-update-download-only:
   file.managed:
-    - name: '{{ downloads }}\tableau\setup_tableau_firmware_update_{{ version }}.msi'
+    - name: '{{ downloads }}\tableau\tableau-firmware-update-{{ version }}.msi'
     - source: https://digitalintelligence.com/files/setup_tableau_firmware_update_{{ version }}.msi
     - source_hash: sha256={{ hash }}
+    - makedirs: True
+
+tableau-certificate-copy-download-only:
+  file.managed:
+    - name: '{{ downloads }}\tableau\tableau.cer'
+    - source: salt://winfor/files/tableau.cer
     - makedirs: True

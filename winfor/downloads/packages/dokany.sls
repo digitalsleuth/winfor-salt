@@ -13,7 +13,7 @@
 
 dokany-download-only:
   file.managed:
-    - name: '{{ downloads }}\dokany\Dokan_x64-{{ version }}.msi'
+    - name: '{{ downloads }}\dokany\dokany-{{ version }}.msi'
     - source: https://github.com/dokan-dev/dokany/releases/download/v{{ version }}/Dokan_x64.msi
     - source_hash: sha256={{ hash }}
     - makedirs: True

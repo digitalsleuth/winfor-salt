@@ -13,7 +13,7 @@
 
 dotnet10-desktop-runtime-download-only:
   file.managed:
-    - name: '{{ downloads }}\dotnet10-desktop-runtime\windowsdesktop-runtime-{{ version }}-win-x64.exe'
+    - name: '{{ downloads }}\dotnet10-desktop-runtime\dotnet10-desktop-runtime-{{ version }}.exe'
     - source: https://builds.dotnet.microsoft.com/dotnet/WindowsDesktop/{{ version }}/windowsdesktop-runtime-{{ version }}-win-x64.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

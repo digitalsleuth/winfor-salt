@@ -13,7 +13,7 @@
 
 clamav-download-only:
   file.managed:
-    - name: '{{ downloads }}\clamav\clamav-{{ version }}.win.x64.msi'
+    - name: '{{ downloads }}\clamav\clamav-{{ version }}.msi'
     - source: https://www.clamav.net/downloads/production/clamav-{{ version }}.win.x64.msi
     - source_hash: sha256={{ hash }}
     - makedirs: True

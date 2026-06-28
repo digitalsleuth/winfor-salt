@@ -13,7 +13,7 @@
 
 ms-vcpp-2015-build-tools-download-only:
   file.managed:
-    - name: '{{ downloads }}\ms-vcpp\vcpp-2015-buildtools-{{ version }}.exe'
+    - name: '{{ downloads }}\ms-vcpp\ms-vcpp-2015-buildtools-{{ version }}.exe'
     - source: https://aka.ms/vs/15/release/vs_buildtools.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

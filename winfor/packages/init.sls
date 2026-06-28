@@ -31,7 +31,6 @@ include:
   - winfor.packages.apimonitor
   - winfor.packages.putty
   - winfor.packages.wireshark
-#  - winfor.packages.strawberryperl
   - winfor.packages.fileinsight
   - winfor.packages.ntcore-explorersuite
   - winfor.packages.fiddler
@@ -119,7 +118,6 @@ package-states:
       - sls: winfor.packages.apimonitor
       - sls: winfor.packages.putty
       - sls: winfor.packages.wireshark
-#      - sls: winfor.packages.strawberryperl
       - sls: winfor.packages.fileinsight
       - sls: winfor.packages.ntcore-explorersuite
       - sls: winfor.packages.fiddler

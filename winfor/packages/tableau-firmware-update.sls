@@ -7,6 +7,9 @@
 # Version: 25.4.17
 # Notes: 
 
+{% set version = '25.4.17' %}
+{% set short_ver = '25.4' %}
+{% set hash = '90cb1591aa1571426bd29502197fd7fd972d96b95fa18843ad179a660a41c0ab' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set user = salt['pillar.get']('winfor_user', 'forensics') %}
 {% set current_user = salt['environ.get']('USERNAME') %}
@@ -21,21 +24,39 @@ include:
   - winfor.config.user
   - winfor.repos
 
+tableau-download-msi:
+  file.managed:
+    - name: 'C:\salt\tempdownload\tableau-firmware-update-{{ short_ver }}.msi'
+    - source: 'https://digitalintelligence.com/files/setup_tableau_firmware_update_{{ short_ver }}.msi'
+    - source_hash: sha256={{ hash }}
+    - makedirs: True
+
+tableau-extract-certificate:
+  cmd.run:
+    - name: powershell.exe -NonInteractive -Command "(Get-AuthenticodeSignature 'C:\salt\tempdownload\tableau-firmware-update-{{ short_ver }}.msi').SignerCertificate | Export-Certificate -Type CERT -FilePath 'C:\salt\tempdownload\tableau.cer' | Out-Null"
+    - cwd: 'C:\salt\tempdownload'
+    - require:
+      - file: tableau-download-msi
+
+{#
 tableau-certificate-copy:
   file.managed:
     - name: 'C:\salt\tempdownload\tableau.cer'
     - source: salt://winfor/files/tableau.cer
     - makedirs: True
+#}
 
 tableau-certificate-install:
   certutil.add_store:
     - name: 'C:\salt\tempdownload\tableau.cer'
     - store: TrustedPublisher
     - require:
-      - file: tableau-certificate-copy
+      - cmd: tableau-extract-certificate
 
 tableau-firmware-update:
-  pkg.installed:
+  cmd.run:
+    - name: 'msiexec /i C:\salt\tempdownload\tableau-firmware-update-{{ short_ver }}.msi /qn /norestart'
+    - shell: cmd
     - require:
       - certutil: tableau-certificate-install
 
@@ -49,7 +70,7 @@ tableau-firmware-update-icon-del:
     {% endif %}
     - require:
       - certutil: tableau-certificate-install
-      - pkg: tableau-firmware-update
+      - cmd: tableau-firmware-update
       - user: user-{{ user }}
 
 tableau-firmware-update-shortcut:
@@ -59,4 +80,4 @@ tableau-firmware-update-shortcut:
     - force: True
     - working_dir: 'C:\Program Files (x86)\Tableau\Tableau Firmware Update\'
     - require:
-      - pkg: tableau-firmware-update
+      - cmd: tableau-firmware-update

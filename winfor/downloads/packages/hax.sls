@@ -13,7 +13,7 @@
 
 hax-download-only:
   file.managed:
-    - name: '{{ downloads }}\hax\Hax-{{ version }}-win64.exe'
+    - name: '{{ downloads }}\hax\hax-{{ version }}.exe'
     - source: https://thefreetoolproject.eu/hax/Hax-{{ version }}-win64.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

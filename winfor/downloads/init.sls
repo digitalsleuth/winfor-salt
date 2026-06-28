@@ -81,7 +81,6 @@ include:
   - winfor.downloads.packages.registry-viewer
   - winfor.downloads.packages.resource-hacker
   - winfor.downloads.packages.sqlitestudio
-  - winfor.downloads.packages.strawberryperl
   - winfor.downloads.packages.sublime-text
   - winfor.downloads.packages.synchrony
   - winfor.downloads.packages.tableau-firmware-update
@@ -334,7 +333,6 @@ download-states:
       - sls: winfor.downloads.packages.registry-viewer
       - sls: winfor.downloads.packages.resource-hacker
       - sls: winfor.downloads.packages.sqlitestudio
-      - sls: winfor.downloads.packages.strawberryperl
       - sls: winfor.downloads.packages.sublime-text
       - sls: winfor.downloads.packages.synchrony
       - sls: winfor.downloads.packages.tableau-firmware-update

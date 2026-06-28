@@ -13,7 +13,7 @@
 
 pdfxplorer-download-only:
   file.managed:
-    - name: '{{ downloads }}\pdfxplorer\PDF4DEV.Applications.PDFXplorer.{{ version }}.msi'
+    - name: '{{ downloads }}\pdfxplorer\pdfxplorer-{{ version }}.msi'
     - source: https://pdfxplorer.dev/download/PDF4DEV.Applications.PDFXplorer.{{ version }}.msi
     - source_hash: sha256={{ hash }}
     - makedirs: True

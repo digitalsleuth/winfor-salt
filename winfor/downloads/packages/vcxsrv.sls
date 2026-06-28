@@ -13,7 +13,7 @@
 
 vcxsrv-download-only:
   file.managed:
-    - name: '{{ downloads }}\vcxsrv\vcxsrv-64.{{ version }}.installer.exe'
+    - name: '{{ downloads }}\vcxsrv\vcxsrv-{{ version }}.exe'
     - source: https://github.com/marchaesen/vcxsrv/releases/download/{{ version }}/vcxsrv-64.{{ version }}.installer.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

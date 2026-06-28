@@ -13,7 +13,7 @@
 
 winhttrack-download-only:
   file.managed:
-    - name: '{{ downloads }}\httrack\httrack_x64-{{ version }}.exe'
+    - name: '{{ downloads }}\httrack\httrack-{{ version }}.exe'
     - source: https://mirror.httrack.com/httrack_x64-{{ version }}.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

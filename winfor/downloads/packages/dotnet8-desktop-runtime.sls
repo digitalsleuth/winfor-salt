@@ -13,7 +13,7 @@
 
 dotnet8-desktop-runtime-download-only:
   file.managed:
-    - name: '{{ downloads }}\dotnet8-desktop-runtime\windowsdesktop-runtime-{{ version }}-win-x64.exe'
+    - name: '{{ downloads }}\dotnet8-desktop-runtime\dotnet8-desktop-runtime-{{ version }}.exe'
     - source: https://builds.dotnet.microsoft.com/dotnet/WindowsDesktop/{{ version }}/windowsdesktop-runtime-{{ version }}-win-x64.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

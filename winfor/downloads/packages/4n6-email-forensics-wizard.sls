@@ -13,7 +13,7 @@
 
 4n6-email-forensics-wizard-download-only:
   file.managed:
-    - name: '{{ downloads }}\4n6-email-forensics\setup-email-forensics-wizard-{{ version }}.exe'
+    - name: '{{ downloads }}\4n6-email-forensics\4n6-email-forensics-{{ version }}.exe'
     - source: https://forensiksoft.com/tools/setup-email-forensics-wizard.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

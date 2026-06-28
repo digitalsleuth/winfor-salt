@@ -14,7 +14,7 @@
 
 ms-vcpp-2017-redist-x64-download-only:
   file.managed:
-    - name: '{{ downloads }}\ms-vcpp\vcpp-2017-redist-x64-{{ version }}.exe'
+    - name: '{{ downloads }}\ms-vcpp\ms-vcpp-2017-redist-{{ version }}.exe'
     - source: https://download.visualstudio.microsoft.com/download/pr/{{ subpath }}/VC_redist.x64.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

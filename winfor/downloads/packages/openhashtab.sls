@@ -13,7 +13,7 @@
 
 openhashtab-download-only:
   file.managed:
-    - name: '{{ downloads }}\openhashtab\OpenHashTab_setup-{{ version }}.exe'
+    - name: '{{ downloads }}\openhashtab\openhashtab-{{ version }}.exe'
     - source: https://github.com/namazso/OpenHashTab/releases/download/v{{ version }}/OpenHashTab_setup.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

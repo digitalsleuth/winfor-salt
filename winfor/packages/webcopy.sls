@@ -12,3 +12,12 @@ include:
 
 webcopy:
   pkg.installed
+
+webcopy-close-application:
+  cmd.run:
+    - name: 'taskkill /F /IM "cyowcopy.exe"'
+    - bg: True
+    - require:
+      - pkg: webcopy
+    - watch:
+      - pkg: webcopy

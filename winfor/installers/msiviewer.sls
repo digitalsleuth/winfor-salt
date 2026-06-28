@@ -4,10 +4,10 @@
 # Category: Installers
 # Author: William Kent
 # License: MIT (https://github.com/wjk/MSIExtractApp/blob/main/LICENSE)
-# Version: 3.0.1
+# Version: 3.1.2
 # Notes: Installed via winget
 
-{% set version = '3.0.1' %}
+{% set version = '3.1.2' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set PROGRAM_FILES = salt['environ.get']('PROGRAMFILES') %}
 {% set LOCALAPPDATA = salt['environ.get']('LOCALAPPDATA') %}

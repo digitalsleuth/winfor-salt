@@ -13,7 +13,7 @@
 
 synchrony-download-only:
   file.managed:
-    - name: '{{ downloads }}\synchrony\synchrony-v{{ version }}.zip'
+    - name: '{{ downloads }}\synchrony\synchrony-{{ version }}.zip'
     - source: https://github.com/relative/synchrony/archive/refs/tags/{{ version }}.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True

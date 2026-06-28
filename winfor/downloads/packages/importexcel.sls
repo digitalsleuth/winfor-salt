@@ -13,7 +13,7 @@
 
 importexcel-download-only:
   file.managed:
-    - name: '{{ downloads }}\importexcel\importexcel.{{ version }}.nupkg'
+    - name: '{{ downloads }}\importexcel\importexcel-{{ version }}.nupkg'
     - source: https://cdn.powershellgallery.com/packages/importexcel.{{ version }}.nupkg
     - source_hash: sha256={{ hash }}
     - makedirs: True

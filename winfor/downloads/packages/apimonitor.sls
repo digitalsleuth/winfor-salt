@@ -7,12 +7,13 @@
 # Version: v2r13
 # Notes: 
 
+{% set version = 'v2r13' %}
 {% set hash = '46c1f2f4e8dfa8e0c2775b1cc4a20491d7413a87f3d08e8385f1e70dba6756e9' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 apimonitor-download-only:
   file.managed:
-    - name: '{{ downloads }}\api-monitor\api-monitor-v2r13-setup-x64.exe'
-    - source: http://www.rohitab.com/download/api-monitor-v2r13-setup-x64.exe
+    - name: '{{ downloads }}\api-monitor\api-monitor-{{ version }}.exe'
+    - source: http://www.rohitab.com/download/api-monitor-{{ version }}-setup-x64.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

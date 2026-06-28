@@ -13,7 +13,7 @@
 
 itunes-backup-explorer-download-only:
   file.managed:
-    - name: '{{ downloads }}\itunes-backup-explorer\itunes-backup-explorer-{{ version }}-x64.msi'
+    - name: '{{ downloads }}\itunes-backup-explorer\itunes-backup-explorer-{{ version }}.msi'
     - source: https://github.com/MaxiHuHe04/iTunes-Backup-Explorer/releases/download/v{{ version }}/iTunes_Backup_Explorer-{{ version }}_win_x64.msi
     - source_hash: sha256={{ hash }}
     - makedirs: True

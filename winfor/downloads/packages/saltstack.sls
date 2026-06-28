@@ -14,7 +14,7 @@
 
 saltstack-download-only:
   file.managed:
-    - name: '{{ downloads }}\saltstack\{{ file }}'
+    - name: '{{ downloads }}\saltstack\saltstack-{{ version }}.exe'
     - source: https://packages.broadcom.com/artifactory/saltproject-generic/windows/{{ version }}/{{ file }}
     - source_hash: sha256={{ hash }}
     - makedirs: True

@@ -295,10 +295,10 @@
         "Enabled": true,
         "ExtraTiles": []
       },
-      "RazorSQL": {
-        "CbName": "packages_razorsql_x64",
-        "CbContent": "RazorSQL",
-        "DAID": "razorsql",
+      "Letos (SQLiteStudio)": {
+        "CbName": "packages_letos",
+        "CbContent": "Letos (SQLiteStudio)",
+        "DAID": "{6D809377-6AF0-444B-8957-A3773F02200E}\\Letos\\Letos.exe",
         "AUMID": false,
         "DALP": false,
         "StartMenu": true,
@@ -306,10 +306,10 @@
         "Enabled": true,
         "ExtraTiles": []
       },
-      "SQLiteStudio": {
-        "CbName": "packages_sqlitestudio",
-        "CbContent": "SQLiteStudio",
-        "DAID": "{6D809377-6AF0-444B-8957-A3773F02200E}\\SQLiteStudio\\SQLiteStudio.exe",
+      "RazorSQL": {
+        "CbName": "packages_razorsql_x64",
+        "CbContent": "RazorSQL",
+        "DAID": "razorsql",
         "AUMID": false,
         "DALP": false,
         "StartMenu": true,
@@ -2295,21 +2295,10 @@
         "Enabled": true,
         "ExtraTiles": []
       },
-      "Strawberry Perl": {
-        "CbName": "packages_strawberryperl",
-        "CbContent": "Strawberry Perl",
-        "DAID": "",
-        "AUMID": false,
-        "DALP": false,
-        "StartMenu": false,
-        "Checked": false,
-        "Enabled": false,
-        "ExtraTiles": []
-      },
-      "Visual Studio Community 2022": {
-        "CbName": "packages_vs_community_2022",
-        "CbContent": "Visual Studio Community 2022",
-        "DAID": "%ALLUSERSPROFILE%\\Microsoft\\Windows\\Start Menu\\Programs\\Visual Studio 2022.lnk",
+      "Visual Studio Community 2026": {
+        "CbName": "packages_vs_community_2026",
+        "CbContent": "Visual Studio Community 2026",
+        "DAID": "%ALLUSERSPROFILE%\\Microsoft\\Windows\\Start Menu\\Programs\\Visual Studio 2026.lnk",
         "AUMID": false,
         "DALP": true,
         "StartMenu": true,

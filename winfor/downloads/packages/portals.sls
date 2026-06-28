@@ -14,7 +14,7 @@
 
 portals-download-only:
   file.managed:
-    - name: '{{ downloads }}\portals\portals_installer_v{{ dashes }}.exe'
+    - name: '{{ downloads }}\portals\portals-{{ version }}.exe'
     - source: https://downloads.portals-app.com/installers/{{ version }}/portals_installer_v{{ dashes }}.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

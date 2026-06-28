@@ -13,7 +13,7 @@
 
 active-disk-editor-download-only:
   file.managed:
-    - name: '{{ downloads }}\active-disk-editor\diskeditor-freeware-{{ version }}.exe'
+    - name: '{{ downloads }}\active-disk-editor\active-disk-editor-{{ version }}.exe'
     - source: https://www.disk-editor.org/download/diskeditor-freeware.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True
