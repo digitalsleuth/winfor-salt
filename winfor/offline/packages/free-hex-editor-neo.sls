@@ -4,16 +4,28 @@
 # Category: Raw Parsers / Decoders
 # Author: HHD Software
 # License: EULA (https://www.hhdsoftware.com/company/terms-of-use)
-# Version: 7.37.00.8578
+# Version: 8.10.01.9401
 # Notes: 
 
-{% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '7.37.00.8578' %}
-{% set hash = '87949cb4ba705968c975ee42421bfb671aae3f481fe0017b10a08e7e722bcd2a' %}
+{% set version = '8.10.01.9401' %}
+{% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'free-hex-editor-neo-'~ version ~'.exe' %}
+{% set exists = salt['file.file_exists'](downloads + '\\free-hex-editor-neo\\' + pkg) %}
 
-free-hex-editor-neo-download-only:
-  file.managed:
-    - name: '{{ downloads }}\free-hex-editor-neo\free-hex-editor-neo-{{ version }}.exe'
-    - source: https://www.hhdsoftware.com/download/free-hex-editor-neo.exe
-    - source_hash: sha256={{ hash }}
-    - makedirs: True
+{% if exists %}
+free-hex-editor-neo-install-offline:
+  cmd.run:
+    - name: '{{ pkg }} -silent -machine'
+    - shell: cmd
+    - cwd: '{{ downloads }}\free-hex-editor-neo\'
+
+free-hex-editor-neo-icon-remove-offline:
+  file.absent:
+    - name: 'C:\Users\Public\Desktop\Hex Editor Neo.lnk'
+    - require:
+      - cmd: free-hex-editor-neo-install-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

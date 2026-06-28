@@ -7,13 +7,19 @@
 # Version: 20.3
 # Notes: 
 
-{% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '20.3' %}
-{% set hash = '4e2eb12620d5c06822913b82decc1c44d272082ce75a266e0ec3ab4e38c52ab9' %}
+{% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'kernel-pst-viewer-'~ version ~'.exe' %}
+{% set exists = salt['file.file_exists'](downloads + '\\kernel\\' + pkg) %}
 
-kernel-pst-viewer-download-only:
-  file.managed:
-    - name: '{{ downloads }}\kernel\freekernelpstviewer-{{ version }}.exe'
-    - source: https://www.nucleustechnologies.com/downloads/freekernelpstviewer.exe
-    - source_hash: sha256={{ hash }}
-    - makedirs: True
+{% if exists %}
+kernel-pst-viewer-install-offline:
+  cmd.run:
+    - name: '{{ pkg }} /VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP- /MERGETASKS=!DESKTOPICON,!RUNCODE'
+    - shell: cmd
+    - cwd: '{{ downloads }}\kernel\'
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

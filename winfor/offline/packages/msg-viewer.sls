@@ -4,16 +4,22 @@
 # Category: Email
 # Author: PST Walker
 # License: GNU General Public License (GPL) (https://www.pstwalker.com/licensing-policy.html)
-# Version: 4.24
+# Version: 4.35
 # Notes:
 
-{% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '424' %}
-{% set hash = '3ebbe5ff4ff29408972a9e47a0e2de4a68ac1cd05bf9acdc9822bf627dc8c785' %}
+{% set version = '435' %}
+{% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'msg-viewer-'~ version ~'.exe' %}
+{% set exists = salt['file.file_exists'](downloads + '\\msg-viewer\\' + pkg) %}
 
-msg-viewer-download-only:
-  file.managed:
-    - name: '{{ downloads }}\pstwalker\msgviewer{{ version }}.exe'
-    - source: https://downloads.pstwalker.com/msgviewer{{ version }}.exe
-    - source_hash: sha256={{ hash }}
-    - makedirs: True
+{% if exists %}
+msg-viewer-install-offline:
+  cmd.run:
+    - name: '{{ pkg }} /VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP- /MERGETASKS=!DESKTOPICON,!RUNCODE'
+    - shell: cmd
+    - cwd: '{{ downloads }}\msg-viewer\'
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

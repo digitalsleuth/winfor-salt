@@ -15,14 +15,18 @@
 {% set broken_files = ['apkanalyzer.bat','lint.bat','screenshot2.bat'] %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set install = 'echo y|"C:\Program Files\Common Files\Oracle\Java\javapath\java.exe" -Dcom.android.sdklib.toolsdir="C:\Program Files\Android\Android Studio\Sdk\cmdline-tools\latest" -classpath "C:\Program Files\Android\Android Studio\Sdk\cmdline-tools\latest\lib\sdkmanager-classpath.jar" com.android.sdklib.tool.sdkmanager.SdkManagerCli' %}
+{% set pkg = 'android-studio-'~ as_version ~'.exe' %}
+{% set as_exists = salt['file.file_exists'](downloads + '\\android-studio\\' + pkg) %}
 
+{% if as_exists %}
 include:
   - winfor.offline.packages.jdk17
 
 android-studio-install-offline:
   cmd.run:
-    - name: '{{ downloads }}\android-studio\android-studio-{{ as_version }}-windows.exe /S'
+    - name: '{{ pkg }} /S'
     - shell: cmd
+    - cwd: '{{ downloads }}\android-studio'
     - success_retcodes: 1223
 
 sdk-folder-offline:
@@ -37,7 +41,7 @@ sdk-folder-offline:
 cmdline-extract-offline:
   archive.extracted:
     - name: '{{ PROGRAM_FILES }}\Android\Android Studio\Sdk\cmdline-tools'
-    - source: '{{ downloads }}\android-studio\cmdline-tools-win-{{ cmdline_version }}_latest.zip'
+    - source: '{{ downloads }}\android-studio\cmdline-tools-{{ cmdline_version }}.zip'
     - enforce_toplevel: False
     - require:
       - file: sdk-folder-offline
@@ -66,7 +70,7 @@ cmdline-tools-fix-{{ file }}-offline:
 build-tools-extract-offline:
   archive.extracted:
     - name: '{{ PROGRAM_FILES }}\Android\Android Studio\Sdk\build-tools'
-    - source: '{{ downloads }}\android-studio\build-tools-{{ bt_version }}-windows.zip'
+    - source: '{{ downloads }}\android-studio\build-tools-{{ bt_version }}.zip'
     - enforce_toplevel: False
     - require:
       - file: sdk-folder-offline
@@ -75,13 +79,13 @@ build-tools-extract-offline:
 platform-tools-extract-offline:
   archive.extracted:
     - name: '{{ PROGRAM_FILES }}\Android\Android Studio\Sdk\'
-    - source: '{{ downloads }}\android-studio\platform-tools-latest-windows.zip'
+    - source: '{{ downloads }}\android-studio\platform-tools.zip'
     - force: True
 
 emulator-extract-offline:
   archive.extracted:
     - name: '{{ PROGRAM_FILES }}\Android\Android Studio\Sdk\'
-    - source: '{{ downloads }}\android-studio\emulator-windows_x64-{{ em_version }}.zip'
+    - source: '{{ downloads }}\android-studio\emulator-windows-{{ em_version }}.zip'
     - force: True
     - require:
       - file: sdk-folder-offline
@@ -91,3 +95,8 @@ platform-tools-path-offline:
     - name: '{{ PROGRAM_FILES }}\Android\Android Studio\Sdk\platform-tools\'
     - require:
       - archive: platform-tools-extract-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

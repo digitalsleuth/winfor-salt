@@ -12,11 +12,16 @@
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set path = "C:\\Program Files\\WindowsPowerShell\\Modules\\ImportExcel\\" + version %}
 {% set files = ['_rels', 'package', '[Content_Types].xml'] %}
+{% set pkg = 'importexcel-'~ version ~'.nupkg' %}
+{% set zip = pkg.replace(".nupkg", ".zip") %}
+{% set exists = salt['file.file_exists'](downloads + '\\importexcel\\' + pkg) %}
 
-importexcel-copy-file:
-  file.copy:
-    - name: '{{ downloads }}\importexcel\importexcel.{{ version }}.zip'
-    - source: '{{ downloads }}\importexcel\importexcel.{{ version }}.nupkg'
+{% if exists %}
+
+importexcel-rename-file-offline:
+  file.rename:
+    - name: '{{ downloads }}\importexcel\{{ zip }}'
+    - source: '{{ downloads }}\importexcel\{{ pkg }}'
     - force: True
 
 importexcel-module-folder-offline:
@@ -27,11 +32,11 @@ importexcel-module-folder-offline:
       - fun: file.file_exists
         path: {{ path }}\ImportExcel.psd1
     - require:
-      - file: importexcel-copy-file
+      - file: importexcel-rename-file-offline
 
 importexcel-module-extract-offline:
   cmd.run:
-    - name: Expand-Archive -Path "{{ downloads }}\importexcel\importexcel.{{ version }}.zip" -DestinationPath "{{ path }}"
+    - name: Expand-Archive -Path "{{ downloads }}\importexcel\{{ zip }}" -DestinationPath "{{ path }}"
     - shell: powershell
     - unless:
       - fun: file.file_exists
@@ -51,3 +56,7 @@ importexcel-remove-{{ file }}:
     - name: {{ path }}\{{ file }}
 
 {% endfor %}
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

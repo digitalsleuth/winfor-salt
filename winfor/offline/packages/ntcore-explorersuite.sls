@@ -7,13 +7,19 @@
 # Version: IV
 # Notes: 
 
-{% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = 'IV' %}
-{% set hash = '94f4348ec573b05990b1e19542986e46dc30a87870739f5d5430b60072d5144d' %}
+{% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'ntcore-explorersuite-'~ version ~'.exe' %}
+{% set exists = salt['file.file_exists'](downloads + '\\ntcore-explorersuite\\' + pkg) %}
 
-ntcore-explorersuite-download-only:
-  file.managed:
-    - name: '{{ downloads }}\ntcore\ExplorerSuite-{{ version }}.exe'
-    - source: https://ntcore.com/files/ExplorerSuite.exe
-    - source_hash: sha256={{ hash }}
-    - makedirs: True
+{% if exists %}
+ntcore-explorersuite-install-offline:
+  cmd.run:
+    - name: '{{ pkg }} /VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP- /MERGETASKS=!DESKTOPICON,!RUNCODE'
+    - shell: cmd
+    - cwd: '{{ downloads }}\ntcore-explorersuite\'
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

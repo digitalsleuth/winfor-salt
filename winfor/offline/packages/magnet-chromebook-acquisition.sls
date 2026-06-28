@@ -7,13 +7,19 @@
 # Version: 1.06
 # Notes:
 
-{% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '1.06' %}
-{% set hash = '9beb3829430836f50ebcdae9fd4f13ae51a41d7900f5e60263960c49a32c11b1' %}
+{% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'magnet-chromebook-acquisition-'~ version ~'.exe' %}
+{% set exists = salt['file.file_exists'](downloads + '\\magnetforensics\\' + pkg) %}
 
-magnet-chromebook-acquisition:
-  file.managed:
-    - name: '{{ downloads }}\magnetforensics\MCAA_Setup_v106.exe'
-    - source: https://github.com/digitalsleuth/salt-winrepo-ng/raw/main/files/MCAA_Setup_v106.exe
-    - source_hash: sha256={{ hash }}
-    - makedirs: True
+{% if exists %}
+magnet-chromebook-acquisition-install-offline:
+  cmd.run:
+    - name: '{{ pkg }} /VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP- /MERGETASKS=!DESKTOPICON,!RUNCODE'
+    - shell: cmd
+    - cwd: '{{ downloads }}\magnetforensics\'
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

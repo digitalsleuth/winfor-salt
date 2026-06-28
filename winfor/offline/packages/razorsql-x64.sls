@@ -4,16 +4,23 @@
 # Category: Databases
 # Author: Richardson Software LLC
 # License: https://razorsql.com/license.txt
-# Version: 10.4.5
+# Version: 10.6.8
 # Notes:
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '10_4_5' %}
-{% set hash = '58e42157adf7b743a27eb814fd970d922dd9349296e7d0431da3b99a9f602a85' %}
+{% set version = '10.6.8' %}
+{% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'razorsql-'~ version ~'.exe' %}
+{% set exists = salt['file.file_exists'](downloads + '\\razorsql\\' + pkg) %}
 
-razorsql-x64-download-only:
-  file.managed:
-    - name: '{{ downloads }}\razorsql\razorsql{{ version }}_setup_x64.exe'
-    - source: https://s3.dualstack.us-east-1.amazonaws.com/downloads.razorsql.com/downloads/{{ version }}/razorsql{{ version }}_setup_x64.exe
-    - source_hash: sha256={{ hash }}
-    - makedirs: True
+{% if exists %}
+razorsql-install-offline:
+  cmd.run:
+    - name: '{{ pkg }} /VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP- /MERGETASKS=!DESKTOPICON,!RUNCODE'
+    - shell: cmd
+    - cwd: '{{ downloads }}\razorsql\'
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

@@ -4,13 +4,22 @@
 # Category: Email
 # Author: Arman Gungor - Metaspike
 # License:
-# Version: 4.0.346.1211
+# Version: 4.5.848.87
 # Notes:
 
-{% set version = '4.0.346.1211' %}
-{% set offline_path = 'C:\winfor-offline' %}
+{% set version = '4.5.848.87' %}
+{% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'fec-'~ version ~'.msi' %}
+{% set exists = salt['file.file_exists'](downloads + '\\fec\\' + pkg) %}
 
-fec-offline-install:
+{% if exists %}
+fec-install-offline:
   cmd.run:
-    - name: 'msiexec /i {{ offline_path }}\fec\FECSetup_v{{ version }}.msi ACCEPTEULA=1 /qn /norestart'
+    - name: 'msiexec /i {{ pkg }} /qn ACCEPTEULA=1 /norestart'
     - shell: cmd
+    - cwd: '{{ downloads }}\fec\'
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

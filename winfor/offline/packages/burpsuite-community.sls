@@ -4,16 +4,22 @@
 # Category: Network
 # Author: PortSwigger
 # License: https://portswigger.net/burp/tc-community
-# Version: v2023.10.1.2
+# Version: v2024.4.4
 # Notes:
 
-{% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '2023.10.1.2' %}
-{% set hash = '080fdd5a3f809f321cf35167b84708fc5fda030084010fff200c5075f5c61540' %}
+{% set version = '2024.4.4' %}
+{% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'burpsuite-community-'~ version ~'.exe' %}
+{% set exists = salt['file.file_exists'](downloads + '\\burpsuite\\' + pkg) %}
 
-burpsuite-community-download-only:
-  file.managed:
-    - name: '{{ downloads }}\burpsuite\Burpsuite-Community-{{ version }}-x64.exe'
-    - source: https://portswigger-cdn.net/burp/releases/download?product=community&version={{ version }}&type=WindowsX64
-    - source_hash: sha256={{ hash }}
-    - makedirs: True
+{% if exists %}
+burpsuite-install-offline:
+  cmd.run:
+    - name: '{{ pkg }} -q'
+    - shell: cmd
+    - cwd: '{{ downloads }}\burpsuite\'
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

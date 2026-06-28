@@ -4,16 +4,22 @@
 # Category: Acquisition and Analysis
 # Author: Elcomsoft
 # License: EULA (https://www.elcomsoft.com/legal.html)
-# Version: 2.20.1011.6893
+# Version: 2.21.1036.8165
 # Notes:
 
-{% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '2.20.1011.6893' %}
-{% set hash = '675ca40709c5b8b64ef19ac43db306d919203423fe1e63033226c0706bc05c7b' %}
+{% set version = '2.21.1036.8165' %}
+{% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'elcomsoft-efdd-' ~ version ~ '.msi' %}
+{% set exists = salt['file.file_exists'](downloads + '\\elcomsoft-efdd\\' + pkg) %}
 
-elcomsoft-efdd-download-only:
-  file.managed:
-    - name: '{{ downloads }}\elcomsoft-efdd\efdd_setup_en-{{ version }}.msi'
-    - source: https://www.elcomsoft.com/download/efdd_setup_en.msi
-    - source_hash: sha256={{ hash }}
-    - makedirs: True
+{% if exists %}
+elcomsoft-efdd-install-offline:
+  cmd.run:
+    - name: 'msiexec /i {{ pkg }} /quiet /norestart'
+    - shell: cmd
+    - cwd: '{{ downloads }}\elcomsoft-efdd\'
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}
+

@@ -7,13 +7,19 @@
 # Version: 21.1
 # Notes: 
 
-{% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '21.1' %}
-{% set hash = 'f3ec61fe2f01c121e7436cfb6440e839795c280382409fd454f7814f99a20638' %}
+{% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'kernel-ost-viewer-'~ version ~'.exe' %}
+{% set exists = salt['file.file_exists'](downloads + '\\kernel\\' + pkg) %}
 
-kernel-ost-viewer-download-only:
-  file.managed:
-    - name: '{{ downloads }}\kernel\freekernelostviewer-{{ version }}.exe'
-    - source: https://www.nucleustechnologies.com/downloads/freekernelostviewer.exe
-    - source_hash: sha256={{ hash }}
-    - makedirs: True
+{% if exists %}
+kernel-ost-viewer-install-offline:
+  cmd.run:
+    - name: '{{ pkg }} /VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP- /MERGETASKS=!DESKTOPICON,!RUNCODE'
+    - shell: cmd
+    - cwd: '{{ downloads }}\kernel\'
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

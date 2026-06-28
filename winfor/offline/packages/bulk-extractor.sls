@@ -8,12 +8,18 @@
 # Notes: 
 
 {% set version = '1.5.5' %}
-{% set hash = 'a410898e3452940c4aaa45bda6f32fe9447a61864266ff625c1916ee85764a39' %}
-{% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
+{% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'bulk-extractor-'~ version ~'.exe' %}
+{% set exists = salt['file.file_exists'](downloads + '\\bulk-extractor\\' + pkg) %}
 
-bulk-extractor-download-only:
-  file.managed:
-    - name: '{{ downloads }}\bulk-extractor\bulk_extractor-{{ version }}-windowsinstaller.exe'
-    - source: https://digitalcorpora.org/downloads/bulk_extractor/bulk_extractor-{{ version }}-windowsinstaller.exe
-    - source_hash: sha256={{ hash }}
-    - makedirs: True
+{% if exists %}
+bulk-extractor-install-offline:
+  cmd.run:
+    - name: '{{ pkg }} /S'
+    - shell: cmd
+    - cwd: '{{ downloads }}\bulk-extractor'
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

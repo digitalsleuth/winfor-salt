@@ -7,11 +7,19 @@
 # Version: 108.0.5359.72
 # Notes: 
 
-{% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
+{% set version = '108.0.5359.72' %}
+{% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'google-chrome-enterprise.msi' %}
+{% set exists = salt['file.file_exists'](downloads + '\\google-chrome\\' + pkg) %}
 
-chrome-download-only:
-  file.managed:
-    - name: '{{ downloads }}\chrome\GoogleChromeStandaloneEnterprise64.msi'
-    - source: https://dl.google.com/edgedl/chrome/install/GoogleChromeStandaloneEnterprise64.msi
-    - skip_verify: True
-    - makedirs: True
+{% if exists %}
+chrome-install-offline:
+  cmd.run:
+    - name: 'msiexec /i {{ pkg }} /qn /norestart'
+    - shell: cmd
+    - cwd: '{{ downloads }}\google-chrome\'
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

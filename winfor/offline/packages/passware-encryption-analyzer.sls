@@ -4,16 +4,22 @@
 # Category: Raw Parsers / Decoders
 # Author: Passware - Dmitry Sumin
 # License: EULA - https://www.passware.com/files/Passware-EULA.pdf
-# Version: 2023.4.0.3789
+# Version: 2026.2.0.5145
 # Notes:
 
-{% set version = '2023.4.0.3789' %}
-{% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set hash = '97b262c8b65675d4bd4621b42934e7e103389ab49057061acee1511f05f2174e' %}
+{% set version = '2026.2.0.5145' %}
+{% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'passware-encryption-analyzer-'~ version ~'.msi' %}
+{% set exists = salt['file.file_exists'](downloads + '\\passware-encryption-analyzer\\' + pkg) %}
 
-passware-encryption-analyzer-download-only:
-  file.managed:
-    - name: '{{ downloads }}\passware-encryption-analyzer\PasswareEncryptionAnalyzer_64bit_Setup-{{ version }}.msi'
-    - source: https://demo.passware.com/files/PasswareEncryptionAnalyzer_64bit_Setup.msi
-    - source_hash: sha256={{ hash }}
-    - makedirs: True
+{% if exists %}
+passware-encryption-analyzer-install-offline:
+  cmd.run:
+    - name: 'msiexec /i {{ pkg }} DESKTOP_SHORTCUT="" /qn /norestart'
+    - shell: cmd
+    - cwd: '{{ downloads }}\passware-encryption-analyzer\'
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

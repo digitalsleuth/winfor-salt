@@ -7,13 +7,19 @@
 # Version: 2.4.0.55
 # Notes:
 
-{% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '2.4.0' %}
-{% set hash = '2d6067f00bbb93526d146d2228a46dc4851f0fa866e69250279c6b2f00b8f1b7' %}
+{% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'hashcheck-'~ version ~'.exe' %}
+{% set exists = salt['file.file_exists'](downloads + '\\hashcheck\\' + pkg) %}
 
-hashcheck-download-only:
-  file.managed:
-    - name: '{{ downloads }}\hashcheck\HashCheckSetup-v{{ version }}.exe'
-    - source: https://github.com/gurnec/HashCheck/releases/download/v{{ version }}/HashCheckSetup-v{{ version }}.exe
-    - source_hash: sha256={{ hash }}
-    - makedirs: True
+{% if exists %}
+hashcheck-install-offline:
+  cmd.run:
+    - name: '{{ pkg }} /S'
+    - shell: cmd
+    - cwd: '{{ downloads }}\hashcheck\'
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

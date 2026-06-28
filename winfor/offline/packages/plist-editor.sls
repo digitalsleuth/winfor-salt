@@ -7,13 +7,25 @@
 # Version: 2.5.0
 # Notes: Free Trial
 
-{% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '2.5.0' %}
-{% set hash = '8f0fa6fb487f559995f0846cbd375d9ce925ad328234a01dc2f526cd888c6932' %}
+{% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'plist-editor-'~ version ~'.exe' %}
+{% set exists = salt['file.file_exists'](downloads + '\\plist-editor\\' + pkg) %}
 
-plist-editor-download-only:
-  file.managed:
-    - name: '{{ downloads }}\plist-editor\plisteditor_setup-{{ version }}.exe'
-    - source: https://www.icopybot.com/plisteditor_setup.exe
-    - source_hash: sha256={{ hash }}
-    - makedirs: True
+{% if exists %}
+plist-editor-install-offline:
+  cmd.run:
+    - name: '{{ pkg }} /S'
+    - shell: cmd
+    - cwd: '{{ downloads }}\plist-editor\'
+
+plist-editor-icon-remove-offline:
+  file.absent:
+    - name: 'C:\Users\Public\Desktop\plist Editor Pro.lnk'
+    - require:
+      - cmd: plist-editor-install-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

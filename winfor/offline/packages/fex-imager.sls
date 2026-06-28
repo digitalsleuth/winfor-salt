@@ -4,17 +4,22 @@
 # Category: Acquisition and Analysis
 # Author: GetData Forensics
 # License: Free
-# Version: 2.2.1.283
+# Version: 2.2.1.306
 # Notes: 
 
-{% set version = '2.2.1.283' %}
-{% set hash = '60085629eac79b9838e0d5620aa23b4a3205dff23eaf1e552cdb7e7fe1b541d6' %}
-{% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
+{% set version = '2.2.1.306' %}
+{% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'fex-imager-'~ version ~'.exe' %}
+{% set exists = salt['file.file_exists'](downloads + '\\fex-imager\\' + pkg) %}
 
-fex-imager-download-only:
-  file.managed:
-    - name: '{{ downloads }}\fex-imager\FEX-Imager-(v{{ version }}).exe'
-    - source: https://download.getdata.com/support/fex/fi/FEX-Imager-(v{{ version }}).exe
-    - source_hash: sha256={{ hash }}
-    - makedirs: True
+{% if exists %}
+fex-imager-install-offline:
+  cmd.run:
+    - name: '{{ pkg }} /VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP- /MERGETASKS=!DESKTOPICON,!RUNCODE'
+    - shell: cmd
+    - cwd: '{{ downloads }}\fex-imager\'
 
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

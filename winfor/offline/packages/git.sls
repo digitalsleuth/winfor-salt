@@ -4,16 +4,22 @@
 # Category: Requirements
 # Author: Git (git-scm.com)
 # License: GNU Public License and Lesser GNU Public License (https://github.com/git-for-windows/git/blob/main/COPYING, https://github.com/git-for-windows/git/blob/main/LGPL-2.1)
-# Version: 2.38.1
+# Version: 2.49.0
 # Notes: 
 
-{% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '2.38.1' %}
-{% set hash = 'f3fe05e65cd7e9a9126784d4ad57fdf979d30d5987fe849af4348dbe3e284df6' %}
+{% set version = '2.49.0' %}
+{% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'git-'~ version ~'.exe' %}
+{% set exists = salt['file.file_exists'](downloads + '\\git\\' + pkg) %}
 
-git-download-only:
-  file.managed:
-    - name: '{{ downloads }}\git\Git-{{ version }}-64-bit.exe'
-    - source: https://github.com/git-for-windows/git/releases/download/v{{ version }}.windows.1/Git-{{ version }}-64-bit.exe
-    - source_hash: sha256={{ hash }}
-    - makedirs: True
+{% if exists %}
+git-install-offline:
+  cmd.run:
+    - name: '{{ pkg }} /VERYSILENT /NORESTART /SP- /NOCANCEL /SUPPRESSMSGBOXES'
+    - shell: cmd
+    - cwd: '{{ downloads }}\git\'
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

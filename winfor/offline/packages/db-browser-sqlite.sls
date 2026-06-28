@@ -4,16 +4,22 @@
 # Category: Databases
 # Author: https://sqlitebrowser.org/about/
 # License: Mozilla Public License v2 (https://github.com/sqlitebrowser/sqlitebrowser/blob/master/LICENSE)
-# Version: 3.12.2
+# Version: 3.13.1
 # Notes: 
 
-{% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '3.12.2' %}
-{% set hash = '723d601f125b0d2402d9ea191e4b310345ec52f76b61e117bf49004a2ff9b8ae' %}
+{% set version = '3.13.1' %}
+{% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'db-browser-sqlite-'~ version ~'.msi' %}
+{% set exists = salt['file.file_exists'](downloads + '\\db-browser-sqlite\\' + pkg) %}
 
-db-browser-sqlite-download-only:
-  file.managed:
-    - name: '{{ downloads }}\db-browser-sqlite\DB.Browser.for.SQLite-{{ version }}-win64.msi'
-    - source: https://download.sqlitebrowser.org/DB.Browser.for.SQLite-{{ version }}-win64.msi
-    - source_hash: sha256={{ hash }}
-    - makedirs: True
+{% if exists %}
+db-browser-sqlite-install-offline:
+  cmd.run:
+    - name: '{{ pkg }} SHORTCUT_SQLITE_PROGRAMMENU=1 SHORTCUT_SQLCIPHER_PROGRAMMENU=1 /quiet /norestart'
+    - shell: cmd
+    - cwd: '{{ downloads }}\db-browser-sqlite\'
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

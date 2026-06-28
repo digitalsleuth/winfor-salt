@@ -4,16 +4,22 @@
 # Category: Network
 # Author: The Wireshark Foundation (https://gitlab.com/wireshark/wireshark/-/blob/master/AUTHORS)
 # License: GNU General Public License v2 (https://gitlab.com/wireshark/wireshark/-/blob/master/COPYING)
-# Version: 4.0.10
+# Version: 4.6.6
 # Notes: 
 
-{% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '4.0.10' %}
-{% set hash = '085d9aa4f6614730f132fb5c28ec5fa445dea79687e4c648d586de569ffcc5e2' %}
+{% set version = '4.6.6' %}
+{% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'wireshark-'~ version ~'.exe' %}
+{% set exists = salt['file.file_exists'](downloads + '\\wireshark\\' + pkg) %}
 
-wireshark-download-only:
-  file.managed:
-    - name: '{{ downloads }}\wireshark\Wireshark-win64-{{ version }}.exe'
-    - source: https://1.na.dl.wireshark.org/win64/all-versions/Wireshark-win64-{{ version }}.exe
-    - source_hash: sha256={{ hash }}
-    - makedirs: True
+{% if exists %}
+wireshark-install-offline:
+  cmd.run:
+    - name: '{{ pkg }} /S /EXTRACOMPONENTS=sshdump,udpdump,ciscodump,androiddump,randpktdump'
+    - shell: cmd
+    - cwd: '{{ downloads }}\wireshark\'
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

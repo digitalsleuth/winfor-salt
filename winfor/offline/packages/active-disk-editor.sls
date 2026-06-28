@@ -9,9 +9,17 @@
 
 {% set version = '26.1.3' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'active-disk-editor-'~ version ~'.exe' %}
+{% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set exists = salt['file.file_exists'](downloads + '\\active-disk-editor\\' + pkg) %}
 
+{% if exists %}
 active-disk-editor-offline:
   cmd.run:
-    - name: 'diskeditor-freeware-{{ version }}.exe /VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-'
+    - name: '{{ pkg }} /VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-'
     - shell: cmd
     - cwd: '{{ downloads }}\active-disk-editor'
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

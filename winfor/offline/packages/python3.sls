@@ -11,12 +11,16 @@
 {% set version = '3.10.11' %}
 {% from 'winfor/_macros/is_installed.jinja' import check_installed %}
 {% set installed = check_installed('Python ' + version + '*') | trim == 'true' %}
+{% set pkg = 'python3-'~ version ~'.exe' %}
+{% set exists = salt['file.file_exists'](downloads + '\\python3\\' + pkg) %}
 
 {% if not installed %}
+{% if exists %}
 
 python3-x64-offline:
   cmd.run:
-    - name: 'python-{{ version }}-amd64.exe /quiet InstallAllUsers=1 InstallLauncherAllUsers=1 Include_pip=1 AssociateFiles=1'
+    - name: '{{ pkg }} /quiet InstallAllUsers=1 InstallLauncherAllUsers=1 Include_pip=1 AssociateFiles=1'
+    - shell: cmd
     - cwd: '{{ downloads }}\python3'
 
 python3-env-vars-offline:
@@ -51,7 +55,12 @@ python3-pathext-offline:
     - shell: cmd
 
 {% else %}
-"Python {{ version }} is already installed":
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}
+
+{% else %}
+Python {{ version }} is already installed:
   test.nop
 {% endif %}
 

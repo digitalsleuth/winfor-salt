@@ -4,16 +4,23 @@
 # Category: Utilities
 # Author: Irfan Skiljan
 # License: https://www.irfanview.com/eula.htm
-# Version: 4.62
+# Version: 4.73
 # Notes:
 
-{% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '462' %}
-{% set hash = 'd9d4c5f3120a9420e2dbaf0ee8931556e161787fbc4297d5fb4e4c7616fdd668' %}
+{% set version = '473' %}
+{% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'irfanview-'~ version ~'.exe' %}
+{% set exists = salt['file.file_exists'](downloads + '\\irfanview\\' + pkg) %}
 
-irfanview-download-only:
-  file.managed:
-    - name: '{{ downloads }}\irfanview\iview{{ version }}_x64_setup.exe'
-    - source: https://download.betanews.com/download/967963863-1/iview{{ version }}_x64_setup.exe
-    - source_hash: sha256={{ hash }}
-    - makedirs: True
+{% if exists %}
+
+irfanview-install-offline:
+  cmd.run:
+    - name: '{{ pkg }} /silent /desktop=0 /thumbs=0 /group=1 /allusers=1 /assoc=1'
+    - shell: cmd
+    - cwd: '{{ downloads }}\irfanview\'
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

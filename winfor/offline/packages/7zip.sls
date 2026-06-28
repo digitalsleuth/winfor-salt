@@ -9,6 +9,8 @@
 
 {% set version = '2406' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = '7z-'~ version ~'.msi' %}
+{% set exists = salt['file.file_exists'](downloads + '\\7zip\\' + pkg) %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set exes = ['7z', '7zFM', '7zG'] %}
 {% from 'winfor/_macros/is_installed.jinja' import check_installed %}
@@ -18,10 +20,11 @@ include:
   - winfor.config.shims
 
 {% if not installed %}
-
+{% if exists %}
 7zip-offline:
   cmd.run:
-    - name: 'msiexec /i 7z{{ version }}-x64.msi /qn /norestart'
+    - name: 'msiexec /i {{ pkg }} /qn /norestart'
+    - shell: cmd
     - cwd: '{{ downloads }}\7zip'
 
 {% for exe in exes %}
@@ -34,6 +37,11 @@ include:
 {% endfor %}
 
 {% else %}
-"7-Zip is already installed":
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}
+
+{% else %}
+7-Zip is already installed:
   test.nop
 {% endif %}

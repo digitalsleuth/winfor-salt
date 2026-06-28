@@ -4,16 +4,22 @@
 # Category: Databases
 # Author: SysTools
 # License: EULA (https://www.systoolsgroup.com/eula.html)
-# Version: 11.0
+# Version: 13.0
 # Notes: 
 
-{% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '11.0' %}
-{% set hash = 'abaefb4e37fb02e6fafb875cf73a8f8411adc71e6872af570d877d525eacde87' %}
+{% set version = '13.0' %}
+{% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'mdf-viewer-'~ version ~'.exe' %}
+{% set exists = salt['file.file_exists'](downloads + '\\systools\\' + pkg) %}
 
-mdf-viewer-download-only:
-  file.managed:
-    - name: '{{ downloads }}\systools\mdf-viewer-{{ version }}.exe'
-    - source: https://downloads.systoolsgroup.com/mdf-viewer.exe
-    - source_hash: sha256={{ hash }}
-    - makedirs: True
+{% if exists %}
+mdf-viewer-install-offline:
+  cmd.run:
+    - name: '{{ pkg }} /VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP- /MERGETASKS=!DESKTOPICON,!RUNCODE'
+    - shell: cmd
+    - cwd: '{{ downloads }}\systools\'
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

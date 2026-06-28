@@ -4,16 +4,22 @@
 # Category: Windows Analysis
 # Author: FSPro
 # License: Multiple (https://eventlogxp.com/order.html)
-# Version: 5.4
+# Version: 5.8
 # Notes:
 
-{% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '5.4' %}
-{% set hash = '9015c3a52f46362033f2d42b51df106167de89bcbb044636c50ef62c45bf8313' %}
+{% set version = '5.8' %}
+{% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'eventlog-explorer-'~ version ~'.exe' %}
+{% set exists = salt['file.file_exists'](downloads + '\\eventlog-explorer\\' + pkg) %}
 
-eventlog-explorer-download-only:
-  file.managed:
-    - name: '{{ downloads }}\eventlog-explorer\elex_setup-{{ version }}.exe'
-    - source: https://eventlogxp.com/download/elex_setup.exe
-    - source_hash: sha256={{ hash }}
-    - makedirs: True
+{% if exists %}
+eventlog-explorer-install-offline:
+  cmd.run:
+    - name: '{{ pkg }} /SP- /VERYSILENT /SUPPRESSMSGBOXES /NORESTART /MERGETASKS=!DESKTOPICON,!RUNCODE'
+    - shell: cmd
+    - cwd: '{{ downloads }}\eventlog-explorer\'
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

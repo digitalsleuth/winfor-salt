@@ -4,16 +4,22 @@
 # Category: Utilities
 # Author: Dean P. Grimm (Thingamahoocie Software)
 # License: GNU General Public License v2.0 (https://github.com/WinMerge/winmerge/blob/master/LICENSE.md)
-# Version: 2.16.32
+# Version: 2.16.56.2
 # Notes:
 
-{% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '2.16.32' %}
-{% set hash = '8d6a6c7c4b6c6c844d993697fa8f0818a8b6213c0e2d64fd97d74478138d53fd' %}
+{% set version = '2.16.56.2' %}
+{% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'winmerge-'~ version ~'.exe' %}
+{% set exists = salt['file.file_exists'](downloads + '\\winmerge\\' + pkg) %}
 
-winmerge-download-only:
-  file.managed:
-    - name: '{{ downloads }}\winmerge\WinMerge-{{ version }}-x64-Setup.exe'
-    - source: https://github.com/WinMerge/winmerge/releases/download/v{{ version }}/WinMerge-{{ version }}-x64-Setup.exe
-    - source_hash: sha256={{ hash }}
-    - makedirs: True
+{% if exists %}
+winmerge-install-offline:
+  cmd.run:
+    - name: '{{ pkg }} /SP- /VERYSILENT /NORESTART /MERGETASKS=!DESKTOPICON,!RUNCODE'
+    - shell: cmd
+    - cwd: '{{ downloads }}\winmerge\'
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

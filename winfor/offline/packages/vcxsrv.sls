@@ -4,16 +4,28 @@
 # Category: Utilities
 # Author: Marha
 # License: GNU General Public License v3 (https://sourceforge.net/p/vcxsrv/code/ci/master/tree/COPYING)
-# Version: 1.20.14.0
+# Version: 21.1.16.1
 # Notes: 
 
-{% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '1.20.14.0' %}
-{% set hash = '7a5cd7d9d0ac982f09c8a93051fc48ab072fcc4b52237d1b91494363b9dad27e' %}
+{% set version = '21.1.16.1' %}
+{% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'vcxsrv-'~ version ~'.exe' %}
+{% set exists = salt['file.file_exists'](downloads + '\\vcxsrv\\' + pkg) %}
 
-vcxsrv-download-only:
-  file.managed:
-    - name: '{{ downloads }}\vcxsrv\vcxsrv-64.{{ version }}.installer.exe'
-    - source: https://versaweb.dl.sourceforge.net/project/vcxsrv/vcxsrv/{{ version }}/vcxsrv-64.{{ version }}.installer.exe
-    - source_hash: sha256={{ hash }}
-    - makedirs: True
+{% if exists %}
+vcxsrv-install-offline:
+  cmd.run:
+    - name: '{{ pkg }} /S'
+    - shell: cmd
+    - cwd: '{{ downloads }}\vcxsrv\'
+
+vcxsrv-icon-remove-offline:
+  file.absent:
+    - name: 'C:\Users\Public\Desktop\XLaunch.lnk'
+    - require:
+      - cmd: vcxsrv-install-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

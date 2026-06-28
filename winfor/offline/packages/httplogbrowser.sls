@@ -4,16 +4,22 @@
 # Category: Logs
 # Author: FinalAnalytics
 # License: EULA (https://www.finalanalytics.com/downloads/HttpLogBrowser-EULA.pdf)
-# Version: 4.6.2.0
+# Version: 4.6.3.0
 # Notes: 
 
-{% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '4.6.2.0' %}
-{% set hash = 'D5AC49BB17C0FF594FC96F5FD6729C93B5DE6AF694F6837DC5D7980EFC81BCD4' %}
+{% set version = '4.6.3.0' %}
+{% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'httplogbrowser-'~ version ~'.exe' %}
+{% set exists = salt['file.file_exists'](downloads + '\\httplogbrowser\\' + pkg) %}
 
-httplogbrowser-download-only:
-  file.managed:
-    - name: '{{ downloads }}\httplogbrowser\HttpLogBrowser-Setup-{{ version }}.exe'
-    - source: https://www.finalanalytics.com/downloads/HttpLogBrowser-Setup.exe
-    - source_hash: sha256={{ hash }}
-    - makedirs: True
+{% if exists %}
+httplogbrowser-install-offline:
+  cmd.run:
+    - name: '{{ pkg }} /qn /norestart'
+    - shell: cmd
+    - cwd: '{{ downloads }}\httplogbrowser\'
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

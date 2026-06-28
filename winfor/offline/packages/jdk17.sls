@@ -11,15 +11,24 @@
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% from 'winfor/_macros/is_installed.jinja' import check_installed %}
 {% set installed = check_installed('Java(TM) SE Development Kit 17*') | trim == 'true' %}
+{% set pkg = 'jdk-'~ version ~'.exe' %}
+{% set exists = salt['file.file_exists'](downloads + '\\jdk17\\' + pkg) %}
 
 {% if not installed %}
+{% if exists %}
 
 jdk17-offline:
   cmd.run:
-    - name: 'jdk-{{ version }}_windows-x64_bin.exe /s'
+    - name: '{{ pkg }} /s'
+    - shell: cmd
     - cwd: '{{ downloads }}\jdk17'
 
 {% else %}
-"JDK17 is already installed":
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}
+
+{% else %}
+JDK17 is already installed:
   test.nop
 {% endif %}

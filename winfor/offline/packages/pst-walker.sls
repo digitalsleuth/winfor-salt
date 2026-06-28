@@ -4,16 +4,22 @@
 # Category: Email
 # Author: PST Walker
 # License: GNU General Public License (GPL) (https://www.pstwalker.com/licensing-policy.html)
-# Version: 7.21
+# Version: 7.31
 # Notes:
 
-{% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '721' %}
-{% set hash = 'b21936294ec8cdc20b2a0dae9cde7360d2e3fe6c32025f40dc018fd3974393ab' %}
+{% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'pst-walker-'~ version ~'.exe' %}
+{% set exists = salt['file.file_exists'](downloads + '\\pst-walker\\' + pkg) %}
 
-pst-walker-download-only:
-  file.managed:
-    - name: '{{ downloads }}\pstwalker\pstwalker{{ version }}.exe'
-    - source: https://downloads.pstwalker.com/pstwalker{{ version }}.exe
-    - source_hash: sha256={{ hash }}
-    - makedirs: True
+{% if exists %}
+pst-walker-install-offline:
+  cmd.run:
+    - name: '{{ pkg }} /VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP- /MERGETASKS=!DESKTOPICON,!RUNCODE'
+    - shell: cmd
+    - cwd: '{{ downloads }}\pst-walker\'
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

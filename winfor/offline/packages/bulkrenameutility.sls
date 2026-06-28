@@ -4,16 +4,22 @@
 # Category: Utilities
 # Author: TGRMN Software
 # License: EULA (https://www.bulkrenameutility.co.uk/License.php)
-# Version: 3.4.4
+# Version: 4.1.0.0
 # Notes: 
 
-{% set version = '3.4.4.0' %}
-{% set hash = '6c178e80ab616d29390f3220469db21f7f705b8cbda902ca8d80d33438dd30e6' %}
-{% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
+{% set version = '4.1.0.0' %}
+{% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'bulk-rename-utility-'~ version ~'.exe' %}
+{% set exists = salt['file.file_exists'](downloads + '\\bulk-rename-utility\\' + pkg) %}
 
-bulkrenameutility-download-only:
-  file.managed:
-    - name: '{{ downloads }}\bulk-rename-utility\BRU_setup-{{ version }}.exe'
-    - source: https://www.bulkrenameutility.co.uk/Downloads/BRU_setup.exe
-    - source_hash: sha256={{ hash }}
-    - makedirs: True
+{% if exists %}
+bulkrenameutility-install-offline:
+  cmd.run:
+    - name: '{{ pkg }} /VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP- /MERGETASKS=!DESKTOPICON,!RUNCODE'
+    - shell: cmd
+    - cwd: '{{ downloads }}\bulk-rename-utility'
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

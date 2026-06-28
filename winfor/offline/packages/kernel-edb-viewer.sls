@@ -4,16 +4,22 @@
 # Category: Email
 # Author: Nucleus Technologies
 # License: EULA (https://www.nucleustechnologies.com/eula.pdf)
-# Version: 15.9
+# Version: 25.0
 # Notes: 
 
-{% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '15.9' %}
-{% set hash = '465bc1041ee2c5082f2e26a38b1b61c587423b4d2f032b5be38ce7d574ade3ed' %}
+{% set version = '25.0' %}
+{% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'kernel-edb-viewer-'~ version ~'.exe' %}
+{% set exists = salt['file.file_exists'](downloads + '\\kernel\\' + pkg) %}
 
-kernel-edb-viewer-download-only:
-  file.managed:
-    - name: '{{ downloads }}\kernel\exchange-edb-viewer-{{ version }}.exe'
-    - source: https://www.nucleustechnologies.com/downloads/exchange-edb-viewer.exe
-    - source_hash: sha256={{ hash }}
-    - makedirs: True
+{% if exists %}
+kernel-edb-viewer-install-offline:
+  cmd.run:
+    - name: '{{ pkg }} /VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP- /MERGETASKS=!DESKTOPICON,!RUNCODE'
+    - shell: cmd
+    - cwd: '{{ downloads }}\kernel\'
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

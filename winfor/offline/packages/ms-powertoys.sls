@@ -4,16 +4,22 @@
 # Category: Utilities
 # Author: Microsoft
 # License: MIT (https://github.com/microsoft/PowerToys/blob/main/LICENSE)
-# Version: 0.74.1
+# Version: 0.100.0
 # Notes:
 
-{% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '0.74.1' %}
-{% set hash = '298c6f4e4391bdc06e128bed86a303c3300a68eaf754b4630af7542c78c0944a' %}
+{% set version = '0.100.0' %}
+{% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'powertoys-'~ version ~'.exe' %}
+{% set exists = salt['file.file_exists'](downloads + '\\powertoys\\' + pkg) %}
 
-ms-powertoys-download-only:
-  file.managed:
-    - name: '{{ downloads }}\powertoys\PowerToysSetup-{{ version }}-x64.exe'
-    - source: https://github.com/microsoft/PowerToys/releases/download/v{{ version }}/PowerToysSetup-{{ version }}-x64.exe
-    - source_hash: sha256={{ hash }}
-    - makedirs: True
+{% if exists %}
+ms-powertoys-install-offline:
+  cmd.run:
+    - name: '{{ pkg }} /S'
+    - shell: cmd
+    - cwd: '{{ downloads }}\powertoys\'
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

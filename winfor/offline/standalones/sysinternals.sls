@@ -4,10 +4,10 @@
 # Category: Windows Analysis
 # Author: Microsoft / Mark Russinovich
 # License: https://learn.microsoft.com/en-us/sysinternals/license-terms
-# Version: 2026.04.09 (date of last update - no specific version number identified)
+# Version: 2026.06.17 (date of last update - no specific version number identified)
 # Notes: 
 
-{% set version = '2026.04.09' %}
+{% set version = '2026.06.17' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}

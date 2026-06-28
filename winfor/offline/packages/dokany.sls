@@ -9,6 +9,8 @@
 
 {% set version = '2.3.1.1000' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'dokany-'~ version ~'.msi' %}
+{% set exists = salt['file.file_exists'](downloads + '\\dokany\\' + pkg) %}
 {% from 'winfor/_macros/is_installed.jinja' import check_installed, get_version %}
 {% set installed = check_installed('Dokan Library') | trim == 'true' %}
 {% set installed_version = get_version('Dokan Library') | trim %}
@@ -23,10 +25,15 @@ Dokany {{ version }} (offline) is already installed:
   test.nop
 
 {% else %}
+{% if exists %}
 
 dokany-install-offline:
   cmd.run:
-    - name: 'msiexec /i {{ downloads }}\dokany\Dokan_x64-{{ version }}.msi /qn /norestart'
+    - name: 'msiexec /i {{ pkg }} /qn /norestart'
     - shell: cmd
-
+    - cwd: '{{ downloads }}\dokany\'
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}
 {% endif %}

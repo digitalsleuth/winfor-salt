@@ -11,15 +11,22 @@
 {% set version = '10.0.40219' %}
 {% from 'winfor/_macros/is_installed.jinja' import check_installed %}
 {% set installed = check_installed('Microsoft Visual C++ *' + ".".join(version.split(".")[:3])) | trim == 'true' %}
+{% set pkg = 'ms-vcpp-2010-redist-'~ version ~'.exe' %}
+{% set exists = salt['file.file_exists'](downloads + '\\ms-vcpp\\' + pkg) %}
 
 {% if not installed %}
-
+{% if exists %}
 ms-vcpp-2010-redist-x64-offline:
   cmd.run:
-    - name: 'vcpp-2010-redist-x64-{{ version }}.exe /q /norestart'
+    - name: '{{ pkg }} /q /norestart'
+    - shell: cmd
     - cwd: '{{ downloads }}\ms-vcpp'
 
 {% else %}
-"Microsoft VC++ 2010 Redistributable {{ version }} is already installed":
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}
+{% else %}
+Microsoft VC++ 2010 Redistributable {{ version }} is already installed:
   test.nop
 {% endif %}

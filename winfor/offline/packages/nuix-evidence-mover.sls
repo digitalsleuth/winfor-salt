@@ -7,13 +7,25 @@
 # Version: 6.2.1
 # Notes:
 
-{% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '6.2.1' %}
-{% set hash = 'cb29d30a5d3db6373baacfbb5d6c8998f6cb50a8e6647c892f179266f4bdb615' %}
+{% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'nuix-evidence-mover-'~ version ~'.msi' %}
+{% set exists = salt['file.file_exists'](downloads + '\\nuix\\' + pkg) %}
 
-nuix-evidence-mover-download-only:
-  file.managed:
-    - name: '{{ downloads }}\nuix\nuix_evidence_mover_{{ version }}.msi'
-    - source: https://github.com/digitalsleuth/salt-winrepo-ng/raw/main/files/nuix_evidence_mover_{{ version }}.msi
-    - source_hash: sha256={{ hash }}
-    - makedirs: True
+{% if exists %}
+nuix-evidence-mover-install-offline:
+  cmd.run:
+    - name: 'msiexec /i {{ pkg }} /qn /norestart'
+    - shell: cmd
+    - cwd: '{{ downloads }}\nuix\'
+
+nuix-evidence-mover-icon-remove-offline:
+  file.absent:
+    - name: 'C:\Users\Public\Desktop\Nuix Evidence Mover.lnk'
+    - require:
+      - cmd: nuix-evidence-mover-install-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

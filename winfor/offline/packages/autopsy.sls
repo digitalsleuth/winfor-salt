@@ -10,9 +10,23 @@
 {% set version = '4.22.0' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAM_FILES = "%ProgramFiles%" %}
+{% set pkg = 'autopsy-'~ version ~'.msi' %}
+{% set exists = salt['file.file_exists'](downloads + '\\autopsy\\' + pkg) %}
 
+{% if exists %}
 autopsy-install-offline:
   cmd.run:
-    - name: 'msiexec /i autopsy-{{ version }}-64bit.msi APPDIR="{{ PROGRAM_FILES}}\Autopsy\" /quiet /norestart'
+    - name: 'msiexec /i {{ pkg }} APPDIR="{{ PROGRAM_FILES}}\Autopsy\" /quiet /norestart'
     - shell: cmd
     - cwd: '{{ downloads }}\autopsy'
+
+autopsy-icon-remove-offline:
+  file.absent:
+    - name: 'C:\Users\Public\Desktop\Autopsy {{ version }}.lnk'
+    - require:
+      - cmd: autopsy-install-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

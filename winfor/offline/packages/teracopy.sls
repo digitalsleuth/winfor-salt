@@ -4,16 +4,22 @@
 # Category: Utilities
 # Author: Code Sector
 # License: FREEWARE (private / non-commerical)
-# Version: 3.12
+# Version: 4.0.0.27
 # Notes:
 
-{% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '310' %}
+{% set version = '4.0.0.27' %}
+{% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'teracopy-'~ version ~'.exe' %}
+{% set exists = salt['file.file_exists'](downloads + '\\teracopy\\' + pkg) %}
 
-teracopy-download:
-  file.managed:
-    - name: '{{ downloads }}\teracopy\teracopy{{ version }}.exe'
-    - source: https://www.codesector.com/files/teracopy.exe
-    - skip_verify: True
-    - makedirs: True
+{% if exists %}
+teracopy-install-offline:
+  cmd.run:
+    - name: '{{ pkg }} /exenoupdates /quiet'
+    - shell: cmd
+    - cwd: '{{ downloads }}\teracopy\'
 
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

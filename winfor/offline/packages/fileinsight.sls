@@ -7,13 +7,19 @@
 # Version: 3.0
 # Notes: 
 
-{% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '3.0' %}
-{% set hash = '005fe63e3942d772f82ec4df935002aedb8bbbf10fc95be086c029a2f3c875a9' %}
+{% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'fileinsight-'~ version ~'.msi' %}
+{% set exists = salt['file.file_exists'](downloads + '\\fileinsight\\' + pkg) %}
 
-fileinsight-download-only:
-  file.managed:
-    - name: '{{ downloads }}\fileinsight\fileinsight-{{ version }}.msi'
-    - source: https://github.com/digitalsleuth/salt-winrepo-ng/raw/main/files/fileinsight.msi
-    - source_hash: sha256={{ hash }}
-    - makedirs: True
+{% if exists %}
+fileinsight-install-offline:
+  cmd.run:
+    - name: '{{ pkg }} /qn /norestart'
+    - shell: cmd
+    - cwd: '{{ downloads }}\fileinsight\'
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

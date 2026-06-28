@@ -6,7 +6,6 @@ include:
   - winfor.offline.installers.dcode
   - winfor.offline.installers.fastcopy
   - winfor.offline.installers.hxd
-  - winfor.offline.installers.init
   - winfor.offline.installers.mobaxterm
   - winfor.offline.installers.msiviewer
   - winfor.offline.installers.systools-pst-viewer
@@ -25,7 +24,6 @@ offline-installers-states:
       - sls: winfor.offline.installers.dcode
       - sls: winfor.offline.installers.fastcopy
       - sls: winfor.offline.installers.hxd
-      - sls: winfor.offline.installers.init
       - sls: winfor.offline.installers.mobaxterm
       - sls: winfor.offline.installers.msiviewer
       - sls: winfor.offline.installers.systools-pst-viewer

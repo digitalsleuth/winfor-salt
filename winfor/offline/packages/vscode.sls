@@ -4,17 +4,23 @@
 # Category: Documents / Editors
 # Author: Microsoft
 # License: Code - MIT License (https://github.com/microsoft/vscode/blob/main/LICENSE.txt) / Product (https://code.visualstudio.com/License/)
-# Version: 1.82.3
+# Version: 1.26.0
 # Notes: 
 
-{% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '1.82.3' %}
-{% set guid = 'fdb98833154679dbaa7af67a5a29fe19e55c2b73' %}
-{% set hash = 'b704f7647e0efb2ce8d264e3c75846b11d07491ae6b1d9d140b8d02803b3d9fc' %}
+{% set version = '1.126.0' %}
+{% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'vscode-'~ version ~'.exe' %}
+{% set exists = salt['file.file_exists'](downloads + '\\vscode\\' + pkg) %}
 
-vscode-download-only:
-  file.managed:
-    - name: '{{ downloads }}\vscode\VSCodeSetup-x64-{{ version }}.exe'
-    - source: https://az764295.vo.msecnd.net/stable/{{ guid }}/VSCodeSetup-x64-{{ version }}.exe
-    - source_hash: sha256={{ hash }}
-    - makedirs: True
+{% if exists %}
+vscode-install-offline:
+  cmd.run:
+    - name: '{{ pkg }} /SP- /VERYSILENT /NORESTART /MERGETASKS=!RUNCODE,ADDCONTEXTMENUFILES,ADDCONTEXTMENUFOLDERS,ADDTOPATH'
+    - shell: cmd
+    - cwd: '{{ downloads }}\vscode\'
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}
+

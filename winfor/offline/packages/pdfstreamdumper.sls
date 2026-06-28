@@ -10,6 +10,8 @@
 {% set version = '0.9.634' %}
 {% set PROGRAM_FILES = "%ProgramFiles%" %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'pdfstreamdumper-'~ version ~'.exe' %}
+{% set exists = salt['file.file_exists'](downloads + '\\pdfstreamdumper\\' + pkg) %}
 {% set user = salt['pillar.get']('winfor_user', 'forensics') %}
 {% set current_user = salt['environ.get']('USERNAME') %}
 {% set all_users = salt['user.list_users']() %}
@@ -19,9 +21,14 @@
 {% set home = "C:\\Users\\" + user %}
 {% endif %}
 
+
+{% if exists %}
+include:
+  - winfor.config.user
+
 pdfstreamdumper-install-offline:
   cmd.run:
-    - name: '{{ downloads }}\pdfstreamdumper\PDFStreamDumper-Setup-{{ version }}.exe /VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP- /MERGETASKS=!DESKTOPICON,!RUNCODE /DIR="{{ PROGRAM_FILES }}\PDFStreamDumper"'
+    - name: '{{ pkg }} /VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP- /MERGETASKS=!DESKTOPICON,!RUNCODE /DIR="{{ PROGRAM_FILES }}\PDFStreamDumper"'
     - cwd: '{{ downloads }}\pdfstreamdumper'
     - shell: cmd
 
@@ -35,5 +42,8 @@ pdfstreamdumper-icon-remove-offline:
     - require:
       - user: user-{{ user }}
       - cmd: pdfstreamdumper-install-offline
-    - watch:
-      - cmd: pdfstreamdumper-install-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

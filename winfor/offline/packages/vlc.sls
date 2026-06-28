@@ -4,16 +4,28 @@
 # Category: Utilities
 # Author: VideoLAN
 # License: GNU General Public License v2 (https://www.videolan.org/legal.html)
-# Version: 3.0.18
+# Version: 3.0.23
 # Notes: https://mirror.clarkson.edu/videolan/vlc/version/win64/vlc-version-win64.exe
 
-{% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '3.0.18' %}
-{% set hash = 'ba575f153d357eaf3fdbf446b9b93a12ced87c35887cdd83ad4281733eb86602' %}
+{% set version = '3.0.23' %}
+{% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'vlc-'~ version ~'.exe' %}
+{% set exists = salt['file.file_exists'](downloads + '\\vlc\\' + pkg) %}
 
-vlc-download-only:
-  file.managed:
-    - name: '{{ downloads }}\vlc\vlc-{{ version }}-win64.exe'
-    - source: https://get.videolan.org/vlc/{{ version }}/win64/vlc-{{ version }}-win64.exe
-    - source_hash: sha256={{ hash }}
-    - makedirs: True
+{% if exists %}
+vlc-install-offline:
+  cmd.run:
+    - name: '{{ pkg }} /S'
+    - shell: cmd
+    - cwd: '{{ downloads }}\vlc\'
+
+vlc-icon-remove-offline:
+  file.absent:
+    - name: 'C:\Users\Public\Desktop\VLC media player.lnk'
+    - require:
+      - cmd: vlc-install-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

@@ -4,16 +4,68 @@
 # Category: Utilities
 # Author: OpenText
 # License: EULA
-# Version: 22.3.2
+# Version: 25.4.17
 # Notes: 
 
-{% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '22.3' %}
-{% set hash = '72da20b80e25ff34d43c44e7f2844707cf21863d5524885a7cfdff1e2a9f7edf' %}
+{% set version = '25.4' %}
+{% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'tableau-firmware-update-'~ version ~'.msi' %}
+{% set exists = salt['file.file_exists'](downloads + '\\tableau\\' + pkg) %}
+{% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set user = salt['pillar.get']('winfor_user', 'forensics') %}
+{% set current_user = salt['environ.get']('USERNAME') %}
+{% set all_users = salt['user.list_users']() %}
+{% if user in all_users %}
+  {% set home = salt['user.info'](user).home %}
+{% else %}
+{% set home = "C:\\Users\\" + user %}
+{% endif %}
 
-tableau-firmware-update-download-only:
-  file.managed:
-    - name: '{{ downloads }}\tableau\setup_tableau_firmware_update_{{ version }}.msi'
-    - source: https://mimage.opentext.com/support/ecm/tableau/setup_tableau_firmware_update_{{ version }}.msi
-    - source_hash: sha256={{ hash }}
-    - makedirs: True
+{% if exists %}
+include:
+  - winfor.config.user
+
+tableau-extract-certificate-offline:
+  cmd.run:
+    - name: powershell.exe -NonInteractive -Command "(Get-AuthenticodeSignature '{{ downloads }}\tableau\tableau-firmware-update-{{ version }}.msi').SignerCertificate | Export-Certificate -Type CERT -FilePath '{{ downloads }}\tableau\tableau.cer' | Out-Null"
+    - cwd: '{{ downloads }}\tableau'
+
+tableau-certificate-install-offline:
+  certutil.add_store:
+    - name: '{{ downloads }}\tableau\tableau.cer'
+    - store: TrustedPublisher
+    - require:
+      - cmd: tableau-extract-certificate-offline
+
+tableau-firmware-update-install-offline:
+  cmd.run:
+    - name: 'msiexec /i {{ pkg }} /qn /norestart'
+    - shell: cmd
+    - cwd: '{{ downloads }}\tableau\'
+
+tableau-firmware-update-icon-del-offline:
+  file.absent:
+    - names:
+      - '{{ home }}\Desktop\Tableau Firmware Update.lnk'
+      - 'C:\Users\Public\Desktop\Tableau Firmware Update.lnk'
+    {% if user != current_user %}
+      - 'C:\Users\{{ current_user }}\Desktop\Tableau Firmware Update.lnk'
+    {% endif %}
+    - require:
+      - certutil: tableau-certificate-install-offline
+      - cmd: tableau-firmware-update-install-offline
+      - user: user-{{ user }}
+
+tableau-firmware-update-shortcut-offline:
+  file.shortcut:
+    - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\Tableau Firmware Update.lnk'
+    - target: 'C:\Program Files (x86)\Tableau\Tableau Firmware Update\tabup.exe'
+    - force: True
+    - working_dir: 'C:\Program Files (x86)\Tableau\Tableau Firmware Update\'
+    - require:
+      - cmd: tableau-firmware-update-install-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

@@ -4,16 +4,23 @@
 # Category: Network
 # Author: Brim Data
 # License: GNU General Public License (GPL) (https://github.com/brimdata/zui/blob/main/apps/zui/LICENSE.txt)
-# Version: 1.3.0
+# Version: 1.18.0
 # Notes:
 
-{% set version = '1.3.0' %}
-{% set hash = '38bb9077def7aca1ecb5c0fab00e96dc0c41543b6e6d6541295687f2bcaac1a0' %}
-{% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
+{% set version = '1.18.0' %}
+{% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'zui-'~ version ~'.exe' %}
+{% set exists = salt['file.file_exists'](downloads + '\\zui\\' + pkg) %}
+{% set PROGRAM_FILES = "%ProgramFiles%" %}
 
-zui-download-only:
-  file.managed:
-    - name: '{{ downloads }}\zui\Zui-Setup-{{ version }}.exe'
-    - source: https://github.com/brimdata/zui/releases/download/v{{ version }}/Zui-Setup-{{ version }}.exe
-    - source_hash: sha256={{ hash }}
-    - makedirs: True
+{% if exists %}
+zui-install-offline:
+  cmd.run:
+    - name: '{{ pkg }} /S /allusers /no-desktop-shortcut /D="{{ PROGRAM_FILES }}\Zui\"'
+    - shell: cmd
+    - cwd: '{{ downloads }}\zui\'
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

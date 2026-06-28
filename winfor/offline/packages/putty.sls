@@ -4,16 +4,22 @@
 # Category: Network
 # Author: Simon Tatham
 # License: https://tartarus.org/~simon/putty-snapshots/htmldoc/AppendixD.html#licence
-# Version: 0.79
+# Version: 0.83
 # Notes: 
 
-{% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '0.79' %}
-{% set hash = 'beec23b8ead065f868e9cda021265998697e797064234a87c888be96e2c70060' %}
+{% set version = '0.83' %}
+{% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'putty-'~ version ~'.msi' %}
+{% set exists = salt['file.file_exists'](downloads + '\\putty\\' + pkg) %}
 
-putty-download-only:
-  file.managed:
-    - name: '{{ downloads }}\putty\putty-64bit-{{ version }}-installer.msi'
-    - source: https://the.earth.li/~sgtatham/putty/{{ version }}/w64/putty-64bit-{{ version }}-installer.msi
-    - source_hash: sha256={{ hash }}
-    - makedirs: True
+{% if exists %}
+putty-install-offline:
+  cmd.run:
+    - name: 'msiexec /i {{ pkg }} /qn'
+    - shell: cmd
+    - cwd: '{{ downloads }}\putty\'
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}
