@@ -31,6 +31,7 @@ flare-fakenet-ng-rename-folder-download-only:
     - name: '{{ downloads }}\flare-fakenet-ng'
     - source: '{{ downloads }}\fakenet{{ version }}'
     - makedirs: True
+    - force: True
     - require:
       - archive: flare-fakenet-ng-extract-download-only
 
@@ -38,4 +39,4 @@ flare-fakenet-ng-remove-archive-download-only:
   file.absent:
     - name: '{{ downloads }}\flare-fakenet-ng-{{ version }}.zip'
     - require:
-      - cmd: flare-fakenet-ng-requirements-download-only
+      - archive: flare-fakenet-ng-extract-download-only

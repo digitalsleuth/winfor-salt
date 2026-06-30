@@ -10,6 +10,10 @@
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set pkg = 'mha\\server.py' %}
+{% set exists = salt['file.file_exists'](downloads + '\\email-header-analyzer\\' + pkg) %}
+
+{% if exists %}
 
 email-header-analyzer-copy-offline:
   file.copy:
@@ -44,3 +48,8 @@ email-header-analyzer-shortcut-offline:
     - require:
       - cmd: email-header-analyzer-install-requirements-offline
       - file: email-header-analyzer-wrapper-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing Email Header Analyzer:
+  test.nop
+{% endif %}

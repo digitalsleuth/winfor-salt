@@ -9,11 +9,15 @@
 
 {% set version = '26.3' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'vb-decompiler-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\vb-decompiler\\' + pkg) %}
+
+{% if exists %}
 
 vbdecompiler-extract-offline:
   archive.extracted:
     - name: '{{ downloads }}\vb-decompiler\'
-    - source: '{{ downloads}}\vb-decompiler\vb_decompiler_lite-{{ version }}.zip'
+    - source: '{{ downloads}}\vb-decompiler\{{ pkg }}'
     - enforce_toplevel: False
 
 vbdecompiler-install-offline:
@@ -22,3 +26,8 @@ vbdecompiler-install-offline:
     - shell: cmd
     - require:
       - archive: vbdecompiler-extract-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

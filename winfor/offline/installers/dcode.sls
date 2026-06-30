@@ -9,12 +9,15 @@
 
 {% set version = '5.6.24123.1' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
-{% set hash = '9ffe1106ee9d9f55b53d5707621d5990f493604e20f3dbdb0d22ec1b8ecb2458' %}
+{% set pkg = 'dcode-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\dcode\\' + pkg) %}
+
+{% if exists %}
 
 dcode-extract-offline:
   archive.extracted:
     - name: '{{ downloads }}\dcode\'
-    - source: '{{ downloads }}\dcode\DCode-x86-EN-{{ version }}.zip'
+    - source: '{{ downloads }}\dcode\{{ pkg }}'
     - enforce_toplevel: False
 
 dcode-install-offline:
@@ -22,3 +25,8 @@ dcode-install-offline:
     - name: '{{ downloads }}\dcode\DCode-x86-EN-{{ version }}.exe /SP- /VERYSILENT /NORESTART /MERGETASKS=!RUNCODE,ADDCONTEXTMENUFILES,ADDCONTEXTMENUFOLDERS,ADDTOPATH,!DESKTOPICON'
     - require:
       - archive: dcode-extract-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

@@ -49,6 +49,15 @@ ileapp-requirements-download-only:
       - sls: winfor.standalones.portable-python3
       - sls: winfor.downloads.packages.ms-vcpp-2015-build-tools
 
+ileapp-wheel-requirement-download-only:
+  cmd.run:
+    - name: '{{ inpath }}\portable-python3\python.exe -m pip download wheel -d packages'
+    - cwd: '{{ downloads }}\ileapp'
+    - require:
+      - file: ileapp-source-download-only
+      - sls: winfor.standalones.portable-python3
+      - sls: winfor.downloads.packages.ms-vcpp-2015-build-tools
+
 ileapp-icon-download-only:
   file.managed:
     - name: '{{ downloads }}\ileapp\ileapp.ico'

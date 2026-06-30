@@ -15,7 +15,7 @@
 ms-word-parser-offline:
   file.managed:
     - name: '{{ inpath }}\ms-word-parser\parse-docx-gui.exe'
-    - source: {{ downloads }}\ms-word-parser\parse-docx-gui-v{{ version }}.exe
+    - source: {{ downloads }}\ms-word-parser\parse-docx-gui-{{ version }}.exe
     - skip_verify: True
     - makedirs: True
 

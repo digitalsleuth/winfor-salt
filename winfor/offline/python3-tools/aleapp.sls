@@ -11,7 +11,10 @@
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set pkg = 'aleapp.py' %}
+{% set exists = salt['file.file_exists'](downloads + '\\aleapp\\' + pkg) %}
 
+{% if exists %}
 
 include:
   - winfor.offline.packages.python3
@@ -56,3 +59,8 @@ aleapp-gui-shortcut-offline:
       - cmd: aleapp-requirements-install-offline
       - file: aleapp-header-offline
       - win_path: aleapp-env-vars-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

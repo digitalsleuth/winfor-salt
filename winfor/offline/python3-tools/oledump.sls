@@ -10,6 +10,10 @@
 {% set version = '0.0.85' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'oledump.py' %}
+{% set exists = salt['file.file_exists'](downloads + '\\oledump\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.offline.packages.python3
@@ -22,7 +26,7 @@ oledump-folder-rename-offline:
     - makedirs: True
     - force: True
 
-oledump-wrapper:
+oledump-wrapper-offline:
   file.managed:
     - name: 'C:\Program Files\Python310\Scripts\oledump.cmd'
     - win_inheritance: True
@@ -32,3 +36,8 @@ oledump-wrapper:
     - require:
       - sls: winfor.offline.packages.python3
       - sls: winfor.offline.python3-tools.olefile
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

@@ -11,10 +11,14 @@
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set pkg = 'fastcopy-'~ version ~'.exe' %}
+{% set exists = salt['file.file_exists'](downloads + '\\fastcopy\\' + pkg) %}
+
+{% if exists %}
 
 fastcopy-install-offline:
   cmd.run:
-    - name: '{{ downloads }}\fastcopy\FastCopy{{ version }}_installer.exe /SILENT /DIR={{ inpath }}\fastcopy /NODESK /NOPROG'
+    - name: '{{ downloads }}\fastcopy\{{ pkg }} /SILENT /DIR={{ inpath }}\fastcopy /NODESK /NOPROG'
     - shell: cmd
 
 fastcopy-shortcut-offline:
@@ -26,3 +30,8 @@ fastcopy-shortcut-offline:
     - makedirs: True
     - require:
       - cmd: fastcopy-install-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

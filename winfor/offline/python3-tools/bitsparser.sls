@@ -10,6 +10,10 @@
 {% set version = '1.0' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'BitsParser.py' %}
+{% set exists = salt['file.file_exists'](downloads + '\\bitsparser\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.offline.packages.python3
@@ -33,3 +37,8 @@ bitsparser-env-vars-offline:
     - name: '{{ inpath }}\bitsparser\'
     - require:
       - cmd: bitsparser-requirements-install-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

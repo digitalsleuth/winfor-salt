@@ -9,6 +9,10 @@
 
 {% set version = '1.1' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'iptools-'~ version ~'.py' %}
+{% set exists = salt['file.file_exists'](downloads + '\\iptools\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.offline.packages.python3
@@ -16,7 +20,7 @@ include:
 iptools-offline:
   file.managed:
     - name: 'C:\Program Files\Python310\Scripts\iptools.py'
-    - source: {{ downloads }}\iptools\iptools-{{ version }}.py
+    - source: {{ downloads }}\iptools\{{ pkg }}
     - skip_verify: True
     - makedirs: True
     - require:
@@ -31,3 +35,9 @@ iptools-wrapper-offline:
       - 'python3 "C:\Program Files\Python310\Scripts\iptools.py" %*'
     - require:
       - file: iptools-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}
+

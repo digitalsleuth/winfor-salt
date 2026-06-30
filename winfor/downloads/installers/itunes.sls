@@ -14,7 +14,7 @@
 
 itunes-download-only:
   file.managed:
-    - name: '{{ downloads }}\itunes\iTunes64Setup-{{ version }}.exe'
+    - name: '{{ downloads }}\itunes\itunes-{{ version }}.exe'
     - source: https://secure-appldnld.apple.com/itunes12/{{ url_path }}/iTunes64Setup.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

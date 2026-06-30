@@ -11,7 +11,7 @@
 {% set version = '5.0' %}
 {% set hash = '012599f3a3abeca988964dbab47b1c3fb31cfe164d6bf724d406859d785ddab2' %}
 
-pst-viewer-download-only:
+outlook-pst-viewer-download-only:
   file.managed:
     - name: '{{ downloads }}\outlook-pst-viewer\outlook-pst-viewer-{{ version }}.exe'
     - source: https://downloads.systoolsgroup.com/outlook-pst-viewer.exe

@@ -11,6 +11,10 @@
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set files = ['Noriben', 'NoribenSandbox', 'NoribenRead'] %}
+{% set pkg = 'Noriben.py' %}
+{% set exists = salt['file.file_exists'](downloads + '\\noriben\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.offline.packages.python3
@@ -37,3 +41,7 @@ noriben-wrapper-offline-{{ file }}:
       - file: noriben-folder-rename-offline
 {% endfor %}
 
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

@@ -12,7 +12,7 @@
 
 windows-winget-download-only:
   file.managed:
-    - name: '{{ downloads }}\windows-winget\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe-{{ version }}.msixbundle'
+    - name: '{{ downloads }}\windows-winget\windows-winget-{{ version }}.msixbundle'
     - source: https://github.com/microsoft/winget-cli/releases/download/v{{ version }}/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle
     - skip_verify: True
     - makedirs: True

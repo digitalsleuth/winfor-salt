@@ -10,6 +10,10 @@
 {% set version = '0.0.5' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'msoffcrypto-crack-'~ version ~'.py' %}
+{% set exists = salt['file.file_exists'](downloads + '\\msoffcrypto-crack\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.offline.packages.python3
@@ -36,4 +40,7 @@ msoffcrypto-crack-wrapper-offline:
     - require:
       - file: msoffcrypto-crack-file-offline
 
-
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

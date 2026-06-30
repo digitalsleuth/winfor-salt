@@ -10,6 +10,10 @@
 {% set version = '2.18.4.3' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set user = salt['pillar.get']('winfor_user', 'forensics') %}
+{% set pkg = 'casenotes-pro-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\casenotes-pro\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.config.user
@@ -18,7 +22,7 @@ include:
 casenotes-pro-extract-offline:
   archive.extracted:
     - name: '{{ downloads }}\casenotes-pro\'
-    - source: '{{ downloads }}\casenotes-pro\CaseNotesInstaller-{{ version }}.zip'
+    - source: '{{ downloads }}\casenotes-pro\{{ pkg }}'
     - enforce_toplevel: False
 
 casenotes-pro-install-offline:
@@ -36,3 +40,8 @@ casenotes-icons-remove-offline:
     - require:
       - cmd: casenotes-pro-install-offline
       - user: user-{{ user }}
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

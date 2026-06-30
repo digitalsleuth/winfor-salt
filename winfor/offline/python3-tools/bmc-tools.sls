@@ -10,6 +10,10 @@
 {% set version = '3.05' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'bmc-tools-'~ version ~'.py' %}
+{% set exists = salt['file.file_exists'](downloads + '\\bmc-tools\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.offline.packages.python3
@@ -40,3 +44,8 @@ bmc-tools-wrapper-offline:
       - 'python3 "C:\Program Files\Python310\Scripts\bmc-tools.py" %*'
     - require:
       - file: bmc-tools-copy-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

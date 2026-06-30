@@ -9,10 +9,14 @@
 
 {% set version = '12.13.7.1' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'itunes-'~ version ~'.exe' %}
+{% set exists = salt['file.file_exists'](downloads + '\\itunes\\' + pkg) %}
+
+{% if exists %}
 
 itunes-install-offline:
   cmd.run:
-    - name: '"{{ downloads }}\itunes\iTunes64Setup-{{ version }}.exe" /quiet /qn ALLUSERS=1 /norestart'
+    - name: '"{{ downloads }}\itunes\{{ pkg }}" /quiet /qn ALLUSERS=1 /norestart'
     - shell: cmd
     - success_retcodes: 3010
 
@@ -21,3 +25,8 @@ itunes-remove-icon-offline:
     - name: 'C:\Users\Public\Desktop\iTunes.lnk'
     - require:
       - cmd: itunes-install-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

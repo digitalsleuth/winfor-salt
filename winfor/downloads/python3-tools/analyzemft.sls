@@ -15,41 +15,17 @@
 include:
   - winfor.standalones.portable-python3
 
-analyzemft-download-only:
-  file.managed:
-    - name: '{{ downloads }}\analyzemft-{{ version }}.zip'
-    - source: https://github.com/rowingdude/analyzeMFT/archive/refs/tags/v{{ version }}.0.zip
-    - source_hash: sha256={{ hash }}
-    - makedirs: True
-
-analyzemft-extract-download-only:
-  archive.extracted:
-    - name: '{{ downloads }}\'
-    - source: '{{ downloads }}\analyzemft-{{ version }}.zip'
-    - enforce_toplevel: False
-    - require:
-      - file: analyzemft-download-only
-
-analyzemft-rename-download-only:
-  file.rename:
+analyzemft-directory-download-only:
+  file.directory:
     - name: '{{ downloads }}\analyzemft'
-    - source: '{{ downloads }}\analyzeMFT-{{ version }}.0'
-    - makedirs: True
     - force: True
-    - require:
-      - archive: analyzemft-extract-download-only
+    - makedirs: True
+    - win_inheritance: True
 
-analyzemft-requirements-download-only:
+analyzemft-download-only:
   cmd.run:
-    - name: '{{ inpath }}\portable-python3\python.exe -m pip download -r requirements.txt -d packages'
+    - name: '{{ inpath }}\portable-python3\python.exe -m pip download -d packages analyzeMFT'
     - cwd: '{{ downloads }}\analyzemft'
     - require:
-      - file: analyzemft-download-only
-      - archive: analyzemft-extract-download-only
+      - file: analyzemft-directory-download-only
       - sls: winfor.standalones.portable-python3
-
-analyzemft-remove-zip-download-only:
-  file.absent:
-    - name: '{{ downloads }}\analyzemft-{{ version }}.zip'
-    - require:
-      - cmd: analyzemft-requirements-download-only

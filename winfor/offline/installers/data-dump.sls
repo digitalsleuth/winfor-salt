@@ -9,11 +9,15 @@
 
 {% set version = '2.3.24262.11' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'data-dump-'~ version ~'.exe' %}
+{% set exists = salt['file.file_exists'](downloads + '\\data-dump\\' + pkg) %}
+
+{% if exists %}
 
 data-dump-extract-offline:
   archive.extracted:
     - name: '{{ downloads }}\data-dump\'
-    - source: '{{ downloads }}\data-dump\DataDump-x86-EN-{{ version }}.zip'
+    - source: '{{ downloads }}\data-dump\{{ pkg }}'
     - enforce_toplevel: False
 
 data-dump-install-offline:
@@ -21,3 +25,8 @@ data-dump-install-offline:
     - name: '{{ downloads }}\data-dump\DataDump-x86-EN-{{ version }}.exe /SP- /VERYSILENT /NORESTART /MERGETASKS=!RUNCODE,ADDCONTEXTMENUFILES,ADDCONTEXTMENUFOLDERS,ADDTOPATH,!DESKTOPICON'
     - require:
       - archive: data-dump-extract-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

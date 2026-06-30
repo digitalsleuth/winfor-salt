@@ -4,16 +4,27 @@
 # Category: Documents / Editors
 # Author: Nolze
 # License: MIT License (https://github.com/nolze/msoffcrypto-tool/blob/master/LICENSE.txt)
-# Version: 5.4.2
+# Version: 6.0.0
 # Notes: 
 
-{% set version = '5.4.2' %}
+{% set version = '6.0.0' %}
+{% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'msoffcrypto_tool-'~ version ~'-py3-none-any.whl' %}
+{% set exists = salt['file.file_exists'](downloads + '\\msoffcrypto-tool\\packages\\' + pkg) %}
+
+{% if exists %}
 
 include:
-  - winfor.packages.python3
+  - winfor.offline.packages.python3
 
-msoffcrypto-tool:
-  pip.installed:
-    - bin_env: 'C:\Program Files\Python310\python.exe'
+msoffcrypto-tool-install-offline:
+  cmd.run:
+    - name: '"C:\Program Files\Python310\python.exe" -m pip install --no-index --find-links=.\packages msoffcrypto-tool'
+    - cwd: '{{ downloads }}\msoffcrypto-tool\'
     - require:
-      - sls: winfor.packages.python3
+      - sls: winfor.offline.packages.python3
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

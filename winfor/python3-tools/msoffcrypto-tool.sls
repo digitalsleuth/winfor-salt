@@ -4,10 +4,10 @@
 # Category: Documents / Editors
 # Author: Nolze
 # License: MIT License (https://github.com/nolze/msoffcrypto-tool/blob/master/LICENSE.txt)
-# Version: 5.4.2
+# Version: 6.0.0
 # Notes: 
 
-{% set version = '5.4.2' %}
+{% set version = '6.0.0' %}
 
 include:
   - winfor.packages.python3

@@ -10,6 +10,10 @@
 {% set version = '0.0.23' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = '1768-'~ version ~'.py' %}
+{% set exists = salt['file.file_exists'](downloads + '\\1768\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.offline.packages.python3
@@ -17,7 +21,7 @@ include:
 1768-offline:
   file.managed:
     - name: 'C:\Program Files\Python310\Scripts\1768.py'
-    - source: '{{ downloads }}\1768\1768-{{ version }}.py'
+    - source: '{{ downloads }}\1768\{{ pkg }}'
     - skip_verify: True
     - makedirs: True
 
@@ -39,3 +43,8 @@ include:
       - file: 1768-offline
       - sls: winfor.offline.packages.python3
       - cmd: 1768-requirements-install-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

@@ -9,15 +9,25 @@
 
 {% set version = '5.0' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'outlook-pst-viewer-'~ version ~'.exe' %}
+{% set exists = salt['file.file_exists'](downloads + '\\outlook-pst-viewer\\' + pkg) %}
 
-pst-viewer-install-offline:
+{% if exists %}
+
+outlook-pst-viewer-install-offline:
   cmd.run:
-    - name: '{{ downloads }}\outlook-pst-viewer\outlook-pst-viewer-{{ version }}.exe /VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP- /MERGETASKS=!DESKTOPICON,!RUNCODE'
+    - name: '{{ pkg }} /VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP- /MERGETASKS=!DESKTOPICON,!RUNCODE'
     - shell: cmd
+    - cwd: '{{ downloads }}\outlook-pst-viewer\'
 
-taskkill-systools-pst-viewer-edge-window-offline:
+taskkill-outlook-pst-viewer-edge-window-offline:
   cmd.run:
     - name: 'taskkill /F /IM "msedge.exe"'
     - bg: True
     - require:
-      - cmd: pst-viewer-install-offline
+      - cmd: outlook-pst-viewer-install-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

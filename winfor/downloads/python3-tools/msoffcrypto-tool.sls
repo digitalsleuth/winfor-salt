@@ -4,10 +4,10 @@
 # Category: Documents / Editors
 # Author: Nolze
 # License: MIT License (https://github.com/nolze/msoffcrypto-tool/blob/master/LICENSE.txt)
-# Version: 5.4.2
+# Version: 6.0.0
 # Notes:
 
-{% set version = '5.4.2' %}
+{% set version = '6.0.0' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
@@ -22,7 +22,7 @@ msoffcrypto-tool-folder-download-only:
 
 msoffcrypto-tool-download-only:
   cmd.run:
-    - name: '{{ inpath }}\portable-python3\python.exe -m pip download -d packages msoffcrypto-tool'
+    - name: '{{ inpath }}\portable-python3\python.exe -m pip download -d packages msoffcrypto-tool=={{ version }}'
     - cwd: '{{ downloads }}\msoffcrypto-tool'
     - require:
       - sls: winfor.standalones.portable-python3

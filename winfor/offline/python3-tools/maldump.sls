@@ -10,6 +10,10 @@
 {% set version = '0.5.0' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'maldump-'~ version ~'-py3-none-any.whl' %}
+{% set exists = salt['file.file_exists'](downloads + '\\maldump\\packages\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.offline.packages.python3
@@ -21,3 +25,7 @@ maldump-requirements-install-offline:
     - require:
       - sls: winfor.offline.packages.python3
 
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

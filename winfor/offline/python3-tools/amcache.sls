@@ -9,6 +9,10 @@
 
 {% set version = '2.0' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'amcache-'~ version ~'.py' %}
+{% set exists = salt['file.file_exists'](downloads + '\\amcache\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.offline.packages.python3
@@ -30,3 +34,8 @@ amcache-wrapper-offline:
       - 'python3 "C:\Program Files\Python310\Scripts\amcache.py" %*'
     - require:
       - file: amcache-file-copy-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

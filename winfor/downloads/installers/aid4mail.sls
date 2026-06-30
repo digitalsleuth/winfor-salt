@@ -8,12 +8,12 @@
 # Notes: Free Trial / Limited Free Conversion
 
 {% set version = '6.3' %}
-{% set hash = '1b3d053bdfb32d4af2ca125eac1078168288b45e7f5cf74f7b909d5efbf78139' %}
+{% set hash = '5be9219d044e2fe664e838d759868219b7b1e399dfa8e6ab3791a5870709a251' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 aid4mail-download-only:
   file.managed:
-    - name: '{{ downloads }}\aid4mail\Aid4Mail6_Setup-{{ version }}.zip'
+    - name: '{{ downloads }}\aid4mail\aid4mail-{{ version }}.zip'
     - source: https://www.aid4mail.com/download/Aid4Mail6_Setup.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True

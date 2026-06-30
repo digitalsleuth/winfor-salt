@@ -9,6 +9,10 @@
 
 {% set version = "3.0.1" %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'ms_word_parser-'~ version ~'-py3-none-any.whl' %}
+{% set exists = salt['file.file_exists'](downloads + '\\ms-word-parser\\packages\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.offline.packages.python3
@@ -20,3 +24,7 @@ ms-word-parser-install-offline:
     - require:
       - sls: winfor.offline.packages.python3
 
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

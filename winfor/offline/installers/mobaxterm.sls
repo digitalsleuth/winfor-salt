@@ -9,11 +9,15 @@
 
 {% set version = '26.3' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'mobaxterm-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\mobaxterm\\' + pkg) %}
+
+{% if exists %}
 
 mobaxterm-extract-offline:
   archive.extracted:
     - name: '{{ downloads }}\mobaxterm\'
-    - source: '{{ downloads }}\mobaxterm\MobaXterm_Installer_v{{ version }}.zip'
+    - source: '{{ downloads }}\mobaxterm\{{ pkg }}'
     - enforce_toplevel: False
 
 mobaxterm-install-offline:
@@ -29,3 +33,8 @@ mobaxterm-del-shortcut-offline:
     - name: 'C:\Users\Public\Desktop\MobaXterm.lnk'
     - require:
       - cmd: mobaxterm-install-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

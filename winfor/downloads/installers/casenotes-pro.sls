@@ -16,7 +16,7 @@ include:
 
 casenotes-pro-download-only:
   file.managed:
-    - name: '{{ downloads }}\casenotes-pro\CaseNotesInstaller-{{ version }}.zip'
+    - name: '{{ downloads }}\casenotes-pro\casenotes-pro-{{ version }}.zip'
     - source: https://github.com/finbarr996/First-Response-CaseNotes/releases/download/{{ version }}/CaseNotesInstaller.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True

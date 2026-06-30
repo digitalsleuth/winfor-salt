@@ -11,10 +11,14 @@
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set PROGRAM_FILES = salt['environ.get']('PROGRAMFILES') %}
+{% set pkg = 'msiviewer-'~ version ~'.msixbundle' %}
+{% set exists = salt['file.file_exists'](downloads + '\\msiviewer\\' + pkg) %}
+
+{% if exists %}
 
 msiviewer-extract-certificate-offline:
   cmd.run:
-    - name: powershell.exe -NonInteractive -Command "(Get-AuthenticodeSignature '{{ downloads }}\msiviewer\MSIViewer_{{ version }}_Sideload.msixbundle').SignerCertificate | Export-Certificate -Type CERT -FilePath '{{ downloads }}\msiviewer\msiviewer.cer' | Out-Null"
+    - name: powershell.exe -NonInteractive -Command "(Get-AuthenticodeSignature '{{ downloads }}\msiviewer\{{ pkg }}').SignerCertificate | Export-Certificate -Type CERT -FilePath '{{ downloads }}\msiviewer\msiviewer.cer' | Out-Null"
     - cwd: '{{ downloads }}\msiviewer'
 
 msiviewer-import-certificate-offline:
@@ -24,6 +28,11 @@ msiviewer-import-certificate-offline:
 
 msiviewer-install-offline:
   cmd.run:
-    - name: 'Add-AppPackage -Path MSIViewer_{{ version }}_Sideload.msixbundle'
+    - name: 'Add-AppPackage -Path {{ pkg }}'
     - cwd: '{{ downloads }}\msiviewer'
     - shell: powershell
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

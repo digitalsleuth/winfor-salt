@@ -10,6 +10,10 @@
 {% set version = '3.5' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'fakenet.exe' %}
+{% set exists = salt['file.file_exists'](downloads + '\\flare-fakenet-ng\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.config.shims
@@ -25,3 +29,8 @@ flare-fakenet-ng-shim-offline:
     - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\flare-fakenet-ng\fakenet.exe -OutPath {{ inpath }}\shims\fakenet.exe'
     - require:
       - file: flare-fakenet-ng-rename-folder-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

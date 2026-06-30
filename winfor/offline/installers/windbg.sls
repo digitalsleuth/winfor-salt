@@ -12,10 +12,14 @@
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set PROGRAM_FILES = salt['environ.get']('PROGRAMFILES') %}
 {% set LOCALAPPDATA = salt['environ.get']('LOCALAPPDATA') %}
+{% set pkg = 'windbg-'~ version ~'.msixbundle' %}
+{% set exists = salt['file.file_exists'](downloads + '\\windbg\\' + pkg) %}
+
+{% if exists %}
 
 windbg-install-offline:
   cmd.run:
-    - name: 'Add-AppPackage -Path {{ downloads }}\windbg\windbg-{{ version }}.msixbundle'
+    - name: 'Add-AppPackage -Path {{ downloads }}\windbg\{{ pkg }}'
     - shell: powershell
 
 windbg-shortcut-offline:
@@ -27,3 +31,8 @@ windbg-shortcut-offline:
     - icon_location: '{{ PROGRAM_FILES }}\WindowsApps\Microsoft.WinDbg_{{ version }}_x64__8wekyb3d8bbwe\DbgX.Shell.exe'
     - require:
       - cmd: windbg-install-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

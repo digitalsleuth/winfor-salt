@@ -9,10 +9,14 @@
 
 {% set version = '3.6.6' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'cygwin-'~ version ~'.exe' %}
+{% set exists = salt['file.file_exists'](downloads + '\\cygwin\\' + pkg) %}
+
+{% if exists %}
 
 cygwin-install-offline:
   cmd.run:
-    - name: '{{ downloads }}\cygwin\setup-x86_64-{{ version }}.exe -R C:\cygwin64\ -d -X -l C:\cygwin64\ -q -O -s https://mirror.csclub.uwaterloo.ca/cygwin/'
+    - name: '{{ downloads }}\cygwin\{{ pkg }} -R C:\cygwin64\ -d -X -l C:\cygwin64\ -q -O -s https://mirror.csclub.uwaterloo.ca/cygwin/'
     - shell: cmd
     - success_retcodes: 2
 
@@ -21,3 +25,8 @@ cygwin-env-vars-offline:
     - name: 'C:\cygwin64\'
     - require:
       - cmd: cygwin-install-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

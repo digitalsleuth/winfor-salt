@@ -13,7 +13,7 @@
 
 hxd-download-only:
   file.managed:
-    - name: '{{ downloads }}\hxd\HxDSetup-{{ version }}.zip'
+    - name: '{{ downloads }}\hxd\hxd-{{ version }}.zip'
     - source: https://mh-nexus.de/downloads/HxDSetup.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True
