@@ -8,7 +8,7 @@
 # Notes: Free Trial / Limited Free Conversion
 
 {% set version = '6.3' %}
-{% set hash = '5be9219d044e2fe664e838d759868219b7b1e399dfa8e6ab3791a5870709a251' %}
+{% set hash = '92a1dc470dcea6af6b46b205b01835396ad6e121169f9d14e6429e901bd5687c' %}
 
 aid4mail-download:
   file.managed:

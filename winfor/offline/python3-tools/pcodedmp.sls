@@ -9,6 +9,10 @@
 
 {% set version = '1.2.6' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'pcodedmp-'~ version ~'-py2.py3-none-any.whl' %}
+{% set exists = salt['file.file_exists'](downloads + '\\pcodedmp\\packages\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.offline.packages.python3
@@ -19,3 +23,8 @@ pcodedmp-install-offline:
     - cwd: '{{ downloads }}\pcodedmp\'
     - require:
       - sls: winfor.offline.packages.python3
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

@@ -9,6 +9,10 @@
 
 {% set version = '0.60.2' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'oletools-'~ version ~'-py2.py3-none-any.whl' %}
+{% set exists = salt['file.file_exists'](downloads + '\\oletools\\packages\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.offline.packages.python3
@@ -19,3 +23,8 @@ oletools-install-offline:
     - cwd: '{{ downloads }}\oletools\'
     - require:
       - sls: winfor.offline.packages.python3
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

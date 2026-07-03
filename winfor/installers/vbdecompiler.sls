@@ -8,7 +8,7 @@
 # Notes: 
 
 {% set version = '26.4' %}
-{% set hash = 'ee2e753fc4a2bd4f03fb0c4cfc34a40f46494e2f2779bfac6b82988470d952d0' %}
+{% set hash = '2f3103ccc2c2b481e19b9b7ff69ad198df63bf06b6ea37635485c9d51c88b71d' %}
 
 vbdecompiler-download:
   file.managed:
