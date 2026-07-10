@@ -4,11 +4,11 @@
 # Category: Logs
 # Author: WithSecureLabs / Countercept
 # License: GNU General Public License v3.0 (https://github.com/WithSecureLabs/chainsaw/blob/master/LICENCE)
-# Version: 2.14.1
+# Version: 2.16.0
 # Notes:
 
-{% set version = '2.14.1' %}
-{% set hash = '13e66ca0ddd00561eeba483a6ae98629f6f12eb3019d14d3f83e2d03484f585a' %}
+{% set version = '2.16.0' %}
+{% set hash = '988402a4d5ccfef0c5cc69dd242da3e5be3aab996ec9a6e222be1e74c7d02e1b' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set defender_status = salt['cmd.powershell']('((Get-Service) -match "WinDefend").Name') %}

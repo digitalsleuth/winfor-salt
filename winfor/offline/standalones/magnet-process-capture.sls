@@ -4,21 +4,22 @@
 # Category: Executables
 # Author: Magnet Forensics
 # License: EULA
-# Version: v13
+# Version: 13
 # Notes:
 
-{% set version = 'V13' %}
+{% set version = '13' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set pkg = 'magnet-process-capture-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\magnetforensics\\' + pkg) %}
 
-include:
-  - winfor.config.shims
+{% if exists %}
 
 magnet-process-capture-extract-offline:
   archive.extracted:
     - name: {{ inpath }}\magnet\ProcessCapture\
-    - source: '{{ downloads }}\magnetforensics\MagnetProcessCapture{{ version }}.zip'
+    - source: '{{ downloads }}\magnetforensics\{{ pkg }}'
     - enforce_toplevel: False
 
 magnet-process-capture-shortcut-offline:
@@ -30,3 +31,8 @@ magnet-process-capture-shortcut-offline:
     - makedirs: True
     - require:
       - archive: magnet-process-capture-extract-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

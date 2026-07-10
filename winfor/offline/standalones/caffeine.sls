@@ -10,6 +10,10 @@
 {% set version = '1.98' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'caffeine-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\caffeine\\' + pkg) %}
+
+{% if exists %}
 
 caffeine-archive-extract-offline:
   archive.extracted:
@@ -17,3 +21,8 @@ caffeine-archive-extract-offline:
     - source: '{{ downloads }}\caffeine\caffeine-{{ version }}.zip'
     - overwrite: True
     - enforce_toplevel: False
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

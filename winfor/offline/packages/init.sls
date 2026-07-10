@@ -41,7 +41,6 @@ include:
   - winfor.offline.packages.burpsuite-community
   - winfor.offline.packages.magnet-chromebook-acquisition
   - winfor.offline.packages.magnet-acquire
-  - winfor.offline.packages.openhashtab
   - winfor.offline.packages.irfanview
   - winfor.offline.packages.razorsql-x64
   - winfor.offline.packages.letos
@@ -82,6 +81,7 @@ include:
   - winfor.offline.packages.hax
   - winfor.offline.packages.httrack
   - winfor.offline.packages.webcopy
+  - winfor.offline.packages.backup2fs
 
 offline-package-states:
   test.nop:
@@ -128,7 +128,6 @@ offline-package-states:
       - sls: winfor.offline.packages.burpsuite-community
       - sls: winfor.offline.packages.magnet-chromebook-acquisition
       - sls: winfor.offline.packages.magnet-acquire
-      - sls: winfor.offline.packages.openhashtab
       - sls: winfor.offline.packages.irfanview
       - sls: winfor.offline.packages.razorsql-x64
       - sls: winfor.offline.packages.letos
@@ -169,3 +168,4 @@ offline-package-states:
       - sls: winfor.offline.packages.hax
       - sls: winfor.offline.packages.httrack
       - sls: winfor.offline.packages.webcopy
+      - sls: winfor.offline.packages.backup2fs

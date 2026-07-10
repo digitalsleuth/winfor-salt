@@ -4,12 +4,16 @@
 # Category: Executables
 # Author: Mandiant
 # License: Apache License 2.0 (https://github.com/mandiant/capa/blob/master/LICENSE.txt)
-# Version: 9.1.0
+# Version: 9.4.0
 # Notes: 
 
+{% set version = '9.4.0' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
-{% set version = '9.1.0' %}
+{% set pkg = 'capa-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\capa\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.config.shims
@@ -17,7 +21,7 @@ include:
 capa-extract-offline:
   archive.extracted:
     - name: '{{ inpath }}\capa'
-    - source: '{{ downloads }}\capa\capa-v{{ version }}-windows.zip'
+    - source: '{{ downloads }}\capa\{{ pkg }}'
     - enforce_toplevel: False
 
 capa-rules-offline:
@@ -35,3 +39,8 @@ capa-shim-offline:
     - require:
       - sls: winfor.config.shims
       - archive: capa-extract-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

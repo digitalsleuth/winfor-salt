@@ -10,7 +10,10 @@
 {% set version = '2.48' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
-{% set hash = '65d339cc3f758a9d78e41f2c418955dfcd8c4a5152682e8cc9af0f551d169a4b' %}
+{% set pkg = 'trid-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\trid\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.config.shims
@@ -18,7 +21,7 @@ include:
 trid-extract-offline:
   archive.extracted:
     - name: '{{ inpath }}\trid'
-    - source: '{{ downloads }}\trid\trid_win64-{{ version }}.zip'
+    - source: '{{ downloads }}\trid\{{ pkg }}'
     - enforce_toplevel: False
 
 trid-install-offline:
@@ -39,3 +42,8 @@ trid-shim-offline:
     - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\trid\trid.exe -OutPath {{ inpath }}\shims\trid.exe'
     - require:
       - sls: winfor.config.shims
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

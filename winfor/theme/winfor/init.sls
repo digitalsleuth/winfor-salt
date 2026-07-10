@@ -51,17 +51,33 @@
                     ('Executables', ['rohitab.com\API Monitor v2\API Monitor v2 (Alpha) 64-bit','Binary Ninja\Binary Ninja','BinText','Explorer Suite\CFF Explorer','Cutter','DIE','ExeInfoPE','McAfee FileInsight\FileInsight','Ghidra','IDA Freeware 8.3\IDA Freeware 8.3','ILSpy','KsDumper11','Magnet Process Capture','MalCat','Explorer Suite\Tools\PE Detective','PE Viewer','PE-Bear','PEiD','PEStudio','Portex Analyzer','PPEE','Regshot x64 Unicode','Rehex','Resource Hacker','Scylla x64','Explorer Suite\Signature Explorer','System Informer','Explorer Suite\Task Explorer (64-bit)','Total PE 2','VB Decompiler Lite\VB Decompiler Lite','WinDbg','x64dbg','x32dbg']),
                     ('Installers', ['AutoIT Extractor','lessmsi','MSI Viewer','Py2ExeDecompiler','UniExtract']),
                     ('Logs', ['EventFinder','EZViewer','HttpLogBrowser\HttpLogBrowser','Log Parser 2.2\Log Parser 2.2','LogParser-Studio','LogViewer2']),
-                    ('Mobile Analysis', ['ALEAPP-GUI','Android Studio\Android Studio','Bytecode Viewer','iBackup Viewer\iBackup Viewer','ILEAPP-GUI','iPhoneAnalyzer','iTunes Backup Explorer\iTunes Backup Explorer','JD-GUI','VLEAPP-GUI','VOW Software\plist Editor Pro\plist Editor Pro','UFADE']),
+                    ('Mobile Analysis', ['ALEAPP-GUI','Android Studio\Android Studio','Backup2FS\Backup2FS','Bytecode Viewer','iBackup Viewer\iBackup Viewer','ILEAPP-GUI','iPhoneAnalyzer','iTunes Backup Explorer\iTunes Backup Explorer','JD-GUI','VLEAPP-GUI','VOW Software\plist Editor Pro\plist Editor Pro','UFADE']),
                     ('Network', ['Burp Suite Community Edition\Burp Suite Community Edition','Cyotek WebCopy\WebCopy','Fiddler Classic','IHB','NetScanner','NetworkMiner','PuTTY (64-bit)\PSFTP','PuTTY (64-bit)\PuTTY','WinHTTrack\WinHTTrack Website Copier','WinSCP','Wireshark','Zui']),
                     ('Raw Parsers and Decoders', ['CyberChef','Digital Detective\DataDump v2\DataDump v2.2','Digital Detective\DCode v5\DCode v5.6','DROID','Hax\Hax','HHD Hex Editor Neo\Hex Editor Neo','HEXEdit','HxD Hex Editor\HxD','JSONView','Passware\Encryption Analyzer 2025 v2\Passware Encryption Analyzer 2025 v2 (64-bit)','PhotoRec','QPhotoRec','TestDisk','Time Decode','Redline\Redline','XMLView','WinHex']),
                     ('Registry', ['RegistryExplorer','RegRipper','Regshot x64 ANSI']),
                     ('Terminals', ['Cygwin\Cygwin64 Terminal','MobaXterm\MobaXterm','Terminal','WSL','VcXsrv\XLaunch']),
-                    ('Utilities', ['Agent Ransack\Agent Ransack','Aurora','Digital Detective\DCode v5\DCode v5.6','EZViewer','FastCopy','Glossary Generator','Google Earth Pro','Hasher','Hash Generator','IrfanView\IrfanView 64 4.73','iTunes\iTunes','Monolith Notes',"Nuix\\Nuix Evidence Mover\\Nuix Evidence Mover",'Rufus','Sysinternals','Tableau Firmware Update','TeraCopy','USB Write Blocker','VeraCrypt 1.26.24\VeraCrypt','Oracle VM VirtualBox\Oracle VM VirtualBox','VideoLAN\VLC media player','CDSG\WriteBlocking Validation Utility\WriteBlocking Validation Utility','WinMerge\WinMerge']),
-                    ('Windows Analysis', ['AutoRunner','Event Log Explorer','EXE','Hibernation Recon','JumpListExplorer','Live Response Collection - Cedarpelta','LogFileParser64','MFTBrowser','MFTExplorer','NirLauncher','NTFS Log Tracker','OneDriveExplorer-GUI','Redline\Redline','RegistryExplorer','RegRipper','SE','ShadowExplorer','ShellBagsExplorer','SRUM-DUMP2','ThumbCache Viewer','TimelineExplorer','USB Detective','Volatility Workbench','Windexter','Windows Timeline'])
+                    ('Utilities', ['Agent Ransack\Agent Ransack','Aurora','Digital Detective\DCode v5\DCode v5.6','EZViewer','FastCopy','Glossary Generator','Google Earth Pro','Hasher','Hash Generator','IrfanView\IrfanView 64 4.73','iTunes\iTunes','Monolith Notes',"Nuix\\Nuix Evidence Mover\\Nuix Evidence Mover",'Rufus','Sysinternals','Tableau Firmware Update','TeraCopy','USB Write Blocker','VeraCrypt 1.26.24\VeraCrypt','Oracle VM VirtualBox\Oracle VM VirtualBox','VideoLAN\VLC media player','CDSG\WriteBlocking Validation Utility\WriteBlocking Validation Utility','WinMerge\WinMerge','WizTree\WizTree']),
+                    ('Windows Analysis', ['AutoRunner','Event Log Explorer','EXE','Hibernation Recon','JumpListExplorer','LogFileParser64','MFTBrowser','MFTExplorer','NirLauncher','NTFS Log Tracker','OneDriveExplorer-GUI','Redline\Redline','RegistryExplorer','RegRipper','SE','ShadowExplorer','ShellBagsExplorer','SRUM-DUMP2','ThumbCache Viewer','TimelineExplorer','USB Detective','Volatility Workbench','Windexter','Windows Timeline'])
                    ] %}
 
+{% set download = salt['pillar.get']('downloads', None) %}
+{% set offline = salt['pillar.get']('offline', None) %}
+{% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
+
+{% if download %}
+  {% set mode = 'download' %}
+{% elif offline %}
+  {% set mode = 'offline' %}
+{% else %}
+  {% set mode = 'install' %}
+{% endif %}
+
 include:
+  {% if mode = 'offline' %}
+  - winfor.offline.packages.portals
+  {% else %}
   - winfor.packages.portals
+  {% endif %}
   - winfor.config.user
 
 theme-wallpaper-source:
@@ -124,7 +140,11 @@ portals-end-process:
     - name: 'taskkill /F /IM "Portals.exe"'
     - bg: True
     - require:
+      {% if mode = 'offline' %}
+      - sls: winfor.offline.packages.portals
+      {% else %}
       - sls: winfor.packages.portals
+      {% endif %}
 
 {% for config in portals_configs %}
 portals-{{ config }}-copy:
@@ -135,7 +155,11 @@ portals-{{ config }}-copy:
     - replace: True
     - require:
       - user: user-{{ user }}
+      {% if mode = 'offline' %}
+      - sls: winfor.offline.packages.portals
+      {% else %}
       - sls: winfor.packages.portals
+      {% endif %}
 
 portals-{{ config }}-placeholder-replace:
   file.replace:
@@ -252,10 +276,6 @@ theme-stager:
         echo Restarting Explorer...
         timeout /t 1 /nobreak 1>nul
         taskkill /F /IM explorer.exe & start explorer
-        {% if user != salt['environ.get']('USERNAME') %}
-        echo Debloating Windows for {{ user }}
-        powershell -nop -ep Bypass -File "{{ PS_PATH }}\\Win10Debloat\\Win10.ps1" -include "{{ PS_PATH }}\\Win10Debloat\\Win10.psm1" -preset "{{ PS_PATH }}\\Win10Debloat\\debloat.preset"
-        {% endif %}
         echo Finished - cleaning up
         timeout /t 3 /nobreak 1>nul
         RUNDLL32.EXE USER32.DLL,UpdatePerUserSystemParameters 1, True

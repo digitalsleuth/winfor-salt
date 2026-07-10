@@ -10,9 +10,18 @@
 {% set version = '1.10' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'elcomsoft-eedh-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\elcomsoft-eedh\\' + pkg) %}
+
+{% if exists %}
 
 elcomsoft-eedh-extract-offline:
   archive.extracted:
     - name: '{{ inpath }}\elcomsoft-eedh'
-    - source: '{{ downloads }}\elcomsoft-eedh\eedh-{{ version }}.zip'
+    - source: '{{ downloads }}\elcomsoft-eedh\{{ pkg }}'
     - enforce_toplevel: False
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

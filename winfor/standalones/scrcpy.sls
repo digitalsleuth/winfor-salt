@@ -4,12 +4,12 @@
 # Category: Mobile Analysis
 # Author: Genymobile
 # License: Apache License 2.0 (https://github.com/Genymobile/scrcpy/blob/master/LICENSE)
-# Version: 3.3.4
+# Version: 4.0
 # Notes:
 
+{% set version = '4.0' %} 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set version = '3.3.4' %} 
-{% set hash = 'd8a155b7c180b7ca4cdadd40712b8750b63f3aab48cb5b8a2a39ac2d0d4c5d38' %}
+{% set hash = '75dbeb5b00e6f64292f26f70900ae55ca397786bdfb0b9bbeb481a0549047457' %}
 
 include:
   - winfor.config.shims

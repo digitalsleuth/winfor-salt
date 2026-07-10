@@ -11,11 +11,15 @@
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set pkg = 'usbdetective-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\usbdetective\\' + pkg) %}
+
+{% if exists %}
 
 usbdetective-extract-offline:
   archive.extracted:
     - name: '{{ inpath }}\usbdetective\'
-    - source: '{{ downloads }}\usbdetective\USBDetective-{{ version }}.zip'
+    - source: '{{ downloads }}\usbdetective\{{ pkg }}'
     - enforce_toplevel: False
 
 usbdetective-shortcut-offline:
@@ -27,3 +31,8 @@ usbdetective-shortcut-offline:
     - makedirs: True
     - require:
       - archive: usbdetective-extract-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

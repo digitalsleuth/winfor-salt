@@ -11,11 +11,15 @@
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set pkg = 'windexter-'~ version ~'.exe' %}
+{% set exists = salt['file.file_exists'](downloads + '\\windexter\\' + pkg) %}
+
+{% if exists %}
 
 windexter-offline:
   file.managed:
     - name: '{{ inpath }}\windexter\Windexter.exe'
-    - source: '{{ downloads }}\windexter\Windexter-v{{ version }}.exe'
+    - source: '{{ downloads }}\windexter\{{ pkg }}'
     - skip_verify: True
     - makedirs: True
     - force: True
@@ -29,3 +33,8 @@ windexter-shortcut-offline:
     - makedirs: True
     - require:
       - file: windexter-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

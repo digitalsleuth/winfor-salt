@@ -13,7 +13,7 @@
 
 dependencies-download-only:
   file.managed:
-    - name: '{{ downloads }}\dependencies\Dependencies_x64_Release-{{ version }}.zip'
+    - name: '{{ downloads }}\dependencies\dependencies-{{ version }}.zip'
     - source: https://github.com/lucasg/Dependencies/releases/download/v{{ version }}/Dependencies_x64_Release.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True

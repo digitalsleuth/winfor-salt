@@ -41,7 +41,6 @@ include:
   - winfor.packages.burpsuite-community
   - winfor.packages.magnet-chromebook-acquisition
   - winfor.packages.magnet-acquire
-  - winfor.packages.openhashtab
   - winfor.packages.irfanview
   - winfor.packages.razorsql-x64
   - winfor.packages.sqlitestudio
@@ -82,6 +81,7 @@ include:
   - winfor.packages.hax
   - winfor.packages.httrack
   - winfor.packages.webcopy
+  - winfor.packages.backup2fs
 
 package-states:
   test.nop:
@@ -128,7 +128,6 @@ package-states:
       - sls: winfor.packages.burpsuite-community
       - sls: winfor.packages.magnet-chromebook-acquisition
       - sls: winfor.packages.magnet-acquire
-      - sls: winfor.packages.openhashtab
       - sls: winfor.packages.irfanview
       - sls: winfor.packages.razorsql-x64
       - sls: winfor.packages.sqlitestudio
@@ -169,3 +168,4 @@ package-states:
       - sls: winfor.packages.hax
       - sls: winfor.packages.httrack
       - sls: winfor.packages.webcopy
+      - sls: winfor.packages.backup2fs

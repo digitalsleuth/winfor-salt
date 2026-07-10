@@ -10,6 +10,8 @@
 {% set home = "C:\\Users\\" + user %}
 {% set release = grains['osrelease'] %}
 {% set all_users = salt['user.list_users']() %}
+{% set download = salt['pillar.get']('downloads', None) %}
+{% if not download %}
 {% if user in all_users %}
 
 user-{{ user }}:
@@ -46,4 +48,8 @@ Activating user profile for {{ user }}:
     - require:
       - user: user-{{ user }}
 
+{% endif %}
+{% else %}
+User not configured in download only mode:
+  test.nop
 {% endif %}

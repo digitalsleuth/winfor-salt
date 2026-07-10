@@ -12,7 +12,7 @@
 
 glossary-generator-download-only:
   file.managed:
-    - name: '{{ downloads }}\glossary-generator\gg-{{ version }}.zip'
+    - name: '{{ downloads }}\glossary-generator\glossary-generator-{{ version }}.zip'
     - source: salt://winfor/files/gg.zip
     - skip_verify: True
     - makedirs: True

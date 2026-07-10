@@ -9,6 +9,10 @@
 
 {% set version = '10.4.0' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'time_decode-'~ version ~'-py3-none-any.whl' %}
+{% set exists = salt['file.file_exists'](downloads + '\\time-decode\\packages\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.offline.packages.python3
@@ -19,3 +23,8 @@ time-decode-install-offline:
     - cwd: '{{ downloads }}\time-decode\'
     - require:
       - sls: winfor.offline.packages.python3
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

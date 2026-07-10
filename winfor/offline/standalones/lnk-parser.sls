@@ -10,6 +10,10 @@
 {% set version = '0.4.3' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'lnk-parser-'~ version ~'.exe' %}
+{% set exists = salt['file.file_exists'](downloads + '\\lnk-parser\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.config.shims
@@ -17,7 +21,7 @@ include:
 lnk-parser-offline:
   file.managed:
     - name: '{{ inpath }}\lnk-parser\lnk-parser.exe'
-    - source: '{{ downloads }}\lnk-parser\lnk_parser_v{{ version }}.exe'
+    - source: '{{ downloads }}\lnk-parser\{{ pkg }}'
     - skip_verify: True
     - makedirs: True
 
@@ -26,3 +30,8 @@ lnk-parser-shim-offline:
     - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\lnk-parser\lnk-parser.exe -OutPath {{ inpath }}\shims\lnk-parser.exe'
     - require:
       - sls: winfor.config.shims
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

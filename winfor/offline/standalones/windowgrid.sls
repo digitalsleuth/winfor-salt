@@ -11,11 +11,15 @@
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set pkg = 'windowgrid-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\windowgrid\\' + pkg) %}
+
+{% if exists %}
 
 windowgrid-extract-offline:
   archive.extracted:
     - name: '{{ inpath }}\windowgrid\'
-    - source: '{{ downloads }}\windowgrid\WindowGrid_{{ version }}.zip'
+    - source: '{{ downloads }}\windowgrid\{{ pkg }}'
     - enforce_toplevel: False
 
 windowgrid-shortcut-offline:
@@ -27,3 +31,8 @@ windowgrid-shortcut-offline:
     - makedirs: True
     - require:
       - archive: windowgrid-extract-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

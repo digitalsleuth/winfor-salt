@@ -9,6 +9,10 @@
 
 {% set version = '0.7.14' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'pdf-parser-'~ version ~'.py' %}
+{% set exists = salt['file.file_exists'](downloads + '\\pdf-parser\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.offline.packages.python3
@@ -16,7 +20,7 @@ include:
 pdf-parser-offline:
   file.managed:
     - name: 'C:\Program Files\Python310\Scripts\pdf-parser.py'
-    - source: '{{ downloads }}\pdf-parser\pdf-parser-{{ version }}.py'
+    - source: '{{ pkg }}'
     - skip_verify: True
     - makedirs: True
     - require:
@@ -32,3 +36,8 @@ pdf-parser-wrapper-offline:
     - require:
       - sls: winfor.offline.packages.python3
       - file: pdf-parser-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

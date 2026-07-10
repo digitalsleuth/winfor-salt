@@ -7,12 +7,13 @@
 # Version: 1.0
 # Notes: 
 
-{% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '1.0' %}
+{% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
+{% set hash = '25b96c5c5f78c5df8da38aa61661c2f76796024af616bff67e1e6c683b8e5b3b' %}
 
 py2exedecompiler-download-only:
   file.managed:
-    - name: '{{ downloads }}\py2exe-decompiler\Py2ExeDecompiler-{{ version }}.exe'
+    - name: '{{ downloads }}\py2exe-decompiler\py2exe-decompiler-{{ version }}.exe'
     - source: https://github.com/endgameinc/Py2ExeDecompiler/raw/master/Py2ExeDecompiler/bin/Release/Py2ExeDecompiler.exe
-    - source_hash: sha256=25b96c5c5f78c5df8da38aa61661c2f76796024af616bff67e1e6c683b8e5b3b
+    - source_hash: sha256={{ hash }}
     - makedirs: True

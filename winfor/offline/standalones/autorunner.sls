@@ -11,6 +11,10 @@
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set pkg = 'autorunner-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\autorunner\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.offline.standalones.sysinternals
@@ -19,7 +23,7 @@ include:
 autorunner-extracted-offline:
   archive.extracted:
     - name: '{{ inpath }}\autorunner\'
-    - source: '{{ downloads }}\autorunner\autorunner.v{{ version }}.zip'
+    - source: '{{ downloads }}\autorunner\{{ pkg }}'
     - enforce_toplevel: False
     - require:
       - sls: winfor.offline.standalones.sysinternals
@@ -57,3 +61,8 @@ autorunner-shortcut-offline:
     - makedirs: True
     - require:
       - archive: autorunner-extracted-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

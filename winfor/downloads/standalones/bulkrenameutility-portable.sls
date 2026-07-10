@@ -13,7 +13,7 @@
 
 bulkrenameutility-portable-download-only:
   file.managed:
-    - name: '{{ downloads }}\bulk-rename-utility\BRU_NoInstall-{{ version }}.zip'
+    - name: '{{ downloads }}\bulk-rename-utility\bulk-rename-utility-portable-{{ version }}.zip'
     - source: https://www.bulkrenameutility.co.uk/Downloads/BRU_NoInstall.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True

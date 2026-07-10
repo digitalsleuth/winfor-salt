@@ -11,11 +11,15 @@
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set version = '6.9.12' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set pkg = 'droid-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\droid\\' + pkg) %}
+
+{% if exists %}
 
 droid-extract-offline:
   archive.extracted:
     - name: '{{ inpath }}\droid\'
-    - source: '{{ downloads }}\droid\droid-binary-{{ version }}-bin-win64-with-jre.zip'
+    - source: '{{ downloads }}\droid\{{ pkg }}'
     - overwrite: True
     - enforce_toplevel: False
 
@@ -34,3 +38,8 @@ droid-env-vars-offline:
     - name: '{{ inpath }}\droid\'
     - require:
       - archive: droid-extract-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

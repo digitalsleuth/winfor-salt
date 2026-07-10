@@ -13,7 +13,7 @@
 
 rehex-download-only:
   file.managed:
-    - name: '{{ downloads }}\rehex\rehex-{{ version }}-win-x64.zip'
+    - name: '{{ downloads }}\rehex\rehex-{{ version }}.zip'
     - source: https://github.com/solemnwarning/rehex/releases/download/{{ version }}/rehex-{{ version }}-win-x64.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True

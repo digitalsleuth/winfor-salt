@@ -11,6 +11,10 @@
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set pkg = 'shadowexplorer-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\shadowexplorer\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.offline.packages.dotnetfx35
@@ -18,7 +22,7 @@ include:
 shadow-explorer-extract-offline:
   archive.extracted:
     - name: '{{ inpath }}\'
-    - source: '{{ downloads }}\shadowexplorer\ShadowExplorer-{{ version }}-portable.zip'
+    - source: '{{ downloads }}\shadowexplorer\{{ pkg }}'
     - enforce_toplevel: False
 
 shadow-explorer-folder-rename-offline:
@@ -40,3 +44,8 @@ shadow-explorer-shortcut-offline:
     - makedirs: True
     - require:
       - file: shadow-explorer-folder-rename-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

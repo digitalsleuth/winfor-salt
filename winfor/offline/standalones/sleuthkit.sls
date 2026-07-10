@@ -10,11 +10,15 @@
 {% set version = '4.15.0' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'sleuthkit-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\sleuthkit\\' + pkg) %}
+
+{% if exists %}
 
 sleuthkit-extract-offline:
   archive.extracted:
     - name: '{{ inpath }}\'
-    - source: '{{ downloads }}\sleuthkit\sleuthkit-{{ version }}-win32.zip'
+    - source: '{{ downloads }}\sleuthkit\{{ pkg }}'
     - enforce_toplevel: False
 
 sleuthkit-folder-rename-offline:
@@ -28,3 +32,8 @@ sleuthkit-folder-rename-offline:
 
 '{{ inpath }}\sleuthkit\bin':
   win_path.exists
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

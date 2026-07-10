@@ -4,13 +4,17 @@
 # Category: Utilities
 # Author: Pete Batard
 # License: GNU General Public License v3 - https://github.com/pbatard/rufus/blob/master/LICENSE.txt
-# Version: 4.14
+# Version: 4.15
 # Notes:
 
-{% set version = '4.14' %}
+{% set version = '4.15' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set pkg = 'rufus-'~ version ~'.exe' %}
+{% set exists = salt['file.file_exists'](downloads + '\\rufus\\' + pkg) %}
+
+{% if exists %}
 
 rufus-copy-offline:
   file.managed:
@@ -28,3 +32,8 @@ rufus-shortcut-offline:
     - makedirs: True
     - require:
       - file: rufus-copy-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

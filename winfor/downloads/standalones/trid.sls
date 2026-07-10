@@ -13,7 +13,7 @@
 
 trid-download-only:
   file.managed:
-    - name: '{{ downloads }}\trid\trid_win64-{{ version }}.zip'
+    - name: '{{ downloads }}\trid\trid-{{ version }}.zip'
     - source: https://mark0.net/download/trid_win64.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True

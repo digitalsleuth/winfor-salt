@@ -11,6 +11,10 @@
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set pkg = 'usb-write-blocker-'~ version ~'.exe' %}
+{% set exists = salt['file.file_exists'](downloads + '\\usb-write-blocker\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.config.shims
@@ -18,7 +22,7 @@ include:
 usb-write-blocker-offline:
   file.managed:
     - name: '{{ inpath }}\usb-write-blocker\usb-write-blocker.exe'
-    - source: '{{ downloads }}\usb-write-blocker\USB-Write-Blocker-v{{ version }}-x64.exe'
+    - source: '{{ downloads }}\usb-write-blocker\{{ pkg }}'
     - skip_verify: True
     - makedirs: True
     - force: True
@@ -39,3 +43,8 @@ usb-write-blocker-shim-offline:
     - require:
       - sls: winfor.config.shims
       - file: usb-write-blocker-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

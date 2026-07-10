@@ -11,6 +11,10 @@
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set pkg = 'logviewer2-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\logviewer2\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.config.shims
@@ -18,7 +22,7 @@ include:
 logviewer2-extracted-offline:
   archive.extracted:
     - name: '{{ inpath }}\logviewer2'
-    - source: '{{ downloads }}\logviewer\LogViewer2.v{{ version }}.zip'
+    - source: '{{ downloads }}\logviewer2\{{ pkg }}'
     - enforce_toplevel: False
 
 logviewer2-shim-offline:
@@ -37,3 +41,8 @@ logviewer2-shortcut-offline:
     - makedirs: True
     - require:
       - archive: logviewer2-extracted-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

@@ -10,6 +10,10 @@
 {% set version = '1.9' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'innoextract-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\innoextract\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.config.shims
@@ -17,7 +21,7 @@ include:
 innoextract-extract-offline:
   archive.extracted:
     - name: '{{ inpath }}\innoextract'
-    - source: '{{ downloads }}\innoextract\innoextract-{{ version }}-windows.zip'
+    - source: '{{ downloads }}\innoextract\{{ pkg }}'
     - enforce_toplevel: False
 
 innoextract-shim-offline:
@@ -25,3 +29,8 @@ innoextract-shim-offline:
     - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\innoextract\innoextract.exe -OutPath {{ inpath }}\shims\innoextract.exe'
     - require:
       - sls: winfor.config.shims
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

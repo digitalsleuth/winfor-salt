@@ -4,13 +4,17 @@
 # Category: Windows Analysis
 # Author: Brian Maloney
 # License: MIT License (https://github.com/Beercow/OneDriveExplorer/blob/master/LICENSE)
-# Version: 2026.01.06
+# Version: 2026.06.29
 # Notes:
 
-{% set version = '2026.01.06' %}
+{% set version = '2026.06.29' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set pkg = 'onedriveexplorer-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\onedriveexplorer\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.config.shims
@@ -18,7 +22,7 @@ include:
 onedriveexplorer-extract-offline:
   archive.extracted:
     - name: '{{ inpath }}\onedriveexplorer'
-    - source: '{{ downloads }}\onedriveexplorer\onedriveexplorer-{{ version }}.zip'
+    - source: '{{ downloads }}\onedriveexplorer\{{ pkg }}'
     - enforce_toplevel: False
 
 onedriveexplorer-shim-offline:
@@ -36,3 +40,8 @@ onedriveexplorer-gui-shortcut-offline:
     - makedirs: True
     - require:
       - archive: onedriveexplorer-extract-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

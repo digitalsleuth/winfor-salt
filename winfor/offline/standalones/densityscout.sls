@@ -7,9 +7,13 @@
 # Version: Build 45
 # Notes:
 
+{% set version = '45' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set version = '45' %}
+{% set pkg = 'densityscout-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\densityscout\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.config.shims
@@ -17,7 +21,7 @@ include:
 densityscout-extract-offline:
   archive.extracted:
     - name: '{{ inpath }}\densityscout\'
-    - source: '{{ downloads }}\densityscout\densityscout_build_45_windows.zip'
+    - source: '{{ downloads }}\densityscout\{{ pkg }}'
     - enforce_toplevel: False
 
 densityscout-shim-offline:
@@ -26,3 +30,8 @@ densityscout-shim-offline:
     - require:
       - sls: winfor.config.shims
       - archive: densityscout-extract-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

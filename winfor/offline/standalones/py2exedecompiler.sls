@@ -11,11 +11,15 @@
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set pkg = 'py2exe-decompiler-'~ version ~'.exe' %}
+{% set exists = salt['file.file_exists'](downloads + '\\py2exe-decompiler\\' + pkg) %}
+
+{% if exists %}
 
 py2exedecompiler-copy-offline:
   file.managed:
     - name: '{{ inpath }}\py2exe-decompiler\py2exe-decompiler.exe'
-    - source: '{{ downloads }}\py2exe-decompiler\Py2ExeDecompiler-{{ version }}.exe'
+    - source: '{{ downloads }}\py2exe-decompiler\{{ pkg }}'
     - skip_verify: True
     - makedirs: True
 
@@ -28,3 +32,8 @@ py2exedecompiler-shortcut-offline:
     - makedirs: True
     - require:
       - file: py2exedecompiler-copy-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

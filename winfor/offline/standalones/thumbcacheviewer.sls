@@ -11,11 +11,15 @@
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set pkg = 'thumbcacheviewer-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\thumbcacheviewer\\' + pkg) %}
+
+{% if exists %}
 
 thumbcacheviewer-extract-offline:
   archive.extracted:
     - name: '{{ inpath }}\thumbcacheviewer\'
-    - source: '{{ downloads }}\thumbcacheviewer\thumbcache_viewer_64-{{ version }}.zip'
+    - source: '{{ downloads }}\thumbcacheviewer\{{ pkg }}'
     - enforce_toplevel: False
 
 thumbcacheviewer-shortcut-offline:
@@ -27,3 +31,8 @@ thumbcacheviewer-shortcut-offline:
     - makedirs: True
     - require:
       - archive: thumbcacheviewer-extract-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

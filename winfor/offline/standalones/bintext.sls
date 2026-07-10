@@ -7,10 +7,14 @@
 # Version: 3.03
 # Notes: 
 
-{% set version = '303' %}
+{% set version = '3.03' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set pkg = 'bintext-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\bintext\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.config.shims
@@ -18,7 +22,7 @@ include:
 bintext-extract-offline:
   archive.extracted:
     - name: {{ inpath }}\bintext\
-    - source: '{{ downloads }}\bintext\bintext{{ version }}.zip'
+    - source: '{{ downloads }}\bintext\{{ pkg }}'
     - enforce_toplevel: False
 
 bintext-shim-offline:
@@ -36,3 +40,8 @@ bintext-shortcut-offline:
     - makedirs: True
     - require:
       - archive: bintext-extract-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

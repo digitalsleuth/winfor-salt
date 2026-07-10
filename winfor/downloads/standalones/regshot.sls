@@ -4,7 +4,7 @@
 # Category: Registry
 # Author: maddes, regshot, xhmikosr
 # License: GNU Lesser General Public License (https://sourceforge.net/p/regshot/code/HEAD/tree/branches/1.9.0/files/license_lgpl-2.1.txt)
-# Version: 1.9.0
+# Version: 1.9.1-beta_r321
 # Notes: 
 
 {% set version = '1.9.1-beta_r321' %}
@@ -13,7 +13,7 @@
 
 regshot-download-only:
   file.managed:
-    - name: '{{ downloads }}\regshot\Regshot-{{ version }}.7z'
+    - name: '{{ downloads }}\regshot\regshot-{{ version }}.7z'
     - source: https://cytranet-dal.dl.sourceforge.net/project/regshot/regshot/{{ version.split("_")[0] }}/Regshot-{{ version }}.7z
     - source_hash: sha256={{ hash }}
     - makedirs: True

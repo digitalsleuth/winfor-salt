@@ -11,6 +11,10 @@
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set pkg = 'testdisk-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\photorec\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.config.shims
@@ -18,7 +22,7 @@ include:
 testdisk-extract-offline:
   archive.extracted:
     - name: '{{ inpath }}\'
-    - source: '{{ downloads }}\photorec\testdisk-{{ version }}.win64.zip'
+    - source: '{{ downloads }}\photorec\{{ pkg }}'
     - enforce_toplevel: False
 
 testdisk-folder-rename-offline:
@@ -74,3 +78,7 @@ testdisk-shortcut-offline:
       - archive: testdisk-extract-offline
       - file: testdisk-folder-rename-offline
 
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

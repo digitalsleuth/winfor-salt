@@ -10,11 +10,19 @@
 {% set version = '14.0' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'caine-'~ version ~'.iso' %}
+{% set exists = salt['file.file_exists'](downloads + '\\caine\\' + pkg) %}
+
+{% if exists %}
 
 caine-iso-offline:
-  file.managed:
-    - name: '{{ inpath }}\caine\caine-{{ version }}.iso'
-    - source: '{{ downloads }}\caine\caine-{{ version }}.iso'
-    - skip_verify: True
+  file.rename:
+    - name: '{{ inpath }}\caine\{{ pkg }}'
+    - source: '{{ downloads }}\caine\{{ pkg }}'
+    - force: True
     - makedirs: True
 
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

@@ -11,11 +11,15 @@
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set pkg = 'windowstimeline-'~ version ~'.exe' %}
+{% set exists = salt['file.file_exists'](downloads + '\\windowstimeline\\' + pkg) %}
+
+{% if exists %}
 
 windowstimeline-offline:
   file.managed:
     - name: '{{ inpath }}\windowstimeline\WindowsTimeline.exe'
-    - source: '{{ downloads }}\windowstimeline\WindowsTimeline-{{ version }}.exe'
+    - source: '{{ downloads }}\windowstimeline\{{ pkg }}'
     - skip_verify: True
     - makedirs: True
     - overwrite: True
@@ -29,3 +33,8 @@ windowstimeline-shortcut-offline:
     - makedirs: True
     - require:
       - file: windowstimeline-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

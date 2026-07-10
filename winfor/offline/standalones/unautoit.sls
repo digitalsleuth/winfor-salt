@@ -10,6 +10,10 @@
 {% set version = '1.1.1' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'unautoit-'~ version ~'.exe' %}
+{% set exists = salt['file.file_exists'](downloads + '\\unautoit\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.config.shims
@@ -26,3 +30,8 @@ unautoit-shim-offline:
     - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\unautoit\unautoit.exe -OutPath {{ inpath }}\shims\unautoit.exe'
     - require:
       - sls: winfor.config.shims
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

@@ -13,7 +13,7 @@
 
 silketw-download-only:
   file.managed:
-    - name: '{{ downloads }}\silketw\SilkETW_SilkService_v{{ version }}.zip'
+    - name: '{{ downloads }}\silketw\silketw-{{ version }}.zip'
     - source: https://github.com/mandiant/SilkETW/releases/download/v{{ version }}/SilkETW_SilkService_v8.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True

@@ -15,7 +15,7 @@
 network-miner-download:
   file.managed:
     - name: 'C:\salt\tempdownload\NetworkMiner_{{ version }}.zip'
-    - source: https://download.netresec.com/networkminer/NetworkMiner_{{ version }}.zip
+    - source: https://www.netresec.com/?download=NetworkMiner
     - source_hash: sha256={{ hash }}
     - makedirs: True
 

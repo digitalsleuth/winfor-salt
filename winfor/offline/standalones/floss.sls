@@ -11,6 +11,10 @@
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set pkg = 'floss-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\floss\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.config.shims
@@ -18,7 +22,7 @@ include:
 floss-extract-offline:
   archive.extracted:
     - name: '{{ inpath }}\floss'
-    - source: '{{ downloads }}\floss\floss-v{{ version }}-windows.zip'
+    - source: '{{ downloads }}\floss\{{ pkg }}'
     - enforce_toplevel: False
 
 floss-shim-offline:
@@ -26,3 +30,8 @@ floss-shim-offline:
     - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\floss\floss.exe -OutPath {{ inpath }}\shims\floss.exe'
     - require:
       - sls: winfor.config.shims
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

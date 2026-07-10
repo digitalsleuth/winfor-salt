@@ -15,17 +15,17 @@ include:
   - winfor.downloads.packages.python3
   - winfor.standalones.portable-python3
 
-time-decode-folder-download-only:
+time-decode-python-folder-download-only:
   file.directory:
     - name: '{{ downloads }}\time-decode'
     - makedirs: True
     - force: True
     - win_inheritance: True
 
-time-decode-download-only:
+time-decode-python-download-only:
   cmd.run:
     - name: '{{ inpath }}\portable-python3\python.exe -m pip download -d packages time-decode'
     - cwd: '{{ downloads }}\time-decode\'
     - require:
       - sls: winfor.standalones.portable-python3
-      - file: time-decode-folder-download-only
+      - file: time-decode-python-folder-download-only

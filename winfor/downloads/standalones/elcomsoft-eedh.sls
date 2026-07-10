@@ -18,7 +18,7 @@ create-downloads-directory-for-eedh-download-only:
 
 elcomsoft-eedh-download-only:
   cmd.run:
-    - name: 'Invoke-WebRequest -Uri "https://download_us.elcomsoft.com/eedh.zip" -Method GET -UserAgent "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:138.0) Gecko/20100101 Firefox/138.0" -UseBasicParsing -OutFile {{ downloads }}\elcomsoft-eedh\eedh-{{ version }}.zip'
+    - name: 'Invoke-WebRequest -Uri "https://download_us.elcomsoft.com/eedh.zip" -Method GET -UserAgent "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:138.0) Gecko/20100101 Firefox/138.0" -UseBasicParsing -OutFile {{ downloads }}\elcomsoft-eedh\elcomsoft-eedh-{{ version }}.zip'
     - shell: powershell
     - require:
       - file: create-downloads-directory-for-eedh-download-only

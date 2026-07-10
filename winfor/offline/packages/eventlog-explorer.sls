@@ -4,10 +4,10 @@
 # Category: Windows Analysis
 # Author: FSPro
 # License: Multiple (https://eventlogxp.com/order.html)
-# Version: 5.8
+# Version: 5.8.2
 # Notes:
 
-{% set version = '5.8' %}
+{% set version = '5.8.2' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set pkg = 'eventlog-explorer-'~ version ~'.exe' %}
 {% set exists = salt['file.file_exists'](downloads + '\\eventlog-explorer\\' + pkg) %}

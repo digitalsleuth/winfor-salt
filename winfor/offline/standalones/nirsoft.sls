@@ -3,16 +3,20 @@
 # Description: Suite of various Windows Analysis Tools
 # Category: Windows Analysis
 # Author: Nir Sofer
-# License: 
-# Version: 1.30.23
+# License: Freeware, except for NK2Edit which requires a commercial license for organizational use (https://launcher.nirsoft.net/ - License Conditions)
+# Version: 1.30.24
 # Notes: 
 
-{% set version = '1.30.23' %}
+{% set version = '1.30.24' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set nlps = ['eztools.nlp', 'mitec.nlp', 'sysinternals6.nlp'] %}
 {% set defender_status = salt['cmd.powershell']('((Get-Service) -match "WinDefend").Name') %}
+{% set pkg = 'nirsoft-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\nirsoft\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.offline.packages.7zip
@@ -35,7 +39,7 @@ nirsoft-defender-exclusion-offline:
 
 nirsoft-extract-offline:
   cmd.run:
-    - name: '"C:\Program Files\7-Zip\7z.exe" x {{ downloads }}\nirsoft\nirsoft_package_enc_{{ version }}.zip -o"{{ inpath }}\nirsoft\" -pnirsoft9876$ -y'
+    - name: '"C:\Program Files\7-Zip\7z.exe" x {{ downloads }}\nirsoft\{{ pkg }} -o"{{ inpath }}\nirsoft\" -pnirsoft9876$ -y'
     - shell: cmd
     - require:
       - sls: winfor.offline.packages.7zip
@@ -80,3 +84,8 @@ nirsoft-{{ nlp }}-replace-placeholder-offline:
       - cmd: nirsoft-extract-offline
 
 {% endfor %}
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

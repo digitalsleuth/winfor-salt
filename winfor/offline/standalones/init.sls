@@ -52,7 +52,6 @@ include:
   - winfor.offline.standalones.logfileparser
   - winfor.offline.standalones.logparser-studio
   - winfor.offline.standalones.logviewer2
-  - winfor.offline.standalones.lrc-cedarpelta
   - winfor.offline.standalones.magnet-dumpit
   - winfor.offline.standalones.magnet-edd
   - winfor.offline.standalones.magnet-process-capture
@@ -94,7 +93,6 @@ include:
   - winfor.offline.standalones.scdbg
   - winfor.offline.standalones.scrcpy
   - winfor.offline.standalones.scylla
-  - winfor.offline.standalones.setdllcharacteristics
   - winfor.offline.standalones.shadowexplorer
   - winfor.offline.standalones.silketw
   - winfor.offline.standalones.sleuthkit
@@ -102,6 +100,7 @@ include:
   - winfor.offline.standalones.srum-dump
   - winfor.offline.standalones.sysinternals
   - winfor.offline.standalones.thumbcacheviewer
+  - winfor.offline.standalones.total-pe-2
   - winfor.offline.standalones.trid
   - winfor.offline.standalones.ufade
   - winfor.offline.standalones.unautoit
@@ -183,7 +182,6 @@ offline-standalones-states:
       - sls: winfor.offline.standalones.logfileparser
       - sls: winfor.offline.standalones.logparser-studio
       - sls: winfor.offline.standalones.logviewer2
-      - sls: winfor.offline.standalones.lrc-cedarpelta
       - sls: winfor.offline.standalones.magnet-dumpit
       - sls: winfor.offline.standalones.magnet-edd
       - sls: winfor.offline.standalones.magnet-process-capture
@@ -225,7 +223,6 @@ offline-standalones-states:
       - sls: winfor.offline.standalones.scdbg
       - sls: winfor.offline.standalones.scrcpy
       - sls: winfor.offline.standalones.scylla
-      - sls: winfor.offline.standalones.setdllcharacteristics
       - sls: winfor.offline.standalones.shadowexplorer
       - sls: winfor.offline.standalones.silketw
       - sls: winfor.offline.standalones.sleuthkit
@@ -233,6 +230,7 @@ offline-standalones-states:
       - sls: winfor.offline.standalones.srum-dump
       - sls: winfor.offline.standalones.sysinternals
       - sls: winfor.offline.standalones.thumbcacheviewer
+      - sls: winfor.offline.standalones.total-pe-2
       - sls: winfor.offline.standalones.trid
       - sls: winfor.offline.standalones.ufade
       - sls: winfor.offline.standalones.unautoit

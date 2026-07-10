@@ -11,11 +11,15 @@
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set pkg = 'volatility-workbench-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\volatility-workbench\\' + pkg) %}
+
+{% if exists %}
 
 volatility-workbench-extract-offline:
   archive.extracted:
     - name: '{{ inpath }}\volatility-workbench'
-    - source: '{{ downloads }}\volatility-workbench\VolatilityWorkbench-{{ version }}.zip'
+    - source: '{{ downloads }}\volatility-workbench\{{ pkg }}'
     - enforce_toplevel: False
     - overwrite: True
 
@@ -28,3 +32,8 @@ volatility-workbench-shortcut-offline:
     - makedirs: True
     - require:
       - archive: volatility-workbench-extract-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

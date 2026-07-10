@@ -21,7 +21,7 @@ include:
 
 memprocfs-analyzer-download-only:
   file.managed:
-    - name: '{{ downloads }}\memprocfs-analyzer\MemProcFS-Analyzer-v{{ version }}.zip'
+    - name: '{{ downloads }}\memprocfs-analyzer\memprocfs-analyzer-{{ version }}.zip'
     - source: https://github.com/LETHAL-FORENSICS/MemProcFS-Analyzer/releases/download/v{{ version }}/MemProcFS-Analyzer-v{{ version }}.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True
@@ -35,7 +35,7 @@ memprocfs-analyzer-download-only:
 memprocfs-analyzer-extract-download-only:
   archive.extracted:
     - name: '{{ downloads }}\memprocfs-analyzer\'
-    - source: '{{ downloads }}\memprocfs-analyzer\MemProcFS-Analyzer-v{{ version }}.zip'
+    - source: '{{ downloads }}\memprocfs-analyzer\memprocfs-analyzer-{{ version }}.zip'
     - enforce_toplevel: False
     - require:
       - file: memprocfs-analyzer-download-only

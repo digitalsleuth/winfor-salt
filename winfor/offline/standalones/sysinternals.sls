@@ -4,18 +4,22 @@
 # Category: Windows Analysis
 # Author: Microsoft / Mark Russinovich
 # License: https://learn.microsoft.com/en-us/sysinternals/license-terms
-# Version: 2026.06.17 (date of last update - no specific version number identified)
+# Version: 2026.07.09 (date of last update - no specific version number identified)
 # Notes: 
 
-{% set version = '2026.06.17' %}
+{% set version = '2026.07.09' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set pkg = 'sysinternalssuite-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\sysinternalssuite\\' + pkg) %}
+
+{% if exists %}
 
 sysinternals-extract-offline:
   archive.extracted:
     - name: '{{ inpath }}\sysinternals\'
-    - source: '{{ downloads }}\sysinternals\SysinternalsSuite-{{ version }}.zip'
+    - source: '{{ downloads }}\sysinternals\{{ pkg }}'
     - enforce_toplevel: false
 
 sysinternals-env-vars-offline:
@@ -31,3 +35,8 @@ sysinternals-shortcut-offline:
     - makedirs: True
     - require:
       - archive: sysinternals-extract-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

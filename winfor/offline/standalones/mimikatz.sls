@@ -12,6 +12,10 @@
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set defender_status = salt['cmd.powershell']('((Get-Service) -match "WinDefend").Name') %}
+{% set pkg = 'mimikatz-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\mimikatz\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.config.shims
@@ -34,7 +38,7 @@ mimikatz-defender-exclusion-offline:
 mimikatz-extract-offline:
   archive.extracted:
     - name: '{{ inpath }}\mimikatz\'
-    - source: '{{ downloads }}\mimikatz\mimikatz-{{ version }}.zip'
+    - source: '{{ downloads }}\mimikatz\{{ pkg }}'
     - enforce_toplevel: False
     - require:
       - cmd: mimikatz-defender-exclusion-offline
@@ -55,3 +59,8 @@ mimikatz-shim-offline:
     - require:
       - sls: winfor.config.shims
       - archive: mimikatz-extract-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

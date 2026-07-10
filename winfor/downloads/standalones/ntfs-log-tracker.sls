@@ -13,7 +13,7 @@
 
 ntfs-log-tracker-download-only:
   file.managed:
-    - name: '{{ downloads }}\ntfs-log-tracker\ntfs-log-tracker-v{{ version }}.zip'
+    - name: '{{ downloads }}\ntfs-log-tracker\ntfs-log-tracker-{{ version }}.zip'
     - source: 'https://drive.usercontent.google.com/download?id=16Xnj8NNbBweMwokQ0PTO2-hQcOlN_4gS&export=download'
     - source_hash: sha256={{ hash }}
     - makedirs: True

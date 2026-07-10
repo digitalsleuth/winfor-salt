@@ -4,11 +4,11 @@
 # Category: Installers
 # Author: ExtremeCoders-RE
 # License: GNU General Public License v3.0 (https://github.com/pyinstxtractor/pyinstxtractor-ng/blob/main/LICENSE)
-# Version: 2026.04.07
+# Version: 2026.07.03
 # Notes: 
 
-{% set version = '2026.04.07' %}
-{% set hash = 'd19488732ff8237f5a1ed47d2a3d36620077975854854102e65837c5aad69ca5' %}
+{% set version = '2026.07.03' %}
+{% set hash = '5edd80c8a2d90ade243a82716faa6952c401226bce1414aa0c0e59d592060a6c' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 pyinstxtractor-ng-download-only:

@@ -13,7 +13,7 @@
 
 ppee-download-only:
   file.managed:
-    - name: '{{ downloads }}\ppee\PPEE(puppy)_{{ version }}.zip'
+    - name: '{{ downloads }}\ppee\ppee-{{ version }}.zip'
     - source: https://www.mzrst.com/puppy/PPEE(puppy)%20{{ version }}.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True

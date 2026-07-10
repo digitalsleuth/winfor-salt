@@ -1,0 +1,207 @@
+include:
+  - winfor.downloads.packages.4n6-email-forensics-wizard
+  - winfor.downloads.packages.7zip
+  - winfor.downloads.packages.active-disk-editor
+  - winfor.downloads.packages.adobereader
+  - winfor.downloads.packages.agentransack
+  - winfor.downloads.packages.android-studio
+  - winfor.downloads.packages.apimonitor
+  - winfor.downloads.packages.autopsy
+  - winfor.downloads.packages.backup2fs
+  - winfor.downloads.packages.binary-ninja
+  - winfor.downloads.packages.bulk-extractor
+  - winfor.downloads.packages.bulkrenameutility
+  - winfor.downloads.packages.burpsuite-community
+  - winfor.downloads.packages.chrome
+  - winfor.downloads.packages.clamav
+  - winfor.downloads.packages.db-browser-sqlite
+  - winfor.downloads.packages.dbeaver
+  - winfor.downloads.packages.dokany
+  - winfor.downloads.packages.dotnet10-desktop-runtime
+  - winfor.downloads.packages.dotnet6-desktop-runtime
+  - winfor.downloads.packages.dotnet8-desktop-runtime
+  - winfor.downloads.packages.dotnet9-desktop-runtime
+  - winfor.downloads.packages.dotnetfx35
+  - winfor.downloads.packages.dotpeek
+  - winfor.downloads.packages.elcomsoft-efdd
+  - winfor.downloads.packages.eventlog-explorer
+  - winfor.downloads.packages.fec
+  - winfor.downloads.packages.fex-imager
+  - winfor.downloads.packages.fiddler
+  - winfor.downloads.packages.fileinsight
+  - winfor.downloads.packages.firefox
+  - winfor.downloads.packages.free-hex-editor-neo
+  - winfor.downloads.packages.ftk-imager
+  - winfor.downloads.packages.git
+  - winfor.downloads.packages.google-earth-pro
+  - winfor.downloads.packages.graphviz
+  - winfor.downloads.packages.hashcheck
+  - winfor.downloads.packages.hax
+  - winfor.downloads.packages.httplogbrowser
+  - winfor.downloads.packages.httrack
+  - winfor.downloads.packages.ibackup-viewer
+  - winfor.downloads.packages.ida-free
+  - winfor.downloads.packages.ilspy
+  - winfor.downloads.packages.importexcel
+  - winfor.downloads.packages.irfanview-plugins
+  - winfor.downloads.packages.irfanview
+  - winfor.downloads.packages.itunes-backup-explorer
+  - winfor.downloads.packages.jdk17
+  - winfor.downloads.packages.jdk21
+  - winfor.downloads.packages.kernel-edb-viewer
+  - winfor.downloads.packages.kernel-ost-viewer
+  - winfor.downloads.packages.kernel-pst-viewer
+  - winfor.downloads.packages.letos
+  - winfor.downloads.packages.libreoffice
+  - winfor.downloads.packages.logparser
+  - winfor.downloads.packages.magnet-acquire
+  - winfor.downloads.packages.magnet-chromebook-acquisition
+  - winfor.downloads.packages.mdf-viewer
+  - winfor.downloads.packages.monolith-notes
+  - winfor.downloads.packages.msg-viewer
+  - winfor.downloads.packages.ms-powertoys
+  - winfor.downloads.packages.ms-vcpp-2010-redist-x64
+  - winfor.downloads.packages.ms-vcpp-2015-build-tools
+  - winfor.downloads.packages.ms-vcpp-2017-redist-x64
+  - winfor.downloads.packages.nodejs
+  - winfor.downloads.packages.npp
+  - winfor.downloads.packages.ntcore-explorersuite
+  - winfor.downloads.packages.nuget
+  - winfor.downloads.packages.nuix-evidence-mover
+  - winfor.downloads.packages.osfmount
+  - winfor.downloads.packages.passware-encryption-analyzer
+  - winfor.downloads.packages.pdfstreamdumper
+  - winfor.downloads.packages.pdfxplorer
+  - winfor.downloads.packages.plist-editor
+  - winfor.downloads.packages.portals
+  - winfor.downloads.packages.pst-walker
+  - winfor.downloads.packages.putty
+  - winfor.downloads.packages.python3
+  - winfor.downloads.packages.razorsql-x64
+  - winfor.downloads.packages.reko
+  - winfor.downloads.packages.resource-hacker
+  - winfor.downloads.packages.saltstack
+  - winfor.downloads.packages.sublime-text
+  - winfor.downloads.packages.synchrony
+  - winfor.downloads.packages.systeminformer
+  - winfor.downloads.packages.tableau-firmware-update
+  - winfor.downloads.packages.tableau-imager
+  - winfor.downloads.packages.teracopy
+  - winfor.downloads.packages.vcxsrv
+  - winfor.downloads.packages.veracrypt
+  - winfor.downloads.packages.virtualbox
+  - winfor.downloads.packages.vlc
+  - winfor.downloads.packages.voidtools-everything
+  - winfor.downloads.packages.vscode
+  - winfor.downloads.packages.vs-community-2026
+  - winfor.downloads.packages.webcopy
+  - winfor.downloads.packages.winmerge
+  - winfor.downloads.packages.winscp
+  - winfor.downloads.packages.wireshark
+  - winfor.downloads.packages.wiztree
+  - winfor.downloads.packages.zui
+
+winfor-downloads-packages-states:
+  test.nop:
+    - require:
+      - sls: winfor.downloads.packages.4n6-email-forensics-wizard
+      - sls: winfor.downloads.packages.7zip
+      - sls: winfor.downloads.packages.active-disk-editor
+      - sls: winfor.downloads.packages.adobereader
+      - sls: winfor.downloads.packages.agentransack
+      - sls: winfor.downloads.packages.android-studio
+      - sls: winfor.downloads.packages.apimonitor
+      - sls: winfor.downloads.packages.autopsy
+      - sls: winfor.downloads.packages.backup2fs
+      - sls: winfor.downloads.packages.binary-ninja
+      - sls: winfor.downloads.packages.bulk-extractor
+      - sls: winfor.downloads.packages.bulkrenameutility
+      - sls: winfor.downloads.packages.burpsuite-community
+      - sls: winfor.downloads.packages.chrome
+      - sls: winfor.downloads.packages.clamav
+      - sls: winfor.downloads.packages.db-browser-sqlite
+      - sls: winfor.downloads.packages.dbeaver
+      - sls: winfor.downloads.packages.dokany
+      - sls: winfor.downloads.packages.dotnet10-desktop-runtime
+      - sls: winfor.downloads.packages.dotnet6-desktop-runtime
+      - sls: winfor.downloads.packages.dotnet8-desktop-runtime
+      - sls: winfor.downloads.packages.dotnet9-desktop-runtime
+      - sls: winfor.downloads.packages.dotnetfx35
+      - sls: winfor.downloads.packages.dotpeek
+      - sls: winfor.downloads.packages.elcomsoft-efdd
+      - sls: winfor.downloads.packages.eventlog-explorer
+      - sls: winfor.downloads.packages.fec
+      - sls: winfor.downloads.packages.fex-imager
+      - sls: winfor.downloads.packages.fiddler
+      - sls: winfor.downloads.packages.fileinsight
+      - sls: winfor.downloads.packages.firefox
+      - sls: winfor.downloads.packages.free-hex-editor-neo
+      - sls: winfor.downloads.packages.ftk-imager
+      - sls: winfor.downloads.packages.git
+      - sls: winfor.downloads.packages.google-earth-pro
+      - sls: winfor.downloads.packages.graphviz
+      - sls: winfor.downloads.packages.hashcheck
+      - sls: winfor.downloads.packages.hax
+      - sls: winfor.downloads.packages.httplogbrowser
+      - sls: winfor.downloads.packages.httrack
+      - sls: winfor.downloads.packages.ibackup-viewer
+      - sls: winfor.downloads.packages.ida-free
+      - sls: winfor.downloads.packages.ilspy
+      - sls: winfor.downloads.packages.importexcel
+      - sls: winfor.downloads.packages.irfanview-plugins
+      - sls: winfor.downloads.packages.irfanview
+      - sls: winfor.downloads.packages.itunes-backup-explorer
+      - sls: winfor.downloads.packages.jdk17
+      - sls: winfor.downloads.packages.jdk21
+      - sls: winfor.downloads.packages.kernel-edb-viewer
+      - sls: winfor.downloads.packages.kernel-ost-viewer
+      - sls: winfor.downloads.packages.kernel-pst-viewer
+      - sls: winfor.downloads.packages.letos
+      - sls: winfor.downloads.packages.libreoffice
+      - sls: winfor.downloads.packages.logparser
+      - sls: winfor.downloads.packages.magnet-acquire
+      - sls: winfor.downloads.packages.magnet-chromebook-acquisition
+      - sls: winfor.downloads.packages.mdf-viewer
+      - sls: winfor.downloads.packages.monolith-notes
+      - sls: winfor.downloads.packages.msg-viewer
+      - sls: winfor.downloads.packages.ms-powertoys
+      - sls: winfor.downloads.packages.ms-vcpp-2010-redist-x64
+      - sls: winfor.downloads.packages.ms-vcpp-2015-build-tools
+      - sls: winfor.downloads.packages.ms-vcpp-2017-redist-x64
+      - sls: winfor.downloads.packages.nodejs
+      - sls: winfor.downloads.packages.npp
+      - sls: winfor.downloads.packages.ntcore-explorersuite
+      - sls: winfor.downloads.packages.nuget
+      - sls: winfor.downloads.packages.nuix-evidence-mover
+      - sls: winfor.downloads.packages.osfmount
+      - sls: winfor.downloads.packages.passware-encryption-analyzer
+      - sls: winfor.downloads.packages.pdfstreamdumper
+      - sls: winfor.downloads.packages.pdfxplorer
+      - sls: winfor.downloads.packages.plist-editor
+      - sls: winfor.downloads.packages.portals
+      - sls: winfor.downloads.packages.pst-walker
+      - sls: winfor.downloads.packages.putty
+      - sls: winfor.downloads.packages.python3
+      - sls: winfor.downloads.packages.razorsql-x64
+      - sls: winfor.downloads.packages.reko
+      - sls: winfor.downloads.packages.resource-hacker
+      - sls: winfor.downloads.packages.saltstack
+      - sls: winfor.downloads.packages.sublime-text
+      - sls: winfor.downloads.packages.synchrony
+      - sls: winfor.downloads.packages.systeminformer
+      - sls: winfor.downloads.packages.tableau-firmware-update
+      - sls: winfor.downloads.packages.tableau-imager
+      - sls: winfor.downloads.packages.teracopy
+      - sls: winfor.downloads.packages.vcxsrv
+      - sls: winfor.downloads.packages.veracrypt
+      - sls: winfor.downloads.packages.virtualbox
+      - sls: winfor.downloads.packages.vlc
+      - sls: winfor.downloads.packages.voidtools-everything
+      - sls: winfor.downloads.packages.vscode
+      - sls: winfor.downloads.packages.vs-community-2026
+      - sls: winfor.downloads.packages.webcopy
+      - sls: winfor.downloads.packages.winmerge
+      - sls: winfor.downloads.packages.winscp
+      - sls: winfor.downloads.packages.wireshark
+      - sls: winfor.downloads.packages.wiztree
+      - sls: winfor.downloads.packages.zui

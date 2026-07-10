@@ -12,7 +12,7 @@
 {% set hash = '55048cccae7adb1471cb0d32a317df306355a37bb5373406a4bf1eeee852671d' %}
 wmi-parser-download-only:
   file.managed:
-    - name: '{{ downloads }}\wmi-parser\wmi-parser.v{{ version }}.zip'
+    - name: '{{ downloads }}\wmi-parser\wmi-parser-{{ version }}.zip'
     - source: https://github.com/woanware/wmi-parser/releases/download/v{{ version }}/wmi-parser.v{{ version }}.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True

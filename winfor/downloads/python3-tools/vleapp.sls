@@ -10,22 +10,22 @@
 {% set version = '2.2.0' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set hash = '269b9f7eecbc8936dcf7607aa157c105a44f86785ca0864537d81835c9f47333' %}
+{% set hash = '39CB3ABA6471979ECC04B017D973667E77AC6BA0B3A894A4DCA7F9EE7CD3EAE7' %}
 
 include:
   - winfor.standalones.portable-python3
 
 vleapp-source-download-only:
   file.managed:
-    - name: '{{ downloads }}\VLEAPP-main.zip'
-    - source: https://github.com/abrignoni/VLEAPP/archive/refs/heads/main.zip
+    - name: '{{ downloads }}\VLEAPP-{{ version }}.zip'
+    - source: https://github.com/abrignoni/VLEAPP/archive/refs/tags/v{{ version }}.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True
 
 vleapp-source-extract-download-only:
   archive.extracted:
     - name: '{{ downloads }}\'
-    - source: '{{ downloads }}\VLEAPP-main.zip'
+    - source: '{{ downloads }}\VLEAPP-{{ version }}.zip'
     - enforce_toplevel: False
     - require:
       - file: vleapp-source-download-only
@@ -33,7 +33,7 @@ vleapp-source-extract-download-only:
 vleapp-folder-rename:
   file.rename:
     - name: '{{ downloads }}\vleapp'
-    - source: '{{ downloads }}\VLEAPP-main'
+    - source: '{{ downloads }}\VLEAPP-{{ version }}'
     - force: True
     - require:
       - archive: vleapp-source-extract-download-only
@@ -75,7 +75,7 @@ vleapp-icon-download-only:
 
 vleapp-delete-zip-download-only:
   file.absent:
-    - name: '{{ downloads }}\vleapp-main.zip'
+    - name: '{{ downloads }}\VLEAPP-{{ version }}.zip'
     - require:
       - file: vleapp-source-download-only
       - archive: vleapp-source-extract-download-only

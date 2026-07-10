@@ -11,6 +11,10 @@
 {% set subversion = '2368' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'yara-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\yara\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.config.shims
@@ -18,7 +22,7 @@ include:
 yara-extract-offline:
   archive.extracted:
     - name: '{{ inpath }}\yara\'
-    - source: '{{ downloads }}\yara\yara-{{ version }}-{{ subversion }}-win64.zip'
+    - source: '{{ downloads }}\yara\{{ pkg }}'
     - enforce_toplevel: False
 
 yara-shim-offline:
@@ -32,3 +36,8 @@ yarac-shim-offline:
     - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\yara\yarac64.exe -OutPath {{ inpath }}\shims\yarac.exe'
     - require:
       - sls: winfor.config.shims
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

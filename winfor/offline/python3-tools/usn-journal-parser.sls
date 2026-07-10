@@ -9,6 +9,10 @@
 
 {% set version = '5.0.0' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'usnparser-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\usn-journal-parser\\packages\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.offline.packages.python3
@@ -19,3 +23,8 @@ usn-journal-parser-install-offline:
     - cwd: '{{ downloads }}\usn-journal-parser\'
     - require:
       - sls: winfor.offline.packages.python3
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

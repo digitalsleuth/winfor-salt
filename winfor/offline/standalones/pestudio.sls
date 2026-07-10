@@ -11,6 +11,10 @@
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set pkg = 'pestudio-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\pestudio\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.config.shims
@@ -18,7 +22,7 @@ include:
 pestudio-extract-offline:
   archive.extracted:
     - name: '{{ inpath }}\'
-    - source: '{{ downloads }}\pestudio\pestudio-{{ version }}.zip'
+    - source: '{{ downloads }}\pestudio\{{ pkg }}'
     - enforce_toplevel: False
 
 pestudio-shim-offline:
@@ -36,3 +40,8 @@ pestudio-shortcut-offline:
     - makedirs: True
     - require:
       - archive: pestudio-extract-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

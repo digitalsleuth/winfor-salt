@@ -7,13 +7,13 @@
 # Version: 3.0.1016
 # Notes:
 
-{% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '3.0.1016' %}
+{% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set hash = '604e2eba56736c24b5265842cc217c8936a66bd2527191cd9262a2aa53cec6a4' %}
 
 volatility-workbench-download-only:
   file.managed:
-    - name: '{{ downloads }}\volatility-workbench\VolatilityWorkbench-{{ version }}.zip'
+    - name: '{{ downloads }}\volatility-workbench\volatility-workbench-{{ version }}.zip'
     - source: https://www.osforensics.com/downloads/VolatilityWorkbench.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True

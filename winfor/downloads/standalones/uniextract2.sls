@@ -13,7 +13,7 @@
 
 uniextract2-download-only:
   file.managed:
-    - name: '{{ downloads }}\uniextract2\UniExtractRC3-{{ version }}.zip'
+    - name: '{{ downloads }}\uniextract2\uniextract2-{{ version }}.zip'
     - source: https://github.com/Bioruebe/UniExtract2/releases/download/v{{ version }}/UniExtractRC3.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True

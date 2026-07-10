@@ -11,6 +11,10 @@
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set pkg = 'logfileparser-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\logfileparser\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.config.shims
@@ -18,7 +22,7 @@ include:
 logfileparser-extract-offline:
   archive.extracted:
     - name: '{{ inpath }}\logfileparser\'
-    - source: '{{ downloads }}\logfileparser\LogFileParser_v{{ version }}.zip'
+    - source: '{{ downloads }}\logfileparser\{{ pkg }}'
     - enforce_toplevel: False
 
 logfileparser-shim-offline:
@@ -43,3 +47,8 @@ logfileparser-shortcut-offline:
     - makedirs: True
     - require:
       - archive: logfileparser-extract-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

@@ -4,14 +4,18 @@
 # Category: Logs
 # Author: WithSecureLabs / Countercept
 # License: GNU General Public License v3.0 (https://github.com/WithSecureLabs/chainsaw/blob/master/LICENCE)
-# Version: 2.14.1
+# Version: 2.16.0
 # Notes:
 
-{% set version = '2.14.1' %}
+{% set version = '2.16.0' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set defender_status = salt['cmd.powershell']('((Get-Service) -match "WinDefend").Name') %}
+{% set pkg = 'chainsaw-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\chainsaw\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.config.shims
@@ -35,7 +39,7 @@ chainsaw-defender-exclusion-offline:
 chainsaw-extract-offline:
   archive.extracted:
     - name: '{{ inpath }}\'
-    - source: '{{ downloads }}\chainsaw\chainsaw-{{ version }}.zip'
+    - source: '{{ downloads }}\chainsaw\{{ pkg }}'
     - enforce_toplevel: False
     - overwrite: True
     - if_missing: '{{ inpath }}\chainsaw'
@@ -53,3 +57,8 @@ chainsaw-shim-offline:
     - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\chainsaw\chainsaw.exe -OutPath {{ inpath }}\shims\chainsaw.exe'
     - require:
       - sls: winfor.config.shims
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

@@ -9,6 +9,10 @@
 
 {% set version = "1.0.0" %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'usbdeviceforensics-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\usbdeviceforensics\\packages\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.offline.packages.python3
@@ -19,3 +23,8 @@ usbdeviceforensics-install-offline:
     - cwd: '{{ downloads }}\usbdeviceforensics\'
     - require:
       - sls: winfor.offline.packages.python3
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

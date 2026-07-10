@@ -9,10 +9,13 @@
 
 {% set version = '5.3.0' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'peepdf_3-'~ version ~'-py3-none-any.whl' %}
+{% set exists = salt['file.file_exists'](downloads + '\\peepdf-3\\packages\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.offline.packages.python3
-  - winfor.offline.python3-tools.stpyv8
 
 peepdf-3-install-offline:
   cmd.run:
@@ -20,4 +23,8 @@ peepdf-3-install-offline:
     - cwd: '{{ downloads }}\peepdf-3\'
     - require:
       - sls: winfor.offline.packages.python3
-      - sls: winfor.offline.python3-tools.stpyv8
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

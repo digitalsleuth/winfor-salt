@@ -11,6 +11,10 @@
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set pkg = 'jd-gui-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\jd-gui\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.offline.packages.jdk17
@@ -18,7 +22,7 @@ include:
 jd-gui-extract-offline:
   archive.extracted:
     - name: '{{ inpath }}\'
-    - source: '{{ downloads }}\jd-gui\jd-gui-windows-{{ version }}.zip'
+    - source: '{{ downloads }}\jd-gui\{{ pkg }}'
     - enforce_toplevel: False
     - require:
       - sls: winfor.offline.packages.jdk17
@@ -42,3 +46,8 @@ jd-gui-shortcut-offline:
     - require:
       - archive: jd-gui-extract-offline
       - file: jd-gui-rename-folder-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

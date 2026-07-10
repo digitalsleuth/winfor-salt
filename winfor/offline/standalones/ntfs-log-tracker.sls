@@ -11,11 +11,15 @@
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set pkg = 'ntfs-log-tracker-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\ntfs-log-tracker\\' + pkg) %}
+
+{% if exists %}
 
 ntfs-log-tracker-extract-offline:
   archive.extracted:
     - name: '{{ inpath }}\ntfs-log-tracker\'
-    - source: '{{ downloads }}\ntfs-log-tracker\ntfs-log-tracker-v{{ version }}.zip'
+    - source: '{{ downloads }}\ntfs-log-tracker\{{ pkg }}'
     - enforce_toplevel: False
 
 ntfs-log-tracker-folder-rename-offline:
@@ -36,3 +40,8 @@ ntfs-log-tracker-shortcut-offline:
     - makedirs: True
     - require:
       - archive: ntfs-log-tracker-extract-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

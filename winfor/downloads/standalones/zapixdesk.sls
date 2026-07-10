@@ -16,7 +16,7 @@ include:
 zapixdesk-git-download-only:
   git.latest:
     - name: https://github.com/kraftdenker/ZAPiXDESK.git
-    - target: '{{ downloads }}\zapixdesk-{{ version }}'
+    - target: '{{ downloads }}\zapixdesk'
     - rev: main
     - force_clone: True
     - force_reset: True

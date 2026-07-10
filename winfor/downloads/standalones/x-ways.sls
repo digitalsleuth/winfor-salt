@@ -7,7 +7,8 @@
 # Version: 21.3
 # Notes:
 
-{% set version = "213" %}
+{% set version = "21.3" %}
+{% set nodot = version.replace(".","") %}
 {% set auth_token = "TOKENPLACEHOLDER" %}
 {% set xwhash = "13a444d9f92853a4f17b0126c5a482557c1bc261fb46961ddbf2b5d533c9f8fb" %}
 {% set xviewerhash = "00d573f24f55521869ecd896a47b1e3838e4ad24c701178b565663d79882222f" %}
@@ -34,13 +35,13 @@ xways-credentials-not-provided-download-only:
 
 {% else %}
 
-{% if salt['file.file_exists'](downloads + 'xw_forensics' + version + '.zip') and salt['file.check_hash'](downloads + 'xw_forensics' + version + '.zip', xwhash)%}
+{% if salt['file.file_exists'](downloads + 'xways-' + version + '.zip') and salt['file.check_hash'](downloads + 'xways-' + version + '.zip', xwhash)%}
 xways-already-downloaded-and-hash-verified-download-only:
   test.nop
 {% else %}
 xways-download-only:
   cmd.run:
-    - name: 'Invoke-WebRequest -Uri "http://www.x-ways.net/xwf/xw_forensics{{ version }}.zip" -Method GET -Headers @{ Authorization = "Basic {{ auth_token }}" } -UserAgent "IPWorks HTTPComponent - www.nsoftware.com" -UseBasicParsing -OutFile {{ downloads }}\x-ways\xw_forensics{{ version }}.zip'
+    - name: 'Invoke-WebRequest -Uri "http://www.x-ways.net/xwf/xw_forensics{{ nodot }}.zip" -Method GET -Headers @{ Authorization = "Basic {{ auth_token }}" } -UserAgent "IPWorks HTTPComponent - www.nsoftware.com" -UseBasicParsing -OutFile {{ downloads }}\x-ways\xways-{{ version }}.zip'
     - shell: powershell
 {% endif %}
 

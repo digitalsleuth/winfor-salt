@@ -9,6 +9,10 @@
 
 {% set version = '20260512' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'plaso-'~ version ~'.tar.gz' %}
+{% set exists = salt['file.file_exists'](downloads + '\\plaso\\packages\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.offline.packages.python3
@@ -19,3 +23,8 @@ plaso-install-offline:
     - cwd: '{{ downloads }}\plaso\'
     - require:
       - sls: winfor.offline.packages.python3
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

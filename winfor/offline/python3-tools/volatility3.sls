@@ -4,11 +4,15 @@
 # Category: Windows Analysis
 # Author: Volatility Foundation
 # License: Volatility Software License (https://www.volatilityfoundation.org/license/vsl-v1.0)
-# Version: 2.28.1
-# Notes:
+# Version: 2.27.0
+# Notes: Downgraded from 2.28.x until Win 11 memory parsing issues resolved
 
-{% set version = "2.28.1" %}
+{% set version = "2.27.0" %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'volatility3-'~ version ~'-py3-none-any.whl' %}
+{% set exists = salt['file.file_exists'](downloads + '\\volatility3\\packages\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.offline.packages.python3
@@ -17,7 +21,7 @@ include:
 
 volatility3-offline:
   cmd.run:
-    - name: '"C:\Program Files\Python310\python.exe" -m pip install --no-index --find-links=.\packages volatility3'
+    - name: '"C:\Program Files\Python310\python.exe" -m pip install --no-index --find-links=.\packages volatility3=={{ version }}'
     - cwd: '{{ downloads }}\volatility3\'
     - require:
       - sls: winfor.offline.packages.python3
@@ -76,3 +80,8 @@ volatility3-mac-symbols-extract-offline:
     - enforce_toplevel: False
     - require:
       - file: volatility3-symbols-folder-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

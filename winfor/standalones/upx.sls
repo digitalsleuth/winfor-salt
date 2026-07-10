@@ -7,8 +7,8 @@
 # Version: 5.1.1
 # Notes: 
 
-{% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set version = '5.1.1' %}
+{% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set hash = 'fa5380bca4c2718547aaa0134bc0d8a7fa27e102f0ac6371573d60d1c21d64de' %}
 
 upx-download:

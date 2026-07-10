@@ -11,11 +11,15 @@
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set pkg = 'malcat-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\malcat\\' + pkg) %}
+
+{% if exists %}
 
 malcat-extract-offline:
   archive.extracted:
     - name: '{{ inpath }}\malcat'
-    - source: '{{ downloads }}\malcat\malcat_win313_lite-{{ version }}.zip'
+    - source: '{{ downloads }}\malcat\{{ pkg }}'
     - enforce_toplevel: False
 
 malcat-shortcut-offline:
@@ -27,3 +31,8 @@ malcat-shortcut-offline:
     - makedirs: True
     - require:
       - archive: malcat-extract-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

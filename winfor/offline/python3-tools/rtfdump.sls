@@ -10,6 +10,10 @@
 {% set version = '0.0.15' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set files = ['rtfdump.py','rtf.yara'] %}
+{% set pkg = 'rtfdump.py' %}
+{% set exists = salt['file.file_exists'](downloads + '\\rtfdump\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.offline.packages.python3
@@ -33,3 +37,8 @@ rtfdump-wrapper-offline:
       - '"C:\Program Files\Python310\python.exe" "C:\Program Files\Python310\Scripts\rtfdump.py" %*'
     - require:
       - file: rtfdump-manage-rtfdump.py-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

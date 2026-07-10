@@ -4,7 +4,7 @@
 # Category: Documents / Editors
 # Author: Phil Harvey
 # License: https://exiftool.org/#license
-# Version: 13.52
+# Version: 13.59
 # Notes:
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
@@ -25,7 +25,8 @@ include:
 exiftool-download:
   file.managed:
     - name: 'C:\salt\tempdownload\exiftool-{{ version }}_64.zip'
-    - source: https://exiftool.org/exiftool-{{ version }}_64.zip
+{#  - source: https://exiftool.org/exiftool-{{ version }}_64.zip #}
+    - source: https://sourceforge.net/projects/exiftool/files/exiftool-{{ version }}_64.zip/download
     - source_hash: sha256={{ ns.exiftool_hash }}
     - makedirs: True
 

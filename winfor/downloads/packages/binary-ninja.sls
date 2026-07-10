@@ -4,12 +4,12 @@
 # Category: Executables
 # Author: Vector 35
 # License: Non-commercial / Student License (https://docs.binary.ninja/about/license.html)
-# Version: 5.3.9434
+# Version: 5.3.9757
 # Notes: 
 
-{% set version = '5.3.9434' %}
+{% set version = '5.3.9757' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set hash = '897d086a34e7166c56f7d944c69352f3126561f023d8fff5662ddb7a722aee01' %}
+{% set hash = '5f6096acb03dd70d1a0572257c44471a0b62653788348cf69dc829212882a618' %}
 
 binary-ninja-free-download-only:
   file.managed:

@@ -7,9 +7,13 @@
 # Version: 2.4
 # Notes: 
 
+{% set version = '2.4' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
-{% set version = '2.4' %}
+{% set pkg = 'dex-tools-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\dex2jar\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.offline.packages.jdk17
@@ -17,7 +21,7 @@ include:
 dex2jar-extract-offline:
   archive.extracted:
     - name: '{{ inpath }}\'
-    - source: '{{ downloads }}\dex2jar\dex-tools-v{{ version }}.zip'
+    - source: '{{ downloads }}\dex2jar\{{ pkg }}'
     - enforce_toplevel: False
     - require:
       - sls: winfor.offline.packages.jdk17
@@ -38,3 +42,8 @@ dex2jar-env-vars-offline:
       - '{{ inpath }}\dex2jar\bin\'
     - require:
       - file: dex2jar-folder-rename-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

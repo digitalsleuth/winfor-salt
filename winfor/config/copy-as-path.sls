@@ -1,5 +1,6 @@
 {% set path = 'HKEY_CLASSES_ROOT\AllFileSystemObjects\shell\Windows.copyaspath' %}
-
+{% set download = salt['pillar.get']('downloads', None) %}
+{% if not download %}
 copy-as-path-canonical-name:
   reg.present:
     - name: {{ path }}
@@ -61,3 +62,8 @@ copy-as-path-verbname:
     - vname: VerbName
     - vtype: REG_SZ
     - vdata: copyaspath
+
+{% else %}
+Copy As Path not configured in download only mode:
+  test.nop
+{% endif %}

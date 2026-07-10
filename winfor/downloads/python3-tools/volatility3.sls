@@ -4,10 +4,10 @@
 # Category: Windows Analysis
 # Author: Volatility Foundation
 # License: Volatility Software License (https://www.volatilityfoundation.org/license/vsl-v1.0)
-# Version: 2.28.1
-# Notes:
+# Version: 2.27.0
+# Notes: Downgraded from 2.28.x until Win 11 memory parsing issues are resolved
 
-{% set version = "2.28.1" %}
+{% set version = "2.27.0" %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
@@ -26,7 +26,7 @@ volatility3-folder-download-only:
 
 volatility3-download-only:
   cmd.run:
-    - name: '{{ inpath }}\portable-python3\python.exe -m pip download -d packages volatility3'
+    - name: '{{ inpath }}\portable-python3\python.exe -m pip download -d packages volatility3=={{ version }}'
     - cwd: '{{ downloads }}\volatility3\'
     - require:
       - sls: winfor.standalones.portable-python3

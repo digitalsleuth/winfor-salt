@@ -13,7 +13,7 @@
 
 malcat-download-only:
   file.managed:
-    - name: '{{ downloads }}\malcat\malcat_win313_lite-{{ version }}.zip'
+    - name: '{{ downloads }}\malcat\malcat-{{ version }}.zip'
     - source: https://malcat.fr/latest/malcat_win313_lite.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True

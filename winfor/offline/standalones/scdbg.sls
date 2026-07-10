@@ -11,6 +11,10 @@
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set pkg = 'scdbg-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\scdbg\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.config.shims
@@ -18,7 +22,7 @@ include:
 scdbg-extract-offline:
   archive.extracted:
     - name: '{{ inpath }}\scdbg\'
-    - source: '{{ downloads }}\scdbg\scdbg-{{ version }}.zip'
+    - source: '{{ downloads }}\scdbg\{{ pkg }}'
     - enforce_toplevel: False
 
 scdbg-shim-offline:
@@ -36,3 +40,8 @@ scdbg-shortcut-offline:
     - makedirs: True
     - require:
       - archive: scdbg-extract-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

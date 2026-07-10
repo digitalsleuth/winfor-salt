@@ -4,13 +4,13 @@
 # Category: Windows Analysis
 # Author: Willi Ballenthin
 # License: Apache License v2.0 (https://github.com/williballenthin/python-evtx/blob/master/LICENSE.TXT)
-# Version: 0.8.0
+# Version: 0.8.1
 # Notes: evtx_dump.py, evtx_dump_json.py, evtx_dump_chunk_slack.py, evtx_eid_record_numbers.py, evtx_extract_record.py, evtx_filter_records.py, evtx_info.py, evtx_record_structure.py, evtx_structure.py, evtx_templates.py
 
-{% set version = '0.8.0' %}
+{% set version = '0.8.1' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set commit = '953520633f99c450253e8d7142d18e7fce03b684' %}
+{% set commit = '1edde3655c676bd44990ce9762d6b8f73334ed1d' %}
 
 include:
   - winfor.downloads.packages.python3

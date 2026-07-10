@@ -14,7 +14,7 @@
 
 memprocfs-download-only:
   file.managed:
-    - name: '{{ downloads }}\memprocfs\MemProcFS_files_and_binaries_v{{ version }}-win_x64-{{ date }}.zip'
+    - name: '{{ downloads }}\memprocfs\memprocfs-{{ version }}.zip'
     - source: https://github.com/ufrisk/MemProcFS/releases/download/v5_archive/MemProcFS_files_and_binaries_v{{ version }}-win_x64-{{ date }}.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True

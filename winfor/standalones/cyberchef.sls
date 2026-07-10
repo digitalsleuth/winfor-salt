@@ -4,12 +4,13 @@
 # Category: Raw Parsers / Decoders
 # Author: GCHQ
 # License: Apache License v2.0 (https://github.com/gchq/CyberChef/blob/master/LICENSE)
-# Version: 10.23.0
+# Version: 11.2.0
 # Notes: 
 
+{% set version = '11.2.0' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set version = '10.23.0' %}
-{% set hash = '71dbd1c6a53cbe2c5f9eecb9698153f7c9b79137d4bcb4ad90d7db35d38c94ff' %}
+{% set hash = '9abbe74b94af3423b4e0e6d064cf5142df01c5e89d6b222e412fd6f4daf906ac' %}
+{% set commit = 'd358d82cbcb269d764a2deb598a37043bd054f45' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 include:
@@ -19,7 +20,7 @@ cyberchef-extract:
   archive.extracted:
     - name: '{{ inpath }}\cyberchef'
     - enforce_toplevel: False
-    - source: https://github.com/gchq/CyberChef/releases/download/v{{ version}}/CyberChef_v{{ version }}.zip
+    - source: https://github.com/gchq/CyberChef/releases/download/v{{ version}}/CyberChef_{{ commit }}.zip
     - source_hash: sha256={{ hash }}
     - overwrite: True
     - require:

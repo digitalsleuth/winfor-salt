@@ -11,6 +11,10 @@
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set pkg = 'srum-dump-'~ version ~'.exe' %}
+{% set exists = salt['file.file_exists'](downloads + '\\srum-dump\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.config.shims
@@ -38,3 +42,8 @@ srum-dump-shortcut-offline:
     - makedirs: True
     - require:
       - file: srum-dump-copy-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

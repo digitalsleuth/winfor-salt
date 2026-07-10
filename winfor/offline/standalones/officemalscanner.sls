@@ -10,6 +10,10 @@
 {% set version = '0.62' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'officemalscanner-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\officemalscanner\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.config.shims
@@ -17,7 +21,7 @@ include:
 officemalscanner-extract-offline:
   archive.extracted:
     - name: '{{ inpath }}\officemalscanner'
-    - source: '{{ downloads }}\officemalscanner\OfficeMalScanner-{{ version }}.zip'
+    - source: '{{ downloads }}\officemalscanner\{{ pkg }}'
     - enforce_toplevel: False
 
 officemalscanner-shim-offline:
@@ -25,3 +29,8 @@ officemalscanner-shim-offline:
     - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\officemalscanner\officemalscanner.exe -OutPath {{ inpath }}\shims\officemalscanner.exe'
     - require:
       - sls: winfor.config.shims
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

@@ -4,12 +4,16 @@
 # Category: Network
 # Author: https://github.com/orgs/ipinfo/people
 # License: Apache License v2.0 (https://github.com/ipinfo/cli/blob/master/LICENSE)
-# Version: 3.3.1
+# Version: 3.3.2
 # Notes: 
 
-{% set version = '3.3.1' %}
+{% set version = '3.3.2' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'ipinfo-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\ipinfo\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.config.shims
@@ -17,7 +21,7 @@ include:
 ipinfo-extract-offline:
   archive.extracted:
     - name: '{{ inpath }}\ipinfo\'
-    - source: '{{ downloads }}\ipinfo\ipinfo_{{ version }}_windows_amd64.zip'
+    - source: '{{ downloads }}\ipinfo\{{ pkg }}'
     - enforce_toplevel: False
 
 ipinfo-rename-offline:
@@ -34,3 +38,8 @@ ipinfo-shim-offline:
     - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\ipinfo\ipinfo.exe -OutPath {{ inpath }}\shims\ipinfo.exe'
     - require:
       - sls: winfor.config.shims
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

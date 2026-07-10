@@ -4,12 +4,16 @@
 # Category: Mobile Analysis
 # Author: Genymobile
 # License: Apache License 2.0 (https://github.com/Genymobile/scrcpy/blob/master/LICENSE)
-# Version: 3.3.4
+# Version: 4.0
 # Notes:
 
-{% set version = '3.3.4' %}
+{% set version = '4.0' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'scrcpy-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\scrcpy\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.config.shims
@@ -34,3 +38,9 @@ scrcpy-shim-offline:
     - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\scrcpy\scrcpy.exe -OutPath {{ inpath }}\shims\scrcpy.exe'
     - require:
       - sls: winfor.config.shims
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}
+

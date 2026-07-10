@@ -10,11 +10,15 @@
 {% set version = '1.21' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'fex-memory-imager-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\fex-memory-imager\\' + pkg) %}
+
+{% if exists %}
 
 fex-memory-imager-extract-offline:
   archive.extracted:
     - name: '{{ inpath }}\'
-    - source: '{{ downloads }}\fex-memory-imager\FEX-Memory-(v{{ version }}).zip'
+    - source: '{{ downloads }}\fex-memory-imager\{{ pkg }}'
     - enforce_toplevel: False
 
 fex-memory-imager-rename-offline:
@@ -25,3 +29,8 @@ fex-memory-imager-rename-offline:
     - makedirs: True
     - require:
       - archive: fex-memory-imager-extract-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

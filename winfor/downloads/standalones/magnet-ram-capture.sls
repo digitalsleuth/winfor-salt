@@ -7,13 +7,13 @@
 # Version: 1.2.0
 # Notes:
 
+{% set version = '1.2.0' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set hash = '72dc1ba6ddc9d572d70a194ebdf6027039734ecee23a02751b0b3b3c4ea430de' %}
-{% set version = 'v120' %}
 
 magnet-ram-capture-download-only:
   file.managed:
-    - name: '{{ downloads }}\magnetforensics\MRC{{version}}.exe'
-    - source: https://storage.googleapis.com/mfi-files/free_tools/MagnetRAMCapture/MRC{{ version }}.exe
+    - name: '{{ downloads }}\magnetforensics\magnet-ram-capture-{{ version }}.exe'
+    - source: https://storage.googleapis.com/mfi-files/free_tools/MagnetRAMCapture/MRCv{{ version | replace(".","") }}.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

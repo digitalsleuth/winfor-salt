@@ -7,12 +7,13 @@
 # Version: Build 45
 # Notes:
 
+{% set version = '45' %}
 {% set hash = '1EA4C6A32D244DA91E70371054648F25529F69E06548F16C9DA75A9CFC8A2915' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 densityscout-download-only:
   file.managed:
-    - name: '{{ downloads }}\densityscout\densityscout_build_45_windows.zip'
+    - name: '{{ downloads }}\densityscout\densityscout-{{ version }}.zip'
     - source: https://cert.at/media/files/downloads/software/densityscout/files/densityscout_build_45_windows.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True

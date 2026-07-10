@@ -7,9 +7,13 @@
 # Version: 0.4.1.1
 # Notes: 
 
+{% set version = '0.4.1.1' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
-{% set version = '0.4.1.1' %}
+{% set pkg = 'hollows-hunter-'~ version ~'.exe' %}
+{% set exists = salt['file.file_exists'](downloads + '\\hollows-hunter\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.config.shims
@@ -17,7 +21,7 @@ include:
 hollows-hunter-offline:
   file.managed:
     - name: '{{ inpath }}\hollows-hunter\hollows-hunter.exe'
-    - source: '{{ downloads }}\hollows-hunter\hollows-hunter-{{ version }}.exe'
+    - source: '{{ downloads }}\hollows-hunter\{{ pkg }}'
     - skip_verify: True
     - makedirs: True
 
@@ -26,3 +30,8 @@ hollows-hunter-shim-offline:
     - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\hollows-hunter\hollows-hunter.exe -OutPath {{ inpath }}\shims\hollows-hunter.exe'
     - require:
       - sls: winfor.config.shims
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

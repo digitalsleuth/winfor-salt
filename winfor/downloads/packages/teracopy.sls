@@ -4,12 +4,12 @@
 # Category: Utilities
 # Author: Code Sector
 # License: FREEWARE (private / non-commerical)
-# Version: 4.0.0.27
+# Version: 4.0.0.37
 # Notes:
 
-{% set version = '4.0.0.27' %}
+{% set version = '4.0.0.37' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set hash = '36fbcc347d3cedfaebe3d64dd8dd9b6df351e59ef783c8241ce21df255bddad4' %}
+{% set hash = 'c908d86999c11e731bf07c7a715a35dcba0893487d8deaf86b38842c00942f09' %}
 
 teracopy-download-only:
   file.managed:

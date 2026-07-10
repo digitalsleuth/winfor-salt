@@ -4,18 +4,22 @@
 # Category: Mobile Analysis
 # Author: Christian Peter (prosch88)
 # License: GNU General Public License 3 (https://github.com/prosch88/UFADE/blob/main/LICENSE)
-# Version: 1.0.3
+# Version: 1.0.4
 # Notes:
 
+{% set version = '1.0.4' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
-{% set version = '1.0.3' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set pkg = 'ufade-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\ufade\\' + pkg) %}
+
+{% if exists %}
 
 ufade-extract-offline:
   archive.extracted:
     - name: '{{ inpath }}\'
-    - source: '{{ downloads }}\ufade\UFADE_{{ version }}_win_x64.zip'
+    - source: '{{ downloads }}\ufade\{{ pkg }}'
     - enforce_toplevel: True
     - overwrite: True
 
@@ -28,3 +32,8 @@ ufade-shortcut-offline:
     - makedirs: True
     - require:
       - archive: ufade-extract-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

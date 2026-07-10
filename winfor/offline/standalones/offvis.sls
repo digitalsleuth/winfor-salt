@@ -11,6 +11,10 @@
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set pkg = 'offvis-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\offvis\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.offline.packages.dotnetfx35
@@ -18,7 +22,7 @@ include:
 offvis-extract-offline:
   archive.extracted:
     - name: '{{ inpath }}\OffVis'
-    - source: '{{ downloads }}\offvis\OffVis-{{ version }}.zip'
+    - source: '{{ downloads }}\offvis\{{ pkg }}'
     - enforce_toplevel: False
 
 offvis-shortcut-offline:
@@ -31,3 +35,8 @@ offvis-shortcut-offline:
     - require:
       - archive: offvis-extract-offline
       - sls: winfor.offline.packages.dotnetfx35
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

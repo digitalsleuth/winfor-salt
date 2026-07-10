@@ -11,11 +11,15 @@
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set pkg = 'ppee-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\ppee\\' + pkg) %}
+
+{% if exists %}
 
 ppee-extract-offline:
   archive.extracted:
     - name: '{{ inpath }}\'
-    - source: '{{ downloads }}\ppee\PPEE(puppy)_{{ version }}.zip'
+    - source: '{{ downloads }}\ppee\{{ pkg }}'
     - enforce_toplevel: False
 
 ppee-folder-rename-offline:
@@ -36,3 +40,8 @@ ppee-shortcut-offline:
     - makedirs: True
     - require:
       - archive: ppee-extract-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

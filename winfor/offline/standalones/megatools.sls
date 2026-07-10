@@ -11,6 +11,10 @@
 {% set date = '20250706' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'megatools-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\megatools\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.config.shims
@@ -18,7 +22,7 @@ include:
 megatools-extract-offline:
   archive.extracted:
     - name: '{{ inpath }}\'
-    - source: '{{ downloads }}\megatools\megatools-{{ version }}.{{ date }}-win64.zip'
+    - source: '{{ downloads }}\megatools\{{ pkg }}'
     - enforce_toplevel: True
 
 megatools-folder-rename-offline:
@@ -36,3 +40,8 @@ megatools-shim-offline:
     - require:
       - sls: winfor.config.shims
       - archive: megatools-extract-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

@@ -8,15 +8,18 @@
 # Notes: 
 
 {% set version = '0.6.6' %}
-{% set hash = '293471F8248A0A7BD8CEBB16E7D9253E43CE810AC5755E2E707C8863CA4D6362' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set pkg = 'aurora-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\aurora\\' + pkg) %}
+
+{% if exists %}
 
 aurora-extract-offline:
   archive.extracted:
     - name: '{{ inpath }}\'
-    - source: '{{ downloads }}\aurora\Aurora-win32-x64-{{ version }}.zip'
+    - source: '{{ downloads }}\aurora\{{ pkg }}'
     - enforce_toplevel: False
 
 aurora-folder-move-offline:
@@ -37,3 +40,8 @@ aurora-shortcut-offline:
     - makedirs: True
     - require:
       - file: aurora-folder-move-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

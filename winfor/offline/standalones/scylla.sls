@@ -11,13 +11,17 @@
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set pkg = 'scylla-'~ version ~'.rar' %}
+{% set exists = salt['file.file_exists'](downloads + '\\scylla\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.offline.packages.7zip
 
 scylla-extract-offline:
   cmd.run:
-    - name: '"C:\Program Files\7-Zip\7z.exe" x "{{ downloads }}\scylla\Scylla_v{{ version }}.rar" -aoa -o{{ inpath }}\scylla'
+    - name: '"C:\Program Files\7-Zip\7z.exe" x "{{ downloads }}\scylla\{{ pkg }}" -aoa -o{{ inpath }}\scylla'
     - shell: cmd
     - require:
       - sls: winfor.offline.packages.7zip
@@ -33,3 +37,8 @@ scylla-shortcut-{{ arch }}-offline:
     - require:
       - cmd: scylla-extract-offline
 {% endfor %}
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

@@ -4,10 +4,10 @@
 # Category: Raw Parsers / Decoders
 # Author: Victor M. Alvarez (plusvic)
 # License: Apache License v2.0 (https://github.com/VirusTotal/yara-python/blob/master/LICENSE)
-# Version: 4.2.3
+# Version: 4.5.4
 # Notes:
 
-{% set version = "4.2.3" %}
+{% set version = "4.5.4" %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
@@ -24,7 +24,7 @@ yara-python-folder-download-only:
 
 yara-python-download-only:
   cmd.run:
-    - name: '{{ inpath }}\portable-python3\python.exe -m pip download -d packages yara-python'
+    - name: '{{ inpath }}\portable-python3\python.exe -m pip download -d packages yara-python=={{ version }}'
     - cwd: '{{ downloads }}\yara-python\'
     - require:
       - sls: winfor.standalones.portable-python3

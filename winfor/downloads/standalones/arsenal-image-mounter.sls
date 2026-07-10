@@ -11,7 +11,7 @@
 {% set version = '3.12.344' %}
 {% set file_value = 'btJD1aKb#XXpSbOPYYsgOmImoI6C0hp3orF8I4TfNuge7pYkg-qU' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set arsenal_zip = downloads + '\\arsenal-image-mounter\\Arsenal-Image-Mounter-v' + version + '.zip' %}
+{% set arsenal_zip = downloads + '\\arsenal-image-mounter\\arsenal-image-mounter-' + version + '.zip' %}
 
 include:
   - winfor.downloads.standalones.megatools

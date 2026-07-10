@@ -10,6 +10,10 @@
 {% set version = '1.2.1' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'memprocfs-analyzer-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\memprocfs-analyzer\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.offline.packages.clamav
@@ -29,3 +33,8 @@ memprocfs-analyzer-folder-copy-offline:
       - sls: winfor.offline.packages.dokany
       - sls: winfor.offline.packages.importexcel
       - sls: winfor.offline.packages.dotnet9-desktop-runtime
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

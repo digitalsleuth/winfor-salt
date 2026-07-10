@@ -3,13 +3,13 @@
 # Description: Suite of various Windows Analysis Tools
 # Category: Windows Analysis
 # Author: Nir Sofer
-# License: 
-# Version: 1.30.23
+# License: Freeware, except for NK2Edit which requires a commercial license for organizational use (https://launcher.nirsoft.net/ - License Conditions)
+# Version: 1.30.24
 # Notes: 
 
+{% set version = '1.30.24' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set version = '1.30.23' %}
-{% set hash = '7b92839c6a426d9509ff7b6370344659889c8219e36023b46d74a40671f7ab50' %}
+{% set hash = '847ea35296dc7811ddd18878ab9a9f297b25177077abb61286aaafaa6a4f1189' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set nlps = ['eztools.nlp', 'mitec.nlp', 'sysinternals6.nlp'] %}
 {% set defender_status = salt['cmd.powershell']('((Get-Service) -match "WinDefend").Name') %}

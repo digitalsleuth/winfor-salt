@@ -11,6 +11,10 @@
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set pkg = 'autoit-extractor-'~ version ~'.exe' %}
+{% set exists = salt['file.file_exists'](downloads + '\\autoit-extractor\\' + pkg) %}
+
+{% if exists %}
 
 autoit-extractor-offline:
   file.managed:
@@ -29,3 +33,7 @@ autoit-extractor-shortcut-offline:
     - require:
       - file: autoit-extractor-offline
 
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

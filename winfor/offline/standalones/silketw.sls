@@ -10,6 +10,10 @@
 {% set version = '0.8' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'silketw-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\silketw\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.config.shims
@@ -17,7 +21,7 @@ include:
 silketw-extract-offline:
   archive.extracted:
     - name: '{{ inpath }}\silketw'
-    - source: '{{ downloads }}\silketw\SilkETW_SilkService_v{{ version }}.zip'
+    - source: '{{ downloads }}\silketw\{{ pkg }}'
     - enforce_toplevel: False
 
 silketw-shim-offline:
@@ -25,3 +29,8 @@ silketw-shim-offline:
     - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\silketw\v8\SilkETW\SilkETW.exe -OutPath {{ inpath }}\shims\silketw.exe'
     - require:
       - sls: winfor.config.shims
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

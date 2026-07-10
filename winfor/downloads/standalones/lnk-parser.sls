@@ -13,7 +13,7 @@
 
 lnk-parser-download-only:
   file.managed:
-    - name: '{{ downloads }}\lnk-parser\lnk_parser_v{{ version }}.exe'
+    - name: '{{ downloads }}\lnk-parser\lnk-parser-{{ version }}.exe'
     - source: https://github.com/AbdulRhmanAlfaifi/lnk_parser/releases/download/v{{ version }}/lnk_parser_v{{ version }}.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

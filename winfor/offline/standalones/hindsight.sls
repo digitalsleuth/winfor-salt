@@ -4,14 +4,18 @@
 # Category: Windows Analysis
 # Author: Obsidian Forensics
 # License: Apache v2.0 (https://github.com/obsidianforensics/hindsight/blob/master/LICENSE.md)
-# Version: 2026.01
+# Version: 2026.04
 # Notes:
 
-{% set version = '2026.01' %}
+{% set version = '2026.04' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
-{% set files = ['hindsight.exe','hindsight_gui.exe'] %}
+{% set pkg = 'hindsight-'~ version ~'.exe' %}
+{% set files = ['hindsight','hindsight_gui'] %}
+{% set exists = salt['file.file_exists'](downloads + '\\hindsight\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.config.shims
@@ -19,15 +23,15 @@ include:
 {% for file in files %}
 hindsight-{{ file }}-offline:
   file.managed:
-    - name: '{{ inpath }}\hindsight\{{ file }}'
-    - source: '{{ downloads }}\hindsight\{{ version }}\{{ file }}'
+    - name: '{{ inpath }}\hindsight\{{ file }}.exe'
+    - source: '{{ downloads }}\hindsight\{{ file }}-{{ version }}.exe'
     - skip_verify: True
     - makedirs: True
     - replace: True
 
 hindsight-shim-{{ file }}-offline:
   cmd.run:
-    - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\hindsight\{{ file }} -OutPath {{ inpath }}\shims\{{ file }}'
+    - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\hindsight\{{ file }}.exe -OutPath {{ inpath }}\shims\{{ file }}.exe'
     - require:
       - sls: winfor.config.shims
 
@@ -41,4 +45,9 @@ hindsight-gui-shortcut-offline:
     - working_dir: {{ inpath }}\hindsight\
     - makedirs: True
     - require:
-      - file: hindsight-hindsight_gui.exe-offline
+      - file: hindsight-hindsight_gui-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

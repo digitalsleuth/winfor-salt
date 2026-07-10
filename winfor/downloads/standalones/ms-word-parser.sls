@@ -8,12 +8,12 @@
 # Notes:
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = "3.0.1" %}
-{% set hash = "5a670eb2620a9730edd1382117d88e9027d8da102976e825d9547dafa010131e" %}
+{% set version = '3.0.1' %}
+{% set hash = '5a670eb2620a9730edd1382117d88e9027d8da102976e825d9547dafa010131e' %}
 
 ms-word-parser-download-only:
   file.managed:
-    - name: '{{ downloads }}\ms-word-parser\parse-docx-gui-{{ version }}.exe'
+    - name: '{{ downloads }}\ms-word-parser\ms-word-parser-{{ version }}.exe'
     - source: https://github.com/jjrboucher/MS-Word-Parser/releases/download/v{{ version }}/parse-docx-v{{ version }}.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

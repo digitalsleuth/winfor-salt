@@ -9,6 +9,10 @@
 
 {% set version = '12.0.267.16' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'stpyv8-'~ version ~'-cp310-cp310-win_amd64.whl' %}
+{% set exists = salt['file.file_exists'](downloads + '\\stpyv8\\packages\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.offline.packages.python3
@@ -20,3 +24,7 @@ stpyv8-install-offline:
     - require:
       - sls: winfor.offline.packages.python3
 
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

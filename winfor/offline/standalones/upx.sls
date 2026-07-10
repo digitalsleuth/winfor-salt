@@ -10,11 +10,15 @@
 {% set version = '5.1.1' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'upx-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\upx\\' + pkg) %}
+
+{% if exists %}
 
 upx-extract-offline:
   archive.extracted:
     - name: '{{ inpath }}\'
-    - source: '{{ downloads }}\upx\upx-{{ version }}-win64.zip'
+    - source: '{{ downloads }}\upx\{{ pkg }}'
     - enforce_toplevel: False
 
 upx-folder-rename-offline:
@@ -29,3 +33,8 @@ upx-folder-rename-offline:
 upx-env-vars-offline:
   win_path.exists:
     - name: '{{ inpath }}\upx'
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

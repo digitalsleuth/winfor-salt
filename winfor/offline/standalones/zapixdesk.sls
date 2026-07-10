@@ -10,10 +10,19 @@
 {% set version = '2.1' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'zapixdesk' %}
+{% set exists = salt['file.directory_exists'](downloads + '\\zapixdesk') %}
+
+{% if exists %}
 
 zapixdesk-rename-offline:
   file.rename:
     - name: '{{ inpath }}\zapixdesk'
-    - source: '{{ downloads }}\zapixdesk-{{ version }}'
+    - source: '{{ downloads }}\zapixdesk'
     - makedirs: True
     - force: True
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

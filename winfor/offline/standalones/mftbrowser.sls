@@ -11,11 +11,15 @@
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set pkg = 'mftbrowser-'~ version ~'.exe' %}
+{% set exists = salt['file.file_exists'](downloads + '\\mftbrowser\\' + pkg) %}
+
+{% if exists %}
 
 mftbrowser-offline:
   file.managed:
     - name: '{{ inpath }}\mftbrowser\MFTBrowser.exe'
-    - source: {{ downloads }}\mftbrowser\MFTBrowser-{{ version }}.exe
+    - source: '{{ downloads }}\mftbrowser\{{ pkg }}'
     - skip_verify: True
     - makedirs: True
 
@@ -28,3 +32,8 @@ mftbrowser-shortcut-offline:
     - makedirs: True
     - require:
       - file: mftbrowser-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

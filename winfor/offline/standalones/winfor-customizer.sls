@@ -11,11 +11,15 @@
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set pkg = 'win-for-'~ version ~'.exe' %}
+{% set exists = salt['file.file_exists'](downloads + '\\win-for\\' + pkg) %}
+
+{% if exists %}
 
 winfor-customizer-offline:
   file.managed:
     - name: '{{ inpath }}\win-for.exe'
-    - source: '{{ downloads }}\winfor-customizer\winfor-v{{ version }}.exe'
+    - source: '{{ downloads }}\win-for\{{ pkg }}'
     - skip_verify: True
     - makedirs: True
     - replace: False
@@ -29,3 +33,8 @@ winfor-customizer-shortcut-offline:
     - makedirs: True
     - require:
       - file: winfor-customizer-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

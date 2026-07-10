@@ -1,6 +1,8 @@
 {% set paths = ["HKEY_CLASSES_ROOT\Directory\shell\Windows.CmdAsAdmin",
                 "HKEY_CLASSES_ROOT\Drive\shell\Windows.CmdAsAdmin",
                ] %}
+{% set download = salt['pillar.get']('downloads', None) %}
+{% if not download %}
 
 {% for path in paths %}
 
@@ -70,3 +72,7 @@ cmd-admin-background-command:
     - vtype: REG_SZ
     - vdata: "cmd /c echo|set/p=\"%V\"|powershell -nop -W 1 -noni -nol \"SaPs 'cmd' -Args '/c \"\"\"cd /d',$([char]34+$Input+[char]34),'^&^& start /b cmd.exe\"\"\"' -Verb RunAs\""
 
+{% else %}
+Admin Command Prompt not configured in download only mode:
+  test.nop
+{% endif %}

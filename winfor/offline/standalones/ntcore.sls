@@ -16,6 +16,9 @@
                ('DynLogger_x64', 'DynLogger'),
                ('WIM_Installer', 'WIM Installer')
               ] %}
+{% set exists = salt['file.directory_exists'](downloads + '\\ntcore') %}
+
+{% if exists %}
 
 {% for file in files %}
 
@@ -70,3 +73,8 @@ ntcore-dynlogger-x86-shortcut-offline:
     - force: True
     - working_dir: '{{ inpath }}\ntcore\DynLogger_x86\'
     - makedirs: True
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

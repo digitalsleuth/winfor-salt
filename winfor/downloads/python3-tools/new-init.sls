@@ -1,0 +1,85 @@
+include:
+  - winfor.downloads.python3-tools.1768-script
+  - winfor.downloads.python3-tools.aleapp
+  - winfor.downloads.python3-tools.amcache
+  - winfor.downloads.python3-tools.analyzemft
+  - winfor.downloads.python3-tools.bitsparser
+  - winfor.downloads.python3-tools.bmc-tools
+  - winfor.downloads.python3-tools.decompyle3
+  - winfor.downloads.python3-tools.email-header-analyzer
+  - winfor.downloads.python3-tools.flare-fakenet-ng
+  - winfor.downloads.python3-tools.ileapp
+  - winfor.downloads.python3-tools.iptools
+  - winfor.downloads.python3-tools.maldump
+  - winfor.downloads.python3-tools.msoffcrypto-crack
+  - winfor.downloads.python3-tools.msoffcrypto-tool
+  - winfor.downloads.python3-tools.ms-word-parser
+  - winfor.downloads.python3-tools.naft
+  - winfor.downloads.python3-tools.noriben
+  - winfor.downloads.python3-tools.oledump
+  - winfor.downloads.python3-tools.olefile
+  - winfor.downloads.python3-tools.oletools
+  - winfor.downloads.python3-tools.pcodedmp
+  - winfor.downloads.python3-tools.pdfid
+  - winfor.downloads.python3-tools.pdf-parser
+  - winfor.downloads.python3-tools.peepdf-3
+  - winfor.downloads.python3-tools.plaso
+  - winfor.downloads.python3-tools.py3-pycryptodome
+  - winfor.downloads.python3-tools.pyinstxtractor
+  - winfor.downloads.python3-tools.pyson4
+  - winfor.downloads.python3-tools.python-dateutil
+  - winfor.downloads.python3-tools.python-evtx
+  - winfor.downloads.python3-tools.rtfdump
+  - winfor.downloads.python3-tools.stpyv8
+  - winfor.downloads.python3-tools.time-decode
+  - winfor.downloads.python3-tools.usbdeviceforensics
+  - winfor.downloads.python3-tools.usn-journal-parser
+  - winfor.downloads.python3-tools.vleapp
+  - winfor.downloads.python3-tools.volatility3
+  - winfor.downloads.python3-tools.xlmmacrodeobfuscator
+  - winfor.downloads.python3-tools.yara-python
+  - winfor.downloads.python3-tools.zircolite
+
+winfor-downloads-python3-tools-states:
+  test.nop:
+    - require:
+      - sls: winfor.downloads.python3-tools.1768-script
+      - sls: winfor.downloads.python3-tools.aleapp
+      - sls: winfor.downloads.python3-tools.amcache
+      - sls: winfor.downloads.python3-tools.analyzemft
+      - sls: winfor.downloads.python3-tools.bitsparser
+      - sls: winfor.downloads.python3-tools.bmc-tools
+      - sls: winfor.downloads.python3-tools.decompyle3
+      - sls: winfor.downloads.python3-tools.email-header-analyzer
+      - sls: winfor.downloads.python3-tools.flare-fakenet-ng
+      - sls: winfor.downloads.python3-tools.ileapp
+      - sls: winfor.downloads.python3-tools.iptools
+      - sls: winfor.downloads.python3-tools.maldump
+      - sls: winfor.downloads.python3-tools.msoffcrypto-crack
+      - sls: winfor.downloads.python3-tools.msoffcrypto-tool
+      - sls: winfor.downloads.python3-tools.ms-word-parser
+      - sls: winfor.downloads.python3-tools.naft
+      - sls: winfor.downloads.python3-tools.noriben
+      - sls: winfor.downloads.python3-tools.oledump
+      - sls: winfor.downloads.python3-tools.olefile
+      - sls: winfor.downloads.python3-tools.oletools
+      - sls: winfor.downloads.python3-tools.pcodedmp
+      - sls: winfor.downloads.python3-tools.pdfid
+      - sls: winfor.downloads.python3-tools.pdf-parser
+      - sls: winfor.downloads.python3-tools.peepdf-3
+      - sls: winfor.downloads.python3-tools.plaso
+      - sls: winfor.downloads.python3-tools.py3-pycryptodome
+      - sls: winfor.downloads.python3-tools.pyinstxtractor
+      - sls: winfor.downloads.python3-tools.pyson4
+      - sls: winfor.downloads.python3-tools.python-dateutil
+      - sls: winfor.downloads.python3-tools.python-evtx
+      - sls: winfor.downloads.python3-tools.rtfdump
+      - sls: winfor.downloads.python3-tools.stpyv8
+      - sls: winfor.downloads.python3-tools.time-decode
+      - sls: winfor.downloads.python3-tools.usbdeviceforensics
+      - sls: winfor.downloads.python3-tools.usn-journal-parser
+      - sls: winfor.downloads.python3-tools.vleapp
+      - sls: winfor.downloads.python3-tools.volatility3
+      - sls: winfor.downloads.python3-tools.xlmmacrodeobfuscator
+      - sls: winfor.downloads.python3-tools.yara-python
+      - sls: winfor.downloads.python3-tools.zircolite

@@ -11,6 +11,10 @@
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set pkg = 'vleapp.py' %}
+{% set exists = salt['file.file_exists'](downloads + '\\vleapp\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.offline.packages.python3
@@ -45,3 +49,8 @@ vleapp-gui-shortcut-offline:
     - require:
       - cmd: vleapp-requirements-install-offline
       - win_path: vleapp-env-vars-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

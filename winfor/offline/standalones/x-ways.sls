@@ -7,11 +7,15 @@
 # Version: 21.3
 # Notes:
 
-{% set version = "213" %}
+{% set version = "21.3" %}
 {% set xviewer_ver = "857" %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set pkg = 'xways-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\<pkg>\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.offline.standalones.x-ways-templates
@@ -19,7 +23,7 @@ include:
 xways-extract-offline:
   archive.extracted:
     - name: '{{ inpath }}\xwf\'
-    - source: '{{ downloads }}\x-ways\xw_forensics{{ version }}.zip'
+    - source: '{{ downloads }}\x-ways\{{ pkg }}'
     - enforce_toplevel: False
 
 xways-viewer-extract-offline:
@@ -86,3 +90,8 @@ winhex-shortcut-offline:
     - makedirs: True
     - require:
       - archive: xways-extract-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

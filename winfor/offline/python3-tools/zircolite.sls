@@ -4,14 +4,18 @@
 # Category: Logs
 # Author: Wagga (wagga40)
 # License: GNU Lesser Public License v3.0 (https://github.com/wagga40/Zircolite#license)
-# Version: 3.6.3
+# Version: 3.7.6
 # Notes:
 
-{% set version = '3.6.3' %}
+{% set version = '3.7.6' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set defender_status = salt['cmd.powershell']('((Get-Service) -match "WinDefend").Name') %}
+{% set pkg = 'zircolite.py' %}
+{% set exists = salt['file.file_exists'](downloads + '\\zircolite\\' + pkg) %}
+
+{% if exists %}
 
 {% if defender_status.lower() == "windefend" %}
 
@@ -54,3 +58,8 @@ zircolite-wrapper-offline:
     - contents:
       - '@echo off'
       - 'python3 "{{ inpath }}\zircolite\zircolite.py" %*'
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

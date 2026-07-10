@@ -7,10 +7,14 @@
 # Version: 2.12
 # Notes: 
 
+{% set version = '2.12' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
-{% set version = '2.12' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set pkg = 'bytecode-viewer-'~ version ~'.jar' %}
+{% set exists = salt['file.file_exists'](downloads + '\\bytecode-viewer\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.offline.packages.jdk17
@@ -18,7 +22,7 @@ include:
 bytecode-viewer-offline:
   file.managed:
     - name: '{{ inpath }}\bytecode-viewer\bytecode-viewer.jar'
-    - source: '{{ downloads }}\bytecode-viewer\Bytecode-Viewer-{{ version }}.jar'
+    - source: '{{ downloads }}\bytecode-viewer\{{ pkg }}'
     - skip_verify: True
     - makedirs: True
 
@@ -32,3 +36,8 @@ bytecode-viewer-shortcut-offline:
     - require:
       - file: bytecode-viewer-offline
       - sls: winfor.offline.packages.jdk17
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

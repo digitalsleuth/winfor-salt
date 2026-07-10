@@ -11,13 +11,17 @@
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set pkg = 'fex-cloud-capture-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\fex-cloud-capture\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.offline.packages.7zip
 
 fex-cloud-capture-extract-offline:
   cmd.run:
-    - name: '"C:\Program Files\7-Zip\7z.exe" x {{ downloads }}\fex-cloud-capture\FEX-Cloud-Capture-64bit-(v{{ version }}).zip -aoa -o{{ inpath }}\'
+    - name: '"C:\Program Files\7-Zip\7z.exe" x {{ downloads }}\fex-cloud-capture\{{ pkg }} -aoa -o{{ inpath }}\'
     - shell: cmd
     - require:
       - sls: winfor.offline.packages.7zip
@@ -40,3 +44,8 @@ fex-cloud-capture-shortcut-offline:
     - makedirs: True
     - require:
       - file: fex-cloud-capture-rename-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

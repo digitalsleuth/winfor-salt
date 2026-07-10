@@ -18,7 +18,7 @@ include:
 exeinfope-download:
   file.managed:
     - name: 'C:\salt\tempdownload\exeinfope.zip'
-    - source: https://github.com/ExeinfoASL/ASL/raw/master/exeinfope.zip
+    - source: https://github.com/ExeinfoASL/ASL/releases/download/v{{ version }}/exeinfope.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True
 

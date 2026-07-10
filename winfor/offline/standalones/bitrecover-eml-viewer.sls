@@ -7,15 +7,19 @@
 # Version: 5.0
 # Notes:
 
-{% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set version = '5.0' %}
+{% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set pkg = 'bitrecover-eml-viewer-'~ version ~'.exe' %}
+{% set exists = salt['file.file_exists'](downloads + '\\bitrecover-eml-viewer\\' + pkg) %}
+
+{% if exists %}
 
 bitrecover-eml-viewer-offline:
   file.managed:
     - name: '{{ inpath }}\bitrecover-eml-viewer\bitrecover-eml-viewer.exe'
-    - source: '{{ downloads }}\bitrecover-eml-viewer\bitrecover-eml-viewer-{{ version }}.exe'
+    - source: '{{ downloads }}\bitrecover-eml-viewer\{{ pkg }}'
     - skip_verify: True
     - makedirs: True
 
@@ -28,3 +32,8 @@ bitrecover-shortcut-offline:
     - makedirs: True
     - require:
       - file: bitrecover-eml-viewer-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

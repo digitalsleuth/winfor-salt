@@ -4,13 +4,16 @@
 # Category: Installers
 # Author: ExtremeCoders-RE
 # License: GNU General Public License v3.0 (https://github.com/extremecoders-re/pyinstxtractor/blob/master/LICENSE)
-# Version: 2026.04
+# Version: 2026.07
 # Notes: Release version does not update with script
 
-{% set version = '2026.04' %}
+{% set version = '2026.07' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
-{% set hash = 'f54fd54769b99a84e2b3fc9d767c6a104a9fb83ab6566bb0edb30f44e234b239' %}
+{% set pkg = 'pyinstxtractor-'~ version ~'.py' %}
+{% set exists = salt['file.file_exists'](downloads + '\\pyinstxtractor\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.offline.packages.python3
@@ -18,9 +21,13 @@ include:
 pyinstxtractor-offline:
   file.managed:
     - name: 'C:\Program Files\Python310\Scripts\pyinstxtractor.py'
-    - source: '{{ downloads }}\pyinstxtractor\pyinstxtractor-{{ version }}.py'
+    - source: '{{ downloads }}\pyinstxtractor\{{ pkg }}'
     - skip_verify: True
-    - makedirs: False
+    - makedirs: True
     - require:
       - sls: winfor.offline.packages.python3
 
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

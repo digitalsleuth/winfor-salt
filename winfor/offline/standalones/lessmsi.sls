@@ -7,10 +7,14 @@
 # Version: 2.12.9
 # Notes: 
 
+{% set version = '2.12.9' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
-{% set version = '2.12.9' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set pkg = 'lessmsi-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\lessmsi\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.config.shims
@@ -18,7 +22,7 @@ include:
 lessmsi-extract-offline:
   archive.extracted:
     - name: '{{ inpath }}\lessmsi'
-    - source: '{{ downloads }}\lessmsi\lessmsi-v{{ version }}.zip'
+    - source: '{{ downloads }}\lessmsi\{{ pkg }}'
     - enforce_toplevel: False
 
 lessmsi-shortcut-offline:
@@ -37,3 +41,8 @@ lessmsi-shim-offline:
     - require:
       - sls: winfor.config.shims
       - archive: lessmsi-extract-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

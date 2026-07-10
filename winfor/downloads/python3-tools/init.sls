@@ -9,7 +9,6 @@ include:
   - winfor.downloads.python3-tools.email-header-analyzer
   - winfor.downloads.python3-tools.flare-fakenet-ng
   - winfor.downloads.python3-tools.ileapp
-  - winfor.downloads.python3-tools.init
   - winfor.downloads.python3-tools.iptools
   - winfor.downloads.python3-tools.maldump
   - winfor.downloads.python3-tools.msoffcrypto-crack
@@ -54,7 +53,6 @@ download-python3-tools-states:
       - sls: winfor.downloads.python3-tools.email-header-analyzer
       - sls: winfor.downloads.python3-tools.flare-fakenet-ng
       - sls: winfor.downloads.python3-tools.ileapp
-      - sls: winfor.downloads.python3-tools.init
       - sls: winfor.downloads.python3-tools.iptools
       - sls: winfor.downloads.python3-tools.maldump
       - sls: winfor.downloads.python3-tools.msoffcrypto-crack

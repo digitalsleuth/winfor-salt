@@ -11,6 +11,10 @@
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set pkg = 'portex-analyzer-'~ version ~'.jar' %}
+{% set exists = salt['file.file_exists'](downloads + '\\portex-analyzer\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.offline.packages.jdk17
@@ -18,7 +22,7 @@ include:
 portex-analyzer-copy-offline:
   file.managed:
     - name: '{{ inpath }}\portex-analyzer\portex-analyzer.jar'
-    - source: '{{ downloads }}\portex-analyzer\PortexAnalyzerGUI-{{ version }}-jar-with-dependencies.jar'
+    - source: '{{ downloads }}\portex-analyzer\{{ pkg }}'
     - makedirs: True
     - force: True
 
@@ -32,3 +36,8 @@ portex-analyzer-shortcut-offline:
     - require:
       - sls: winfor.offline.packages.jdk17
       - file: portex-analyzer-copy-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

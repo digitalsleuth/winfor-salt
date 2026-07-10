@@ -4,7 +4,7 @@
 # Category: Documents / Editors
 # Author: Phil Harvey
 # License: https://exiftool.org/#license
-# Version: 13.42
+# Version: 13.59
 # Notes:
 
 {% set version_query = salt['http.query']('https://exiftool.org/ver.txt', backend='requests', verify_ssl=True) %}
@@ -21,8 +21,9 @@
 
 exiftool-download-only:
   file.managed:
-    - name: '{{ downloads }}\exiftool\exiftool-{{ version }}_64.zip'
-    - source: https://exiftool.org/exiftool-{{ version }}_64.zip
+    - name: '{{ downloads }}\exiftool\exiftool-{{ version }}.zip'
+{#  - source: https://exiftool.org/exiftool-{{ version }}_64.zip #}
+    - source: https://sourceforge.net/projects/exiftool/files/exiftool-{{ version }}_64.zip/download
     - source_hash: sha256={{ ns.exiftool_hash }}
     - makedirs: True
 

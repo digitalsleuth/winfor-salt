@@ -4,11 +4,11 @@
 # Category: Windows Analysis
 # Author: Corey Forman (digitalsleuth)
 # License: GNU General Public License v3 (https://github.com/digitalsleuth/forensics_tools/blob/master/LICENSE)
-# Version: 2.0
+# Version: 3.0
 # Notes: 
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set hash = 'a9fde04ce05e1f53ecc4464126a102ca8283b04039dee320b6c3f15001938933' %}
+{% set hash = '497720e708a0e203069042af85cb2b23989c5271ef6e40e180b82ae9b7385f9d' %}
 
 vssmount-download:
   file.managed:

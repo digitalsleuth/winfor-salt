@@ -4,13 +4,13 @@
 # Category: Windows Analysis
 # Author: Arsenal Recon
 # License: EULA
-# Version: 1.2.3.87
+# Version: 1.2.3.96
 # Notes:
 
+{% set version = '1.2.3.96' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set hash = 'bd76ae4f98908b400c8beaa676b862d953c4aa49853634e663ef1f2ac84069a1' %}
-{% set version = '1.2.3.87' %}
-{% set file_value = '3kRRxSZA#y98k7mBJKpygPxFu5Txi_-l9iDnyN3GzYxzjTVb3z-I' %}
+{% set hash = 'a7196907adb7a4fa110cab65ced57e4024f1162a051cd7d0dce1abf3cec998b6' %}
+{% set file_value = 'S0AShJZC#0bAnvlQOJBZMbtOHfyN_5jrZXcimfImae4zpY6O220w' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 include:

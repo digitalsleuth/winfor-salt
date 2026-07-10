@@ -13,7 +13,7 @@
 
 xsv-download-only:
   file.managed:
-    - name: '{{ downloads }}\xsv\xsv-{{ version }}-x86_64-pc-windows-msvc.zip'
+    - name: '{{ downloads }}\xsv\xsv-{{ version }}.zip'
     - source: https://github.com/BurntSushi/xsv/releases/download/{{ version }}/xsv-{{ version }}-x86_64-pc-windows-msvc.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True

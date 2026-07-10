@@ -11,11 +11,15 @@
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set version = '4.1.0.1' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set pkg = 'bulk-rename-utility-portable-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\bulk-rename-utility\\' + pkg) %}
+
+{% if exists %}
 
 bulkrenameutility-portable-extract-offline:
   archive.extracted:
     - name: '{{ inpath }}\bulk-rename-utility\'
-    - source: '{{ downloads }}\bulk-rename-utility\BRU_NoInstall-{{ version }}.zip'
+    - source: '{{ downloads }}\bulk-rename-utility\{{ pkg }}'
     - enforce_toplevel: False
 
 bulkrenameutility-portable-shortcut-offline:
@@ -27,3 +31,8 @@ bulkrenameutility-portable-shortcut-offline:
     - makedirs: True
     - require:
       - archive: bulkrenameutility-portable-extract-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

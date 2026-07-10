@@ -11,6 +11,10 @@
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set pkg = 'logparser-studio-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\logparser-studio\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.offline.packages.logparser
@@ -19,7 +23,7 @@ include:
 logparser-studio-extract-offline:
   archive.extracted:
     - name: '{{ inpath }}\'
-    - source: '{{ downloads }}\logparser-studio\LPSV2.D2-{{ version }}.zip'
+    - source: '{{ downloads }}\logparser-studio\{{ pkg }}'
     - enforce_toplevel: False
     - require:
       - sls: winfor.offline.packages.logparser
@@ -48,3 +52,8 @@ logparser-studio-shortcut-offline:
     - makedirs: True
     - require:
       - file: logparser-studio-rename-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

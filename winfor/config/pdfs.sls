@@ -87,8 +87,60 @@ set pdfs = [
 ]
 -%}
 
+{% set download = salt['pillar.get']('downloads', None) %}
+{% set offline = salt['pillar.get']('offline', None) %}
+{% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
+
+{% if download %}
+  {% set mode = 'download' %}
+{% elif offline %}
+  {% set mode = 'offline' %}
+{% else %}
+  {% set mode = 'install' %}
+{% endif %}
+
+{% if mode == 'download' %}
+
 {% for pdf in pdfs %}
-{{ pdf.id }}-pdf:
+{{ pdf.id }}-pdf-download-only:
+  file.managed:
+    - name: '{{ download }}\references\{{ pdf.filename }}'
+    - source: {{ pdf.source }}
+    - source_hash: sha256={{ pdf.hash }}
+    - makedirs: True
+    - show_changes: False
+{% endfor %}
+
+pdf-tool-list-download-only:
+  file.managed:
+    - name: '{{ download }}\references\WIN-FOR-Tool-List.pdf'
+    - source: salt://winfor/files/WIN-FOR-Tool-List.pdf
+    - skip_verify: True
+    - makedirs: True
+    - show_changes: False
+
+{% elif mode == 'offline' %}
+{% set exists = salt['file.directory_exists'](offline + '\\references') %}
+{% if exists %}
+pdf-folder-rename-offline:
+  file.rename:
+    - name: '{{ inpath }}\references'
+    - source: '{{ offline }}\references'
+    - force: True
+    - makedirs: True
+
+pdf-tool-list-shortcut-offline:
+  file.shortcut:
+    - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\WIN-FOR-Tool-List.lnk'
+    - target: '{{ inpath }}\references\WIN-FOR-Tool-List.pdf'
+    - force: True
+    - working_dir: '{{ inpath }}\references\'
+    - makedirs: True
+{% endif %}
+{% else %}
+
+{% for pdf in pdfs %}
+{{ pdf.id }}-pdf-download:
   file.managed:
     - name: '{{ inpath }}\references\{{ pdf.filename }}'
     - source: {{ pdf.source }}
@@ -114,3 +166,5 @@ tool-list-shortcut:
     - makedirs: True
     - require:
       - file: pdf-tool-list
+
+{% endif %}

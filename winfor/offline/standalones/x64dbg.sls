@@ -12,11 +12,15 @@
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set archs = ['64','32'] %}
+{% set pkg = 'x64dbg-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\x64dbg\\' + pkg) %}
+
+{% if exists %}
 
 x64dbg-extract-offline:
   archive.extracted:
     - name: '{{ inpath }}\x64dbg'
-    - source: '{{ downloads }}\x64dbg\snapshot_{{ version }}.zip'
+    - source: '{{ downloads }}\x64dbg\{{ pkg }}'
     - enforce_toplevel: False
 
 {% for arch in archs %}
@@ -30,3 +34,8 @@ x64dbg-shortcut-{{ arch }}-offline:
     - require:
       - archive: x64dbg-extract-offline
 {% endfor %}
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

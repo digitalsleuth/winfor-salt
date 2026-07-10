@@ -4,13 +4,17 @@
 # Category: Raw Parsers / Decoders
 # Author: GCHQ
 # License: Apache License v2.0 (https://github.com/gchq/CyberChef/blob/master/LICENSE)
-# Version: 10.23.0
+# Version: 11.2.0
 # Notes: 
 
+{% set version = '11.2.0' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
-{% set version = '10.23.0' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set pkg = 'cyberchef-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\cyberchef\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.offline.packages.firefox
@@ -18,9 +22,8 @@ include:
 cyberchef-extract-offline:
   archive.extracted:
     - name: '{{ inpath }}\cyberchef'
+    - source: '{{ downloads }}\cyberchef\{{ pkg }}'
     - enforce_toplevel: False
-    - source: '{{ downloads }}\cyberchef\CyberChef-v{{ version }}.zip'
-    - skip_verify: True
     - overwrite: True
     - require:
       - sls: winfor.offline.packages.firefox
@@ -30,9 +33,14 @@ cyberchef-shortcut-offline:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\CyberChef.lnk'
     - target: 'C:\Program Files\Mozilla Firefox\firefox.exe'
     - arguments: '{{ inpath }}\cyberchef\CyberChef_v{{ version }}.html'
-    - force: True
     - working_dir: 'C:\Program Files\Mozilla Firefox'
+    - force: True
     - makedirs: True
     - require:
       - sls: winfor.offline.packages.firefox
       - archive: cyberchef-extract-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

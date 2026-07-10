@@ -7,15 +7,19 @@
 # Version: 3.1
 # Notes: 
 
-{% set version = '3-1' %}
+{% set version = '3.1' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set pkg = 'networkminer-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\networkminer\\' + pkg) %}
+
+{% if exists %}
 
 network-miner-extract-offline:
   archive.extracted:
     - name: '{{ inpath }}\'
-    - source: '{{ downloads }}\networkminer\NetworkMiner_{{ version }}.zip'
+    - source: '{{ downloads }}\networkminer\{{ pkg }}'
     - enforce_toplevel: True
     - overwrite: True
 
@@ -38,3 +42,8 @@ network-miner-shortcut-offline:
     - require:
       - archive: network-miner-extract-offline
       - file: network-miner-rename-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

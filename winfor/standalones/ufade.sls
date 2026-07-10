@@ -4,12 +4,12 @@
 # Category: Mobile Analysis
 # Author: Christian Peter (prosch88)
 # License: GNU General Public License 3 (https://github.com/prosch88/UFADE/blob/main/LICENSE)
-# Version: 1.0.3
+# Version: 1.0.4
 # Notes: 
 
+{% set version = '1.0.4' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set version = '1.0.3' %}
-{% set hash = '0fbd206acbc07de87b7c073c6d956e40c801046304b58c500daa8a7e349b5cb5' %}
+{% set hash = '92aede5659f9b0807c1133a68ae3319ffb3d8baf2f9ef1a43436a1ba4b8fd00a' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 ufade-download:

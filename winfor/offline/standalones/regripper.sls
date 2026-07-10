@@ -11,6 +11,10 @@
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set pkg = 'rr.exe' %}
+{% set exists = salt['file.file_exists'](downloads + '\\regripper\\regripper3\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.config.shims
@@ -44,3 +48,8 @@ regripper-shortcut-offline:
     - makedirs: True
     - require:
       - file: regripper-copy-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

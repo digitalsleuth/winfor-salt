@@ -4,13 +4,17 @@
 # Category: Executables
 # Author: hasherezade
 # License: GNU General Public License v2 (https://github.com/hasherezade/pe-bear/blob/main/LICENSE)
-# Version: 0.7.1
+# Version: 0.7.2
 # Notes: 
 
-{% set version = '0.7.1' %}
+{% set version = '0.7.2' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set pkg = 'pe-bear-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\pe-bear\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.offline.packages.ms-vcpp-2017-redist-x64
@@ -18,7 +22,7 @@ include:
 pe-bear-extract-offline:
   archive.extracted:
     - name: '{{ inpath }}\pe-bear'
-    - source: '{{ downloads }}\pe-bear\PE-bear_{{ version }}_qt6.8_x64_win_vs22.zip'
+    - source: '{{ downloads }}\pe-bear\{{ pkg }}'
     - enforce_toplevel: False
 
 pe-bear-shortcut-offline:
@@ -30,3 +34,8 @@ pe-bear-shortcut-offline:
     - makedirs: True
     - require:
       - archive: pe-bear-extract-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

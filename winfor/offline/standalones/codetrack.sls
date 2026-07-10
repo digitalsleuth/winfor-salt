@@ -11,11 +11,15 @@
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set pkg = 'codetrack-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\codetrack\\' + pkg) %}
+
+{% if exists %}
 
 codetrack-extract-offline:
   archive.extracted:
     - name: '{{ inpath }}\codetrack\'
-    - source: '{{ downloads }}\codetrack\codetrack_{{ version | replace(".", "_") }}.zip'
+    - source: '{{ downloads }}\codetrack\{{ pkg }}'
     - enforce_toplevel: False
 
 codetrack-shortcut-offline:
@@ -27,3 +31,8 @@ codetrack-shortcut-offline:
     - makedirs: True
     - require:
       - archive: codetrack-extract-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

@@ -8,9 +8,13 @@
 # Notes: 
 
 {% set version = '5.17.6' %}
+{% set date = '20260426' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
-{% set date = '20260426' %}
+{% set pkg = 'memprocfs-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\memprocfs\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.config.shims
@@ -18,7 +22,7 @@ include:
 memprocfs-extract-offline:
   archive.extracted:
     - name: '{{ inpath }}\memprocfs\'
-    - source: '{{ downloads }}\memprocfs\MemProcFS_files_and_binaries_v{{ version }}-win_x64-{{ date }}.zip'
+    - source: '{{ downloads }}\memprocfs\{{ pkg }}'
     - enforce_toplevel: False
 
 memprocfs-version-file-offline:
@@ -36,3 +40,8 @@ memprocfs-shim-offline:
       - sls: winfor.config.shims
       - archive: memprocfs-extract-offline
       - file: memprocfs-version-file-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

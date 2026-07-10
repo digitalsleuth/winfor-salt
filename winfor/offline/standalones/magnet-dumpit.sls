@@ -7,12 +7,21 @@
 # Version: 20250131
 # Notes: 
 
+{% set version = '20250131' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
-{% set version = '20250131' %}
+{% set pkg = 'magnet-dumpit-'~ version ~'.exe' %}
+{% set exists = salt['file.file_exists'](downloads + '\\magnetforensics\\' + pkg) %}
+
+{% if exists %}
 
 magnet-dumpit-extract-offline:
   archive.extracted:
     - name: '{{ inpath }}\magnet\dumpit\'
-    - source: '{{ downloads }}\magnetforensics\Comae-Toolkit-v{{ version }}.zip'
+    - source: '{{ downloads }}\magnetforensics\{{ pkg }}'
     - enforce_toplevel: False
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

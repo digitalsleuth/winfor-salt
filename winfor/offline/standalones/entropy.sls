@@ -8,9 +8,12 @@
 # Notes: 
 
 {% set version = '1.1' %}
-{% set hash = '78971932f891f970aefcf483cdaa6aa5769b4a6083df8eccb3218f5a3aa6590c' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'entropy-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\entropy\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.config.shims
@@ -18,7 +21,7 @@ include:
 entropy-extract-offline:
   archive.extracted:
     - name: '{{ inpath }}\'
-    - source: '{{ downloads }}\entropy\entropy-{{ version }}-win64.zip'
+    - source: '{{ downloads }}\entropy\{{ pkg }}'
     - enforce_toplevel: False
 
 entropy-version-file-offline:
@@ -34,3 +37,8 @@ entropy-shim-offline:
     - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\entropy\entropy.exe -OutPath {{ inpath }}\shims\entropy.exe'
     - require:
       - sls: winfor.config.shims
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

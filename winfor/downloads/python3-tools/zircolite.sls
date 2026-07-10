@@ -4,11 +4,11 @@
 # Category: Logs
 # Author: Wagga (wagga40)
 # License: GNU Lesser Public License v3.0 (https://github.com/wagga40/Zircolite#license)
-# Version: 3.6.3
+# Version: 3.7.6
 # Notes:
 
-{% set version = '3.6.3' %}
-{% set commit = '6b8c4fd918bd5c749bb29374fc3f8041b5743505' %}
+{% set version = '3.7.6' %}
+{% set commit = 'b37b51eb00c49fc7bfd2f4968f1e5c3fc30da643' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}

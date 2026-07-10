@@ -11,6 +11,10 @@
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set pkg = 'dependencies-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\dependencies\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.offline.packages.ms-vcpp-2017-redist-x64
@@ -19,7 +23,7 @@ include:
 dependencies-extract-offline:
   archive.extracted:
     - name: '{{ inpath }}\dependencies'
-    - source: '{{ downloads }}\dependencies\Dependencies_x64_Release-{{ version }}.zip'
+    - source: '{{ downloads }}\dependencies\{{ pkg }}'
     - enforce_toplevel: False
     - require:
       - sls: winfor.offline.packages.ms-vcpp-2017-redist-x64
@@ -40,3 +44,8 @@ dependencies-shim-offline:
     - require:
       - sls: winfor.config.shims
       - archive: dependencies-extract-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

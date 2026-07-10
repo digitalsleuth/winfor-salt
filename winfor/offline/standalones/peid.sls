@@ -11,7 +11,11 @@
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
-{% set files = ['peid-' + version + '.exe', 'peid-userdb.txt', 'peid.ico'] %}
+{% set pkg = 'peid-'~ version ~'.exe' %}
+{% set exists = salt['file.file_exists'](downloads + '\\peid\\' + pkg) %}
+{% set files = [pkg , 'peid-userdb.txt', 'peid.ico'] %}
+
+{% if exists %}
 
 {% for file in files %}
 
@@ -28,9 +32,9 @@ peid-copy-{{ file }}-offline:
 peid-rename-exe-offline:
   file.rename:
     - name: '{{ inpath }}\peid\peid.exe'
-    - source: '{{ inpath }}\peid\peid-{{ version }}.exe'
+    - source: '{{ inpath }}\peid\{{ pkg }}'
     - require:
-      - file: peid-copy-peid-{{ version }}.exe-offline
+      - file: peid-copy-{{ pkg }}-offline
 
 peid-shortcut-offline:
   file.shortcut:
@@ -43,3 +47,8 @@ peid-shortcut-offline:
     - require:
       - file: peid-copy-peid-{{ version }}.exe-offline
       - file: peid-rename-exe-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

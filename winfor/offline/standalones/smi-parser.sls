@@ -10,6 +10,10 @@
 {% set version = '1.1.0' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'smi-parser-'~ version ~'.exe' %}
+{% set exists = salt['file.file_exists'](downloads + '\\smi-parser\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.config.shims
@@ -17,7 +21,7 @@ include:
 smi-parser-copy-offline:
   file.copy:
     - name: '{{ inpath }}\smi-parser\smi-parser.exe'
-    - source: '{{ downloads }}\smi-parser\smi-parser-{{ version }}.exe'
+    - source: '{{ downloads }}\smi-parser\{{ pkg }}'
     - makedirs: True
     - force: True
 
@@ -27,3 +31,8 @@ smi-parser-shim-offline:
     - require:
       - sls: winfor.config.shims
       - file: smi-parser-copy-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

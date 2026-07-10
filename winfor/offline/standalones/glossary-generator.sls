@@ -11,11 +11,15 @@
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set pkg = 'glossary-generator-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\glossary-generator\\' + pkg) %}
+
+{% if exists %}
 
 glossary-generator-extract-offline:
   archive.extracted:
     - name: '{{ inpath }}\glossary-generator\'
-    - source: '{{ downloads }}\glossary-generator\gg-{{ version }}.zip'
+    - source: '{{ downloads }}\glossary-generator\{{ pkg }}'
     - enforce_toplevel: false
 
 glossary-generator-shortcut-offline:
@@ -27,3 +31,8 @@ glossary-generator-shortcut-offline:
     - makedirs: True
     - require:
       - archive: glossary-generator-extract-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

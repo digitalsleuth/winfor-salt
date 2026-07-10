@@ -7,10 +7,14 @@
 # Version: 3.21
 # Notes: Detect It Easy - DIE 
 
-{% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set version = '3.21' %}
+{% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set pkg = 'die-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\die\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.config.shims
@@ -18,7 +22,7 @@ include:
 die-extract-offline:
   archive.extracted:
     - name: '{{ inpath }}\'
-    - source: '{{ downloads }}\die\die_win64_portable_{{ version }}_x64.zip'
+    - source: '{{ downloads }}\die\{{ pkg }}'
     - enforce_toplevel: False
 
 die-shim-offline:
@@ -37,3 +41,8 @@ die-shortcut-offline:
     - require:
       - archive: die-extract-offline
       - cmd: die-shim-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

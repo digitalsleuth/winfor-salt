@@ -13,7 +13,7 @@
 
 entropy-download-only:
   file.managed:
-    - name: '{{ downloads }}\entropy\entropy-{{ version }}-win64.zip'
+    - name: '{{ downloads }}\entropy\entropy-{{ version }}.zip'
     - source: https://github.com/merces/entropy/releases/download/v{{ version }}/entropy-{{ version }}-win64.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True

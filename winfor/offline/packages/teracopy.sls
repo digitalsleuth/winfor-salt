@@ -4,10 +4,10 @@
 # Category: Utilities
 # Author: Code Sector
 # License: FREEWARE (private / non-commerical)
-# Version: 4.0.0.27
+# Version: 4.0.0.37
 # Notes:
 
-{% set version = '4.0.0.27' %}
+{% set version = '4.0.0.37' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set pkg = 'teracopy-'~ version ~'.exe' %}
 {% set exists = salt['file.file_exists'](downloads + '\\teracopy\\' + pkg) %}

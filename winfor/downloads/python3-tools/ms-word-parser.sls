@@ -14,17 +14,17 @@
 include:
   - winfor.standalones.portable-python3
 
-ms-word-parser-folder-download-only:
+ms-word-parser-python-folder-download-only:
   file.directory:
     - name: '{{ downloads }}\ms-word-parser'
     - makedirs: True
     - force: True
     - win_inheritance: True
 
-ms-word-parser-download-only:
+ms-word-parser-python-download-only:
   cmd.run:
     - name: '{{ inpath }}\portable-python3\python.exe -m pip download -d packages ms-word-parser'
     - cwd: '{{ downloads }}\ms-word-parser\'
     - require:
       - sls: winfor.standalones.portable-python3
-      - file: ms-word-parser-folder-download-only
+      - file: ms-word-parser-python-folder-download-only

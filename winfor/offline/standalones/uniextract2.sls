@@ -11,11 +11,15 @@
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set pkg = 'uniextract2-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\uniextract2\\' + pkg) %}
+
+{% if exists %}
 
 uniextract2-extract-offline:
   archive.extracted:
     - name: '{{ inpath }}\'
-    - source: '{{ downloads }}\uniextract2\UniExtractRC3-{{ version }}.zip'
+    - source: '{{ downloads }}\uniextract2\{{ pkg }}'
     - enforce_toplevel: False
 
 uniextract2-shortcut-offline:
@@ -27,3 +31,8 @@ uniextract2-shortcut-offline:
     - makedirs: True
     - require:
       - archive: uniextract2-extract-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

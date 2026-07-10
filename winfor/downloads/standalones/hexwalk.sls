@@ -4,16 +4,16 @@
 # Category: Raw Parsers / Decoders
 # Author: Carmix
 # License: GNU General Public License v3 (https://github.com/gcarmix/HexWalk/blob/main/LICENSE)
-# Version: 1.10.0
+# Version: 2.1.0
 # Notes: 
 
+{% set version = '2.1.0' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = "1.10.0" %}
-{% set hash = "60987a9f2003ed8955c90ae2157a60dc3bb39758431edff1cc4265dbd069850a" %}
+{% set hash = '1ac88a0fd6c6b099aacd656128bdc7028b9b17780bc8d130b4d9723cef86b72d' %}
 
 hexwalk-download-only:
   file.managed:
-    - name: '{{ downloads }}\hexwalk\hexwalk_{{ version }}_Windows_X64.zip'
-    - source: https://github.com/gcarmix/HexWalk/releases/download/v{{ version }}/hexwalk_{{ version }}_Windows_X64.zip
+    - name: '{{ downloads }}\hexwalk\hexwalk-{{ version }}.zip'
+    - source: https://github.com/gcarmix/HexWalk/releases/download/v{{ version }}/hexwalk_{{ version }}_Windows_X64_portable.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True

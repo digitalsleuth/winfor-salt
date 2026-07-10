@@ -25,7 +25,7 @@ pycryptodome-folder-download-only:
 
 pycryptodome-download-only:
   cmd.run:
-    - name: '{{ inpath }}\portable-python3\python.exe -m pip download -d packages pycryptodome'
+    - name: '{{ inpath }}\portable-python3\python.exe -m pip download -d packages pycryptodome=={{ version }}'
     - cwd: '{{ downloads }}\pycryptodome'
     - require:
       - sls: winfor.standalones.portable-python3

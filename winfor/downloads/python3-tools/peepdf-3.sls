@@ -13,7 +13,6 @@
 
 include:
   - winfor.standalones.portable-python3
-  - winfor.downloads.python3-tools.stpyv8
 
 peepdf-3-folder-download-only:
   file.directory:
@@ -29,4 +28,3 @@ peepdf-3-download-only:
     - require:
       - sls: winfor.standalones.portable-python3
       - file: peepdf-3-folder-download-only
-      - sls: winfor.downloads.python3-tools.stpyv8

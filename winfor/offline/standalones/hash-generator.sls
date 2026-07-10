@@ -11,6 +11,10 @@
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set pkg = 'hash-generator-'~ version ~'.exe' %}
+{% set exists = salt['file.file_exists'](downloads + '\\hash-generator\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.offline.packages.dotnet8-desktop-runtime
@@ -18,7 +22,7 @@ include:
 hash-generator-offline:
   file.managed:
     - name: '{{ inpath }}\hash-generator\hash-generator.exe'
-    - source: '{{ downloads }}\hash-generator\hash-generator-{{ version }}.exe'
+    - source: '{{ downloads }}\hash-generator\{{ pkg }}'
     - skip_verify: True
     - makedirs: True
     - require:
@@ -33,3 +37,8 @@ hash-generator-shortcut-offline:
     - makedirs: True
     - require:
       - file: hash-generator-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

@@ -12,7 +12,7 @@
 
 winfor-customizer-download-only:
   file.managed:
-    - name: '{{ downloads }}\winfor-customizer\winfor-v{{ version }}.exe'
+    - name: '{{ downloads }}\win-for\win-for-{{ version }}.exe'
     - source: https://github.com/digitalsleuth/WIN-FOR/releases/download/v{{ version }}/winfor-v{{ version }}.exe
     - skip_verify: True
     - makedirs: True

@@ -11,6 +11,10 @@
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set pkg = 'desktop-frames-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\desktop-frames\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.offline.packages.dotnet8-desktop-runtime
@@ -19,14 +23,16 @@ desktop-frames-folder-exists-offline:
   file.directory:
     - name: '{{ inpath }}\desktop-frames\Profiles\Default'
     - makedirs: True
-    - replace: True
+    - replace: False
     - win_inheritance: True
   
 desktop-frames-extract-offline:
   archive.extracted:
     - name: '{{ inpath }}\desktop-frames'
-    - source: '{{ downloads }}\desktop-frames\desktop-frames-{{ version }}.zip'
+    - source: '{{ downloads }}\desktop-frames\{{ pkg }}'
     - enforce_toplevel: False
+    - require:
+      - sls: winfor.offline.packages.dotnet8-desktop-runtime
 
 desktop-frames-shortcut-offline:
   file.shortcut:
@@ -39,10 +45,7 @@ desktop-frames-shortcut-offline:
       - archive: desktop-frames-extract-offline
       - file: desktop-frames-folder-exists-offline
 
-desktop-frames-create-profile-folder-offline:
-  file.directory:
-    - name: '{{ inpath }}\desktop-frames\Profiles\Default'
-    - makedirs: True
-    - require:
-      - archive: desktop-frames-extract-offline
-      - file: desktop-frames-folder-exists-offline
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

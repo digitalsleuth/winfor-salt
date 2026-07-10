@@ -13,7 +13,7 @@
 
 bytecode-viewer-download-only:
   file.managed:
-    - name: '{{ downloads }}\bytecode-viewer\Bytecode-Viewer-{{ version }}.jar'
+    - name: '{{ downloads }}\bytecode-viewer\bytecode-viewer-{{ version }}.jar'
     - source: https://github.com/Konloch/bytecode-viewer/releases/download/v{{ version }}/Bytecode-Viewer-{{ version }}.jar
     - source_hash: sha256={{ hash }}
     - makedirs: True

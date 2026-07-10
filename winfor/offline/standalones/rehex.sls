@@ -11,6 +11,10 @@
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set pkg = 'rehex-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\rehex\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.config.shims
@@ -18,7 +22,7 @@ include:
 rehex-extract-offline:
   archive.extracted:
     - name: '{{ inpath }}\'
-    - source: '{{ downloads }}\rehex\rehex-{{ version }}-win-x64.zip'
+    - source: '{{ downloads }}\rehex\{{ pkg }}'
     - enforce_toplevel: False
     - overwrite: True
 
@@ -47,3 +51,8 @@ rehex-shim-offline:
     - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\rehex\rehex.exe -OutPath {{ inpath }}\shims\rehex.exe'
     - require:
       - sls: winfor.config.shims
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

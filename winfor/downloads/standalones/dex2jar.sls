@@ -7,13 +7,13 @@
 # Version: 2.4
 # Notes: 
 
-{% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '2.4' %}
+{% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set hash = 'ee7c45eb3c1d2474a6145d8d447e651a736a22d9664b6d3d3be5a5a817dda23a' %}
 
 dex2jar-download-only:
   file.managed:
-    - name: '{{ downloads }}\dex2jar\dex-tools-v{{ version }}.zip'
+    - name: '{{ downloads }}\dex2jar\dex-tools-{{ version }}.zip'
     - source: https://github.com/pxb1988/dex2jar/releases/download/v{{ version }}/dex-tools-v{{ version }}.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True

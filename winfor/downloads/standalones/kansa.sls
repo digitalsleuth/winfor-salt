@@ -8,11 +8,11 @@
 # Notes: 
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
+{% set hash = 'c0369b102e8538f30bfc0da9d81a15f6df268a47c8ad3313d1710185aa6788ac' %}
 
 kansa-download-only:
-  git.latest:
-    - name: https://github.com/davehull/kansa.git
-    - target: '{{ downloads }}\kansa'
-    - rev: master
-    - force_clone: True
-    - force_reset: True
+  file.managed:
+    - name: '{{ downloads }}\kansa\kansa.zip'
+    - source: https://github.com/davehull/Kansa/archive/refs/heads/master.zip
+    - source_hash: sha256={{ hash }}
+    - makedirs: True

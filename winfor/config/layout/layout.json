@@ -382,7 +382,7 @@
       "MS Word Parser Standalone": {
         "CbName": "standalones_ms_word_parser",
         "CbContent": "MS Word Parser GUI",
-        "DAID": "PLACEHOLDER_PATH\\ms-word-parser\\parse-docx.exe",
+        "DAID": "PLACEHOLDER_PATH\\ms-word-parser\\ms-word-parser.exe",
         "AUMID": false,
         "DALP": false,
         "StartMenu": true,
@@ -1108,17 +1108,6 @@
         "Enabled": true,
         "ExtraTiles": []
       },
-      "setdllcharacteristics": {
-        "CbName": "standalones_setdllcharacteristics",
-        "CbContent": "setdllcharacteristics",
-        "DAID": "PLACEHOLDER_PATH\\setdll\\setdllcharacteristics.exe",
-        "AUMID": false,
-        "DALP": false,
-        "StartMenu": false,
-        "Checked": true,
-        "Enabled": true,
-        "ExtraTiles": []
-      },
       "SystemInformer": {
         "CbName": "packages_systeminformer",
         "CbContent": "SystemInformer",
@@ -1490,6 +1479,17 @@
         "AUMID": false,
         "DALP": false,
         "StartMenu": false,
+        "Checked": true,
+        "Enabled": true,
+        "ExtraTiles": []
+      },
+      "Backup2FS": {
+        "CbName": "packages_backup2fs",
+        "CbContent": "Backup2FS",
+        "DAID": "{6D809377-6AF0-444B-8957-A3773F02200E}\\Backup2FS\\Backup2FS.exe",
+        "AUMID": false,
+        "DALP": false,
+        "StartMenu": true,
         "Checked": true,
         "Enabled": true,
         "ExtraTiles": []
@@ -1966,6 +1966,17 @@
         "CbName": "python3_tools_pyson4",
         "CbContent": "pyson4",
         "DAID": "",
+        "AUMID": false,
+        "DALP": false,
+        "StartMenu": false,
+        "Checked": true,
+        "Enabled": true,
+        "ExtraTiles": []
+      },
+      "sift": {
+        "CbName": "standalones_sift",
+        "CbContent": "sift",
+        "DAID": "PLACEHOLDER_PATH\\sift\\sift.exe",
         "AUMID": false,
         "DALP": false,
         "StartMenu": false,
@@ -2782,6 +2793,17 @@
         "Enabled": true,
         "ExtraTiles": []
       },
+      "WizTree": {
+        "CbName": "packages_wiztree",
+        "CbContent": "WizTree",
+        "DAID": "{6D809377-6AF0-444B-8957-A3773F02200E}\\WizTree\\WizTree.exe",
+        "AUMID": false,
+        "DALP": false,
+        "StartMenu": true,
+        "Checked": true,
+        "Enabled": true,
+        "ExtraTiles": []
+      },
       "xsv": {
         "CbName": "standalones_xsv",
         "CbContent": "xsv",
@@ -2903,17 +2925,6 @@
         "CbName": "standalones_kape",
         "CbContent": "kape",
         "DAID": "PLACEHOLDER_PATH\\kape\\gkape.exe",
-        "AUMID": false,
-        "DALP": false,
-        "StartMenu": true,
-        "Checked": true,
-        "Enabled": true,
-        "ExtraTiles": []
-      },
-      "Live Response Collection (Cedarpelta)": {
-        "CbName": "standalones_lrc_cedarpelta",
-        "CbContent": "Live Response Collection (Cedarpelta)",
-        "DAID": "PLACEHOLDER_PATH\\lrc-cedarpelta\\Windows_Live_Response\\Windows Live Response Collection.exe",
         "AUMID": false,
         "DALP": false,
         "StartMenu": true,

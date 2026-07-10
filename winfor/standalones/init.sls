@@ -23,7 +23,6 @@ include:
   - winfor.standalones.regshot
   - winfor.standalones.scylla
   - winfor.standalones.srum-dump
-  - winfor.standalones.setdllcharacteristics
   - winfor.standalones.pilfer
   - winfor.standalones.vssmount
   - winfor.standalones.bytecode-viewer
@@ -77,7 +76,6 @@ include:
   - winfor.standalones.pev
   - winfor.standalones.exiftoolgui
   - winfor.standalones.mimikatz
-  - winfor.standalones.lrc-cedarpelta
   - winfor.standalones.aurora
   - winfor.standalones.magnet-response
   - winfor.standalones.hayabusa
@@ -108,6 +106,7 @@ include:
   - winfor.standalones.fex-cloud-capture
   - winfor.standalones.zapixdesk
   - winfor.standalones.ms-word-parser
+  - winfor.standalones.jre11
 
 standalones-states:
   test.nop:
@@ -136,7 +135,6 @@ standalones-states:
       - sls: winfor.standalones.regshot
       - sls: winfor.standalones.scylla
       - sls: winfor.standalones.srum-dump
-      - sls: winfor.standalones.setdllcharacteristics
       - sls: winfor.standalones.pilfer
       - sls: winfor.standalones.vssmount
       - sls: winfor.standalones.bytecode-viewer
@@ -190,7 +188,6 @@ standalones-states:
       - sls: winfor.standalones.pev
       - sls: winfor.standalones.exiftoolgui
       - sls: winfor.standalones.mimikatz
-      - sls: winfor.standalones.lrc-cedarpelta
       - sls: winfor.standalones.aurora
       - sls: winfor.standalones.magnet-response
       - sls: winfor.standalones.hayabusa
@@ -221,3 +218,4 @@ standalones-states:
       - sls: winfor.standalones.fex-cloud-capture
       - sls: winfor.standalones.zapixdesk
       - sls: winfor.standalones.ms-word-parser
+      - sls: winfor.standalones.jre11

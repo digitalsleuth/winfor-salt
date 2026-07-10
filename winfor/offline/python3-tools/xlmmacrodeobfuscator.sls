@@ -9,6 +9,10 @@
 
 {% set version = '0.2.7' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'XLMMacroDeobfuscator-'~ version ~'-py3-none-any.whl' %}
+{% set exists = salt['file.file_exists'](downloads + '\\xlmmacrodeobfuscator\\packages\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.offline.packages.python3
@@ -19,3 +23,8 @@ xlmmacrodeobfuscator-install-offline:
     - cwd: '{{ downloads }}\xlmmacrodeobfuscator\'
     - require:
       - sls: winfor.offline.packages.python3
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

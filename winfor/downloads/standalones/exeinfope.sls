@@ -14,6 +14,6 @@
 exeinfope-download-only:
   file.managed:
     - name: '{{ downloads }}\exeinfope\exeinfope-{{ version }}.zip'
-    - source: https://github.com/ExeinfoASL/ASL/raw/master/exeinfope.zip
+    - source: https://github.com/ExeinfoASL/ASL/releases/download/v{{ version }}/exeinfope.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True

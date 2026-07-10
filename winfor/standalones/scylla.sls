@@ -7,22 +7,24 @@
 # Version: 0.9.8
 # Notes: May not work well on later versions of Windows 10 and any version of Windows 11
 
+{% set version = '0.9.8' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set hash = '48a4338d999ec5f33b5964c51893a04fc9e2d104b0c7786f50751f7db5dcbe52' %}
 
 include:
   - winfor.packages.7zip
 
 scylla-download:
   file.managed:
-    - name: 'C:\salt\tempdownload\Scylla_v0.9.8.rar'
-    - source: https://github.com/NtQuery/Scylla/releases/download/v0.9.8/Scylla_v0.9.8.rar
-    - source_hash: sha256=48a4338d999ec5f33b5964c51893a04fc9e2d104b0c7786f50751f7db5dcbe52
+    - name: 'C:\salt\tempdownload\Scylla_v{{ version }}.rar'
+    - source: https://github.com/NtQuery/Scylla/releases/download/v{{ version }}/Scylla_v{{ version }}.rar
+    - source_hash: sha256={{ hash }}
     - makedirs: True
 
 scylla-extract:
   cmd.run:
-    - name: '"C:\Program Files\7-Zip\7z.exe" x C:\salt\tempdownload\Scylla_v0.9.8.rar -aoa -o{{ inpath }}\scylla'
+    - name: '"C:\Program Files\7-Zip\7z.exe" x C:\salt\tempdownload\Scylla_v{{ version }}.rar -aoa -o{{ inpath }}\scylla'
     - shell: cmd
     - require:
       - file: scylla-download

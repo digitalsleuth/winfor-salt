@@ -11,6 +11,9 @@
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set files = ['ADOQuery','DataEdit','NetScanner','TMX','SE','IHB','EHB','WFA','WRR','SSView','HEXEdit','MailView','EXE','XMLView','JSONView','PhotoView','SQLiteQ'] %}
+{% set exists = salt['file.directory_exists'](downloads + '\\mitec\\') %}
+
+{% if exists %}
 
 {% for file in files %}
 
@@ -45,3 +48,8 @@ mitec-{{ file }}-shortcut:
 
 {% endif %}
 {% endfor %}
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

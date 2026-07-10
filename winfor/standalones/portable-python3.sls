@@ -12,7 +12,7 @@
 {% set version = "3.10.11" %}
 {% set hash = '608619f8619075629c9c69f361352a0da6ed7e62f83a0e19c63e0ea32eb7629d' %}
 
-{% if not salt['file.file_exists'](inpath + '\portable-python3\Scripts\pip.exe') %}
+{% if not salt['file.file_exists'](inpath + '\\\portable-python3\\\Scripts\\\pip.exe') %}
 portable-python3-download:
   file.managed:
     - name: '{{ downloads }}\python3\python-{{ version }}-embed-amd64.zip'

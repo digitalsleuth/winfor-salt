@@ -11,6 +11,10 @@
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set pkg = 'pev-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\pev\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.config.shims
@@ -18,7 +22,7 @@ include:
 pev-extract-offline:
   archive.extracted:
     - name: '{{ inpath }}\'
-    - source: '{{ downloads }}\pev\pev-{{ version }}-win.zip'
+    - source: '{{ downloads }}\pev\{{ pkg }}'
     - enforce_toplevel: True
 
 pev-folder-rename-offline:
@@ -46,3 +50,8 @@ pev-shortcut-offline:
     - require:
       - archive: pev-extract-offline
       - file: pev-folder-rename-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

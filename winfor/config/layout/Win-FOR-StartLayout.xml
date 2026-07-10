@@ -174,7 +174,6 @@
           <start:DesktopApplicationTile Size="1x1" Column="1" Row="0" DesktopApplicationID="PLACEHOLDER_PATH\hibernation-recon\HibernationRecon.exe" />
           <start:DesktopApplicationTile Size="1x1" Column="2" Row="0" DesktopApplicationID="PLACEHOLDER_PATH\hindsight\hindsight_gui.exe" />
           <start:DesktopApplicationTile Size="1x1" Column="3" Row="0" DesktopApplicationID="PLACEHOLDER_PATH\kape\gkape.exe" />
-          <start:DesktopApplicationTile Size="1x1" Column="4" Row="0" DesktopApplicationID="PLACEHOLDER_PATH\lrc-cedarpelta\Windows_Live_Response\Windows Live Response Collection.exe" />
           <start:DesktopApplicationTile Size="1x1" Column="5" Row="0" DesktopApplicationID="PLACEHOLDER_PATH\logfileparser\LogFileParser64.exe" />
           <start:DesktopApplicationTile Size="1x1" Column="0" Row="1" DesktopApplicationID="PLACEHOLDER_PATH\mftbrowser\MFTBrowser.exe" />
           <start:DesktopApplicationTile Size="1x1" Column="1" Row="1" DesktopApplicationID="PLACEHOLDER_PATH\mimikatz\x64\mimikatz.exe" />

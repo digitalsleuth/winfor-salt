@@ -17,7 +17,7 @@ include:
 
 windepends-download-only:
   file.managed:
-    - name: '{{ downloads }}\windepends\WinDepends_v{{ version }}_beta_snapshot.zip'
+    - name: '{{ downloads }}\windepends\windepends-{{ version }}.zip'
     - source: https://github.com/hfiref0x/WinDepends/releases/download/{{ snapshot }}-beta/WinDepends_v{{ version }}_beta_snapshot.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True

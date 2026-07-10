@@ -11,6 +11,10 @@
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set pkg = 'windepends-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\windepends\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.offline.packages.dotnet10-desktop-runtime
@@ -18,7 +22,7 @@ include:
 windepends-extract-offline:
   archive.extracted:
     - name: '{{ inpath }}\windepends'
-    - source: '{{ downloads }}\windepends\WinDepends_v{{ version }}_beta_snapshot.zip'
+    - source: '{{ downloads }}\windepends\{{ pkg }}'
     - enforce_toplevel: False
     - overwrite: True
     - require:
@@ -33,3 +37,8 @@ windepends-shortcut-offline:
     - makedirs: True
     - require:
       - archive: windepends-extract-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

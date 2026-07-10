@@ -13,7 +13,7 @@
 
 usb-write-blocker-download-only:
   file.managed:
-    - name: '{{ downloads }}\usb-write-blocker\USB-Write-Blocker-v{{ version }}-x64.exe'
+    - name: '{{ downloads }}\usb-write-blocker\usb-write-blocker-{{ version }}.exe'
     - source: https://github.com/digitalsleuth/Registry-Write-Block/releases/download/v{{ version }}/USB-Write-Blocker-v{{ version }}-x64.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

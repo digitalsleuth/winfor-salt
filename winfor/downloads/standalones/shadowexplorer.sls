@@ -16,7 +16,7 @@ include:
 
 shadow-explorer-download-only:
   file.managed:
-    - name: '{{ downloads }}\shadowexplorer\ShadowExplorer-{{ version }}-portable.zip'
+    - name: '{{ downloads }}\shadowexplorer\shadowexplorer-{{ version }}.zip'
     - source: https://www.shadowexplorer.com/uploads/ShadowExplorer-0.9-portable.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True

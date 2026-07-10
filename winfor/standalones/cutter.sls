@@ -4,12 +4,12 @@
 # Category: Executables
 # Author: Rizin Organization
 # License: GNU General Public License v3 (https://github.com/rizinorg/cutter/blob/dev/COPYING)
-# Version: 2.4.1
+# Version: 2.5.0
 # Notes: 
 
+{% set version = '2.5.0' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set version = '2.4.1' %}
-{% set hash = '7156882b79870355f25fb273f36a313b71e0e76cd97e5a5765db4d163da39175' %}
+{% set hash = 'a04154a03a392dbf5886a629938582f7d23a93636fa0611c3e1c34905b197e69' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 cutter-download:

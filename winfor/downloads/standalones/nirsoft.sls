@@ -3,12 +3,12 @@
 # Description: Suite of various Windows Analysis Tools
 # Category: Windows Analysis
 # Author: Nir Sofer
-# License: 
-# Version: 1.30.23
+# License: Freeware, except for NK2Edit which requires a commercial license for organizational use (https://launcher.nirsoft.net/ - License Conditions)
+# Version: 1.30.24
 # Notes: 
 
-{% set version = '1.30.23' %}
-{% set hash = '7b92839c6a426d9509ff7b6370344659889c8219e36023b46d74a40671f7ab50' %}
+{% set version = '1.30.24' %}
+{% set hash = '847ea35296dc7811ddd18878ab9a9f297b25177077abb61286aaafaa6a4f1189' %}
 {% set nlps = ['eztools.nlp', 'mitec.nlp', 'sysinternals6.nlp'] %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
@@ -36,7 +36,7 @@ nirsoft-folder:
 
 nirsoft-download-only:
   cmd.run:
-    - name: 'wget -O {{ downloads }}\nirsoft\nirsoft_package_enc_{{ version }}.zip -Headers @{"Referer"="https://launcher.nirsoft.net/downloads/index.html"} https://download.nirsoft.net/nirsoft_package_enc_{{ version }}.zip'
+    - name: 'wget -O {{ downloads }}\nirsoft\nirsoft-{{ version }}.zip -Headers @{"Referer"="https://launcher.nirsoft.net/downloads/index.html"} https://download.nirsoft.net/nirsoft_package_enc_{{ version }}.zip'
     - shell: powershell
     - require:
       - file: nirsoft-folder

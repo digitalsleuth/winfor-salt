@@ -7,15 +7,19 @@
 # Version: 3.4.0
 # Notes:
 
-{% set version = 'V340' %}
+{% set version = '3.4.0' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set pkg = 'magnet-web-page-saver-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\magnetforensics\\' + pkg) %}
+
+{% if exists %}
 
 magnet-web-page-saver-extract-offline:
   archive.extracted:
     - name: '{{ inpath }}\magnet\'
-    - source: '{{ downloads }}\magnetforensics\WebPageSaver{{ version }}-Portable.zip'
+    - source: '{{ downloads }}\magnetforensics\{{ pkg }}'
     - enforce_toplevel: False
 
 magnet-web-page-saver-shortcut-offline:
@@ -27,3 +31,8 @@ magnet-web-page-saver-shortcut-offline:
     - makedirs: True
     - require:
       - archive: magnet-web-page-saver-extract-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

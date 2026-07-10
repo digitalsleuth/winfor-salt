@@ -4,13 +4,17 @@
 # Category: Executables
 # Author: ExeinfoASL
 # License: None Listed
-# Version: 0.0.9.5
+# Version: 0.0.9.7
 # Notes: 
 
-{% set version = '0.0.9.5' %}
+{% set version = '0.0.9.7' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set pkg = 'exeinfope-'~ version ~'.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\exeinfope\\' + pkg) %}
+
+{% if exists %}
 
 include:
   - winfor.config.shims
@@ -18,7 +22,7 @@ include:
 exeinfope-extract-offline:
   archive.extracted:
     - name: '{{ inpath }}\'
-    - source: '{{ downloads }}\exeinfope\exeinfope-{{ version }}.zip'
+    - source: '{{ downloads }}\exeinfope\{{ pkg }}'
     - enforce_toplevel: False
 
 exeinfope-shim-offline:
@@ -37,3 +41,8 @@ exeinfope-shortcut-offline:
     - makedirs: True
     - require:
       - archive: exeinfope-extract-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

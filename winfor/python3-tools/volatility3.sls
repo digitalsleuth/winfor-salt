@@ -4,8 +4,10 @@
 # Category: Windows Analysis
 # Author: Volatility Foundation
 # License: Volatility Software License (https://www.volatilityfoundation.org/license/vsl-v1.0)
-# Version: 2.8.0
-# Notes:
+# Version: 2.27.0
+# Notes: Downgraded from 2.28.x until Win 11 memory parsing issues are resolved
+
+{% set version = '2.27.0' %}
 
 include:
   - winfor.packages.python3
@@ -14,7 +16,7 @@ include:
 
 volatility3:
   pip.installed:
-    - name: git+https://github.com/volatilityfoundation/volatility3.git
+    - name: 'volatility3=={{ version }}'
     - bin_env: 'C:\Program Files\Python310\python.exe'
     - require:
       - sls: winfor.packages.python3

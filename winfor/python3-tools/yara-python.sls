@@ -4,8 +4,10 @@
 # Category: Raw Parsers / Decoders
 # Author: Victor M. Alvarez (plusvic)
 # License: Apache License v2.0 (https://github.com/VirusTotal/yara-python/blob/master/LICENSE)
-# Version: 4.2.3
+# Version: 4.5.4
 # Notes: 
+
+{% set version = '4.5.4' %}
 
 include:
   - winfor.packages.ms-vcpp-2015-build-tools
@@ -13,6 +15,7 @@ include:
 
 yara-python:
   pip.installed:
+    - name: 'yara-python=={{ version }}'
     - bin_env: 'C:\Program Files\Python310\python.exe'
     - require:
       - sls: winfor.packages.ms-vcpp-2015-build-tools

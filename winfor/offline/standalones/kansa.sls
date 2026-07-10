@@ -9,12 +9,27 @@
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set pkg = 'kansa.zip' %}
+{% set exists = salt['file.file_exists'](downloads + '\\kansa\\' + pkg) %}
 
-kansa-offline:
-  file.copy:
+{% if exists %}
+
+kansa-extract-offline:
+  archive.extracted:
+    - name: '{{ inpath }}\'
+    - source: '{{ downloads }}\kansa\kansa.zip'
+    - enforce_toplevel: False
+
+kansa-folder-rename-offline:
+  file.rename:
     - name: '{{ inpath }}\kansa'
-    - source: '{{ downloads }}\kansa'
-    - force: True
-    - recurse: True
+    - source: '{{ inpath }}\Kansa-master'
     - makedirs: True
-    - win_inheritance: True
+    - force: True
+    - require:
+      - archive: kansa-extract-offline
+
+{% else %}
+{{ pkg }} does not exist - not installing:
+  test.nop
+{% endif %}

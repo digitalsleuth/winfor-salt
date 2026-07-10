@@ -4,10 +4,10 @@
 # Category: Requirements
 # Author: https://github.com/dateutil/dateutil/blob/master/AUTHORS.md
 # License: Apache License v2.0 (https://github.com/dateutil/dateutil/blob/master/LICENSE)
-# Version: 2.8.2
+# Version: 2.9.0.post0
 # Notes: 
 
-{% set version = '2.8.2' %}
+{% set version = '2.9.0.post0' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 

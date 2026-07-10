@@ -4,10 +4,10 @@
 # Category: Raw Parsers / Decoders
 # Author: Corey Forman
 # License: GNU General Public License v3 (https://github.com/digitalsleuth/pyson4/blob/master/LICENSE)
-# Version: 1.2
+# Version: 1.2.0
 # Notes: pyson4, pyson4.py
 
-{% set version = '1.2' %}
+{% set version = '1.2.0' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
