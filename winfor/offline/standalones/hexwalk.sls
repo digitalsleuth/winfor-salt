@@ -22,23 +22,6 @@ hexwalk-extract-offline:
     - source: '{{ downloads }}\hexwalk\{{ pkg }}'
     - enforce_toplevel: False
 
-hexwalk-folder-copy-offline:
-  file.copy:
-    - name: '{{ inpath }}\hexwalk'
-    - source: '{{ inpath }}\hexwalk_{{ version }}_Windows_X64\hexwalk\'
-    - force: True
-    - makedirs: True
-    - recurse: True
-    - win_inheritance: True
-    - require:
-      - archive: hexwalk-extract-offline
-
-hexwalk-original-folder-absent-offline:
-  file.absent:
-    - name: '{{ inpath }}\hexwalk_{{ version }}_Windows_X64'
-    - require:
-      - file: hexwalk-folder-copy-offline
-
 hexwalk-shortcut-offline:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\HexWalk.lnk'

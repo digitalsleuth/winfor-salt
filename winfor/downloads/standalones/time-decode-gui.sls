@@ -13,7 +13,7 @@
 
 time-decode-download-only:
   file.managed:
-    - name: '{{ downloads }}\time-decode\Time Decode GUI v{{ version }}.exe'
+    - name: '{{ downloads }}\time-decode\time-decode-gui-{{ version }}.exe'
     - source: https://github.com/digitalsleuth/time_decode/releases/download/v{{ version }}/Time.Decode.v{{ version }}.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

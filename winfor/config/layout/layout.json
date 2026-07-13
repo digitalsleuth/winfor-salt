@@ -2229,9 +2229,20 @@
         "Enabled": true,
         "ExtraTiles": []
       },
-      "Microsoft Visual C++ 2010 Redistributable": {
+      "Microsoft Visual C++ 2010 Redistributable x64": {
         "CbName": "packages_ms_vcpp_2010_redist_x64",
-        "CbContent": "Microsoft Visual C++ 2010 Redistributable",
+        "CbContent": "Microsoft Visual C++ 2010 Redistributable x64",
+        "DAID": "",
+        "AUMID": false,
+        "DALP": false,
+        "StartMenu": false,
+        "Checked": true,
+        "Enabled": true,
+        "ExtraTiles": []
+      },
+      "Microsoft Visual C++ 2010 Redistributable x86": {
+        "CbName": "packages_ms_vcpp_2010_redist_x86",
+        "CbContent": "Microsoft Visual C++ 2010 Redistributable x86",
         "DAID": "",
         "AUMID": false,
         "DALP": false,
@@ -2313,8 +2324,8 @@
         "AUMID": false,
         "DALP": true,
         "StartMenu": true,
-        "Checked": true,
-        "Enabled": true,
+        "Checked": false,
+        "Enabled": false,
         "ExtraTiles": []
       }
     }

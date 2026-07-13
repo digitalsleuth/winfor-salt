@@ -9,9 +9,12 @@
 
 include:
   - winfor.repos
+  - winfor.packages.ms-vcpp-2010-redist-x86
 
 4n6-email-forensics-wizard:
-  pkg.installed
+  pkg.installed:
+    - require:
+      - sls: winfor.packages.ms-vcpp-2010-redist-x86
 
 taskkill-email-forensics-wizard:
   cmd.run:

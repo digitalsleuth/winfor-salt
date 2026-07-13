@@ -27,12 +27,17 @@ include:
 
 tableau-extract-certificate-offline:
   cmd.run:
-    - name: powershell.exe -NonInteractive -Command "(Get-AuthenticodeSignature '{{ downloads }}\tableau\tableau-firmware-update-{{ version }}.msi').SignerCertificate | Export-Certificate -Type CERT -FilePath '{{ downloads }}\tableau\tableau.cer' | Out-Null"
+    - name: powershell.exe -NonInteractive -Command "(Get-AuthenticodeSignature '{{ downloads }}\tableau\tableau-firmware-update-{{ version }}.msi').SignerCertificate | Export-Certificate -Type CERT -FilePath '{{ downloads }}\tableau\tableau2.cer' | Out-Null"
     - cwd: '{{ downloads }}\tableau'
 
-tableau-certificate-install-offline:
+tableau-certificate-install-driver-offline:
   certutil.add_store:
     - name: '{{ downloads }}\tableau\tableau.cer'
+    - store: TrustedPublisher
+
+tableau-certificate-install-program-offline:
+  certutil.add_store:
+    - name: '{{ downloads }}\tableau\tableau2.cer'
     - store: TrustedPublisher
     - require:
       - cmd: tableau-extract-certificate-offline
@@ -42,6 +47,9 @@ tableau-firmware-update-install-offline:
     - name: 'msiexec /i {{ pkg }} /qn /norestart'
     - shell: cmd
     - cwd: '{{ downloads }}\tableau\'
+    - require:
+      - certutil: tableau-certificate-install-driver-offline
+      - certutil: tableau-certificate-install-program-offline
 
 tableau-firmware-update-icon-del-offline:
   file.absent:
@@ -52,7 +60,8 @@ tableau-firmware-update-icon-del-offline:
       - 'C:\Users\{{ current_user }}\Desktop\Tableau Firmware Update.lnk'
     {% endif %}
     - require:
-      - certutil: tableau-certificate-install-offline
+      - certutil: tableau-certificate-install-driver-offline
+      - certutil: tableau-certificate-install-program-offline
       - cmd: tableau-firmware-update-install-offline
       - user: user-{{ user }}
 

@@ -11,8 +11,8 @@
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
-{% set pkg = 'kape' %}
-{% set exists = salt['file.file_exists'](downloads + '\\kape\\' + pkg) %}
+{% set pkg = 'kape.exe' %}
+{% set exists = salt['file.file_exists'](downloads + '\\kape\\KAPE\\' + pkg) %}
 
 {% if exists %}
 

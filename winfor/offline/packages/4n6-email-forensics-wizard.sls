@@ -13,12 +13,16 @@
 {% set exists = salt['file.file_exists'](downloads + '\\4n6-email-forensics\\' + pkg) %}
 
 {% if exists %}
+include:
+  - winfor.offline.packages.ms-vcpp-2010-redist-x86
+
 4n6-email-forensics-wizard-install-offline:
   cmd.run:
     - name: '{{ pkg }} /VERYSILENT /ALLUSERS /SUPPRESSMSGBOXES /NORESTART /SP- /MERGETASKS=!DESKTOPICON,!RUNCODE'
     - shell: cmd
     - cwd: '{{ downloads }}\4n6-email-forensics\'
-
+    - require:
+      - sls: winfor.offline.packages.ms-vcpp-2010-redist-x86
 {% else %}
 {{ pkg }} does not exist - not installing:
   test.nop

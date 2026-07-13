@@ -20,7 +20,7 @@ include:
 pdf-parser-offline:
   file.managed:
     - name: 'C:\Program Files\Python310\Scripts\pdf-parser.py'
-    - source: '{{ pkg }}'
+    - source: '{{ downloads }}\pdf-parser\{{ pkg }}'
     - skip_verify: True
     - makedirs: True
     - require:
