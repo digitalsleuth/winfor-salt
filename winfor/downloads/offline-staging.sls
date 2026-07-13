@@ -12,3 +12,11 @@ winfor-copy-current-states:
     - subdir: True
     - makedirs: True
     - replace: True
+
+winfor-copy-saltstack-directory:
+  file.copy:
+    - name: '{{ downloads }}\offline\Salt'
+    - source: 'C:\Program Files\Salt Project\Salt'
+    - subdir: True
+    - makedirs: True
+    - replace: True
