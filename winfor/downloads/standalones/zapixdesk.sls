@@ -7,18 +7,36 @@
 # Version: 2.1
 # Notes:
 
-{% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '2.1' %}
+{% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
+{% set hash = '7d3076acbea05d050efe6d3bf0e0f48bae9792e4b2bbd104e98e84f3513ad2b2' %}
 
-include:
-  - winfor.packages.git
+zapixdesk-download-only:
+  file.managed:
+    - name: '{{ downloads }}\zapixdesk-{{ version }}.zip'
+    - source: https://github.com/kraftdenker/ZAPiXDESK/archive/refs/heads/main.zip
+    - source_hash: sha256={{ hash }}
+    - makedirs: True
 
-zapixdesk-git-download-only:
-  git.latest:
-    - name: https://github.com/kraftdenker/ZAPiXDESK.git
-    - target: '{{ downloads }}\zapixdesk'
-    - rev: main
-    - force_clone: True
-    - force_reset: True
+zapixdesk-extract-download-only:
+  archive.extracted:
+    - name: '{{ downloads }}\'
+    - source: '{{ downloads }}\zapixdesk-{{ version }}.zip'
+    - enforce_toplevel: False
     - require:
-      - sls: winfor.packages.git
+      - file: zapixdesk-download-only
+
+zapixdesk-folder-rename-download-only:
+  file.rename:
+    - name: '{{ downloads }}\zapixdesk'
+    - source: '{{ downloads }}\ZAPiXDESK-main\'
+    - force: True
+    - makedirs: True
+    - require:
+      - archive: zapixdesk-extract-download-only
+
+zapixdesk-remove-download-only:
+  file.absent:
+    - name: '{{ downloads }}\zapixdesk-{{ version }}.zip'
+    - require:
+      - archive: zapixdesk-extract-download-only

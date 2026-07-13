@@ -8,7 +8,7 @@
 # Notes:
 
 {% set version = '3.7.6' %}
-{% set commit = 'b37b51eb00c49fc7bfd2f4968f1e5c3fc30da643' %}
+{% set hash = '18cf1845eb4ebb3198e24b86e6d91cc7e8408775c600092a0c64e6437ec86e5b' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
@@ -32,25 +32,38 @@ zircolite-defender-exclusion-download-only:
 {% endif %}
 
 include:
-  - winfor.packages.git
   - winfor.standalones.portable-python3
 
 zircolite-download-only:
-  git.latest:
-    - name: https://github.com/wagga40/Zircolite
-    - target: '{{ downloads }}\zircolite'
-    - rev: {{ commit }}
-    - force_clone: True
-    - force_reset: True
+  file.managed:
+    - name: '{{ downloads }}\zircolite-{{ version }}.zip'
+    - source: https://github.com/wagga40/Zircolite/archive/refs/tags/v{{ version }}.zip
+    - source_hash: sha256={{ hash }}
+    - makedirs: True
+
+zircolite-extract-download-only:
+  archive.extracted:
+    - name: '{{ downloads }}\'
+    - source: '{{ downloads }}\zircolite-{{ version }}.zip'
+    - enforce_toplevel: False
     - require:
-      - sls: winfor.packages.git
+      - file: zircolite-download-only
+
+zircolite-folder-rename-download-only:
+  file.rename:
+    - name: '{{ downloads }}\zircolite'
+    - source: '{{ downloads }}\Zircolite-{{ version }}\'
+    - force: True
+    - makedirs: True
+    - require:
+      - archive: zircolite-extract-download-only
 
 zircolite-requirements-download-only:
   cmd.run:
     - name: '{{ inpath }}\portable-python3\python.exe -m pip download -r requirements.txt -d packages'
     - cwd: '{{ downloads }}\zircolite'
     - require:
-      - git: zircolite-download-only
+      - file: zircolite-folder-rename-download-only
       - sls: winfor.standalones.portable-python3
 
 zircolite-rules-download-only:
@@ -60,4 +73,10 @@ zircolite-rules-download-only:
     - skip_verify: True
     - force: True
     - require:
-      - git: zircolite-download-only
+      - cmd: zircolite-requirements-download-only
+
+zircolite-remove-download-only:
+  file.absent:
+    - name: '{{ downloads }}\zircolite-{{ version }}.zip'
+    - require:
+      - archive: zircolite-extract-download-only

@@ -25,7 +25,7 @@ hexwalk-extract-offline:
 hexwalk-folder-copy-offline:
   file.copy:
     - name: '{{ inpath }}\hexwalk'
-    - source: '{{ inpath }}\hexwalk_{{ version }}_Windows_X64\hexwalk'
+    - source: '{{ inpath }}\hexwalk_{{ version }}_Windows_X64\hexwalk\'
     - force: True
     - makedirs: True
     - recurse: True

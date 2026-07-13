@@ -14,7 +14,7 @@
 {% if installed and installed_version | length > 0 and installed_version != version %}
   {% if installed_version.split(".")[0] == '3' and (installed_version.split(".")[1] | int) >= 10 %}
 
-Python {{ major }}.{{ minor }} or above is already installed:
+Python {{ installed_version }} is already installed:
   test.nop
   {% else %}
 

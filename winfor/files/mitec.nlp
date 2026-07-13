@@ -65,16 +65,6 @@ ShortDesc=A must-have tool for SQLite3 databases administration and data manipul
 LongDesc=This application manages any SQLite3 databases. You can also import data from CSV and export to CSV and SQL format.
 
 [Software5]
-group=1
-exe=PLACEHOLDER_PATH\mitec\ADOQuery\ADOQuery.exe
-exe64=
-help=
-url=http://www.mitec.cz/adoq.html
-AppName=ADO Query
-ShortDesc=A must-have tool for ADO supported databases administration.
-LongDesc=This application manages any databases suppoted by Microsoft ActiveX data Objects (need to be installed). You can also import data from CSV and export to CSV and XML format.
-
-[Software6]
 group=2
 exe=PLACEHOLDER_PATH\mitec\TMX\TMX.exe
 exe64=TMX64.exe
@@ -84,7 +74,7 @@ AppName=Task Manager DeLuxe
 ShortDesc=Full-featured task manager replacement.
 LongDesc=Task Manager DeLuxe (TMX) is based on MiTeC System Information Component Suite and offers powerfull features available in standard Windows Task Manager in lightweight portable package with many more enhancements. It needs no installation and leaves no tracks in system so it can be easily used as portable application everywhere. There is also AutoRefresh feature providing automatic refreshning of current screen in defined interval. Session viewer contains automatic session journal which logs every session login, logout, lock and status change. It is useful especially on terminal servers to watch how users connect and disconnect to their desktops. 
 
-[Software7]
+[Software6]
 group=2
 exe=PLACEHOLDER_PATH\mitec\EXE\EXE.exe
 exe64=EXE64.exe
@@ -94,7 +84,7 @@ AppName=EXE Explorer
 ShortDesc=Executable File Explorer for OS/2, NE, PE32, PE32+ and VxD file types
 LongDesc=This application is based on MiTeC Portable Executable Reader. It reads and displays executable file properties and structure. It is compatible with PE32 (Portable Executable), PE32+ (64bit), NE (Windows 3.x New Executable) and VxD (Windows 9x Virtual Device Driver) file types. .NET executables are supported too. It enumerates introduced classes, used units and forms for files compiled by Borland compilers. It contains powerfull Resource Viewer that is able to abalyze and display al basic resouce types and some extra ones as JPEG, PNG, GIF, AVI, REGISTRY. It contains excellent Type Library viewer that enumerates all objects and creates import interface unit in Object Pascal language. Every type of resource can be saved to file. EXE Explorer produces text report with all important information about selected file. Searching capability is also available. It searches all resources that can be interpreted as text.
 
-[Software8]
+[Software7]
 group=0
 exe=PLACEHOLDER_PATH\mitec\MailView\MailView.exe
 exe64=
@@ -104,7 +94,7 @@ AppName=Mail Viewer
 ShortDesc=Viewer for Outlook Express, Windows Mail/Windows Live Mail and Mozilla Thunderbird message databases as well as single EML files.
 LongDesc=Viewer for standalone files containing Microsoft Outlook Express 4,5 and 6 message database (*.idx/*.mbx/*.dbx), Windows Vista Mail/Windows Live Mail and Mozilla Thunderbird message databases as well as standalone EML files. This application is based on MiTeC Outlook Express Reader. It displays list of contained messages with all needed properties as ordinary e-mail client. Message can be viewed in detailed view including attachments (save ability) and HTML preview. It has powerful searching and filtering capability and also allows to extract all email address from all emails in opened folder to list by one click. Selected messages can be saved to *.eml files with or without their attachments. Attachments can be extracted from selected messages by one command. Of course, opened messages can be printed including images.
 
-[Software9]
+[Software8]
 group=2
 exe=PLACEHOLDER_PATH\mitec\NetScanner\NetScanner.exe
 exe64=NetScanner64.exe
@@ -114,7 +104,7 @@ AppName=Network Scanner
 ShortDesc=Network detection tool
 LongDesc=It is a free multi-threaded Port, IP, NetBIOS and SNMP scanner with many advanced features. It is intended for both system administrators and general users who are interested in computer security. The program performs ping sweep, scans for opened TCP and UDP ports, resource shares and services. For devices with SNMP capability available interfaces are detected and basic properties displayed. In addition you have to edit results, save/load results to/from CSV and print network device list and any data in any section can be exported to CSV. It can also resolve host names and auto-detect your local IP range.
 
-[Software10]
+[Software9]
 group=2
 exe=PLACEHOLDER_PATH\mitec\HEXEdit\HEXEdit.exe
 exe64=
@@ -124,7 +114,7 @@ AppName=HexEdit
 ShortDesc=Powerfull hexadecimal editor
 LongDesc=HexEdit is powerfull hexadecimal editor with following features: MDI interface, Data Inspector, Calculator, File Compare, Memory Dumper, Disk Dumper (NT only)
 
-[Software11]
+[Software10]
 group=2
 exe=PLACEHOLDER_PATH\mitec\SSView\SSView.exe
 exe64=
@@ -134,7 +124,7 @@ AppName=Structured Storage Viewer
 ShortDesc=This tool allows completely manage any MS OLE Structured Storage based file.
 LongDesc=This tool allows to completely manage any MS OLE Structured Storage based file. You can save and load streams, add, delete, rename and edit items and property sets. Embedded streams can be viewed as hexadecimal listing, text, bitmap, icon or RTF. 
 
-[Software12]
+[Software11]
 group=2
 exe=PLACEHOLDER_PATH\mitec\DirList\DirList.exe
 exe64=
@@ -144,27 +134,7 @@ AppName=DirList
 ShortDesc=Tool for directory listing creation
 LongDesc=This application allows to browse all connected disks like explorer and select folders and files for listing. Files can be listed by content too. Result listing can be saved to CSV file or as HTML with defined layout with preview.
 
-[Software13]
-group=2
-exe=PLACEHOLDER_PATH\mitec\DataEdit\DataEdit.exe
-exe64=
-help=
-url=http://www.mitec.cz/dataedit.html
-AppName=DataEdit
-ShortDesc=
-LongDesc=
-
-[Software14]
-group=2
-exe=PLACEHOLDER_PATH\mitec\SE\SE.exe
-exe64=
-help=
-url=http://www.mitec.cz/se.html
-AppName=StartupExplorer
-ShortDesc=
-LongDesc=
-
-[Software15]
+[Software12]
 group=2
 exe=PLACEHOLDER_PATH\mitec\XMLView\XMLView.exe
 exe64=
@@ -174,22 +144,12 @@ AppName=XMLView
 ShortDesc=
 LongDesc=
 
-[Software16]
+[Software13]
 group=2
 exe=PLACEHOLDER_PATH\mitec\JSONView\JSONView.exe
 exe64=
 help=
 url=http://mitec.cz/jsonview.html
 AppName=JSONView
-ShortDesc=
-LongDesc=
-
-[Software17]
-group=2
-exe=PLACEHOLDER_PATH\mitec\PhotoView\PhotoView.exe
-exe64=
-help=
-url=http://mitec.cz/photoview.html
-AppName=PhotoView
 ShortDesc=
 LongDesc=

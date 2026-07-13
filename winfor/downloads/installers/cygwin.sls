@@ -17,3 +17,9 @@ cygwin-download-only:
     - source: https://cygwin.com/setup-x86_64.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True
+
+cygwin-setup-download-only:
+  cmd.run:
+    - name: '{{ downloads }}\cygwin\cygwin-{{ version }}.exe -R {{ downloads }}\cygwin\ -d -X -l {{ downloads }}\cygwin\ -q -O -s https://mirrors.cicku.me/cygwin/'
+    - shell: cmd
+    - success_retcodes: 2

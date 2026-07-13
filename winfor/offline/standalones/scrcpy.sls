@@ -21,7 +21,7 @@ include:
 scrcpy-extract-offline:
   archive.extracted:
     - name: '{{ inpath }}\'
-    - source: '{{ downloads }}\scrcpy\scrcpy-win64-v{{ version }}.zip'
+    - source: '{{ downloads }}\scrcpy\{{ pkg }}'
     - enforce_toplevel: False
 
 scrcpy-folder-rename-offline:

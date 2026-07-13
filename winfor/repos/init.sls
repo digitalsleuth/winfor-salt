@@ -1,3 +1,7 @@
+{% set offline = salt['pillar.get']('offline', None) %}
+
+{% if not offline %}
+
 {% set current_commit = salt['cmd.run']('powershell -c "(Invoke-RestMethod -Uri https://api.github.com/repos/digitalsleuth/salt-winrepo-ng/commits)[0].sha"') -%}
 {% set head = "C:\\ProgramData\\Salt Project\\Salt\\srv\\salt\\win\\repo-ng\\salt-winrepo-ng\\_\\.git\\HEAD" %}
 {% if salt['file.file_exists'](head) %}
@@ -54,4 +58,8 @@ repo-refresh-db:
     - require:
       - cmd: repo-update
 
+{% endif %}
+{% else %}
+Repo not required in offline mode:
+  test.nop
 {% endif %}

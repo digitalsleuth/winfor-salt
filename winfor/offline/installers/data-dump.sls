@@ -9,7 +9,7 @@
 
 {% set version = '2.3.24262.11' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
-{% set pkg = 'data-dump-'~ version ~'.exe' %}
+{% set pkg = 'data-dump-'~ version ~'.zip' %}
 {% set exists = salt['file.file_exists'](downloads + '\\data-dump\\' + pkg) %}
 
 {% if exists %}
