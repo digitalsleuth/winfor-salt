@@ -7,8 +7,8 @@
 # Version: 12.12.10.1
 # Notes:
 
-{% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '12.12.10.1' %}
+{% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set hash = '31465167704b2fd795aafc14cf5c04261d7c3ae663d087f63842e431aa204abc' %}
 
 itunes-download-only:

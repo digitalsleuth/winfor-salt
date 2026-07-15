@@ -7,7 +7,6 @@
 # Version: 10.6.8
 # Notes:
 
-{% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '10.6.8' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set pkg = 'razorsql-'~ version ~'.exe' %}

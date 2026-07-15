@@ -36,3 +36,10 @@ debloat-windows:
     - name: 'powershell -nop -ep Bypass -File "Win10.ps1" -include "Win10.psm1" -preset "debloat.preset"'
     - cwd: '{{ FIRST_PATH }}\Win10Debloat\'
     - shell: powershell
+    - onlyif: 'Test-Path "{{ FIRST_PATH }}\Win10Debloat\debloat.preset"'
+    - unless: 'if ((Get-Item "{{ FIRST_PATH}}\Win10Debloat\debloat.preset").Length -eq 0) { exit 0 }'
+    - require:
+      - file: transfer-debloat-preset-{{ FIRST_PATH }}
+
+Debloat State Executed:
+  test.nop
