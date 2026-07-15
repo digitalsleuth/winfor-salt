@@ -1,9 +1,9 @@
 # Name: MemProcFS-Analyzer
-# Website: https://github.com/evild3ad/MemProcFS-Analyzer
+# Website: https://github.com/LETHAL-FORENSICS/MemProcFS-Analyzer
 # Description: Powershell script utilizing MemProcFS for additional analysis
 # Category: Windows Analysis
 # Author: Martin Willing / evild3ad
-# License: GNU General Public License v3.0 (https://github.com/evild3ad/MemProcFS-Analyzer/blob/main/LICENSE)
+# License: GNU General Public License v3.0 (https://github.com/LETHAL-FORENSICS/MemProcFS-Analyzer/blob/main/LICENSE)
 # Version: 1.2.1
 # Notes: 
 
@@ -11,7 +11,23 @@
 {% set hash = '4a699827cefc5a162a24ae737583979ef540b521fa6e61c0890d7dbdcaf7d3c5' %}
 {% set updater_hash = '7e03c8f3258eb444c12fee805004825066394eaa091e05ccc0b5cf7b32b9391f' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
+{% set defender_status = salt['cmd.powershell']('((Get-Service) -match "WinDefend").Name') %}
 
+{% if defender_status.lower() == "windefend" %}
+
+memprocfs-analyzer-defender-exclusion-download-only:
+  cmd.run:
+    - names:
+      - 'echo "Defender is present on the system."'
+      - 'Add-MpPreference -ExclusionPath "{{ downloads }}"'
+      - 'Add-MpPreference -ExclusionPath "{{ PROGRAMDATA }}\Salt Project\Salt\var"'
+    - shell: powershell
+{% else %}
+
+"Defender is not present on the system - no exclusions required to download memprocfs-analyzer.":
+  test.nop
+
+{% endif %}
 include:
   - winfor.downloads.packages.clamav
   - winfor.downloads.packages.dokany
@@ -64,6 +80,8 @@ memprocfs-analyzer-updater-download-only:
   cmd.run:
     - name: 'powershell -nop -ep Bypass -File {{ downloads }}\memprocfs-analyzer\mpfsa\Updater.ps1'
     - cwd: '{{ downloads }}\memprocfs-analyzer\mpfsa'
+    - shell: powershell
+    - output_encoding: 'utf-8'
     - require:
       - file: memprocfs-analyzer-modify-updater-download-only
     - watch:

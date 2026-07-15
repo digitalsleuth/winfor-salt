@@ -4,10 +4,10 @@
 # Category: Requirements
 # Author: Microsoft
 # License: 
-# Version: 15.9.37327.18
+# Version: 15.9.37506.8
 # Notes: 
 
-{% set version = '15.9.37327.18' %}
+{% set version = '15.9.37506.8' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% from 'winfor/_macros/is_installed.jinja' import check_installed %}
 {% set installed = check_installed('Visual Studio Build Tools 201*') | trim == 'true' %}
