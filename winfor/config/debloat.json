@@ -245,7 +245,7 @@
 		}
 	},
 	{
-		"Header": "Explorer \#-M",
+		"Header": "Explorer #-M",
 		"Name": "ExplorerUI1",
 		"StackName": "ExplorerUI1Stack",
 		"Settings": {
