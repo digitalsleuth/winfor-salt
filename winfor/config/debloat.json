@@ -245,9 +245,9 @@
 		}
 	},
 	{
-		"Header": "Explorer UI",
-		"Name": "ExplorerUI",
-		"StackName": "ExplorerUIStack",
+		"Header": "Explorer \#-M",
+		"Name": "ExplorerUI1",
+		"StackName": "ExplorerUI1Stack",
 		"Settings": {
 			"3D Objects Visibility in File Explorer": {
 				"Options": [
@@ -402,7 +402,14 @@
 					"ShowMusicInThisPC"
 				],
 				"RadioButtonContents": "Hide-Show"
-			},
+			}
+        }
+    },
+    {
+        "Header": "Explorer N-V",
+        "Name": "ExplorerUI2",
+        "StackName": "ExplorerUI2Stack",
+        "Settings": {
 			"Nav Pane All Folders": {
 				"Options": [
 					"HideNavPaneAllFolders",
