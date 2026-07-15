@@ -73,7 +73,7 @@
 {% endif %}
 
 include:
-  {% if mode = 'offline' %}
+  {% if mode == 'offline' %}
   - winfor.offline.packages.portals
   {% else %}
   - winfor.packages.portals
@@ -140,7 +140,7 @@ portals-end-process:
     - name: 'taskkill /F /IM "Portals.exe"'
     - bg: True
     - require:
-      {% if mode = 'offline' %}
+      {% if mode == 'offline' %}
       - sls: winfor.offline.packages.portals
       {% else %}
       - sls: winfor.packages.portals
@@ -155,7 +155,7 @@ portals-{{ config }}-copy:
     - replace: True
     - require:
       - user: user-{{ user }}
-      {% if mode = 'offline' %}
+      {% if mode == 'offline' %}
       - sls: winfor.offline.packages.portals
       {% else %}
       - sls: winfor.packages.portals
