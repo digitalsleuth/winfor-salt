@@ -19,6 +19,12 @@ virtualbox-install-offline:
     - shell: cmd
     - cwd: '{{ downloads }}\virtualbox\'
 
+virtualbox-icon-remove-offline:
+  file.absent:
+    - name: 'C:\Users\Public\Desktop\Oracle VirtualBox.lnk'
+    - require:
+      - cmd: virtualbox-install-offline
+
 {% else %}
 {{ pkg }} does not exist - not installing:
   test.nop

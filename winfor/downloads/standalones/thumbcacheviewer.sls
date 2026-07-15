@@ -13,7 +13,7 @@
 
 thumbcacheviewer-download-only:
   file.managed:
-    - name: '{{ downloads }}\thumbcacheviewer\thumbcache_viewer_64-{{ version }}.zip'
+    - name: '{{ downloads }}\thumbcacheviewer\thumbcacheviewer-{{ version }}.zip'
     - source: https://github.com/thumbcacheviewer/thumbcacheviewer/releases/download/v{{ version }}/thumbcache_viewer_64.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True

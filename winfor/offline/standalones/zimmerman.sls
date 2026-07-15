@@ -14,8 +14,8 @@
 {% set applications = ['EZViewer','JumpListExplorer','MFTExplorer','RegistryExplorer','SDBExplorer','ShellBagsExplorer','TimelineExplorer'] %}
 {% set sync_tools = ['EvtxECmd','RECmd'] %}
 {% set shim_paths = ['AmcacheParser.exe', 'AppCompatCacheParser.exe', 'bstrings.exe', 'JLECmd.exe', 'LECmd.exe', 'MFTECmd.exe', 'EvtxeCmd\EvtxeCmd.exe', 'iisGeolocate\iisGeolocate.exe', 'RECmd\RECmd.exe', 'SQLECmd\SQLECmd.exe', 'PECmd.exe', 'RBCmd.exe', 'rla.exe', 'SBECmd.exe', 'SrumECmd.exe', 'SumECmd.exe','VSCMount.exe', 'WxTCmd.exe', 'RecentFileCacheParser.exe'] %}
-{% set pkg = 'zimmerman-' + version %}
-{% set exists = salt['file.file_exists'](downloads + '\\' + pkg) %}
+{% set dir = 'zimmerman-' + version %}
+{% set exists = salt['file.directory_exists'](downloads + '\\zimmerman\\' + dir) %}
 
 {% if exists %}
 
@@ -80,6 +80,6 @@ zimmerman-folder-shortcut-offline:
       - file: zimmerman-folder-move-offline
 
 {% else %}
-{{ pkg }} does not exist - not installing:
+{{ dir }} does not exist - not installing:
   test.nop
 {% endif %}

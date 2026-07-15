@@ -11,7 +11,7 @@
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set pkg = 'xways-templates-'~ version ~'.zip' %}
-{% set exists = salt['file.file_exists'](downloads + '\\xways-templates\\' + pkg) %}
+{% set exists = salt['file.file_exists'](downloads + '\\x-ways\\' + pkg) %}
 
 {% if exists %}
 

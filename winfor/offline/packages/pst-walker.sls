@@ -7,7 +7,7 @@
 # Version: 7.31
 # Notes:
 
-{% set version = '721' %}
+{% set version = '7.31' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set pkg = 'pst-walker-'~ version ~'.exe' %}
 {% set exists = salt['file.file_exists'](downloads + '\\pst-walker\\' + pkg) %}

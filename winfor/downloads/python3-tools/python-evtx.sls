@@ -43,7 +43,7 @@ python-evtx-folder-rename-download-only:
 
 python-evtx-python-download-only:
   cmd.run:
-    - name: '{{ inpath }}\portable-python3\python.exe -m pip download -d packages .'
+    - name: '{{ inpath }}\portable-python3\python.exe -m pip download -d packages . setuptools wheel'
     - cwd: '{{ downloads }}\python-evtx'
     - require:
       - sls: winfor.downloads.packages.python3

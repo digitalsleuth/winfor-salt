@@ -19,6 +19,12 @@ ftk-imager-install-offline:
     - shell: cmd
     - cwd: '{{ downloads }}\ftk-imager\'
 
+ftk-imager-icon-remove-offline:
+  file.absent:
+    - name: 'C:\Users\Public\Desktop\Exterro FTK Imager.lnk'
+    - require:
+      - cmd: ftk-imager-install-offline
+
 {% else %}
 {{ pkg }} does not exist - not installing:
   test.nop

@@ -10,7 +10,7 @@
 {% set version = '20250131' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
-{% set pkg = 'magnet-dumpit-'~ version ~'.exe' %}
+{% set pkg = 'magnet-dumpit-'~ version ~'.zip' %}
 {% set exists = salt['file.file_exists'](downloads + '\\magnetforensics\\' + pkg) %}
 
 {% if exists %}

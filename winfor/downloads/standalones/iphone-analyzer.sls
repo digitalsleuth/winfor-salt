@@ -13,7 +13,7 @@
 
 iphone-analyzer-download-only:
   file.managed:
-    - name: '{{ downloads }}\iphone-analyzer\iphoneanalyzer.fat.gui-{{ version }}.jar'
+    - name: '{{ downloads }}\iphone-analyzer\iphoneanalyzer-{{ version }}.jar'
     - source: "https://deac-fra.dl.sourceforge.net/project/iphoneanalyzer/executable%20jar%20builds/iphoneanalyzer.fat.gui-{{ version }}.jar"
     - source_hash: sha256={{ hash }}
     - makedirs: True

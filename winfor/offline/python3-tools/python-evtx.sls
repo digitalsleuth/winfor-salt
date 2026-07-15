@@ -9,8 +9,8 @@
 
 {% set version = '0.8.1' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
-{% set pkg = 'python-evtx-'~ version ~'.zip' %}
-{% set exists = salt['file.file_exists'](downloads + '\\python-evtx\\packages\\' + pkg) %}
+{% set pkg = 'pyproject.toml' %}
+{% set exists = salt['file.file_exists'](downloads + '\\python-evtx\\' + pkg) %}
 
 {% if exists %}
 
@@ -19,7 +19,7 @@ include:
 
 python-evtx-install-offline:
   cmd.run:
-    - name: '"C:\Program Files\Python310\python.exe" -m pip install --no-index --find-links=.\packages python-evtx'
+    - name: '"C:\Program Files\Python310\python.exe" -m pip install --no-index --find-links=.\packages .'
     - cwd: '{{ downloads }}\python-evtx\'
     - require:
       - sls: winfor.offline.packages.python3

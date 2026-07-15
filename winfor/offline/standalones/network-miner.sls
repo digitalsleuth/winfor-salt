@@ -26,7 +26,7 @@ network-miner-extract-offline:
 network-miner-rename-offline:
   file.rename:
     - name: '{{ inpath }}\network-miner'
-    - source: '{{ inpath }}\NetworkMiner_{{ version | replace(".","_") }}'
+    - source: '{{ inpath }}\NetworkMiner_{{ version | replace(".","-") }}'
     - force: True
     - makedirs: True
     - require:

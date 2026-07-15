@@ -9,7 +9,7 @@
 
 {% set version = '21.0.7' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
+{% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% from 'winfor/_macros/is_installed.jinja' import check_installed %}
 {% set installed = check_installed('Java(TM) SE Development Kit 21*') | trim == 'true' %}
 {% set pkg = 'jdk-'~ version ~'.exe' %}

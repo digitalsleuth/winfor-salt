@@ -7,8 +7,8 @@
 # Version: 10.0.7.50000
 # Notes:
 
-{% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '10.0.7' %}
+{% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set pkg = 'dotnet10-desktop-runtime-'~ version ~'.exe' %}
 {% set exists = salt['file.file_exists'](downloads + '\\dotnet10-desktop-runtime\\' + pkg) %}
 {% from 'winfor/_macros/is_installed.jinja' import check_installed %}

@@ -8,12 +8,12 @@
 # Notes:
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '731' %}
+{% set version = '7.31' %}
 {% set hash = 'bfdce151bb7b152f4527c88a7b3e8baabdf73abe7cf692120aa63e4f249530ed' %}
 
 pst-walker-download-only:
   file.managed:
     - name: '{{ downloads }}\pst-walker\pst-walker-{{ version }}.exe'
-    - source: https://downloads.pstwalker.com/pstwalker{{ version }}.exe
+    - source: https://downloads.pstwalker.com/pstwalker{{ version | replace(".","") }}.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

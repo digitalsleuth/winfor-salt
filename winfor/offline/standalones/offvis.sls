@@ -21,16 +21,16 @@ include:
 
 offvis-extract-offline:
   archive.extracted:
-    - name: '{{ inpath }}\OffVis'
+    - name: '{{ inpath }}\offvis'
     - source: '{{ downloads }}\offvis\{{ pkg }}'
     - enforce_toplevel: False
 
 offvis-shortcut-offline:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\OffVis.lnk'
-    - target: '{{ inpath }}\OffVis\OffVis.exe'
+    - target: '{{ inpath }}\offvis\OffVis.exe'
     - force: True
-    - working_dir: '{{ inpath }}\OffVis'
+    - working_dir: '{{ inpath }}\offvis'
     - makedirs: True
     - require:
       - archive: offvis-extract-offline

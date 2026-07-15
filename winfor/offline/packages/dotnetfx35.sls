@@ -8,6 +8,13 @@
 # Notes: 
 
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
-.NET 3.5 Framework with .NET 2.0 must be installed manually. See the {{ downloads }}\dotnet35 folder for the installer.:
+.NET 3.5 Framework with .NET 2.0 must be installed manually. See the {{ downloads }}\dotnet35 folder for the instructions.:
   test.nop
 
+create-offline-instructions:
+  file.managed:
+    - name: '{{ downloads }}\dotnet35\offline-instructions.txt'
+    - contents: |
+        To install the .NET 3.5 Framework offline, first mount a Windows 10/11 ISO to your offline machine
+        Next, run the following command from an Admin command prompt where "d:" is the drive letter for the ISO:
+        DISM /Online /Enable-Feature /FeatureName:NetFx3 /All /LimitAccess /Source:d:\sources\sxs

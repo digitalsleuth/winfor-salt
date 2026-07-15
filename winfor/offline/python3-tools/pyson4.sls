@@ -9,8 +9,8 @@
 
 {% set version = '1.2.0' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
-{% set pkg = 'pyson4-'~ version ~'.zip' %}
-{% set exists = salt['file.file_exists'](downloads + '\\pyson4\\packages\\' + pkg) %}
+{% set pkg = 'pyson4.py' %}
+{% set exists = salt['file.file_exists'](downloads + '\\pyson4\\' + pkg) %}
 
 {% if exists %}
 
@@ -19,7 +19,7 @@ include:
 
 pyson4-install-offline:
   cmd.run:
-    - name: '"C:\Program Files\Python310\python.exe" -m pip install --no-index --find-links=.\packages pyson4'
+    - name: '"C:\Program Files\Python310\python.exe" -m pip install --no-index --find-links=.\packages .'
     - cwd: '{{ downloads }}\pyson4\'
     - require:
       - sls: winfor.offline.packages.python3

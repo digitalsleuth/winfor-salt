@@ -12,7 +12,7 @@
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set pkg = 'sysinternalssuite-'~ version ~'.zip' %}
-{% set exists = salt['file.file_exists'](downloads + '\\sysinternalssuite\\' + pkg) %}
+{% set exists = salt['file.file_exists'](downloads + '\\sysinternals\\' + pkg) %}
 
 {% if exists %}
 

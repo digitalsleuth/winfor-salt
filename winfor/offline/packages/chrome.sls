@@ -19,6 +19,12 @@ chrome-install-offline:
     - shell: cmd
     - cwd: '{{ downloads }}\google-chrome\'
 
+chrome-icon-remove-offline:
+  file.absent:
+    - name: 'C:\Users\Public\Desktop\Google Chrome.lnk'
+    - require:
+      - cmd: chrome-install-offline
+
 {% else %}
 {{ pkg }} does not exist - not installing:
   test.nop

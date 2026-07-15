@@ -42,7 +42,7 @@ pyson4-folder-rename-download-only:
 
 pyson4-requirements-download-only:
   cmd.run:
-    - name: '{{ inpath }}\portable-python3\python.exe -m pip download -d packages .'
+    - name: '{{ inpath }}\portable-python3\python.exe -m pip download -d packages . setuptools wheel'
     - cwd: '{{ downloads }}\pyson4'
     - require:
       - sls: winfor.downloads.packages.python3
