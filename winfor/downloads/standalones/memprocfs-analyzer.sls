@@ -11,6 +11,7 @@
 {% set hash = '4a699827cefc5a162a24ae737583979ef540b521fa6e61c0890d7dbdcaf7d3c5' %}
 {% set updater_hash = '7e03c8f3258eb444c12fee805004825066394eaa091e05ccc0b5cf7b32b9391f' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
+{% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set defender_status = salt['cmd.powershell']('((Get-Service) -match "WinDefend").Name') %}
 
 {% if defender_status.lower() == "windefend" %}

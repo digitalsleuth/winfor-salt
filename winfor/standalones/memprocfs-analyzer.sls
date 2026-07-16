@@ -11,6 +11,24 @@
 {% set hash = '4a699827cefc5a162a24ae737583979ef540b521fa6e61c0890d7dbdcaf7d3c5' %}
 {% set updater_hash = '7e03c8f3258eb444c12fee805004825066394eaa091e05ccc0b5cf7b32b9391f' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
+{% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set defender_status = salt['cmd.powershell']('((Get-Service) -match "WinDefend").Name') %}
+
+{% if defender_status.lower() == "windefend" %}
+
+memprocfs-analyzer-defender-exclusion:
+  cmd.run:
+    - names:
+      - 'echo "Defender is present on the system."'
+      - 'Add-MpPreference -ExclusionPath "C:\salt\tempdownload"'
+      - 'Add-MpPreference -ExclusionPath "{{ PROGRAMDATA }}\Salt Project\Salt\var"'
+    - shell: powershell
+{% else %}
+
+"Defender is not present on the system - no exclusions required for memprocfs-analyzer.":
+  test.nop
+
+{% endif %}
 
 include:
   - winfor.repos
