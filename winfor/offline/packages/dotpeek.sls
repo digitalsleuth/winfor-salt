@@ -9,7 +9,7 @@
 
 {% set version = '2026.1.2' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
-{% set inpath = salt['pillar.get']('standalones', 'C:\standalone') %}
+{% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set pkg = 'dotpeek-'~ version ~'.exe' %}
 {% set exists = salt['file.file_exists'](downloads + '\\dotpeek\\' + pkg) %}
 {% set PROGRAMDATA = salt['environ.get']("PROGRAMDATA") %}
