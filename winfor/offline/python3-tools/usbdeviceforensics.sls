@@ -7,10 +7,10 @@
 # Version: 1.0.0
 # Notes: 
 
-{% set version = "1.0.0" %}
+{% set version = '1.0.0' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
-{% set pkg = 'usbdeviceforensics-'~ version ~'.zip' %}
-{% set exists = salt['file.file_exists'](downloads + '\\usbdeviceforensics\\packages\\' + pkg) %}
+{% set pkg = 'usbdeviceforensics.py' %}
+{% set exists = salt['file.file_exists'](downloads + '\\usbdeviceforensics\\usbdeviceforensics\\' + pkg) %}
 
 {% if exists %}
 
