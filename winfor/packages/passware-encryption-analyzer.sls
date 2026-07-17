@@ -9,8 +9,9 @@
 
 {% set version = '2026.2.0.5145' %}
 {% set pkg = 'passware-encryption-analyzer' %}
+{% set saltpath = salt['pillar.get']('saltpath', 'C:\Program Files\Salt Project\Salt\salt-call.exe') %}
 {% macro passware_version_check(pkg_name, expected_version) %}
-$v = (C:\Program` Files\Salt` Project\Salt\salt-call.exe --local pkg.version {{ pkg_name }} --out json | ConvertFrom-Json).local;
+$v = ({{ saltpath }} --local pkg.version {{ pkg_name }} --out json | ConvertFrom-Json).local;
 if ($v -eq '{{ expected_version }}') { 'already installed' } else { '' }
 {% endmacro %}
 

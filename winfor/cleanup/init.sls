@@ -1,4 +1,5 @@
 # Delete the C:\salt directory which contains the tempdownloads
+{% set saltpath = salt['pillar.get']('saltpath', 'C:\Program Files\Salt Project\Salt\salt-call.exe') %}
 {% set user = salt['pillar.get']('winfor_user', 'forensics') %}
 {% set all_users = salt['user.list_users']() %}
 {% if user in all_users %}
@@ -29,4 +30,4 @@ disk-cleanup:
 
 clear-salt-cache:
   cmd.run:
-    - name: '"C:\Program Files\Salt Project\Salt\salt-call.exe" --local saltutil.clear_cache'
+    - name: '"{{ saltpath }}" --local saltutil.clear_cache'

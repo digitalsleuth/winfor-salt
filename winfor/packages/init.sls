@@ -1,171 +1,209 @@
 include:
+  - winfor.packages.4n6-email-forensics-wizard
   - winfor.packages.7zip
-  - winfor.packages.git
-  - winfor.packages.dotnetfx35
+  - winfor.packages.active-disk-editor
+  - winfor.packages.adobereader
+  - winfor.packages.agentransack
+  - winfor.packages.android-studio
+  - winfor.packages.apimonitor
+  - winfor.packages.autopsy
+  - winfor.packages.backup2fs
+  - winfor.packages.binary-ninja
+  - winfor.packages.bulk-extractor
+  - winfor.packages.bulkrenameutility
+  - winfor.packages.burpsuite-community
+  - winfor.packages.chrome
+  - winfor.packages.clamav
+  - winfor.packages.db-browser-sqlite
+  - winfor.packages.dbeaver
+  - winfor.packages.dokany
+  - winfor.packages.dotnet10-desktop-runtime
   - winfor.packages.dotnet6-desktop-runtime
   - winfor.packages.dotnet8-desktop-runtime
   - winfor.packages.dotnet9-desktop-runtime
+  - winfor.packages.dotnetfx35
   - winfor.packages.dotpeek
-  - winfor.packages.vscode
-  - winfor.packages.autopsy
-  - winfor.packages.firefox
-  - winfor.packages.chrome
-  - winfor.packages.ftk-imager
-  - winfor.packages.httplogbrowser
-  - winfor.packages.db-browser-sqlite
-  - winfor.packages.bulk-extractor
-  - winfor.packages.vs-community-2022
-  - winfor.packages.vcxsrv
-  - winfor.packages.libreoffice
-  - winfor.packages.npp
-  - winfor.packages.adobereader
-  - winfor.packages.python3
-  - winfor.packages.dbeaver
-  - winfor.packages.sublime-text
-  - winfor.packages.passware-encryption-analyzer
-  - winfor.packages.logparser
-  - winfor.packages.active-disk-editor
-  - winfor.packages.kernel-pst-viewer  
-  - winfor.packages.kernel-ost-viewer
-  - winfor.packages.kernel-edb-viewer
-  - winfor.packages.apimonitor
-  - winfor.packages.putty
-  - winfor.packages.wireshark
-  - winfor.packages.fileinsight
-  - winfor.packages.ntcore-explorersuite
-  - winfor.packages.fiddler
-  - winfor.packages.mdf-viewer
-  - winfor.packages.systeminformer
-  - winfor.packages.free-hex-editor-neo
-  - winfor.packages.pdfstreamdumper
-  - winfor.packages.burpsuite-community
-  - winfor.packages.magnet-chromebook-acquisition
-  - winfor.packages.magnet-acquire
-  - winfor.packages.irfanview
-  - winfor.packages.razorsql-x64
-  - winfor.packages.sqlitestudio
-  - winfor.packages.4n6-email-forensics-wizard
-  - winfor.packages.hashcheck
-  - winfor.packages.tableau-imager
-  - winfor.packages.tableau-firmware-update
-  - winfor.packages.zui
-  - winfor.packages.pst-walker
-  - winfor.packages.plist-editor
-  - winfor.packages.agentransack
-  - winfor.packages.winmerge
-  - winfor.packages.eventlog-explorer
-  - winfor.packages.ksdumper11
-  - winfor.packages.monolith-notes
-  - winfor.packages.nuix-evidence-mover
   - winfor.packages.elcomsoft-efdd
-  - winfor.packages.voidtools-everything
-  - winfor.packages.synchrony
-  - winfor.packages.msg-viewer
+  - winfor.packages.eventlog-explorer
   - winfor.packages.fec
-  - winfor.packages.teracopy
-  - winfor.packages.osfmount
-  - winfor.packages.winscp
-  - winfor.packages.ms-powertoys
-  - winfor.packages.ilspy
   - winfor.packages.fex-imager
-  - winfor.packages.resource-hacker
-  - winfor.packages.bulkrenameutility
+  - winfor.packages.fiddler
+  - winfor.packages.fileinsight
+  - winfor.packages.firefox
+  - winfor.packages.free-hex-editor-neo
+  - winfor.packages.ftk-imager
+  - winfor.packages.git
   - winfor.packages.google-earth-pro
+  - winfor.packages.graphviz
+  - winfor.packages.hashcheck
+  - winfor.packages.hax
+  - winfor.packages.httplogbrowser
+  - winfor.packages.httrack
+  - winfor.packages.ibackup-viewer
+  - winfor.packages.ida-free
+  - winfor.packages.ilspy
+  - winfor.packages.importexcel
+  - winfor.packages.irfanview-plugins
+  - winfor.packages.irfanview
+  - winfor.packages.itunes-backup-explorer
+  - winfor.packages.jdk17
+  - winfor.packages.jdk21
+  - winfor.packages.kernel-edb-viewer
+  - winfor.packages.kernel-ost-viewer
+  - winfor.packages.kernel-pst-viewer
+  - winfor.packages.letos
+  - winfor.packages.libreoffice
+  - winfor.packages.logparser
+  - winfor.packages.magnet-acquire
+  - winfor.packages.magnet-chromebook-acquisition
+  - winfor.packages.mdf-viewer
+  - winfor.packages.monolith-notes
+  - winfor.packages.msg-viewer
+  - winfor.packages.ms-powertoys
+  - winfor.packages.ms-vcpp-2010-redist-x64
+  - winfor.packages.ms-vcpp-2010-redist-x86
+  - winfor.packages.ms-vcpp-2015-build-tools
+  - winfor.packages.ms-vcpp-2017-redist-x64
+  - winfor.packages.nodejs
+  - winfor.packages.npp
+  - winfor.packages.ntcore-explorersuite
+  - winfor.packages.nuget
+  - winfor.packages.nuix-evidence-mover
+  - winfor.packages.openhashtab
+  - winfor.packages.osfmount
+  - winfor.packages.passware-encryption-analyzer
+  - winfor.packages.pdfstreamdumper
+  - winfor.packages.pdfxplorer
+  - winfor.packages.plist-editor
+  - winfor.packages.portals
+  - winfor.packages.pst-walker
+  - winfor.packages.putty
+  - winfor.packages.python3
+  - winfor.packages.razorsql-x64
+  - winfor.packages.reko
+  - winfor.packages.resource-hacker
+  - winfor.packages.sublime-text
+  - winfor.packages.synchrony
+  - winfor.packages.systeminformer
+  - winfor.packages.tableau-firmware-update
+  - winfor.packages.tableau-imager
+  - winfor.packages.teracopy
+  - winfor.packages.vcxsrv
   - winfor.packages.veracrypt
   - winfor.packages.virtualbox
   - winfor.packages.vlc
-  - winfor.packages.android-studio
-  - winfor.packages.ida-free
-  - winfor.packages.reko
-  - winfor.packages.binary-ninja
-  - winfor.packages.hax
-  - winfor.packages.httrack
+  - winfor.packages.voidtools-everything
+  - winfor.packages.vscode
+  - winfor.packages.vs-community-2026
   - winfor.packages.webcopy
-  - winfor.packages.backup2fs
+  - winfor.packages.winmerge
+  - winfor.packages.winscp
+  - winfor.packages.wireshark
+  - winfor.packages.wiztree
+  - winfor.packages.zui
 
-package-states:
+winfor-packages-states:
   test.nop:
     - require:
+      - sls: winfor.packages.4n6-email-forensics-wizard
       - sls: winfor.packages.7zip
-      - sls: winfor.packages.git
-      - sls: winfor.packages.dotnetfx35
+      - sls: winfor.packages.active-disk-editor
+      - sls: winfor.packages.adobereader
+      - sls: winfor.packages.agentransack
+      - sls: winfor.packages.android-studio
+      - sls: winfor.packages.apimonitor
+      - sls: winfor.packages.autopsy
+      - sls: winfor.packages.backup2fs
+      - sls: winfor.packages.binary-ninja
+      - sls: winfor.packages.bulk-extractor
+      - sls: winfor.packages.bulkrenameutility
+      - sls: winfor.packages.burpsuite-community
+      - sls: winfor.packages.chrome
+      - sls: winfor.packages.clamav
+      - sls: winfor.packages.db-browser-sqlite
+      - sls: winfor.packages.dbeaver
+      - sls: winfor.packages.dokany
+      - sls: winfor.packages.dotnet10-desktop-runtime
       - sls: winfor.packages.dotnet6-desktop-runtime
       - sls: winfor.packages.dotnet8-desktop-runtime
       - sls: winfor.packages.dotnet9-desktop-runtime
+      - sls: winfor.packages.dotnetfx35
       - sls: winfor.packages.dotpeek
-      - sls: winfor.packages.vscode
-      - sls: winfor.packages.autopsy
-      - sls: winfor.packages.firefox
-      - sls: winfor.packages.chrome
-      - sls: winfor.packages.ftk-imager
-      - sls: winfor.packages.httplogbrowser
-      - sls: winfor.packages.db-browser-sqlite
-      - sls: winfor.packages.bulk-extractor
-      - sls: winfor.packages.vs-community-2022
-      - sls: winfor.packages.vcxsrv
-      - sls: winfor.packages.libreoffice
-      - sls: winfor.packages.npp
-      - sls: winfor.packages.adobereader
-      - sls: winfor.packages.python3
-      - sls: winfor.packages.dbeaver
-      - sls: winfor.packages.sublime-text
-      - sls: winfor.packages.passware-encryption-analyzer
-      - sls: winfor.packages.logparser
-      - sls: winfor.packages.active-disk-editor
-      - sls: winfor.packages.kernel-pst-viewer
-      - sls: winfor.packages.kernel-ost-viewer
-      - sls: winfor.packages.kernel-edb-viewer
-      - sls: winfor.packages.apimonitor
-      - sls: winfor.packages.putty
-      - sls: winfor.packages.wireshark
-      - sls: winfor.packages.fileinsight
-      - sls: winfor.packages.ntcore-explorersuite
-      - sls: winfor.packages.fiddler
-      - sls: winfor.packages.mdf-viewer
-      - sls: winfor.packages.systeminformer
-      - sls: winfor.packages.free-hex-editor-neo
-      - sls: winfor.packages.pdfstreamdumper
-      - sls: winfor.packages.burpsuite-community
-      - sls: winfor.packages.magnet-chromebook-acquisition
-      - sls: winfor.packages.magnet-acquire
-      - sls: winfor.packages.irfanview
-      - sls: winfor.packages.razorsql-x64
-      - sls: winfor.packages.sqlitestudio
-      - sls: winfor.packages.4n6-email-forensics-wizard
-      - sls: winfor.packages.hashcheck
-      - sls: winfor.packages.tableau-imager
-      - sls: winfor.packages.tableau-firmware-update
-      - sls: winfor.packages.zui
-      - sls: winfor.packages.pst-walker
-      - sls: winfor.packages.plist-editor
-      - sls: winfor.packages.agentransack
-      - sls: winfor.packages.winmerge
-      - sls: winfor.packages.eventlog-explorer
-      - sls: winfor.packages.ksdumper11
-      - sls: winfor.packages.monolith-notes
-      - sls: winfor.packages.nuix-evidence-mover
       - sls: winfor.packages.elcomsoft-efdd
-      - sls: winfor.packages.voidtools-everything
-      - sls: winfor.packages.synchrony
-      - sls: winfor.packages.msg-viewer
+      - sls: winfor.packages.eventlog-explorer
       - sls: winfor.packages.fec
-      - sls: winfor.packages.teracopy
-      - sls: winfor.packages.osfmount
-      - sls: winfor.packages.winscp
-      - sls: winfor.packages.ms-powertoys
-      - sls: winfor.packages.ilspy
       - sls: winfor.packages.fex-imager
-      - sls: winfor.packages.resource-hacker
-      - sls: winfor.packages.bulkrenameutility
+      - sls: winfor.packages.fiddler
+      - sls: winfor.packages.fileinsight
+      - sls: winfor.packages.firefox
+      - sls: winfor.packages.free-hex-editor-neo
+      - sls: winfor.packages.ftk-imager
+      - sls: winfor.packages.git
       - sls: winfor.packages.google-earth-pro
+      - sls: winfor.packages.graphviz
+      - sls: winfor.packages.hashcheck
+      - sls: winfor.packages.hax
+      - sls: winfor.packages.httplogbrowser
+      - sls: winfor.packages.httrack
+      - sls: winfor.packages.ibackup-viewer
+      - sls: winfor.packages.ida-free
+      - sls: winfor.packages.ilspy
+      - sls: winfor.packages.importexcel
+      - sls: winfor.packages.irfanview-plugins
+      - sls: winfor.packages.irfanview
+      - sls: winfor.packages.itunes-backup-explorer
+      - sls: winfor.packages.jdk17
+      - sls: winfor.packages.jdk21
+      - sls: winfor.packages.kernel-edb-viewer
+      - sls: winfor.packages.kernel-ost-viewer
+      - sls: winfor.packages.kernel-pst-viewer
+      - sls: winfor.packages.letos
+      - sls: winfor.packages.libreoffice
+      - sls: winfor.packages.logparser
+      - sls: winfor.packages.magnet-acquire
+      - sls: winfor.packages.magnet-chromebook-acquisition
+      - sls: winfor.packages.mdf-viewer
+      - sls: winfor.packages.monolith-notes
+      - sls: winfor.packages.msg-viewer
+      - sls: winfor.packages.ms-powertoys
+      - sls: winfor.packages.ms-vcpp-2010-redist-x64
+      - sls: winfor.packages.ms-vcpp-2010-redist-x86
+      - sls: winfor.packages.ms-vcpp-2015-build-tools
+      - sls: winfor.packages.ms-vcpp-2017-redist-x64
+      - sls: winfor.packages.nodejs
+      - sls: winfor.packages.npp
+      - sls: winfor.packages.ntcore-explorersuite
+      - sls: winfor.packages.nuget
+      - sls: winfor.packages.nuix-evidence-mover
+      - sls: winfor.packages.openhashtab
+      - sls: winfor.packages.osfmount
+      - sls: winfor.packages.passware-encryption-analyzer
+      - sls: winfor.packages.pdfstreamdumper
+      - sls: winfor.packages.pdfxplorer
+      - sls: winfor.packages.plist-editor
+      - sls: winfor.packages.portals
+      - sls: winfor.packages.pst-walker
+      - sls: winfor.packages.putty
+      - sls: winfor.packages.python3
+      - sls: winfor.packages.razorsql-x64
+      - sls: winfor.packages.reko
+      - sls: winfor.packages.resource-hacker
+      - sls: winfor.packages.sublime-text
+      - sls: winfor.packages.synchrony
+      - sls: winfor.packages.systeminformer
+      - sls: winfor.packages.tableau-firmware-update
+      - sls: winfor.packages.tableau-imager
+      - sls: winfor.packages.teracopy
+      - sls: winfor.packages.vcxsrv
       - sls: winfor.packages.veracrypt
       - sls: winfor.packages.virtualbox
       - sls: winfor.packages.vlc
-      - sls: winfor.packages.android-studio
-      - sls: winfor.packages.ida-free
-      - sls: winfor.packages.reko
-      - sls: winfor.packages.binary-ninja
-      - sls: winfor.packages.hax
-      - sls: winfor.packages.httrack
+      - sls: winfor.packages.voidtools-everything
+      - sls: winfor.packages.vscode
+      - sls: winfor.packages.vs-community-2026
       - sls: winfor.packages.webcopy
-      - sls: winfor.packages.backup2fs
+      - sls: winfor.packages.winmerge
+      - sls: winfor.packages.winscp
+      - sls: winfor.packages.wireshark
+      - sls: winfor.packages.wiztree
+      - sls: winfor.packages.zui
