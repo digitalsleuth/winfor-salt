@@ -114,5 +114,3 @@ pdf-tool-list-shortcut:
     - makedirs: True
     - require:
       - file: pdf-tool-list
-
-{% endif %}

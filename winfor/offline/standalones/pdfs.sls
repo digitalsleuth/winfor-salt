@@ -88,7 +88,7 @@ set pdfs = [
 ]
 -%}
 
-{% set exists = salt['file.directory_exists'](offline + '\\references') %}
+{% set exists = salt['file.directory_exists'](downloads + '\\references') %}
 {% if exists %}
 pdf-folder-rename-offline:
   file.rename:
@@ -104,4 +104,7 @@ pdf-tool-list-shortcut-offline:
     - force: True
     - working_dir: '{{ inpath }}\references\'
     - makedirs: True
+{% else %}
+{{ downloads }}\\references folder does not exist:
+  test.nop
 {% endif %}
