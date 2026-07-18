@@ -89,7 +89,7 @@ set pdfs = [
 {% for pdf in pdfs %}
 {{ pdf.id }}-pdf-download-only:
   file.managed:
-    - name: '{{ download }}\references\{{ pdf.filename }}'
+    - name: '{{ downloads }}\references\{{ pdf.filename }}'
     - source: {{ pdf.source }}
     - source_hash: sha256={{ pdf.hash }}
     - makedirs: True
@@ -98,7 +98,7 @@ set pdfs = [
 
 pdf-tool-list-download-only:
   file.managed:
-    - name: '{{ download }}\references\WIN-FOR-Tool-List.pdf'
+    - name: '{{ downloads }}\references\WIN-FOR-Tool-List.pdf'
     - source: salt://winfor/files/WIN-FOR-Tool-List.pdf
     - skip_verify: True
     - makedirs: True
