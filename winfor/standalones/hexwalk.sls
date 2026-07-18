@@ -27,23 +27,6 @@ hexwalk-extract:
     - require:
       - file: hexwalk-download
 
-hexwalk-folder-copy:
-  file.copy:
-    - name: '{{ inpath }}\hexwalk'
-    - source: '{{ inpath }}\hexwalk_{{ version }}_Windows_X64\hexwalk'
-    - force: True
-    - makedirs: True
-    - recurse: True
-    - win_inheritance: True
-    - require:
-      - archive: hexwalk-extract
-
-hexwalk-original-folder-absent:
-  file.absent:
-    - name: '{{ inpath }}\hexwalk_{{ version }}_Windows_X64'
-    - require:
-      - file: hexwalk-folder-copy
-
 hexwalk-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\HexWalk.lnk'

@@ -86,6 +86,8 @@ memprocfs-analyzer-updater:
   cmd.run:
     - name: 'powershell -nop -ep Bypass -File {{ inpath }}\memprocfs-analyzer\Updater.ps1'
     - cwd: '{{ inpath }}\memprocfs-analyzer'
+    - shell: powershell
+    - output_encoding: 'utf-8'
     - require:
       - file: memprocfs-analyzer-modify-updater
     - watch:
