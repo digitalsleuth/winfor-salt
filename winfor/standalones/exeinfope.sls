@@ -4,13 +4,13 @@
 # Category: Executables
 # Author: ExeinfoASL
 # License: None Listed
-# Version: 0.0.9.7
+# Version: 0.0.9.8
 # Notes: 
 
-{% set version = '0.0.9.7' %}
+{% set version = '0.0.9.8' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
-{% set hash = '812e210f834a60845b2cc11136817a244dd9a0137994d33d9f2cd2ab662dc797' %}
+{% set hash = 'b14852e681b1880b0e5d694870af85b88e72976c82b07227198d5e70eef36881' %}
 
 include:
   - winfor.config.shims

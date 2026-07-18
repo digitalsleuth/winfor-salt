@@ -60,10 +60,11 @@ zircolite-wrapper:
       - '@echo off'
       - '"C:\Program Files\Python310\python.exe" "{{ inpath }}\zircolite\zircolite.py" %*'
 
-zircolite-update-rules:
-  cmd.run:
-    - name: '"C:\Program Files\Python310\Scripts\zircolite.cmd" -U'
-    - cwd: 'C:\Program Files\Python310\Scripts'
+zircolite-download-rules:
+  file.managed:
+    - name: '{{ inpath }}\zircolite\Zircolite-Rules.zip'
+    - source: https://github.com/wagga40/Zircolite-Rules-v2/archive/refs/heads/main.zip
+    - skip_verify: True
+    - force: True
     - require:
-      - file: zircolite-wrapper
-
+      - git: zircolite-source
