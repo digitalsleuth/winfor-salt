@@ -33,22 +33,27 @@ tableau-download-msi:
 
 tableau-extract-certificate:
   cmd.run:
-    - name: powershell.exe -NonInteractive -Command "(Get-AuthenticodeSignature 'C:\salt\tempdownload\tableau-firmware-update-{{ short_ver }}.msi').SignerCertificate | Export-Certificate -Type CERT -FilePath 'C:\salt\tempdownload\tableau.cer' | Out-Null"
+    - name: powershell.exe -NonInteractive -Command "(Get-AuthenticodeSignature 'C:\salt\tempdownload\tableau-firmware-update-{{ short_ver }}.msi').SignerCertificate | Export-Certificate -Type CERT -FilePath 'C:\salt\tempdownload\tableau2.cer' | Out-Null"
     - cwd: 'C:\salt\tempdownload'
     - require:
       - file: tableau-download-msi
 
-{#
 tableau-certificate-copy:
   file.managed:
     - name: 'C:\salt\tempdownload\tableau.cer'
     - source: salt://winfor/files/tableau.cer
     - makedirs: True
-#}
 
 tableau-certificate-install:
   certutil.add_store:
     - name: 'C:\salt\tempdownload\tableau.cer'
+    - store: TrustedPublisher
+    - require:
+      - file: tableau-certificate-copy
+
+tableau-certificate-install-2:
+  certutil.add_store:
+    - name: 'C:\salt\tempdownload\tableau2.cer'
     - store: TrustedPublisher
     - require:
       - cmd: tableau-extract-certificate
@@ -59,6 +64,7 @@ tableau-firmware-update:
     - shell: cmd
     - require:
       - certutil: tableau-certificate-install
+      - certutil: tableau-certificate-install-2
 
 tableau-firmware-update-icon-del:
   file.absent:
@@ -70,6 +76,7 @@ tableau-firmware-update-icon-del:
     {% endif %}
     - require:
       - certutil: tableau-certificate-install
+      - certutil: tableau-certificate-install-2
       - cmd: tableau-firmware-update
       - user: user-{{ user }}
 
