@@ -78,6 +78,7 @@ include:
   - winfor.standalones.officemalscanner
   - winfor.standalones.offvis
   - winfor.standalones.onedriveexplorer
+  - winfor.standalones.pdfs
   - winfor.standalones.pe-bear
   - winfor.standalones.peid
   - winfor.standalones.pe-sieve
@@ -215,6 +216,7 @@ winfor-standalones-states:
       - sls: winfor.standalones.officemalscanner
       - sls: winfor.standalones.offvis
       - sls: winfor.standalones.onedriveexplorer
+      - sls: winfor.standalones.pdfs
       - sls: winfor.standalones.pe-bear
       - sls: winfor.standalones.peid
       - sls: winfor.standalones.pe-sieve

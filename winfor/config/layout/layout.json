@@ -2661,6 +2661,17 @@
         "Enabled": false,
         "ExtraTiles": []
       },
+      "Reference PDFs": {
+        "CbName": "standalones_pdfs",
+        "CbContent": "Reference PDFs",
+        "DAID": "PLACEHOLDER_PATH\\references\\",
+        "AUMID": false,
+        "DALP": false,
+        "StartMenu": true,
+        "Checked": true,
+        "Enabled": true,
+        "ExtraTiles": []
+      },
       "Rufus": {
         "CbName": "standalones_rufus",
         "CbContent": "Rufus",
