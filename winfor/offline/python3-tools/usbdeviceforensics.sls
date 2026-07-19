@@ -19,7 +19,7 @@ include:
 
 usbdeviceforensics-install-offline:
   cmd.run:
-    - name: '"C:\Program Files\Python310\python.exe" -m pip install --no-index --find-links=.\packages usbdeviceforensics'
+    - name: '"C:\Program Files\Python310\python.exe" -m pip install --no-index --find-links=.\packages .'
     - cwd: '{{ downloads }}\usbdeviceforensics\'
     - require:
       - sls: winfor.offline.packages.python3
