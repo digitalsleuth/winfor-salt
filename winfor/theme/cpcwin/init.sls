@@ -260,10 +260,13 @@ cpc-theme-stager:
     - replace: True
     - contents: |
         @echo off
-        setlocal EnableDelayedExpansion
+        setlocal
         title Disable Locked Start Layout - Enable Theme
-        %1 %2 mshta vbscript:createobject("shell.application").shellexecute("%~s0","goto :runas","","runas",1)(window.close)&goto :eof
-        :runas
+        net session >nul 2>&1
+        if %errorlevel% neq 0 (
+            powershell -NoProfile -ExecutionPolicy Bypass -Command "Start-Process -FilePath '%~f0' -Verb RunAs"
+            exit /b
+        )
         echo Forcing update of GPO's
         gpupdate /force
         timeout /t 3 /nobreak 1>nul

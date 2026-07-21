@@ -11,15 +11,12 @@ WSL Config is not yet available for download mode:
 {% set wslver = '1.2.5.0' %}
 
 include:
-  - winfor.wsl.wsl2-update
   - winfor.config.user
 
 wsl-config-version:
   cmd.run:
     - name: 'wsl --set-default-version 2'
     - shell: cmd
-    - require:
-      - sls: winfor.wsl.wsl2-update
 
 {% if salt['file.file_exists']('C:\\salt\\tempdownload\\WIN-FOR-20.04.tar') and salt['file.check_hash']('C:\\salt\\tempdownload\\WIN-FOR-20.04.tar', hash)%}
 

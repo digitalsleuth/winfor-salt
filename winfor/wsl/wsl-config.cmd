@@ -1,6 +1,9 @@
 @echo off
-setlocal EnableDelayedExpansion
+setlocal
 title WIN-FOR WSL Config
-%1 %2 mshta vbscript:createobject("shell.application").shellexecute("%~s0","goto :runas","","runas",1)(window.close)&goto :eof
-:runas
+net session >nul 2>&1
+if %errorlevel% neq 0 (
+    powershell -NoProfile -ExecutionPolicy Bypass -Command "Start-Process -FilePath '%~f0' -Verb RunAs"
+    exit /b
+)
 powershell -f C:\salt\tempdownload\wsl-after-reboot.ps1

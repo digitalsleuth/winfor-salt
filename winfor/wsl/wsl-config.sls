@@ -2,149 +2,230 @@
 {% set PROGRAM_FILES = salt['environ.get']('PROGRAMFILES') %}
 {% set START_MENU = PROGRAMDATA + '\Microsoft\Windows\Start Menu\Programs' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set hash = 'ea026fdfcbec6dd4fe87e9053d0e6e185f50ed5696af68e331aad8b131ffe4e9' %}
-{% set castver = '0.15.10' %}
-{% set wslver = '1.2.5.0' %}
+{% set castver = '1.0.23' %}
+{% set wslver = '2.7.10.0' %}
+{% set distro = 'LIN-FOR-24' %}
+{% set wsl_cmd = 'wsl -d ' + distro %}
+{% set user_pass = "forensics:forensics" %}
 
 include:
-  - winfor.wsl.wsl2-update
-  - winfor.config.user
+  - winfor.config.shims
+
+wsl-update-command:
+  cmd.run:
+    - name: 'wsl --update'
+    - shell: cmd
 
 wsl-config-version:
   cmd.run:
     - name: 'wsl --set-default-version 2'
     - shell: cmd
     - require:
-      - sls: winfor.wsl.wsl2-update
-
-{% if salt['file.file_exists']('C:\\salt\\tempdownload\\WIN-FOR-20.04.tar') and salt['file.check_hash']('C:\\salt\\tempdownload\\WIN-FOR-20.04.tar', hash)%}
-
-wsl-template-already-downloaded:
-  test.nop
-
-{% else %}
-
-wsl-get-template:
-  file.managed:
-    - name: 'C:\salt\tempdownload\WIN-FOR-20.04.tar'
-    - source: https://sourceforge.net/projects/winfor/files/wsl/WIN-FOR-20.04.tar/download
-    - source_hash: sha256={{ hash }}
-    - makedirs: True
-    - unless:
-      - fun: file.file_exists
-        path: '{{ inpath }}\wsl\ext4.vhdx'
-
-{% endif %}
-
-wsl-update-command:
-  cmd.run:
-    - name: 'wsl --update'
-    - shell: cmd
-    - require:
-      - cmd: wsl-config-version
-    - unless:
-      - fun: file.file_exists
-        path: '{{ inpath }}\wsl\ext4.vhdx'
-
+      - cmd: wsl-update-command
 
 wsl-make-install-directory:
   file.directory:
-    - name: '{{ inpath }}\wsl\'
+    - name: '{{ inpath }}\lin-for\'
     - win_inheritance: True
     - makedirs: True
     - unless:
       - fun: file.file_exists
-        path: '{{ inpath }}\wsl\ext4.vhdx'
+        path: '{{ inpath }}\lin-for\ext4.vhdx'
 
-wsl-import-template:
+wsl-install-distro:
   cmd.run:
-    - name: 'wsl --import WIN-FOR {{ inpath }}\wsl\ C:\salt\tempdownload\WIN-FOR-20.04.tar'
+    - name: 'wsl --install Ubuntu-24.04 --name {{ distro }} --location {{ inpath }}\lin-for -n --web-download'
     - shell: cmd
     - require:
+      - cmd: wsl-config-version
+      - cmd: wsl-update-command
       - file: wsl-make-install-directory
     - unless:
       - fun: file.file_exists
-        path: '{{ inpath }}\wsl\ext4.vhdx'
+        path: '{{ inpath }}\lin-for\ext4.vhdx'
 
-wsl-get-cast:
+wsl-apt-update-upgrade:
   cmd.run:
-    - name: 'wsl -d WIN-FOR echo forensics | wsl -d WIN-FOR sudo -S wget -O /tmp/cast-v{{ castver }}-linux-amd64.deb https://github.com/ekristen/cast/releases/download/v{{ castver }}/cast-v{{ castver }}-linux-amd64.deb'
+    - name: '{{ wsl_cmd }} bash -c "DEBIAN_FRONTEND=noninteractive apt-get update && apt-get upgrade -y && apt-get install wget gnupg git openssh-server nano xrdp -y"'
     - shell: cmd
     - require:
-      - cmd: wsl-import-template
+      - cmd: wsl-install-distro
+
+wsl-create-group:
+  cmd.run:
+    - name: '{{ wsl_cmd }} DEBIAN_FRONTEND=noninteractive groupadd -r -g 1000 forensics'
+    - shell: cmd
+    - unless: '{{ wsl_cmd }} getent group forensics'
+    - require:
+      - cmd: wsl-install-distro
+      - cmd: wsl-apt-update-upgrade
+
+wsl-create-user:
+  cmd.run:
+    - name: '{{ wsl_cmd }} useradd -m -g forensics -d /home/forensics -s /bin/bash -c "Forensics User" -u 1000 forensics'
+    - shell: cmd
+    - unless: '{{ wsl_cmd }} id forensics'
+    - require:
+      - cmd: wsl-install-distro
+      - cmd: wsl-create-group
+
+wsl-add-user-to-sudoers:
+  cmd.run:
+    - name: '{{ wsl_cmd }} usermod -aG sudo forensics'
+    - shell: cmd
+    - unless: '{{ wsl_cmd }} bash -c "passwd -S forensics | grep -qw P"'
+    - require:
+      - cmd: wsl-install-distro
+      - cmd: wsl-create-user
+
+wsl-add-user-password:
+  cmd.run:
+    - name: {{ wsl_cmd }} bash -c "echo '{{ user_pass }}' | chpasswd"
+    - shell: cmd
+    - require:
+      - cmd: wsl-install-distro
+      - cmd: wsl-add-user-to-sudoers
+
+wsl-download-cast:
+  cmd.run:
+    - name: '{{ wsl_cmd }} wget -O /cast-v{{ castver }}.deb https://github.com/ekristen/cast/releases/download/v{{ castver }}/cast-v{{ castver }}-linux-amd64.deb'
+    - shell: cmd
+    - require:
+      - cmd: wsl-install-distro
+      - cmd: wsl-add-user-password
 
 wsl-install-cast:
   cmd.run:
-    - name: 'wsl -d WIN-FOR echo forensics | wsl -d WIN-FOR sudo -S apt-get install -y /tmp/cast-v{{ castver }}-linux-amd64.deb'
+    - name: '{{ wsl_cmd }} dpkg -i /cast-v{{ castver }}.deb'
     - shell: cmd
     - require:
-      - cmd: wsl-get-cast
+      - cmd: wsl-install-distro
+      - cmd: wsl-download-cast
 
-wsl-remove-cast-temp:
+wsl-remove-cast-binary:
   cmd.run:
-    - name: 'wsl -d WIN-FOR echo forensics | wsl -d WIN-FOR sudo -S rm /tmp/cast-v{{ castver }}-linux-amd64.deb'
+    - name: '{{ wsl_cmd }} rm /cast-v{{ castver }}.deb'
     - shell: cmd
     - require:
+      - cmd: wsl-install-distro
       - cmd: wsl-install-cast
 
-wsl-make-keyrings-dir:
+wsl-cast-install-sift:
   cmd.run:
-    - name: 'wsl -d WIN-FOR echo forensics | wsl -d WIN-FOR sudo -S mkdir -p /etc/apt/keyrings'
+    - name: '{{ wsl_cmd }} bash -c "cast install --mode server --user forensics sift || true"'
     - shell: cmd
     - require:
-      - cmd: wsl-install-cast
+      - cmd: wsl-install-distro
+      - cmd: wsl-remove-cast-binary
 
-wsl-install-sift:
+wsl-copy-cast-sift-results:
   cmd.run:
-    - name: 'wsl -d WIN-FOR echo forensics | wsl -d WIN-FOR sudo -S cast install --mode server --user forensics sift'
+    - name: '{{ wsl_cmd }} cp /var/cache/cast/installer/logs/saltstack.log /home/forensics/sift-saltstack.log'
     - shell: cmd
     - require:
-      - cmd: wsl-install-cast
+      - cmd: wsl-install-distro
 
-wsl-install-remnux:
+wsl-cast-install-remnux:
   cmd.run:
-    - name: 'wsl -d WIN-FOR echo forensics | wsl -d WIN-FOR sudo -S cast install --mode addon --user forensics remnux'
+    - name: '{{ wsl_cmd }} bash -c "cast install --mode cloud --user forensics remnux || true"'
     - shell: cmd
     - require:
-      - cmd: wsl-install-cast
+      - cmd: wsl-install-distro
 
-wsl-shortcut:
-  file.shortcut:
-    - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\Windows Subsystem for Linux.lnk'
-    - target: '{{ PROGRAM_FILES }}\WindowsApps\MicrosoftCorporationII.WindowsSubsystemForLinux_{{ wslver }}_x64__8wekyb3d8bbwe\wsl.exe'
-    - force: True
-    - working_dir: '{{ PROGRAM_FILES }}\WindowsApps\MicrosoftCorporationII.WindowsSubsystemForLinux_{{ wslver }}_x64__8wekyb3d8bbwe\'
-    - icon_location: '{{ PROGRAM_FILES }}\WindowsApps\MicrosoftCorporationII.WindowsSubsystemForLinux_{{ wslver }}_x64__8wekyb3d8bbwe\wsl.exe'
-    - arguments: '~'
+wsl-copy-cast-remnux-results:
+  cmd.run:
+    - name: '{{ wsl_cmd }} cp /var/cache/cast/installer/logs/saltstack.log /home/forensics/remnux-saltstack.log'
+    - shell: cmd
+    - require:
+      - cmd: wsl-install-distro
+
+wsl-create-new-mount-directories:
+  cmd.run:
+    - name: '{{ wsl_cmd }} bash -c "cd /mnt && mkdir aff bde e01 ewf ewf_mount iscsi shadow_mount usb vss windows_mount"'
+    - shell: cmd
+    - require:
+      - cmd: wsl-install-distro
+
+wsl-create-mount-sub-directories:
+  cmd.run:
+    - name: '{{ wsl_cmd }} bash -c "mkdir /mnt/windows_mount{1..5} && mkdir /mnt/shadow_mount/vss{1..30}"'
+    - shell: cmd
+    - require:
+      - cmd: wsl-install-distro
+      - cmd: wsl-create-new-mount-directories
+
+wsl-set-default-user:
+  cmd.run:
+    - name: 'wsl --manage {{ distro }} --set-default-user forensics'
+    - shell: cmd
+    - require:
+      - cmd: wsl-install-distro
+      - cmd: wsl-create-mount-sub-directories
+
+wsl-cleanup:
+  cmd.run:
+    - name: '{{ wsl_cmd }} bash -c "rm -rf /var/cache/salt/* && rm -rf /srv/* && rm -rf /root/.cache/* && rm -rf /usr/local/src/remnux/files/* && rm -rf /var/cache/cast/*"'
+    - shell: cmd
+    - require:
+      - cmd: wsl-install-distro
+      - cmd: wsl-cast-install-sift
+      - cmd: wsl-cast-install-remnux
+
+wsl-shutdown:
+  cmd.run:
+    - name: 'wsl --shutdown'
+    - shell: cmd
+    - require:
+      - cmd: wsl-cleanup
+
+wsl-create-diskpart-script:
+  file.managed:
+    - name: '{{ inpath }}\lin-for\diskpart-compact.txt'
+    - contents: |
+        select vdisk file="{{ inpath }}\lin-for\ext4.vhdx"
+        attach vdisk readonly
+        compact vdisk
+        detach vdisk
+        exit
     - makedirs: True
+    - force: True
+
+wsl-diskpart-compact:
+  cmd.run:
+    - name: 'diskpart /s {{ inpath }}\lin-for\diskpart-compact.txt'
+    - shell: cmd
+    - require:
+      - file: wsl-create-diskpart-script
+      - cmd: wsl-shutdown
+
+wsl-shim:
+  cmd.run:
+    - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe "{{ PROGRAM_FILES }}\WindowsApps\MicrosoftCorporationII.WindowsSubsystemForLinux_{{ wslver }}_x64__8wekyb3d8bbwe\wsl.exe" -OutPath {{ inpath }}\shims\wsl.exe'
+    - shell: cmd
     - onlyif:
       - fun: file.directory_exists
         path: '{{ PROGRAM_FILES }}\WindowsApps\MicrosoftCorporationII.WindowsSubsystemForLinux_{{ wslver }}_x64__8wekyb3d8bbwe\'
     - require:
-      - cmd: wsl-config-version
-      - file: wsl-make-install-directory
-      - cmd: wsl-import-template
+      - sls: winfor.config.shims
+
+wsl-shortcut:
+  file.shortcut:
+    - name: '{{ START_MENU }}\LIN-FOR.lnk'
+    - target: '{{ inpath }}\shims\wsl.exe'
+    - force: True
+    - working_dir: '{{ inpath }}\shims'
+    - icon_location: '{{ inpath }}\shims\wsl.exe'
+    - arguments: '~'
+    - makedirs: True
+    - require:
+      - cmd: wsl-shim
 
 wsl-portals-shortcut:
   file.copy:
     - name: '{{ inpath }}\Portals\Terminals\'
-    - source: '{{ START_MENU }}\Windows Subsystem for Linux.lnk'
+    - source: '{{ START_MENU }}\LIN-FOR.lnk'
     - preserve: True
     - subdir: True
     - makedirs: True
-    - onlyif:
-      - fun: file.directory_exists
-        path: '{{ PROGRAM_FILES }}\WindowsApps\MicrosoftCorporationII.WindowsSubsystemForLinux_{{ wslver }}_x64__8wekyb3d8bbwe\'
     - require:
-      - file: wsl-shortcut
-      - cmd: wsl-config-version
-      - file: wsl-make-install-directory
-      - cmd: wsl-import-template
-
-wsl-delete-template:
-  file.absent:
-    - name: 'C:\salt'
-    - require:
-      - cmd: wsl-config-version
-      - file: wsl-make-install-directory
-      - cmd: wsl-import-template
+      - cmd: wsl-shim

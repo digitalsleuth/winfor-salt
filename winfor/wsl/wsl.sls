@@ -34,7 +34,7 @@ wsl-defender-exclusion:
 
 {% endif %}
 
-wsl-cleanup:
+wsl-dism-cleanup:
   cmd.run:
     - name: 'dism /online /cleanup-image /revertpendingactions'
     - shell: cmd
@@ -45,11 +45,12 @@ wsl-install:
     - shell: cmd
     - success_retcodes: 3010
     - require:
-      - cmd: wsl-cleanup
+      - cmd: wsl-dism-cleanup
 
 vmp-install:
   cmd.run:
-    - name: 'dism /online /quiet /enable-feature /featurename:VirtualMachinePlatform /all /norestart'
+    - name: 'wsl --install --no-distribution'
+{#  - name: 'dism /online /quiet /enable-feature /featurename:VirtualMachinePlatform /all /norestart' #}
     - shell: cmd
     - success_retcodes: 3010
     - require:
