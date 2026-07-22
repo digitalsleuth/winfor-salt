@@ -27,6 +27,6 @@ ms-vcpp-2010-redist-x86-offline:
   test.nop
 {% endif %}
 {% else %}
-Microsoft VC++ 2010 Redistributable {{ version }} is already installed:
+Microsoft VC++ 2010 Redistributable {{ version }} x86 is already installed:
   test.nop
 {% endif %}

@@ -330,7 +330,7 @@ Unload NTUSER.DAT for {{ user }}:
 theme-suggest-reboot:
   cmd.run:
     - name: Start-Process powershell -WindowStyle Hidden -ArgumentList "-command `"Add-Type -AssemblyName System.Windows.Forms; [System.Windows.Forms.MessageBox]::Show('The theme will be fully applied for {{ user }} when they log in.', 'Win-FOR Theme')`""
-    - shell: cmd
+    - shell: powershell
     - require:
       - file: theme-stager
       - cmd: Load NTUSER.DAT for {{ user }}

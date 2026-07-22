@@ -8,7 +8,6 @@
 # Notes: 
 
 {% set user = salt['pillar.get']('winfor_user', 'forensics') %}
-{% set SID = salt['user.info'](user).uid %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set version = salt['cp.get_file_str']("C:\ProgramData\Salt Project\Salt\srv\salt\winfor\VERSION") %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
@@ -50,7 +49,6 @@ wsl-install:
 vmp-install:
   cmd.run:
     - name: 'wsl --install --no-distribution'
-{#  - name: 'dism /online /quiet /enable-feature /featurename:VirtualMachinePlatform /all /norestart' #}
     - shell: cmd
     - success_retcodes: 3010
     - require:

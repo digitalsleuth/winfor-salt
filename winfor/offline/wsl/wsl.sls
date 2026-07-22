@@ -11,7 +11,6 @@ WSL is not yet fully tested for installation offline:
   test.nop
 
 {% set user = salt['pillar.get']('winfor_user', 'forensics') %}
-{% set SID = salt['user.info'](user).uid %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads' %}
 {% set version = salt['cp.get_file_str']("C:\ProgramData\Salt Project\Salt\srv\salt\winfor\VERSION") %}
@@ -53,7 +52,7 @@ wsl-install-offline:
 
 vmp-install-offline:
   cmd.run:
-    - name: 'dism /online /quiet /enable-feature /featurename:VirtualMachinePlatform /all /norestart'
+    - name: 'wsl --install --no-distribution'
     - shell: cmd
     - success_retcodes: 3010
     - require:

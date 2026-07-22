@@ -154,14 +154,6 @@ wsl-create-mount-sub-directories:
       - cmd: wsl-install-distro
       - cmd: wsl-create-new-mount-directories
 
-wsl-set-default-user:
-  cmd.run:
-    - name: 'wsl --manage {{ distro }} --set-default-user forensics'
-    - shell: cmd
-    - require:
-      - cmd: wsl-install-distro
-      - cmd: wsl-create-mount-sub-directories
-
 wsl-cleanup:
   cmd.run:
     - name: '{{ wsl_cmd }} bash -c "rm -rf /var/cache/salt/* && rm -rf /srv/* && rm -rf /root/.cache/* && rm -rf /usr/local/src/remnux/files/* && rm -rf /var/cache/cast/*"'
@@ -170,6 +162,13 @@ wsl-cleanup:
       - cmd: wsl-install-distro
       - cmd: wsl-cast-install-sift
       - cmd: wsl-cast-install-remnux
+
+wsl-set-default-user:
+  cmd.run:
+    - name: 'wsl --manage {{ distro }} --set-default-user forensics'
+    - shell: cmd
+    - require:
+      - cmd: wsl-install-distro
 
 wsl-shutdown:
   cmd.run:

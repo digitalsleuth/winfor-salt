@@ -45,7 +45,7 @@ wsl-shim-offline:
 
 wsl-shortcut-offline:
   file.shortcut:
-    - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\Windows Subsystem for Linux.lnk'
+    - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\LIN-FOR.lnk'
     - target: '{{ inpath }}\shims\wsl.exe'
     - force: True
     - working_dir: '{{ inpath }}\shims'
@@ -58,7 +58,7 @@ wsl-shortcut-offline:
 wsl-portals-shortcut-offline:
   file.copy:
     - name: '{{ inpath }}\Portals\Terminals\'
-    - source: '{{ START_MENU }}\Windows Subsystem for Linux.lnk'
+    - source: '{{ START_MENU }}\LIN-FOR.lnk'
     - preserve: True
     - subdir: True
     - makedirs: True
