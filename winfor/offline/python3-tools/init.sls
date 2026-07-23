@@ -11,6 +11,7 @@ include:
   - winfor.offline.python3-tools.ileapp
   - winfor.offline.python3-tools.iptools
   - winfor.offline.python3-tools.maldump
+  - winfor.offline.python3-tools.malwoverview
   - winfor.offline.python3-tools.msoffcrypto-crack
   - winfor.offline.python3-tools.msoffcrypto-tool
   - winfor.offline.python3-tools.ms-word-parser
@@ -55,6 +56,7 @@ winfor-offline-python3-tools-states:
       - sls: winfor.offline.python3-tools.ileapp
       - sls: winfor.offline.python3-tools.iptools
       - sls: winfor.offline.python3-tools.maldump
+      - sls: winfor.offline.python3-tools.malwoverview
       - sls: winfor.offline.python3-tools.msoffcrypto-crack
       - sls: winfor.offline.python3-tools.msoffcrypto-tool
       - sls: winfor.offline.python3-tools.ms-word-parser

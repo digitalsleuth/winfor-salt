@@ -8,7 +8,6 @@
 # Notes: 
 
 {% set version = '0.5.0' %}
-{% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set pkg = 'maldump-'~ version ~'-py3-none-any.whl' %}
 {% set exists = salt['file.file_exists'](downloads + '\\maldump\\packages\\' + pkg) %}
@@ -21,6 +20,7 @@ include:
 maldump-requirements-install-offline:
   cmd.run:
     - name: '"C:\Program Files\Python310\python.exe" -m pip install --no-index --find-links=.\packages maldump'
+    - shell: cmd
     - cwd: '{{ downloads }}\maldump\'
     - require:
       - sls: winfor.offline.packages.python3

@@ -11,6 +11,7 @@ include:
   - winfor.downloads.python3-tools.ileapp
   - winfor.downloads.python3-tools.iptools
   - winfor.downloads.python3-tools.maldump
+  - winfor.downloads.python3-tools.malwoverview
   - winfor.downloads.python3-tools.msoffcrypto-crack
   - winfor.downloads.python3-tools.msoffcrypto-tool
   - winfor.downloads.python3-tools.ms-word-parser
@@ -55,6 +56,7 @@ download-python3-tools-states:
       - sls: winfor.downloads.python3-tools.ileapp
       - sls: winfor.downloads.python3-tools.iptools
       - sls: winfor.downloads.python3-tools.maldump
+      - sls: winfor.downloads.python3-tools.malwoverview
       - sls: winfor.downloads.python3-tools.msoffcrypto-crack
       - sls: winfor.downloads.python3-tools.msoffcrypto-tool
       - sls: winfor.downloads.python3-tools.ms-word-parser

@@ -932,6 +932,17 @@
         "Enabled": true,
         "ExtraTiles": []
       },
+      "malwoverview": {
+        "CbName": "python3_tools_malwoverview",
+        "CbContent": "malwoverview",
+        "DAID": "",
+        "AUMID": false,
+        "DALP": false,
+        "StartMenu": false,
+        "Checked": true,
+        "Enabled": true,
+        "ExtraTiles": []
+      },
       "mal_unpack": {
         "CbName": "standalones_mal_unpack",
         "CbContent": "mal_unpack",
@@ -1681,6 +1692,28 @@
         "CbName": "standalones_network_miner",
         "CbContent": "Network Miner",
         "DAID": "PLACEHOLDER_PATH\\network-miner\\NetworkMiner.exe",
+        "AUMID": false,
+        "DALP": false,
+        "StartMenu": true,
+        "Checked": true,
+        "Enabled": true,
+        "ExtraTiles": []
+      },
+      "Nmap": {
+        "CbName": "installers_nmap",
+        "CbContent": "Nmap",
+        "DAID": "",
+        "AUMID": false,
+        "DALP": false,
+        "StartMenu": false,
+        "Checked": true,
+        "Enabled": true,
+        "ExtraTiles": []
+      },
+      "Paessler SNMP Tester": {
+        "CbName": "installers_snmp_tester",
+        "CbContent": "Paessler SNMP Tester",
+        "DAID": "{7C5A40EF-A0FB-4BFC-874A-C0F2E0B9FA8E}\\Paessler SNMP Tester\\snmptest.exe",
         "AUMID": false,
         "DALP": false,
         "StartMenu": true,
