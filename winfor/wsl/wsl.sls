@@ -118,7 +118,7 @@ wsl-powershell-stager-customize:
       - file: wsl-powershell-stager
       - user: user-{{ user }}
 
-wsl-config-stager-customize-path:
+wsl-powershell-stager-customize-path:
   file.replace:
     - name: 'C:\salt\tempdownload\wsl-after-reboot.ps1'
     - pattern: _this_path_
@@ -129,7 +129,7 @@ wsl-config-stager-customize-path:
       - file: wsl-powershell-stager-customize
       - user: user-{{ user }}
 
-wsl-config-stager-customize-pillar:
+wsl-powershell-stager-customize-pillar:
   file.replace:
     - name: 'C:\salt\tempdownload\wsl-after-reboot.ps1'
     - pattern: _this_choice_
@@ -153,7 +153,7 @@ wsl-config-run-on-reboot:
       - file: wsl-config-stager
       - file: wsl-powershell-stager
       - file: wsl-powershell-stager-customize
-      - file: wsl-config-stager-customize-path
+      - file: wsl-powershell-stager-customize-path
 
 wsl-log-append:
   file.append:
@@ -171,6 +171,6 @@ system-restart:
       - file: wsl-config-stager
       - file: wsl-powershell-stager
       - file: wsl-powershell-stager-customize
-      - file: wsl-config-stager-customize-path
-      - file: wsl-config-stager-customize-pillar
+      - file: wsl-powershell-stager-customize-path
+      - file: wsl-powershell-stager-customize-pillar
       - reg: wsl-config-run-on-reboot
