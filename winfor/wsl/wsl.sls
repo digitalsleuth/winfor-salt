@@ -7,6 +7,7 @@
 # Version: 0.0
 # Notes: 
 
+{% set wsl_choice = salt['pillar.get']('wsl_choice', 'both') %}
 {% set user = salt['pillar.get']('winfor_user', 'forensics') %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set version = salt['cp.get_file_str']("C:\ProgramData\Salt Project\Salt\srv\salt\winfor\VERSION") %}
@@ -128,6 +129,18 @@ wsl-config-stager-customize-path:
       - file: wsl-powershell-stager-customize
       - user: user-{{ user }}
 
+wsl-config-stager-customize-pillar:
+  file.replace:
+    - name: 'C:\salt\tempdownload\wsl-after-reboot.ps1'
+    - pattern: _this_choice_
+    - repl: {{ wsl_choice | regex_escape }}
+    - count: 1
+    - require:
+      - file: wsl-powershell-stager
+      - file: wsl-powershell-stager-customize
+      - file: wsl-powershell-stager-customize-path
+      - user: user-{{ user }}
+
 wsl-config-run-on-reboot:
   reg.present:
     - name: HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunOnce
@@ -159,4 +172,5 @@ system-restart:
       - file: wsl-powershell-stager
       - file: wsl-powershell-stager-customize
       - file: wsl-config-stager-customize-path
+      - file: wsl-config-stager-customize-pillar
       - reg: wsl-config-run-on-reboot

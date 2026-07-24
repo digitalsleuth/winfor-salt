@@ -3,7 +3,7 @@ $wslLogFile = "C:\winfor-saltstack-$winforVersion-wsl.log"
 $repoLogFile = "C:\winfor-saltstack-$winforVersion.log"
 $wslErrorLog = "C:\winfor-saltstack-$winforVersion-wsl-errors.log"
 $filePath = "C:\Program Files\Salt Project\Salt\salt-call.exe"
-$saltArgs = "-l info --local --retcode-passthrough --log-file=`"$wslLogFile`" --log-file-level=debug --out-file=`"$wslLogFile`" --out-file-append --state-output=mixed state.sls winfor.wsl.wsl-config pillar=`"{'winfor_user': '_this_user_', 'inpath': '_this_path_'}`""
+$saltArgs = "-l info --local --retcode-passthrough --log-file=`"$wslLogFile`" --log-file-level=debug --out-file=`"$wslLogFile`" --out-file-append --state-output=mixed state.sls winfor.wsl.wsl-config pillar=`"{'winfor_user': '_this_user_', 'inpath': '_this_path_', 'wsl_choice': '_this_choice_'}`""
 $runningUser = New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())
 if (-Not $runningUser.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
     Write-Host "[!] Not running as administrator, please re-run this script as Administrator" -ForegroundColor Red

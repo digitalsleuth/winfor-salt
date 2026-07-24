@@ -1,3 +1,4 @@
+{% set wsl_choice = salt['pillar.get']('wsl_choice', 'both') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set PROGRAM_FILES = salt['environ.get']('PROGRAMFILES') %}
 {% set START_MENU = PROGRAMDATA + '\Microsoft\Windows\Start Menu\Programs' %}
@@ -110,6 +111,8 @@ wsl-remove-cast-binary:
       - cmd: wsl-install-distro
       - cmd: wsl-install-cast
 
+{% if wsl_choice == 'sift' or wsl_choice == 'both' %}
+
 wsl-cast-install-sift:
   cmd.run:
     - name: '{{ wsl_cmd }} bash -c "cast install --mode server --user forensics sift || true"'
@@ -125,6 +128,10 @@ wsl-copy-cast-sift-results:
     - require:
       - cmd: wsl-install-distro
 
+{% endif %}
+
+{% if wsl_choice == 'remnux' or wsl_choice == 'both' %}
+
 wsl-cast-install-remnux:
   cmd.run:
     - name: '{{ wsl_cmd }} bash -c "cast install --mode cloud --user forensics remnux || true"'
@@ -138,6 +145,16 @@ wsl-copy-cast-remnux-results:
     - shell: cmd
     - require:
       - cmd: wsl-install-distro
+
+wsl-cleanup-remnux:
+  cmd.run:
+    - name: '{{ wsl_cmd }} bash -c "rm -rf /usr/local/src/remnux/files/*"'
+    - shell: cmd
+    - require:
+      - cmd: wsl-install-distro
+      - cmd: wsl-cast-install-remnux
+
+{% endif %}
 
 wsl-create-new-mount-directories:
   cmd.run:
@@ -156,12 +173,10 @@ wsl-create-mount-sub-directories:
 
 wsl-cleanup:
   cmd.run:
-    - name: '{{ wsl_cmd }} bash -c "rm -rf /var/cache/salt/* && rm -rf /srv/* && rm -rf /root/.cache/* && rm -rf /usr/local/src/remnux/files/* && rm -rf /var/cache/cast/*"'
+    - name: '{{ wsl_cmd }} bash -c "rm -rf /var/cache/salt/* && rm -rf /srv/* && rm -rf /root/.cache/* && rm -rf /var/cache/cast/*"'
     - shell: cmd
     - require:
       - cmd: wsl-install-distro
-      - cmd: wsl-cast-install-sift
-      - cmd: wsl-cast-install-remnux
 
 wsl-set-default-user:
   cmd.run:
