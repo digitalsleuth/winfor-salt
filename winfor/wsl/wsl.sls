@@ -156,7 +156,7 @@ wsl-powershell-stager-customize-title:
   file.replace:
     - name: 'C:\salt\tempdownload\wsl-after-reboot.ps1'
     - pattern: _this_distro_
-    - repl: {{ wsl_text | regex_escape }}
+    - repl: {{ wsl_text }}
     - count: 1
     - require:
       - file: wsl-powershell-stager
@@ -184,6 +184,8 @@ wsl-log-append:
   file.append:
     - name: 'C:\winfor-saltstack-{{ version|trim }}-wsl.log'
     - text: 'GOING FOR REBOOT NOW'
+    - require:
+      - reg: wsl-config-run-on-reboot
 
 system-restart:
   system.reboot:

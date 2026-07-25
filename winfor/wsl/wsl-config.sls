@@ -1,7 +1,8 @@
 {% set wsl_choice = salt['pillar.get']('wsl_choice', 'siftrem') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set PROGRAM_FILES = salt['environ.get']('PROGRAMFILES') %}
-{% set START_MENU = PROGRAMDATA + '\Microsoft\Windows\Start Menu\Programs' %}
+{% set START_MENU = PROGRAMDATA + '\Microsoft\Windows\Start Menu' %}
+{% set START_PROGRAMS = START_MENU + '\Programs' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set castver = '1.0.23' %}
 {% set wslver = '2.7.10.0' %}
@@ -241,6 +242,17 @@ wsl-shutdown-kali:
     'wsl-shutdown-kali'
 ) }}
 
+wsl-portals-shortcut-kali:
+  file.copy:
+    - name: '{{ inpath }}\Portals\Terminals\'
+    - source: '{{ START_MENU }}\kali-linux.lnk'
+    - preserve: True
+    - subdir: True
+    - makedirs: True
+    - require:
+      - cmd: wsl-shim
+
+
 {% endif %}
 
 {% if wsl_choice in ('sift', 'siftrem', 'remnux', 'all') %}
@@ -299,7 +311,7 @@ wsl-shim:
 
 wsl-shortcut:
   file.shortcut:
-    - name: '{{ START_MENU }}\LIN-FOR.lnk'
+    - name: '{{ START_PROGRAMS }}\LIN-FOR.lnk'
     - target: '{{ inpath }}\shims\wsl.exe'
     - force: True
     - working_dir: '{{ inpath }}\shims'
@@ -312,7 +324,7 @@ wsl-shortcut:
 wsl-portals-shortcut:
   file.copy:
     - name: '{{ inpath }}\Portals\Terminals\'
-    - source: '{{ START_MENU }}\LIN-FOR.lnk'
+    - source: '{{ START_PROGRAMS }}\LIN-FOR.lnk'
     - preserve: True
     - subdir: True
     - makedirs: True
