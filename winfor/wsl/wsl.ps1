@@ -9,7 +9,7 @@ if (-Not $runningUser.IsInRole([Security.Principal.WindowsBuiltInRole]::Administ
     Write-Host "[!] Not running as administrator, please re-run this script as Administrator" -ForegroundColor Red
     break
 }
-Write-Host "[+] Installing Ubuntu-24.04 template as LIN-FOR-24 and installing SIFT & REMnux" -ForegroundColor Green
+Write-Host "[+] Installing Ubuntu-24.04 template as LIN-FOR-24 and installing _this_distro_" -ForegroundColor Green
 Start-Process -Wait -FilePath $filePath -ArgumentList ($saltArgs) | Out-Null
 if (-Not (Test-Path $wslLogFile)) {
     $wslResults=$wslFailures=$errors=$null
