@@ -38,7 +38,7 @@ include:
 {% macro wsl_apt_update(id, cmd, require_id) %}
 {{ id }}:
   cmd.run:
-    - name: '{{ cmd }} bash -c "DEBIAN_FRONTEND=noninteractive apt-get update && apt-get upgrade -y && apt-get install wget gnupg git openssh-server nano xrdp -y"'
+    - name: {{ cmd }} bash -c "apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -o Dpkg::Options::='--force-confold' -o Dpkg::Options::='--force-confdef' dist-upgrade -q -y --allow-downgrades --allow-remove-essential --allow-change-held-packages && DEBIAN_FRONTEND=noninteractive apt-get install wget gnupg git openssh-server nano xrdp -y"
     - shell: cmd
     - require:
       - cmd: {{ require_id }}
