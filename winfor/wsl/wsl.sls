@@ -26,7 +26,7 @@
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set defender_status = salt['cmd.powershell']('((Get-Service) -match "WinDefend").Name') %}
 {% set installed_features = salt['dism.installed_features']() %}
-{% set wsl_status = salt['cmd.run_all']('wsl --status') %}
+{%- set wsl_status = salt['cmd.run_all']('wsl --status', env={'WSL_UTF8': '1'}, ignore_retcode=True) %}
 {% set wsl_installed = (wsl_status['retcode'] == 0) %}
 {% set vmp_enabled = 'VirtualMachinePlatform' in installed_features %}
 
@@ -34,6 +34,9 @@
 
 include:
   - winfor.config.user
+
+WSL is not installed on this system:
+  test.nop
 
 {% if defender_status.lower() == "windefend" %}
 wsl-defender-exclusion:
@@ -224,6 +227,9 @@ system-restart:
       - reg: wsl-config-run-on-reboot
 
 {% else %}
+
+WSL is installed on this system:
+  test.nop
 
 include:
   - winfor.wsl.wsl-config

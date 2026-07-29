@@ -9,6 +9,7 @@
 
 {% set version = '8.0.5' %}
 
+include:
   - winfor.packages.python3
 
 malwoverview:
