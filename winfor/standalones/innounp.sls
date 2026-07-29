@@ -8,6 +8,7 @@
 # Notes: 
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
+{% set hash = '1d8837540ccc15d98245a1c73fd08f404b2a7bdfe7dc9bed2fdece818ff6df67' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 include:
@@ -17,8 +18,8 @@ include:
 innounp-download:
   file.managed:
     - name: 'C:\salt\tempdownload\innounp050.rar'
-    - source: 'https://cytranet-dal.dl.sourceforge.net/project/innounp/innounp/innounp%200.50/innounp050.rar'
-    - source_hash: sha256=1d8837540ccc15d98245a1c73fd08f404b2a7bdfe7dc9bed2fdece818ff6df67
+    - source: 'https://downloads.sourceforge.net/project/innounp/innounp/innounp%200.50/innounp050.rar'
+    - source_hash: sha256={{ hash }}
     - makedirs: True
 
 innounp-extract:

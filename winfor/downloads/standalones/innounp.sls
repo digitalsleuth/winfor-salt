@@ -14,7 +14,7 @@
 innounp-download-only:
   file.managed:
     - name: '{{ downloads }}\innounp\innounp-{{ version }}.rar'
-    - source: 'https://cytranet-dal.dl.sourceforge.net/project/innounp/innounp/innounp%200.50/innounp050.rar'
+    - source: 'https://downloads.sourceforge.net/project/innounp/innounp/innounp%200.50/innounp050.rar'
     - source_hash: sha256={{ hash }}
     - makedirs: True
 
