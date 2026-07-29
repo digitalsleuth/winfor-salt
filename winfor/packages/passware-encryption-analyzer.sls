@@ -4,10 +4,10 @@
 # Category: Raw Parsers / Decoders
 # Author: Passware - Dmitry Sumin
 # License: EULA - https://www.passware.com/files/Passware-EULA.pdf
-# Version: 2026.2.0.5145
+# Version: 2026.3.0.5308
 # Notes: 
 
-{% set version = '2026.2.0.5145' %}
+{% set version = '2026.3.0.5308' %}
 {% set pkg = 'passware-encryption-analyzer' %}
 {% set saltpath = salt['pillar.get']('saltpath', 'C:\Program Files\Salt Project\Salt\salt-call.exe') %}
 {% macro passware_version_check(pkg_name, expected_version) %}
