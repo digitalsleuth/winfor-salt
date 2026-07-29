@@ -20,10 +20,17 @@
   {% set wsl_text = 'SIFT, REMnux, and Kali' %}
 {% endif %} 
 {% set user = salt['pillar.get']('winfor_user', 'forensics') %}
+{% set home = "C:\\Users\\" + user %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set version = salt['cp.get_file_str']("C:\ProgramData\Salt Project\Salt\srv\salt\winfor\VERSION") %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set defender_status = salt['cmd.powershell']('((Get-Service) -match "WinDefend").Name') %}
+{% set installed_features = salt['dism.installed_features']() %}
+{% set wsl_status = salt['cmd.run_all']('wsl --status') %}
+{% set wsl_installed = (wsl_status['retcode'] == 0) %}
+{% set vmp_enabled = 'VirtualMachinePlatform' in installed_features %}
+
+{% if not wsl_installed or not vmp_enabled %}
 
 include:
   - winfor.config.user
@@ -45,26 +52,41 @@ wsl-defender-exclusion:
 
 {% endif %}
 
-wsl-dism-cleanup:
-  cmd.run:
-    - name: 'dism /online /cleanup-image /revertpendingactions'
-    - shell: cmd
-
 wsl-install:
-  cmd.run:
-    - name: 'dism /online /quiet /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart'
-    - shell: cmd
-    - success_retcodes: 3010
-    - require:
-      - cmd: wsl-dism-cleanup
-
-vmp-install:
   cmd.run:
     - name: 'wsl --install --no-distribution'
     - shell: cmd
     - success_retcodes: 3010
+
+wsl-default-version:
+  cmd.run:
+    - name: 'wsl --set-default-version 2'
+    - shell: cmd
     - require:
       - cmd: wsl-install
+
+wsl-shutdown-after-install:
+  cmd.run:
+    - name: 'wsl --shutdown'
+    - shell: cmd
+    - require:
+      - cmd: wsl-install
+      - cmd: wsl-default-version
+
+wsl-update-wslconfig:
+  ini.options_present:
+    - name: '{{ home }}\.wslconfig'
+    - separator: '='
+    - no_spaces: True
+    - sections:
+        wsl2:
+          networkingMode: mirrored
+          dnsTunneling: 'true'
+          firewall: 'true'
+    - require:
+      - cmd: wsl-default-version
+      - cmd: wsl-install
+      - cmd: wsl-shutdown-after-install
 
 powershell-execution-policy:
   reg.present:
@@ -173,7 +195,6 @@ wsl-config-run-on-reboot:
     - vdata: 'C:\Windows\system32\cmd.exe /q /c C:\salt\tempdownload\wsl-config.cmd'
     - require:
       - cmd: wsl-install
-      - cmd: vmp-install
       - file: wsl-config-stager
       - file: wsl-powershell-stager
       - file: wsl-powershell-stager-customize
@@ -194,7 +215,6 @@ system-restart:
     - only_on_pending_reboot: False
     - require:
       - cmd: wsl-install
-      - cmd: vmp-install
       - file: wsl-config-stager
       - file: wsl-powershell-stager
       - file: wsl-powershell-stager-customize
@@ -202,3 +222,41 @@ system-restart:
       - file: wsl-powershell-stager-customize-pillar
       - file: wsl-powershell-stager-customize-title
       - reg: wsl-config-run-on-reboot
+
+{% else %}
+
+include:
+  - winfor.wsl.wsl-config
+
+wsl-default-version-wsl-installed:
+  cmd.run:
+    - name: 'wsl --set-default-version 2'
+    - shell: cmd
+
+wsl-shutdown-wsl-installed:
+  cmd.run:
+    - name: 'wsl --shutdown'
+    - shell: cmd
+    - require:
+      - cmd: wsl-default-version-wsl-installed
+
+wsl-update-wslconfig-wsl-installed:
+  ini.options_present:
+    - name: '{{ home }}\.wslconfig'
+    - separator: '='
+    - no_spaces: True
+    - sections:
+        wsl2:
+          networkingMode: mirrored
+          dnsTunneling: 'true'
+          firewall: 'true'
+    - require:
+      - cmd: wsl-default-version-wsl-installed
+      - cmd: wsl-shutdown-wsl-installed
+
+Installed {{ wsl_text }}:
+  test.nop:
+    - require:
+      - sls: winfor.wsl.wsl-config
+
+{% endif %}

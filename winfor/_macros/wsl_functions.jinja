@@ -1,0 +1,67 @@
+{# winfor/_macros/wsl_functions.jinja #}
+
+{% macro wsl_install(id_dir, id_install, path, install_cmd, vhdx, extra_require='') %}
+{{ id_dir }}:
+  file.directory:
+    - name: '{{ path }}\'
+    - win_inheritance: True
+    - makedirs: True
+    - unless:
+      - fun: file.file_exists
+        path: '{{ vhdx }}'
+
+{{ id_install }}:
+  cmd.run:
+    - name: '{{ install_cmd }}'
+    - shell: cmd
+    - unless:
+      - fun: file.file_exists
+        path: '{{ vhdx }}'
+      - file: {{ id_dir }}
+      {% if extra_require %}
+      {{ extra_require }}
+      {% endif %}
+{% endmacro %}
+
+{% macro wsl_apt_update(id, cmd, require_id) %}
+{{ id }}:
+  cmd.run:
+    - name: {{ cmd }} bash -c "apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -o Dpkg::Options::='--force-confold' -o Dpkg::Options::='--force-confdef' dist-upgrade -q -y --allow-downgrades --allow-remove-essential --allow-change-held-packages && DEBIAN_FRONTEND=noninteractive apt-get install wget gnupg git openssh-server nano xrdp -y"
+    - shell: cmd
+    - require:
+      - cmd: {{ require_id }}
+{% endmacro %}
+
+{% macro wsl_bootstrap_user(id, cmd, require_install, require_apt, user_pass) %}
+{{ id }}:
+  cmd.run:
+    - name: |
+        {{ cmd }} bash -c "getent group forensics || groupadd -r -g 1000 forensics; id forensics || useradd -m -g forensics -d /home/forensics -s /bin/bash -c 'Forensics User' -u 1000 forensics; usermod -aG sudo forensics; echo '{{ user_pass }}' | chpasswd"
+    - shell: cmd
+    - unless: '{{ cmd }} id forensics'
+    - require:
+      - cmd: {{ require_install }}
+      - cmd: {{ require_apt }}
+{% endmacro %}
+
+{% macro wsl_diskpart_compact(id_script, id_compact, vhdx, script_path, require_shutdown) %}
+{{ id_script }}:
+  file.managed:
+    - name: '{{ script_path }}'
+    - contents: |
+        select vdisk file="{{ vhdx }}"
+        attach vdisk readonly
+        compact vdisk
+        detach vdisk
+        exit
+    - makedirs: True
+    - force: True
+
+{{ id_compact }}:
+  cmd.run:
+    - name: 'diskpart /s {{ script_path }}'
+    - shell: cmd
+    - require:
+      - file: {{ id_script }}
+      - cmd: {{ require_shutdown }}
+{% endmacro %}
