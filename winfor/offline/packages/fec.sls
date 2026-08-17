@@ -4,10 +4,10 @@
 # Category: Email
 # Author: Arman Gungor - Metaspike
 # License:
-# Version: 4.5.848.87
+# Version: 4.5.888.111
 # Notes:
 
-{% set version = '4.5.848.87' %}
+{% set version = '4.5.888.111' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set pkg = 'fec-'~ version ~'.msi' %}
 {% set exists = salt['file.file_exists'](downloads + '\\fec\\' + pkg) %}

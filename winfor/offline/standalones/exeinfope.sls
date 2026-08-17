@@ -4,10 +4,10 @@
 # Category: Executables
 # Author: ExeinfoASL
 # License: None Listed
-# Version: 0.0.9.8
+# Version: 0.0.9.9
 # Notes: 
 
-{% set version = '0.0.9.8' %}
+{% set version = '0.0.9.9' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
