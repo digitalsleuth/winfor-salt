@@ -4,10 +4,10 @@
 # Category: Documents / Editors
 # Author: Jose Miguel Esparza and Corey Forman
 # License: GNU General Public License (GPL) v3: https://github.com/digitalsleuth/peepdf-3/blob/main/COPYING
-# Version: 5.4.0
+# Version: 6.0.1
 # Notes:
 
-{% set version = '5.4.0' %}
+{% set version = '6.0.1' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
@@ -23,7 +23,7 @@ peepdf-3-folder-download-only:
 
 peepdf-3-download-only:
   cmd.run:
-    - name: '{{ inpath }}\portable-python3\python.exe -m pip download -d packages peepdf-3'
+    - name: '{{ inpath }}\portable-python3\python.exe -m pip download -d packages peepdf-3[gui]'
     - cwd: '{{ downloads }}\peepdf-3\'
     - require:
       - sls: winfor.standalones.portable-python3
