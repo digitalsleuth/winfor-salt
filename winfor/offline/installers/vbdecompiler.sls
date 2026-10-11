@@ -4,10 +4,10 @@
 # Category: Executables
 # Author: DotFix Software
 # License: https://www.vb-decompiler.org/license.htm
-# Version: 26.4
+# Version: 26.5
 # Notes: 
 
-{% set version = '26.4' %}
+{% set version = '26.5' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set pkg = 'vb-decompiler-'~ version ~'.zip' %}
 {% set exists = salt['file.file_exists'](downloads + '\\vb-decompiler\\' + pkg) %}
