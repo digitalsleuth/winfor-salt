@@ -7,7 +7,7 @@
 # Version: 2.27.0
 # Notes: Downgraded from 2.28.x until Win 11 memory parsing issues resolved
 
-{% set version = "2.27.0" %}
+{% set version = '2.27.0' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set pkg = 'volatility3-'~ version ~'-py3-none-any.whl' %}
 {% set exists = salt['file.file_exists'](downloads + '\\volatility3\\packages\\' + pkg) %}

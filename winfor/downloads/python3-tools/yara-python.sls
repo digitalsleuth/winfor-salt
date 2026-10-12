@@ -7,7 +7,7 @@
 # Version: 4.5.4
 # Notes:
 
-{% set version = "4.5.4" %}
+{% set version = '4.5.4' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 

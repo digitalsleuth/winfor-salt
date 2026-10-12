@@ -7,7 +7,7 @@
 # Version: 2.27.0
 # Notes: Downgraded from 2.28.x until Win 11 memory parsing issues are resolved
 
-{% set version = "2.27.0" %}
+{% set version = '2.27.0' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 

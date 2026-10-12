@@ -7,7 +7,7 @@
 # Version: 5.1.0
 # Notes: 
 
-{% set version = "5.1.0" %}
+{% set version = '5.1.0' %}
 {% set PROGRAMDATA = salt["environ.get"]("PROGRAMDATA") %}
 {% set PROGRAMFILESX86 = salt['environ.get']('PROGRAMFILES(x86)') %}
 

@@ -7,8 +7,8 @@
 # Version: 21.3
 # Notes:
 
-{% set version = "21.3" %}
-{% set xviewer_ver = "857" %}
+{% set version = '21.3' %}
+{% set xviewer_ver = '857' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}

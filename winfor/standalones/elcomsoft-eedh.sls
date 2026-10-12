@@ -9,7 +9,7 @@
 
 {% set inpath = salt["pillar.get"]("inpath", "C:\standalone") %}
 {% set version = '1.10' %}
-{% set hash =  'c0187e4cef3598a649d29195b88e8f9df72b79974d667aebadd2c9e806a033df' %}
+{% set hash = 'c0187e4cef3598a649d29195b88e8f9df72b79974d667aebadd2c9e806a033df' %}
 {% set PROGRAMDATA = salt["environ.get"]("PROGRAMDATA") %}
 
 create-temp-directory-for-eedh:

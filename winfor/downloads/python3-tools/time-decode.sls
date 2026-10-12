@@ -4,10 +4,10 @@
 # Category: Raw Parsers / Decoders
 # Author: Corey Forman
 # License: MIT License (https://github.com/digitalsleuth/time_decode/blob/master/LICENSE)
-# Version: 10.4.0
+# Version: 11.0.0
 # Notes:
 
-{% set version = '10.4.0' %}
+{% set version = '11.0.0' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
@@ -24,7 +24,7 @@ time-decode-python-folder-download-only:
 
 time-decode-python-download-only:
   cmd.run:
-    - name: '{{ inpath }}\portable-python3\python.exe -m pip download -d packages time-decode'
+    - name: '{{ inpath }}\portable-python3\python.exe -m pip download -d packages time-decode[gui]'
     - cwd: '{{ downloads }}\time-decode\'
     - require:
       - sls: winfor.standalones.portable-python3

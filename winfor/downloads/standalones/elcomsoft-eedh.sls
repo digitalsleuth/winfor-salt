@@ -8,7 +8,7 @@
 # Notes:
 
 {% set version = '1.10' %}
-{% set hash =  'c0187e4cef3598a649d29195b88e8f9df72b79974d667aebadd2c9e806a033df' %}
+{% set hash = 'c0187e4cef3598a649d29195b88e8f9df72b79974d667aebadd2c9e806a033df' %}
 {% set downloads = salt["pillar.get"]('downloads', 'C:\winfor-downloads') %}
 
 create-downloads-directory-for-eedh-download-only:

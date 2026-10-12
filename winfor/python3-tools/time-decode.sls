@@ -4,16 +4,17 @@
 # Category: Raw Parsers / Decoders
 # Author: Corey Forman
 # License: MIT License (https://github.com/digitalsleuth/time_decode/blob/master/LICENSE)
-# Version: 10.4.0
+# Version: 11.0.0
 # Notes: 
 
-{% set version = '10.4.0' %}
+{% set version = '11.0.0' %}
 
 include:
   - winfor.packages.python3
 
 time-decode:
   pip.installed:
+    - name: 'time-decode[gui]'
     - bin_env: 'C:\Program Files\Python310\python.exe'
     - upgrade: True
     - require:

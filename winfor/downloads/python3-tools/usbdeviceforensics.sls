@@ -7,7 +7,7 @@
 # Version: 1.0.0
 # Notes:
 
-{% set version = "1.0.0" %}
+{% set version = '1.0.0' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set hash = '67759eb39fcbfe99c98e1433ea05112633c9e6a43f252b6bd8679e95df190ab9' %}

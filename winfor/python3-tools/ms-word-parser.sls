@@ -7,7 +7,7 @@
 # Version: 3.0.1
 # Notes:
 
-{% set version = "3.0.1" %}
+{% set version = '3.0.1' %}
 
 include:
   - winfor.packages.python3
