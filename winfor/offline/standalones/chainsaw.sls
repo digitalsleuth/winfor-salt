@@ -4,11 +4,11 @@
 # Category: Logs
 # Author: WithSecureLabs / Countercept
 # License: GNU General Public License v3.0 (https://github.com/WithSecureLabs/chainsaw/blob/master/LICENCE)
-# Version: 2.16.0
+# Version: 2.17.1
 # Notes:
 
 # renovate: datasource=github-releases depName=WithSecureLabs/chainsaw
-{% set version = '2.16.0' %}
+{% set version = '2.17.1' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
