@@ -4,11 +4,11 @@
 # Category: Mobile Analysis
 # Author: Connor Tumbleson et al (https://github.com/iBotPeaches/Apktool/blob/master/CONTRIBUTORS.md)
 # License: Apache License v2 (https://github.com/iBotPeaches/Apktool/blob/master/LICENSE.md)
-# Version: 2.12.1
+# Version: 3.0.3
 # Notes: JAR file, requires Java
 
 # renovate: datasource=github-releases depName=iBotPeaches/Apktool
-{% set version = '2.12.1' %}
+{% set version = '3.0.3' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set pkg = 'apktool-'~ version ~'.jar' %}
