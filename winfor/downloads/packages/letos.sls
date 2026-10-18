@@ -4,11 +4,11 @@
 # Category: Databases
 # Author: Pawel Salawa
 # License: GNU General Public License v3 (https://github.com/pawelsalawa/letos/blob/master/LICENSE)
-# Version: 4.0.0
+# Version: 4.0.4
 # Notes: 
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '4.0.0' %}
+{% set version = '4.0.4' %}
 {% set hash = '0984b245810a758ef0863a45e9f6c5416e2640dd3ed42f8696eda63bbdeb38c5' %}
 
 letos-download-only:

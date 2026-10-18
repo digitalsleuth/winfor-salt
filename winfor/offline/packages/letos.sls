@@ -4,11 +4,11 @@
 # Category: Databases
 # Author: Pawel Salawa
 # License: GNU General Public License v3 (https://github.com/pawelsalawa/letos/blob/master/LICENSE)
-# Version: 4.0.0
+# Version: 4.0.4
 # Notes: 
 
 # renovate: datasource=github-releases depName=pawelsalawa/letos
-{% set version = '4.0.0' %}
+{% set version = '4.0.4' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set pkg = 'letos-'~ version ~'.exe' %}
 {% set exists = salt['file.file_exists'](downloads + '\\letos\\' + pkg) %}
