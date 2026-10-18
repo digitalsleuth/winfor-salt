@@ -4,7 +4,7 @@
 # Category: Raw Parsers / Decoders
 # Author: The National Archives
 # License: BSD License (https://raw.github.com/digital-preservation/droid/master/license.md)
-# Version: 6.9.12
+# Version: 6.9.14
 # Notes: Command Line and GUI, this will utilize the GUI by default
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
