@@ -4,13 +4,13 @@
 # Category: Raw Parsers / Decoders
 # Author: The National Archives
 # License: BSD License (https://raw.github.com/digital-preservation/droid/master/license.md)
-# Version: 6.9.12
+# Version: 6.9.14
 # Notes: Command Line and GUI, this will utilize the GUI by default
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 # renovate: datasource=github-releases depName=digital-preservation/droid
-{% set version = '6.9.12' %}
+{% set version = '6.9.14' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set pkg = 'droid-'~ version ~'.zip' %}
 {% set exists = salt['file.file_exists'](downloads + '\\droid\\' + pkg) %}
