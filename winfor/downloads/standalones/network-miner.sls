@@ -14,6 +14,6 @@
 network-miner-download-only:
   file.managed:
     - name: '{{ downloads }}\networkminer\networkminer-{{ version }}.zip'
-    - source: https://download.netresec.com/networkminer/NetworkMiner_3-2.zip
+    - source: https://download.netresec.com/networkminer/NetworkMiner_{{ version | replace('.','-') }}.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True
