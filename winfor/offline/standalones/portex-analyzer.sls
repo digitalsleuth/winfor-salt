@@ -4,11 +4,11 @@
 # Category: Executables
 # Author: Karsten Hahn
 # License: Apache License 2.0 (https://github.com/struppigel/PortexAnalyzerGUI/blob/main/LICENSE)
-# Version: 0.13.2
+# Version: 1.0.0
 # Notes:
 
 # renovate: datasource=github-releases depName=struppigel/PortexAnalyzerGUI
-{% set version = '0.13.2' %}
+{% set version = '1.0.0' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
