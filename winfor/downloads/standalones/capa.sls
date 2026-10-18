@@ -4,10 +4,10 @@
 # Category: Executables
 # Author: Mandiant
 # License: Apache License 2.0 (https://github.com/mandiant/capa/blob/master/LICENSE.txt)
-# Version: 9.4.0
+# Version: 10.0.0
 # Notes: 
 
-{% set version = '9.4.0' %}
+{% set version = '10.0.0' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set hash = '670ab1a58b81f59cb57533bf4021ac1e7033fbe9b5d5cc180f796976081e3bb5' %}
 
