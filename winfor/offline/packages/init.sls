@@ -46,7 +46,6 @@ include:
   - winfor.offline.packages.irfanview-plugins
   - winfor.offline.packages.irfanview
   - winfor.offline.packages.itunes-backup-explorer
-  - winfor.offline.packages.itunes
   - winfor.offline.packages.jdk17
   - winfor.offline.packages.jdk21
   - winfor.offline.packages.kernel-edb-viewer
@@ -81,7 +80,6 @@ include:
   - winfor.offline.packages.putty
   - winfor.offline.packages.python3
   - winfor.offline.packages.razorsql-x64
-  - winfor.offline.packages.registry-viewer
   - winfor.offline.packages.reko
   - winfor.offline.packages.resource-hacker
   - winfor.offline.packages.saltstack
@@ -155,7 +153,6 @@ winfor-offline-packages-states:
       - sls: winfor.offline.packages.irfanview-plugins
       - sls: winfor.offline.packages.irfanview
       - sls: winfor.offline.packages.itunes-backup-explorer
-      - sls: winfor.offline.packages.itunes
       - sls: winfor.offline.packages.jdk17
       - sls: winfor.offline.packages.jdk21
       - sls: winfor.offline.packages.kernel-edb-viewer
@@ -190,7 +187,6 @@ winfor-offline-packages-states:
       - sls: winfor.offline.packages.putty
       - sls: winfor.offline.packages.python3
       - sls: winfor.offline.packages.razorsql-x64
-      - sls: winfor.offline.packages.registry-viewer
       - sls: winfor.offline.packages.reko
       - sls: winfor.offline.packages.resource-hacker
       - sls: winfor.offline.packages.saltstack

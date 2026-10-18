@@ -1,0 +1,34 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "enabledManagers": ["custom.regex"],
+  "timezone": "America/Toronto",
+  "schedule": ["after 6pm"],
+  "packageRules": [
+    {
+      "matchDatasources": ["github-releases"],
+      "extractVersion": "^v?(?<version>.+)$"
+    }
+  ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "GitHub tools: repo comes from the source URL",
+      "managerFilePatterns": ["/^winfor/(downloads/|offline/)?(installers|packages|python3-tools|standalones)/[^/]+\\.sls$/"],
+      "matchStringsStrategy": "combination",
+      "matchStrings": [
+        "\\{% set version = ['\"](?<currentValue>[^'\"]+)['\"] %\\}",
+        "https://github\\.com/(?<depName>[\\w.-]+/[\\w.-]+)/(?:releases/download|archive/refs/tags)/"
+      ],
+      "datasourceTemplate": "github-releases"
+    },
+    {
+      "customType": "regex",
+      "description": "Annotated states (offline GitHub, PyPI)",
+      "managerFilePatterns": ["/^winfor/(downloads/|offline/)?(installers|packages|python3-tools|standalones)/[^/]+\\.sls$/"],
+      "matchStrings": [
+        "# renovate: datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)\\r?\\n\\{% set version = ['\"](?<currentValue>[^'\"]+)['\"] %\\}"
+      ]
+    }
+  ]
+}

@@ -9,7 +9,6 @@
 
 {% set version = '5.0' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
-{% set hash = '16b18d0a7bd89b5469772bc5e0c5b7b56dc7175e0c0e5d9fbe3539c7bd2a616a' %}
 {% set PS_PATHS = salt['environ.get']('PSMODULEPATH') %}
 {% set pkg = 'psdecode-'~ version ~'.psm1' %}
 {% set exists = salt['file.file_exists'](downloads + '\\psdecode\\' + pkg) %}
