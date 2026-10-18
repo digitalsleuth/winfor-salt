@@ -4,12 +4,12 @@
 # Category: Utilities
 # Author: Microsoft
 # License: MIT License (https://github.com/microsoft/winget-cli/blob/master/LICENSE)
-# Version: 1.28.240
+# Version: 1.29.380
 # Notes: 
 
 {% set user = salt['pillar.get']('winfor_user', 'forensics') %}
 {% set LOCALAPPDATA = salt['environ.get']('LOCALAPPDATA') %}
-{% set version = '1.28.240' %}
+{% set version = '1.29.380' %}
 {% set winget_version = salt['cmd.powershell']('$(try { winget -v } catch { "0" }).split("v")[1]') %}
 
 {% if version > winget_version and winget_version != '0' %}
