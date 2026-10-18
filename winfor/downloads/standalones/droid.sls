@@ -7,7 +7,7 @@
 # Version: 6.9.12
 # Notes: Command Line and GUI, this will utilize the GUI by default, updates signature database on install
 
-{% set version = '6.9.12' %}
+{% set version = '6.9.14' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set hash = 'd89e38cbddab1ec6676cbe565387b78821b2d285446fb668f86b9c9107c7eac0' %}
 
