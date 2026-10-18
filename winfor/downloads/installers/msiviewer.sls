@@ -4,10 +4,10 @@
 # Category: Installers
 # Author: William Kent
 # License: MIT (https://github.com/wjk/MSIExtractApp/blob/main/LICENSE)
-# Version: 3.1.2
+# Version: 4.0.1
 # Notes: 
 
-{% set version = '3.1.2' %}
+{% set version = '4.0.1' %}
 {% set hash = '9c3e9f77438d88419fca795879898ad576b46d34d6ce9cbb7ba74b9368d1f194' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
