@@ -7,6 +7,7 @@
 # Version: 3.2.25011.2103
 # Notes: Formerly process hacker
 
+# renovate: datasource=github-releases depName=winsiderss/systeminformer
 {% set version = '3.2.25011.2103' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set pkg = 'systeminformer-'~ version ~'.exe' %}

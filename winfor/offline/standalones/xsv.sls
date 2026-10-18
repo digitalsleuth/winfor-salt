@@ -7,6 +7,7 @@
 # Version: 0.13.0
 # Notes: 
 
+# renovate: datasource=github-releases depName=BurntSushi/xsv
 {% set version = '0.13.0' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}

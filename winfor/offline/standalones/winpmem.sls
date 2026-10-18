@@ -7,6 +7,7 @@
 # Version: 4.0.rc2
 # Notes:
 
+# renovate: datasource=github-releases depName=Velocidex/WinPmem
 {% set version = '4.0.rc1' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}

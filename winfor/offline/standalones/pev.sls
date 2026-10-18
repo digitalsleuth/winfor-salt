@@ -7,6 +7,7 @@
 # Version: 0.82
 # Notes:
 
+# renovate: datasource=github-releases depName=mentebinaria/readpe
 {% set version = '0.82' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}

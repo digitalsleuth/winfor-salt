@@ -7,6 +7,7 @@
 # Version: 0.12.3
 # Notes:
 
+# renovate: datasource=github-releases depName=uxmal/reko
 {% set version = '0.12.3' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set pkg = 'reko-'~ version ~'.msi' %}

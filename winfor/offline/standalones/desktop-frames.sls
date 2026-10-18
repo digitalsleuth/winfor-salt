@@ -7,6 +7,7 @@
 # Version: 2.7.7.294
 # Notes: 
 
+# renovate: datasource=github-releases depName=limbo666/DesktopFramesPlus
 {% set version = '2.7.7.294' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}

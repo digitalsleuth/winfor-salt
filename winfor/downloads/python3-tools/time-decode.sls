@@ -7,6 +7,7 @@
 # Version: 11.0.0
 # Notes:
 
+# renovate: datasource=pypi depName=time-decode
 {% set version = '11.0.0' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}

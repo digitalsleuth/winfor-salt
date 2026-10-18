@@ -7,6 +7,7 @@
 # Version: 3.0.1
 # Notes:
 
+# renovate: datasource=pypi depName=ms-word-parser
 {% set version = '3.0.1' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}

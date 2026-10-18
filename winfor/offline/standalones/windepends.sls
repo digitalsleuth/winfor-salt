@@ -7,6 +7,7 @@
 # Version: 1.0.0.2512
 # Notes: In Beta
 
+# renovate: datasource=github-releases depName=hfiref0x/WinDepends
 {% set version = '1.0.0.2512' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}

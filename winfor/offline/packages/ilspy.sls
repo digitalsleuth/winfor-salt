@@ -7,6 +7,7 @@
 # Version: 10.1.0.8386
 # Notes:
 
+# renovate: datasource=github-releases depName=icsharpcode/ILSpy
 {% set version = '10.1.0.8386' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set pkg = 'ilspy-'~ version ~'.msi' %}

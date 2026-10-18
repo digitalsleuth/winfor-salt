@@ -7,6 +7,7 @@
 # Version: 2.12
 # Notes: 
 
+# renovate: datasource=github-releases depName=Konloch/bytecode-viewer
 {% set version = '2.12' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}

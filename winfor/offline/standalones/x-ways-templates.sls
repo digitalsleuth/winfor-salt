@@ -7,6 +7,7 @@
 # Version: 0.0.2
 # Notes:
 
+# renovate: datasource=github-releases depName=digitalsleuth/xways-templates
 {% set version = '0.0.2' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}

@@ -7,6 +7,7 @@
 # Version: 11.0.0
 # Notes: 
 
+# renovate: datasource=pypi depName=time-decode
 {% set version = '11.0.0' %}
 
 include:

@@ -7,6 +7,7 @@
 # Version: 6.0.0
 # Notes: 
 
+# renovate: datasource=pypi depName=msoffcrypto-tool
 {% set version = '6.0.0' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set pkg = 'msoffcrypto_tool-'~ version ~'-py3-none-any.whl' %}

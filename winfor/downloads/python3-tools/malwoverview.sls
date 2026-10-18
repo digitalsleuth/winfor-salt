@@ -11,6 +11,7 @@ include:
   - winfor.downloads.packages.python3
   - winfor.standalones.portable-python3
 
+# renovate: datasource=pypi depName=malwoverview
 {% set version = '8.0.5' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}

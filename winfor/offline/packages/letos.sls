@@ -7,6 +7,7 @@
 # Version: 4.0.0
 # Notes: 
 
+# renovate: datasource=github-releases depName=pawelsalawa/letos
 {% set version = '4.0.0' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set pkg = 'letos-'~ version ~'.exe' %}

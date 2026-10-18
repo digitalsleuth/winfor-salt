@@ -7,6 +7,7 @@
 # Version: 2.49.0
 # Notes: 
 
+# renovate: datasource=github-releases depName=git-for-windows/git
 {% set version = '2.49.0' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set pkg = 'git-'~ version ~'.exe' %}

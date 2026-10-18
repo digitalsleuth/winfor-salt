@@ -7,6 +7,7 @@
 # Version: 3.0.0
 # Notes:
 
+# renovate: datasource=github-releases depName=eichbaumj/Backup2FS
 {% set version = '3.0.0' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set pkg = 'backup2fs-'~ version ~'.exe' %}

@@ -7,6 +7,7 @@
 # Version: 0.8
 # Notes: Sample Usage - https://www.mandiant.com/resources/blog/silketw-because-free-telemetry-is-free
 
+# renovate: datasource=github-releases depName=mandiant/SilkETW
 {% set version = '0.8' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}

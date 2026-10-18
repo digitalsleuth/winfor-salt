@@ -7,6 +7,7 @@
 # Version: 1.0.4
 # Notes:
 
+# renovate: datasource=github-releases depName=prosch88/UFADE
 {% set version = '1.0.4' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}

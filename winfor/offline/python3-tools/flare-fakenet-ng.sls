@@ -7,6 +7,7 @@
 # Version: 3.5
 # Notes: 
 
+# renovate: datasource=github-releases depName=mandiant/flare-fakenet-ng
 {% set version = '3.5' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}

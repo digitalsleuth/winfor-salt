@@ -7,6 +7,7 @@
 # Version: 2.18.4.3
 # Notes:
 
+# renovate: datasource=github-releases depName=finbarr996/First-Response-CaseNotes
 {% set version = '2.18.4.3' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set user = salt['pillar.get']('winfor_user', 'forensics') %}

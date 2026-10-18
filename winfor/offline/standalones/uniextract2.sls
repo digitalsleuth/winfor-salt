@@ -7,6 +7,7 @@
 # Version: 2.0.0-rc3
 # Notes: 
 
+# renovate: datasource=github-releases depName=Bioruebe/UniExtract2
 {% set version = '2.0.0-rc.3' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}

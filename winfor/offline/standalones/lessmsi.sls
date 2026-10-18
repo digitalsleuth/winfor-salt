@@ -7,6 +7,7 @@
 # Version: 2.12.9
 # Notes: 
 
+# renovate: datasource=github-releases depName=activescott/lessmsi
 {% set version = '2.12.9' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}

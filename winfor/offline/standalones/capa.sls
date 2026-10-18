@@ -7,6 +7,7 @@
 # Version: 9.4.0
 # Notes: 
 
+# renovate: datasource=github-releases depName=mandiant/capa
 {% set version = '9.4.0' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}

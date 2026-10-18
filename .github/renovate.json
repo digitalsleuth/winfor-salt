@@ -8,6 +8,11 @@
     {
       "matchDatasources": ["github-releases"],
       "extractVersion": "^v?(?<version>.+)$"
+    },
+    {
+      "description": "ms-word-parser is two different formats, but only needs one PR",
+      "matchDepNames": ["jjrboucher/MS-Word-Parser", "ms-word-parser"],
+      "groupName": "ms-word-parser"
     }
   ],
   "customManagers": [

@@ -7,6 +7,7 @@
 # Version: 1.8.2
 # Notes: 
 
+# renovate: datasource=github-releases depName=jqlang/jq
 {% set version = '1.8.2' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}

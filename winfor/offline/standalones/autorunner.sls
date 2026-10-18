@@ -7,6 +7,7 @@
 # Version: 0.0.16
 # Notes: 
 
+# renovate: datasource=github-releases depName=woanware/autorunner
 {% set version = '0.0.16' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}

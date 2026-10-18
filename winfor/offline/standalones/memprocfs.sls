@@ -7,6 +7,7 @@
 # Version: 5.17.6
 # Notes: 
 
+# renovate: datasource=github-releases depName=ufrisk/MemProcFS
 {% set version = '5.17.6' %}
 {% set date = '20260426' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}

@@ -7,6 +7,7 @@
 # Version: 0.1.0.0
 # Notes: 
 
+# renovate: datasource=github-releases depName=ExeinfoASL/ASL
 {% set version = '0.1.0.0' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}

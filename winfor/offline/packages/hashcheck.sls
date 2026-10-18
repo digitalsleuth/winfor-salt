@@ -7,6 +7,7 @@
 # Version: 2.4.0.55
 # Notes:
 
+# renovate: datasource=github-releases depName=gurnec/HashCheck
 {% set version = '2.4.0' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set pkg = 'hashcheck-'~ version ~'.exe' %}

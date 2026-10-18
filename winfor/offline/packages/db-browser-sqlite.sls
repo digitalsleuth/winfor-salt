@@ -7,6 +7,7 @@
 # Version: 3.13.1
 # Notes: 
 
+# renovate: datasource=github-releases depName=sqlitebrowser/sqlitebrowser
 {% set version = '3.13.1' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set pkg = 'db-browser-sqlite-'~ version ~'.msi' %}

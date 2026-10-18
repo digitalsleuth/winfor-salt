@@ -7,6 +7,7 @@
 # Version: 3.1.2
 # Notes:
 
+# renovate: datasource=github-releases depName=wjk/MSIExtractApp
 {% set version = '3.1.2' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}

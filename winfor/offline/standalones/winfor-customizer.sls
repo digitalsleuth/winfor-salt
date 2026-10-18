@@ -7,6 +7,7 @@
 # Version: 11.1.0
 # Notes: 
 
+# renovate: datasource=github-releases depName=digitalsleuth/WIN-FOR
 {% set version = '11.1.0' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}

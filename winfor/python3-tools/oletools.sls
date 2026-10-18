@@ -7,6 +7,7 @@
 # Version: 0.60.2
 # Notes: 
 
+# renovate: datasource=pypi depName=oletools
 {% set version = '0.60.2' %}
 
 include:

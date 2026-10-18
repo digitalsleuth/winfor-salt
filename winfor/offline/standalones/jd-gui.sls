@@ -7,6 +7,7 @@
 # Version: 1.6.6
 # Notes: 
 
+# renovate: datasource=github-releases depName=java-decompiler/jd-gui
 {% set version = '1.6.6' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}

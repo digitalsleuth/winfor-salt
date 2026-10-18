@@ -7,6 +7,7 @@
 # Version: 1.28.240
 # Notes:
 
+# renovate: datasource=github-releases depName=microsoft/winget-cli
 {% set version = '1.28.240' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set winget_version = salt['cmd.powershell']('$(try { winget -v } catch { "0" }).split("v")[1]') %}

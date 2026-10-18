@@ -7,6 +7,7 @@
 # Version: 1.0.80
 # Notes:
 
+# renovate: datasource=github-releases depName=kacos2000/MFT_Browser
 {% set version = '1.0.80' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}

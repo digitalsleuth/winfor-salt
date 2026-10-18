@@ -7,6 +7,7 @@
 # Version: 3.2
 # Notes: 
 
+# renovate: datasource=github-releases depName=MarkBaggett/srum-dump
 {% set version = '3.2' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}

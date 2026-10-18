@@ -7,6 +7,7 @@
 # Version: 0.6.6
 # Notes: 
 
+# renovate: datasource=github-releases depName=cyb3rfox/Aurora-Incident-Response
 {% set version = '0.6.6' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}

@@ -7,6 +7,7 @@
 # Version: 0.47
 # Notes: 
 
+# renovate: datasource=pypi depName=olefile
 {% set version = '0.47' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set pkg = 'olefile-'~ version ~'-py2.py3-none-any.whl' %}

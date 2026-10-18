@@ -7,6 +7,7 @@
 # Version: 2.2.1
 # Notes: 
 
+# renovate: datasource=github-releases depName=BeanBagKing/EventFinder2
 {% set version = '2.2.1' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
