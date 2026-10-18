@@ -4,11 +4,11 @@
 # Category: Acquisition and Analysis
 # Author: https://github.com/log2timeline/plaso/blob/main/AUTHORS
 # License: Apache License v2 (https://github.com/log2timeline/plaso/blob/main/LICENSE)
-# Version: 20260512
+# Version: 20260720
 # Notes: log2timeline.py, psort.py, psteal.py
 
 # renovate: datasource=pypi depName=plaso
-{% set version = '20260512' %}
+{% set version = '20260720' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set pkg = 'plaso-'~ version ~'.tar.gz' %}
 {% set exists = salt['file.file_exists'](downloads + '\\plaso\\packages\\' + pkg) %}
