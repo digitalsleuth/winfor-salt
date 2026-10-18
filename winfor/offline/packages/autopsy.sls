@@ -7,6 +7,7 @@
 # Version: 4.22.0
 # Notes: 
 
+# renovate: datasource=github-releases depName=sleuthkit/autopsy
 {% set version = '4.22.0' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAM_FILES = "%ProgramFiles%" %}

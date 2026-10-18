@@ -7,6 +7,7 @@
 # Version: 0.64.0
 # Notes:
 
+# renovate: datasource=github-releases depName=solemnwarning/rehex
 {% set version = '0.64.0' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}

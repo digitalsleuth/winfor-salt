@@ -7,6 +7,7 @@
 # Version: 1.7
 # Notes: MSI install comes with everything required in 1.7+
 
+# renovate: datasource=github-releases depName=MaxiHuHe04/iTunes-Backup-Explorer
 {% set version = '1.7' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set pkg = 'itunes-backup-explorer-'~ version ~'.msi' %}

@@ -7,6 +7,7 @@
 # Version: 2026.07.03
 # Notes: 
 
+# renovate: datasource=github-releases depName=pyinstxtractor/pyinstxtractor-ng
 {% set version = '2026.07.03' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}

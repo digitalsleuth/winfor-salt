@@ -7,6 +7,7 @@
 # Version: 2026.04
 # Notes:
 
+# renovate: datasource=github-releases depName=obsidianforensics/hindsight
 {% set version = '2026.04' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}

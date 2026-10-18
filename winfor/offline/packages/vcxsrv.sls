@@ -7,6 +7,7 @@
 # Version: 21.1.16.1
 # Notes: 
 
+# renovate: datasource=github-releases depName=marchaesen/vcxsrv
 {% set version = '21.1.16.1' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set pkg = 'vcxsrv-'~ version ~'.exe' %}

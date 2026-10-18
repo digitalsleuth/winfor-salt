@@ -7,6 +7,7 @@
 # Version: 3.9.3
 # Notes: 
 
+# renovate: datasource=pypi depName=decompyle3
 {% set version = '3.9.3' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}

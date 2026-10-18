@@ -7,6 +7,7 @@
 # Version: 6.0.0
 # Notes: 
 
+# renovate: datasource=pypi depName=msoffcrypto-tool
 {% set version = '6.0.0' %}
 
 include:

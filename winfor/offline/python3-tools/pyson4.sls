@@ -7,6 +7,7 @@
 # Version: 1.2.0
 # Notes: pyson4, pyson4.py
 
+# renovate: datasource=github-releases depName=digitalsleuth/pyson4
 {% set version = '1.2.0' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set pkg = 'pyson4.py' %}

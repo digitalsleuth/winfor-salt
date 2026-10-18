@@ -7,6 +7,7 @@
 # Version: 1.26.29
 # Notes: 
 
+# renovate: datasource=github-releases depName=veracrypt/VeraCrypt
 {% set version = '1.26.29' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set pkg = 'veracrypt-'~ version ~'.msi' %}

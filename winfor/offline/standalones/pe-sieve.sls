@@ -7,6 +7,7 @@
 # Version: 0.4.1.1
 # Notes: 
 
+# renovate: datasource=github-releases depName=hasherezade/pe-sieve
 {% set version = '0.4.1.1' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}

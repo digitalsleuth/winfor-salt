@@ -7,6 +7,7 @@
 # Version: 8.0.5
 # Notes: 
 
+# renovate: datasource=pypi depName=malwoverview
 {% set version = '8.0.5' %}
 
 include:

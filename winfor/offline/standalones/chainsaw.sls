@@ -7,6 +7,7 @@
 # Version: 2.16.0
 # Notes:
 
+# renovate: datasource=github-releases depName=WithSecureLabs/chainsaw
 {% set version = '2.16.0' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}

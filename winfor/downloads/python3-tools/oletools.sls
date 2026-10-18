@@ -7,6 +7,7 @@
 # Version: 0.60.2
 # Notes: 
 
+# renovate: datasource=pypi depName=oletools
 {% set version = '0.60.2' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}

@@ -7,6 +7,7 @@
 # Version: 10.4.2
 # Notes:
 
+# renovate: datasource=github-releases depName=digitalsleuth/time_decode
 {% set version = '10.4.2' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}

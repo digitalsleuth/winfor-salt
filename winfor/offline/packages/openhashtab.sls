@@ -7,6 +7,7 @@
 # Version: 3.0.5
 # Notes: 
 
+# renovate: datasource=github-releases depName=namazso/OpenHashTab
 {% set version = '3.0.5' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set pkg = 'openhashtab-'~ version ~'.exe' %}

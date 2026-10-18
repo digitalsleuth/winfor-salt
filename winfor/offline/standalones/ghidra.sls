@@ -7,6 +7,7 @@
 # Version: 12.1.2
 # Notes: 
 
+# renovate: datasource=github-releases depName=NationalSecurityAgency/ghidra
 {% set version = '12.1.2' %}
 {% set date = '20260605' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}

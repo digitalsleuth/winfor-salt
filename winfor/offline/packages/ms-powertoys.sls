@@ -7,6 +7,7 @@
 # Version: 0.100.0
 # Notes:
 
+# renovate: datasource=github-releases depName=microsoft/PowerToys
 {% set version = '0.100.0' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set pkg = 'powertoys-'~ version ~'.exe' %}

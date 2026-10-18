@@ -7,6 +7,7 @@
 # Version: 2.1.0
 # Notes: 
 
+# renovate: datasource=github-releases depName=digitalsleuth/hash-generator
 {% set version = '2.1.0' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}

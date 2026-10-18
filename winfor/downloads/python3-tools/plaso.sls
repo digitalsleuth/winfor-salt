@@ -7,6 +7,7 @@
 # Version: 20260512
 # Notes: log2timeline.py, psort.py, psteal.py
 
+# renovate: datasource=pypi depName=plaso
 {% set version = '20260512' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}

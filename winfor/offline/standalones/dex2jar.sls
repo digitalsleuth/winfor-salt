@@ -7,6 +7,7 @@
 # Version: 2.4
 # Notes: 
 
+# renovate: datasource=github-releases depName=pxb1988/dex2jar
 {% set version = '2.4' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}

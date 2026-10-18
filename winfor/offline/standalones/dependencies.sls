@@ -7,6 +7,7 @@
 # Version: 1.11.1
 # Notes: 
 
+# renovate: datasource=github-releases depName=lucasg/Dependencies
 {% set version = '1.11.1' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}

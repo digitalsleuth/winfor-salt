@@ -7,6 +7,7 @@
 # Version: 2026-04-20_19-04
 # Notes: 
 
+# renovate: datasource=github-releases depName=x64dbg/x64dbg
 {% set version = '2026-04-20_19-04' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}

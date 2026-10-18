@@ -7,6 +7,7 @@
 # Version: 2.12.1
 # Notes: JAR file, requires Java
 
+# renovate: datasource=github-releases depName=iBotPeaches/Apktool
 {% set version = '2.12.1' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}

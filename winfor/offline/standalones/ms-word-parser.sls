@@ -7,6 +7,7 @@
 # Version: 3.0.1
 # Notes: 
 
+# renovate: datasource=github-releases depName=jjrboucher/MS-Word-Parser
 {% set version = '3.0.1' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}

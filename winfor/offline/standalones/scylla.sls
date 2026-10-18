@@ -7,6 +7,7 @@
 # Version: 0.9.8
 # Notes: May not work well on later versions of Windows 10 and any version of Windows 11
 
+# renovate: datasource=github-releases depName=NtQuery/Scylla
 {% set version = '0.9.8' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}

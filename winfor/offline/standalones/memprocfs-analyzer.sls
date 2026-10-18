@@ -7,6 +7,7 @@
 # Version: 1.2.1
 # Notes: 
 
+# renovate: datasource=github-releases depName=LETHAL-FORENSICS/MemProcFS-Analyzer
 {% set version = '1.2.1' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}

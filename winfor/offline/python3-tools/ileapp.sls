@@ -7,6 +7,7 @@
 # Version: 2.3.1
 # Notes: 
 
+# renovate: datasource=github-releases depName=abrignoni/ileapp
 {% set version = '2.3.1' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}

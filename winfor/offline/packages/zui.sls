@@ -7,6 +7,7 @@
 # Version: 1.18.0
 # Notes:
 
+# renovate: datasource=github-releases depName=brimdata/zui
 {% set version = '1.18.0' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set pkg = 'zui-'~ version ~'.exe' %}

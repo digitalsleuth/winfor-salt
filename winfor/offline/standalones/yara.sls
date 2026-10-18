@@ -7,6 +7,7 @@
 # Version: 4.5.5
 # Notes: 
 
+# renovate: datasource=github-releases depName=VirusTotal/yara
 {% set version = '4.5.5' %}
 {% set subversion = '2368' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}

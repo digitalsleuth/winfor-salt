@@ -7,6 +7,7 @@
 # Version: 2.16.56.2
 # Notes:
 
+# renovate: datasource=github-releases depName=WinMerge/winmerge
 {% set version = '2.16.56.2' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set pkg = 'winmerge-'~ version ~'.exe' %}

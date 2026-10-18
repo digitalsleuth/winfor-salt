@@ -7,6 +7,7 @@
 # Version: 4.15
 # Notes:
 
+# renovate: datasource=github-releases depName=pbatard/rufus
 {% set version = '4.15' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}

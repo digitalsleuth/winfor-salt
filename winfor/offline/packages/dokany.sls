@@ -7,6 +7,7 @@
 # Version: 2.3.1.1000
 # Notes:
 
+# renovate: datasource=github-releases depName=dokan-dev/dokany
 {% set version = '2.3.1.1000' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set pkg = 'dokany-'~ version ~'.msi' %}

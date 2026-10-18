@@ -10,6 +10,7 @@
 synchrony is not yet available for offline install:
   test.nop
 {#
+# renovate: datasource=github-releases depName=relative/synchrony
 {% set version = '2.4.5' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}

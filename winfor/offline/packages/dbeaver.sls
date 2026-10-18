@@ -7,6 +7,7 @@
 # Version: 25.2.4
 # Notes: 
 
+# renovate: datasource=github-releases depName=dbeaver/dbeaver
 {% set version = '25.2.4' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set pkg = 'dbeaver-'~ version ~'.exe' %}

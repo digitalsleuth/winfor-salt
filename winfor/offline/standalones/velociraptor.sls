@@ -7,6 +7,7 @@
 # Version: 0.77.1
 # Notes: 
 
+# renovate: datasource=github-releases depName=Velocidex/velociraptor
 {% set version = '0.77.1' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}

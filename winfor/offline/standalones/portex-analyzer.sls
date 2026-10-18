@@ -7,6 +7,7 @@
 # Version: 0.13.2
 # Notes:
 
+# renovate: datasource=github-releases depName=struppigel/PortexAnalyzerGUI
 {% set version = '0.13.2' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}

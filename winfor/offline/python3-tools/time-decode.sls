@@ -7,6 +7,7 @@
 # Version: 11.0.0
 # Notes: 
 
+# renovate: datasource=pypi depName=time-decode
 {% set version = '11.0.0' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set pkg = 'time_decode-'~ version ~'-py3-none-any.whl' %}

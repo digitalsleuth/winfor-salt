@@ -7,6 +7,7 @@
 # Version: 8.9.6.4
 # Notes: 
 
+# renovate: datasource=github-releases depName=notepad-plus-plus/notepad-plus-plus
 {% set version = '8.9.6.4' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set pkg = 'npp-'~ version ~'.exe' %}

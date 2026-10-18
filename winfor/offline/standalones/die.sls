@@ -7,6 +7,7 @@
 # Version: 3.21
 # Notes: Detect It Easy - DIE 
 
+# renovate: datasource=github-releases depName=horsicq/DIE-engine
 {% set version = '3.21' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
