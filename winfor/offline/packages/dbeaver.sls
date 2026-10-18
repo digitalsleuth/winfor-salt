@@ -4,11 +4,11 @@
 # Category: Databases
 # Author: Serge Rider and Contributors (https://github.com/dbeaver/dbeaver/graphs/contributors)
 # License: Apache License 2.0 (https://github.com/dbeaver/dbeaver/blob/devel/LICENSE.md)
-# Version: 25.2.4
+# Version: 25.3.5
 # Notes: 
 
 # renovate: datasource=github-releases depName=dbeaver/dbeaver
-{% set version = '25.2.4' %}
+{% set version = '25.3.5' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set pkg = 'dbeaver-'~ version ~'.exe' %}
 {% set exists = salt['file.file_exists'](downloads + '\\dbeaver\\' + pkg) %}
