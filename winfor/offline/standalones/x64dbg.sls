@@ -4,11 +4,11 @@
 # Category: Executables
 # Author: Duncan Ogilvie (mrexodia)
 # License: GNU General Public License v3 (https://github.com/x64dbg/x64dbg/blob/development/LICENSE)
-# Version: 2026-04-20_19-04
+# Version: 2026.05.27
 # Notes: 
 
 # renovate: datasource=github-releases depName=x64dbg/x64dbg
-{% set version = '2026-04-20_19-04' %}
+{% set version = '2026.05.27' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
