@@ -7,9 +7,10 @@
 # Version: 2.2.0
 # Notes: 
 
+# renovate: datasource=github-releases depName=abrignoni/VLEAPP
+{% set version = '2.2.0' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set version = '2.2.0' %}
 
 include:
   - winfor.packages.python3

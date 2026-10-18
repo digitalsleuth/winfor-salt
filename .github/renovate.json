@@ -16,7 +16,7 @@
     },
     {
       "description": "Ignore openhashtab for now",
-      "matchFileNames": ["winfor/**/openhashtab.sls"],
+      "matchFileNames": ["winfor/**/openhashtab.sls", "winfor/**/volatility3.sls"],
       "enabled": false
     }
   ],
@@ -38,6 +38,25 @@
       "managerFilePatterns": ["/^winfor/(downloads/|offline/)?(installers|packages|python3-tools|standalones)/[^/]+\\.sls$/"],
       "matchStrings": [
         "# renovate: datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)\\r?\\n\\{% set version = ['\"](?<currentValue>[^'\"]+)['\"] %\\}"
+      ]
+    },
+    {
+      "customType": "regex",
+      "description": "'# Version:' header line (GitHub tools, URL uses {{ version }})",
+      "managerFilePatterns": ["/^winfor/(downloads/|offline/)?(installers|packages|python3-tools|standalones)/[^/]+\\.sls$/"],
+      "matchStringsStrategy": "combination",
+      "matchStrings": [
+        "# Version: (?<currentValue>\\S+)[ \\t]*\\r?\\n",
+        "https://github\\.com/(?<depName>[\\w.-]+/[\\w.-]+)/(?:releases/download|archive/refs/tags)/[^\\r\\n]*\\{\\{[^}\\r\\n]*\\bversion\\b"
+      ],
+      "datasourceTemplate": "github-releases"
+    },
+    {
+      "customType": "regex",
+      "description": "'# Version:' header line (annotated states)",
+      "managerFilePatterns": ["/^winfor/(downloads/|offline/)?(installers|packages|python3-tools|standalones)/[^/]+\\.sls$/"],
+      "matchStrings": [
+        "# Version: (?<currentValue>\\S+)[ \\t]*\\r?\\n[\\s\\S]*?# renovate: datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)\\r?\\n\\{% set version = "
       ]
     }
   ]

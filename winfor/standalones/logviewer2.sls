@@ -7,23 +7,25 @@
 # Version: 1.0.0
 # Notes: 
 
+{% set version = '1.0.0' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set hash = '71aad9479657e5673f56b21b58977e151fa1ed4d82d55164e25e6aeaaeea4fa2' %}
 
 include:
   - winfor.config.shims
 
 logviewer2-download:
   file.managed:
-    - name: 'C:\salt\tempdownload\LogViewer2.v1.0.0.zip'
-    - source: https://github.com/woanware/LogViewer2/releases/download/v1.0.0/LogViewer2.v1.0.0.zip
-    - source_hash: sha256=71aad9479657e5673f56b21b58977e151fa1ed4d82d55164e25e6aeaaeea4fa2
+    - name: 'C:\salt\tempdownload\LogViewer2.v{{ version }}.zip'
+    - source: https://github.com/woanware/LogViewer2/releases/download/v{{ version }}/LogViewer2.v{{ version }}.zip
+    - source_hash: sha256={{ hash }}
     - makedirs: True
 
 logviewer2-extracted:
   archive.extracted:
     - name: '{{ inpath }}\logviewer2'
-    - source: 'C:\salt\tempdownload\LogViewer2.v1.0.0.zip'
+    - source: 'C:\salt\tempdownload\LogViewer2.v{{ version }}.zip'
     - enforce_toplevel: False
     - require:
       - file: logviewer2-download

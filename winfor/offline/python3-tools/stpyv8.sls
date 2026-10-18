@@ -7,6 +7,7 @@
 # Version: 12.0.267.16
 # Notes:
 
+# renovate: datasource=pypi depName=stpyv8
 {% set version = '12.0.267.16' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set pkg = 'stpyv8-'~ version ~'-cp310-cp310-win_amd64.whl' %}

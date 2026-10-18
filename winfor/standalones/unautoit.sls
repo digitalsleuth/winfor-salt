@@ -7,15 +7,18 @@
 # Version: 1.1.1
 # Notes: 
 
+{% set version = '1.1.1' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
+{% set hash = 'd771f7adc7882cf23a387434fbd0ab1902c0326df6035b2a239ebcbd256b52e9' %}
+
 include:
   - winfor.config.shims
 
 unautoit-download:
   file.managed:
     - name: '{{ inpath }}\unautoit\unautoit.exe'
-    - source: https://github.com/digitalsleuth/UnAutoIt/releases/download/v1.1.1/UnAutoIt-windows-amd64.exe
-    - source_hash: sha256=d771f7adc7882cf23a387434fbd0ab1902c0326df6035b2a239ebcbd256b52e9
+    - source: https://github.com/digitalsleuth/UnAutoIt/releases/download/v{{ version }}/UnAutoIt-windows-amd64.exe
+    - source_hash: sha256={{ hash }}
     - makedirs: True
 
 unautoit-shim:

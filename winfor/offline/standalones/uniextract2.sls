@@ -4,7 +4,7 @@
 # Category: Installers
 # Author: William Engelmann
 # License: GNU General Public License v2 (https://github.com/Bioruebe/UniExtract2/blob/master/LICENSE)
-# Version: 2.0.0-rc3
+# Version: 2.0.0-rc.3
 # Notes: 
 
 # renovate: datasource=github-releases depName=Bioruebe/UniExtract2

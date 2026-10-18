@@ -7,6 +7,7 @@
 # Version: 4.5.4
 # Notes:
 
+# renovate: datasource=pypi depName=yara-python
 {% set version = '4.5.4' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}

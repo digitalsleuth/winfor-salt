@@ -7,6 +7,7 @@
 # Version: 2.3.1.1000
 # Notes:
 
+# renovate: datasource=github-releases depName=dokan-dev/dokany
 {% set version = '2.3.1.1000' %}
 {% from 'winfor/_macros/is_installed.jinja' import check_installed, get_version %}
 {% set installed = check_installed('Dokan Library') | trim == 'true' %}

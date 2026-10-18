@@ -7,8 +7,8 @@
 # Version: 10.1.0.8386
 # Notes:
 
+# renovate: datasource=github-releases depName=icsharpcode/ILSpy
 {% set version = '10.1.0.8386' %}
-{% set core_version = '10.1' %}
 
 include:
   - winfor.repos

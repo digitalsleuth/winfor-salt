@@ -7,6 +7,7 @@
 # Version: 3.7.6
 # Notes: 
 
+# renovate: datasource=github-releases depName=wagga40/Zircolite
 {% set version = '3.7.6' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}

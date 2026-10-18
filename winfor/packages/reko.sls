@@ -7,6 +7,7 @@
 # Version: 0.12.0
 # Notes:
 
+# renovate: datasource=github-releases depName=uxmal/reko
 {% set version = '0.12.0' %}
 
 include:

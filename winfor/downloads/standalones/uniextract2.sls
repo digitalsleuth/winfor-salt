@@ -4,11 +4,11 @@
 # Category: Installers
 # Author: William Engelmann
 # License: GNU General Public License v2 (https://github.com/Bioruebe/UniExtract2/blob/master/LICENSE)
-# Version: 2.0.0-rc3
+# Version: 2.0.0-rc.3
 # Notes: 
 
-{% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '2.0.0-rc.3' %}
+{% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set hash = '03170680b80f2afdf824f4d700c11b8e2dac805a4d9bd3d24f53e43bd7131c3a' %}
 
 uniextract2-download-only:

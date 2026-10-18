@@ -7,6 +7,7 @@
 # Version: 12.0.267.16
 # Notes:
 
+# renovate: datasource=pypi depName=stpyv8
 {% set version = '12.0.267.16' %}
 
 include:

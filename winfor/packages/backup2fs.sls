@@ -7,6 +7,7 @@
 # Version: 3.0.0
 # Notes: 
 
+# renovate: datasource=github-releases depName=eichbaumj/Backup2FS
 {% set version = '3.0.0' %}
 
 include:

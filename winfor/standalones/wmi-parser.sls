@@ -7,22 +7,24 @@
 # Version: 0.0.2
 # Notes: 
 
+{% set version = '0.0.2' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
+{% set hash = '55048cccae7adb1471cb0d32a317df306355a37bb5373406a4bf1eeee852671d' %}
 
 include:
   - winfor.config.shims
 
 wmi-parser-download:
   file.managed:
-    - name: 'C:\salt\tempdownload\wmi-parser.v0.0.2.zip'
-    - source: https://github.com/woanware/wmi-parser/releases/download/v0.0.2/wmi-parser.v0.0.2.zip
-    - source_hash: sha256=55048cccae7adb1471cb0d32a317df306355a37bb5373406a4bf1eeee852671d
+    - name: 'C:\salt\tempdownload\wmi-parser.v{{ version }}.zip'
+    - source: https://github.com/woanware/wmi-parser/releases/download/v{{ version }}/wmi-parser.v{{ version }}.zip
+    - source_hash: sha256={{ hash }}
     - makedirs: True
 
 wmi-parser-extract:
   archive.extracted:
     - name: '{{ inpath }}\wmi-parser'
-    - source: 'C:\salt\tempdownload\wmi-parser.v0.0.2.zip'
+    - source: 'C:\salt\tempdownload\wmi-parser.v{{ version }}.zip'
     - enforce_toplevel: False
     - require:
       - file: wmi-parser-download

@@ -8,7 +8,6 @@
 # Notes: In Beta
 
 {% set version = '1.0.0.2512' %}
-{% set snapshot = '2512' %}
 {% set hash = 'cc07dcf8385ded623b4f3ac3ac3a52f01e36adb668db8c51ea2f55f24bfe2083' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
@@ -19,7 +18,7 @@ include:
 windepends-download:
   file.managed:
     - name: 'C:\salt\tempdownload\WinDepends_v{{ version }}_beta_snapshot.zip'
-    - source: https://github.com/hfiref0x/WinDepends/releases/download/{{ snapshot }}-beta/WinDepends_v{{ version }}_beta_snapshot.zip
+    - source: https://github.com/hfiref0x/WinDepends/releases/download/{{ version.split('.')[-1] }}-beta/WinDepends_v{{ version }}_beta_snapshot.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True
 

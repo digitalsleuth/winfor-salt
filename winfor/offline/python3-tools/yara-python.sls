@@ -7,6 +7,7 @@
 # Version: 4.5.4
 # Notes: 
 
+# renovate: datasource=pypi depName=yara-python
 {% set version = '4.5.4' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set pkg = 'yara_python-'~ version ~'-cp310-cp310-win_amd64.whl' %}

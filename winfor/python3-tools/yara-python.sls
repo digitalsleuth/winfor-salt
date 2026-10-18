@@ -7,6 +7,7 @@
 # Version: 4.5.4
 # Notes: 
 
+# renovate: datasource=pypi depName=yara-python
 {% set version = '4.5.4' %}
 
 include:
