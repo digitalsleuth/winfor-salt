@@ -4,11 +4,11 @@
 # Category: Raw Parsers / Decoders
 # Author: Carmix
 # License: GNU General Public License v3 (https://github.com/gcarmix/HexWalk/blob/main/LICENSE)
-# Version: 2.1.0
+# Version: 2.2.1
 # Notes: 
 
 # renovate: datasource=github-releases depName=gcarmix/HexWalk
-{% set version = '2.1.0' %}
+{% set version = '2.2.1' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt["environ.get"]("PROGRAMDATA") %}
