@@ -4,11 +4,11 @@
 # Category: Mobile Analysis
 # Author: Genymobile
 # License: Apache License 2.0 (https://github.com/Genymobile/scrcpy/blob/master/LICENSE)
-# Version: 4.0
+# Version: 4.1
 # Notes:
 
 # renovate: datasource=github-releases depName=Genymobile/scrcpy
-{% set version = '4.0' %}
+{% set version = '4.1' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set pkg = 'scrcpy-'~ version ~'.zip' %}

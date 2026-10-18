@@ -4,10 +4,10 @@
 # Category: Mobile Analysis
 # Author: Genymobile
 # License: Apache License 2.0 (https://github.com/Genymobile/scrcpy/blob/master/LICENSE)
-# Version: 4.0
+# Version: 4.1
 # Notes:
 
-{% set version = '4.0' %}
+{% set version = '4.1' %}
 {% set hash = '75dbeb5b00e6f64292f26f70900ae55ca397786bdfb0b9bbeb481a0549047457' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
