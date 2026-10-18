@@ -4,11 +4,11 @@
 # Category: Windows Analysis
 # Author: Mike Cohen (scudette)
 # License: GNU Affero General Public License v3 (https://github.com/Velocidex/velociraptor/blob/master/LICENSE)
-# Version: 0.77.1
+# Version: 0.77.3
 # Notes: 
 
 # renovate: datasource=github-releases depName=Velocidex/velociraptor
-{% set version = '0.77.1' %}
+{% set version = '0.77.3' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set pkg = 'velociraptor-'~ version ~'.exe' %}
