@@ -4,11 +4,11 @@
 # Category: Executables
 # Author: Alexandre Borges
 # License: GNU General Public License v3.0 (https://github.com/alexandreborges/malwoverview/blob/master/LICENSE)
-# Version: 8.0.5
+# Version: 8.2.0
 # Notes: 
 
 # renovate: datasource=pypi depName=malwoverview
-{% set version = '8.0.5' %}
+{% set version = '8.2.0' %}
 
 include:
   - winfor.packages.python3

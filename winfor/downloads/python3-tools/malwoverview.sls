@@ -4,7 +4,7 @@
 # Category: Executables
 # Author: Alexandre Borges
 # License: GNU General Public License v3.0 (https://github.com/alexandreborges/malwoverview/blob/master/LICENSE)
-# Version: 8.0.5
+# Version: 8.2.0
 # Notes:
 
 include:
@@ -12,7 +12,7 @@ include:
   - winfor.standalones.portable-python3
 
 # renovate: datasource=pypi depName=malwoverview
-{% set version = '8.0.5' %}
+{% set version = '8.2.0' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
