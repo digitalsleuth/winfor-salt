@@ -4,11 +4,11 @@
 # Category: Logs
 # Author: Omer BenAmram
 # License: Apache License v2 (https://github.com/omerbenamram/evtx/blob/master/LICENSE-APACHE) and MIT License (https://github.com/omerbenamram/evtx/blob/master/LICENSE-MIT)
-# Version: 0.12.2
+# Version: 0.12.3
 # Notes: 
 
 # renovate: datasource=github-releases depName=omerbenamram/evtx
-{% set version = '0.12.2' %}
+{% set version = '0.12.3' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set pkg = 'evtx-dump-'~ version ~'.exe' %}
