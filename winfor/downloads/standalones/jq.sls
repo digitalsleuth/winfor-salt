@@ -8,7 +8,8 @@
 # Notes: 
 
 {% set version = '1.8.2' %}
-{% set hash = 'a6fc67fedaf9128a3309a1e2ebb8b986aeccf70122ee46d2cb4849e423f0c627' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('jq') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 jq-download-only:

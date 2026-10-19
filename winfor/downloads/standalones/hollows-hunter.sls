@@ -8,7 +8,8 @@
 # Notes: 
 
 {% set version = '0.4.1.1' %}
-{% set hash = '56a58a8bbf2cec9a5c7c68129e8863af6181fb51dfc25226f1a756aba66b4707' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('hollows-hunter') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 hollows-hunter-download-only:

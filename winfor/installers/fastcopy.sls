@@ -8,7 +8,8 @@
 # Notes:
 
 {% set version = '5.11.2' %}
-{% set hash = '70b273dd08c15d40fac59a217b93be195bacfa47acabd031463a6df800d29fea' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('fastcopy') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 

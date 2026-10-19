@@ -8,7 +8,8 @@
 # Notes: 
 
 {% set version = '0.7.0.0' %}
-{% set hash = 'c415eb0b99a47f9ddddc4c6ed58abe2802d4bdb8505d452d008f165fdf897750' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('total-pe-2') %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 

@@ -8,7 +8,8 @@
 # Notes:
 
 {% set version = '3.4.0' %}
-{% set hash = '84cbe3ca660d7031fe85aee0faf2ce5e2d173c36f85dffff2d309ed52b5b08ae' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('magnet-web-page-saver-portable') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 magnet-web-page-saver-download-only:

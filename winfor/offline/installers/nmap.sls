@@ -7,8 +7,9 @@
 # Version: 7.99
 # Notes: nmap and npcap have no silent install
 
-{% set nmap_version = '7.99' %}
-{% set npcap_version = '1.88' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set nmap_version = get_hash('nmap', 'nmap_version') %}
+{% set npcap_version = get_hash('nmap', 'npcap_version') %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set exists = salt['file.directory_exists'](downloads + '\\nmap') %}

@@ -8,7 +8,8 @@
 # Notes: 
 
 {% set version = '2026.07.03' %}
-{% set hash = '5edd80c8a2d90ade243a82716faa6952c401226bce1414aa0c0e59d592060a6c' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('pyinstxtractor-ng') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 pyinstxtractor-ng-download-only:

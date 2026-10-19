@@ -8,7 +8,8 @@
 # Notes: 
 
 {% set version = '4.0.1' %}
-{% set hash = '33a7c5bad27de73c4ab9881b503df55c184d01972fe13d844a8cec938a455275' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('msiviewer') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 msiviewer-download-only:

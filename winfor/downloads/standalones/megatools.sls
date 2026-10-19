@@ -8,9 +8,10 @@
 # Notes:
 
 {% set version = '1.11.5' %}
-{% set date = '20250706' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set date = get_hash('megatools', 'date') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set hash = 'bd1269e50d9c45e369c14e287c1754c9506e1b11efcc0cd4bb95d460c9d782b5' %}
+{% set hash = get_hash('megatools') %}
 
 megatools-download-only:
   file.managed:

@@ -10,7 +10,8 @@
 {% set version = '5.0.0' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set hash = '00c0cb00f4bdc956c5d3ec420b6d5589f5418c13bfe0528ef6cf3bc38ee3ef21' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('usn-journal-parser') %}
 
 include:
   - winfor.standalones.portable-python3

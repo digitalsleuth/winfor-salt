@@ -8,7 +8,8 @@
 # Notes: 
 
 {% set version = '9.4.3' %}
-{% set hash = 'e307db329d156f2c0193f4012879ba6ff92a8adf3c99d5f1ac5d9c6275fc85e2' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('kibana') %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 
 kibana-download:

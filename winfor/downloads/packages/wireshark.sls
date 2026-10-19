@@ -9,7 +9,8 @@
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '4.6.6' %}
-{% set hash = 'ab28d13695ace992307fb1aaea7144f977d5b6562acec1f465c9c0a9fa04190c' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('wireshark') %}
 
 wireshark-download-only:
   file.managed:

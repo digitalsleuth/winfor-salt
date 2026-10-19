@@ -9,7 +9,8 @@
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '10.0.7' %}
-{% set hash = '752b7c81f6b10cacbe133a18a8af8d2598336e9561e651711eb3b36970299854' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('dotnet10-desktop-runtime') %}
 
 dotnet10-desktop-runtime-download-only:
   file.managed:

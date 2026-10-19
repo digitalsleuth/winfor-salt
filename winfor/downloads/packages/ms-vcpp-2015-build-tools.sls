@@ -9,7 +9,8 @@
 
 {% set version = '15.9.37506.8' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set hash = '2c4efefdff8e6bb0394c7f96e1f9f51a9e6294b87614b86cc07aefcc8894ffbc' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('ms-vcpp-2015-build-tools') %}
 
 ms-vcpp-2015-build-tools-download-only:
   file.managed:

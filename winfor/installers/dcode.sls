@@ -8,7 +8,8 @@
 # Notes: 
 
 {% set version = '5.7.26188.46' %}
-{% set hash = 'be3383c8c37af8a8e2978011009d8bb3041c294eeda0ec8424341c8cec2e064f' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('dcode') %}
 
 dcode:
   file.managed:

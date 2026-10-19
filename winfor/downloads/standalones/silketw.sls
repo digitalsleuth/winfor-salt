@@ -9,7 +9,8 @@
 
 {% set version = '0.8' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set hash = '6c612c406844c72cde51bcd0660ca6bb704656549043cb5a8b8bbba5fe3d8dc3' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('silketw') %}
 
 silketw-download-only:
   file.managed:

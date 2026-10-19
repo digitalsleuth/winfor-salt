@@ -8,7 +8,8 @@
 # Notes: 
 
 {% set version = '1.3.1.1' %}
-{% set hash = 'EF7558B2869A1F74B81E19F1F84C715D95ABCA819920E6882D467323506EA25F' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('windowgrid') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 windowgrid-download-only:

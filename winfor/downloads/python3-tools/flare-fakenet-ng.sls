@@ -9,7 +9,8 @@
 
 {% set version = '3.5' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set hash = '89d85290a570ef509b40137b6cf61895da1cebfe8b5cbe2882639461149ef7bc' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('flare-fakenet-ng') %}
 
 flare-fakenet-ng-download-only:
   file.managed:

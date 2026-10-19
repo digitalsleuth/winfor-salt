@@ -8,7 +8,8 @@
 # Notes: No longer maintained
 
 {% set version = '1.0.3.3' %}
-{% set hash = '455eccfcc568004bf6108ba9ad8dbbc32cdecb84c6c62153c8f181ca984d68ce' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('codetrack') %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 

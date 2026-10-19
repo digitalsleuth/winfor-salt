@@ -9,7 +9,8 @@
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set version = '11.0.0' %}
-{% set hash = '82f70b53da59b82435f717f184beafdce8e92f50a1bc805cc3a7fe75802ac0b6' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('time-decode-gui') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 time-decode-download:

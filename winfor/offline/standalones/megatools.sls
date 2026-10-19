@@ -8,7 +8,8 @@
 # Notes:
 
 {% set version = '1.11.5' %}
-{% set date = '20250706' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set date = get_hash('megatools', 'date') %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set pkg = 'megatools-'~ version ~'.zip' %}

@@ -9,7 +9,8 @@
 
 {% set version = '0.0.2' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set hash = '55048cccae7adb1471cb0d32a317df306355a37bb5373406a4bf1eeee852671d' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('wmi-parser') %}
 
 include:
   - winfor.config.shims

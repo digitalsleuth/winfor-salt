@@ -9,7 +9,8 @@
 
 {% set version = '10.0.0' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set hash = '8712991044321dbb2a5b0d60f7a5327a50c9c30a295e7ddb5c1088cb17fb59df' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('capa') %}
 
 capa-download-only:
   file.managed:

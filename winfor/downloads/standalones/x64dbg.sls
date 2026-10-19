@@ -8,8 +8,9 @@
 # Notes:
 
 {% set version = '2026.05.27' %}
-{% set date = '2026-05-27_12-11' %}
-{% set hash = 'd41966dfc5b435a372798245300ca0ab7bb8e48bdbf48512c6fb20fcca427697' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set date = get_hash('x64dbg', 'date') %}
+{% set hash = get_hash('x64dbg') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 x64dbg-download-only:

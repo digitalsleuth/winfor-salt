@@ -10,7 +10,8 @@
 {% set version = '0.1.0.0' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
-{% set hash = '26cbdf8ff9e172018668c71c6884294a1a9619c48a64148b11db385779b13194' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('exeinfope') %}
 
 include:
   - winfor.config.shims

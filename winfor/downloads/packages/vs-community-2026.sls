@@ -9,8 +9,9 @@
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '18.7.11919.86' %}
-{% set guid = '4c1645e2-fb0d-4889-a6b9-3fb6fd3a782f' %}
-{% set hash = '4ef523a7c5be6b6bb2fb76329009cd7b03377a88730228d9b7639fc8114f496b' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set guid = get_hash('vs-community-2026', 'guid') %}
+{% set hash = get_hash('vs-community-2026') %}
 
 vs-community-2026-download-only:
   file.managed:

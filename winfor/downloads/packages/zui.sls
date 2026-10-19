@@ -8,7 +8,8 @@
 # Notes:
 
 {% set version = '1.18.0' %}
-{% set hash = '4150273579dbe40c77c873b3269d733a13023e34868231b0e44c54a3925b8a4c' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('zui') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 zui-download-only:

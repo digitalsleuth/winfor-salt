@@ -8,7 +8,8 @@
 # Notes: 
 
 {% set version = '2.12.9' %}
-{% set hash = '5b4e187e74b184ad3a63ccf06c3d17dae2b8c4b6c298a996dbd51a9f6db29d21' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('lessmsi') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 lessmsi-download-only:

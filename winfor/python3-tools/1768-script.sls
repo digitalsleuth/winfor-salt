@@ -9,7 +9,8 @@
 
 {% set version = '0.0.23' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set hash = '38aed900f5fe0c9272e66451266ab6888401b95c50920eff268bbbba4db4b040' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('1768-script') %}
 
 include:
   - winfor.packages.python3

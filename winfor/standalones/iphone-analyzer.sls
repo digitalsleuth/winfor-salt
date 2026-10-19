@@ -10,7 +10,8 @@
 {% set version = '2.1.0' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
-{% set hash = '6499C78336ED937D24A0D1046B369C5847B84A0B06CA9561210E834A85BCB44A' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('iphone-analyzer') %}
 
 iphone-analyzer-download:
   file.managed:

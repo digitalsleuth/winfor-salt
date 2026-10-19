@@ -8,7 +8,8 @@
 # Notes: 
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set hash = '497720e708a0e203069042af85cb2b23989c5271ef6e40e180b82ae9b7385f9d' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('vssmount') %}
 
 vssmount-download:
   file.managed:

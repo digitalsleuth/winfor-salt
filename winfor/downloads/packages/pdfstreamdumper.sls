@@ -9,7 +9,8 @@
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '0.9.634' %}
-{% set hash = '20b03a56b0febd2b30f6c2719d8cc9eaec98d8a20cb5c0859bb09c61b666f5b2' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('pdfstreamdumper') %}
 
 pdfstreamdumper-download-only:
   file.managed:

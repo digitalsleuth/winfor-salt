@@ -11,7 +11,8 @@
 {% set version = '4.6.0' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
-{% set commit = 'b37b51eb00c49fc7bfd2f4968f1e5c3fc30da643' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set commit = get_hash('zircolite', 'commit') %}
 {% set defender_status = salt['cmd.powershell']('((Get-Service) -match "WinDefend").Name') %}
 
 {% if defender_status.lower() == "windefend" %}

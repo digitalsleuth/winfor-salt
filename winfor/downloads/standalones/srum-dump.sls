@@ -8,7 +8,8 @@
 # Notes: 
 
 {% set version = '3.2' %}
-{% set hash = '43984652664baf21ebf44e660d70b59a61d38f36f8e4ff6dcd54640b24d7794a' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('srum-dump') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 srum-dump-download-only:

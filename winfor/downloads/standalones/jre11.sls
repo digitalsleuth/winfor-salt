@@ -11,7 +11,8 @@
 {% set major = '11' %}
 {% set subversion = '11' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set hash = '0af0760609eca44502f05e6ab4701eecbf85290f31278dabc41dceddab7237ab' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('jre11') %}
 
 jre11-download-only:
   file.managed:

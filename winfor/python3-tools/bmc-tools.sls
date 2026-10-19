@@ -7,7 +7,8 @@
 # Version: 3.05
 # Notes:
 
-{% set hash = '4f2453a968e0d0dc66dc0afdb2e79c1af36bfdbae5a06e3c8c89a616ad82ca92' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('bmc-tools') %}
 {% set version = '3.05' %}
 
 include:

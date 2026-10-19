@@ -9,7 +9,8 @@
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '4.6.3.0' %}
-{% set hash = 'ee20614d473a5e533a9b7d0b8e488bec9ea5bd97031224f4b8a5e18be84465e1' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('httplogbrowser') %}
 
 httplogbrowser-download-only:
   file.managed:

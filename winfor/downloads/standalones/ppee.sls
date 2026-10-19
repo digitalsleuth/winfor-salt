@@ -8,7 +8,8 @@
 # Notes: 
 
 {% set version = '1.13.1' %}
-{% set hash = 'b82a1cd2753bd7986aa260abc5dbfdea1c9ab1de89fbdc929ea456c17e71ce1a' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('ppee') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 ppee-download-only:

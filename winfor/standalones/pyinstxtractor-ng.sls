@@ -9,7 +9,8 @@
 
 {% set version = '2026.07.03' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set hash = '5edd80c8a2d90ade243a82716faa6952c401226bce1414aa0c0e59d592060a6c' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('pyinstxtractor-ng') %}
 
 include:
   - winfor.config.shims

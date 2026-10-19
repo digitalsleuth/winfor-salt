@@ -9,7 +9,8 @@
 
 {% set version = '2.18.4.3' %}
 {% set user = salt['pillar.get']('winfor_user', 'forensics') %}
-{% set hash = '107c64c7c858aba9bc8d58a330b19943465f540e30fa33a953672826ad1b55ec' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('casenotes-pro') %}
 
 include:
   - winfor.config.user

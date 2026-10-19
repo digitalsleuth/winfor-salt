@@ -8,7 +8,8 @@
 # Notes:
 
 {% set version = '1.4.4' %}
-{% set hash = '867310acc193f94b2e0c5d3cb1aeebd832062767529bcf6ac6f8f9e62811dbc8' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('clamav') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 clamav-download-only:

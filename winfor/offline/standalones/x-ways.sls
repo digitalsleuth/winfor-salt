@@ -8,7 +8,8 @@
 # Notes:
 
 {% set version = '21.3' %}
-{% set xviewer_ver = '857' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set xviewer_ver = get_hash('x-ways', 'xviewer_ver') %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}

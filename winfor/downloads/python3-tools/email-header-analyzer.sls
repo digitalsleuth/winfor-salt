@@ -10,7 +10,8 @@
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
-{% set hash = '24115269f987367db585cfa993b946428402bec016a0821cc6c08ae20f0dc61a' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('email-header-analyzer') %}
 
 include:
   - winfor.standalones.portable-python3

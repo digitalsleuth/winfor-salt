@@ -8,7 +8,8 @@
 # Notes:
 
 {% set version = '2.5.0.0' %}
-{% set hash = '5065041c7b03c24b9533a5b32b33db58f2b4924cd84bed41834ff2db51c1cb7c' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('hxd') %}
 
 hxd-download:
   file.managed:

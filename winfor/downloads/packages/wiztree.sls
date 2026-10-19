@@ -9,7 +9,8 @@
 
 {% set version = '4.31' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set hash = '4a9da8c34a038cdd51f103be3edc09a9643ed42358ea4a01a2a30e0817714b4b' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('wiztree') %}
 
 wiztree-download-only:
   file.managed:

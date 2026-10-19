@@ -9,7 +9,8 @@
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set version = '1.0.0' %}
-{% set hash = '5ba52546a31a1fc99effcec44f9143ae1207ac019b9719908da09dac53778ba3' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('portex-analyzer') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 include:

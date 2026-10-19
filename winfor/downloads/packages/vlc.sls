@@ -9,7 +9,8 @@
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '3.0.23' %}
-{% set hash = '20ad191348684b470ddc4e05204316f3d8e39655f412b3e392a0eef97639daaf' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('vlc') %}
 
 vlc-download-only:
   file.managed:

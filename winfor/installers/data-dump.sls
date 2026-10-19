@@ -8,7 +8,8 @@
 # Notes: x86
 
 {% set version = '2.3.24262.11' %}
-{% set hash = '5a6ce7be7ed6bb38db624df3b2c7e029755ddc9a7176aa4ae1220dbcaaf0693c' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('data-dump') %}
 
 data-dump:
   file.managed:

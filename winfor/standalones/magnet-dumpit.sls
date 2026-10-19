@@ -9,7 +9,8 @@
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set version = '20250131' %}
-{% set hash = '096b559844030e79e9bc017b91dc23ab064f6f1f23d78b385b8b5c3172ed99f3' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('magnet-dumpit') %}
 
 magnet-dumpit-download:
   file.managed:

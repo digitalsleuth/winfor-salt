@@ -9,7 +9,8 @@
 
 {% set version = '24.002.20759' %}
 {% set versionNoDots = version | replace(".","") %}
-{% set hash = '9f36bfe1dc244e7a0b3b99dad64f696d90535fa332fb228894a6c55d2a018f90' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('adobereader') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 adobereader-download-only:

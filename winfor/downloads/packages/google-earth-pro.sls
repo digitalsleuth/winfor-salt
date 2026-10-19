@@ -9,12 +9,12 @@
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '7.3.6.10441' %}
-{% set short_version = '7.3.6' %}
-{% set hash = 'd8aa6d38d95d92d18601f94b1da092b34f9d275ade630fb972baff8bf1e4ebd8' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('google-earth-pro') %}
 
 google-earth-pro-download-only:
   file.managed:
     - name: '{{ downloads }}\google-earth-pro\google-earth-pro-{{ version }}.exe'
-    - source: https://dl.google.com/dl/earth/client/advanced/current/googleearthprowin-{{ short_version }}-x64.exe
+    - source: https://dl.google.com/dl/earth/client/advanced/current/googleearthprowin-{{ '.'.join(version.split(".")[:3]) }}-x64.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

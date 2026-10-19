@@ -9,7 +9,8 @@
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '6.2.1' %}
-{% set hash = 'cb29d30a5d3db6373baacfbb5d6c8998f6cb50a8e6647c892f179266f4bdb615' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('nuix-evidence-mover') %}
 
 nuix-evidence-mover-download-only:
   file.managed:

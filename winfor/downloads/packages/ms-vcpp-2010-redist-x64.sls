@@ -9,7 +9,8 @@
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '10.0.40219' %}
-{% set hash = 'f3b7a76d84d23f91957aa18456a14b4e90609e4ce8194c5653384ed38dada6f3' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('ms-vcpp-2010-redist-x64') %}
 
 ms-vcpp-2010-redist-x64-download-only:
   file.managed:

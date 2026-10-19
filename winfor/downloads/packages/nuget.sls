@@ -8,7 +8,8 @@
 # Notes:
 
 {% set version = '6.14.0' %}
-{% set hash = '92dbed160ddee0f64b901e907439e021211b428e57c089ecc12fc38dcc4bd9a5' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('nuget') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 nuget-download-only:

@@ -9,7 +9,8 @@
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set version = '1.1.0' %}
-{% set hash = 'bc09ddee32a418e412a3f075fedd9cdc5054c31e7b4459f6f12f645eeefa5245' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('smi-parser') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 include:

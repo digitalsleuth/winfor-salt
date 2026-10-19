@@ -8,7 +8,8 @@
 # Notes: 
 
 {% set version = '0.12.3' %}
-{% set hash = '5e5480758e95ec6cd8cc77c3899ed0d1afc762ec1e2832c93af129957c8e95b3' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('evtx-dump') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 evtx-dump-download-only:

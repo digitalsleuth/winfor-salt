@@ -8,7 +8,8 @@
 # Notes:
 
 {% set version = '1.7' %}
-{% set hash = '2220e9a64258201eba64f19ae6ad8d1f6bb1c375ff3ad2284cfefc36c2c02e20' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('itunes-backup-explorer') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 itunes-backup-explorer-download-only:

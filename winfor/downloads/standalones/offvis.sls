@@ -9,7 +9,8 @@
 
 {% set version = '1.1.0.0' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set hash = '8432c2e81ab51bf46fc9a1b17629f4ff7c3902f976132477428b84918be08351' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('offvis') %}
 
 offvis-download-only:
   file.managed:

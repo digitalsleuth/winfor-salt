@@ -9,7 +9,8 @@
 
 {% set version = '3.49.2' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set hash = 'ce12f0e0cd3a3807463c8c538808d613798b11d961a94eabf0ba9d67851106f3' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('httrack') %}
 
 winhttrack-download-only:
   file.managed:

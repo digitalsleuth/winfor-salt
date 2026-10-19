@@ -8,8 +8,9 @@
 # Notes: Home Edition
 
 {% set version = '26.3' %}
-{% set source_folder = '2632026040882303' %}
-{% set hash = '9fa4381dae047c1bc6bca3a50ff8a3bc63eb7a38fdb2137854f0548bf967e754' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set source_folder = get_hash('mobaxterm', 'source_folder') %}
+{% set hash = get_hash('mobaxterm') %}
 
 mobaxterm:
   file.managed:

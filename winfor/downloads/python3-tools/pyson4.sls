@@ -10,7 +10,8 @@
 {% set version = '1.2.0' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set hash = '4a0255868a54ae86ebabb86511da172d6f079d363e7654919cbfae64078299b9' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('pyson4') %}
 
 include:
   - winfor.downloads.packages.python3

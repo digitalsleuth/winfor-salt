@@ -9,7 +9,8 @@
 
 {% set version = '3.0.0' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %} 
-{% set hash = '3894bdade7341b2dd1581d12502d7b325c9b0e5a82b763fa26e5b3b8e650c974' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('backup2fs') %}
 
 backup2fs-download-only:
   file.managed:

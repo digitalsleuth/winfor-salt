@@ -8,9 +8,9 @@
 # Notes: 
 
 {% set version = '2026.5.0' %}
-{% set hash = '7cdf8356400351612875ac2e1e26edde084b5f738242790d32ae0c83883f548b' %}
-{% set hasher_hash = 'a8a343013d6ed5b6988ebce1b3a561df51ab5928bc3a0f489a7e175f8f6f89d4' %}
-{% set hasher_version = '2026.5.0' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('zimmerman', 'hash') %}
+{% set hasher_hash = get_hash('zimmerman', 'hasher_hash') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set today = salt['system.get_system_date']().replace("/","-") %}
 {% set sync_tools = ['EvtxECmd','RECmd'] %}
@@ -43,7 +43,7 @@ zimmerman-tools-install-download-only:
 
 zimmerman-hasher-download-only:
   file.managed:
-    - name: '{{ downloads }}\zimmerman\hasher-{{ hasher_version }}.zip'
+    - name: '{{ downloads }}\zimmerman\hasher-{{ version }}.zip'
     - source: https://download.ericzimmermanstools.com/hasher.zip
     - source_hash: sha256={{ hasher_hash }}
     - makedirs: True

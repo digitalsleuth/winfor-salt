@@ -7,7 +7,8 @@
 # Version: 7.6
 # Notes:
 
-{% set hash = 'aa0baad06c45e34e393ff6fb8451448b6a9b801a29af0cb6a492d708f505e115' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('4n6-email-forensics-wizard') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '7.6' %}
 

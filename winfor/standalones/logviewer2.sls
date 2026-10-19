@@ -10,7 +10,8 @@
 {% set version = '1.0.0' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
-{% set hash = '71aad9479657e5673f56b21b58977e151fa1ed4d82d55164e25e6aeaaeea4fa2' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('logviewer2') %}
 
 include:
   - winfor.config.shims

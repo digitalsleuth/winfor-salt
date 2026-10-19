@@ -7,10 +7,11 @@
 # Version: 2025.3.2.6
 # Notes: Emulator comes with Android Studio, adb and fastboot are in the platform-tools, Build Tools can be downloaded using sdkmanager in the cmdline tools
 
-{% set cmdline_version = '14742923' %}
-{% set as_version = '2025.3.2.6' %}
-{% set bt_version = '34' %}
-{% set em_version = '36.6.9' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set cmdline_version = get_hash('android-studio', 'cmdline_version') %}
+{% set as_version = get_hash('android-studio', 'as_version') %}
+{% set bt_version = get_hash('android-studio', 'bt_version') %}
+{% set em_version = get_hash('android-studio', 'em_version') %}
 {% set PROGRAM_FILES = salt['environ.get']('PROGRAMFILES') %}
 {% set broken_files = ['apkanalyzer.bat','lint.bat','screenshot2.bat'] %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}

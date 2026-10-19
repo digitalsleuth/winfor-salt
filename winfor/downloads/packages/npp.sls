@@ -9,7 +9,8 @@
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '8.9.8' %}
-{% set hash = '7b2a949bf460fb37a3888c9048698f43222a185a48323023df1c51e78a3ca1c2' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('npp') %}
 
 npp-download-only:
   file.managed:

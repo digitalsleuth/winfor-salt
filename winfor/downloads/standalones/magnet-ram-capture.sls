@@ -9,7 +9,8 @@
 
 {% set version = '1.2.0' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set hash = '72dc1ba6ddc9d572d70a194ebdf6027039734ecee23a02751b0b3b3c4ea430de' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('magnet-ram-capture') %}
 
 magnet-ram-capture-download-only:
   file.managed:

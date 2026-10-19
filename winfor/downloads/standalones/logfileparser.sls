@@ -7,7 +7,8 @@
 # Version: 2.0.0.53
 # Notes: 
 
-{% set hash = '68fb4f9f54135e1951febf825de37e47fe13b2ac2733fcc63e8fe26dd729e58a' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('logfileparser') %}
 {% set version = '2.0.0.53' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 

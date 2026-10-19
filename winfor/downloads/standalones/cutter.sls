@@ -8,7 +8,8 @@
 # Notes: 
 
 {% set version = '2.5.0' %}
-{% set hash = 'a04154a03a392dbf5886a629938582f7d23a93636fa0611c3e1c34905b197e69' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('cutter') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 cutter-download-only:

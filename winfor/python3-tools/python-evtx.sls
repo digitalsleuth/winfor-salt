@@ -7,7 +7,8 @@
 # Version: 0.8.1
 # Notes: evtx_dump.py, evtx_dump_json.py, evtx_dump_chunk_slack.py, evtx_eid_record_numbers.py, evtx_extract_record.py, evtx_filter_records.py, evtx_info.py, evtx_record_structure.py, evtx_structure.py, evtx_templates.py
 
-{% set commit = '1edde3655c676bd44990ce9762d6b8f73334ed1d' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set commit = get_hash('python-evtx', 'commit') %}
 
 include:
   - winfor.packages.python3

@@ -7,9 +7,10 @@
 # Version: 4.5.888.111
 # Notes:
 
-{% set url_hash = '5159dbada900' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set url_hash = get_hash('fec', 'url_hash') %}
 {% set version = '4.5.888.111' %}
-{% set hash = '60db29feb6bb6023b81dec2d45ea067af3f09c80cc951b845581482213b357d6' %}
+{% set hash = get_hash('fec') %}
 
 forensic-email-collector:
   file.managed:

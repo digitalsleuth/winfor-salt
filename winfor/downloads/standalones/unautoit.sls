@@ -9,7 +9,8 @@
 
 {% set version = '1.1.1' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set hash = 'd771f7adc7882cf23a387434fbd0ab1902c0326df6035b2a239ebcbd256b52e9' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('unautoit') %}
 
 unautoit-download-only:
   file.managed:

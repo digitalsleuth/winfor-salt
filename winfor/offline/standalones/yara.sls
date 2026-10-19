@@ -9,7 +9,8 @@
 
 # renovate: datasource=github-releases depName=VirusTotal/yara
 {% set version = '4.5.5' %}
-{% set subversion = '2368' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set subversion = get_hash('yara', 'subversion') %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set pkg = 'yara-'~ version ~'.zip' %}

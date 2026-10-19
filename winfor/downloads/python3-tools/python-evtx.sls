@@ -10,8 +10,9 @@
 {% set version = '0.8.1' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set commit = '1edde3655c676bd44990ce9762d6b8f73334ed1d' %}
-{% set hash = '387a0f804a72d509c5fcccded4fb53385a712dd25ed4e8eaef693a4086abb068' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set commit = get_hash('python-evtx', 'commit') %}
+{% set hash = get_hash('python-evtx') %}
 
 include:
   - winfor.downloads.packages.python3

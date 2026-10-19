@@ -8,8 +8,9 @@
 # Notes:
 
 {% set version = '0.12.3' %}
-{% set ver_hash = 'f6a16a2abd' %}
-{% set hash = '35f06785ef2f2db6badcf1b32426bc23325cdaeb48192768eb84eba9486c2e53' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set ver_hash = get_hash('reko', 'ver_hash') %}
+{% set hash = get_hash('reko') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 reko-download-only:

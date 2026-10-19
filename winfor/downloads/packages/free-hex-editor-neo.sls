@@ -9,7 +9,8 @@
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '8.25.01.9585' %}
-{% set hash = '791843d1870e4b482b4f6f1510f06fc923d27cb16ef8cb159fd5af6540024143' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('free-hex-editor-neo') %}
 
 free-hex-editor-neo-download-only:
   file.managed:

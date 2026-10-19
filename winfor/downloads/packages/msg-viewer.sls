@@ -9,7 +9,8 @@
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '435' %}
-{% set hash = '88fef31a76dd036335c589710eaa8ba3a4490259e5a856a90a5030ea31933705' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('msg-viewer') %}
 
 msg-viewer-download-only:
   file.managed:

@@ -9,7 +9,8 @@
 
 {% set version = '1.7.3' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set hash = '84f9e0134830389e4ab12c89dc09cf42a3f885ec551254e9fdc22952858add11' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('deark') %}
 
 include:
   - winfor.packages.7zip

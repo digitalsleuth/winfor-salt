@@ -9,7 +9,8 @@
 
 {% set version = '0.9.462.0' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set hash = '92590121920b130a7787c25036d17cf4bd188f1de7cfac6d98c254eef531bb92' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('shadowexplorer') %}
 
 include:
   - winfor.downloads.packages.dotnetfx35

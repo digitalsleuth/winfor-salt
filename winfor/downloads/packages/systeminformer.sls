@@ -9,8 +9,9 @@
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '3.2.25011' %}
-{% set subversion = '2103' %}
-{% set hash = '7612d5e44a5a392ab9f0d1b5b8a79bda3cdbe19848e8ee9ec23909aaf3daad45' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set subversion = get_hash('systeminformer', 'subversion') %}
+{% set hash = get_hash('systeminformer') %}
 
 systeminformer-download-only:
   file.managed:

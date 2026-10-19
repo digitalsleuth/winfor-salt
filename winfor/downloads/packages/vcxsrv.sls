@@ -9,7 +9,8 @@
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '21.1.16.1' %}
-{% set hash = 'df7fed8f49665d0592528ab6be9d07111ea73c6848283d128b77690e05b8f90b' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('vcxsrv') %}
 
 vcxsrv-download-only:
   file.managed:

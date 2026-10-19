@@ -9,7 +9,8 @@
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '1.06' %}
-{% set hash = '9beb3829430836f50ebcdae9fd4f13ae51a41d7900f5e60263960c49a32c11b1' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('magnet-chromebook-acquisition') %}
 
 magnet-chromebook-acquisition:
   file.managed:

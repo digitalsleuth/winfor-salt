@@ -8,8 +8,9 @@
 # Notes:
 
 {% set version = '1.2.3.96' %}
-{% set hash = 'a7196907adb7a4fa110cab65ced57e4024f1162a051cd7d0dce1abf3cec998b6' %}
-{% set file_value = 'S0AShJZC#0bAnvlQOJBZMbtOHfyN_5jrZXcimfImae4zpY6O220w' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('hibernation-recon') %}
+{% set file_value = get_hash('hibernation-recon', 'file_value') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set pkg = 'hiber-recon-'~ version ~'.zip' %}
 {% set hiber_zip = downloads + '\\hiber-recon\\' + pkg %}

@@ -9,7 +9,8 @@
 
 {% set version = '0.9.15' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set hash = 'bfd198d6d4ad24a2b555bffbe77d21b7bd69577fef7919dce6221b8896fc8a76' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('malcat') %}
 
 malcat-download-only:
   file.managed:

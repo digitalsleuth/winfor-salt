@@ -9,7 +9,8 @@
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '4200' %}
-{% set hash = '3d3c70e51aef08f85d7160bcc70793bed9acec250973090ab67d98987bce7c7e' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('sublime-text') %}
 
 sublime-text-download-only:
   file.managed:

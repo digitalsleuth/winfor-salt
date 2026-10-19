@@ -8,7 +8,8 @@
 # Notes:
 
 {% set version = '2026.09.15' %}
-{% set hash = '07732e2a850edb2c1493c476f2df4110cd8db4a6d56c5724ba2ec115aa773ac4' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('onedriveexplorer') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 winfor-standalones-onedriveexplorer-download-only:

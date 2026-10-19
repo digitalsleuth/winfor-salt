@@ -8,8 +8,9 @@
 # Notes: 
 
 {% set version = '25.4.17' %}
-{% set short_ver = '25.4' %}
-{% set hash = '90cb1591aa1571426bd29502197fd7fd972d96b95fa18843ad179a660a41c0ab' %}
+{% set short_ver = version.rsplit('.', 1)[0] %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('tableau-firmware-update') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set user = salt['pillar.get']('winfor_user', 'forensics') %}
 {% set current_user = salt['environ.get']('USERNAME') %}

@@ -9,7 +9,8 @@
 
 {% set version = '5.3.9757' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set hash = '5f6096acb03dd70d1a0572257c44471a0b62653788348cf69dc829212882a618' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('binary-ninja') %}
 
 binary-ninja-free-download-only:
   file.managed:

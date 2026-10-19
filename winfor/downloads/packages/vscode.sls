@@ -9,8 +9,9 @@
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '1.126.0' %}
-{% set guid = '7e7950df89d055b5a378379db9ee14290772148a' %}
-{% set hash = '28eab4540effebb773266f231fd13e0d1b8a26bb296f44ae97054a98602b17d8' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set guid = get_hash('vscode', 'guid') %}
+{% set hash = get_hash('vscode') %}
 
 vscode-download-only:
   file.managed:

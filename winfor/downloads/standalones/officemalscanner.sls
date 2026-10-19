@@ -9,7 +9,8 @@
 
 {% set version = '0.62' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set hash = 'd84bb67485ee73f7b1666b39ba01b80e31cf2021b85671dd036858053be65c1e' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('officemalscanner') %}
 
 officemalscanner-download-only:
   file.managed:

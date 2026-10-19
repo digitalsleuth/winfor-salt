@@ -8,7 +8,8 @@
 # Notes: 
 
 {% set version = '24.4.102.648' %}
-{% set hash = 'd616408a0c82a88c760731e4c72c6f44759ca532a070adff37a000aa279c249a' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('snmp-tester') %}
 
 snmp-tester-download:
   file.managed:

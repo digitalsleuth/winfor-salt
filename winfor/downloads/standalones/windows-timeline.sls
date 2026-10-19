@@ -8,7 +8,8 @@
 # Notes:
 
 {% set version = '2.0.82.0' %}
-{% set hash = '87af5824e86c20f13e6d45595e98801a63d2ff9af4ded011066df754652f5780' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('windows-timeline') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 windowstimeline-download-only:

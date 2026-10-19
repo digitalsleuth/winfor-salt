@@ -8,7 +8,8 @@
 # Notes: 
 
 {% set version = '2.13.2' %}
-{% set hash = '2e23ead17825711bfbf25ffbc6c6af32ca89b057a8e7ccb856cc096ed7f83516' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('bytecode-viewer') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 bytecode-viewer-download-only:

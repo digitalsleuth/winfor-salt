@@ -8,7 +8,8 @@
 # Notes: 
 
 {% set version = '2.0.0.100' %}
-{% set hash = 'cf4e8fb1970230c0cb699324246d14b5406e284e566a1e06717d1b785b77c893' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('logparser-studio') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 logparser-studio-download-only:

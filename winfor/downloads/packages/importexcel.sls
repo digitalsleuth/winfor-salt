@@ -8,7 +8,8 @@
 # Notes: Installed directly from PSGallery
 
 {% set version = '7.8.10' %}
-{% set hash = 'd8a1d79dc8cf10c0eea30b68b70459b3fb4cac0042fb756fcb23890671857e4c' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('importexcel') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 importexcel-download-only:

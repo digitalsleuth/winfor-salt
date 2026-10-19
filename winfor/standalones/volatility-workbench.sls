@@ -9,7 +9,8 @@
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set version = '3.0.1016' %}
-{% set hash = '604e2eba56736c24b5265842cc217c8936a66bd2527191cd9262a2aa53cec6a4' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('volatility-workbench') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 volatility-workbench-download:

@@ -8,7 +8,8 @@
 # Notes: 
 
 {% set version = '1.30' %}
-{% set hash = 'ea2c3ffbfcc2ab217f7fe78473544cae73f2b21c9af55ae1916d2b0cc16fa53f' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('fex-cloud-capture') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 fex-cloud-capture-download-only:

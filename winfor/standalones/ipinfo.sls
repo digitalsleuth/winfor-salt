@@ -8,7 +8,8 @@
 # Notes: 
 
 {% set version = '3.3.2' %}
-{% set hash = '4dd90321cf023b941f8b53db4554cb83d8437879e890b9ecb2a7ca492b0556d3' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('ipinfo') %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 
 include:

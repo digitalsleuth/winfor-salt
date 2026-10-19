@@ -8,7 +8,8 @@
 # Notes:
 
 {% set version = '7.2' %}
-{% set hash = 'e97e203ce77b6b1a3a37d01beccf069dc6c4632b579ffbb82ae739cdda229f38' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('photorec') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 testdisk-download-only:

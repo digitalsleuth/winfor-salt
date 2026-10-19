@@ -11,7 +11,8 @@
 {% set major = '11' %}
 {% set subversion = '11' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set hash = '0af0760609eca44502f05e6ab4701eecbf85290f31278dabc41dceddab7237ab' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('jre11') %}
 
 jre11-download:
   file.managed:

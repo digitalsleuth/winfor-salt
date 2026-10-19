@@ -9,7 +9,8 @@
 
 {% set version = '3.0' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set hash = '497720e708a0e203069042af85cb2b23989c5271ef6e40e180b82ae9b7385f9d' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('vssmount') %}
 
 vssmount-download-only:
   file.managed:

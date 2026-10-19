@@ -8,7 +8,8 @@
 # Notes:
 
 {% set version = '4.2.0' %}
-{% set hash = 'e8e49805bf94f5feb425cffae904f526257c1b6bf8dedfa07c28e9aa585a387b' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('hayabusa') %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set defender_status = salt['cmd.powershell']('((Get-Service) -match "WinDefend").Name') %}

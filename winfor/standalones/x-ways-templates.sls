@@ -8,7 +8,8 @@
 # Notes:
 
 {% set version = '0.0.2' %}
-{% set hash = 'faa079995f7e14a5624946eb01edd12db7bebc518a615e336c5132bd3a9ce53e' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('x-ways-templates') %}
 
 xways-templates-download:
   file.managed:

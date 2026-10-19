@@ -9,7 +9,8 @@
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '1.0.3' %}
-{% set hash = '1ed0f47fdf8f622b79d4e970004ad7529ef77e20b295ac5c20a01ae2a19eb387' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('windexter') %}
 
 windexter-download-only:
   file.managed:

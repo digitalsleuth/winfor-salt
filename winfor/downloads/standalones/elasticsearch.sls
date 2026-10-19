@@ -8,7 +8,8 @@
 # Notes:
 
 {% set version = '9.4.3' %}
-{% set hash = '335ab2f51b2dfe3be1d5fd25a40877b012fd87cff05a147cdba1b46f7ab38590' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('elasticsearch') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 elasticsearch-download-only:

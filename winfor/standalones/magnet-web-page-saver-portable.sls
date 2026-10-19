@@ -9,7 +9,8 @@
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set version = 'V340' %}
-{% set hash = '84cbe3ca660d7031fe85aee0faf2ce5e2d173c36f85dffff2d309ed52b5b08ae' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('magnet-web-page-saver-portable') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 magnet-web-page-saver-download:

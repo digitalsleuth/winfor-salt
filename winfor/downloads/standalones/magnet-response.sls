@@ -9,7 +9,8 @@
 
 {% set version = '1.72' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set hash = 'd315c63d1ad4b89e03c7688b29169e977c2abc4559c23b9f6b2282f3c91a6c7d' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('magnet-response') %}
 
 magnet-response-download-only:
   file.managed:

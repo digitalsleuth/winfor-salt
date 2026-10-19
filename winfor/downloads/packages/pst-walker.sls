@@ -9,7 +9,8 @@
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '7.31' %}
-{% set hash = 'bfdce151bb7b152f4527c88a7b3e8baabdf73abe7cf692120aa63e4f249530ed' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('pst-walker') %}
 
 pst-walker-download-only:
   file.managed:

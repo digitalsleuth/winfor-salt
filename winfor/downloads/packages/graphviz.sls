@@ -9,7 +9,8 @@
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '12.2.1' %}
-{% set hash = '6809d0095919844a6c557092d2005605450d8ad2ef69ed89d7bc3ee791b6f9da' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('graphviz') %}
 
 graphviz-download-only:
   file.managed:

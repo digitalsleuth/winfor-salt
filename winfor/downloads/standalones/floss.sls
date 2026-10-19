@@ -8,7 +8,8 @@
 # Notes: 
 
 {% set version = '3.2.0' %}
-{% set hash = 'c0c73bb99d043fedd8e913038b65d1591fd6308cd938d8a91df87b733b369af5' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('floss') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 floss-download-only:

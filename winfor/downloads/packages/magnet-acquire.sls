@@ -9,8 +9,10 @@
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '2.95.0.43864' %}
-{% set file_version = '2950.43864' %}
-{% set hash = '8957a467716fa61a7efc9be2ffec016394599dae6877e052d0fb2e0cafaca033' %}
+{% set version_parts = version.rsplit('.', 1) %}
+{% set file_version = version_parts[0] | replace('.', '') ~ '.' ~ version_parts[1] %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('magnet-acquire') %}
 
 magnet-acquire-download-only:
   file.managed:

@@ -8,7 +8,8 @@
 # Notes: 
 
 {% set version = '0.1.0.0' %}
-{% set hash = '26cbdf8ff9e172018668c71c6884294a1a9619c48a64148b11db385779b13194' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('exeinfope') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 exeinfope-download-only:

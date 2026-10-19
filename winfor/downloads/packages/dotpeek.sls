@@ -8,7 +8,8 @@
 # Notes: 
 
 {% set version = '2026.1.2' %}
-{% set hash = 'e211a6ad87c530cfda6f68cc4a337cec78e2dacdd1ba493d211169934c67952b' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('dotpeek') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 dotpeek-download-only:

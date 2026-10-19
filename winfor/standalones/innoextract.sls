@@ -9,7 +9,8 @@
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set version = '1.9' %}
-{% set hash = '6989342c9b026a00a72a38f23b62a8e6a22cc5de69805cf47d68ac2fec993065' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('innoextract') %}
 
 include:
   - winfor.config.shims

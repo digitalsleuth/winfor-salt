@@ -9,7 +9,8 @@
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '3.0' %}
-{% set hash = '005fe63e3942d772f82ec4df935002aedb8bbbf10fc95be086c029a2f3c875a9' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('fileinsight') %}
 
 fileinsight-download-only:
   file.managed:

@@ -10,7 +10,8 @@
 {% set version = '0.9.15' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
-{% set hash = 'bfd198d6d4ad24a2b555bffbe77d21b7bd69577fef7919dce6221b8896fc8a76' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('malcat') %}
 
 malcat-download:
   file.managed:

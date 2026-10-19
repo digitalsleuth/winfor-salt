@@ -8,7 +8,8 @@
 # Notes: 
 
 {% set version = 'v2r13' %}
-{% set hash = '46c1f2f4e8dfa8e0c2775b1cc4a20491d7413a87f3d08e8385f1e70dba6756e9' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('apimonitor') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 apimonitor-download-only:

@@ -8,7 +8,8 @@
 # Notes: 
 
 {% set version = '2.2.1' %}
-{% set hash = '7460425d281455ef6f74e7262e09ee2d86ef8b0754cade399044fc67e5561854' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('eventfinder') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 eventfinder-download-only:

@@ -8,7 +8,8 @@
 # Notes:
 
 {% set version = '4.6.0' %}
-{% set hash = 'c0300e2ca0b19e2843cd68c923afd4418fb3900fbc2e7f082ab60ea7ca40c910' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('zircolite') %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}

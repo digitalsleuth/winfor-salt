@@ -8,7 +8,8 @@
 # Notes:
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set hash = 'E3C40DD20884351B6553FF64E985D18D8EB6C1BFD165CA18814F84D028CB492C' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('hash-generator') %}
 {% set version = '2.1.0' %}
 
 hash-generator-download-only:

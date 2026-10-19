@@ -8,7 +8,8 @@
 # Notes: 
 
 {% set version = '2.0' %}
-{% set hash = '972c5b39b3796ed5cf77a2c602822c31f992e5c3a7b4210aa90a3a323de92440' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('usb-write-blocker') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 usb-write-blocker-download-only:

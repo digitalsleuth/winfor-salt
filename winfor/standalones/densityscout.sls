@@ -7,7 +7,8 @@
 # Version: Build 45
 # Notes:
 
-{% set hash = '1EA4C6A32D244DA91E70371054648F25529F69E06548F16C9DA75A9CFC8A2915' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('densityscout') %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 
 include:

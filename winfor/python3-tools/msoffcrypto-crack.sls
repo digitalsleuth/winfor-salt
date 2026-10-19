@@ -9,7 +9,8 @@
 
 {% set version = '0.0.5' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set hash = 'f0a78b7263704d8740a7d4738a8b3d5cfc6037de619953b444a0019551826367' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('msoffcrypto-crack') %}
 
 include:
   - winfor.packages.python3

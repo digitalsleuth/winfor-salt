@@ -9,7 +9,8 @@
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '13.0' %}
-{% set hash = 'b96e0f5a4fe0cd13736b971632c8b89384566aa1da3f429254bf661eba400a7a' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('mdf-viewer') %}
 
 mdf-viewer-download-only:
   file.managed:

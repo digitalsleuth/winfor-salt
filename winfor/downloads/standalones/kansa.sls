@@ -8,7 +8,8 @@
 # Notes: 
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set hash = 'c0369b102e8538f30bfc0da9d81a15f6df268a47c8ad3313d1710185aa6788ac' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('kansa') %}
 
 kansa-download-only:
   file.managed:

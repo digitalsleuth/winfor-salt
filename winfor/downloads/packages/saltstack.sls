@@ -10,7 +10,8 @@
 {% set version = '3007.2' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set file = 'Salt-Minion-' ~ version ~ '-Py3-AMD64-Setup.exe' %}
-{% set hash = '9d46f907cb744ec5c02bb0ee6ec79e9e7d8460b4d29cbe898c34610f747a3f43' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('saltstack') %}
 
 saltstack-download-only:
   file.managed:

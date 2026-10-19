@@ -9,7 +9,8 @@
 
 {% set version = '4.0.0.37' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set hash = 'c908d86999c11e731bf07c7a715a35dcba0893487d8deaf86b38842c00942f09' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('teracopy') %}
 
 teracopy-download-only:
   file.managed:

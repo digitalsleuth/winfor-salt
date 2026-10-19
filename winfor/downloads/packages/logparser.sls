@@ -9,7 +9,8 @@
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '2.2.10' %}
-{% set hash = '7bbfdfb52a8d92a105ed2fccdf0e44d8fb2ed49f0358390dd921886c14e9e32c' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('logparser') %}
 
 logparser-download-only:
   file.managed:

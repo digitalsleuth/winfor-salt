@@ -8,8 +8,9 @@
 # Notes: JAR file, requires Java
 
 {% set version = '3.0.3' %}
-{% set batch_hash = '9440ec9d98efdef14136f4cefd79ac200d72baa016b5991d128234a3a3ef3b43' %}
-{% set hash = 'dbf930b076c6b9be08d57c449cacefc3bdd6b71ebd59b3066fc0e1f5b14f9423' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set batch_hash = get_hash('apktool', 'batch_hash') %}
+{% set hash = get_hash('apktool', 'hash') %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 
 include:

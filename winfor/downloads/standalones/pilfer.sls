@@ -8,7 +8,8 @@
 # Notes: 
 
 {% set version = '4.1' %}
-{% set hash = '047368b6c4a7429b85423fcb7661931ad8383629fd231ce42d19a7bb9ad3204c' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('pilfer') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 pilfer-download-only:

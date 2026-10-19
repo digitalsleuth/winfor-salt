@@ -10,7 +10,8 @@
 {% set version = '2.2.0' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set hash = '39CB3ABA6471979ECC04B017D973667E77AC6BA0B3A894A4DCA7F9EE7CD3EAE7' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('vleapp') %}
 
 include:
   - winfor.standalones.portable-python3

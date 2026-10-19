@@ -7,10 +7,11 @@
 # Version: 2025.3.2.6
 # Notes: Comes with adb and fastboot, error code 1223 does not represent error - marked as success.
 
-{% set cmdline_version = '14742923' %}
-{% set cmdline_hash = 'cc610ccbe83faddb58e1aa68e8fc8743bb30aa5e83577eceb4cc168dae95f9ee' %}
-{% set as_version = '2025.3.2.6' %}
-{% set as_hash = '77115e3aee8fd47a936e5ade7659316ccab34d60d36f259bb78581bab0096681' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set cmdline_version = get_hash('android-studio', 'cmdline_version') %}
+{% set cmdline_hash = get_hash('android-studio', 'cmdline_hash') %}
+{% set as_version = get_hash('android-studio', 'as_version') %}
+{% set as_hash = get_hash('android-studio', 'as_hash') %}
 {% set PROGRAM_FILES = salt['environ.get']('PROGRAMFILES') %}
 {% set broken_files = ['apkanalyzer.bat','lint.bat','screenshot2.bat'] %}
 {% set install = 'echo y|"C:\Program Files\Common Files\Oracle\Java\javapath\java.exe" -Dcom.android.sdklib.toolsdir="C:\Program Files\Android\Android Studio\Sdk\cmdline-tools\latest" -classpath "C:\Program Files\Android\Android Studio\Sdk\cmdline-tools\latest\lib\sdkmanager-classpath.jar" com.android.sdklib.tool.sdkmanager.SdkManagerCli' %}

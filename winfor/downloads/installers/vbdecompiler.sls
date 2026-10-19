@@ -8,7 +8,8 @@
 # Notes: 
 
 {% set version = '26.5' %}
-{% set hash = 'f770af24ae3b235b2d9a0b58457bb8de37049298a23e9677cf0312206221eafd' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('vbdecompiler') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 vbdecompiler-download-only:

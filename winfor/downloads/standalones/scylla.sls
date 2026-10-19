@@ -9,7 +9,8 @@
 
 {% set version = '0.9.8' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set hash = '48a4338d999ec5f33b5964c51893a04fc9e2d104b0c7786f50751f7db5dcbe52' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('scylla') %}
 
 scylla-download-only:
   file.managed:

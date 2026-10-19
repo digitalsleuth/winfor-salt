@@ -10,7 +10,8 @@
 {% set version = '1.0' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set hash = 'e0b8581246db00a3882765a65722a326d0e5d347986e284ca351c7ce0c2fc092' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('bitsparser') %}
 
 include:
   - winfor.standalones.portable-python3

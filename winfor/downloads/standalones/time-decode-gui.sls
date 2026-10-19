@@ -8,7 +8,8 @@
 # Notes:
 
 {% set version = '11.0.0' %}
-{% set hash = '82f70b53da59b82435f717f184beafdce8e92f50a1bc805cc3a7fe75802ac0b6' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('time-decode-gui') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 time-decode-download-only:

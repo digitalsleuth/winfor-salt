@@ -9,7 +9,8 @@
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '14.0' %}
-{% set hash = '2702226cf9ee131ee54e9649d6d90008f3fe851ba35939f43ae8cb614a00d564' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('caine') %}
 
 caine-iso-download-only:
   file.managed:

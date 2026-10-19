@@ -7,7 +7,8 @@
 # Version: 3.1.1003.0
 # Notes: 
 
-{% set hash = '9fe0738b7c2d29a7414e67f53aea359f3801d1c37b44f1b4fed5d02cb7536369' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('osfmount') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '3.1.1003.0' %}
 

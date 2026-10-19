@@ -8,7 +8,8 @@
 # Notes: 
 
 {% set version = '17.0.9' %}
-{% set hash = '4d1d6ec3976fd20bcc34db8fd7cfbe1a8cdd93a0c33182af13b31cd1feef423d' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('jdk17') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 jdk17-download-only:

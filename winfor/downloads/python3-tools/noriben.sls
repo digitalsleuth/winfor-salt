@@ -10,7 +10,8 @@
 {% set version = '2.0.4' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set hash = '48f6076eecbee5b7c96b6ef2086b177d158cc7326b83171246f68bd86e6a5212' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('noriben') %}
 
 noriben-download-only:
   file.managed:

@@ -8,7 +8,8 @@
 # Notes: Removed from installation due to End of Support
 
 {% set version = '2.2.0' %}
-{% set hash = '8a5c6938408b228ebbe942aa2a4fc404853d39ca7b7c7f83df204c13e5b1030b' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('fit') %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 

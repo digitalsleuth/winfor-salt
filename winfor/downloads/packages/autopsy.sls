@@ -8,7 +8,8 @@
 # Notes: 
 
 {% set version = '4.22.0' %}
-{% set hash = '3071d1f92402fba84329cee59680cf940bdbec0d5ad8470655dc8f9ae0b93610' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('autopsy') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 autopsy-download-only:

@@ -9,7 +9,8 @@
 
 {% set version = '2.7.7.294' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set hash = 'ab7acde3d19b6baf1d5bd8f8095fead5d56c3dab8f6232579bbb47c9241f1772' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('desktop-frames') %}
 
 include:
   - winfor.downloads.packages.dotnet8-desktop-runtime

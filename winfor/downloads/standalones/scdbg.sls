@@ -8,7 +8,8 @@
 # Notes: 
 
 {% set version = '2023-07-10' %}
-{% set hash = '9298580a436db7d07eec71314bf3ff9e6dd638acf50900051fa0fe11fd3cf147' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('scdbg') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 scdbg-download-only:

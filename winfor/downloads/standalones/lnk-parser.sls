@@ -8,7 +8,8 @@
 # Notes: 
 
 {% set version = '0.4.3' %}
-{% set hash = 'd647b635dba8fc671596b9b3332e807eafce515d915767037bb33759d44fe2e7' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('lnk-parser') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 lnk-parser-download-only:

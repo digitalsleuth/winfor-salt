@@ -8,7 +8,8 @@
 # Notes: 
 
 {% set version = '0.4.1.1' %}
-{% set hash = '9f3ff2884a2c61006cd0a92b7572a815b8dc17012be7747a6abd6ca07c503a3b' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('pe-sieve') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 pe-sieve-download-only:

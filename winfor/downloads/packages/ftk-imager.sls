@@ -9,7 +9,8 @@
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '4.7.3.81' %}
-{% set hash = '443843a3923a55d479d6ebb339dfbec12b5c1aabed196bf0541669abbe9b1c51' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('ftk-imager') %}
 
 ftk-imager-download-only:
   file.managed:

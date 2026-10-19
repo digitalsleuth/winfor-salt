@@ -9,7 +9,8 @@
 
 {% set version = '0.7.14' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set hash = 'a9fa2faa25e88ab0293543d14aa168ff21fc9fd25a0a8ad657b0dad3171214ac' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('pdf-parser') %}
 
 include:
   - winfor.downloads.packages.python3

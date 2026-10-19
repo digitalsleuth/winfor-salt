@@ -8,7 +8,8 @@
 # Notes: 
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set hash = 'f10f9cb37d3858f082da28c717ed7af2ee8e97163e03a7e265b3a99cfefcda02' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('bulkrenameutility-portable') %}
 {% set version = '4.1.0.1' %}
 
 bulkrenameutility-portable-download-only:

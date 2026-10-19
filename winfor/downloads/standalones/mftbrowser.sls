@@ -8,7 +8,8 @@
 # Notes:
 
 {% set version = '1.0.80' %}
-{% set hash = '478bb7ee1f6b33caeae9bc39298a12ccc3f99834a550cfaff5b7848a7dcc9b0b' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('mftbrowser') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 mftbrowser-download-only:

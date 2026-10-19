@@ -9,7 +9,8 @@
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '3.10.11' %}
-{% set hash = 'd8dede5005564b408ba50317108b765ed9c3c510342a598f9fd42681cbe0648b' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('python3') %}
 
 python3_x64-download-only:
   file.managed:

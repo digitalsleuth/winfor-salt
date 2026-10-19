@@ -7,7 +7,7 @@
 # Version: 25.4.17
 # Notes: 
 
-{% set version = '25.4' %}
+{% set version = '25.4.17' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set pkg = 'tableau-firmware-update-'~ version ~'.msi' %}
 {% set exists = salt['file.file_exists'](downloads + '\\tableau\\' + pkg) %}

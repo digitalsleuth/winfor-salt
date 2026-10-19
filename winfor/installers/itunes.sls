@@ -8,8 +8,9 @@
 # Notes:
 
 {% set version = '12.13.7.1' %}
-{% set hash = '2f5a7f4a85e24810297cb3ef63fd6d743df1c62edfc5e4ca3677c7b083bc2ff0' %}
-{% set guid = '082-11723-20250331-b31ec27c-f9dd-42b1-9af3-2e2590232c09' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('itunes') %}
+{% set guid = get_hash('itunes', 'guid') %}
 
 itunes-download:
   file.managed:

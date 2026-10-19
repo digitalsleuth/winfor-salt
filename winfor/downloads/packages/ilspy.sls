@@ -9,7 +9,8 @@
 
 {% set version = '11.1.0.9782' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set hash = '38464cacd271a05349e4893605c67985377f4f4d2e1950ffc7921143b4fc96ea' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('ilspy') %}
 
 include:
   - winfor.downloads.packages.dotnet10-desktop-runtime

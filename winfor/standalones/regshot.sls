@@ -10,7 +10,8 @@
 {% set version = '1.9.1-beta_r321' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
-{% set hash = '5933d59f591e1e68ce7819904f8cb1118fc935bdfe89581599d0560ec9b97cd6' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('regshot') %}
 {% set files = ['Regshot x64 ANSI', 'Regshot x64 Unicode', 'Regshot x86 ANSI', 'Regshot x86 Unicode'] %}
 
 include:

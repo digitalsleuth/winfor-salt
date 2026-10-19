@@ -8,8 +8,9 @@
 # Notes: 
 
 {% set version = '2026.5.0' %}
-{% set hash = '7cdf8356400351612875ac2e1e26edde084b5f738242790d32ae0c83883f548b' %}
-{% set hasher_hash = 'a8a343013d6ed5b6988ebce1b3a561df51ab5928bc3a0f489a7e175f8f6f89d4' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('zimmerman', 'hash') %}
+{% set hasher_hash = get_hash('zimmerman', 'hasher_hash') %}
 {% set hasher_version = '2026.5.0' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}

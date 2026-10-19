@@ -8,7 +8,8 @@
 # Notes: Free Trial / Limited Free Conversion - (https://www.aid4mail.com/support/solutions/articles/aid4mail-version-history)
 
 {% set version = '6.3' %}
-{% set hash = '92a1dc470dcea6af6b46b205b01835396ad6e121169f9d14e6429e901bd5687c' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('aid4mail') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 aid4mail-download-only:

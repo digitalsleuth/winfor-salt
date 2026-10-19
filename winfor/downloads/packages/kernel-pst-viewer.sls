@@ -9,7 +9,8 @@
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '20.3' %}
-{% set hash = '4e2eb12620d5c06822913b82decc1c44d272082ce75a266e0ec3ab4e38c52ab9' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('kernel-pst-viewer') %}
 
 kernel-pst-viewer-download-only:
   file.managed:

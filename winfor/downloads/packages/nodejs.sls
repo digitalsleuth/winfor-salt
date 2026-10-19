@@ -8,7 +8,8 @@
 # Notes:
 
 {% set version = '22.16.0' %}
-{% set hash = 'e2f2802202513e1bf41f7c00307635f6c6fe31c0275c1e03d269d45a76e5fc2e' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('nodejs') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 node.js-download-only:

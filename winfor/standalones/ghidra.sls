@@ -8,9 +8,10 @@
 # Notes: 
 
 {% set version = '12.1.2' %}
-{% set date = '20260605' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set date = get_hash('ghidra', 'date') %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set hash = 'b62e81a0390618466c019c60d8c2f796ced2509c4c1aea4a37644a77272cf99d' %}
+{% set hash = get_hash('ghidra') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 include:

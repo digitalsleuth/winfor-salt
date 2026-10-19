@@ -9,7 +9,8 @@
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '5.0' %}
-{% set hash = '012599f3a3abeca988964dbab47b1c3fb31cfe164d6bf724d406859d785ddab2' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('systools-pst-viewer') %}
 
 outlook-pst-viewer-download-only:
   file.managed:

@@ -8,7 +8,8 @@
 # Notes:
 
 {% set version = '8.3' %}
-{% set hash = '10080a057704630578e697c6bb0b09968a54138075cacab175f62d60c71d0a1f' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('ida-free') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 ida-free-download-only:

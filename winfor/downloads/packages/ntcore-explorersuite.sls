@@ -9,7 +9,8 @@
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = 'IV' %}
-{% set hash = '94f4348ec573b05990b1e19542986e46dc30a87870739f5d5430b60072d5144d' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('ntcore-explorersuite') %}
 
 ntcore-explorersuite-download-only:
   file.managed:

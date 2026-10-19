@@ -9,7 +9,8 @@
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '5.2.8' %}
-{% set hash = 'b611be2f35cb44efd1c29df03e7ebe62bd556a500585680e1afa5e073eaf1756' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('resource-hacker') %}
 
 resource-hacker-download-only:
   file.managed:

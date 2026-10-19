@@ -11,12 +11,13 @@
 {% set nodot = version.replace(".","") %}
 {% set auth_token = 'TOKENPLACEHOLDER' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
-{% set xwhash = '13a444d9f92853a4f17b0126c5a482557c1bc261fb46961ddbf2b5d533c9f8fb' %}
-{% set xviewerhash = '00d573f24f55521869ecd896a47b1e3838e4ad24c701178b565663d79882222f' %}
-{% set xviewer_ver = '857' %}
-{% set mplayerhash = '9032481e21819bc02c01b11ab11ab82c022e3566eea42bf420c67def85f86fae' %}
-{% set tesseracthash = 'd071607267792631168d534bd89cd6905ee5d79b392542f81ab945a6e7ce72bd' %}
-{% set manualhash = 'ac470910b3f7c614e5f6bc91ac62bc9a9fa7657615da3721f835c5d9228735c2' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set xwhash = get_hash('x-ways', 'xwhash') %}
+{% set xviewerhash = get_hash('x-ways', 'xviewerhash') %}
+{% set xviewer_ver = get_hash('x-ways', 'xviewer_ver') %}
+{% set mplayerhash = get_hash('x-ways', 'mplayerhash') %}
+{% set tesseracthash = get_hash('x-ways', 'tesseracthash') %}
+{% set manualhash = get_hash('x-ways', 'manualhash') %}
 
 include:
   - winfor.standalones.x-ways-templates

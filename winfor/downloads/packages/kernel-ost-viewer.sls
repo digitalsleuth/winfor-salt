@@ -9,7 +9,8 @@
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '21.1' %}
-{% set hash = 'f3ec61fe2f01c121e7436cfb6440e839795c280382409fd454f7814f99a20638' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('kernel-ost-viewer') %}
 
 kernel-ost-viewer-download-only:
   file.managed:

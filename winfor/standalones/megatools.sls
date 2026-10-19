@@ -9,8 +9,9 @@
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set version = '1.11.5' %}
-{% set date = '20250706' %}
-{% set hash = 'bd1269e50d9c45e369c14e287c1754c9506e1b11efcc0cd4bb95d460c9d782b5' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set date = get_hash('megatools', 'date') %}
+{% set hash = get_hash('megatools') %}
 
 include:
   - winfor.config.shims

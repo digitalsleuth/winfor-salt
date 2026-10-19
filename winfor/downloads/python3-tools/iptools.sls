@@ -9,7 +9,8 @@
 
 {% set version = '1.1' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set hash = 'de771ec7c7748fa8a47581e5dc40b3490de62e82482a85dff39f8246ce220b89' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('iptools') %}
 
 iptools-download-only:
   file.managed:

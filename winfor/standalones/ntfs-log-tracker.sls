@@ -9,7 +9,8 @@
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
-{% set hash = 'd3fe901af56c102d7ff7daf294a6d36f0c925d12c0f9ee6d28022b351d26c6a1' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('ntfs-log-tracker') %}
 {% set version = '1.9' %}
 
 ntfs-log-tracker-download:

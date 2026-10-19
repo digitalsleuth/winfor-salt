@@ -9,7 +9,8 @@
 
 {% set version = '1.9.1-beta_r321' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set hash = '5933d59f591e1e68ce7819904f8cb1118fc935bdfe89581599d0560ec9b97cd6' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('regshot') %}
 
 regshot-download-only:
   file.managed:

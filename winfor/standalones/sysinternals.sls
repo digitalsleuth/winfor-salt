@@ -9,7 +9,8 @@
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set version = '2026.10.15' %}
-{% set hash = 'e1e75de5cdb12116b0a4eca83725dc7c7a1645266196025cbe5ca6c167161aed' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('sysinternals') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 sysinternals:

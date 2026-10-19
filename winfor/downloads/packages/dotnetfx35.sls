@@ -7,7 +7,8 @@
 # Version: .NET 3.5 SP1
 # Notes: 
 
-{% set hash = '3887bb41eda48915268a9431041eb9f6dde06e52e411b49074b6ac60411b9ebe' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('dotnetfx35') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 dotnetfx35-download-only:

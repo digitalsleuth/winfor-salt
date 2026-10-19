@@ -8,7 +8,8 @@
 # Notes: 
 
 {% set version = '1.21' %}
-{% set hash = 'd395c632070ddcd75d884a3d081d7169712d526e36f4a63705d4ed41c5afc6b1' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('fex-memory-imager') %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 
 fex-memory-imager-download:

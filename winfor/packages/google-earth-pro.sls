@@ -7,6 +7,8 @@
 # Version: 7.3.6.10441
 # Notes:
 
+{% set version = '7.3.6.10441' %}
+
 {% set user = salt['pillar.get']('winfor_user', 'forensics') %}
 {% set current_user = salt['environ.get']('USERNAME') %}
 {% set all_users = salt['user.list_users']() %}

@@ -9,8 +9,9 @@
 
 {% set version = '11.5.0' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set hash = 'f6478925d3eaa16ec08626a85f5b85eed10d531a5e18700615fed7ecb024cccf' %}
-{% set commit = '8cd426dd4f40f1423912d5fad91b578a86a65112' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('cyberchef') %}
+{% set commit = get_hash('cyberchef', 'commit') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 include:

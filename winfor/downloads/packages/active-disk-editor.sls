@@ -9,7 +9,8 @@
 
 {% set version = '26.1.3' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set hash = '00b4462977a01fd6bf05d64d0115cc605c73a06e6bd9d6e332a01a198b310296' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('active-disk-editor') %}
 
 active-disk-editor-download-only:
   file.managed:

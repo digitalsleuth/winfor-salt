@@ -8,8 +8,9 @@
 # Notes:
 
 {% set version = '4.5.5' %}
-{% set subversion = '2368' %}
-{% set hash = '352396c8a3d9b31b157a4820abd3b9347fc934a2314cdda8a4f566a5570163e4' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set subversion = get_hash('yara', 'subversion') %}
+{% set hash = get_hash('yara') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 yara-download-only:

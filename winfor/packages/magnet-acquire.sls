@@ -7,6 +7,8 @@
 # Version: 2.95.0.43864
 # Notes:
 
+{% set version = '2.95.0.43864' %}
+
 include:
   - winfor.repos
 

@@ -8,7 +8,8 @@
 # Notes:
 
 {% set version = '0.13.0' %}
-{% set hash = '3e319c08456031a9683c19c998ac9f61756a2e456413db17c8e6819b17818a1a' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('xsv') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 xsv-download-only:

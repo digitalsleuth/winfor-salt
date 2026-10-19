@@ -9,7 +9,8 @@
 
 {% set version = '2.1' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set hash = '7d3076acbea05d050efe6d3bf0e0f48bae9792e4b2bbd104e98e84f3513ad2b2' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('zapixdesk') %}
 
 zapixdesk-download-only:
   file.managed:

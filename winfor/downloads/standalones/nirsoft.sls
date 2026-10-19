@@ -8,7 +8,8 @@
 # Notes: 
 
 {% set version = '1.30.24' %}
-{% set hash = '847ea35296dc7811ddd18878ab9a9f297b25177077abb61286aaafaa6a4f1189' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('nirsoft') %}
 {% set nlps = ['eztools.nlp', 'mitec.nlp', 'sysinternals6.nlp'] %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}

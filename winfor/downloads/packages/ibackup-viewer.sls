@@ -8,7 +8,8 @@
 # Notes: 
 
 {% set version = '4.27.30.0' %}
-{% set hash = '68f6c77d7c5f492fecb28a8cff3ef9af5ec2cb68c61f4ed7725b4616eebef72b' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('ibackup-viewer') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 ibackup-viewer-download-only:

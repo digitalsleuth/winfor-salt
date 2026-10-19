@@ -9,7 +9,8 @@
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '2.5.0' %}
-{% set hash = '8f0fa6fb487f559995f0846cbd375d9ce925ad328234a01dc2f526cd888c6932' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('plist-editor') %}
 
 plist-editor-download-only:
   file.managed:

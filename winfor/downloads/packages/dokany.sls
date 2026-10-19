@@ -8,7 +8,8 @@
 # Notes:
 
 {% set version = '2.3.1.1000' %}
-{% set hash = '69ff8cb37bfec3a75921c85ffd1c6370b50a9ec4ecef2cf3a009d488dcbf5465' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('dokany') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 dokany-download-only:

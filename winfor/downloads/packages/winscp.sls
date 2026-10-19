@@ -8,7 +8,8 @@
 # Notes:
 
 {% set version = '6.5.6' %}
-{% set hash = '4488c493bafca6af4e7ae54ed39cb71479e65dc192c4d1a471647bf9cb9d6db0' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('winscp') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 winscp-download-only:

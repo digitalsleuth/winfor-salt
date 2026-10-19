@@ -8,7 +8,8 @@
 # Notes:
 
 {% set version = '473' %}
-{% set hash = '79979C55958F473209E9B7BDDAF1410F0BF4C48BE6D2D02AE3BADEADCCF74DA3' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('irfanview-plugins') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 irfanview-plugins-download-only:

@@ -9,7 +9,8 @@
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '20.3' %}
-{% set hash = 'c4dbffc9737ba012925db7181738c7747e69ec853520acb0f70c95f17394ff1d' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('tableau-imager') %}
 
 tableau-imager-download-only:
   file.managed:

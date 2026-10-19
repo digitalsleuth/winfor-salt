@@ -9,7 +9,8 @@
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set version = '3.0.1' %}
-{% set hash = '5a670eb2620a9730edd1382117d88e9027d8da102976e825d9547dafa010131e' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('ms-word-parser') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 ms-word-parser-download:

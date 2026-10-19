@@ -8,8 +8,9 @@
 # Notes:
 
 {% set version = '3.12.344' %}
-{% set hash = 'ee555a8aa3aab69a77c5ed21e06371e2d25105981920fd8a734abee057102878' %}
-{% set file_value = 'btJD1aKb#XXpSbOPYYsgOmImoI6C0hp3orF8I4TfNuge7pYkg-qU' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('arsenal-image-mounter') %}
+{% set file_value = get_hash('arsenal-image-mounter', 'file_value') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set arsenal_zip = downloads + '\\arsenal-image-mounter\\arsenal-image-mounter-' + version + '.zip' %}
 

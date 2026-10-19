@@ -9,7 +9,8 @@
 
 {% set version = '1.2603.20001.0' %}
 {% set dashes = version | replace(".","-") %}
-{% set hash = 'd98e7027fc84962dcd93c270195e84b27bacfcf942935043fa457c87aea83532' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('windbg') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 windbg-download-only:

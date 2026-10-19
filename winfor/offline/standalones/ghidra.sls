@@ -9,7 +9,8 @@
 
 # renovate: datasource=github-releases depName=NationalSecurityAgency/ghidra
 {% set version = '12.1.2' %}
-{% set date = '20260605' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set date = get_hash('ghidra', 'date') %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}

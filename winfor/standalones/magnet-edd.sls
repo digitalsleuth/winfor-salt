@@ -8,7 +8,8 @@
 # Notes: Standalone Utility
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set hash = '6e0ab06b04e1d7fd2ede11d1f607422ab3f6683086c3ccf12e9ed8053d4c3796' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('magnet-edd') %}
 {% set version = 'v310' %}
 
 magnet-edd-download:

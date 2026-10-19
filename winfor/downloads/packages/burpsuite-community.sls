@@ -9,7 +9,8 @@
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '2024.4.4' %}
-{% set hash = '9a0e0bc60efe212cd3587d18d1baac37be097d42397ee1c74a7cebe8565db6e6' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('burpsuite-community') %}
 
 burpsuite-community-download-only:
   file.managed:

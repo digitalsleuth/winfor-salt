@@ -8,7 +8,8 @@
 # Notes:
 
 {% set version = '4.15' %}
-{% set hash = '84c8a437f8af89257524478489e5c85f1edf25f761d299e2bcde46ac0afbe106' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('rufus') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 rufus-download-only:

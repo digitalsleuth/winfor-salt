@@ -9,7 +9,8 @@
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '473' %}
-{% set hash = '724E0A7AA97D10AD76843552DDF648521F60F2809398F7CA9AD4AE4726010E08' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('irfanview') %}
 
 irfanview-download-only:
   file.managed:

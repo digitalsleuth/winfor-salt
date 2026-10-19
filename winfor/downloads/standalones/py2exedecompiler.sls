@@ -9,7 +9,8 @@
 
 {% set version = '1.0' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set hash = '25b96c5c5f78c5df8da38aa61661c2f76796024af616bff67e1e6c683b8e5b3b' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('py2exedecompiler') %}
 
 py2exedecompiler-download-only:
   file.managed:

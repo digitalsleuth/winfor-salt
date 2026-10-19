@@ -8,7 +8,8 @@
 # Notes: 
 
 {% set version = '1.0' %}
-{% set hash = '2ff766297c088e6a24b2ff9d92a11fc7585fe8c8444668161cd1e9875fb373a1' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('mal-unpack') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 mal-unpack-download-only:

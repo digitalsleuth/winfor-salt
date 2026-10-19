@@ -9,7 +9,8 @@
 
 {% set version = '2.0.0-rc.3' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set hash = '03170680b80f2afdf824f4d700c11b8e2dac805a4d9bd3d24f53e43bd7131c3a' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('uniextract2') %}
 
 uniextract2-download-only:
   file.managed:

@@ -8,8 +8,9 @@
 # Notes: 
 
 {% set version = '5.19.0' %}
-{% set date = '20261014' %}
-{% set hash = '5dc42673f35371e309b2c3f5c302556489897451a90905061035b630239d3ca9' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set date = get_hash('memprocfs', 'date') %}
+{% set hash = get_hash('memprocfs') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 memprocfs-download-only:

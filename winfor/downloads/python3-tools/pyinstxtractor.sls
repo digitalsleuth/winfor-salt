@@ -9,7 +9,8 @@
 
 {% set version = '2026.07' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set hash = '94e0b6c9d5151bbeefc7e7452e96e24b396c2dbfcb0348e5f12c4c0865fefe58' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('pyinstxtractor') %}
 
 include:
   - winfor.downloads.packages.python3

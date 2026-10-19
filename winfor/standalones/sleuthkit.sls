@@ -9,7 +9,8 @@
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set version = '4.15.0' %}
-{% set hash = 'c2ebab8105b893d97bd8ce35b88e01985e2a106efc97f03adf95840a631b20ce' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('sleuthkit') %}
 
 sleuthkit-download:
   file.managed:

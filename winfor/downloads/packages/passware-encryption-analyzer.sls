@@ -9,7 +9,8 @@
 
 {% set version = '2026.3.0.5308' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set hash = 'a8884215f1cbfa6065357162f05fdb0d062d81b3f0e3e7cfaadf25321e719c7d' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('passware-encryption-analyzer') %}
 
 passware-encryption-analyzer-download-only:
   file.managed:

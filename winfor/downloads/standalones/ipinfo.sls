@@ -8,7 +8,8 @@
 # Notes:
 
 {% set version = '3.3.2' %}
-{% set hash = '4dd90321cf023b941f8b53db4554cb83d8437879e890b9ecb2a7ca492b0556d3' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('ipinfo') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 ipinfo-download-only:

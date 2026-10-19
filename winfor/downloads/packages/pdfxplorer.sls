@@ -8,7 +8,8 @@
 # Notes: 
 
 {% set version = '5.1.0' %}
-{% set hash = 'f191ddf59ca92dbf1dc390f547366f9811eaaadc187de9e981622612bd831d8a' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('pdfxplorer') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 pdfxplorer-download-only:

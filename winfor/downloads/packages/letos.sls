@@ -9,7 +9,8 @@
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '4.0.4' %}
-{% set hash = 'c470431db62977a1b38d27dc41ac2e593b52b2415184ce4b18e9ace90a1a41d2' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('letos') %}
 
 letos-download-only:
   file.managed:

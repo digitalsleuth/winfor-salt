@@ -8,7 +8,8 @@
 # Notes: 
 
 {% set version = '2.2.1.306' %}
-{% set hash = '98a5d621ef70bbdf6948b7e281abd3c5cdb35ff81b2a379f731d8e832f3c8529' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('fex-imager') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 fex-imager-download-only:

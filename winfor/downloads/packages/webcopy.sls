@@ -9,7 +9,8 @@
 
 {% set version = '1.9.1.872' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set hash = '8b5dfdce50f95a26dea849aacc355efae459cbb2360de19fcf1a33b266f8cce0' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('webcopy') %}
 
 webcopy-download-only:
   file.managed:
