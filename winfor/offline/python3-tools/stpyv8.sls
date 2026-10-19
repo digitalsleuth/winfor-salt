@@ -4,11 +4,11 @@
 # Category: Requirements
 # Author: Area1 Security
 # License: Apache License 2.0: https://github.com/cloudflare/stpyv8/blob/master/LICENSE.txt
-# Version: 12.0.267.16
+# Version: 12.9.202.27
 # Notes:
 
 # renovate: datasource=pypi depName=stpyv8
-{% set version = '12.0.267.16' %}
+{% set version = '12.9.202.27' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set pkg = 'stpyv8-'~ version ~'-cp310-cp310-win_amd64.whl' %}
 {% set exists = salt['file.file_exists'](downloads + '\\stpyv8\\packages\\' + pkg) %}
