@@ -4,14 +4,14 @@
 # Category: Raw Parsers / Decoders
 # Author: relative
 # License: GNU General Public License v3 (https://github.com/relative/synchrony/blob/master/LICENSE.md)
-# Version: 2.4.5
+# Version: 2.4.6
 # Notes: Requires nodejs to install, command is 'synchrony'
 
 synchrony is not yet available for offline install:
   test.nop
 {#
 # renovate: datasource=github-releases depName=relative/synchrony
-{% set version = '2.4.5' %}
+{% set version = '2.4.6' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set pkg = 'synchrony-'~ version ~'.zip' %}
