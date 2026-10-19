@@ -4,11 +4,11 @@
 # Category: Utilities
 # Author: Microsoft
 # License: MIT License (https://github.com/microsoft/winget-cli/blob/master/LICENSE)
-# Version: 1.28.240
+# Version: 1.29.380
 # Notes:
 
 # renovate: datasource=github-releases depName=microsoft/winget-cli
-{% set version = '1.28.240' %}
+{% set version = '1.29.380' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set winget_version = salt['cmd.powershell']('$(try { winget -v } catch { "0" }).split("v")[1]') %}
 {% set pkg = 'windows-winget-'~ version ~'.msixbundle' %}
