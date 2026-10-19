@@ -4,8 +4,10 @@
 # Category: Raw Parsers / Decoders
 # Author: relative
 # License: GNU General Public License v3 (https://github.com/relative/synchrony/blob/master/LICENSE.md)
-# Version: 2.4.5
+# Version: 2.4.6
 # Notes: Requires nodejs to install, command is 'synchrony'
+
+{% set version = '2.4.6' %}
 
 include:
   - winfor.packages.nodejs

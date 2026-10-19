@@ -8,8 +8,8 @@
 # Notes: JAR file, requires Java
 
 {% set version = '3.0.3' %}
-{% set batch_hash = 'd81a91bd694459a61a88e4a1a8184efc21130390ff7cb5c172f631551ad9842a' %}
-{% set jar_hash = '66cf4524a4a45a7f56567d08b2c9b6ec237bcdd78cee69fd4a59c8a0243aeafa' %}
+{% set batch_hash = '9440ec9d98efdef14136f4cefd79ac200d72baa016b5991d128234a3a3ef3b43' %}
+{% set hash = 'dbf930b076c6b9be08d57c449cacefc3bdd6b71ebd59b3066fc0e1f5b14f9423' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 apktool-batch-download-only:
@@ -23,7 +23,7 @@ apktool-jar-download-only:
   file.managed:
     - name: '{{ downloads }}\apktool\apktool-{{ version }}.jar'
     - source: https://github.com/iBotPeaches/Apktool/releases/download/v{{ version }}/apktool_{{ version }}.jar
-    - source_hash: sha256={{ jar_hash }}
+    - source_hash: sha256={{ hash }}
     - makedirs: True
     - require:
       - file: apktool-batch-download-only

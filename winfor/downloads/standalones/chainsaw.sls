@@ -8,7 +8,7 @@
 # Notes:
 
 {% set version = '2.17.1' %}
-{% set hash = '988402a4d5ccfef0c5cc69dd242da3e5be3aab996ec9a6e222be1e74c7d02e1b' %}
+{% set hash = '4ee006a4855f002ee961cfa041737d2ef423de9164ffefaff986f431d9fba83b' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 chainsaw-download-only:

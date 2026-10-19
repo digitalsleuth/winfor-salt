@@ -9,13 +9,14 @@
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set version = '2026.05.27' %}
-{% set hash = '985561ea9fbd5e3cc557c9b5868ec608fcf450bfc88f0ac4a7279ded2a9ce7ec' %}
+{% set date = '2026-05-27_12-11' %}
+{% set hash = 'd41966dfc5b435a372798245300ca0ab7bb8e48bdbf48512c6fb20fcca427697' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 x64dbg-download:
   file.managed:
     - name: 'C:\salt\tempdownload\snapshot_{{ version }}.zip'
-    - source: https://github.com/x64dbg/x64dbg/releases/download/{{ version.split("_")[0] | replace("-",".") }}/snapshot_{{ version }}.zip
+    - source: https://github.com/x64dbg/x64dbg/releases/download/{{ version }}/snapshot_{{ date }}.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True
 

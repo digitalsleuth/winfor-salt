@@ -10,7 +10,7 @@
 {% set version = '3.6.0' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set hash = '16516091fa560aeecc1f7e06509b863a448606055ddf66ac5355f2c2b28ded4a' %}
+{% set hash = 'c71e624aeea0dd662911cc5677ef290edec0914a29af46a549942eb599e11bb2' %}
 
 include:
   - winfor.standalones.portable-python3

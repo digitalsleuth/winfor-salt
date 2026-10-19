@@ -9,7 +9,7 @@
 
 {% set version = '10.0.0' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set hash = '670ab1a58b81f59cb57533bf4021ac1e7033fbe9b5d5cc180f796976081e3bb5' %}
+{% set hash = '8712991044321dbb2a5b0d60f7a5327a50c9c30a295e7ddb5c1088cb17fb59df' %}
 
 include:
   - winfor.packages.git

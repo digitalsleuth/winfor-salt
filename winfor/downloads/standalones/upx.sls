@@ -8,7 +8,7 @@
 # Notes: 
 
 {% set version = '5.2.1' %}
-{% set hash = 'fa5380bca4c2718547aaa0134bc0d8a7fa27e102f0ac6371573d60d1c21d64de' %}
+{% set hash = 'eabc6792a347d45e945be7748423e7868fd01b0d2bcaa2f4b1031fd71ff69bda' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 upx-download-only:

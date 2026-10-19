@@ -9,7 +9,7 @@
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '4.0.4' %}
-{% set hash = '0984b245810a758ef0863a45e9f6c5416e2640dd3ed42f8696eda63bbdeb38c5' %}
+{% set hash = 'c470431db62977a1b38d27dc41ac2e593b52b2415184ce4b18e9ace90a1a41d2' %}
 
 letos-download-only:
   file.managed:

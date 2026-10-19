@@ -8,7 +8,7 @@
 # Notes: 
 
 {% set version = '2.13.2' %}
-{% set hash = 'dc5f6669409d7d0bbba40c735875a39960c1777f11bb13a1819bb12917808c5c' %}
+{% set hash = '2e23ead17825711bfbf25ffbc6c6af32ca89b057a8e7ccb856cc096ed7f83516' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 bytecode-viewer-download-only:

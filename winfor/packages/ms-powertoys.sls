@@ -4,8 +4,10 @@
 # Category: Utilities
 # Author: Microsoft
 # License: MIT (https://github.com/microsoft/PowerToys/blob/main/LICENSE)
-# Version: 0.100.0
+# Version: 0.100.2
 # Notes:
+
+{% set version = '0.100.2' %}
 
 include:
   - winfor.repos

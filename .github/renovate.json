@@ -16,7 +16,7 @@
     },
     {
       "description": "Ignore openhashtab for now",
-      "matchFileNames": ["winfor/**/openhashtab.sls", "winfor/**/volatility3.sls"],
+      "matchFileNames": ["winfor/**/openhashtab.sls", "winfor/**/volatility3.sls", "winfor/**/pev.sls", "winfor/**/yara.sls", "winfor/**/velociraptor.sls"],
       "enabled": false
     }
   ],

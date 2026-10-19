@@ -8,7 +8,7 @@
 # Notes: 
 
 {% set version = '1.0.5' %}
-{% set hash = '92aede5659f9b0807c1133a68ae3319ffb3d8baf2f9ef1a43436a1ba4b8fd00a' %}
+{% set hash = '36ba8ae5a13ee36571dbd80463f25d17f59fe606102875ac950356f3422ba8e6' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 ufade-download-only:

@@ -4,8 +4,10 @@
 # Category: Documents / Editors
 # Author: Don Ho
 # License: GNU General Public License 2.0 (https://notepad-plus-plus.org/)
-# Version: 8.9.6.4
+# Version: 8.9.8
 # Notes: 
+
+{% set version = '8.9.8' %}
 
 include:
   - winfor.repos

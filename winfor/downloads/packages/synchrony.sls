@@ -8,7 +8,7 @@
 # Notes: Requires nodejs to install, command is 'synchrony'
 
 {% set version = '2.4.6' %}
-{% set hash = '6eee6c549830c793379ffdc30e7feb5fc6cc1407bd5402df3e828357b78086c4' %}
+{% set hash = 'e040c6db72f203d5920bf2993a726bd61e53adfdfe991dfc87a0c7e6316c0922' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 synchrony-download-only:

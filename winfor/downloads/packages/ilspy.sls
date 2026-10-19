@@ -4,12 +4,12 @@
 # Category: Executables
 # Author: ICSharpCode (https://github.com/orgs/icsharpcode/people)
 # License: MIT License (https://github.com/icsharpcode/ILSpy/blob/master/doc/ILSpyAboutPage.txt)
-# Version: 11.1
+# Version: 11.1.0.9782
 # Notes:
 
-{% set version = '11.1' %}
+{% set version = '11.1.0.9782' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set hash = '347ccff812f4c4e2f29652edbede8077cf563a7213c34d5aa783d0388733fb45' %}
+{% set hash = '38464cacd271a05349e4893605c67985377f4f4d2e1950ffc7921143b4fc96ea' %}
 
 include:
   - winfor.downloads.packages.dotnet10-desktop-runtime

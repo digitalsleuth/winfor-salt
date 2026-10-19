@@ -9,7 +9,7 @@
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '1.0.3' %}
-{% set hash = '9b0340bb04b6e37101cbf0ec413b26208b46b2f4450b97a34bce59aa239ec60e' %}
+{% set hash = '1ed0f47fdf8f622b79d4e970004ad7529ef77e20b295ac5c20a01ae2a19eb387' %}
 
 windexter-download-only:
   file.managed:

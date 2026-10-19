@@ -8,7 +8,7 @@
 # Notes:
 
 {% set version = '5.0.1' %}
-{% set hash = '75dbeb5b00e6f64292f26f70900ae55ca397786bdfb0b9bbeb481a0549047457' %}
+{% set hash = 'b12a2c4ee8be317422451fc7dcf8ee20a71b5ea7ef9ad73ddd825a25316227a5' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 scrcpy-download-only:

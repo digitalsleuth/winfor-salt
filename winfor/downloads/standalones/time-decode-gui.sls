@@ -8,7 +8,7 @@
 # Notes:
 
 {% set version = '11.0.0' %}
-{% set hash = '99f8a1ff9729b1b8ce56faef99a91e2c10df361846d41624298fb3617f6aa35a' %}
+{% set hash = '82f70b53da59b82435f717f184beafdce8e92f50a1bc805cc3a7fe75802ac0b6' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 time-decode-download-only:

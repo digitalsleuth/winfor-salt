@@ -8,7 +8,7 @@
 # Notes:
 
 {% set version = '4.2.0' %}
-{% set hash = '8dd2b2d124ce3f96d2fe63cd7a0ea4c54ad2984d820324c3388ec30f9c6b8209' %}
+{% set hash = 'e8e49805bf94f5feb425cffae904f526257c1b6bf8dedfa07c28e9aa585a387b' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set defender_status = salt['cmd.powershell']('((Get-Service) -match "WinDefend").Name') %}

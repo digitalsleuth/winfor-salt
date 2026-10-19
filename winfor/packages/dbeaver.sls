@@ -4,8 +4,10 @@
 # Category: Databases
 # Author: Serge Rider and Contributors (https://github.com/dbeaver/dbeaver/graphs/contributors)
 # License: Apache License 2.0 (https://github.com/dbeaver/dbeaver/blob/devel/LICENSE.md)
-# Version: 25.2.4
+# Version: 26.2.3
 # Notes: 
+
+{% set version = '26.2.3' %}
 
 include:
   - winfor.repos

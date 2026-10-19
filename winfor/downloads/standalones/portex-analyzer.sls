@@ -9,11 +9,11 @@
 
 {% set version = '1.0.0' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set hash = '9fd5d6d43c7bc698b148db354366e884f6464136c552fd7fd97c15773ceeaece' %}
+{% set hash = '5ba52546a31a1fc99effcec44f9143ae1207ac019b9719908da09dac53778ba3' %}
 
 portex-analyzer-download-only:
   file.managed:
     - name: '{{ downloads }}\portex-analyzer\portex-analyzer-{{ version }}.jar'
-    - source: https://github.com/struppigel/PortexAnalyzerGUI/releases/download/{{ version }}/PortexAnalyzerGUI-{{ version }}-jar-with-dependencies.jar
+    - source: https://github.com/struppigel/PortexAnalyzerGUI/releases/download/v{{ version }}/PortexAnalyzerGUI-{{ version }}-jar-with-dependencies.jar
     - source_hash: sha256={{ hash }}
     - makedirs: True

@@ -11,8 +11,8 @@
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set files = [('hindsight.exe', '1c1df0399ac0f7f5140cbeed8077205bff5335e6ba356e53c59488abba38b00e'),
-                ('hindsight_gui.exe', 'c3bbf468992db37512a3f92cf5e8a11532f1a6fd016e36215e0755473fca3907')] %}
+{% set files = [('hindsight.exe', '69beaaec4f29ea36734ca9115e6c002fc43ed918d860794e1641d3ac9f129bd7'),
+                ('hindsight_gui.exe', 'ec78e8098b9fd898c0b426ada440138d471604a05760e12f90db83f15f44d49a')] %}
 
 include:
   - winfor.config.shims

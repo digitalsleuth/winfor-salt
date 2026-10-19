@@ -9,7 +9,7 @@
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '2.16.58' %}
-{% set hash = 'f9887f536e62f0385a384678da5bb427b2ed69b51cbc53827995e0abc6b2f812' %}
+{% set hash = 'af00357fdbbfef71a31a350974cec98e3cb0548cfa6fd54a3cd3a0cce28f2ab3' %}
 
 winmerge-download-only:
   file.managed:

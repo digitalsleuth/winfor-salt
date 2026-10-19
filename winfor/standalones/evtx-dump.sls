@@ -9,7 +9,7 @@
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set version = '0.12.3' %}
-{% set hash = 'fdc170115cbb84eadc4ef5ed66807be08d24aab7383324b562b78d8035f9f16a' %}
+{% set hash = '5e5480758e95ec6cd8cc77c3899ed0d1afc762ec1e2832c93af129957c8e95b3' %}
 
 include:
   - winfor.config.shims

@@ -9,8 +9,8 @@
 
 {% set version = '2026.06' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set files = [('hindsight', '1c1df0399ac0f7f5140cbeed8077205bff5335e6ba356e53c59488abba38b00e'),
-                ('hindsight_gui', 'c3bbf468992db37512a3f92cf5e8a11532f1a6fd016e36215e0755473fca3907')] %}
+{% set files = [('hindsight', '69beaaec4f29ea36734ca9115e6c002fc43ed918d860794e1641d3ac9f129bd7'),
+                ('hindsight_gui', 'ec78e8098b9fd898c0b426ada440138d471604a05760e12f90db83f15f44d49a')] %}
 
 {% for file, hash in files %}
 hindsight-download-{{ file }}-only:

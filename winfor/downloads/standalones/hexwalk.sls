@@ -9,7 +9,7 @@
 
 {% set version = '2.2.1' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set hash = '1ac88a0fd6c6b099aacd656128bdc7028b9b17780bc8d130b4d9723cef86b72d' %}
+{% set hash = 'd8c5aa6c8c918f3aab19f6e2b756c903df512542572b91eeef897b97e33a21f9' %}
 
 hexwalk-download-only:
   file.managed:

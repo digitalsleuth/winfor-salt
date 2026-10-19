@@ -9,7 +9,7 @@
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '0.100.2' %}
-{% set hash = '740c01945528e453c02490921ca2bd0e399021a80cf90dcf01db53158377d0e8' %}
+{% set hash = '73c04aac8052420111fe5cdc0098ec8415d87cbdbd42de253e9af959781cbf9e' %}
 
 ms-powertoys-download-only:
   file.managed:

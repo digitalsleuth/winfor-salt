@@ -10,7 +10,7 @@
 {% set version = '2.5.0' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set hash = 'fe5d74d033b43533c7954195832c729cbf090177211f159299f6e499b6457a45' %}
+{% set hash = 'f89ef9ac761fbec4a9a9e88c2d4b51d72363649a2dfee4bcd991f7cb5d5fca84' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 include:

@@ -9,11 +9,11 @@
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '26.2.3' %}
-{% set hash = '83b0170ed788399765d89e62be3022f055753297084c83583392110f6c5fa451' %}
+{% set hash = '49d0c6d4ee0ba5acecfb48b9a4d2bd8d5734730154d5b974d8990205edb8e927' %}
 
 dbeaver-download-only:
   file.managed:
     - name: '{{ downloads }}\dbeaver\dbeaver-{{ version }}.exe'
-    - source: https://github.com/dbeaver/dbeaver/releases/download/{{ version }}/dbeaver-ce-{{ version }}-x86_64-setup.exe
+    - source: https://github.com/dbeaver/dbeaver/releases/download/{{ version }}/dbeaver-ce-{{ version }}-windows-x86_64.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

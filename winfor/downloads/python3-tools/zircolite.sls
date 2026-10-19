@@ -8,7 +8,7 @@
 # Notes:
 
 {% set version = '4.6.0' %}
-{% set hash = '18cf1845eb4ebb3198e24b86e6d91cc7e8408775c600092a0c64e6437ec86e5b' %}
+{% set hash = 'c0300e2ca0b19e2843cd68c923afd4418fb3900fbc2e7f082ab60ea7ca40c910' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}

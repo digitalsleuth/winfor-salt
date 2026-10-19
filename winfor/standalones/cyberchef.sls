@@ -9,8 +9,8 @@
 
 {% set version = '11.5.0' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set hash = '9abbe74b94af3423b4e0e6d064cf5142df01c5e89d6b222e412fd6f4daf906ac' %}
-{% set commit = 'd358d82cbcb269d764a2deb598a37043bd054f45' %}
+{% set hash = 'f6478925d3eaa16ec08626a85f5b85eed10d531a5e18700615fed7ecb024cccf' %}
+{% set commit = '8cd426dd4f40f1423912d5fad91b578a86a65112' %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 
 include:
