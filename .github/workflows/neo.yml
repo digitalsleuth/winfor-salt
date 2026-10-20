@@ -17,6 +17,6 @@ jobs:
       - name: Check Hex Editor Neo Hash
         run: |
           wget -nv https://www.hhdsoftware.com/download/free-hex-editor-neo.exe
-          PREVIOUS_HASH=$(cat /home/runner/work/winfor-salt/winfor-salt/winfor/downloads/packages/free-hex-editor-neo.sls | grep "set hash" | awk -F\' '{print tolower($2)}')
+          PREVIOUS_HASH=$(python3 update_state.py free-hex-editor-neo --get hash | tr 'A-F' 'a-f')
           CURRENT_HASH=$(sha256sum free-hex-editor-neo.exe | awk '{print $1}')
           if [[ "$PREVIOUS_HASH" != "$CURRENT_HASH" ]]; then echo "HASH UPDATED - $CURRENT_HASH" && exit 1; else echo "No hash changes" && exit 0; fi

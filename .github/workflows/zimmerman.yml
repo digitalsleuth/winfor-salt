@@ -17,7 +17,7 @@ jobs:
       - name: Check Zimmerman Hash
         run: |
           wget -nv https://download.ericzimmermanstools.com/Get-ZimmermanTools.zip
-          PREVIOUS_HASH=$(cat /home/runner/work/winfor-salt/winfor-salt/winfor/standalones/zimmerman.sls | grep "set hash " | awk -F\' '{print tolower($2)}')
+          PREVIOUS_HASH=$(python3 update_state.py zimmerman --get hash | tr 'A-F' 'a-f')
           CURRENT_HASH=$(sha256sum Get-ZimmermanTools.zip | awk '{print $1}')
           if [[ "$PREVIOUS_HASH" != "$CURRENT_HASH" ]]; then echo "HASH UPDATED - $CURRENT_HASH" && exit 1; else echo "No hash changes" && exit 0; fi
 

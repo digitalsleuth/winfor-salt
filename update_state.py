@@ -83,9 +83,29 @@ def update_central(text: str, name: str, new: dict[str, str]):
     return text[:m.start(2)] + value + text[m.end(2):], changed, handled
 
 
+def get_value(root: Path, name: str, var: str):
+    central = root / CENTRAL
+    if central.is_file():
+        m = re.search(rf"^  '{re.escape(name)}': (.*?),[ \t]*$", central.read_bytes().decode("utf-8"), re.M)
+        if m:
+            if m.group(1).startswith("'"):
+                if var == "hash":
+                    return m.group(1).strip("'")
+            else:
+                hm = re.search(rf"'{re.escape(var)}': '([^']*)'", m.group(1))
+                if hm:
+                    return hm.group(1)
+    for path in find_files(root, name):
+        vm = var_re(var).search(path.read_bytes().decode("utf-8"))
+        if vm:
+            return vm.group(3)
+    return None
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     parser.add_argument("name", help="state file name without .sls")
+    parser.add_argument("--get", metavar="VAR", help="print the current value of VAR and exit")
     parser.add_argument("--version")
     parser.add_argument("--hash", dest="hash_")
     parser.add_argument("--set-hash", action="append", metavar="VAR=HEX",
@@ -100,6 +120,14 @@ def main() -> int:
     args = parser.parse_args()
 
     special = SPECIAL.get(args.name, {})
+    if args.get:
+        var = special.get("hash_var", "hash") if args.get == "hash" else args.get
+        value = get_value(args.root, args.name, var)
+        if value is None:
+            print(f"error: no value for {var} in {args.name}", file=sys.stderr)
+            return 1
+        print(value)
+        return 0
     hash_updates = {}
     if args.hash_ is not None:
         hash_updates[special.get("hash_var", "hash")] = args.hash_

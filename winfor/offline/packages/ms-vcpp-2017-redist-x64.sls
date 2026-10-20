@@ -29,9 +29,9 @@ ms-vcpp-2017-redist-x64-offline:
   test.nop
 {% endif %}
 {% elif current_installed %}
-Microsoft Visual C++ 2017 Redistributable {{ version }} is already installed:
+Offline Mode - Microsoft Visual C++ 2017 Redistributable {{ version }} is already installed:
   test.nop
 {% elif newer_installed %}
-A newer version of Microsoft Visual C++ 2017 is already installed:
+Offline Mode - A newer version of Microsoft Visual C++ 2017 is already installed:
   test.nop
 {% endif %}
