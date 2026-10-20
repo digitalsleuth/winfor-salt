@@ -103,7 +103,7 @@ def get_value(root: Path, name: str, var: str):
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
+    parser = argparse.ArgumentParser(description="WinFOR State Updater")
     parser.add_argument("name", help="state file name without .sls")
     parser.add_argument("--get", metavar="VAR", help="print the current value of VAR and exit")
     parser.add_argument("--version")
