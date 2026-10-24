@@ -4,11 +4,11 @@
 # Category: Documents / Editors
 # Author: Jacques Boucher (jjrboucher) / Corey Forman (digitalsleuth)
 # License: MIT License (https://github.com/jjrboucher/MS-Word-Parser/blob/master/LICENSE)
-# Version: 3.0.1
+# Version: 3.1.0
 # Notes: 
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set version = '3.0.1' %}
+{% set version = '3.1.0' %}
 {% from 'winfor/_macros/hashes.jinja' import get_hash %}
 {% set hash = get_hash('ms-word-parser') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
