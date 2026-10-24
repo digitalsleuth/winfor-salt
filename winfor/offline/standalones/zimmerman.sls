@@ -4,10 +4,10 @@
 # Category: Windows Analysis
 # Author: Eric Zimmerman
 # License: MIT License (https://github.com/EricZimmerman/Issues/blob/master/LICENSE)
-# Version: 2026.5.0
+# Version: 2026.10.0
 # Notes: 
 
-{% set version = '2026.5.0' %}
+{% set version = '2026.10.0' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
@@ -20,7 +20,7 @@
 {% if exists %}
 
 include:
-  - winfor.offline.packages.dotnet9-desktop-runtime
+  - winfor.offline.packages.dotnet10-desktop-runtime
   - winfor.config.shims
 
 zimmerman-folder-move-offline:
@@ -33,7 +33,7 @@ zimmerman-folder-move-offline:
 {% for tool in shim_paths %}
 zimmerman-{{ tool.split("\\")[0].split(".exe")[0] }}-shim-offline:
   cmd.run:
-    - name: 'powershell -nop -ep Bypass -File {{ inpath }}\\New-Shim.ps1 -SourceExe {{ inpath }}\\zimmerman\\net9\\{{ tool }} -OutPath {{ inpath }}\\shims\\{{ tool.split("\\")[-1] }}'
+    - name: 'powershell -nop -ep Bypass -File {{ inpath }}\\New-Shim.ps1 -SourceExe {{ inpath }}\\zimmerman\\net\\{{ tool }} -OutPath {{ inpath }}\\shims\\{{ tool.split("\\")[-1] }}'
     - require:
       - sls: winfor.config.shims
       - file: zimmerman-folder-move-offline
@@ -43,9 +43,9 @@ zimmerman-{{ tool.split("\\")[0].split(".exe")[0] }}-shim-offline:
 zimmerman-{{ application }}-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\{{ application }}.lnk'
-    - target: '{{ inpath }}\zimmerman\net9\{{ application }}\{{ application }}.exe'
+    - target: '{{ inpath }}\zimmerman\net\{{ application }}\{{ application }}.exe'
     - force: True
-    - working_dir: '{{ inpath }}\zimmerman\net9\{{ application }}\'
+    - working_dir: '{{ inpath }}\zimmerman\net\{{ application }}\'
     - makedirs: True
     - require:
       - file: zimmerman-folder-move-offline

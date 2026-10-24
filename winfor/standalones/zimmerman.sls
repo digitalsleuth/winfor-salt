@@ -4,21 +4,21 @@
 # Category: Windows Analysis
 # Author: Eric Zimmerman
 # License: MIT License (https://github.com/EricZimmerman/Issues/blob/master/LICENSE)
-# Version: 2026.5.0
+# Version: 2026.10.0
 # Notes: 
 
-{% set version = '2026.5.0' %}
+{% set version = '2026.10.0' %}
 {% from 'winfor/_macros/hashes.jinja' import get_hash %}
 {% set hash = get_hash('zimmerman', 'hash') %}
 {% set hasher_hash = get_hash('zimmerman', 'hasher_hash') %}
-{% set hasher_version = '2026.5.0' %}
+{% set hasher_version = '2026.10.0' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set applications = ['EZViewer','JumpListExplorer','MFTExplorer','RegistryExplorer','SDBExplorer','ShellBagsExplorer','TimelineExplorer'] %}
 {% set sync_tools = ['EvtxECmd','RECmd'] %}
 {% set shim_paths = ['AmcacheParser.exe', 'AppCompatCacheParser.exe', 'bstrings.exe', 'JLECmd.exe', 'LECmd.exe', 'MFTECmd.exe', 'EvtxeCmd\EvtxeCmd.exe', 'iisGeolocate\iisGeolocate.exe', 'RECmd\RECmd.exe', 'SQLECmd\SQLECmd.exe', 'PECmd.exe', 'RBCmd.exe', 'rla.exe', 'SBECmd.exe', 'SrumECmd.exe', 'SumECmd.exe','VSCMount.exe', 'WxTCmd.exe', 'RecentFileCacheParser.exe'] %}
 include:
-  - winfor.packages.dotnet9-desktop-runtime
+  - winfor.packages.dotnet10-desktop-runtime
   - winfor.config.shims
 
 zimmerman-tools:
@@ -33,23 +33,25 @@ zimmerman-tools-install:
     - name: '{{ inpath }}\zimmerman\'
     - source: 'C:\salt\tempdownload\Get-ZimmermanTools.zip'
     - enforce_toplevel: False
+    - force: True
+    - overwrite: True
     - watch:
       - file: zimmerman-tools
 
 zimmerman-tools-download:
   cmd.run:
-    - name: '.\Get-ZimmermanTools.ps1 -Dest {{ inpath }}\zimmerman -NetVersion 9'
+    - name: '.\Get-ZimmermanTools.ps1 -Dest {{ inpath }}\zimmerman -NetVersion 10'
     - cwd: {{ inpath }}\zimmerman
     - shell: powershell
     - watch:
       - archive: zimmerman-tools-install
     - require:
-      - sls: winfor.packages.dotnet9-desktop-runtime
+      - sls: winfor.packages.dotnet10-desktop-runtime
 
 {% for tool in sync_tools %}
 zimmerman-tools-sync-{{ tool }}:
   cmd.run:
-    - name: '{{ inpath }}\\zimmerman\\net9\\{{ tool }}\\{{ tool }}.exe --sync'
+    - name: '{{ inpath }}\\zimmerman\\net\\{{ tool }}\\{{ tool }}.exe --sync'
     - shell: cmd
     - require:
       - cmd: zimmerman-tools-download
@@ -58,7 +60,7 @@ zimmerman-tools-sync-{{ tool }}:
 {% for tool in shim_paths %}
 zimmerman-{{ tool.split("\\")[0].split(".exe")[0] }}-shim:
   cmd.run:
-    - name: 'powershell -nop -ep Bypass -File {{ inpath }}\\New-Shim.ps1 -SourceExe {{ inpath }}\\zimmerman\\net9\\{{ tool }} -OutPath {{ inpath }}\\shims\\{{ tool.split("\\")[-1] }}'
+    - name: 'powershell -nop -ep Bypass -File {{ inpath }}\\New-Shim.ps1 -SourceExe {{ inpath }}\\zimmerman\\net\\{{ tool }} -OutPath {{ inpath }}\\shims\\{{ tool.split("\\")[-1] }}'
     - require:
       - sls: winfor.config.shims
 {% endfor %}
@@ -67,9 +69,9 @@ zimmerman-{{ tool.split("\\")[0].split(".exe")[0] }}-shim:
 zimmerman-{{ application }}-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\{{ application }}.lnk'
-    - target: '{{ inpath }}\zimmerman\net9\{{ application }}\{{ application }}.exe'
+    - target: '{{ inpath }}\zimmerman\net\{{ application }}\{{ application }}.exe'
     - force: True
-    - working_dir: '{{ inpath }}\zimmerman\net9\{{ application }}\'
+    - working_dir: '{{ inpath }}\zimmerman\net\{{ application }}\'
     - makedirs: True
     - require:
       - cmd: zimmerman-tools-download
@@ -78,7 +80,7 @@ zimmerman-{{ application }}-shortcut:
 zimmerman-hasher-download:
   file.managed:
     - name: 'C:\salt\tempdownload\hasher.zip'
-    - source: https://download.ericzimmermanstools.com/hasher.zip
+    - source: https://download.ericzimmermanstools.com/net/hasher.zip
     - source_hash: sha256={{ hasher_hash }}
     - makedirs: True
 

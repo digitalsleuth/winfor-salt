@@ -4,10 +4,10 @@
 # Category: Windows Analysis
 # Author: Eric Zimmerman
 # License: MIT License (https://github.com/EricZimmerman/Issues/blob/master/LICENSE)
-# Version: 2026.5.0
+# Version: 2026.10.0
 # Notes: 
 
-{% set version = '2026.5.0' %}
+{% set version = '2026.10.0' %}
 {% from 'winfor/_macros/hashes.jinja' import get_hash %}
 {% set hash = get_hash('zimmerman', 'hash') %}
 {% set hasher_hash = get_hash('zimmerman', 'hasher_hash') %}
@@ -16,7 +16,7 @@
 {% set sync_tools = ['EvtxECmd','RECmd'] %}
 
 include:
-  - winfor.downloads.packages.dotnet9-desktop-runtime
+  - winfor.downloads.packages.dotnet10-desktop-runtime
 
 zimmerman-tools-download-only:
   file.managed:
@@ -30,12 +30,14 @@ zimmerman-tools-extract-download-only:
     - name: '{{ downloads }}\zimmerman\'
     - source: '{{ downloads }}\zimmerman\Get-ZimmermanTools-{{ version }}.zip'
     - enforce_toplevel: False
+    - force: True
+    - overwrite: True
     - watch:
       - file: zimmerman-tools-download-only
 
 zimmerman-tools-install-download-only:
   cmd.run:
-    - name: '.\Get-ZimmermanTools.ps1 -NetVersion 9 -Dest {{ downloads }}\zimmerman\zimmerman-{{ version }}'
+    - name: '.\Get-ZimmermanTools.ps1 -NetVersion 10 -Dest {{ downloads }}\zimmerman\zimmerman-{{ version }}'
     - cwd: '{{ downloads }}\zimmerman'
     - shell: powershell
     - watch:
@@ -44,6 +46,6 @@ zimmerman-tools-install-download-only:
 zimmerman-hasher-download-only:
   file.managed:
     - name: '{{ downloads }}\zimmerman\hasher-{{ version }}.zip'
-    - source: https://download.ericzimmermanstools.com/hasher.zip
+    - source: https://download.ericzimmermanstools.com/net/hasher.zip
     - source_hash: sha256={{ hasher_hash }}
     - makedirs: True
