@@ -4,11 +4,11 @@
 # Category: Documents / Editors
 # Author: Jacques Boucher (jjrboucher) / Corey Forman (digitalsleuth)
 # License: MIT License (https://github.com/jjrboucher/MS-Word-Parser/blob/master/LICENSE)
-# Version: 3.0.1
+# Version: 3.1.0
 # Notes:
 
 # renovate: datasource=pypi depName=ms-word-parser
-{% set version = '3.0.1' %}
+{% set version = '3.1.0' %}
 
 include:
   - winfor.packages.python3
