@@ -11,7 +11,7 @@
 {% set short_ver = version.rsplit('.', 1)[0] %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% from 'winfor/_macros/hashes.jinja' import get_hash %}
-{% set hash = get_hash('tableau-firmware-update') %}}
+{% set hash = get_hash('tableau-firmware-update') %}
 
 tableau-firmware-update-download-only:
   file.managed:
