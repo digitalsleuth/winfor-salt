@@ -1,9 +1,9 @@
 # Name: Hex Editor Neo (Free)
-# Website: https://www.hhdsoftware.com
+# Website: https://hhdsoftware.com
 # Description: Hex Editor
 # Category: Raw Parsers / Decoders
 # Author: HHD Software
-# License: EULA (https://www.hhdsoftware.com/company/terms-of-use)
+# License: EULA (https://hhdsoftware.com/company/terms-of-use)
 # Version: 8.25.01.9585
 # Notes: 
 
@@ -15,6 +15,6 @@
 free-hex-editor-neo-download-only:
   file.managed:
     - name: '{{ downloads }}\free-hex-editor-neo\free-hex-editor-neo-{{ version }}.exe'
-    - source: https://www.hhdsoftware.com/download/free-hex-editor-neo.exe
+    - source: https://hhdsoftware.com/download/free-hex-editor-neo.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True
