@@ -4,11 +4,11 @@
 # Category: Executables
 # Author: ICSharpCode (https://github.com/orgs/icsharpcode/people)
 # License: MIT License (https://github.com/icsharpcode/ILSpy/blob/master/doc/ILSpyAboutPage.txt)
-# Version: 11.2
+# Version: 11.2.0.10050
 # Notes:
 
 # renovate: datasource=github-releases depName=icsharpcode/ILSpy
-{% set version = '11.2' %}
+{% set version = '11.2.0.10050' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set pkg = 'ilspy-'~ version ~'.msi' %}
 {% set exists = salt['file.file_exists'](downloads + '\\ilspy\\' + pkg) %}
