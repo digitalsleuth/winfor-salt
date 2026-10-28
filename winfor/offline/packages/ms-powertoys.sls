@@ -4,11 +4,11 @@
 # Category: Utilities
 # Author: Microsoft
 # License: MIT (https://github.com/microsoft/PowerToys/blob/main/LICENSE)
-# Version: 0.100.2
+# Version: 0.102.3001
 # Notes:
 
 # renovate: datasource=github-releases depName=microsoft/PowerToys
-{% set version = '0.100.2' %}
+{% set version = '0.102.3001' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set pkg = 'powertoys-'~ version ~'.exe' %}
 {% set exists = salt['file.file_exists'](downloads + '\\powertoys\\' + pkg) %}
