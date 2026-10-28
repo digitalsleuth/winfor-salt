@@ -4,11 +4,11 @@
 # Category: Utilities
 # Author: Dean P. Grimm (Thingamahoocie Software)
 # License: GNU General Public License v2.0 (https://github.com/WinMerge/winmerge/blob/master/LICENSE.md)
-# Version: 2.16.58
+# Version: 2.16.60
 # Notes:
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '2.16.58' %}
+{% set version = '2.16.60' %}
 {% from 'winfor/_macros/hashes.jinja' import get_hash %}
 {% set hash = get_hash('winmerge') %}
 
