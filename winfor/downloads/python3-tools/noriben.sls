@@ -4,10 +4,10 @@
 # Category: Executables
 # Author: Brian Baskin (Rurik)
 # License: Apache License v2 (https://github.com/Rurik/Noriben/blob/master/LICENSE)
-# Version: 2.0.4
+# Version: 2.1.0
 # Notes: 
 
-{% set version = '2.0.4' %}
+{% set version = '2.1.0' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% from 'winfor/_macros/hashes.jinja' import get_hash %}
