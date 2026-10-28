@@ -4,10 +4,10 @@
 # Category: Executables
 # Author: ICSharpCode (https://github.com/orgs/icsharpcode/people)
 # License: MIT License (https://github.com/icsharpcode/ILSpy/blob/master/doc/ILSpyAboutPage.txt)
-# Version: 11.1.0.9782
+# Version: 11.2
 # Notes:
 
-{% set version = '11.1.0.9782' %}
+{% set version = '11.2' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% from 'winfor/_macros/hashes.jinja' import get_hash %}
 {% set hash = get_hash('ilspy') %}
