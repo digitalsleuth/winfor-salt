@@ -7,6 +7,7 @@
 # Version: 0.100.2
 # Notes:
 
+# renovate: datasource=github-releases depName=microsoft/PowerToys
 {% set version = '0.100.2' %}
 
 include:
