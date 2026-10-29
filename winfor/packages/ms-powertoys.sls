@@ -4,11 +4,11 @@
 # Category: Utilities
 # Author: Microsoft
 # License: MIT (https://github.com/microsoft/PowerToys/blob/main/LICENSE)
-# Version: 0.100.2
+# Version: 0.102.3001
 # Notes:
 
 # renovate: datasource=github-releases depName=microsoft/PowerToys
-{% set version = '0.100.2' %}
+{% set version = '0.102.3001' %}
 
 include:
   - winfor.repos
