@@ -4,10 +4,10 @@
 # Category: Executables
 # Author: Markus Oberhumer, Laszlo Molnar, John Reiser
 # License: Multiple Licenses (https://github.com/upx/upx/blob/devel/LICENSE)
-# Version: 5.2.1
+# Version: 5.3.0
 # Notes: 
 
-{% set version = '5.2.1' %}
+{% set version = '5.3.0' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% from 'winfor/_macros/hashes.jinja' import get_hash %}
 {% set hash = get_hash('upx') %}
