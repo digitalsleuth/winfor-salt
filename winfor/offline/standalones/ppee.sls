@@ -4,10 +4,10 @@
 # Category: Executables
 # Author: Zaderostam
 # License: 
-# Version: 1.13.1
+# Version: 1.16
 # Notes: 
 
-{% set version = '1.13.1' %}
+{% set version = '1.16' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}

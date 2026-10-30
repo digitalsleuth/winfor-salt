@@ -10,7 +10,7 @@
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set files = [
                 ('NetScanner', '02fbf13ffcc8bfd3b3ef907b265cc4d2338309e99039f1384f2c6cd370995c66'),
-                ('TMX', '6016ab678fd6624d4ca7716395f6bb4f8b3e3e3a788d8c7f2db3d50fda58eda0'),
+                ('TMX', 'fec49591213f08f749f47e7dcc38ae48df2ddf9c53ccb4df500854e58a05daef'),
                 ('IHB', '94d513e5507e871b7d87246676f1072a92386e0b352ef7e02473a5812fd292db'),
                 ('EHB', '6ECC87D4A0061CEDC13CCC398EB66009C39C5E36931737BB1841A373DE22C363'),
                 ('WFA', '57ACAE30EA14576E06822703C6211C8F0C675286C989EE0CDAFEC23578E7A9C6'),
@@ -21,7 +21,8 @@
                 ('EXE', '87b3bbf80301de96b871da5f1d4ce742c38182ee2fbc4414a28a2e7133011c78'),
                 ('XMLView', 'c64a87ee9d26096d3a2efc63d2c1b38fb5440a825fa5b1bdc0d50cbb2d6b7960'),
                 ('JSONView', '9c6d38bc040bae98e9847539220611e4dea915d27314463e602b880c3f845b21'),
-                ('SQLiteQ', '7F979A622DE9E97B9682DC09A5156A1BD872139A9DD56BA60616FB824E77AB16')
+                ('SQLiteQ', '7F979A622DE9E97B9682DC09A5156A1BD872139A9DD56BA60616FB824E77AB16'),
+                ('SIX', '0fa64c0d36bd0d3d17384b008c5c5ef6042185d252479e61de534b703326638b'),
                ] %}
 {% set old_url_files = ['IHB', 'EHB', 'WFA'] %}
 

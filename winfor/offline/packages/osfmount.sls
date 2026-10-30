@@ -4,10 +4,10 @@
 # Category: Acquisition and Analysis
 # Author: PassMark
 # License: Free (EULA, contained in software)
-# Version: 3.1
+# Version: 3.3.1000.0
 # Notes: 
 
-{% set version = '3.1.1003.0' %}
+{% set version = '3.3.1000.0' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set pkg = 'osfmount-'~ version ~'.exe' %}
 {% set exists = salt['file.file_exists'](downloads + '\\osfmount\\' + pkg) %}

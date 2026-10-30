@@ -4,8 +4,10 @@
 # Category: Requirements
 # Author: Microsoft
 # License: 
-# Version: 15.9.37506.8
+# Version: 15.9.37827.7
 # Notes: 
+
+{% set version = '15.9.37827.7' %}
 
 include:
   - winfor.repos

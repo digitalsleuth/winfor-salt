@@ -10,7 +10,7 @@
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
-{% set files = ['NetScanner','TMX','IHB','EHB','WFA','WRR','SSView','HEXEdit','MailView','EXE','XMLView','JSONView','SQLiteQ'] %}
+{% set files = ['NetScanner','TMX','IHB','EHB','WFA','WRR','SSView','HEXEdit','MailView','EXE','XMLView','JSONView','SQLiteQ','SIX'] %}
 {% set exists = salt['file.directory_exists'](downloads + '\\mitec\\') %}
 
 {% if exists %}

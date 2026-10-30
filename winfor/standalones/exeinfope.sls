@@ -12,6 +12,7 @@
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% from 'winfor/_macros/hashes.jinja' import get_hash %}
 {% set hash = get_hash('exeinfope') %}
+{% set tag = '1.0.0' %}
 
 include:
   - winfor.config.shims
@@ -19,7 +20,7 @@ include:
 exeinfope-download:
   file.managed:
     - name: 'C:\salt\tempdownload\exeinfope.zip'
-    - source: https://github.com/ExeinfoASL/ASL/releases/download/v{{ version }}/exeinfope.zip
+    - source: https://github.com/ExeinfoASL/ASL/releases/download/V{{ tag }}/exeinfope.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True
 

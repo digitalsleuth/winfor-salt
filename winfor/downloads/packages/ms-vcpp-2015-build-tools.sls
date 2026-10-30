@@ -4,10 +4,10 @@
 # Category: Requirements
 # Author: Microsoft
 # License: 
-# Version: 15.9.37506.8
+# Version: 15.9.37827.7
 # Notes: 
 
-{% set version = '15.9.37506.8' %}
+{% set version = '15.9.37827.7' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% from 'winfor/_macros/hashes.jinja' import get_hash %}
 {% set hash = get_hash('ms-vcpp-2015-build-tools') %}
