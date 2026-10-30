@@ -11,6 +11,7 @@
 {% set version = '0.102.3001.0' %}
 {% from 'winfor/_macros/hashes.jinja' import get_hash %}
 {% set hash = get_hash('ms-powertoys') %}
+{% set version_split = version.split(".") %}
 {% if version_split | length == 4 %}
   {% set tag = ".".join(version_split[:3]) %}
 {% else %}

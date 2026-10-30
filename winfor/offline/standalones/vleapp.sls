@@ -4,52 +4,50 @@
 # Category: Mobile Analysis
 # Author: Alexis Brignoni
 # License: MIT License (https://github.com/abrignoni/VLEAPP/blob/main/LICENSE)
-# Version: 2.2.0
+# Version: 2026.4.4
 # Notes: 
 
 # renovate: datasource=github-releases depName=abrignoni/VLEAPP
-{% set version = '2.2.0' %}
+{% set version = '2026.4.4' %}
+{% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
-{% set pkg = 'vleapp.py' %}
+{% set pkg = 'vleapp-'~ version ~'.zip' %}
 {% set exists = salt['file.file_exists'](downloads + '\\vleapp\\' + pkg) %}
 
 {% if exists %}
 
 include:
-  - winfor.offline.packages.python3
+  - winfor.config.shims
 
-vleapp-move-folder-offline:
-  file.rename:
+vleapp-source-extract-offline:
+  archive.extracted:
     - name: '{{ inpath }}\vleapp'
-    - source: '{{ downloads }}\vleapp'
-    - makedirs: True
-    - force: True
+    - source: '{{ downloads }}\vleapp\{{ pkg }}'
+    - enforce_toplevel: False
 
-vleapp-requirements-install-offline:
-  cmd.run:
-    - name: '"C:\Program Files\Python310\python.exe" -m pip install --no-index --find-links=.\packages -r requirements.txt'
-    - cwd: '{{ inpath }}\vleapp\'
+vleapp-archive-remove-offline:
+  file.absent:
+    - name: '{{ downloads }}\vleapp\{{ pkg }}'
     - require:
-      - sls: winfor.offline.packages.python3
-      - file: vleapp-move-folder-offline
+      - archive: vleapp-source-extract-offline
 
-vleapp-env-vars-offline:
-  win_path.exists:
-    - name: '{{ inpath }}\vleapp\'
+vleapp-shim-offline:
+  cmd.run:
+    - name: 'powershell -nop -ep Bypass -File {{ inpath }}\New-Shim.ps1 -SourceExe {{ inpath }}\vleapp\vleapp.exe -OutPath {{ inpath }}\shims\vleapp.exe'
+    - require:
+      - sls: winfor.config.shims
 
 vleapp-gui-shortcut-offline:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\VLEAPP-GUI.lnk'
-    - target: '{{ inpath }}\vleapp\vleappGUI.py'
+    - target: '{{ inpath }}\vleapp\vleapp.exe'
     - force: True
     - working_dir: '{{ inpath }}\vleapp\'
-    - icon_location: '{{ inpath }}\vleapp\vleapp.ico'
     - makedirs: True
     - require:
-      - cmd: vleapp-requirements-install-offline
-      - win_path: vleapp-env-vars-offline
+      - archive: vleapp-source-extract-offline
+      - cmd: vleapp-shim-offline
 
 {% else %}
 {{ pkg }} does not exist - not installing:

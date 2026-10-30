@@ -1462,9 +1462,9 @@
     "HeaderContent": "Mobile Analysis",
     "Tools": {
       "ALEAPP": {
-        "CbName": "python3_tools_aleapp",
+        "CbName": "standalones_aleapp",
         "CbContent": "ALEAPP",
-        "DAID": "PLACEHOLDER_PATH\\aleapp\\aleappGUI.py",
+        "DAID": "PLACEHOLDER_PATH\\aleapp\\aleapp.exe",
         "AUMID": false,
         "DALP": false,
         "StartMenu": true,
@@ -1539,9 +1539,9 @@
         "ExtraTiles": []
       },
       "ILEAPP": {
-        "CbName": "python3_tools_ileapp",
-        "CbContent": "ILEAPP",
-        "DAID": "PLACEHOLDER_PATH\\ileapp\\ileappGUI.py",
+        "CbName": "standalones_ileapp",
+        "CbContent": "iLEAPP",
+        "DAID": "PLACEHOLDER_PATH\\ileapp\\ileapp.exe",
         "AUMID": false,
         "DALP": false,
         "StartMenu": true,
@@ -1616,9 +1616,9 @@
         "ExtraTiles": []
       },
       "VLEAPP": {
-        "CbName": "python3_tools_vleapp",
+        "CbName": "standalones_vleapp",
         "CbContent": "VLEAPP",
-        "DAID": "PLACEHOLDER_PATH\\vleapp\\vleappGUI.py",
+        "DAID": "PLACEHOLDER_PATH\\vleapp\\vleapp.exe",
         "AUMID": false,
         "DALP": false,
         "StartMenu": true,

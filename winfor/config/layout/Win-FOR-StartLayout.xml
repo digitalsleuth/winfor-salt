@@ -95,14 +95,14 @@
           <start:DesktopApplicationTile Size="1x1" Column="4" Row="0" DesktopApplicationID="PLACEHOLDER_PATH\logviewer2\LogViewer2.exe" />
         </start:Group>
         <start:Group Name="Mobile Analysis">
-          <start:DesktopApplicationTile Size="1x1" Column="0" Row="0" DesktopApplicationID="PLACEHOLDER_PATH\aleapp\aleappGUI.py" />
+          <start:DesktopApplicationTile Size="1x1" Column="0" Row="0" DesktopApplicationID="PLACEHOLDER_PATH\aleapp\aleapp.exe" />
           <start:DesktopApplicationTile Size="1x1" Column="1" Row="0" DesktopApplicationID="{6D809377-6AF0-444B-8957-A3773F02200E}\Android\Android Studio\bin\studio64.exe" />
           <start:DesktopApplicationTile Size="1x1" Column="2" Row="0" DesktopApplicationID="PLACEHOLDER_PATH\bytecode-viewer\Bytecode-Viewer-2.11.2.jar" />
-          <start:DesktopApplicationTile Size="1x1" Column="3" Row="0" DesktopApplicationID="PLACEHOLDER_PATH\ileapp\ileappGUI.py" />
+          <start:DesktopApplicationTile Size="1x1" Column="3" Row="0" DesktopApplicationID="PLACEHOLDER_PATH\ileapp\ileapp.exe" />
           <start:DesktopApplicationTile Size="1x1" Column="4" Row="0" DesktopApplicationID="PLACEHOLDER_PATH\iphone-analyzer\iphoneanalyzer.fat.gui-2.1.0.jar" />
           <start:DesktopApplicationTile Size="1x1" Column="5" Row="0" DesktopApplicationID="PLACEHOLDER_PATH\jd-gui\jd-gui.exe" />
           <start:DesktopApplicationTile Size="1x1" Column="0" Row="1" DesktopApplicationID="{6D809377-6AF0-444B-8957-A3773F02200E}\VOW Software\plist Editor Pro\plistEditor.exe" />
-          <start:DesktopApplicationTile Size="1x1" Column="1" Row="1" DesktopApplicationID="PLACEHOLDER_PATH\vleapp\vleappGUI.py" />
+          <start:DesktopApplicationTile Size="1x1" Column="1" Row="1" DesktopApplicationID="PLACEHOLDER_PATH\vleapp\vleapp.exe" />
         </start:Group>
         <start:Group Name="Network">
           <start:DesktopApplicationTile Size="1x1" Column="0" Row="0" DesktopApplicationID="{6D809377-6AF0-444B-8957-A3773F02200E}\BurpSuiteCommunity\BurpSuiteCommunity.exe" />
