@@ -4,10 +4,10 @@
 # Category: Windows Analysis
 # Author: Nir Sofer
 # License: Freeware, except for NK2Edit which requires a commercial license for organizational use (https://launcher.nirsoft.net/ - License Conditions)
-# Version: 1.30.24
+# Version: 1.30.26
 # Notes: 
 
-{% set version = '1.30.24' %}
+{% set version = '1.30.26' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% from 'winfor/_macros/hashes.jinja' import get_hash %}
 {% set hash = get_hash('nirsoft') %}
