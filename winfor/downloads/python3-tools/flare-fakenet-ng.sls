@@ -11,6 +11,23 @@
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% from 'winfor/_macros/hashes.jinja' import get_hash %}
 {% set hash = get_hash('flare-fakenet-ng') %}
+{% set defender_status = salt['cmd.powershell']('((Get-Service) -match "WinDefend").Name') %}
+
+{% if defender_status.lower() == "windefend" %}
+
+flare-fakenet-ng-defender-exclusion-download-only:
+  cmd.run:
+    - names:
+      - 'echo "Defender is present on the system."'
+      - 'Add-MpPreference -ExclusionPath "{{ downloads }}"'
+      - 'Add-MpPreference -ExclusionPath "{{ PROGRAMDATA }}\Salt Project\Salt\var"'
+    - shell: powershell
+{% else %}
+
+"Defender is not present on the system - no exclusions required to download flare-fakenet-ng.":
+  test.nop
+
+{% endif %}
 
 flare-fakenet-ng-download-only:
   file.managed:

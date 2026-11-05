@@ -19,6 +19,24 @@
 include:
   - winfor.config.shims
 
+{% set defender_status = salt['cmd.powershell']('((Get-Service) -match "WinDefend").Name') %}
+
+{% if defender_status.lower() == "windefend" %}
+
+flare-fakenet-defender-exclusion-offline:
+  cmd.run:
+    - names:
+      - 'echo "Defender is present on the system."'
+      - 'Add-MpPreference -ExclusionPath "{{ downloads }}"'
+      - 'Add-MpPreference -ExclusionPath "{{ PROGRAMDATA }}\Salt Project\Salt\var"'
+    - shell: powershell
+{% else %}
+
+"Defender is not present on the system - no exclusions required for flare-fakenet-ng offline.":
+  test.nop
+
+{% endif %}
+
 flare-fakenet-ng-rename-folder-offline:
   file.rename:
     - name: '{{ inpath }}\flare-fakenet-ng'
