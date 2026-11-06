@@ -4,10 +4,10 @@
 # Category: Windows Analysis
 # Author: Jason Hale
 # License: Software License Agreement (https://usbdetective.com/docs/usbdla.pdf)
-# Version: 1.6.4
+# Version: 1.7.0
 # Notes: 
 
-{% set version = '1.6.4' %}
+{% set version = '1.7.0' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
