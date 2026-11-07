@@ -11,6 +11,7 @@
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% from 'winfor/_macros/hashes.jinja' import get_hash %}
 {% set hash = get_hash('flare-fakenet-ng') %}
+{% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set defender_status = salt['cmd.powershell']('((Get-Service) -match "WinDefend").Name') %}
 
 {% if defender_status.lower() == "windefend" %}
