@@ -16,7 +16,7 @@ include:
 peepdf-3-install:
   pip.installed:
     - name: 'peepdf-3[gui]'
-    - bin_env: 'C:\Program Files\Python310\python.exe'
+    - bin_env: 'C:\Program Files\Python311\python.exe'
     - upgrade: True
     - require:
       - sls: winfor.packages.python3

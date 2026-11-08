@@ -47,7 +47,7 @@ msoffcrypto-crack-wrapper:
     - win_inheritance: True
     - contents:
       - '@echo off'
-      - '"C:\Program Files\Python310\python.exe" {{ inpath }}\msoffcrypto-crack\msoffcrypto-crack.py %*'
+      - '"C:\Program Files\Python311\python.exe" {{ inpath }}\msoffcrypto-crack\msoffcrypto-crack.py %*'
     - require:
       - file: msoffcrypto-crack-header
       - win_path: msoffcrypto-crack-env-vars

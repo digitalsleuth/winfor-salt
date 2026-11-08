@@ -39,7 +39,7 @@
           <start:DesktopApplicationTile Size="1x1" Column="0" Row="0" DesktopApplicationID="{7C5A40EF-A0FB-4BFC-874A-C0F2E0B9FA8E}\4n6 Software\4n6 Email Forensics Wizard\EmailForensicsWizard.exe" />
           <start:DesktopApplicationTile Size="1x1" Column="1" Row="0" DesktopApplicationID="{7C5A40EF-A0FB-4BFC-874A-C0F2E0B9FA8E}\Aid4Mail5\Aid4Mail5.exe" />
           <start:DesktopApplicationTile Size="1x1" Column="2" Row="0" DesktopApplicationID="PLACEHOLDER_PATH\bitrecover-eml-viewer\bitrecover-eml-viewer.exe" />
-          <start:DesktopApplicationTile Size="1x1" Column="3" Row="0" DesktopApplicationID="{6D809377-6AF0-444B-8957-A3773F02200E}\Python310\Scripts\email-header-analyzer.cmd" />
+          <start:DesktopApplicationTile Size="1x1" Column="3" Row="0" DesktopApplicationID="{6D809377-6AF0-444B-8957-A3773F02200E}\Python311\Scripts\email-header-analyzer.cmd" />
           <start:DesktopApplicationTile Size="1x1" Column="4" Row="0" DesktopApplicationID="{7C5A40EF-A0FB-4BFC-874A-C0F2E0B9FA8E}\Metaspike\Forensic Email Collector\FEC.exe" />
           <start:DesktopApplicationTile Size="1x1" Column="5" Row="0" DesktopApplicationID="{7C5A40EF-A0FB-4BFC-874A-C0F2E0B9FA8E}\Kernel Exchange EDB Viewer\KernelExchangeEDBViewer.exe" />
           <start:DesktopApplicationTile Size="1x1" Column="0" Row="1" DesktopApplicationID="{7C5A40EF-A0FB-4BFC-874A-C0F2E0B9FA8E}\Kernel OST Viewer\Kernel OST Viewer.exe" />

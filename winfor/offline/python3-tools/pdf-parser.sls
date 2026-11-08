@@ -19,7 +19,7 @@ include:
 
 pdf-parser-offline:
   file.managed:
-    - name: 'C:\Program Files\Python310\Scripts\pdf-parser.py'
+    - name: 'C:\Program Files\Python311\Scripts\pdf-parser.py'
     - source: '{{ downloads }}\pdf-parser\{{ pkg }}'
     - skip_verify: True
     - makedirs: True
@@ -28,11 +28,11 @@ pdf-parser-offline:
 
 pdf-parser-wrapper-offline:
   file.managed:
-    - name: 'C:\Program Files\Python310\Scripts\pdf-parser.cmd'
+    - name: 'C:\Program Files\Python311\Scripts\pdf-parser.cmd'
     - win_inheritance: True
     - contents:
       - '@echo off'
-      - 'python3 "C:\Program Files\Python310\Scripts\pdf-parser.py" %*'
+      - 'python3 "C:\Program Files\Python311\Scripts\pdf-parser.py" %*'
     - require:
       - sls: winfor.offline.packages.python3
       - file: pdf-parser-offline

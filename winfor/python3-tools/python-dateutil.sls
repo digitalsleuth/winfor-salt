@@ -12,6 +12,6 @@ include:
 
 python-dateutil:
   pip.installed:
-    - bin_env: 'C:\Program Files\Python310\python.exe'
+    - bin_env: 'C:\Program Files\Python311\python.exe'
     - require:
       - sls: winfor.packages.python3

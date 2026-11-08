@@ -28,7 +28,7 @@ decompyle3-move-folder-offline:
 
 decompyle3-install-offline:
   cmd.run:
-    - name: '"C:\Program Files\Python310\python.exe" -m pip install --no-index --find-links=.\packages decompyle3'
+    - name: '"C:\Program Files\Python311\python.exe" -m pip install --no-index --find-links=.\packages decompyle3'
     - cwd: '{{ inpath }}\decompyle3\'
     - require:
       - sls: winfor.offline.packages.python3

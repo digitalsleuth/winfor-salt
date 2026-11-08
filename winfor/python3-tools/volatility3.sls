@@ -17,7 +17,7 @@ include:
 volatility3:
   pip.installed:
     - name: 'volatility3=={{ version }}'
-    - bin_env: 'C:\Program Files\Python310\python.exe'
+    - bin_env: 'C:\Program Files\Python311\python.exe'
     - require:
       - sls: winfor.packages.python3
       - sls: winfor.python3-tools.py3-pycryptodome
@@ -25,27 +25,27 @@ volatility3:
 
 volatility3-wrapper:
   file.managed:
-    - name: 'C:\Program Files\Python310\Scripts\vol3.cmd'
+    - name: 'C:\Program Files\Python311\Scripts\vol3.cmd'
     - win_inheritance: True
     - contents:
       - '@echo off'
-      - '"C:\Program Files\Python310\Scripts\vol.exe" %*'
+      - '"C:\Program Files\Python311\Scripts\vol.exe" %*'
     - require:
       - pip: volatility3
 
 volatility3-shell-wrapper:
   file.managed:
-    - name: 'C:\Program Files\Python310\Scripts\volshell3.cmd'
+    - name: 'C:\Program Files\Python311\Scripts\volshell3.cmd'
     - win_inheritance: True
     - contents:
       - '@echo off'
-      - '"C:\Program Files\Python310\Scripts\volshell.exe" %*'
+      - '"C:\Program Files\Python311\Scripts\volshell.exe" %*'
     - require:
       - pip: volatility3
 
 volatility3-symbols-folder:
   file.directory:
-    - name: 'C:\Program Files\Python310\Scripts\symbols\'
+    - name: 'C:\Program Files\Python311\Scripts\symbols\'
     - force: True
     - makedirs: True
     - win_inheritance: True
@@ -61,7 +61,7 @@ volatility3-windows-symbols-download:
 
 volatility3-windows-symbols-extract:
   archive.extracted:
-    - name: 'C:\Program Files\Python310\Scripts\symbols\'
+    - name: 'C:\Program Files\Python311\Scripts\symbols\'
     - source: 'C:\salt\tempdownload\windows.zip'
     - enforce_toplevel: False
     - require:
@@ -76,7 +76,7 @@ volatility3-linux-symbols-download:
 
 volatility3-linux-symbols-extract:
   archive.extracted:
-    - name: 'C:\Program Files\Python310\Scripts\symbols\'
+    - name: 'C:\Program Files\Python311\Scripts\symbols\'
     - source: 'C:\salt\tempdownload\linux.zip'
     - enforce_toplevel: False
     - require:
@@ -91,7 +91,7 @@ volatility3-mac-symbols-download:
 
 volatility3-mac-symbols-extract:
   archive.extracted:
-    - name: 'C:\Program Files\Python310\Scripts\symbols\'
+    - name: 'C:\Program Files\Python311\Scripts\symbols\'
     - source: 'C:\salt\tempdownload\mac.zip'
     - enforce_toplevel: False
     - require:

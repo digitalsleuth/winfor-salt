@@ -4,11 +4,11 @@
 # Category: Requirements
 # Author: Python Software Foundation
 # License: Python Software Foundation License Version 2.0 (https://docs.python.org/3.10/license.html)
-# Version: 3.10.11150.0
+# Version: 3.11.9
 # Notes:
 
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
-{% set version = '3.10.11' %}
+{% set version = '3.11.9' %}
 {% from 'winfor/_macros/is_installed.jinja' import check_installed %}
 {% set installed = check_installed('Python ' + version + '*') | trim == 'true' %}
 {% set pkg = 'python3-'~ version ~'.exe' %}
@@ -26,16 +26,16 @@ python3-x64-offline:
 python3-env-vars-offline:
   win_path.exists:
     - names:
-      - 'C:\Program Files\Python310\Scripts\'
-      - 'C:\Program Files\Python310\'
+      - 'C:\Program Files\Python311\Scripts\'
+      - 'C:\Program Files\Python311\'
     - index: 0
     - require:
       - cmd: python3-x64-offline
 
 python3-symlink-offline:
   file.symlink:
-    - name: 'C:\Program Files\Python310\python3.exe'
-    - target: 'C:\Program Files\Python310\python.exe'
+    - name: 'C:\Program Files\Python311\python3.exe'
+    - target: 'C:\Program Files\Python311\python.exe'
     - force: True
     - makedirs: True
     - win_inheritance: True

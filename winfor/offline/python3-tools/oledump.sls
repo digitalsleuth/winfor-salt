@@ -28,11 +28,11 @@ oledump-folder-rename-offline:
 
 oledump-wrapper-offline:
   file.managed:
-    - name: 'C:\Program Files\Python310\Scripts\oledump.cmd'
+    - name: 'C:\Program Files\Python311\Scripts\oledump.cmd'
     - win_inheritance: True
     - contents:
       - '@echo off'
-      - '"C:\Program Files\Python310\python.exe" {{ inpath }}\oledump\oledump.py %*'
+      - '"C:\Program Files\Python311\python.exe" {{ inpath }}\oledump\oledump.py %*'
     - require:
       - sls: winfor.offline.packages.python3
       - sls: winfor.offline.python3-tools.olefile

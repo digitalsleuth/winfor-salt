@@ -20,14 +20,14 @@ include:
 
 bmc-tools-copy-offline:
   file.copy:
-    - name: 'C:\Program Files\Python310\Scripts\bmc-tools.py'
+    - name: 'C:\Program Files\Python311\Scripts\bmc-tools.py'
     - source: '{{ downloads }}\bmc-tools\bmc-tools-{{ version }}.py'
     - skip_verify: True
     - makedirs: True
 
 bmc-tools-shebang-offline:
   file.replace:
-    - name: 'C:\Program Files\Python310\Scripts\bmc-tools.py'
+    - name: 'C:\Program Files\Python311\Scripts\bmc-tools.py'
     - pattern: '#!/usr/bin/env python$'
     - repl: '#!/usr/bin/python3'
     - count: 1
@@ -37,11 +37,11 @@ bmc-tools-shebang-offline:
 
 bmc-tools-wrapper-offline:
   file.managed:
-    - name: 'C:\Program Files\Python310\Scripts\bmc-tools.cmd'
+    - name: 'C:\Program Files\Python311\Scripts\bmc-tools.cmd'
     - win_inheritance: True
     - contents:
       - '@echo off'
-      - 'python3 "C:\Program Files\Python310\Scripts\bmc-tools.py" %*'
+      - 'python3 "C:\Program Files\Python311\Scripts\bmc-tools.py" %*'
     - require:
       - file: bmc-tools-copy-offline
 

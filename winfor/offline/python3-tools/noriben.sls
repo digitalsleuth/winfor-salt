@@ -31,7 +31,7 @@ noriben-folder-rename-offline:
 {% for file in files %}
 noriben-wrapper-offline-{{ file }}:
   file.managed:
-    - name: 'C:\Program Files\Python310\Scripts\{{ file }}.cmd'
+    - name: 'C:\Program Files\Python311\Scripts\{{ file }}.cmd'
     - win_inheritance: True
     - contents:
       - '@echo off'

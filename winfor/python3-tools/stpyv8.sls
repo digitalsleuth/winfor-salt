@@ -16,6 +16,6 @@ include:
 stpyv8-install:
   pip.installed:
     - name: stpyv8=={{ version }}
-    - bin_env: 'C:\Program Files\Python310\python.exe'
+    - bin_env: 'C:\Program Files\Python311\python.exe'
     - require:
       - sls: winfor.packages.python3

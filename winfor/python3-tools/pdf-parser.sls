@@ -16,7 +16,7 @@ include:
 
 pdf-parser-download:
   file.managed:
-    - name: 'C:\Program Files\Python310\Scripts\pdf-parser.py'
+    - name: 'C:\Program Files\Python311\Scripts\pdf-parser.py'
     - source: https://github.com/DidierStevens/DidierStevensSuite/raw/master/pdf-parser.py
     - source_hash: sha256={{ hash }}
     - makedirs: True
@@ -25,7 +25,7 @@ pdf-parser-download:
 
 pdf-parser-header:
   file.replace:
-    - name: 'C:\Program Files\Python310\Scripts\pdf-parser.py'
+    - name: 'C:\Program Files\Python311\Scripts\pdf-parser.py'
     - pattern: '^#!/usr/bin/env python$'
     - repl: '#!/usr/bin/python3'
     - backup: False
@@ -36,8 +36,8 @@ pdf-parser-header:
 
 python3-pdf-parser-wrapper:
   file.managed:
-    - name: 'C:\Program Files\Python310\Scripts\pdf-parser.cmd'
+    - name: 'C:\Program Files\Python311\Scripts\pdf-parser.cmd'
     - win_inheritance: True
     - contents:
       - '@echo off'
-      - 'python3 "C:\Program Files\Python310\Scripts\pdf-parser.py" %*'
+      - 'python3 "C:\Program Files\Python311\Scripts\pdf-parser.py" %*'

@@ -16,14 +16,14 @@ include:
 
 bmc-tools-download:
   file.managed:
-    - name: 'C:\Program Files\Python310\Scripts\bmc-tools.py'
+    - name: 'C:\Program Files\Python311\Scripts\bmc-tools.py'
     - source: https://github.com/ANSSI-FR/bmc-tools/raw/master/bmc-tools.py
     - source_hash: sha256={{ hash }}
     - makedirs: True
 
 bmc-tools-env:
   file.replace:
-    - name: 'C:\Program Files\Python310\Scripts\bmc-tools.py'
+    - name: 'C:\Program Files\Python311\Scripts\bmc-tools.py'
     - pattern: '#!/usr/bin/env python$'
     - repl: '#!/usr/bin/python3'
     - count: 1
@@ -33,10 +33,10 @@ bmc-tools-env:
 
 bmc-tools-wrapper:
   file.managed:
-    - name: 'C:\Program Files\Python310\Scripts\bmc-tools.cmd'
+    - name: 'C:\Program Files\Python311\Scripts\bmc-tools.cmd'
     - win_inheritance: True
     - contents:
       - '@echo off'
-      - 'python3 "C:\Program Files\Python310\Scripts\bmc-tools.py" %*'
+      - 'python3 "C:\Program Files\Python311\Scripts\bmc-tools.py" %*'
     - require:
       - file: bmc-tools-download

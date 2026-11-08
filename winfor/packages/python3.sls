@@ -4,10 +4,10 @@
 # Category: Requirements
 # Author: Python Software Foundation
 # License: Python Software Foundation License Version 2.0 (https://docs.python.org/3.10/license.html)
-# Version: 3.10.11150.0
+# Version: 3.11.9
 # Notes:
 
-{% set version = '3.10.11150' %}
+{% set version = '3.11.9' %}
 {% from 'winfor/_macros/is_installed.jinja' import check_installed, get_version %}
 {% set installed = check_installed('Python 3') | trim == 'true' %}
 {% set installed_version = get_version('Python 3') | trim %}
@@ -24,7 +24,7 @@ include:
 
 python3_x64:
   pkg.installed:
-    - version: '3.10.11150.0'
+    - version: '{{ version }}150.0'
     - require:
       - sls: winfor.repos
 
@@ -32,7 +32,7 @@ python3-wheel:
   pip.installed:
     - name: wheel
     - upgrade: True
-    - bin_env: 'C:\Program Files\Python310\python.exe'
+    - bin_env: 'C:\Program Files\Python311\python.exe'
     - require:
       - pkg: python3_x64
 
@@ -40,21 +40,21 @@ python3-setuptools:
   pip.installed:
     - name: setuptools
     - upgrade: True
-    - bin_env: 'C:\Program Files\Python310\python.exe'
+    - bin_env: 'C:\Program Files\Python311\python.exe'
     - require:
       - pkg: python3_x64
 
 python3-env-vars:
   win_path.exists:
     - names:
-      - 'C:\Program Files\Python310\Scripts\'
-      - 'C:\Program Files\Python310\'
+      - 'C:\Program Files\Python311\Scripts\'
+      - 'C:\Program Files\Python311\'
     - index: 0
 
 python3-symlink:
   file.symlink:
-    - name: 'C:\Program Files\Python310\python3.exe'
-    - target: 'C:\Program Files\Python310\python.exe'
+    - name: 'C:\Program Files\Python311\python3.exe'
+    - target: 'C:\Program Files\Python311\python.exe'
     - force: True
     - makedirs: True
     - win_inheritance: True

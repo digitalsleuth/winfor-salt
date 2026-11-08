@@ -20,7 +20,7 @@ include:
 
 stpyv8-install-offline:
   cmd.run:
-    - name: '"C:\Program Files\Python310\python.exe" -m pip install --no-index --find-links=.\packages stpyv8=={{ version }}'
+    - name: '"C:\Program Files\Python311\python.exe" -m pip install --no-index --find-links=.\packages stpyv8=={{ version }}'
     - cwd: '{{ downloads }}\stpyv8\'
     - require:
       - sls: winfor.offline.packages.python3

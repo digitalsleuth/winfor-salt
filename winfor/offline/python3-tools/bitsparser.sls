@@ -27,7 +27,7 @@ bitsparser-rename-offline:
 
 bitsparser-requirements-install-offline:
   cmd.run:
-    - name: '"C:\Program Files\Python310\python.exe" -m pip install --no-index --find-links=.\packages -r requirements.txt'
+    - name: '"C:\Program Files\Python311\python.exe" -m pip install --no-index --find-links=.\packages -r requirements.txt'
     - cwd: '{{ inpath }}\bitsparser\'
     - require:
       - file: bitsparser-rename-offline
