@@ -19,7 +19,7 @@ include:
 
 amcache-file-copy-offline:
   file.managed:
-    - name: 'C:\Program Files\Python310\Scripts\amcache.py'
+    - name: 'C:\Program Files\Python311\Scripts\amcache.py'
     - source: '{{ downloads }}\amcache\amcache-{{ version }}.py'
     - makedirs: True
     - require:
@@ -27,11 +27,11 @@ amcache-file-copy-offline:
 
 amcache-wrapper-offline:
   file.managed:
-    - name: 'C:\Program Files\Python310\Scripts\amcache.cmd'
+    - name: 'C:\Program Files\Python311\Scripts\amcache.cmd'
     - win_inheritance: True
     - contents:
       - '@echo off'
-      - 'python3 "C:\Program Files\Python310\Scripts\amcache.py" %*'
+      - 'python3 "C:\Program Files\Python311\Scripts\amcache.py" %*'
     - require:
       - file: amcache-file-copy-offline
 

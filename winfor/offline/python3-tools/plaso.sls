@@ -20,7 +20,7 @@ include:
 
 plaso-install-offline:
   cmd.run:
-    - name: '"C:\Program Files\Python310\python.exe" -m pip install --no-index --find-links=.\packages plaso'
+    - name: '"C:\Program Files\Python311\python.exe" -m pip install --no-index --find-links=.\packages plaso'
     - cwd: '{{ downloads }}\plaso\'
     - require:
       - sls: winfor.offline.packages.python3

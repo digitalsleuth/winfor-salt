@@ -15,7 +15,7 @@ include:
 
 pyinstxtractor-download:
   file.managed:
-    - name: 'C:\Program Files\Python310\Scripts\pyinstxtractor.py'
+    - name: 'C:\Program Files\Python311\Scripts\pyinstxtractor.py'
     - source: https://github.com/extremecoders-re/pyinstxtractor/raw/master/pyinstxtractor.py
     - source_hash: sha256={{ hash }}
     - makedirs: False
@@ -24,7 +24,7 @@ pyinstxtractor-download:
 
 pyinstxtractor-header:
   file.prepend:
-    - name: 'C:\Program Files\Python310\Scripts\pyinstxtractor.py'
+    - name: 'C:\Program Files\Python311\Scripts\pyinstxtractor.py'
     - text: '#!/usr/bin/python3'
     - require:
       - file: pyinstxtractor-download

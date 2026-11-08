@@ -20,7 +20,7 @@ include:
 
 time-decode-install-offline:
   cmd.run:
-    - name: '"C:\Program Files\Python310\python.exe" -m pip install --no-index --find-links=.\packages time-decode[gui]'
+    - name: '"C:\Program Files\Python311\python.exe" -m pip install --no-index --find-links=.\packages time-decode[gui]'
     - cwd: '{{ downloads }}\time-decode\'
     - require:
       - sls: winfor.offline.packages.python3

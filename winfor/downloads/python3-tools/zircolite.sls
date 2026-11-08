@@ -4,10 +4,10 @@
 # Category: Logs
 # Author: Wagga (wagga40)
 # License: GNU Lesser Public License v3.0 (https://github.com/wagga40/Zircolite#license)
-# Version: 4.7.0
+# Version: 4.7.1
 # Notes:
 
-{% set version = '4.7.0' %}
+{% set version = '4.7.1' %}
 {% from 'winfor/_macros/hashes.jinja' import get_hash %}
 {% set hash = get_hash('zircolite') %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
@@ -61,7 +61,7 @@ zircolite-folder-rename-download-only:
 
 zircolite-requirements-download-only:
   cmd.run:
-    - name: '{{ inpath }}\portable-python3\python.exe -m pip download -r requirements.txt -d packages'
+    - name: '{{ inpath }}\portable-python3\python.exe -m pip download . -d packages'
     - cwd: '{{ downloads }}\zircolite'
     - require:
       - file: zircolite-folder-rename-download-only

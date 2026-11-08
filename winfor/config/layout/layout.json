@@ -620,7 +620,7 @@
       "Email Header Analyzer": {
         "CbName": "python3_tools_email_header_analyzer",
         "CbContent": "Email Header Analyzer",
-        "DAID": "{6D809377-6AF0-444B-8957-A3773F02200E}\\Python310\\Scripts\\email-header-analyzer.cmd",
+        "DAID": "{6D809377-6AF0-444B-8957-A3773F02200E}\\Python311\\Scripts\\email-header-analyzer.cmd",
         "AUMID": false,
         "DALP": false,
         "StartMenu": true,

@@ -36,11 +36,11 @@ noriben-header:
 {% for file in files %}
 noriben-wrapper-{{ file }}:
   file.managed:
-    - name: 'C:\Program Files\Python310\Scripts\{{ file }}.cmd'
+    - name: 'C:\Program Files\Python311\Scripts\{{ file }}.cmd'
     - win_inheritance: True
     - contents:
       - '@echo off'
-      - '"C:\Program Files\Python310\python.exe" "{{ inpath }}\noriben\{{ file }}.py" %*'
+      - '"C:\Program Files\Python311\python.exe" "{{ inpath }}\noriben\{{ file }}.py" %*'
     - require:
       - sls: winfor.packages.python3
 {% endfor %}

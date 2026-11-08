@@ -22,7 +22,7 @@ include:
 {% for file in files %}
 rtfdump-manage-{{ file }}-offline:
   file.managed:
-    - name: 'C:\Program Files\Python310\Scripts\{{ file }}'
+    - name: 'C:\Program Files\Python311\Scripts\{{ file }}'
     - source: '{{ downloads }}\rtfdump\{{ file }}'
     - skip_verify: True
     - makedirs: True
@@ -30,11 +30,11 @@ rtfdump-manage-{{ file }}-offline:
 
 rtfdump-wrapper-offline:
   file.managed:
-    - name: 'C:\Program Files\Python310\Scripts\rtfdump.cmd'
+    - name: 'C:\Program Files\Python311\Scripts\rtfdump.cmd'
     - win_inheritance: True
     - contents:
       - '@echo off'
-      - '"C:\Program Files\Python310\python.exe" "C:\Program Files\Python310\Scripts\rtfdump.py" %*'
+      - '"C:\Program Files\Python311\python.exe" "C:\Program Files\Python311\Scripts\rtfdump.py" %*'
     - require:
       - file: rtfdump-manage-rtfdump.py-offline
 

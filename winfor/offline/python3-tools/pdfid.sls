@@ -27,11 +27,11 @@ pdfid-folder-rename-offline:
 
 pdfid-wrapper-offline:
   file.managed:
-    - name: 'C:\Program Files\Python310\Scripts\pdfid.cmd'
+    - name: 'C:\Program Files\Python311\Scripts\pdfid.cmd'
     - win_inheritance: True
     - contents:
       - '@echo off'
-      - '"C:\Program Files\Python310\python.exe" {{ inpath }}\pdfid\pdfid.py %*'
+      - '"C:\Program Files\Python311\python.exe" {{ inpath }}\pdfid\pdfid.py %*'
     - require:
       - file: pdfid-folder-rename-offline
 

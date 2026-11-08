@@ -21,7 +21,7 @@ include:
 
 volatility3-offline:
   cmd.run:
-    - name: '"C:\Program Files\Python310\python.exe" -m pip install --no-index --find-links=.\packages volatility3=={{ version }}'
+    - name: '"C:\Program Files\Python311\python.exe" -m pip install --no-index --find-links=.\packages volatility3=={{ version }}'
     - cwd: '{{ downloads }}\volatility3\'
     - require:
       - sls: winfor.offline.packages.python3
@@ -30,27 +30,27 @@ volatility3-offline:
 
 volatility3-wrapper-offline:
   file.managed:
-    - name: 'C:\Program Files\Python310\Scripts\vol3.cmd'
+    - name: 'C:\Program Files\Python311\Scripts\vol3.cmd'
     - win_inheritance: True
     - contents:
       - '@echo off'
-      - '"C:\Program Files\Python310\Scripts\vol.exe" %*'
+      - '"C:\Program Files\Python311\Scripts\vol.exe" %*'
     - require:
       - cmd: volatility3-offline
 
 volatility3-shell-wrapper-offline:
   file.managed:
-    - name: 'C:\Program Files\Python310\Scripts\volshell3.cmd'
+    - name: 'C:\Program Files\Python311\Scripts\volshell3.cmd'
     - win_inheritance: True
     - contents:
       - '@echo off'
-      - '"C:\Program Files\Python310\Scripts\volshell.exe" %*'
+      - '"C:\Program Files\Python311\Scripts\volshell.exe" %*'
     - require:
       - cmd: volatility3-offline
 
 volatility3-symbols-folder-offline:
   file.directory:
-    - name: 'C:\Program Files\Python310\Scripts\symbols\'
+    - name: 'C:\Program Files\Python311\Scripts\symbols\'
     - force: True
     - makedirs: True
     - win_inheritance: True
@@ -59,7 +59,7 @@ volatility3-symbols-folder-offline:
 
 volatility3-windows-symbols-extract-offline:
   archive.extracted:
-    - name: 'C:\Program Files\Python310\Scripts\symbols\'
+    - name: 'C:\Program Files\Python311\Scripts\symbols\'
     - source: '{{ downloads }}\volatility3\windows.zip'
     - enforce_toplevel: False
     - require:
@@ -67,7 +67,7 @@ volatility3-windows-symbols-extract-offline:
 
 volatility3-linux-symbols-extract-offline:
   archive.extracted:
-    - name: 'C:\Program Files\Python310\Scripts\symbols\'
+    - name: 'C:\Program Files\Python311\Scripts\symbols\'
     - source: '{{ downloads }}\volatility3\linux.zip'
     - enforce_toplevel: False
     - require:
@@ -75,7 +75,7 @@ volatility3-linux-symbols-extract-offline:
 
 volatility3-mac-symbols-extract-offline:
   archive.extracted:
-    - name: 'C:\Program Files\Python310\Scripts\symbols\'
+    - name: 'C:\Program Files\Python311\Scripts\symbols\'
     - source: '{{ downloads }}\volatility3\mac.zip'
     - enforce_toplevel: False
     - require:

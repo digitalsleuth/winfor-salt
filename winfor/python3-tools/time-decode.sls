@@ -16,7 +16,7 @@ include:
 time-decode:
   pip.installed:
     - name: 'time-decode[gui]'
-    - bin_env: 'C:\Program Files\Python310\python.exe'
+    - bin_env: 'C:\Program Files\Python311\python.exe'
     - upgrade: True
     - require:
       - sls: winfor.packages.python3

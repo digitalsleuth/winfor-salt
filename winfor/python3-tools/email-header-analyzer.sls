@@ -27,13 +27,13 @@ email-header-analyzer-git:
 email-header-analyzer-install-requirements:
   pip.installed:
     - requirements: '{{ inpath }}\email-header-analyzer\requirements.txt'
-    - bin_env: 'C:\Program Files\Python310\python.exe'
+    - bin_env: 'C:\Program Files\Python311\python.exe'
     - require:
       - sls: winfor.packages.python3
 
 email-header-analyzer-wrapper:
   file.managed:
-    - name: 'C:\Program Files\Python310\Scripts\email-header-analyzer.cmd'
+    - name: 'C:\Program Files\Python311\Scripts\email-header-analyzer.cmd'
     - win_inheritance: True
     - contents:
       - '@echo off'
@@ -42,10 +42,10 @@ email-header-analyzer-wrapper:
 email-header-analyzer-shortcut:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\Email Header Analyzer - Web Based.lnk'
-    - target: 'C:\Program Files\Python310\Scripts\email-header-analyzer.cmd'
+    - target: 'C:\Program Files\Python311\Scripts\email-header-analyzer.cmd'
     - icon_location: 'C:\Windows\SystemResources\imageres.dll.mun, 15'
     - force: True
-    - working_dir: 'C:\Program Files\Python310\Scripts\'
+    - working_dir: 'C:\Program Files\Python311\Scripts\'
     - makedirs: True
     - require:
       - git: email-header-analyzer-git

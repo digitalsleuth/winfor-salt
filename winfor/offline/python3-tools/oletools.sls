@@ -20,7 +20,7 @@ include:
 
 oletools-install-offline:
   cmd.run:
-    - name: '"C:\Program Files\Python310\python.exe" -m pip install --no-index --find-links=.\packages oletools'
+    - name: '"C:\Program Files\Python311\python.exe" -m pip install --no-index --find-links=.\packages oletools'
     - cwd: '{{ downloads }}\oletools\'
     - require:
       - sls: winfor.offline.packages.python3

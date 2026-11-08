@@ -20,7 +20,7 @@ include:
 
 malwoverview-install-offline:
   cmd.run:
-    - name: '"C:\Program Files\Python310\python.exe" -m pip install --no-index --find-links=.\packages malwoverview'
+    - name: '"C:\Program Files\Python311\python.exe" -m pip install --no-index --find-links=.\packages malwoverview'
     - shell: cmd
     - cwd: '{{ downloads }}\malwoverview\'
     - require:

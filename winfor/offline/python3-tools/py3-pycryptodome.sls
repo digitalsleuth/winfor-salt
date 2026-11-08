@@ -19,7 +19,7 @@ include:
 
 pycryptodome-install-offline:
   cmd.run:
-    - name: '"C:\Program Files\Python310\python.exe" -m pip install --no-index --find-links=.\packages pycryptodome=={{ version }}'
+    - name: '"C:\Program Files\Python311\python.exe" -m pip install --no-index --find-links=.\packages pycryptodome=={{ version }}'
     - cwd: '{{ downloads }}\pycryptodome\'
     - require:
       - sls: winfor.offline.packages.python3

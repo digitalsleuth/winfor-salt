@@ -38,10 +38,10 @@ rtfdump-header:
 
 rtfdump-wrapper:
   file.managed:
-    - name: 'C:\Program Files\Python310\Scripts\rtfdump.cmd'
+    - name: 'C:\Program Files\Python311\Scripts\rtfdump.cmd'
     - win_inheritance: True
     - contents:
       - '@echo off'
-      - '"C:\Program Files\Python310\python.exe" {{ inpath }}\rtfdump\rtfdump.py %*'
+      - '"C:\Program Files\Python311\python.exe" {{ inpath }}\rtfdump\rtfdump.py %*'
     - require:
       - file: rtfdump-header

@@ -20,7 +20,7 @@ include:
 
 msoffcrypto-tool-install-offline:
   cmd.run:
-    - name: '"C:\Program Files\Python310\python.exe" -m pip install --no-index --find-links=.\packages msoffcrypto-tool'
+    - name: '"C:\Program Files\Python311\python.exe" -m pip install --no-index --find-links=.\packages msoffcrypto-tool'
     - cwd: '{{ downloads }}\msoffcrypto-tool\'
     - require:
       - sls: winfor.offline.packages.python3

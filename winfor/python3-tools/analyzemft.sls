@@ -15,7 +15,7 @@ include:
 analyzemft-install:
   pip.installed:
     - name: analyzemft
-    - bin_env: 'C:\Program Files\Python310\python.exe'
+    - bin_env: 'C:\Program Files\Python311\python.exe'
     - upgrade: True
     - require:
       - sls: winfor.packages.python3

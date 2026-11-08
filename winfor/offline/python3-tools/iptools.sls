@@ -19,7 +19,7 @@ include:
 
 iptools-offline:
   file.managed:
-    - name: 'C:\Program Files\Python310\Scripts\iptools.py'
+    - name: 'C:\Program Files\Python311\Scripts\iptools.py'
     - source: {{ downloads }}\iptools\{{ pkg }}
     - skip_verify: True
     - makedirs: True
@@ -28,11 +28,11 @@ iptools-offline:
 
 iptools-wrapper-offline:
   file.managed:
-    - name: 'C:\Program Files\Python310\Scripts\iptools.cmd'
+    - name: 'C:\Program Files\Python311\Scripts\iptools.cmd'
     - win_inheritance: True
     - contents:
       - '@echo off'
-      - 'python3 "C:\Program Files\Python310\Scripts\iptools.py" %*'
+      - 'python3 "C:\Program Files\Python311\Scripts\iptools.py" %*'
     - require:
       - file: iptools-offline
 

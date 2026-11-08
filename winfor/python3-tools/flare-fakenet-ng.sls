@@ -18,7 +18,7 @@ include:
 flare-fakenet-ng:
   pip.installed:
     - name: 'git+https://github.com/mandiant/flare-fakenet-ng.git'
-    - bin_env: 'C:\Program Files\Python310\python.exe'
+    - bin_env: 'C:\Program Files\Python311\python.exe'
     - require:
       - sls: winfor.packages.git
       - sls: winfor.packages.python3

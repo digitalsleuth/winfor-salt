@@ -19,7 +19,7 @@ include:
 
 peepdf-3-install-offline:
   cmd.run:
-    - name: '"C:\Program Files\Python310\python.exe" -m pip install --no-index --find-links=.\packages peepdf-3[gui]'
+    - name: '"C:\Program Files\Python311\python.exe" -m pip install --no-index --find-links=.\packages peepdf-3[gui]'
     - cwd: '{{ downloads }}\peepdf-3\'
     - require:
       - sls: winfor.offline.packages.python3
