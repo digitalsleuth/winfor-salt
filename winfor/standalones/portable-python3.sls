@@ -53,6 +53,14 @@ get-pip-run:
     - cwd: '{{ inpath }}\portable-python3'
     - require:
       - file: get-pip-download
+
+portable-python3-cython-requirement:
+  pip.installed:
+    - name: cython
+    - bin_env: '{{ inpath }}\portable-python3\python.exe'
+    - require:
+      - cmd: get-pip-run
+
 {% else %}
 "Portable python3 already downloaded":
   test.nop

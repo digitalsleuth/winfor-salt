@@ -47,10 +47,11 @@ zircolite-copy-offline:
 
 zircolite-install-requirements-offline:
   cmd.run:
-    - name: '"C:\Program Files\Python311\python.exe" -m pip install --no-index --find-links=.\packages zircolite'
+    - name: '"C:\Program Files\Python311\python.exe" -m pip install --no-index --find-links=.\packages .'
     - cwd: '{{ inpath }}\zircolite'
     - require:
       - file: zircolite-copy-offline
+      - sls: winfor.offline.packages.python3
 
 zircolite-wrapper-offline:
   file.managed:

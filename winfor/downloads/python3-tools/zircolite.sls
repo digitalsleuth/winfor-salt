@@ -34,6 +34,7 @@ zircolite-defender-exclusion-download-only:
 
 include:
   - winfor.standalones.portable-python3
+  - winfor.downloads.packages.python3
 
 zircolite-download-only:
   file.managed:
@@ -59,6 +60,14 @@ zircolite-folder-rename-download-only:
     - require:
       - archive: zircolite-extract-download-only
 
+zircolite-python-requirements-download-only:
+  cmd.run:
+    - name: '{{ inpath }}\portable-python3\python.exe -m pip download setuptools wheel cython -d packages'
+    - cwd: '{{ downloads }}\zircolite'
+    - require:
+      - file: zircolite-folder-rename-download-only
+      - sls: winfor.standalones.portable-python3
+
 zircolite-requirements-download-only:
   cmd.run:
     - name: '{{ inpath }}\portable-python3\python.exe -m pip download . -d packages'
@@ -66,6 +75,8 @@ zircolite-requirements-download-only:
     - require:
       - file: zircolite-folder-rename-download-only
       - sls: winfor.standalones.portable-python3
+      - sls: winfor.downloads.packages.python3
+      - cmd: zircolite-python-requirements-download-only
 
 zircolite-rules-download-only:
   file.managed:
