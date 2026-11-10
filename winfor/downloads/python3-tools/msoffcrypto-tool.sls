@@ -4,11 +4,11 @@
 # Category: Documents / Editors
 # Author: Nolze
 # License: MIT License (https://github.com/nolze/msoffcrypto-tool/blob/master/LICENSE.txt)
-# Version: 6.0.0
+# Version: 6.1.0
 # Notes:
 
 # renovate: datasource=pypi depName=msoffcrypto-tool
-{% set version = '6.0.0' %}
+{% set version = '6.1.0' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 

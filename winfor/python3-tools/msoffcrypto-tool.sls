@@ -4,11 +4,11 @@
 # Category: Documents / Editors
 # Author: Nolze
 # License: MIT License (https://github.com/nolze/msoffcrypto-tool/blob/master/LICENSE.txt)
-# Version: 6.0.0
+# Version: 6.1.0
 # Notes: 
 
 # renovate: datasource=pypi depName=msoffcrypto-tool
-{% set version = '6.0.0' %}
+{% set version = '6.1.0' %}
 
 include:
   - winfor.packages.python3
