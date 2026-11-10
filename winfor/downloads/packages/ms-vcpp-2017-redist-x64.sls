@@ -4,10 +4,10 @@
 # Category: Requirements
 # Author: Microsoft
 # License: EULA
-# Version: 14.44.35208.0
+# Version: 14.51.36247.0
 # Notes:
 
-{% set version = '14.44.35208.0' %}
+{% set version = '14.51.36247.0' %}
 {% from 'winfor/_macros/hashes.jinja' import get_hash %}
 {% set subpath = get_hash('ms-vcpp-2017-redist-x64', 'subpath') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
@@ -15,7 +15,7 @@
 
 ms-vcpp-2017-redist-x64-download-only:
   file.managed:
-    - name: '{{ downloads }}\ms-vcpp\ms-vcpp-2017-redist-{{ version }}.exe'
+    - name: '{{ downloads }}\ms-vcpp\ms-vcpp-2017-redist-x64-{{ version }}.exe'
     - source: https://download.visualstudio.microsoft.com/download/pr/{{ subpath }}/VC_redist.x64.exe
     - source_hash: sha256={{ hash }}
     - makedirs: True

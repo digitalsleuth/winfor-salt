@@ -4,11 +4,11 @@
 # Category: Logs
 # Author: Yamato Security
 # License: GNU General Public License v3.0 (https://github.com/Yamato-Security/hayabusa/blob/main/LICENSE.txt)
-# Version: 4.2.0
+# Version: 4.3.1
 # Notes:
 
 # renovate: datasource=github-releases depName=Yamato-Security/hayabusa
-{% set version = '4.2.0' %}
+{% set version = '4.3.1' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}

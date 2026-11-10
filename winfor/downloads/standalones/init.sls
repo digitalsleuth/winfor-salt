@@ -1,4 +1,5 @@
 include:
+  - winfor.downloads.standalones.aleapp
   - winfor.downloads.standalones.apktool
   - winfor.downloads.standalones.arsenal-image-mounter
   - winfor.downloads.standalones.aurora
@@ -42,6 +43,7 @@ include:
   - winfor.downloads.standalones.hibernation-recon
   - winfor.downloads.standalones.hindsight
   - winfor.downloads.standalones.hollows-hunter
+  - winfor.downloads.standalones.ileapp
   - winfor.downloads.standalones.innoextract
   - winfor.downloads.standalones.innounp
   - winfor.downloads.standalones.iphone-analyzer
@@ -117,6 +119,7 @@ include:
   - winfor.downloads.standalones.usbdetective
   - winfor.downloads.standalones.usb-write-blocker
   - winfor.downloads.standalones.velociraptor
+  - winfor.downloads.standalones.vleapp
   - winfor.downloads.standalones.volatility-workbench
   - winfor.downloads.standalones.vssmount
   - winfor.downloads.standalones.windepends
@@ -137,6 +140,7 @@ include:
 winfor-downloads-standalones-states:
   test.nop:
     - require:
+      - sls: winfor.downloads.standalones.aleapp
       - sls: winfor.downloads.standalones.apktool
       - sls: winfor.downloads.standalones.arsenal-image-mounter
       - sls: winfor.downloads.standalones.aurora
@@ -180,6 +184,7 @@ winfor-downloads-standalones-states:
       - sls: winfor.downloads.standalones.hibernation-recon
       - sls: winfor.downloads.standalones.hindsight
       - sls: winfor.downloads.standalones.hollows-hunter
+      - sls: winfor.downloads.standalones.ileapp
       - sls: winfor.downloads.standalones.innoextract
       - sls: winfor.downloads.standalones.innounp
       - sls: winfor.downloads.standalones.iphone-analyzer
@@ -255,6 +260,7 @@ winfor-downloads-standalones-states:
       - sls: winfor.downloads.standalones.usbdetective
       - sls: winfor.downloads.standalones.usb-write-blocker
       - sls: winfor.downloads.standalones.velociraptor
+      - sls: winfor.downloads.standalones.vleapp
       - sls: winfor.downloads.standalones.volatility-workbench
       - sls: winfor.downloads.standalones.vssmount
       - sls: winfor.downloads.standalones.windepends

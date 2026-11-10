@@ -21,7 +21,7 @@ include:
 
 msoffcrypto-crack-file-offline:
   file.managed:
-    - name: 'C:\Program Files\Python310\Scripts\msoffcrypto-crack.py'
+    - name: 'C:\Program Files\Python311\Scripts\msoffcrypto-crack.py'
     - source: '{{ downloads }}\msoffcrypto-crack\msoffcrypto-crack-{{ version }}.py'
     - skip_verify: True
     - makedirs: True
@@ -32,11 +32,11 @@ msoffcrypto-crack-file-offline:
 
 msoffcrypto-crack-wrapper-offline:
   file.managed:
-    - name: 'C:\Program Files\Python310\Scripts\msoffcrypto-crack.cmd'
+    - name: 'C:\Program Files\Python311\Scripts\msoffcrypto-crack.cmd'
     - win_inheritance: True
     - contents:
       - '@echo off'
-      - 'python3 "C:\Program Files\Python310\Scripts\msoffcrypto-crack.py" %*'
+      - 'python3 "C:\Program Files\Python311\Scripts\msoffcrypto-crack.py" %*'
     - require:
       - file: msoffcrypto-crack-file-offline
 

@@ -4,15 +4,15 @@
 # Category: Logs
 # Author: Wagga (wagga40)
 # License: GNU Lesser Public License v3.0 (https://github.com/wagga40/Zircolite#license)
-# Version: 4.7.0
+# Version: 4.7.1
 # Notes: 
 
 # renovate: datasource=github-releases depName=wagga40/Zircolite
-{% set version = '4.7.0' %}
+{% set version = '4.7.1' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% from 'winfor/_macros/hashes.jinja' import get_hash %}
-{% set commit = get_hash('zircolite', 'commit') %}
+{% set hash = get_hash('zircolite') %}
 {% set defender_status = salt['cmd.powershell']('((Get-Service) -match "WinDefend").Name') %}
 
 {% if defender_status.lower() == "windefend" %}
@@ -34,33 +34,46 @@ zircolite-defender-exclusion:
 
 include:
   - winfor.packages.python3
-  - winfor.packages.git
 
 zircolite-source:
-  git.latest:
-    - name: https://github.com/wagga40/Zircolite
-    - target: '{{ inpath }}\zircolite'
-    - rev: {{ commit }}
-    - force_clone: True
-    - force_reset: True
-    - require:
-      - sls: winfor.packages.git
+  file.managed:
+    - name: 'C:\salt\tempdownload\zircolite-{{ version }}.zip'
+    - source: https://github.com/wagga40/Zircolite/archive/refs/tags/v{{ version }}.zip
+    - source_hash: sha256={{ hash }}
+    - makedirs: True
 
-zircolite-requirements:
-  pip.installed:
-    - requirements: '{{ inpath }}\zircolite\requirements.txt'
-    - bin_env: 'C:\Program Files\Python310\python.exe'
+zircolite-extract:
+  archive.extracted:
+    - name: '{{ inpath }}\'
+    - source: 'C:\salt\tempdownload\zircolite-{{ version }}.zip'
+    - enforce_toplevel: False
     - require:
-      - git: zircolite-source
+      - file: zircolite-source
+
+zircolite-folder-rename:
+  file.rename:
+    - name: '{{ inpath }}\zircolite'
+    - source: '{{ inpath }}\Zircolite-{{ version }}\'
+    - force: True
+    - makedirs: True
+    - require:
+      - archive: zircolite-extract
+
+zircolite-install:
+  pip.installed:
+    - name: '{{ inpath }}\zircolite\'
+    - bin_env: 'C:\Program Files\Python311\python.exe'
+    - require:
+      - file: zircolite-source
       - sls: winfor.packages.python3
 
 zircolite-wrapper:
   file.managed:
-    - name: 'C:\Program Files\Python310\Scripts\zircolite.cmd'
+    - name: 'C:\Program Files\Python311\Scripts\zircolite.cmd'
     - win_inheritance: True
     - contents:
       - '@echo off'
-      - '"C:\Program Files\Python310\python.exe" "{{ inpath }}\zircolite\zircolite.py" %*'
+      - '"C:\Program Files\Python311\python.exe" "{{ inpath }}\zircolite\zircolite.py" %*'
 
 zircolite-download-rules:
   file.managed:
@@ -69,4 +82,4 @@ zircolite-download-rules:
     - skip_verify: True
     - force: True
     - require:
-      - git: zircolite-source
+      - file: zircolite-source

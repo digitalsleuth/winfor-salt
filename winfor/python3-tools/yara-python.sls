@@ -17,7 +17,7 @@ include:
 yara-python:
   pip.installed:
     - name: 'yara-python=={{ version }}'
-    - bin_env: 'C:\Program Files\Python310\python.exe'
+    - bin_env: 'C:\Program Files\Python311\python.exe'
     - require:
       - sls: winfor.packages.ms-vcpp-2015-build-tools
       - sls: winfor.packages.python3

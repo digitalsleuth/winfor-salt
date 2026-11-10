@@ -20,7 +20,7 @@ include:
 
 pyinstxtractor-offline:
   file.managed:
-    - name: 'C:\Program Files\Python310\Scripts\pyinstxtractor.py'
+    - name: 'C:\Program Files\Python311\Scripts\pyinstxtractor.py'
     - source: '{{ downloads }}\pyinstxtractor\{{ pkg }}'
     - skip_verify: True
     - makedirs: True

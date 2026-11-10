@@ -4,22 +4,39 @@
 # Category: Acquisition and Analysis
 # Author: Exterro Inc / AccessData
 # License: EULA
-# Version: 4.7.1.2
+# Version: 8.3.0.27
 # Notes:
 
-{% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
+{% set version = '8.3.0.27' %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('ftk-imager') %}
 
-ftk-imager-zip:
-  archive.extracted:
-    - name: 'C:\Program Files\AccessData\'
-    - source: salt://winfor/files/FTK-Imager-4-7-1-2-portable.zip
-
-ftk-imager-icon-shortcut:
-  file.shortcut:
-    - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\FTK Imager.lnk'
-    - target: 'C:\Program Files\AccessData\FTK Imager\FTK Imager.exe'
-    - force: True
-    - working_dir: 'C:\Program Files\AccessData\FTK Imager\'
+ftk-imager-download:
+  file.managed:
+    - name: 'C:\salt\tempdownload\FTK-Imager-{{ version }}.zip'
+    - source: 'https://d1kpmuwb7gvu1i.cloudfront.net/{{ ".".join(version.split(".")[:2]) }}/Imager/FTK%20Imager%20{{ version }}.zip'
+    - source_hash: sha256={{ hash }}
     - makedirs: True
+
+ftk-imager-extract:
+  archive.extracted:
+    - name: 'C:\salt\tempdownload\'
+    - source: 'C:\salt\tempdownload\FTK-Imager-{{ version }}.zip'
+    - enforce_toplevel: False
     - require:
-      - archive: ftk-imager-zip
+      - file: ftk-imager-download
+
+ftk-imager-install:
+  cmd.run:
+    - name: '"Exterro_FTK_Imager_(x64).exe" /s /v/qn'
+    - cwd: 'C:\salt\tempdownload\'
+    - shell: cmd
+    - require:
+      - archive: ftk-imager-extract
+
+ftk-imager-icon-remove:
+  file.absent:
+    - name: 'C:\Users\Public\Desktop\Exterro FTK Imager.lnk'
+    - require:
+      - cmd: ftk-imager-install
+

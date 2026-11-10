@@ -4,13 +4,13 @@
 # Category: Acquisition and Analysis
 # Author: PassMark
 # License: Free (EULA, contained in software)
-# Version: 3.1.1003.0
+# Version: 3.3.1000.0
 # Notes: 
 
 {% from 'winfor/_macros/hashes.jinja' import get_hash %}
 {% set hash = get_hash('osfmount') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '3.1.1003.0' %}
+{% set version = '3.3.1000.0' %}
 
 osfmount-download-only:
   file.managed:

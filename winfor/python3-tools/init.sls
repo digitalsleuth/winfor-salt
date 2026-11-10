@@ -1,6 +1,5 @@
 include:
   - winfor.python3-tools.1768-script
-  - winfor.python3-tools.aleapp
   - winfor.python3-tools.amcache
   - winfor.python3-tools.analyzemft
   - winfor.python3-tools.bitsparser
@@ -8,7 +7,6 @@ include:
   - winfor.python3-tools.decompyle3
   - winfor.python3-tools.email-header-analyzer
   - winfor.python3-tools.flare-fakenet-ng
-  - winfor.python3-tools.ileapp
   - winfor.python3-tools.iptools
   - winfor.python3-tools.maldump
   - winfor.python3-tools.malwoverview
@@ -35,7 +33,6 @@ include:
   - winfor.python3-tools.time-decode
   - winfor.python3-tools.usbdeviceforensics
   - winfor.python3-tools.usn-journal-parser
-  - winfor.python3-tools.vleapp
   - winfor.python3-tools.volatility3
   - winfor.python3-tools.xlmmacrodeobfuscator
   - winfor.python3-tools.yara-python
@@ -45,7 +42,6 @@ winfor-python3-tools-states:
   test.nop:
     - require:
       - sls: winfor.python3-tools.1768-script
-      - sls: winfor.python3-tools.aleapp
       - sls: winfor.python3-tools.amcache
       - sls: winfor.python3-tools.analyzemft
       - sls: winfor.python3-tools.bitsparser
@@ -53,7 +49,6 @@ winfor-python3-tools-states:
       - sls: winfor.python3-tools.decompyle3
       - sls: winfor.python3-tools.email-header-analyzer
       - sls: winfor.python3-tools.flare-fakenet-ng
-      - sls: winfor.python3-tools.ileapp
       - sls: winfor.python3-tools.iptools
       - sls: winfor.python3-tools.maldump
       - sls: winfor.python3-tools.malwoverview
@@ -80,7 +75,6 @@ winfor-python3-tools-states:
       - sls: winfor.python3-tools.time-decode
       - sls: winfor.python3-tools.usbdeviceforensics
       - sls: winfor.python3-tools.usn-journal-parser
-      - sls: winfor.python3-tools.vleapp
       - sls: winfor.python3-tools.volatility3
       - sls: winfor.python3-tools.xlmmacrodeobfuscator
       - sls: winfor.python3-tools.yara-python

@@ -4,10 +4,10 @@
 # Category: Terminals
 # Author: https://cygwin.com/faq.html#faq.what.who
 # License: GNU General Public License (GPL) (https://cygwin.com/licensing.html)
-# Version: 3.6.6
+# Version: 3.6.12
 # Notes: Retcode below is set to '2' for success because the Cygwin installer (even though on Windows) attempts to search for /etc/setup/setup.rc or /etc/setup/installed.db and fails with retcode 2. This causes Saltstack to read an ERROR and result: False, even though the pkg state returns 'install success'.
 
-{% set version = '3.6.6' %}
+{% set version = '3.6.12' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% from 'winfor/_macros/hashes.jinja' import get_hash %}
 {% set hash = get_hash('cygwin') %}

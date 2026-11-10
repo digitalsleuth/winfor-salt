@@ -19,7 +19,7 @@ include:
 
 maldump-requirements-install-offline:
   cmd.run:
-    - name: '"C:\Program Files\Python310\python.exe" -m pip install --no-index --find-links=.\packages maldump'
+    - name: '"C:\Program Files\Python311\python.exe" -m pip install --no-index --find-links=.\packages maldump'
     - shell: cmd
     - cwd: '{{ downloads }}\maldump\'
     - require:

@@ -24,14 +24,14 @@ email-header-analyzer-copy-offline:
 
 email-header-analyzer-install-requirements-offline:
   cmd.run:
-    - name: '"C:\Program Files\Python310\python.exe" -m pip install --no-index --find-links=.\packages -r requirements.txt'
+    - name: '"C:\Program Files\Python311\python.exe" -m pip install --no-index --find-links=.\packages -r requirements.txt'
     - cwd: '{{ inpath }}\email-header-analyzer'
     - require:
       - file: email-header-analyzer-copy-offline
 
 email-header-analyzer-wrapper-offline:
   file.managed:
-    - name: 'C:\Program Files\Python310\Scripts\email-header-analyzer.cmd'
+    - name: 'C:\Program Files\Python311\Scripts\email-header-analyzer.cmd'
     - win_inheritance: True
     - contents:
       - '@echo off'
@@ -40,10 +40,10 @@ email-header-analyzer-wrapper-offline:
 email-header-analyzer-shortcut-offline:
   file.shortcut:
     - name: '{{ PROGRAMDATA }}\Microsoft\Windows\Start Menu\Programs\Email Header Analyzer - Web Based.lnk'
-    - target: 'C:\Program Files\Python310\Scripts\email-header-analyzer.cmd'
+    - target: 'C:\Program Files\Python311\Scripts\email-header-analyzer.cmd'
     - icon_location: 'C:\Windows\SystemResources\imageres.dll.mun, 15'
     - force: True
-    - working_dir: 'C:\Program Files\Python310\Scripts\'
+    - working_dir: 'C:\Program Files\Python311\Scripts\'
     - makedirs: True
     - require:
       - cmd: email-header-analyzer-install-requirements-offline

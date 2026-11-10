@@ -4,15 +4,15 @@
 # Category: Requirements
 # Author: Microsoft
 # License: EULA
-# Version: 14.44.35208.0
+# Version: 14.51.36247.0
 # Notes:
 
-{% set version = '14.44.35208.0' %}
+{% set version = '14.51.36247.0' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% from 'winfor/_macros/is_installed.jinja' import check_installed %}
 {% set current_installed = check_installed('Microsoft Visual C++ *' + ".".join(version.split(".")[:3])) | trim == 'true' %}
 {% set newer_installed = check_installed('Microsoft Visual C++ 2015-2022 *') | trim == 'true' %}
-{% set pkg = 'ms-vcpp-2017-redist-'~ version ~'.exe' %}
+{% set pkg = 'ms-vcpp-2017-redist-x64-'~ version ~'.exe' %}
 {% set exists = salt['file.file_exists'](downloads + '\\ms-vcpp\\' + pkg) %}
 
 {% if not current_installed and not newer_installed %}
@@ -20,7 +20,7 @@
 
 ms-vcpp-2017-redist-x64-offline:
   cmd.run:
-    - name: 'vcpp-2017-redist-x64-{{ version }}.exe /quiet /norestart'
+    - name: 'ms-vcpp-2017-redist-x64-{{ version }}.exe /quiet /norestart'
     - shell: cmd
     - cwd: '{{ downloads }}\ms-vcpp'
 

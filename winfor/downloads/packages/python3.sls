@@ -4,11 +4,11 @@
 # Category: Requirements
 # Author: Python Software Foundation
 # License: Python Software Foundation License Version 2.0 (https://docs.python.org/3.10/license.html)
-# Version: 3.10.11
+# Version: 3.11.9
 # Notes:
 
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set version = '3.10.11' %}
+{% set version = '3.11.9' %}
 {% from 'winfor/_macros/hashes.jinja' import get_hash %}
 {% set hash = get_hash('python3') %}
 

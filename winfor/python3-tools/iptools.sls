@@ -16,7 +16,7 @@ include:
 
 iptools-download:
   file.managed:
-    - name: 'C:\Program Files\Python310\Scripts\iptools.py'
+    - name: 'C:\Program Files\Python311\Scripts\iptools.py'
     - source: https://github.com/digitalsleuth/forensics_tools/raw/master/iptools.py
     - source_hash: sha256={{ hash }}
     - makedirs: True
@@ -25,10 +25,10 @@ iptools-download:
 
 iptools-wrapper:
   file.managed:
-    - name: 'C:\Program Files\Python310\Scripts\iptools.cmd'
+    - name: 'C:\Program Files\Python311\Scripts\iptools.cmd'
     - win_inheritance: True
     - contents:
       - '@echo off'
-      - 'python3 "C:\Program Files\Python310\Scripts\iptools.py" %*'
+      - 'python3 "C:\Program Files\Python311\Scripts\iptools.py" %*'
     - require:
       - file: iptools-download

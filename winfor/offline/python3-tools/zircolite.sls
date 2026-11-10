@@ -4,11 +4,11 @@
 # Category: Logs
 # Author: Wagga (wagga40)
 # License: GNU Lesser Public License v3.0 (https://github.com/wagga40/Zircolite#license)
-# Version: 4.7.0
+# Version: 4.7.1
 # Notes:
 
 # renovate: datasource=github-releases depName=wagga40/Zircolite
-{% set version = '4.7.0' %}
+{% set version = '4.7.1' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
@@ -47,18 +47,19 @@ zircolite-copy-offline:
 
 zircolite-install-requirements-offline:
   cmd.run:
-    - name: '"C:\Program Files\Python310\python.exe" -m pip install --no-index --find-links=.\packages -r requirements.txt'
+    - name: '"C:\Program Files\Python311\python.exe" -m pip install --no-index --find-links=.\packages .'
     - cwd: '{{ inpath }}\zircolite'
     - require:
       - file: zircolite-copy-offline
+      - sls: winfor.offline.packages.python3
 
 zircolite-wrapper-offline:
   file.managed:
-    - name: 'C:\Program Files\Python310\Scripts\zircolite.cmd'
+    - name: 'C:\Program Files\Python311\Scripts\zircolite.cmd'
     - win_inheritance: True
     - contents:
       - '@echo off'
-      - 'python3 "{{ inpath }}\zircolite\zircolite.py" %*'
+      - '"C:\Program Files\Python311\python.exe" "{{ inpath }}\zircolite\zircolite.py" %*'
 
 {% else %}
 {{ pkg }} does not exist - not installing:

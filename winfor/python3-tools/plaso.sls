@@ -4,11 +4,11 @@
 # Category: Acquisition and Analysis
 # Author: https://github.com/log2timeline/plaso/blob/main/AUTHORS
 # License: Apache License v2 (https://github.com/log2timeline/plaso/blob/main/LICENSE)
-# Version: 20260720
+# Version: 20261027
 # Notes: log2timeline.py, psort.py, psteal.py
 
 # renovate: datasource=pypi depName=plaso
-{% set version = '20260720' %}
+{% set version = '20261027' %}
 
 include:
   - winfor.packages.git
@@ -16,7 +16,7 @@ include:
 
 plaso:
   pip.installed:
-    - bin_env: 'C:\Program Files\Python310\python.exe'
+    - bin_env: 'C:\Program Files\Python311\python.exe'
     - require:
       - sls: winfor.packages.git
       - sls: winfor.packages.python3

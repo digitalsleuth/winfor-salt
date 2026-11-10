@@ -16,6 +16,6 @@ include:
 python-evtx:
   pip.installed:
     - name: 'git+https://github.com/williballenthin/python-evtx.git@{{ commit }}'
-    - bin_env: 'C:\Program Files\Python310\python.exe'
+    - bin_env: 'C:\Program Files\Python311\python.exe'
     - require:
       - sls: winfor.packages.python3

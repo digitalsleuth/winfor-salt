@@ -4,11 +4,11 @@
 # Category: Executables
 # Author: Zaderostam
 # License: 
-# Version: 1.13.1
+# Version: 1.16
 # Notes: 
 
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
-{% set version = '1.13.1' %}
+{% set version = '1.16' %}
 {% from 'winfor/_macros/hashes.jinja' import get_hash %}
 {% set hash = get_hash('ppee') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}

@@ -20,18 +20,18 @@ include:
 
 pyson4-install-offline:
   cmd.run:
-    - name: '"C:\Program Files\Python310\python.exe" -m pip install --no-index --find-links=.\packages .'
+    - name: '"C:\Program Files\Python311\python.exe" -m pip install --no-index --find-links=.\packages .'
     - cwd: '{{ downloads }}\pyson4\'
     - require:
       - sls: winfor.offline.packages.python3
 
 pyson4-wrapper-offline:
   file.managed:
-    - name: 'C:\Program Files\Python310\Scripts\pyson4.cmd'
+    - name: 'C:\Program Files\Python311\Scripts\pyson4.cmd'
     - win_inheritance: True
     - contents:
       - '@echo off'
-      - 'python3 "C:\Program Files\Python310\Scripts\pyson4.py" %*'
+      - 'python3 "C:\Program Files\Python311\Scripts\pyson4.py" %*'
     - require:
       - cmd: pyson4-install-offline
 

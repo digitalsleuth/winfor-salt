@@ -44,10 +44,10 @@ oledump-header:
 
 oledump-wrapper:
   file.managed:
-    - name: 'C:\Program Files\Python310\Scripts\oledump.cmd'
+    - name: 'C:\Program Files\Python311\Scripts\oledump.cmd'
     - win_inheritance: True
     - contents:
       - '@echo off'
-      - '"C:\Program Files\Python310\python.exe" {{ inpath }}\oledump\oledump.py %*'
+      - '"C:\Program Files\Python311\python.exe" {{ inpath }}\oledump\oledump.py %*'
     - require:
       - file: oledump-header

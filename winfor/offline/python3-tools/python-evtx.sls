@@ -19,7 +19,7 @@ include:
 
 python-evtx-install-offline:
   cmd.run:
-    - name: '"C:\Program Files\Python310\python.exe" -m pip install --no-index --find-links=.\packages .'
+    - name: '"C:\Program Files\Python311\python.exe" -m pip install --no-index --find-links=.\packages .'
     - cwd: '{{ downloads }}\python-evtx\'
     - require:
       - sls: winfor.offline.packages.python3

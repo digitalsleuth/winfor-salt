@@ -4,10 +4,10 @@
 # Category: Requirements
 # Author: Microsoft
 # License: EULA
-# Version: 14.44.35208.0
+# Version: 14.51.36247.0
 # Notes:
 
-{% set version = '14.44.35208.0' %}
+{% set version = '14.51.36247.0' %}
 {% from 'winfor/_macros/is_installed.jinja' import check_installed %}
 {% set current_installed = check_installed('Microsoft Visual C++ *' + ".".join(version.split(".")[:3])) | trim == 'true' %}
 {% set newer_installed = check_installed('Microsoft Visual C++ 2015-2022 *') | trim == 'true' %}

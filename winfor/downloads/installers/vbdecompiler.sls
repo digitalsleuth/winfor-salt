@@ -4,10 +4,10 @@
 # Category: Executables
 # Author: DotFix Software
 # License: https://www.vb-decompiler.org/license.htm
-# Version: 26.5
+# Version: 26.6
 # Notes: 
 
-{% set version = '26.5' %}
+{% set version = '26.6' %}
 {% from 'winfor/_macros/hashes.jinja' import get_hash %}
 {% set hash = get_hash('vbdecompiler') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}

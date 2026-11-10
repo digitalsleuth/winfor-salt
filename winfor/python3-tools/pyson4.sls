@@ -13,16 +13,16 @@ include:
 python3-pyson4:
   pip.installed:
     - name: git+https://github.com/digitalsleuth/pyson4
-    - bin_env: 'C:\Program Files\Python310\python.exe'
+    - bin_env: 'C:\Program Files\Python311\python.exe'
     - require:
       - sls: winfor.packages.python3
 
 python3-pyson4-wrapper:
   file.managed:
-    - name: 'C:\Program Files\Python310\Scripts\pyson4.cmd'
+    - name: 'C:\Program Files\Python311\Scripts\pyson4.cmd'
     - win_inheritance: True
     - contents:
       - '@echo off'
-      - 'python3 "C:\Program Files\Python310\Scripts\pyson4.py" %*'
+      - 'python3 "C:\Program Files\Python311\Scripts\pyson4.py" %*'
     - require:
       - pip: python3-pyson4

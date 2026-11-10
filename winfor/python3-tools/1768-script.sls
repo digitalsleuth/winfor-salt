@@ -17,18 +17,18 @@ include:
 
 1768-download:
   file.managed:
-    - name: 'C:\Program Files\Python310\Scripts\1768.py'
+    - name: 'C:\Program Files\Python311\Scripts\1768.py'
     - source: https://github.com/DidierStevens/DidierStevensSuite/raw/refs/heads/master/1768.py
     - source_hash: sha256={{ hash }}
     - makedirs: True
 
 1768-wrapper:
   file.managed:
-    - name: 'C:\Program Files\Python310\Scripts\1768.cmd'
+    - name: 'C:\Program Files\Python311\Scripts\1768.cmd'
     - win_inheritance: True
     - contents:
       - '@echo off'
-      - 'python3 "C:\Program Files\Python310\Scripts\1768.py" %*'
+      - 'python3 "C:\Program Files\Python311\Scripts\1768.py" %*'
     - require:
       - file: 1768-download
       - sls: winfor.packages.python3
@@ -38,7 +38,7 @@ include:
     - names:
       - pefile
       - peutils
-    - bin_env: 'C:\Program Files\Python310\python.exe'
+    - bin_env: 'C:\Program Files\Python311\python.exe'
     - require:
       - sls: winfor.packages.python3
       - file: 1768-download

@@ -1,4 +1,5 @@
 include:
+  - winfor.standalones.aleapp
   - winfor.standalones.apktool
   - winfor.standalones.arsenal-image-mounter
   - winfor.standalones.aurora
@@ -41,6 +42,7 @@ include:
   - winfor.standalones.hibernation-recon
   - winfor.standalones.hindsight
   - winfor.standalones.hollows-hunter
+  - winfor.standalones.ileapp
   - winfor.standalones.innoextract
   - winfor.standalones.innounp
   - winfor.standalones.iphone-analyzer
@@ -117,6 +119,7 @@ include:
   - winfor.standalones.usbdetective
   - winfor.standalones.usb-write-blocker
   - winfor.standalones.velociraptor
+  - winfor.standalones.vleapp
   - winfor.standalones.volatility-workbench
   - winfor.standalones.vssmount
   - winfor.standalones.windepends
@@ -137,6 +140,7 @@ include:
 winfor-standalones-states:
   test.nop:
     - require:
+      - sls: winfor.standalones.aleapp
       - sls: winfor.standalones.apktool
       - sls: winfor.standalones.arsenal-image-mounter
       - sls: winfor.standalones.aurora
@@ -179,6 +183,7 @@ winfor-standalones-states:
       - sls: winfor.standalones.hibernation-recon
       - sls: winfor.standalones.hindsight
       - sls: winfor.standalones.hollows-hunter
+      - sls: winfor.standalones.ileapp
       - sls: winfor.standalones.innoextract
       - sls: winfor.standalones.innounp
       - sls: winfor.standalones.iphone-analyzer
@@ -255,6 +260,7 @@ winfor-standalones-states:
       - sls: winfor.standalones.usbdetective
       - sls: winfor.standalones.usb-write-blocker
       - sls: winfor.standalones.velociraptor
+      - sls: winfor.standalones.vleapp
       - sls: winfor.standalones.volatility-workbench
       - sls: winfor.standalones.vssmount
       - sls: winfor.standalones.windepends

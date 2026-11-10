@@ -19,7 +19,7 @@ include:
 
 analyzemft-install-offline:
   cmd.run:
-    - name: '"C:\Program Files\Python310\python.exe" -m pip install --no-index --find-links=.\packages analyzemft'
+    - name: '"C:\Program Files\Python311\python.exe" -m pip install --no-index --find-links=.\packages analyzemft'
     - cwd: '{{ downloads }}\analyzemft\'
     - require:
       - sls: winfor.offline.packages.python3

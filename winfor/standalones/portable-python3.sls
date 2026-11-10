@@ -4,10 +4,10 @@
 # Category: Requirements
 # Author: Python Software Foundation
 # License: Python Software Foundation License Version 2.0 (https://docs.python.org/3.11/license.html)
-# Version: 3.10.11
+# Version: 3.11.9
 # Notes: Portable Python3 with pip via get-pip.py
 
-{% set version = '3.10.11' %}
+{% set version = '3.11.9' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% from 'winfor/_macros/hashes.jinja' import get_hash %}
@@ -53,6 +53,14 @@ get-pip-run:
     - cwd: '{{ inpath }}\portable-python3'
     - require:
       - file: get-pip-download
+
+portable-python3-cython-requirement:
+  pip.installed:
+    - name: cython
+    - bin_env: '{{ inpath }}\portable-python3\python.exe'
+    - require:
+      - cmd: get-pip-run
+
 {% else %}
 "Portable python3 already downloaded":
   test.nop
