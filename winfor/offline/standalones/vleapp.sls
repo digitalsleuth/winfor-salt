@@ -4,11 +4,11 @@
 # Category: Mobile Analysis
 # Author: Alexis Brignoni
 # License: MIT License (https://github.com/abrignoni/VLEAPP/blob/main/LICENSE)
-# Version: 2026.4.4
+# Version: 2026.4.5
 # Notes: 
 
 # renovate: datasource=github-releases depName=abrignoni/VLEAPP
-{% set version = '2026.4.4' %}
+{% set version = '2026.4.5' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
