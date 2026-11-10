@@ -11,6 +11,7 @@
 {% set version = '3.5' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set pkg = 'fakenet.exe' %}
 {% set exists = salt['file.file_exists'](downloads + '\\flare-fakenet-ng\\' + pkg) %}
 
