@@ -4,10 +4,10 @@
 # Category: Logs
 # Author: Yamato Security
 # License: GNU General Public License v3.0 (https://github.com/Yamato-Security/hayabusa/blob/main/LICENSE.txt)
-# Version: 4.3.1
+# Version: 4.4.0
 # Notes:
 
-{% set version = '4.3.1' %}
+{% set version = '4.4.0' %}
 {% from 'winfor/_macros/hashes.jinja' import get_hash %}
 {% set hash = get_hash('hayabusa') %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
