@@ -4,11 +4,11 @@
 # Category: Executables
 # Author: Hors (horsicq)
 # License: MIT License (https://github.com/horsicq/DIE-engine/blob/master/LICENSE)
-# Version: 3.21
+# Version: 4.0.0
 # Notes: Detect It Easy - DIE 
 
 # renovate: datasource=github-releases depName=horsicq/DIE-engine
-{% set version = '3.21' %}
+{% set version = '4.0.0' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
