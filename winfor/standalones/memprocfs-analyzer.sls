@@ -4,10 +4,10 @@
 # Category: Raw Parsers / Decoders
 # Author: Martin Willing / evild3ad
 # License: GNU General Public License v3.0 (https://github.com/LETHAL-FORENSICS/MemProcFS-Analyzer/blob/main/LICENSE)
-# Version: 1.2.1
+# Version: 1.3.0
 # Notes: 
 
-{% set version = '1.2.1' %}
+{% set version = '1.3.0' %}
 {% from 'winfor/_macros/hashes.jinja' import get_hash %}
 {% set hash = get_hash('memprocfs-analyzer', 'hash') %}
 {% set updater_hash = get_hash('memprocfs-analyzer', 'updater_hash') %}
