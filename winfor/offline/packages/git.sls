@@ -4,11 +4,11 @@
 # Category: Requirements
 # Author: Git (git-scm.com)
 # License: GNU Public License and Lesser GNU Public License (https://github.com/git-for-windows/git/blob/main/COPYING, https://github.com/git-for-windows/git/blob/main/LGPL-2.1)
-# Version: 2.49.0
+# Version: 2.56.1
 # Notes: 
 
 # renovate: datasource=github-releases depName=git-for-windows/git
-{% set version = '2.49.0' %}
+{% set version = '2.56.1' %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set pkg = 'git-'~ version ~'.exe' %}
 {% set exists = salt['file.file_exists'](downloads + '\\git\\' + pkg) %}
