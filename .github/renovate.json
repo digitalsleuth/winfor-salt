@@ -18,6 +18,11 @@
       "description": "Ignore openhashtab for now",
       "matchFileNames": ["winfor/**/openhashtab.sls", "winfor/**/volatility3.sls", "winfor/**/pev.sls", "winfor/**/yara.sls", "winfor/**/velociraptor.sls"],
       "enabled": false
+    },
+    {
+      "description": "git-for-windows tags look like v2.56.1.windows.1",
+      "matchDepNames": ["git-for-windows/git"],
+      "extractVersion": "^v(?<version>\\d+\\.\\d+\\.\\d+)\\.windows\\.\\d+$"
     }
   ],
   "customManagers": [

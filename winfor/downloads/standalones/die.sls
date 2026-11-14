@@ -35,6 +35,6 @@ die-defender-exclusion-download-only:
 die-download-only:
   file.managed:
     - name: '{{ downloads }}\die\die-{{ version }}.zip'
-    - source: https://github.com/horsicq/DIE-engine/releases/download/{{ version }}/die_win64_portable_{{ version }}_x64.zip
+    - source: https://github.com/horsicq/DIE-engine/releases/download/{{ version }}/die_win64_{{ version }}.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True

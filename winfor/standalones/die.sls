@@ -36,15 +36,15 @@ die-defender-exclusion:
 
 die-download:
   file.managed:
-    - name: 'C:\salt\tempdownload\die_win64_portable_{{ version }}_x64.zip'
-    - source: https://github.com/horsicq/DIE-engine/releases/download/{{ version }}/die_win64_portable_{{ version }}_x64.zip
+    - name: 'C:\salt\tempdownload\die_win64_{{ version }}.zip'
+    - source: https://github.com/horsicq/DIE-engine/releases/download/{{ version }}/die_win64_{{ version }}.zip
     - source_hash: sha256={{ hash }}
     - makedirs: True
 
 die-extract:
   archive.extracted:
     - name: '{{ inpath }}\'
-    - source: 'C:\salt\tempdownload\die_win64_portable_{{ version }}_x64.zip'
+    - source: 'C:\salt\tempdownload\die_win64_{{ version }}.zip'
     - enforce_toplevel: False
     - require:
       - file: die-download
