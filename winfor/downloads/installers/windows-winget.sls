@@ -7,8 +7,8 @@
 # Version: 1.29.380
 # Notes: 
 
-{% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 {% set version = '1.29.380' %}
+{% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 windows-winget-download-only:
   file.managed:

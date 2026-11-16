@@ -2689,9 +2689,9 @@
         "DAID": "",
         "AUMID": false,
         "DALP": false,
-        "StartMenu": false,
-        "Checked": false,
-        "Enabled": false,
+        "StartMenu": true,
+        "Checked": true,
+        "Enabled": true,
         "ExtraTiles": []
       },
       "Reference PDFs": {

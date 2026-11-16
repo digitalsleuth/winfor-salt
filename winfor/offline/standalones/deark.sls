@@ -21,8 +21,8 @@ include:
 
 deark-extract-offline:
   cmd.run:
-    - name: '"C:\Program Files\7-Zip\7z.exe" x {{ downloads }}\deark\{{ pkg }} -o"{{ inpath }}\" -y && "C:\Program Files\7-Zip\7z.exe" x {{ inpath }}\deark-{{ version }}.tar -o"{{ inpath }}\"'
-    - shell: cmd
+    - name: '& "C:\Program Files\7-Zip\7z.exe" x {{ downloads }}\deark\{{ pkg }} -o"{{ inpath }}" -y; if ($LASTEXITCODE -eq 0) { & "C:\Program Files\7-Zip\7z.exe" x "{{ inpath }}\deark-{{ version }}.tar" -o"{{ inpath }}" -y }'
+    - shell: powershell
     - require:
       - sls: winfor.offline.packages.7zip
 

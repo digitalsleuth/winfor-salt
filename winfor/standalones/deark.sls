@@ -27,8 +27,10 @@ deark-download:
 
 deark-extract:
   cmd.run:
-    - name: '"C:\Program Files\7-Zip\7z.exe" x C:\salt\tempdownload\deark-{{ version }}.tar.gz -o"{{ inpath }}\" -y && "C:\Program Files\7-Zip\7z.exe" x {{ inpath }}\deark-{{ version }}.tar -o"{{ inpath }}\"'
-    - shell: cmd
+    - name: '& "C:\Program Files\7-Zip\7z.exe" x C:\salt\tempdownload\deark-{{ version }}.tar.gz -o"{{ inpath }}" -y; if ($LASTEXITCODE -eq 0) { & "C:\Program Files\7-Zip\7z.exe" x "{{ inpath }}\deark-{{ version }}.tar" -o"{{ inpath }}" -y }'
+    - shell: powershell
+    - require:
+      - file: deark-download
 
 deark-delete-tar:
   file.absent:

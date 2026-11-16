@@ -3,9 +3,6 @@
 {% set version = '1.0.0' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
-include:
-  - winfor.downloads.packages.saltstack
-
 winfor-copy-current-states:
   file.copy:
     - name: '{{ downloads }}\offline\winfor'

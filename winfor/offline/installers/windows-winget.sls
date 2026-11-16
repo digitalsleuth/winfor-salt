@@ -26,7 +26,7 @@ windows-winget-install-offline:
     - cwd: '{{ downloads }}\windows-winget'
 
 {% else %}
-Windows Winget is already installed and at an equal or higher version - {{ winget_version }}:
+Windows Winget is already installed and at an equal or higher version offline - {{ winget_version }}:
   test.nop
 {% endif %}
 
