@@ -4,10 +4,10 @@
 # Category: Windows Analysis
 # Author: Eric Zimmerman
 # License: MIT License (https://github.com/EricZimmerman/Issues/blob/master/LICENSE)
-# Version: 2026.10.0
+# Version: 2026.10
 # Notes: 
 
-{% set version = '2026.10.0' %}
+{% set version = '2026.10' %}
 {% from 'winfor/_macros/hashes.jinja' import get_hash %}
 {% set hash = get_hash('zimmerman', 'hash') %}
 {% set hasher_hash = get_hash('zimmerman', 'hasher_hash') %}

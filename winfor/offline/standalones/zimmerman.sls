@@ -4,10 +4,10 @@
 # Category: Windows Analysis
 # Author: Eric Zimmerman
 # License: MIT License (https://github.com/EricZimmerman/Issues/blob/master/LICENSE)
-# Version: 2026.10.0
+# Version: 2026.10
 # Notes: 
 
-{% set version = '2026.10.0' %}
+{% set version = '2026.10' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
