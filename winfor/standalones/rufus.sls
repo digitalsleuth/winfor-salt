@@ -4,10 +4,10 @@
 # Category: Utilities
 # Author: Pete Batard
 # License: GNU General Public License v3 - https://github.com/pbatard/rufus/blob/master/LICENSE.txt
-# Version: 4.15
+# Version: 4.16
 # Notes:
 
-{% set version = '4.15' %}
+{% set version = '4.16' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% from 'winfor/_macros/hashes.jinja' import get_hash %}
 {% set hash = get_hash('rufus') %}
