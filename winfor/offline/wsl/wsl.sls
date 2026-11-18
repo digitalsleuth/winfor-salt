@@ -9,21 +9,17 @@
 
 {% set wsl_choice = salt['pillar.get']('wsl_choice', 'siftrem') %}
 {% set saltpath = salt['pillar.get']('saltpath', 'C:\Program Files\Salt Project\Salt\salt-call.exe') %}
-{% if wsl_choice == 'remnux' %}
-  {% set wsl_text = 'REMnux' %}
-{% elif wsl_choice == 'sift' %}
-  {% set wsl_text = 'SIFT' %}
-{% elif wsl_choice == 'kali' %}
-  {% set wsl_text = 'Kali' %}
-{% elif wsl_choice == 'siftrem' %}
-  {% set wsl_text = 'SIFT and REMnux' %}
-{% else %}
-  {% set wsl_text = 'SIFT, REMnux, and Kali' %}
-{% endif %} 
 {% set user = salt['pillar.get']('winfor_user', 'forensics') %}
 {% set home = "C:\\Users\\" + user %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
+{% set staged = [] %}
+{% for choice, name in {'sift': 'SIFT', 'remnux': 'REMnux', 'siftrem': 'SIFT and REMnux', 'kali': 'Kali'}.items() %}
+  {% if salt['file.directory_exists'](downloads ~ '\\wsl\\' ~ choice) %}
+    {% do staged.append(name) %}
+  {% endif %}
+{% endfor %}
+{% set wsl_text = staged | join(', ') if staged else 'WSL' %}
 {% set version = salt['cp.get_file_str']("C:\ProgramData\Salt Project\Salt\srv\salt\winfor\VERSION") %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set defender_status = salt['cmd.powershell']('((Get-Service) -match "WinDefend").Name') %}
@@ -32,10 +28,16 @@
 {% set wsl_installed = (wsl_status['retcode'] == 0) %}
 {% set vmp_enabled = 'VirtualMachinePlatform' in installed_features %}
 
-{% if wsl_installed and vmp_enabled %}
-include:
-  - winfor.offline.wsl.wsl-config
+{% set wsl_ready = wsl_installed and vmp_enabled %}
 
+include:
+{% if wsl_ready %}
+  - winfor.offline.wsl.wsl-config
+{% else %}
+  - winfor.config.user
+{% endif %}
+
+{% if wsl_ready %}
 wsl-default-version-wsl-installed-offline:
   cmd.run:
     - name: 'wsl --set-default-version 2'
@@ -47,9 +49,6 @@ Importing {{ wsl_text }}:
       - sls: winfor.offline.wsl.wsl-config
 
 {% else %}
-
-include:
-  - winfor.config.user
 
 {% if defender_status.lower() == "windefend" %}
 wsl-defender-exclusion:
@@ -114,17 +113,21 @@ wsl-set-uac-2-offline:
     - vtype: REG_DWORD
     - vdata: 0
 
+{% endif %}
+
 wsl-powershell-stager-offline:
   file.managed:
     - name: '{{ inpath }}\wsl\wsl-after-reboot.ps1'
     - source: salt://winfor/offline/wsl/wsl.ps1
     - win_inheritance: True
     - makedirs: True
+{% if not wsl_ready %}
     - require:
       - reg: powershell-execution-policy-offline
       - reg: powershell-execution-policy-path-offline
       - reg: wsl-set-uac-1-offline
       - reg: wsl-set-uac-2-offline
+{% endif %}
 
 wsl-config-stager-offline:
   file.managed:
@@ -133,10 +136,12 @@ wsl-config-stager-offline:
     - win_inheritance: True
     - makedirs: True
     - require:
+{% if not wsl_ready %}
       - reg: powershell-execution-policy-offline
       - reg: powershell-execution-policy-path-offline
       - reg: wsl-set-uac-1-offline
       - reg: wsl-set-uac-2-offline
+{% endif %}
       - file: wsl-powershell-stager-offline
 
 wsl-powershell-stager-customize-offline:
@@ -147,7 +152,9 @@ wsl-powershell-stager-customize-offline:
     - count: 1
     - require:
       - file: wsl-powershell-stager-offline
+{% if not wsl_ready %}
       - user: user-{{ user }}
+{% endif %}
 
 wsl-powershell-stager-customize-path-offline:
   file.replace:
@@ -158,7 +165,9 @@ wsl-powershell-stager-customize-path-offline:
     - require:
       - file: wsl-powershell-stager-offline
       - file: wsl-powershell-stager-customize-offline
+{% if not wsl_ready %}
       - user: user-{{ user }}
+{% endif %}
 
 wsl-powershell-stager-customize-pillar-offline:
   file.replace:
@@ -170,7 +179,9 @@ wsl-powershell-stager-customize-pillar-offline:
       - file: wsl-powershell-stager-offline
       - file: wsl-powershell-stager-customize-offline
       - file: wsl-powershell-stager-customize-path-offline
+{% if not wsl_ready %}
       - user: user-{{ user }}
+{% endif %}
 
 wsl-powershell-stager-customize-title-offline:
   file.replace:
@@ -183,7 +194,9 @@ wsl-powershell-stager-customize-title-offline:
       - file: wsl-powershell-stager-customize-offline
       - file: wsl-powershell-stager-customize-path-offline
       - file: wsl-powershell-stager-customize-pillar-offline
+{% if not wsl_ready %}
       - user: user-{{ user }}
+{% endif %}
 
 wsl-powershell-stager-customize-offline-pillar-offline:
   file.replace:
@@ -225,6 +238,7 @@ wsl-cmd-stager-offline:
       - file: wsl-powershell-stager-customize-offline-pillar-offline
       - file: wsl-powershell-stager-customize-salt-exe-offline
 
+{% if not wsl_ready %}
 wsl-config-run-on-reboot-offline:
   reg.present:
     - name: HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunOnce

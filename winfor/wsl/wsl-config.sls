@@ -5,7 +5,7 @@
 {% set START_PROGRAMS = START_MENU ~ '\\Programs' %}
 {% set APPDATA = salt['environ.get']('APPDATA') %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\\standalone') %}
-{% set castver = '1.0.23' %}
+{% set castver = '1.0.42' %}
 {% set user_pass = "forensics:forensics" %}
 {% set non_kali = wsl_choice in ('sift', 'siftrem', 'remnux', 'all') %}
 {% from 'winfor/_macros/wsl_functions.jinja' import wsl_install, wsl_apt_update, wsl_bootstrap_user, wsl_diskpart_compact %}

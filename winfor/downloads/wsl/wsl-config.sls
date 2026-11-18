@@ -5,7 +5,7 @@
 {% set START_PROGRAMS = START_MENU ~ '\\Programs' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\\standalone') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
-{% set castver = '1.0.23' %}
+{% set castver = '1.0.42' %}
 {% set user_pass = "forensics:forensics" %}
 {% set non_kali = wsl_choice in ('sift', 'siftrem', 'remnux', 'all') %}
 {% from 'winfor/_macros/wsl_functions.jinja' import wsl_install, wsl_apt_update, wsl_bootstrap_user, wsl_diskpart_compact %}
@@ -23,8 +23,8 @@
 {% set shortcut_name = folder|upper ~ '.lnk' %}
 
 {{ wsl_install(
-    'wsl-make-install-directory',
-    'wsl-install-distro',
+    'wsl-make-install-directory-download-only',
+    'wsl-install-distro-download-only',
     inpath ~ '\\wsl\\' ~ folder,
     'wsl --install Ubuntu-24.04 --name ' ~ distro ~ ' --location ' ~ inpath ~ '\\wsl\\' ~ folder ~ ' -n',
     inpath ~ '\\wsl\\' ~ folder ~ '\\ext4.vhdx'
@@ -140,6 +140,28 @@ wsl-non-kali-sync-download-only:
     - require:
       - cmd: wsl-diskpart-compact-download-only
 
+wsl-copy-{{ folder }}-download-only:
+  cmd.run:
+    - name: 'robocopy "{{ inpath }}\wsl\{{ folder }}" "{{ downloads }}\wsl\{{ folder }}" /E /R:1 /W:1 /XF diskpart-compact.txt'
+    - shell: cmd
+    - success_retcodes:
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+    - require:
+      - test: wsl-non-kali-sync-download-only
+
+wsl-unregister-{{ folder }}-download-only:
+  cmd.run:
+    - name: powershell -nop -ep Bypass -c "if ((Get-Item '{{ downloads }}\wsl\{{ folder }}\ext4.vhdx').Length -ne (Get-Item '{{ inpath }}\wsl\{{ folder }}\ext4.vhdx').Length) { Write-Error 'The copied disk does not match the installed disk - not unregistering'; exit 1 }; wsl --unregister {{ distro }}; exit $LASTEXITCODE"
+    - shell: cmd
+    - require:
+      - cmd: wsl-copy-{{ folder }}-download-only
+
 {% endif %}
 
 {% if wsl_choice in ('kali', 'all') %}
@@ -188,36 +210,26 @@ wsl-shutdown-kali-download-only:
     'wsl-shutdown-kali-download-only'
 ) }}
 
+wsl-copy-kali-download-only:
+  cmd.run:
+    - name: 'robocopy "{{ inpath }}\wsl\kali" "{{ downloads }}\wsl\kali" /E /R:1 /W:1 /XF diskpart-compact.txt'
+    - shell: cmd
+    - success_retcodes:
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+    - require:
+      - cmd: wsl-diskpart-compact-kali-download-only
+
+wsl-unregister-kali-download-only:
+  cmd.run:
+    - name: powershell -nop -ep Bypass -c "if ((Get-Item '{{ downloads }}\wsl\kali\ext4.vhdx').Length -ne (Get-Item '{{ inpath }}\wsl\kali\ext4.vhdx').Length) { Write-Error 'The copied disk does not match the installed disk - not unregistering'; exit 1 }; wsl --unregister kali-linux; exit $LASTEXITCODE"
+    - shell: cmd
+    - require:
+      - cmd: wsl-copy-kali-download-only
+
 {% endif %}
-
-wsl-move-kali-download-only:
-  file.rename:
-    - name: '{{ downloads }}\wsl\kali'
-    - source: '{{ inpath }}\wsl\kali\'
-    - onlyif:
-      - fun: file.directory_exists
-        path: '{{ inpath }}\wsl\kali'
-
-wsl-move-remnux-download-only:
-  file.rename:
-    - name: '{{ downloads }}\wsl\remnux'
-    - source: '{{ inpath }}\wsl\remnux\'
-    - onlyif:
-      - fun: file.directory_exists
-        path: '{{ inpath }}\wsl\remnux'
-
-wsl-move-sift-download-only:
-  file.rename:
-    - name: '{{ downloads }}\wsl\sift'
-    - source: '{{ inpath }}\wsl\sift\'
-    - onlyif:
-      - fun: file.directory_exists
-        path: '{{ inpath }}\wsl\sift'
-
-wsl-move-siftrem-download-only:
-  file.rename:
-    - name: '{{ downloads }}\wsl\siftrem'
-    - source: '{{ inpath }}\wsl\siftrem\'
-    - onlyif:
-      - fun: file.directory_exists
-        path: '{{ inpath }}\wsl\siftrem'

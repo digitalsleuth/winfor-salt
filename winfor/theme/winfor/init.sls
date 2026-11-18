@@ -72,6 +72,14 @@
   {% set mode = 'install' %}
 {% endif %}
 
+{% if mode == 'download' %}
+
+# The theme is never applied by a download - winfor.downloads.theme fetches what the theme needs
+theme-download-nothing-to-apply:
+  test.nop
+
+{% else %}
+
 include:
   {% if mode == 'offline' %}
   - winfor.offline.packages.portals
@@ -336,5 +344,7 @@ theme-suggest-reboot:
       - cmd: Load NTUSER.DAT for {{ user }}
       - reg: Add RunOnce key to {{ user }}
       - cmd: Unload NTUSER.DAT for {{ user }}
+
+{% endif %}
 
 {% endif %}
