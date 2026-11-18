@@ -4,10 +4,10 @@
 # Category: Windows Analysis
 # Author: Obsidian Forensics
 # License: Apache v2.0 (https://github.com/obsidianforensics/hindsight/blob/master/LICENSE.md)
-# Version: 2026.06
+# Version: 2026.11
 # Notes:
 
-{% set version = '2026.06' %}
+{% set version = '2026.11' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
