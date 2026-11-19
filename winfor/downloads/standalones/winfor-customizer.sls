@@ -4,10 +4,10 @@
 # Category: Utilities
 # Author: Corey Forman (digitalsleuth)
 # License: MIT (https://github.com/digitalsleuth/WIN-FOR/blob/main/LICENSE)
-# Version: 12.0.0
+# Version: 13.0.0
 # Notes: 
 
-{% set version = '12.0.0' %}
+{% set version = '13.0.0' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
 
 winfor-customizer-download-only:
