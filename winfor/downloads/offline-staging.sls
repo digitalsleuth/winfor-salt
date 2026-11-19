@@ -1,29 +1,29 @@
 # The purpose of this state is to simply stage state files and executables for offline install
 
-{% set version = '1.0.0' %}
+# renovate: datasource=github-releases depName=digitalsleuth/Win-FOR
+{% set version = '13.0.0' %}
 {% set downloads = salt['pillar.get']('downloads', 'C:\winfor-downloads') %}
+{% from 'winfor/_macros/hashes.jinja' import get_hash %}
+{% set hash = get_hash('offline-staging') %}
 
 winfor-copy-current-states:
-  file.copy:
-    - name: '{{ downloads }}\offline\winfor'
-    - source: 'C:\ProgramData\Salt Project\Salt\srv\salt\winfor'
-    - subdir: True
-    - makedirs: True
-    - replace: True
+  cmd.run:
+    - name: 'robocopy "C:\ProgramData\Salt Project\Salt\srv\salt\winfor" "{{ downloads }}\offline\winfor" /E /XJ /R:1 /W:1 /NFL /NDL /NJH /NP'
+    - shell: cmd
+    - success_retcodes: [1, 2, 3, 4, 5, 6, 7]
 
 winfor-copy-saltstack-directory:
-  file.copy:
-    - name: '{{ downloads }}\offline\Salt'
-    - source: 'C:\Program Files\Salt Project\Salt'
-    - subdir: True
-    - makedirs: True
-    - replace: True
+  cmd.run:
+    - name: 'robocopy "C:\Program Files\Salt Project\Salt" "{{ downloads }}\offline\Salt" /E /XJ /R:1 /W:1 /NFL /NDL /NJH /NP'
+    - shell: cmd
+    - success_retcodes: [1, 2, 3, 4, 5, 6, 7]
 
 winfor-download-offline-installer:
   file.managed:
-    - name: '{{ downloads }}\offline\win-for-offline-v{{ version }}.exe'
-    - source: https://github.com/digitalsleuth/win-for-offline/releases/download/v{{ version }}/win-for-offline-v{{ version }}.exe
-    - skip_verify: True
+    - name: '{{ downloads }}\offline\winfor-{{ version }}.exe'
+    - source: https://github.com/digitalsleuth/win-for/releases/download/v{{ version }}/winfor-v{{ version }}.exe
+    - source_hash: sha256={{ hash }}
+    - makedirs: True
     - require:
-      - file: winfor-copy-current-states
-      - file: winfor-copy-saltstack-directory
+      - cmd: winfor-copy-current-states
+      - cmd: winfor-copy-saltstack-directory

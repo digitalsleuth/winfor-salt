@@ -18,11 +18,11 @@
                 ('SSView', 'e9d05067745a4f114b22dc798c7fa99017302b39bc8798853ed1bfd4c44d27ab'),
                 ('HEXEdit', 'CFE264A121C560D69E2BB95512BE407F374164F2F79D0DDC4CEB7A8D0A09C788'),
                 ('MailView', 'C2590633A9B13CC9D46A41A2980347057C84D8788A4597B83FFCC057FFD5B774'),
-                ('EXE', '87b3bbf80301de96b871da5f1d4ce742c38182ee2fbc4414a28a2e7133011c78'),
+                ('EXE', '4372083346a17b750c982fdcfa74a15c076c50678f71fb41d918ec4e11a0bfca'),
                 ('XMLView', 'c64a87ee9d26096d3a2efc63d2c1b38fb5440a825fa5b1bdc0d50cbb2d6b7960'),
                 ('JSONView', '9c6d38bc040bae98e9847539220611e4dea915d27314463e602b880c3f845b21'),
                 ('SQLiteQ', '7F979A622DE9E97B9682DC09A5156A1BD872139A9DD56BA60616FB824E77AB16'),
-                ('SIX', '87d9cd3dd97cc6430f48d265b8e61f31f50f1a8b5abe16a81185352afec984a0'),
+                ('SIX', '0a27f379a26c085b68c99a712ecd28fadae4f48ba11d901b99884d8957cbbbea'),
                ] %}
 {% set old_url_files = ['IHB', 'EHB', 'WFA'] %}
 
