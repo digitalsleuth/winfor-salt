@@ -4,11 +4,11 @@
 # Category: Windows Analysis
 # Author: Corey Forman
 # License: MIT License (https://github.com/digitalsleuth/windexter/blob/main/LICENSE)
-# Version: 1.0.3
+# Version: 2.0.0
 # Notes:
 
 # renovate: datasource=github-releases depName=digitalsleuth/windexter
-{% set version = '1.0.3' %}
+{% set version = '2.0.0' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set downloads = salt['pillar.get']('offline', 'C:\winfor-downloads') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
