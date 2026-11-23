@@ -4,11 +4,11 @@
 # Category: Logs
 # Author: Wagga (wagga40)
 # License: GNU Lesser Public License v3.0 (https://github.com/wagga40/Zircolite#license)
-# Version: 4.7.1
+# Version: 4.8.0
 # Notes: 
 
 # renovate: datasource=github-releases depName=wagga40/Zircolite
-{% set version = '4.7.1' %}
+{% set version = '4.8.0' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% from 'winfor/_macros/hashes.jinja' import get_hash %}
