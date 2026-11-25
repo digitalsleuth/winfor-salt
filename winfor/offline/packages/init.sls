@@ -67,6 +67,7 @@ include:
   - winfor.offline.packages.ntcore-explorersuite
   - winfor.offline.packages.nuget
   - winfor.offline.packages.nuix-evidence-mover
+  - winfor.offline.packages.obsidian-md
   - winfor.offline.packages.openhashtab
   - winfor.offline.packages.osfmount
   - winfor.offline.packages.passware-encryption-analyzer
@@ -172,6 +173,7 @@ winfor-offline-packages-states:
       - sls: winfor.offline.packages.ntcore-explorersuite
       - sls: winfor.offline.packages.nuget
       - sls: winfor.offline.packages.nuix-evidence-mover
+      - sls: winfor.offline.packages.obsidian-md
       - sls: winfor.offline.packages.openhashtab
       - sls: winfor.offline.packages.osfmount
       - sls: winfor.offline.packages.passware-encryption-analyzer
