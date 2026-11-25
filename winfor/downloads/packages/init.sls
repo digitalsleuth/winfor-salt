@@ -66,6 +66,8 @@ include:
   - winfor.downloads.packages.ntcore-explorersuite
   - winfor.downloads.packages.nuget
   - winfor.downloads.packages.nuix-evidence-mover
+  - winfor.downloads.packages.obsidian-md
+  - winfor.downloads.packages.openhashtab
   - winfor.downloads.packages.osfmount
   - winfor.downloads.packages.passware-encryption-analyzer
   - winfor.downloads.packages.pdfstreamdumper
@@ -169,6 +171,8 @@ winfor-downloads-packages-states:
       - sls: winfor.downloads.packages.ntcore-explorersuite
       - sls: winfor.downloads.packages.nuget
       - sls: winfor.downloads.packages.nuix-evidence-mover
+      - sls: winfor.downloads.packages.obsidian-md
+      - sls: winfor.downloads.packages.openhashtab
       - sls: winfor.downloads.packages.osfmount
       - sls: winfor.downloads.packages.passware-encryption-analyzer
       - sls: winfor.downloads.packages.pdfstreamdumper

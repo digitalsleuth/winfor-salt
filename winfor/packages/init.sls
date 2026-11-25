@@ -67,6 +67,7 @@ include:
   - winfor.packages.ntcore-explorersuite
   - winfor.packages.nuget
   - winfor.packages.nuix-evidence-mover
+  - winfor.packages.obsidian-md
   - winfor.packages.openhashtab
   - winfor.packages.osfmount
   - winfor.packages.passware-encryption-analyzer
@@ -171,6 +172,7 @@ winfor-packages-states:
       - sls: winfor.packages.ntcore-explorersuite
       - sls: winfor.packages.nuget
       - sls: winfor.packages.nuix-evidence-mover
+      - sls: winfor.packages.obsidian-md
       - sls: winfor.packages.openhashtab
       - sls: winfor.packages.osfmount
       - sls: winfor.packages.passware-encryption-analyzer

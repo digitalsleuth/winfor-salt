@@ -2683,6 +2683,17 @@
         "Enabled": true,
         "ExtraTiles": []
       },
+      "Obsidian": {
+        "CbName": "packages_obsidian_md",
+        "CbContent": "Obsidian",
+        "DAID": "{6D809377-6AF0-444B-8957-A3773F02200E}\\Obsidian\\Obsidian.exe",
+        "AUMID": false,
+        "DALP": false,
+        "StartMenu": true,
+        "Checked": true,
+        "Enabled": true,
+        "ExtraTiles": []
+      },
       "OpenHashTab": {
         "CbName": "packages_openhashtab",
         "CbContent": "OpenHashTab",
