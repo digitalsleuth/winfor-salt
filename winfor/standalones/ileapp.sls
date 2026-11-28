@@ -4,11 +4,11 @@
 # Category: Mobile Analysis
 # Author: Alexis Brignoni
 # License: MIT License (https://github.com/abrignoni/iLEAPP/blob/main/LICENSE)
-# Version: 2026.4.7
+# Version: 2026.5.0
 # Notes: 
 
 # renovate: datasource=github-releases depName=abrignoni/iLEAPP
-{% set version = '2026.4.7' %}
+{% set version = '2026.5.0' %}
 {% set inpath = salt['pillar.get']('inpath', 'C:\standalone') %}
 {% set PROGRAMDATA = salt['environ.get']('PROGRAMDATA') %}
 {% from 'winfor/_macros/hashes.jinja' import get_hash %}
